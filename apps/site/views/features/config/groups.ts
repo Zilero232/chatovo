@@ -6,6 +6,7 @@ export type FeaturesItemKey = keyof Messages['features']['items'];
 
 export const FEATURES_GROUP_KEYS = [
   'voice',
+  'music',
   'chat',
   'friends',
   'rooms',
@@ -27,8 +28,17 @@ export const FEATURES_GROUP_ITEMS: Record<FeaturesGroupKey, readonly FeaturesIte
     'processing',
     'activity'
   ],
+  music: ['musicLinks', 'musicRadio', 'musicSync', 'musicDucking', 'musicShare'],
   chat: ['chatInRoom', 'markdown', 'attachments', 'editing', 'reactions'],
   friends: ['friendList', 'requests', 'presence', 'directCalls', 'notifications'],
   rooms: ['publicRooms', 'privateRooms', 'invites', 'recent', 'ownership'],
   apps: ['web', 'desktop', 'tray', 'android', 'safeArea']
+};
+
+export const FEATURES_GROUP_IMAGES: Partial<
+  Record<FeaturesGroupKey, { src: string; width: number; height: number }>
+> = {
+  voice: { src: 'room', width: 1400, height: 1135 },
+  music: { src: 'music', width: 1400, height: 969 },
+  chat: { src: 'room-chat', width: 1920, height: 1200 }
 };

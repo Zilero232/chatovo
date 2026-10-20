@@ -10,8 +10,10 @@ import {
   Crown,
   DoorOpen,
   Gamepad2,
+  Headphones,
   Keyboard,
   Link2,
+  ListMusic,
   MessageSquareText,
   Mic,
   MonitorDown,
@@ -32,12 +34,19 @@ import {
   TabletSmartphone,
   UserPlus,
   Users,
-  Video
+  Video,
+  Volume1,
+  Waves
 } from 'lucide-react';
 
 import type { FeaturesItemKey } from './groups';
 
 export const FEATURES_ITEM_ICONS: Record<FeaturesItemKey, LucideIcon> = {
+  musicLinks: ListMusic,
+  musicRadio: Radio,
+  musicSync: Waves,
+  musicDucking: Volume1,
+  musicShare: Headphones,
   background: PictureInPicture2,
   activity: Gamepad2,
   rooms: Sparkles,

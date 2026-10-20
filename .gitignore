@@ -64,3 +64,6 @@ docs/superpowers/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Agent worktrees (git worktree checkouts of this repo)
+.claude/worktrees/

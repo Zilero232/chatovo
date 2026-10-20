@@ -1,0 +1,11 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: rem(80);
+
+  @include bp(lg) {
+    gap: rem(128);
+  }
+}

@@ -6,9 +6,11 @@ import type { HomePageProps } from './HomePage.types';
 import {
   HomeDesktop,
   HomeFaq,
-  HomeFeatures,
   HomeFinalCta,
   HomeHero,
+  HomeShowcase,
+  HomeSpotlights,
+  HomeStats,
   HomeSteps
 } from './components';
 import { HomeLocaleRedirect } from './controllers';
@@ -18,7 +20,9 @@ export const HomePage = ({ locale }: HomePageProps) => (
     <HomeLocaleRedirect locale={locale} />
 
     <HomeHero locale={locale} />
-    <HomeFeatures locale={locale} />
+    <HomeShowcase locale={locale} />
+    <HomeSpotlights locale={locale} />
+    <HomeStats locale={locale} />
     <HomeSteps locale={locale} />
     <HomeDesktop locale={locale} />
     <HomeFaq locale={locale} />

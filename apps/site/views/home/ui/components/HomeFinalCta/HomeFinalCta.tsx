@@ -1,4 +1,4 @@
-import { Chato, RevealOnScroll, Text } from '@chatovo/ui-kit';
+import { Chato, RevealOnScroll } from '@chatovo/ui-kit';
 import { getTranslations } from 'next-intl/server';
 
 import { MarketingAppCta, MarketingSection } from '@/widgets/marketing/marketing-shell';
@@ -18,15 +18,11 @@ export const HomeFinalCta = async ({ locale }: HomePageProps) => {
         <div className={s.finalCtaCopy}>
           <h2 className={s.finalCtaHeading}>{t('heading')}</h2>
 
-          <Text size='base' tone='muted'>
-            {t('description')}
-          </Text>
+          <p className={s.finalCtaText}>{t('description')}</p>
 
           <div className={s.finalCtaActions}>
-            <MarketingAppCta label={t('action')} size='lg' />
-            <Text size='sm' tone='subtle'>
-              {t('note')}
-            </Text>
+            <MarketingAppCta className={s.finalCtaButton} label={t('action')} size='lg' />
+            <span className={s.finalCtaNote}>{t('note')}</span>
           </div>
         </div>
       </RevealOnScroll>

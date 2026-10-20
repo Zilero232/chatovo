@@ -20,8 +20,8 @@ export const FeaturesPage = async ({ locale }: FeaturesPageProps) => {
         title={t('title')}
       />
 
-      {FEATURES_GROUP_KEYS.map((groupKey) => (
-        <FeaturesGroup key={groupKey} groupKey={groupKey} locale={locale} />
+      {FEATURES_GROUP_KEYS.map((groupKey, index) => (
+        <FeaturesGroup key={groupKey} groupKey={groupKey} index={index} locale={locale} />
       ))}
 
       <FeaturesCta locale={locale} />

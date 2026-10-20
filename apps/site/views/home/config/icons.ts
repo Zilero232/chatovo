@@ -1,24 +1,20 @@
 import type { LucideIcon } from 'lucide-react';
 
 import {
-  AudioWaveform,
-  Gauge,
+  AudioLines,
   Keyboard,
-  Link2,
+  MessageSquareText,
   MonitorSmartphone,
-  Radio,
-  ScreenShare,
-  ShieldCheck
+  Music,
+  Radio
 } from 'lucide-react';
 
-import type { HomeDesktopKey, HomeFeatureKey } from './sections';
+import type { HomeDesktopKey, HomeShowcaseChip } from './sections';
 
-export const HOME_FEATURE_ICONS: Record<HomeFeatureKey, LucideIcon> = {
-  quality: AudioWaveform,
-  privacy: ShieldCheck,
-  screen: ScreenShare,
-  link: Link2,
-  free: Gauge
+export const HOME_SHOWCASE_ICONS: Record<HomeShowcaseChip['key'], LucideIcon> = {
+  music: Music,
+  speaking: AudioLines,
+  chat: MessageSquareText
 };
 
 export const HOME_DESKTOP_ICONS: Record<HomeDesktopKey, LucideIcon> = {

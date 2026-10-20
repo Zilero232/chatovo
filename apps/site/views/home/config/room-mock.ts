@@ -7,6 +7,4 @@ export const HOME_ROOM_MOCK = [
   { id: 'mira', name: 'mira', tone: 'mint', isSpeaking: false }
 ] as const;
 
-export const HOME_ROOM_MOCK_SPEAKER = HOME_ROOM_MOCK[0].name;
-
 export const HOME_INVITE_LINK = `${new URL(SITE.url).host}/room?id=evening`;

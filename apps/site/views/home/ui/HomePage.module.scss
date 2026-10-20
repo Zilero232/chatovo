@@ -119,84 +119,6 @@
   gap: var(--space-3);
 }
 
-.bento {
-  display: grid;
-  gap: var(--space-4);
-  grid-template-columns: 1fr;
-
-  @include bp(md) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  @include bp(lg) {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-  }
-}
-
-.bentoCard,
-.bentoWide,
-.bentoTall {
-  display: flex;
-  flex-direction: column;
-  padding: var(--space-6);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
-  background: var(--surface-1);
-  gap: var(--space-3);
-}
-
-.bentoCard {
-  @include bp(lg) {
-    grid-column: span 2;
-  }
-
-  &:nth-last-child(-n + 2) {
-    @include bp(lg) {
-      grid-column: span 3;
-    }
-  }
-}
-
-.bentoWide {
-  @include bp(md) {
-    grid-column: 1 / -1;
-  }
-
-  @include bp(lg) {
-    grid-column: span 4;
-  }
-}
-
-.bentoTall {
-  @include bp(md) {
-    grid-column: 1 / -1;
-  }
-
-  @include bp(lg) {
-    grid-column: span 2;
-  }
-}
-
-.bentoIcon {
-  display: flex;
-  width: rem(42);
-  height: rem(42);
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-md);
-  background: color-mix(in srgb, var(--brand-coral) 14%, transparent);
-  color: var(--brand-coral);
-
-  svg {
-    width: var(--icon-md);
-    height: var(--icon-md);
-  }
-}
-
-.bentoTitle {
-  font-size: rem(18);
-}
-
 .steps {
   display: grid;
   padding: 0;
@@ -232,80 +154,6 @@
 
 .stepTitle {
   font-size: rem(18);
-}
-
-.desktop {
-  display: grid;
-  padding: var(--space-6);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-2xl);
-  background: var(--surface-1);
-  gap: var(--space-8);
-  grid-template-columns: 1fr;
-
-  @include bp(lg) {
-    padding: var(--space-10);
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-  }
-}
-
-.desktopCopy {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-4);
-}
-
-.desktopHeading {
-  font-family: var(--font-display);
-  font-size: clamp(#{rem(28)}, 3vw, #{rem(38)});
-  line-height: 1.12;
-  text-wrap: balance;
-}
-
-.desktopActions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  margin-top: var(--space-2);
-  gap: var(--space-3) var(--space-4);
-}
-
-.desktopPerks {
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-  margin: 0;
-  gap: var(--space-5);
-  list-style: none;
-}
-
-.desktopPerk {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-4);
-}
-
-.desktopPerkTitle {
-  margin-bottom: var(--space-1);
-  font-size: rem(16);
-}
-
-.featureIcon {
-  display: flex;
-  width: rem(40);
-  height: rem(40);
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-md);
-  background: color-mix(in srgb, var(--brand-violet) 16%, transparent);
-  color: var(--brand-violet);
-
-  svg {
-    width: var(--icon-md);
-    height: var(--icon-md);
-  }
 }
 
 .faq {
@@ -371,40 +219,49 @@
 }
 
 .finalCta {
+  position: relative;
   display: flex;
-  flex-direction: column;
+  overflow: hidden;
+  flex-direction: column-reverse;
   align-items: center;
-  padding: var(--space-8) var(--space-6);
-  border: 1px solid var(--border);
+  padding: var(--space-10) var(--space-6) 0;
   border-radius: var(--radius-2xl);
-  background: var(--surface-1);
+  background: var(--brand-coral);
+  color: var(--primary-foreground);
   gap: var(--space-6);
   text-align: center;
 
   @include bp(md) {
-    flex-direction: row;
-    padding: var(--space-10) var(--space-12);
-    gap: var(--space-10);
+    flex-direction: row-reverse;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: var(--space-12) var(--space-12) 0;
     text-align: left;
   }
 }
 
 .finalCtaChato {
-  width: rem(160);
-  height: rem(160);
+  width: rem(180);
+  height: rem(180);
   flex-shrink: 0;
+  margin-bottom: rem(-12);
 
   @include bp(md) {
-    width: rem(200);
-    height: rem(200);
+    width: rem(260);
+    height: rem(260);
   }
 }
 
 .finalCtaCopy {
   display: flex;
+  max-width: rem(560);
   flex-direction: column;
   align-items: center;
   gap: var(--space-3);
+
+  @include bp(md) {
+    padding-bottom: var(--space-10);
+  }
 
   @include bp(md) {
     align-items: flex-start;
@@ -413,9 +270,34 @@
 
 .finalCtaHeading {
   font-family: var(--font-display);
-  font-size: clamp(#{rem(32)}, 4vw, #{rem(48)});
+  font-size: clamp(#{rem(36)}, 5vw, #{rem(60)});
   font-weight: 600;
-  line-height: 1.08;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+}
+
+.finalCtaText {
+  color: rgb(42 16 21 / 78%);
+  font-size: var(--text-lg);
+  line-height: 1.5;
+}
+
+.finalCtaNote {
+  color: rgb(42 16 21 / 68%);
+  font-size: var(--text-sm);
+}
+
+.finalCtaButton {
+  &#{&} {
+    background: var(--background);
+    color: var(--foreground);
+  }
+
+  @include hover {
+    &#{&} {
+      background: var(--surface-2);
+    }
+  }
 }
 
 .finalCtaActions {

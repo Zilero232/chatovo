@@ -4,5 +4,6 @@ import type { FeaturesGroupKey } from '../../../config';
 
 export type FeaturesGroupProps = {
   groupKey: FeaturesGroupKey;
+  index: number;
   locale: Locale;
 };

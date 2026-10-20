@@ -34,43 +34,55 @@
         "source": "Radio · added by max"
       }
     },
-    "features": {
-      "heading": "Everything a conversation needs",
-      "subheading": "And nothing you would have to set up.",
-      "items": {
-        "rooms": {
-          "title": "A room in one click",
-          "description": "Press one button and the room exists. No structure to plan — the conversation starts right away."
-        },
-        "music": {
-          "title": "Music for the whole room",
-          "description": "Paste a YouTube or SoundCloud link, play a radio station or your own music — everyone listens together, and it gets quieter whenever someone talks."
-        },
-        "quality": {
-          "title": "Clear voice and video",
-          "description": "Echo cancellation, noise suppression and automatic gain. You pick the video quality yourself, from 720p to 4K."
-        },
-        "privacy": {
-          "title": "Private rooms",
-          "description": "A password on entry: the room stays in the list, but only opens for people who know it."
-        },
-        "screen": {
-          "title": "Screen and chat together",
-          "description": "Screen sharing, text chat and files live in the same window — nothing to switch between."
-        },
-        "link": {
-          "title": "Join by link",
-          "description": "Your friend opens a link and lands in the room. No waiting on a server invite to arrive."
-        },
-        "free": {
-          "title": "Open source",
-          "description": "No tiers, no call duration cap. The source is open, so you can run it on your own server."
+    "showcase": {
+      "heading": "An evening in Chatovo",
+      "subheading": "Voice, music and chat in one window. Nothing to install — the room opens right in the browser.",
+      "alt": "A Chatovo voice room: four people, shared music and chat",
+      "address": "app.chatovo.ru",
+      "chips": {
+        "music": "Shared music plays in sync for everyone",
+        "chat": "Chat and files next to the voice",
+        "speaking": "You can see who is talking"
+      }
+    },
+    "spotlights": {
+      "music": {
+        "eyebrow": "Music",
+        "title": "Put on music for the whole room",
+        "description": "Paste a link and the track plays for everyone at once — nobody falls behind.",
+        "alt": "The Chatovo player: video, queue and radio",
+        "points": {
+          "sources": "YouTube, SoundCloud, Vimeo, direct links and internet radio",
+          "ducking": "The music steps down while someone talks",
+          "share": "Anything else through a shared browser tab"
         }
       },
-      "roomsMock": "{name} is speaking",
-      "musicMock": {
-        "title": "Lo-fi for the evening",
-        "subtitle": "Radio · put on by max"
+      "voice": {
+        "eyebrow": "Voice",
+        "title": "A call that just works",
+        "description": "Our own media server, not someone else’s cloud call: clean sound and low latency.",
+        "alt": "The participant grid of a Chatovo voice room",
+        "points": {
+          "audio": "Noise and echo suppression, auto gain",
+          "screen": "Screen and camera in one click, up to 4K",
+          "volume": "A separate volume for every person"
+        }
+      }
+    },
+    "stats": {
+      "items": {
+        "free": {
+          "value": "$0",
+          "label": "Free, no ads and no subscriptions"
+        },
+        "unlimited": {
+          "value": "∞",
+          "label": "No limit on call length"
+        },
+        "platforms": {
+          "value": "5",
+          "label": "Browser, Windows, macOS, Linux and Android"
+        }
       }
     },
     "steps": {
@@ -94,11 +106,10 @@
       }
     },
     "desktop": {
-      "eyebrow": "For desktop",
-      "heading": "The app, when a browser tab is not enough",
-      "description": "Everything works in the browser. The app adds what a tab cannot: control while Chatovo is minimised.",
+      "eyebrow": "Apps",
+      "heading": "On your computer and your phone",
+      "description": "Everything works in the browser. The apps add what a tab can’t: global shortcuts, push-to-talk and notifications while Chatovo is minimised.",
       "cta": "Download the app",
-      "platforms": "Windows · macOS · Linux",
       "items": {
         "shortcuts": {
           "title": "Global shortcuts",
@@ -112,7 +123,9 @@
           "title": "Three platforms",
           "description": "One codebase across Windows, macOS and Linux — plus an Android app."
         }
-      }
+      },
+      "desktopAlt": "Chatovo on a computer",
+      "mobileAlt": "Chatovo on a phone"
     },
     "faq": {
       "heading": "Frequently asked questions",
@@ -704,6 +717,10 @@
         "heading": "Voice and video",
         "subheading": "The core of the project: rooms on a self-hosted SFU, with no cap on call length."
       },
+      "music": {
+        "heading": "Music",
+        "subheading": "Listen together: the track plays for everyone at once and steps down when someone talks."
+      },
       "chat": {
         "heading": "Chat",
         "subheading": "Text next to voice, in the same window, with nothing to switch between."
@@ -849,6 +866,26 @@
       "safeArea": {
         "title": "Safe areas",
         "description": "On a phone the interface respects notches and the gesture bar, so nothing hides under system elements."
+      },
+      "musicLinks": {
+        "title": "Track links",
+        "description": "YouTube, SoundCloud, Vimeo and direct audio links join one shared queue."
+      },
+      "musicRadio": {
+        "title": "Internet radio",
+        "description": "Thousands of stations by genre and mood — lo-fi, jazz, rock, ambient."
+      },
+      "musicSync": {
+        "title": "In sync for everyone",
+        "description": "Pause, seek and skip happen for everyone in the room at once."
+      },
+      "musicDucking": {
+        "title": "Quieter while people talk",
+        "description": "The music makes room for voices and comes back a second after."
+      },
+      "musicShare": {
+        "title": "Your own music",
+        "description": "Any streaming service or files from your device, through a shared tab."
       }
     },
     "cta": {
