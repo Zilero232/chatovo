@@ -21,7 +21,7 @@ Only libraries **already declared** in a `package.json` count. A transitive depe
 | Toasts | `sonner` | `toast.success` / `toast.error` |
 | LiveKit room state, participants, tracks, chat | `@livekit/components-react` | `useChat`, `useParticipants`, `useTracks`, `useConnectionState`. Raw `Room` listeners only when no hook covers it |
 | Tauri (window, fs, deep-link, updater, global-shortcut, opener, os, process) | `@tauri-apps/api` + the plugin packages | Always behind `isTauri()` ([Tauri on the client](../client/tauri.md)) |
-| i18n | `next-intl` | `useTranslations`, `useFormatter`, `useLocale` — no string maps ([i18n](../client/i18n.md)) |
+| i18n | `use-intl` (web, ui-kit), `next-intl` (site) | `useTranslations`, `useFormatter`, `useLocale` — no string maps ([i18n](../client/i18n.md)) |
 | Markdown in chat messages | `react-markdown` + `remark-gfm` + `remark-breaks` | Custom renderers through the `components` prop |
 | Colour picker (profile banner) | `react-colorful` | |
 | Animated number transitions (lobby stats, counters) | `@number-flow/react` | |
@@ -30,7 +30,8 @@ Only libraries **already declared** in a `package.json` count. A transitive depe
 | A fresh callback inside `useEffect` without re-running it | `useEffectEvent` (React 19.2+) | Not the `cbRef.current = cb` pattern — see the gotchas below for the one exception |
 | Enter/exit animations, layout transitions, stagger | `motion` | `motion.div`, `AnimatePresence`, `useReducedMotion` ([styles](../client/styles.md#animation)) |
 | File selection | `useFileDialog` (reactuse) + `FilePicker` from `ui-kit` | A native `<input type="file">` can't be styled |
-| Images | `next/image` | Never a raw `<img>`. The custom loader sends optimizable sources to `GET /images`; give every image a `sizes` that matches its rendered size ([images](../../architecture/images.md)) |
+| Images | `Image` from `@chatovo/ui-kit` (web), `next/image` (site) | Never a raw `<img>`. In the web app the `ImageConfigProvider` loader sends optimizable sources to `GET /images`; give every image a `sizes` that matches its rendered size ([images](../../architecture/images.md)) |
+| Routing (web) | `@tanstack/react-router` | `useNavigate`, `Link`, `useLocation({ select })`, `useSearch` — typed against the route tree ([web-app](../../architecture/web-app.md)) |
 | Opening an external link from an `<a>` | `handleExternalLinkClick` in `shared/lib` | System browser on desktop, native behaviour on the web |
 | Links inside a chat message | `unified` + `remark-parse` + `remark-gfm` + `unist-util-visit` | The same parse the chat renders, so code spans are skipped |
 | Server: image resize / re-encode | `sharp` through `src/lib` (`openImage`, `resizeImage`, `optimizeAvatar`, `processChatImage`) | Never a bare `sharp()` on user input — `openImage` caps the pixel count |

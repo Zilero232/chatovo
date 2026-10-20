@@ -4,7 +4,7 @@
 bun run fix                          # ESLint --fix + Prettier + Stylelint --fix
 bun run verify                       # typecheck (schemas, config, ui-kit, server, web, site) + ESLint + Prettier + Stylelint
 bun run test                         # Vitest, every workspace — never bare `bun test`
-bun run build                        # web static export + site standalone build; catches what typecheck can't
+bun run build                        # web Vite build + site standalone build; catches what typecheck can't
 bun run lint:rust                    # clippy, when apps/tauri changed (needs cargo)
 bun run lint:caddy                   # caddy fmt + adapt, when infra/caddy changed (fix: format:caddy)
 ```

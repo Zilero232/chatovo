@@ -1,6 +1,6 @@
 # Chatovo Style Guide
 
-Code-style conventions for `apps/web/`, `apps/site/`, `apps/server/` and `packages/`. Architectural rules for the two Next.js apps live in [`docs/architecture/fsd.md`](../architecture/fsd.md); the design decisions behind the product are in [`docs/architecture/`](../README.md#architecture). The compressed editing versions of these guides are the digests in [`.claude/rules/`](../../.claude/rules/), loaded automatically by path. A rule change goes into both.
+Code-style conventions for `apps/web/`, `apps/site/`, `apps/server/` and `packages/`. Architectural rules for the two frontend apps (the Vite web app and the Next.js site) live in [`docs/architecture/fsd.md`](../architecture/fsd.md); the design decisions behind the product are in [`docs/architecture/`](../README.md#architecture). The compressed editing versions of these guides are the digests in [`.claude/rules/`](../../.claude/rules/), loaded automatically by path. A rule change goes into both.
 
 Tools:
 
@@ -33,7 +33,7 @@ The `§` numbers are the sections of the old single-file guide; reviews and comm
 - [Conditional render](client/conditional-render.md) — §16, §16.1
 - [Drill cleanup](client/drill-cleanup.md) — §17
 - [Base UI](client/base-ui.md) — the gotchas of the `ui-kit` primitives
-- [i18n](client/i18n.md) — next-intl, locales, the locale tests
+- [i18n](client/i18n.md) — use-intl in the web app, next-intl on the site, locales, the locale tests
 - [Tauri on the client](client/tauri.md) — `isTauri()` gating, desktop vs mobile
 
 ### Server (`apps/server`)

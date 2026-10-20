@@ -107,7 +107,7 @@ tabs:
 Every action goes through the moderation endpoints, so a block from the panel
 runs the full eviction — it is never a raw database write.
 
-The route guard is client-side (the web app is a static export, so there is no
+The route guard is client-side (the web app is a single-page app, so there is no
 middleware). It only hides the UI; the real check is `assertIsAdmin` on every
 endpoint.
 

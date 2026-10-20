@@ -1,6 +1,6 @@
 # Images and link previews
 
-The client is a static export, so Next's built-in optimizer (`/_next/image`) does not exist. Every image still goes through `next/image`, but a custom loader points it at the API, which resizes with `sharp`. Work is split between upload time (once per file) and delivery (once per size, then cached).
+The web app is a static SPA with no image optimizer of its own. Every image goes through the kit's `Image` (the `next/image` equivalent: `srcSet`, `sizes`, lazy loading, blur placeholder), and a loader points it at the API, which resizes with `sharp`. Work is split between upload time (once per file) and delivery (once per size, then cached).
 
 ## Upload time — normalise once
 
@@ -15,13 +15,13 @@ The client is a static export, so Next's built-in optimizer (`/_next/image`) doe
 The equivalent of `/_next/image`, in `modules/images`:
 
 - **Sources.** Our own uploads (`PUBLIC_FILES_URL/uploads/…`, read straight from disk with a path-traversal guard) and an allow-list of remote hosts (`IMAGE_REMOTE_HOSTS`, e.g. GitHub avatars), the analogue of Next's `remotePatterns`. Anything else is refused, so the endpoint can't be used as an open proxy.
-- **Sizes.** `w` must be one of `IMAGE_WIDTHS` and `q` one of `IMAGE_QUALITIES`, the same sets `next.config.ts` passes to `next/image`. A free width would let anyone fill the cache.
+- **Sizes.** `w` must be one of `IMAGE_WIDTHS` and `q` one of `IMAGE_QUALITIES`, the same sets `IMAGE_CONFIG` hands to the kit's `ImageConfigProvider`. A free width would let anyone fill the cache.
 - **Output.** Always WebP, never enlarged. AVIF is deliberately left out: it encodes about ten times slower, which is the wrong trade on a single VPS.
 - **Cache.** Results go to `IMAGE_CACHE_DIR` (a Docker volume), keyed by `sha256(url, w, q)`. Concurrent misses for the same key render once (`coalesceAsync`). Upload sources are `immutable` (attachment keys are UUIDs, avatar URLs carry `?v=`); remote ones live a day.
 
 **Cleanup** follows nginx `proxy_cache` (`inactive` + `max_size`). A cache hit refreshes the file's access time, at most once a day, while the modification time stays the creation time and still drives remote freshness. Every night `ImageCacheSweeperService` deletes what nobody asked for in 14 days, then the least recently used files until the cache fits in 2 GB, plus `.tmp` leftovers older than an hour. Everything evicted is simply re-rendered on the next request. The policy lives in `IMAGES.cache`; the helpers (`listFileStats`, `selectEvictions`, `removeFiles`) are in `src/lib`.
 
-On the client, `shared/lib/image-loader` is the `loaderFile`. It routes optimizable sources to `/images` and passes everything else (data and blob URLs, static assets) through untouched. Components never decide that themselves, with one exception: a chat attachment whose format is outside `IMAGE_PROCESSABLE_MIMES` (shared through `@chatovo/schemas`, e.g. SVG or HEIC) is rendered `unoptimized`. Every image is `next/image` with a `sizes` that matches its rendered size. `UserAvatar` takes `sizes` for anything larger than the default 40 px.
+On the client, `shared/lib/image-loader` exports the loader and `IMAGE_CONFIG`, which `AppProviders` passes to `ImageConfigProvider`. It routes optimizable sources to `/images` and passes everything else (data and blob URLs, static assets) through untouched. Components never decide that themselves, with one exception: a chat attachment whose format is outside `IMAGE_PROCESSABLE_MIMES` (shared through `@chatovo/schemas`, e.g. SVG or HEIC) is rendered `unoptimized`. Every image is the kit's `Image` with a `sizes` that matches its rendered size. `UserAvatar` takes `sizes` for anything larger than the default 40 px.
 
 The loader recognises our uploads by the origin of `NEXT_PUBLIC_API_URL`, and the server by the origin of `PUBLIC_FILES_URL`, so the two must point at the same host (`https://api.chatovo.ru` in production). If they differ, uploads simply bypass the optimizer. If `NEXT_PUBLIC_API_URL` is relative, the loader passes everything through, because the optimizer would be unreachable.
 

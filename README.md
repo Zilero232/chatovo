@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>Real-time voice rooms for web, desktop & Android.</strong><br/>
-  One Next.js app · Tauri native shells · LiveKit media · Self-hostable
+  One React app · Tauri native shells · LiveKit media · Self-hostable
 </p>
 
 <p align="center">
@@ -79,7 +79,7 @@ Docker Compose, Caddy, LiveKit SFU, PostgreSQL — run it on your own VPS.
 
 **Android** — Tauri 2 APK (manual install)
 
-**i18n** — English & Russian (`next-intl`)
+**i18n** — English & Russian (`use-intl` / `next-intl`)
 
 **Open API** — NestJS + OpenAPI / Swagger UI
 
@@ -92,7 +92,8 @@ Docker Compose, Caddy, LiveKit SFU, PostgreSQL — run it on your own VPS.
 ## Platforms
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Web-Next.js_16-000?style=flat-square&logo=next.js&logoColor=white" alt="Web" />
+  <img src="https://img.shields.io/badge/Web-Vite_8-646CFF?style=flat-square&logo=vite&logoColor=white" alt="Web" />
+  <img src="https://img.shields.io/badge/Site-Next.js_16-000?style=flat-square&logo=next.js&logoColor=white" alt="Site" />
   <img src="https://img.shields.io/badge/Desktop-Tauri_2-24c8db?style=flat-square&logo=tauri&logoColor=white" alt="Desktop" />
   <img src="https://img.shields.io/badge/Android-Tauri_2-3ddc84?style=flat-square&logo=android&logoColor=white" alt="Android" />
   <img src="https://img.shields.io/badge/Media-LiveKit-002cf2?style=flat-square&logo=livekit&logoColor=white" alt="LiveKit" />
@@ -106,7 +107,7 @@ Docker Compose, Caddy, LiveKit SFU, PostgreSQL — run it on your own VPS.
 ```mermaid
 flowchart LR
   subgraph clients["Clients"]
-    WEB["Web · Next.js"]
+    WEB["Web · Vite + React"]
     DESK["Desktop · Tauri"]
     AND["Android · Tauri"]
   end
@@ -125,7 +126,7 @@ flowchart LR
   API --> LK
 ```
 
-The product app (`apps/web`, app.chatovo.ru) and the public website (`apps/site`, chatovo.ru) are two Next.js apps sharing one design system, `@chatovo/ui-kit`. Both follow **[Feature-Sliced Design](docs/architecture/fsd.md)** — the `pages/` layer is named `views/` to avoid clashing with the Next.js router.
+The product app (`apps/web`, app.chatovo.ru) and the public website (`apps/site`, chatovo.ru) are two React apps — a Vite SPA and a server-rendered Next.js site — sharing one design system, `@chatovo/ui-kit`. Both follow **[Feature-Sliced Design](docs/architecture/fsd.md)** — the `pages/` layer is named `views/` to avoid clashing with the Next.js router.
 
 <br/>
 
@@ -146,7 +147,7 @@ The product app (`apps/web`, app.chatovo.ru) and the public website (`apps/site`
 ```
 chatovo/
 ├── apps/
-│   ├── web/          The app · Next.js static export · FSD (app / views / widgets / features / entities / shared)
+│   ├── web/          The app · Vite SPA + TanStack Router · FSD (app / views / widgets / features / entities / shared)
 │   ├── site/         The public website · server-rendered Next.js · ru/en
 │   ├── server/       NestJS API · Prisma · modules/
 │   └── tauri/        Rust shell · desktop + Android
@@ -184,8 +185,9 @@ bun install
 
 ### 3 · Environment
 
-One `.env` at the repo root serves the web app, the site and the server; each
-Next app loads its `NEXT_PUBLIC_*` out of it in `next.config.ts`.
+One `.env` at the repo root serves the web app, the site and the server; the
+site loads it in `next.config.ts`, the web app reads its `NEXT_PUBLIC_*` keys in
+`vite.config.ts`.
 
 ```bash
 cp .env.example .env

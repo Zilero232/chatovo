@@ -83,7 +83,7 @@ packages/ui-kit/
 - Component folder and file names are **PascalCase** (`Button/`, `Button.tsx`).
 - **`primitives/` vs `components/`**: a primitive imports no other ui-kit component (beyond its own parts); anything assembled from two or more primitives belongs in `components/`.
 - **A per-component `index.ts` is mandatory** — explicit named re-exports of the component and its types, no `export *`. Aggregating barrels (`primitives/index.ts`, the package's root `index.ts`) re-export the folders.
-- Styles are **`*.module.scss`**; shared utilities are imported as `@use '@chatovo/ui-kit/styles/mixins' as *` — inside the kit as well as from the apps (each app's `sassOptions.loadPaths` includes the repo `node_modules`), so no `../../../`.
+- Styles are **`*.module.scss`**; shared utilities are imported as `@use '@chatovo/ui-kit/styles/mixins' as *` — inside the kit as well as from the apps (each app's Sass load paths include the repo `node_modules`), so no `../../../`.
 - Headless + a11y come from **`@base-ui/react`** (Dialog → `Dialog`, Menu → `Menu`, Select → `Select`, …); import from the package subpath.
 - React types are **named imports** (`ComponentProps`, `ReactNode`, …), never `import type * as React`.
 - Inside the kit, imports between segments are relative (`../../primitives/Button`). From the apps, only `@chatovo/ui-kit` (plus `@chatovo/ui-kit/messages` and `@chatovo/ui-kit/styles/*`).
@@ -156,8 +156,6 @@ Conditional variants use `cva` from `class-variance-authority` on top of the mod
 **`VoiceRoom.tsx`:**
 
 ```tsx
-'use client';
-
 import s from './VoiceRoom.module.scss';
 import type { VoiceRoomProps } from './VoiceRoom.types';
 

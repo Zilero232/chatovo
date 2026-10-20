@@ -23,7 +23,7 @@ E2E — `bun run test:e2e`, four projects: `app-desktop` / `app-mobile` run `e2e
 
 ## Environment
 
-- **web** and **site** — jsdom, `@testing-library/react`, setup in [apps/web/vitest.setup.ts](../../../apps/web/vitest.setup.ts) and [apps/site/vitest.setup.ts](../../../apps/site/vitest.setup.ts) (both clean the DOM after each test; the web one also mocks `next/navigation`). Env is declared in each config — don't read `.env` from a test.
+- **web** and **site** — jsdom, `@testing-library/react`, setup in [apps/web/vitest.setup.ts](../../../apps/web/vitest.setup.ts) and [apps/site/vitest.setup.ts](../../../apps/site/vitest.setup.ts) (both clean the DOM after each test; the web one also mocks the TanStack Router hooks — `useNavigate`, `useRouter`, `useLocation`, `useSearch`). Env is declared in each config — don't read `.env` from a test.
 - **server** — node, with a dummy env in the config. Without it any import that pulls the Prisma chain fails Zod env validation. Adding a test for a module with a new required variable means adding that variable there too.
 - **schemas** — node, no env.
 

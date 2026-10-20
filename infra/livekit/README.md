@@ -123,4 +123,4 @@ Only env vars change. No code changes:
 ```
 
 Same change in `NEXT_PUBLIC_LIVEKIT_URL` on the client side (rebuild required —
-this value is baked into the bundle at `next build` time).
+this value is baked into the bundle at `vite build` time).

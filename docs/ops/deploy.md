@@ -16,7 +16,7 @@ across subdomains of a single domain, `chatovo.ru`:
 | `livekit.chatovo.ru` | LiveKit SFU (WSS signalling)        |
 
 The site and the app are **two separate apps**. The app (`apps/web`) is a
-static export baked into the `web` image, whose Caddy serves it on
+Vite single-page app baked into the `web` image, whose Caddy serves it on
 `app.chatovo.ru`. The site (`apps/site`) is a server-rendered Next.js app in its
 own `site` container; Caddy reverse-proxies `chatovo.ru` to `site:3000`.
 
@@ -53,8 +53,9 @@ builds nothing: it only pulls ready-made images and runs them.
    └───────────────────────────────────────────────────────┘
 ```
 
-- **Web app** — Next.js with `output: 'export'`. The `chatovo-web` image builds
-  the static export and serves it through the bundled Caddy, which terminates
+- **Web app** — Vite + React SPA. The `chatovo-web` image builds `apps/web/dist`
+  and serves it through the bundled Caddy (every unknown path falls back to
+  `index.html`), which terminates
   HTTPS for all four subdomains. This is the only container facing the internet.
 - **Site** — Next.js with `output: 'standalone'`. The `chatovo-site` image runs
   `node apps/site/server.js` on port 3000 inside the docker network; Caddy
@@ -136,7 +137,7 @@ Web and site variables (`NEXT_PUBLIC_*`):
 
 | File                           | Purpose                                             |
 | ------------------------------ | --------------------------------------------------- |
-| `apps/web/Dockerfile`          | Web image: static export + Caddy; built in CI       |
+| `apps/web/Dockerfile`          | Web image: Vite SPA build + Caddy; built in CI      |
 | `apps/site/Dockerfile`         | Site image: Next.js standalone on Node; built in CI |
 | `apps/server/Dockerfile`       | Server image (Bun + Prisma); built in CI            |
 | `infra/caddy/Caddyfile`        | Caddy config (copied into the web image)            |
@@ -376,7 +377,7 @@ will not connect. The browser never sees the key, only the signed token.
 
 ### The client URL
 
-`NEXT_PUBLIC_LIVEKIT_URL` is baked into the client bundle at `next build` time.
+`NEXT_PUBLIC_LIVEKIT_URL` is baked into the client bundle at `vite build` time.
 After switching LiveKit Cloud → self-hosted (or back), you need a **new CI run**
 for the change to reach the browser bundle and the Tauri build.
 
@@ -641,7 +642,7 @@ for how migrations are authored and why the baseline step exists.
 
 ## Building the Tauri app for production
 
-Tauri uses the same static export and the same production API as the web app.
+Tauri uses the same Vite build and the same production API as the web app.
 Both web and desktop talk to `https://api.chatovo.ru` — there is no longer any
 difference between the `NEXT_PUBLIC_API_URL` values of the two builds.
 

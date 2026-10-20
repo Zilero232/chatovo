@@ -18,7 +18,7 @@ The principle: JSX stays readable, and `s.root` / `s.header` tell you the struct
 
 - Theme tokens, spacing and sizes are CSS variables in `packages/ui-kit/styles/_tokens.scss` (`--space-*`, `--icon-*`, `--control-*`, colours, radii); the shared global CSS is `styles/_base.scss`. Each app's `app/globals.scss` `@use`s `@chatovo/ui-kit/styles/tokens`, `keyframes` and `base`, then adds only its own page-level rules.
 - Dark theme is hardcoded as `<html className="dark">` (incompatible with `next-themes` + Tauri).
-- Component styles are `*.module.scss`; shared mixins come from `@use '@chatovo/ui-kit/styles/mixins' as *` (likewise `breakpoints`, `functions`). Each app's `next.config.ts` puts the repo `node_modules` on `sassOptions.loadPaths` and lists the kit in `transpilePackages` — never a relative `../../` into the package.
+- Component styles are `*.module.scss`; shared mixins come from `@use '@chatovo/ui-kit/styles/mixins' as *` (likewise `breakpoints`, `functions`). The repo `node_modules` is on the Sass load paths in each app (`css.preprocessorOptions.scss.loadPaths` in the web app's `vite.config.ts`, `sassOptions.loadPaths` plus `transpilePackages` in the site's `next.config.ts`) — never a relative `../../` into the package.
 - `clsx` joins module classes with the `className` prop.
 
 ## Animation
