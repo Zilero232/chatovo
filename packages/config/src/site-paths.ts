@@ -10,5 +10,3 @@ export const SITE_PATHS = {
   privacy: '/privacy',
   terms: '/terms'
 } as const;
-
-export type SitePath = (typeof SITE_PATHS)[keyof typeof SITE_PATHS];

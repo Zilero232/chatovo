@@ -6,7 +6,7 @@ const isLocalDevHost = (hostname: string) =>
   hostname === 'localhost' || hostname === '127.0.0.1' || hostname.endsWith('.localhost');
 
 export const resolveMobileDevUrl = (url: string): string => {
-  if (typeof window === 'undefined' || !isTauriMobile()) {
+  if (!isTauriMobile()) {
     return url;
   }
 

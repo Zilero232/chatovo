@@ -4,7 +4,10 @@ import { SNAKE_GRID } from '../../../config';
 import { nextFood } from '../next-food';
 
 const cellsOf = (count: number) =>
-  Array.from({ length: count }, (_, i) => ({ x: i % SNAKE_GRID, y: Math.floor(i / SNAKE_GRID) }));
+  Array.from({ length: count }, (_, i) => ({
+    x: i % SNAKE_GRID,
+    y: Math.floor(i / SNAKE_GRID)
+  }));
 
 describe('nextFood', () => {
   it('places the food inside the grid', () => {

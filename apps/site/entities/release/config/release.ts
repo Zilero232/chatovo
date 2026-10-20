@@ -14,5 +14,4 @@ export const DOWNLOAD_PLATFORMS: DownloadPlatformConfig[] = [
   { id: 'linux', Icon: Terminal }
 ];
 
-/** How long a fetched release or contributor list is served before it is refetched, in seconds. */
 export const RELEASE_REVALIDATE_SECONDS = minutesToSeconds(30);

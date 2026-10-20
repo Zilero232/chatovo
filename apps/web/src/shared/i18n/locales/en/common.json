@@ -2,7 +2,6 @@
   "common": {
     "chooseFile": "Choose file",
     "close": "Close",
-    "commits": "{count, plural, one {# commit} other {# commits}}",
     "hidePassword": "Hide password",
     "loading": "Loading...",
     "remove": "Remove",

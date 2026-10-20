@@ -2,7 +2,7 @@ import { isTauri } from '@tauri-apps/api/core';
 import { type as osType } from '@tauri-apps/plugin-os';
 
 export const isTauriMobile = (): boolean => {
-  if (typeof window === 'undefined' || !isTauri()) {
+  if (!isTauri()) {
     return false;
   }
 
@@ -11,5 +11,4 @@ export const isTauriMobile = (): boolean => {
   return type === 'android' || type === 'ios';
 };
 
-export const isTauriDesktop = (): boolean =>
-  typeof window !== 'undefined' && isTauri() && !isTauriMobile();
+export const isTauriDesktop = (): boolean => isTauri() && !isTauriMobile();

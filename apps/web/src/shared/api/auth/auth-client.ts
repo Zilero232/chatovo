@@ -12,23 +12,13 @@ const resolveAuthBaseUrl = () => {
     return apiUrl;
   }
 
-  if (typeof window === 'undefined') {
-    return `http://localhost${apiUrl}`;
-  }
-
   return `${window.location.origin}${apiUrl}`;
 };
 
-export const getAuthToken = () => {
-  if (typeof window === 'undefined') {
-    return '';
-  }
-
-  return window.localStorage.getItem(STORAGE_KEYS.authToken) ?? '';
-};
+export const getAuthToken = () => window.localStorage.getItem(STORAGE_KEYS.authToken) ?? '';
 
 export const saveAuthToken = (token: string | null | undefined) => {
-  if (typeof window === 'undefined' || !token) {
+  if (!token) {
     return;
   }
 
@@ -36,10 +26,6 @@ export const saveAuthToken = (token: string | null | undefined) => {
 };
 
 export const clearToken = () => {
-  if (typeof window === 'undefined') {
-    return;
-  }
-
   window.localStorage.removeItem(STORAGE_KEYS.authToken);
 };
 

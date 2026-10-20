@@ -5,10 +5,6 @@ import { AudioPresets } from 'livekit-client';
 import { isTauriMobile } from '../tauri-platform';
 
 export const isScreenShareSupported = (): boolean => {
-  if (typeof window === 'undefined') {
-    return false;
-  }
-
   if (isTauriMobile()) {
     return false;
   }

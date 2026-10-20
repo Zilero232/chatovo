@@ -1,4 +1,4 @@
-import { Button, Chato, Text } from '@chatovo/ui-kit';
+import { Button, Text } from '@chatovo/ui-kit';
 import { getTranslations } from 'next-intl/server';
 
 import { APP_ROUTES, ROUTES } from '@/shared/constants';
@@ -15,9 +15,7 @@ export const NotFoundPage = async ({ locale }: NotFoundPageProps) => {
   return (
     <MarketingShell locale={locale} path={ROUTES.home}>
       <section className={s.root}>
-        <MarketingScene>
-          <Chato className={s.chato} pose='peek' />
-        </MarketingScene>
+        <MarketingScene pose='peek' />
 
         <p className={s.code}>404</p>
         <h1 className={s.title}>{t('title')}</h1>

@@ -1,5 +1,5 @@
 import { SHORTCUT_ACTIONS } from '@/entities/app/shortcut';
-import { useIsTauriDesktop } from '@/shared/hooks';
+import { isTauriDesktop } from '@/shared/lib';
 
 import { ShortcutActionRow } from '../components/ShortcutActionRow/ShortcutActionRow';
 import { WebNotice } from '../components/WebNotice';
@@ -7,7 +7,7 @@ import { WebNotice } from '../components/WebNotice';
 import s from '../AppSettingsButton.module.scss';
 
 export const ShortcutsTab = () => {
-  const isDesktop = useIsTauriDesktop();
+  const isDesktop = isTauriDesktop();
 
   if (!isDesktop) {
     return (

@@ -16,7 +16,7 @@ const PLATFORM = feedbackPlatformSchema.enum;
 const collectContext = () => ({
   appVersion: env.NEXT_PUBLIC_APP_VERSION,
   platform: isTauri() ? PLATFORM.tauri : PLATFORM.web,
-  userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : undefined
+  userAgent: navigator.userAgent
 });
 
 export const useReportProblem = () =>

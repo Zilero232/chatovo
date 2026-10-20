@@ -5,7 +5,7 @@ import { authClient, unwrapAuth } from '@/shared/api';
 export const useSendVerificationEmail = () =>
   useMutation({
     mutationFn: (email: string) => {
-      const callbackURL = typeof window === 'undefined' ? '/' : `${window.location.origin}/`;
+      const callbackURL = `${window.location.origin}/`;
 
       return unwrapAuth(
         authClient.sendVerificationEmail({

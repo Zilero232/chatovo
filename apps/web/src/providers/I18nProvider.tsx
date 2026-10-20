@@ -1,29 +1,24 @@
 import type { ReactNode } from 'react';
 
-import { AppSplash } from '@chatovo/ui-kit';
 import { useEffect } from 'react';
 import { IntlProvider } from 'use-intl';
 
 import { DocumentTitleSync, useLocale } from '@/entities/app/locale';
-import { DEFAULT_LOCALE, messages } from '@/shared/i18n';
+import { messages } from '@/shared/i18n';
 
-const timeZone =
-  typeof Intl !== 'undefined' ? new Intl.DateTimeFormat().resolvedOptions().timeZone : 'UTC';
+const { timeZone } = new Intl.DateTimeFormat().resolvedOptions();
 
 export const I18nProvider = ({ children }: { children: ReactNode }) => {
-  const { locale, isReady } = useLocale();
-  const activeLocale = isReady ? locale : DEFAULT_LOCALE;
+  const { locale } = useLocale();
 
   useEffect(() => {
-    if (isReady) {
-      document.documentElement.lang = locale;
-    }
-  }, [locale, isReady]);
+    document.documentElement.lang = locale;
+  }, [locale]);
 
   return (
-    <IntlProvider locale={activeLocale} messages={messages[activeLocale]} timeZone={timeZone}>
+    <IntlProvider locale={locale} messages={messages[locale]} timeZone={timeZone}>
       <DocumentTitleSync />
-      {!isReady ? <AppSplash /> : children}
+      {children}
     </IntlProvider>
   );
 };

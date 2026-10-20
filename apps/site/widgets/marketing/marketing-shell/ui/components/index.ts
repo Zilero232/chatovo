@@ -2,6 +2,7 @@ export { MarketingAppCta } from './MarketingAppCta/MarketingAppCta';
 export { MarketingContributors } from './MarketingContributors/MarketingContributors';
 export { MarketingCtaPanel } from './MarketingCtaPanel/MarketingCtaPanel';
 export { MarketingDevices } from './MarketingDevices/MarketingDevices';
+export { MarketingEyebrow } from './MarketingEyebrow/MarketingEyebrow';
 export { MarketingFooter } from './MarketingFooter/MarketingFooter';
 export { MarketingHeader } from './MarketingHeader/MarketingHeader';
 export { MarketingHeaderMobileNav } from './MarketingHeaderMobileNav/MarketingHeaderMobileNav';

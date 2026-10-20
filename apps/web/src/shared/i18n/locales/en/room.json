@@ -1,6 +1,5 @@
 {
   "lobby": {
-    "welcome": "Welcome back, {name}",
     "subtitle": "Jump into a voice room or start your own",
     "appVersion": "App version",
     "stats": {
@@ -8,7 +7,6 @@
       "live": "Live now",
       "online": "Online"
     },
-    "roomsHeading": "Rooms",
     "searchPlaceholder": "Search rooms...",
     "filters": {
       "all": "All",
@@ -21,8 +19,6 @@
     },
     "nothingFound": "No rooms match \"{query}\"",
     "nothingFoundHint": "Try a shorter query, or create a room with that name yourself.",
-    "nothingFoundTitle": "Nothing found",
-    "clearSearch": "Clear search",
     "roomsError": {
       "title": "Could not load rooms",
       "description": "Check your connection and try again.",
@@ -36,14 +32,9 @@
       "live": "Live",
       "empty": "Empty",
       "people": "{count, plural, one {# person} other {# people}}",
-      "yours": "Yours",
       "ownerTooltip": "Room owner",
       "micMuted": "Microphone muted",
       "deafened": "Sound off"
-    },
-    "recent": {
-      "heading": "Continue",
-      "privateRoom": "Private room"
     }
   },
   "room": {
@@ -224,7 +215,6 @@
     "collapseVideo": "Collapse video",
     "invisibleBadge": "Invisible",
     "invisibleNotice": "You joined hidden: nobody sees or hears you",
-    "invisibleSwitching": "Reconnecting — invisible mode changed",
     "badges": {
       "screen": "Screen",
       "music": "Music"
@@ -240,7 +230,6 @@
     "attach": "Attach file",
     "dropToSend": "Drop to send",
     "uploading": "Uploading…",
-    "uploadFailed": "Failed to upload file",
     "fileTooLarge": "File is too large (max 25 MB)",
     "sending": "Sending…",
     "sendFailed": "Not sent",
@@ -279,9 +268,7 @@
     "friends": {
       "heading": "Friends",
       "online": "Online — {count}",
-      "offline": "Offline — {count}",
-      "statusOnline": "Online",
-      "statusOffline": "Offline"
+      "offline": "Offline — {count}"
     },
     "activity": {
       "heading": "Friend activity",

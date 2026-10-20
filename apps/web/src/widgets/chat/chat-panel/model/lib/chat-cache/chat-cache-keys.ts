@@ -11,9 +11,6 @@ export const readChatHistory = (
   roomId: string
 ): ChatHistoryPage | undefined => queryClient.getQueryData<ChatHistoryPage>(chatKey(roomId));
 
-export const readChatLines = (queryClient: QueryClient, roomId: string): ChatLine[] | undefined =>
-  readChatHistory(queryClient, roomId)?.lines;
-
 export const patchChatLines = (
   queryClient: QueryClient,
   roomId: string,

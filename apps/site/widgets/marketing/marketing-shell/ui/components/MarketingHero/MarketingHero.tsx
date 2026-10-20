@@ -1,8 +1,9 @@
-import { Chato, RevealOnScroll, Text } from '@chatovo/ui-kit';
+import { RevealOnScroll, Text } from '@chatovo/ui-kit';
 import { clsx } from 'clsx';
 
 import type { MarketingHeroProps } from './MarketingHero.types';
 
+import { MarketingEyebrow } from '../MarketingEyebrow/MarketingEyebrow';
 import { MarketingScene } from '../MarketingScene/MarketingScene';
 
 import s from '../../MarketingShell.module.scss';
@@ -17,16 +18,9 @@ export const MarketingHero = ({
 }: MarketingHeroProps) => (
   <section className={clsx(s.container, s.hero, (chato || visual) && s.heroWithChato)}>
     <div className={s.heroCopy}>
-      {eyebrow && (
-        <Text as='span' className={s.eyebrow} size='xs' weight='medium'>
-          <span aria-hidden className={s.eyebrowDot} />
-          {eyebrow}
-        </Text>
-      )}
+      {eyebrow && <MarketingEyebrow>{eyebrow}</MarketingEyebrow>}
 
-      <Text as='h1' className={s.heroTitle} weight='bold'>
-        {title}
-      </Text>
+      <h1 className={s.heroTitle}>{title}</h1>
 
       <Text className={s.heroDescription} size='lg' tone='muted'>
         {description}
@@ -41,10 +35,6 @@ export const MarketingHero = ({
 
     {visual && <div className={s.heroVisual}>{visual}</div>}
 
-    {chato && !visual && (
-      <MarketingScene className={s.heroScene}>
-        <Chato className={s.heroChato} pose={chato} />
-      </MarketingScene>
-    )}
+    {chato && !visual && <MarketingScene className={s.heroScene} pose={chato} />}
   </section>
 );

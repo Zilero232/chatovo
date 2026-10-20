@@ -8,8 +8,7 @@ import { MarketingSectionHead } from '../MarketingSectionHead/MarketingSectionHe
 
 import s from '../../MarketingShell.module.scss';
 
-const GRID_COLUMN_CLASS = {
-  2: s.iconGridTwo,
+const GRID_COLUMN_CLASS: Partial<Record<2 | 3 | 4, string>> = {
   3: s.iconGridThree,
   4: s.iconGridFour
 };
@@ -21,11 +20,10 @@ export const MarketingIconGrid = ({
   delayStep = 0.05,
   description,
   heading,
-  id,
-  className
+  id
 }: MarketingIconGridProps) => {
   const grid = (
-    <div className={clsx(s.iconGrid, GRID_COLUMN_CLASS[columns], className)}>
+    <div className={clsx(s.iconGrid, GRID_COLUMN_CLASS[columns])}>
       {items.map(({ description: itemDescription, Icon, key, title }, index) => (
         <RevealOnScroll
           key={key}
@@ -37,9 +35,7 @@ export const MarketingIconGrid = ({
             <Icon />
           </span>
 
-          <Text as='h3' className={s.iconGridTitle} weight='semibold'>
-            {title}
-          </Text>
+          <h3 className={s.iconGridTitle}>{title}</h3>
 
           <Text className={s.iconGridText} size='sm' tone='muted'>
             {itemDescription}

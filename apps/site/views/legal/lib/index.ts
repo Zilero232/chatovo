@@ -1,2 +1,2 @@
-export { readLegalDocument } from './get-legal-document';
-export type { LegalDocument, LegalDocumentId } from './get-legal-document';
+export { readLegalDocument } from './read-legal-document';
+export type { LegalDocument, LegalDocumentId } from './read-legal-document';

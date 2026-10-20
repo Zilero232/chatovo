@@ -27,6 +27,7 @@
     "@chatovo/schemas": "workspace:*",
     "@chatovo/ui-kit": "workspace:*",
     "@react-three/fiber": "^9.8.2",
+    "@siberiacancode/reactuse": "catalog:",
     "clsx": "catalog:",
     "date-fns": "catalog:",
     "lucide-react": "catalog:",
@@ -37,23 +38,17 @@
     "pretty-bytes": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "remeda": "catalog:",
     "three": "^0.186.1",
     "ts-pattern": "catalog:",
     "zod": "catalog:"
   },
   "devDependencies": {
     "@chatovo/tsconfig": "workspace:*",
-    "@testing-library/dom": "catalog:",
-    "@testing-library/jest-dom": "catalog:",
-    "@testing-library/react": "catalog:",
     "@types/node": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@types/three": "^0.186.0",
-    "@vitejs/plugin-react": "catalog:",
     "dotenv": "catalog:",
-    "jsdom": "catalog:",
     "sass-embedded": "catalog:",
     "typescript": "catalog:"
   }

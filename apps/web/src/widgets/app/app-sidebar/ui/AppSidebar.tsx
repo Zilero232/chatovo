@@ -1,7 +1,7 @@
 import { isTauri } from '@tauri-apps/api/core';
 import { clsx } from 'clsx';
 
-import { useIsTauriDesktop } from '@/shared/hooks';
+import { isTauriDesktop } from '@/shared/lib';
 
 import type { AppSidebarProps } from './AppSidebar.types';
 
@@ -23,7 +23,7 @@ export const AppSidebar = ({
   onNavigate,
   onToggleChannels
 }: AppSidebarProps) => {
-  const isDesktop = useIsTauriDesktop();
+  const isDesktop = isTauriDesktop();
   const isVertical = orientation === 'vertical';
 
   return (

@@ -4,7 +4,7 @@ import { useTranslations } from 'use-intl';
 import type { AudioSettings, MicActivationMode } from '@/entities/app/settings';
 
 import { useAppSettings } from '@/entities/app/settings';
-import { useIsTauriDesktop } from '@/shared/hooks';
+import { isTauriDesktop } from '@/shared/lib';
 
 import type { AudioTabProps } from './AudioTab.types';
 
@@ -23,7 +23,7 @@ export const AudioTab = ({ onJumpToShortcuts }: AudioTabProps) => {
   const t = useTranslations('settings.audio');
   const { settings, setGroup } = useAppSettings();
 
-  const isDesktop = useIsTauriDesktop();
+  const isDesktop = isTauriDesktop();
 
   const audio = settings.audio;
   const pttBindingMissing =

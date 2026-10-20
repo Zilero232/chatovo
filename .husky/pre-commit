@@ -3,7 +3,7 @@ bunx lint-staged
 staged=$(git diff --cached --name-only --diff-filter=ACMR)
 
 staged_has() {
-  printf '%s\n' "$staged" | grep -qE "$1"
+  printf '%s\n' "$staged" | grep -E "$1" > /dev/null
 }
 
 # bun --filter takes no git range (there is no pnpm --filter=[HEAD^1] equivalent),

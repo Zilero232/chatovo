@@ -18,10 +18,8 @@
     "addFriendHint": "Add friends by their tag. The digits after the hash matter.",
     "yourTagTitle": "Your tag",
     "yourTagHint": "Share it so others can add you as a friend.",
-    "emptyFriends": "No friends yet. Add people from their profile card in a voice room.",
     "emptyFriendsTitle": "No friends yet",
     "emptyFriendsHint": "Click someone's avatar in a voice room and send them a request. Once they accept, you can message or call them straight from here.",
-    "emptyRequests": "No pending requests.",
     "emptyRequestsTitle": "No pending requests",
     "emptyRequestsHint": "When someone adds you by your tag, their request lands here waiting for your answer.",
     "emptyDevelopersTitle": "No team members yet",
@@ -51,23 +49,16 @@
     "tagCopied": "Tag copied",
     "tagCopyFailed": "Failed to copy tag",
     "sendFailed": "Failed to send friend request",
-    "acceptFailed": "Failed to accept request",
-    "declineFailed": "Failed to decline request",
-    "openDmFailed": "Failed to open direct chat",
-    "callFailed": "Failed to start call",
     "incomingCall": {
       "title": "Incoming call",
       "description": "{name} is calling you",
       "accept": "Accept",
-      "decline": "Decline",
-      "acceptFailed": "Failed to accept call",
-      "declineFailed": "Failed to decline call"
+      "decline": "Decline"
     },
     "outgoingCall": {
       "title": "Calling…",
       "description": "Waiting for {name} to answer",
       "cancel": "Cancel",
-      "cancelFailed": "Failed to cancel call",
       "declined": "{name} declined the call"
     }
   },

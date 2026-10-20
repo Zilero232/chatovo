@@ -5,9 +5,3 @@ export const useRoomsPresence = () => {
 
   return presence.rooms;
 };
-
-export const useLobbyOnline = () => {
-  const { presence } = useRealtime();
-
-  return presence.lobbyOnline;
-};

@@ -17,7 +17,7 @@ import { useState } from 'react';
 import { useTranslations } from 'use-intl';
 
 import { useCurrentUser } from '@/entities/auth/user';
-import { useIsTauriDesktop } from '@/shared/hooks';
+import { isTauriDesktop } from '@/shared/lib';
 
 import type { SettingsTabId } from '../config';
 
@@ -33,7 +33,7 @@ export const AppSettingsButton = () => {
 
   const [isOpen, toggleOpen] = useBoolean(false);
   const [activeTab, setActiveTab] = useState<SettingsTabId>('profile');
-  const isDesktop = useIsTauriDesktop();
+  const isDesktop = isTauriDesktop();
 
   const needsEmailVerification = Boolean(user && !emailVerified);
   const tabs = SETTINGS_TABS.filter((tab) => !tab.tauriDesktopOnly || isDesktop);

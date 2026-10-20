@@ -1,6 +1,5 @@
 import type { SVGProps } from 'react';
 
-// Flag of Russia — three equal horizontal bands: white, blue, red.
 export const FlagRuIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg aria-hidden='true' viewBox='0 0 4 3' {...props}>
     <rect fill='#fff' height='3' width='4' />

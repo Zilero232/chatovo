@@ -2,7 +2,6 @@
   "common": {
     "chooseFile": "Выберите файл",
     "close": "Закрыть",
-    "commits": "{count, plural, one {# коммит} few {# коммита} other {# коммитов}}",
     "hidePassword": "Скрыть пароль",
     "loading": "Загрузка...",
     "remove": "Удалить",

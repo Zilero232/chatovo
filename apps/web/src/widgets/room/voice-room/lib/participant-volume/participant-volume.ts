@@ -5,7 +5,6 @@ import type { MuteMap, VolumeMap, VolumeSource } from './participant-volume.type
 
 import { MAX_STORED_VOLUMES, MAX_VOLUME } from '../../config';
 
-/** Keeps the newest `MAX_STORED_VOLUMES` entries so the stored map cannot grow without bound. */
 export const capMutes = (mutes: MuteMap): MuteMap => {
   const keys = Object.keys(mutes);
 
@@ -16,7 +15,6 @@ export const capMutes = (mutes: MuteMap): MuteMap => {
   return pick(mutes, takeLast(keys, MAX_STORED_VOLUMES));
 };
 
-/** Keeps the newest `MAX_STORED_VOLUMES` entries so the stored map cannot grow without bound. */
 export const capVolumes = (volumes: VolumeMap): VolumeMap => {
   const keys = Object.keys(volumes);
 
@@ -27,7 +25,6 @@ export const capVolumes = (volumes: VolumeMap): VolumeMap => {
   return pick(volumes, takeLast(keys, MAX_STORED_VOLUMES));
 };
 
-/** Microphone keeps the bare identity so volumes stored before screen-share support stay valid. */
 export const buildVolumeStorageKey = (identity: string, source: VolumeSource) =>
   source === Track.Source.Microphone ? identity : `${identity}:${source}`;
 

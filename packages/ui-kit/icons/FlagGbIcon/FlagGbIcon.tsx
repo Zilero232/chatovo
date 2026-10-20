@@ -1,7 +1,5 @@
 import type { SVGProps } from 'react';
 
-// Flag of the United Kingdom (Union Jack). The clipPath id is unique so
-// multiple instances on one page don't collide.
 export const FlagGbIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg aria-hidden='true' viewBox='0 0 60 30' {...props}>
     <clipPath id='flag-gb-clip'>

@@ -2,7 +2,7 @@ import { Switch } from '@chatovo/ui-kit';
 import { useTranslations } from 'use-intl';
 
 import { useAppSettings } from '@/entities/app/settings';
-import { useIsTauriDesktop } from '@/shared/hooks';
+import { isTauriDesktop } from '@/shared/lib';
 
 import { SettingRow } from '../components/SettingRow/SettingRow';
 
@@ -12,7 +12,7 @@ export const SystemTab = () => {
   const t = useTranslations('settings.system');
   const { settings, setGroup } = useAppSettings();
 
-  const isDesktop = useIsTauriDesktop();
+  const isDesktop = isTauriDesktop();
 
   const { tray, shareActivity } = settings.system;
 

@@ -6,5 +6,5 @@ export { useRoomById } from './use-room-by-id';
 export { useRoomParticipants } from './use-room-participants';
 export { useRoomToken } from './use-room-token';
 export { useRooms } from './use-rooms';
-export { useLobbyOnline, useRoomsPresence } from './use-rooms-presence';
+export { useRoomsPresence } from './use-rooms-presence';
 export { useUpdateRoom } from './use-update-room';

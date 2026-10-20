@@ -1,5 +1,5 @@
 export { mergeChatHistory, prependChatHistory } from './chat-cache-history';
-export { patchChatCursor, patchChatLines, readChatHistory, readChatLines } from './chat-cache-keys';
+export { patchChatCursor, patchChatLines, readChatHistory } from './chat-cache-keys';
 export { applyChatRealtime } from './chat-cache-realtime';
 export {
   appendChatDto,

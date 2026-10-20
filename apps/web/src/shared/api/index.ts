@@ -37,7 +37,7 @@ export {
   ringFriendCall,
   sendFriendRequest
 } from './friends';
-export { getAppDownloads, listContributors } from './github';
+export { getAppDownloads } from './github';
 export { ApiError, apiErrorCode, isUnauthorizedError } from './http';
 export { getLinkPreview } from './link-preview';
 export { fetchLiveKitToken } from './livekit';

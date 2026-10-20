@@ -1,4 +1,4 @@
-import { BrandMark, Text } from '@chatovo/ui-kit';
+import { BrandMark } from '@chatovo/ui-kit';
 import { clsx } from 'clsx';
 import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
@@ -35,9 +35,7 @@ export const MarketingHeader = async ({ locale, path }: MarketingHeaderProps) =>
     <MarketingHeaderShell>
       <Link className={s.brand} href={localizeMarketingPath({ path: ROUTES.home, locale })}>
         <BrandMark size={30} />
-        <Text as='span' className={s.brandName} tone='inherit'>
-          {SITE.name}
-        </Text>
+        <span className={s.brandName}>{SITE.name}</span>
       </Link>
 
       <MarketingHeaderNav ariaLabel={t('ariaLabel')} items={navItems} />

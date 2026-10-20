@@ -1,10 +1,6 @@
 import { STORAGE_EVENT } from '@siberiacancode/reactuse';
 
 export const readStoredJson = <TValue>(key: string, fallback: TValue): TValue => {
-  if (typeof window === 'undefined') {
-    return fallback;
-  }
-
   const raw = window.localStorage.getItem(key);
 
   if (!raw) {
@@ -20,10 +16,6 @@ export const readStoredJson = <TValue>(key: string, fallback: TValue): TValue =>
 
 /** Writes JSON to localStorage and notifies useStorage subscribers in this tab. */
 export const writeStoredJson = <TValue>(key: string, value: TValue): void => {
-  if (typeof window === 'undefined') {
-    return;
-  }
-
   const oldValue = window.localStorage.getItem(key);
   const newValue = JSON.stringify(value);
 

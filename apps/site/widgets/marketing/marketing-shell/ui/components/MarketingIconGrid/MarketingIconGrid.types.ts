@@ -16,5 +16,4 @@ export type MarketingIconGridProps = {
   description?: string;
   heading?: string;
   id?: string;
-  className?: string;
 };

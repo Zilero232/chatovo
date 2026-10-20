@@ -8,10 +8,6 @@ const openInBrowser = (url: string) => {
 };
 
 export const openExternal = async (url: string): Promise<void> => {
-  if (typeof window === 'undefined') {
-    return;
-  }
-
   if (!isTauri()) {
     openInBrowser(url);
 

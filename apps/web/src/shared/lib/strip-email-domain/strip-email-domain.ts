@@ -1,6 +1,6 @@
 import { isNullish } from 'remeda';
 
-/** Отрезает домен, если строка выглядит как email — чтобы почта не утекала в UI. */
+/** Cuts the domain off a value that looks like an email, so addresses never reach the UI. */
 export const stripEmailDomain = (value: string | null | undefined): string | null => {
   if (isNullish(value)) {
     return null;

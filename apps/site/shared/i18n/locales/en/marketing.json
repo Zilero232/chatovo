@@ -996,8 +996,6 @@
       "description": "Desktop installers and the Android app on Google Play. Updates arrive on their own."
     },
     "web": {
-      "heading": "Browser",
-      "description": "Nothing to install: open the site and create a room.",
       "action": "Open in the browser"
     },
     "requirements": {
@@ -1122,7 +1120,6 @@
     }
   },
   "legal": {
-    "back": "Back",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
     "privacyPage": {

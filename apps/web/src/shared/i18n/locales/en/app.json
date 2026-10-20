@@ -162,8 +162,6 @@
       "closeToTrayHint": "Close button hides the app to the system tray. Turn off to quit on close. The tray's Quit menu always exits.",
       "invisibleMode": "Invisible mode",
       "invisibleModeHint": "Join any room hidden: no password, and nobody sees or hears you.",
-      "invisibleModeOn": "Invisible mode on",
-      "invisibleModeOff": "Invisible mode off",
       "shareActivity": "Show what I am playing",
       "shareActivityHint": "People in the room see the name of the game you are playing. Desktop app only."
     },
@@ -222,10 +220,7 @@
     "failed": "Update failed. Try again later.",
     "upToDate": "You're on the latest version",
     "checkFailed": "Couldn't check for updates",
-    "checkTimedOut": "Update check timed out. Try again later.",
-    "mobileTitle": "Version {version} available",
-    "mobileBody": "Download the new version of the app",
-    "mobileAction": "Download"
+    "checkTimedOut": "Update check timed out. Try again later."
   },
   "downloadApp": {
     "title": "Download Chatovo",

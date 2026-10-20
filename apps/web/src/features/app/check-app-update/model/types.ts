@@ -11,6 +11,3 @@ export type UpdateInfo = {
   dismiss: () => void;
   install: () => void;
 };
-
-export type MobileUpdate =
-  { hasUpdate: false } | { hasUpdate: true; downloadUrl: string | null; version: string };

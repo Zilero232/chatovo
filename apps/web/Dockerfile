@@ -40,8 +40,7 @@ COPY packages/config/package.json ./packages/config/package.json
 COPY packages/ui-kit/package.json ./packages/ui-kit/package.json
 COPY packages/tsconfig ./packages/tsconfig
 # Bun's --frozen-lockfile validates the on-disk workspace topology against the
-# lockfile, so apps/tauri's manifest must be present even though this image
-# doesn't use it.
+# lockfile, so every workspace manifest must be present, used here or not.
 COPY apps/site/package.json ./apps/site/package.json
 COPY apps/tauri/package.json ./apps/tauri/package.json
 RUN bun install --frozen-lockfile --ignore-scripts

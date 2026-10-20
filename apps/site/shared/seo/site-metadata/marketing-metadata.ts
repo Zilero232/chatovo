@@ -43,12 +43,6 @@ const translatedCopy = async ({
   };
 };
 
-/**
- * Builds page metadata from the page's own `meta` translations, so the Russian
- * page ships Russian title and description and the English one ships English,
- * with both pointing at each other through hreflang alternates. The home page
- * takes its copy from `SITE` instead, since it carries keywords too.
- */
 export const createMarketingMetadata = async ({
   locale,
   namespace,

@@ -3,7 +3,7 @@ import { isTauri } from '@tauri-apps/api/core';
 import { env, SITE } from '@/shared/config';
 
 const getPublicAppOrigin = (): string => {
-  if (typeof window !== 'undefined' && !isTauri()) {
+  if (!isTauri()) {
     return window.location.origin;
   }
 

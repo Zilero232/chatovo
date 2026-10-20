@@ -1,6 +1,5 @@
 {
   "lobby": {
-    "welcome": "С возвращением, {name}",
     "subtitle": "Зайдите в голосовую комнату или создайте свою",
     "appVersion": "Версия приложения",
     "stats": {
@@ -8,7 +7,6 @@
       "live": "Активных",
       "online": "Онлайн"
     },
-    "roomsHeading": "Комнаты",
     "searchPlaceholder": "Поиск комнат...",
     "filters": {
       "all": "Все",
@@ -21,8 +19,6 @@
     },
     "nothingFound": "Нет комнат по запросу «{query}»",
     "nothingFoundHint": "Попробуйте запрос покороче или создайте комнату с таким названием сами.",
-    "nothingFoundTitle": "Ничего не найдено",
-    "clearSearch": "Сбросить поиск",
     "roomsError": {
       "title": "Не удалось загрузить комнаты",
       "description": "Проверьте соединение и попробуйте снова.",
@@ -36,14 +32,9 @@
       "live": "В эфире",
       "empty": "Пусто",
       "people": "{count, plural, one {# участник} few {# участника} other {# участников}}",
-      "yours": "Ваша",
       "ownerTooltip": "Владелец комнаты",
       "micMuted": "Микрофон выключен",
       "deafened": "Звук выключен"
-    },
-    "recent": {
-      "heading": "Недавние",
-      "privateRoom": "Приватная комната"
     }
   },
   "room": {
@@ -224,7 +215,6 @@
     "collapseVideo": "Свернуть видео",
     "invisibleBadge": "В невидимке",
     "invisibleNotice": "Вы в комнате скрытно: вас не видно и не слышно",
-    "invisibleSwitching": "Переподключение — режим невидимки изменён",
     "badges": {
       "screen": "Экран",
       "music": "Музыка"
@@ -240,7 +230,6 @@
     "attach": "Прикрепить файл",
     "dropToSend": "Отпустите, чтобы отправить",
     "uploading": "Загрузка…",
-    "uploadFailed": "Не удалось загрузить файл",
     "fileTooLarge": "Файл слишком большой (макс. 25 МБ)",
     "sending": "Отправка…",
     "sendFailed": "Не отправлено",
@@ -279,9 +268,7 @@
     "friends": {
       "heading": "Друзья",
       "online": "В сети — {count}",
-      "offline": "Не в сети — {count}",
-      "statusOnline": "В сети",
-      "statusOffline": "Не в сети"
+      "offline": "Не в сети — {count}"
     },
     "activity": {
       "heading": "Активность друзей",

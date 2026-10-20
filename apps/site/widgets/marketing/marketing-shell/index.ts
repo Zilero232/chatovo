@@ -3,6 +3,7 @@ export {
   MarketingContributors,
   MarketingCtaPanel,
   MarketingDevices,
+  MarketingEyebrow,
   MarketingHero,
   MarketingIconGrid,
   MarketingScene,
@@ -14,6 +15,7 @@ export type { MarketingAppCtaProps } from './ui/components/MarketingAppCta/Marke
 export type { MarketingContributorsProps } from './ui/components/MarketingContributors/MarketingContributors.types';
 export type { MarketingCtaPanelProps } from './ui/components/MarketingCtaPanel/MarketingCtaPanel.types';
 export type { MarketingDevicesProps } from './ui/components/MarketingDevices/MarketingDevices.types';
+export type { MarketingEyebrowProps } from './ui/components/MarketingEyebrow/MarketingEyebrow.types';
 export type { MarketingHeroProps } from './ui/components/MarketingHero/MarketingHero.types';
 export type {
   MarketingIconGridItem,

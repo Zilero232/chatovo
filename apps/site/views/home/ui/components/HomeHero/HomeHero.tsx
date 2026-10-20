@@ -2,7 +2,11 @@ import { Text } from '@chatovo/ui-kit';
 import { Check } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
 
-import { MarketingAppCta, MarketingScene } from '@/widgets/marketing/marketing-shell';
+import {
+  MarketingAppCta,
+  MarketingEyebrow,
+  MarketingScene
+} from '@/widgets/marketing/marketing-shell';
 
 import type { HomePageProps } from '../../HomePage.types';
 
@@ -19,10 +23,7 @@ export const HomeHero = async ({ locale }: HomePageProps) => {
   return (
     <section className={s.hero}>
       <div className={s.heroCopy}>
-        <Text as='span' className={s.eyebrow} size='sm' weight='medium'>
-          <span aria-hidden className={s.eyebrowDot} />
-          {t('eyebrow')}
-        </Text>
+        <MarketingEyebrow size='lg'>{t('eyebrow')}</MarketingEyebrow>
 
         <h1 className={s.heroTitle}>
           {t('title')} <em className={s.heroAccent}>{t('titleAccent')}</em>

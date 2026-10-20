@@ -42,11 +42,8 @@
   gap: var(--space-3);
 
   @include bp(md) {
-    padding-bottom: var(--space-10);
-  }
-
-  @include bp(md) {
     align-items: flex-start;
+    padding-bottom: var(--space-10);
   }
 }
 
@@ -59,13 +56,12 @@
 }
 
 .text {
-  color: rgb(42 16 21 / 78%);
-  font-size: var(--text-lg);
+  color: color-mix(in srgb, var(--primary-foreground) 78%, transparent);
   line-height: 1.5;
 }
 
 .note {
-  color: rgb(42 16 21 / 68%);
+  color: color-mix(in srgb, var(--primary-foreground) 68%, transparent);
   font-size: var(--text-sm);
 }
 
@@ -93,14 +89,14 @@
 
 .secondary {
   &#{&} {
-    border-color: rgb(42 16 21 / 40%);
+    border-color: color-mix(in srgb, var(--primary-foreground) 40%, transparent);
     background: transparent;
     color: var(--primary-foreground);
   }
 
   @include hover {
     &#{&} {
-      background: rgb(42 16 21 / 10%);
+      background: color-mix(in srgb, var(--primary-foreground) 10%, transparent);
     }
   }
 }
