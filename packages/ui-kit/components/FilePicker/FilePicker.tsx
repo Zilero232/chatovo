@@ -3,8 +3,8 @@
 import { useFileDialog } from '@siberiacancode/reactuse';
 import { clsx } from 'clsx';
 import { Paperclip, X } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import prettyBytes from 'pretty-bytes';
+import { useTranslations } from 'use-intl';
 
 import type { FilePickerProps } from './FilePicker.types';
 

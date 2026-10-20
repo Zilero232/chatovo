@@ -40,16 +40,14 @@
     "@chatovo/tsconfig": "workspace:*",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
-    "next": "catalog:",
-    "next-intl": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "use-intl": "catalog:"
   },
   "peerDependencies": {
-    "next": "catalog:",
-    "next-intl": "catalog:",
     "react": "catalog:",
-    "react-dom": "catalog:"
+    "react-dom": "catalog:",
+    "use-intl": "catalog:"
   }
 }
