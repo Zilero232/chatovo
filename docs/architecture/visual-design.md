@@ -46,7 +46,7 @@ The legacy names (`--brand-cyan`, `--brand-fuchsia`, `--brand-lime`) are remappe
 
 ## Motion
 
-`motion` for everything that moves, presets in `apps/web/shared/config/motion.ts` and the kit's `*.motion.ts` files. Things settle, they do not bounce around: a short ease-out for UI, a spring only for the cat and for drag. Only `transform` and `opacity` animate. Reduced motion means static, not slower; the WebGL hero does not mount at all.
+`motion` for everything that moves, presets in `apps/web/src/shared/config/motion.ts` and the kit's `*.motion.ts` files. Things settle, they do not bounce around: a short ease-out for UI, a spring only for the cat and for drag. Only `transform` and `opacity` animate. Reduced motion means static, not slower; the WebGL hero does not mount at all.
 
 ## Chato
 

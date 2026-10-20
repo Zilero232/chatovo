@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="apps/web/app/icon.svg" width="88" height="88" alt="Chatovo" />
+  <img src="apps/web/public/icon.svg" width="88" height="88" alt="Chatovo" />
 </p>
 
 <h1 align="center">Chatovo</h1>
@@ -126,7 +126,7 @@ flowchart LR
   API --> LK
 ```
 
-The product app (`apps/web`, app.chatovo.ru) and the public website (`apps/site`, chatovo.ru) are two React apps — a Vite SPA and a server-rendered Next.js site — sharing one design system, `@chatovo/ui-kit`. Both follow **[Feature-Sliced Design](docs/architecture/fsd.md)** — the `pages/` layer is named `views/` to avoid clashing with the Next.js router.
+The product app (`apps/web`, app.chatovo.ru) and the public website (`apps/site`, chatovo.ru) are two React apps — a Vite SPA and a server-rendered Next.js site — sharing one design system, `@chatovo/ui-kit`. Both follow **[Feature-Sliced Design](docs/architecture/fsd.md)** — the site names the `pages/` layer `views/` to avoid clashing with the Next.js Pages Router.
 
 <br/>
 
@@ -147,7 +147,7 @@ The product app (`apps/web`, app.chatovo.ru) and the public website (`apps/site`
 ```
 chatovo/
 ├── apps/
-│   ├── web/          The app · Vite SPA + TanStack Router · FSD (app / views / widgets / features / entities / shared)
+│   ├── web/          The app · Vite SPA + TanStack Router · FSD under src/ (app / pages / widgets / features / entities / shared)
 │   ├── site/         The public website · server-rendered Next.js · ru/en
 │   ├── server/       NestJS API · Prisma · modules/
 │   └── tauri/        Rust shell · desktop + Android
@@ -235,7 +235,7 @@ bun tauri:build               # desktop release
 bun android:init        # first-time Android setup
 bun android:dev         # Android on device / emulator
 bun android:build       # APK + AAB
-bun tauri:icon                # icons from apps/web/app/icon.svg
+bun tauri:icon                # icons from apps/web/assets/icons/app-icon*.svg
 ```
 
 > The version lives in the root **`package.json`** only — the per-app manifests
@@ -320,5 +320,5 @@ code they cover; conventions are in [docs/guides/shared/testing.md](docs/guides/
 </p>
 
 <p align="center">
-  <img src="apps/web/app/icon.svg" width="32" height="32" alt="" />
+  <img src="apps/web/public/icon.svg" width="32" height="32" alt="" />
 </p>

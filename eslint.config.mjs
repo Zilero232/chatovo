@@ -17,9 +17,9 @@ export default eslint(
       'apps/server/prisma/migrations',
       // Module augmentation (use-intl / next-intl messages, the router register,
       // Vite's import.meta.env) only works with `interface`.
-      'apps/web/messages.d.ts',
-      'apps/web/router.d.ts',
-      'apps/web/vite-env.d.ts',
+      'apps/web/src/messages.d.ts',
+      'apps/web/src/router-register.d.ts',
+      'apps/web/src/vite-env.d.ts',
       'apps/site/messages.d.ts',
       'docs/**',
       '**/*.md/**'

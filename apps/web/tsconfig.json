@@ -2,28 +2,15 @@
   "extends": "@chatovo/tsconfig/react.json",
   "compilerOptions": {
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": [
-    "vite-env.d.ts",
-    "messages.d.ts",
-    "router.d.ts",
     "vite.config.ts",
     "vitest.config.ts",
     "vitest.setup.ts",
-    "app/**/*.ts",
-    "app/**/*.tsx",
-    "entities/**/*.ts",
-    "entities/**/*.tsx",
-    "features/**/*.ts",
-    "features/**/*.tsx",
-    "views/**/*.ts",
-    "views/**/*.tsx",
-    "shared/**/*.ts",
-    "shared/**/*.tsx",
-    "widgets/**/*.ts",
-    "widgets/**/*.tsx"
+    "src/**/*.ts",
+    "src/**/*.tsx"
   ],
   "exclude": ["node_modules", "dist"]
 }

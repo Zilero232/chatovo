@@ -59,7 +59,7 @@ Only through GitHub Actions. **Release**: bump `version` in the root `package.js
 
 The full style guide is [docs/guides/](docs/guides/README.md) (split into `client/`, `server/`, `shared/`). Digests in `.claude/rules/` load automatically by path, one topic per file: `shared/` (TypeScript everywhere, docs), `client/` (web, site and ui-kit), `server/`, `tauri/`, `testing/`. A rule change updates the guide and its digest together. The key rules:
 
-- **No comments in application code** (`views/`, `widgets/`, `features/`, `entities/`, `modules/`). Only an exported primitive of a reusable module (`packages/ui-kit`, `shared/lib`, `shared/hooks`, server `src/lib/`, `packages/schemas`) may carry a 1–2 line JSDoc when its signature doesn't explain it ([comments](docs/guides/shared/comments.md)).
+- **No comments in application code** (`pages/` — `views/` in the site — `widgets/`, `features/`, `entities/`, `modules/`). Only an exported primitive of a reusable module (`packages/ui-kit`, `shared/lib`, `shared/hooks`, server `src/lib/`, `packages/schemas`) may carry a 1–2 line JSDoc when its signature doesn't explain it ([comments](docs/guides/shared/comments.md)).
 - **Two or more parameters → one object**; on the server the shape is `<Fn>Input` in `<module>.service.types.ts` ([functions](docs/guides/shared/functions.md)).
 - **Types.** `type`, never `interface`; `unknown`, never `any` ([types](docs/guides/shared/types.md)).
 - **Reuse over reinvention.** Before writing a helper, check `@siberiacancode/reactuse`, `remeda`, `ts-pattern`, `date-fns`, `motion`, `@base-ui/react`, `react-hook-form`, `@tanstack/react-query`, `@livekit/components-react`, `appBus` — and the known library gotchas ([dependencies](docs/guides/shared/dependencies.md)).

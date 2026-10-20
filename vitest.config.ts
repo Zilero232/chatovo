@@ -15,7 +15,7 @@ export default defineConfig({
       include: [
         'packages/schemas/src/**',
         'apps/server/src/**',
-        'apps/web/{entities,features,shared,widgets}/**',
+        'apps/web/src/{entities,features,pages,shared,widgets}/**',
         'apps/site/{entities,shared,views,widgets}/**'
       ],
       exclude: ['**/_tests/**', '**/*.types.ts', '**/index.ts']

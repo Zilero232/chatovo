@@ -10,7 +10,7 @@ paths:
 
 ## No comments in application code
 
-`views/`, `widgets/`, `features/`, `entities/` (client) and `modules/` (server) carry no `//`, block or JSDoc comments. A block that needs one becomes a named function.
+`pages/` (site: `views/`), `widgets/`, `features/`, `entities/` (client) and `modules/` (server) carry no `//`, block or JSDoc comments. A block that needs one becomes a named function.
 
 ## The narrow exception
 

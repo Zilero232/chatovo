@@ -6,11 +6,12 @@ import path from 'node:path';
 import { defineConfig } from 'vite';
 
 import rootPackage from '../../package.json' with { type: 'json' };
-import { getTauriMobileHmrShim } from './shared/lib/tauri-mobile-hmr-shim';
-import { APP_HEAD_TAGS } from './shared/seo';
+import { getTauriMobileHmrShim } from './src/shared/lib/tauri-mobile-hmr-shim';
+import { APP_HEAD_TAGS } from './src/shared/seo';
 
 const webRoot = import.meta.dirname;
 const repoRoot = path.resolve(webRoot, '..', '..');
+const srcRoot = path.resolve(webRoot, 'src');
 
 const DEV_PORT = 3000;
 
@@ -65,7 +66,7 @@ export default defineConfig(({ command, mode }) => {
     ],
 
     resolve: {
-      alias: { '@': webRoot }
+      alias: { '@': srcRoot }
     },
 
     // Vite reads no `.env` itself: the root one also carries the server's
@@ -78,13 +79,13 @@ export default defineConfig(({ command, mode }) => {
       'import.meta.env.NEXT_PUBLIC_APP_VERSION': JSON.stringify(rootPackage.version)
     },
 
-    // `loadPaths`: the app root for `@/...` and the workspace `node_modules` for
+    // `loadPaths`: `src/` for `@/...` and the workspace `node_modules` for
     // `@use '@chatovo/ui-kit/styles/...'` (Bun links workspace packages there).
     // `quietDeps` silences deprecations coming from node_modules.
     css: {
       preprocessorOptions: {
         scss: {
-          loadPaths: [webRoot, path.resolve(repoRoot, 'node_modules')],
+          loadPaths: [srcRoot, path.resolve(repoRoot, 'node_modules')],
           quietDeps: true
         }
       }

@@ -1,6 +1,6 @@
 # Repo-wide ignores. Build output and runtime data that belong to one package
 # live in that package's own .gitignore:
-#   apps/web/.gitignore    — .next/, out/, dist/, next-env.d.ts
+#   apps/web/.gitignore    — dist/
 #   apps/server/.gitignore    — generated/, dist/, uploads/, .image-cache/
 #   apps/tauri/.gitignore     — target/, gen/, icons/
 #   packages/schemas/.gitignore — dist/

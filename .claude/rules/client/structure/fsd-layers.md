@@ -10,7 +10,7 @@ paths:
 
 # Client — FSD layers and public API
 
-Feature-Sliced Design with two local tweaks: `pages` → `views`, slices grouped by business domain. Imports go downward only: `app → views → widgets → features → entities → shared`. The design system `@chatovo/ui-kit` (`packages/ui-kit`) sits beside `shared` in both apps (`apps/web`, `apps/site`): every layer may import it, it imports nothing from either app.
+Feature-Sliced Design with slices grouped by business domain. The web app uses the canonical `src/` root and `pages` layer; the site has no `src/` and names the layer `views` (a top-level `pages/` would enable Next's Pages Router). In the web app the app layer has no folder: `main.tsx`, `router/`, `providers/`, `styles/` sit at the top of `src/`. Imports go downward only: app → `pages → widgets → features → entities → shared`. The design system `@chatovo/ui-kit` (`packages/ui-kit`) sits beside `shared` in both apps (`apps/web`, `apps/site`): every layer may import it, it imports nothing from either app.
 
 A **widget importing a feature is correct** — only feature → widget and entity → anything above are violations. Cross-imports between slices of one layer are banned.
 

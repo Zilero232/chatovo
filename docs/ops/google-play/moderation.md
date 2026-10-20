@@ -33,13 +33,13 @@ app, and the developer contact to be live.
 ### Reporting
 
 "Report" sits in the context menu of a voice room participant
-([ParticipantCardMenu](../../../apps/web/widgets/room/voice-room/ui/components/ParticipantCardMenu/ParticipantCardMenu.tsx))
+([ParticipantCardMenu](../../../apps/web/src/widgets/room/voice-room/ui/components/ParticipantCardMenu/ParticipantCardMenu.tsx))
 and of a chat message
-([MessageMenuItems](../../../apps/web/widgets/chat/chat-panel/ui/components/ChatMessageItem/components/MessageMenuItems/MessageMenuItems.tsx)).
+([MessageMenuItems](../../../apps/web/src/widgets/chat/chat-panel/ui/components/ChatMessageItem/components/MessageMenuItems/MessageMenuItems.tsx)).
 Reporting yourself or your own message is not offered.
 
 The dialog is the
-[report-abuse](../../../apps/web/features/social/report-abuse/) feature: a reason
+[report-abuse](../../../apps/web/src/features/social/report-abuse/) feature: a reason
 from a fixed list (spam, harassment, hate speech, sexual content, violence,
 illegal content, other) and an optional comment.
 

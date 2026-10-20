@@ -14,7 +14,7 @@ src/
 ├── webview_lockdown.rs # Windows release builds: WebView2 browser shortcuts off (reload, print, devtools)
 └── game_detection/   # "Playing X", games only: Steam/Epic/GOG + Windows Game Bar list (docs/architecture/game-activity.md)
 capabilities/         # permission sets granted to the webview
-icons/                # generated — source: icon.manifest.json + apps/web/app/app-icon*.svg
+icons/                # generated — source: icon.manifest.json + apps/web/assets/icons/app-icon*.svg
 tauri.conf.json       # config — frontendDist points at the built client, bundle/updater settings
 Cargo.toml            # Rust deps (tauri + plugins)
 ```
@@ -22,7 +22,7 @@ Cargo.toml            # Rust deps (tauri + plugins)
 ## How it relates to the client
 
 - The window loads the client build via `tauri.conf.json` → `frontendDist` (`../web/dist`); in dev, `devUrl` is the Vite dev server on :3000.
-- **Desktop-only features** (system tray, global shortcuts, deep links, updater) are implemented on the JS side in [apps/web/features/app/](../web/features/app/) using `@tauri-apps/api` + plugin packages. The exception is the **system tray**: a JS-created tray loses its click handler when React remounts, so the icon and its native menu are built in [src/tray_menu.rs](src/tray_menu.rs) at startup and the frontend only pushes labels and state — see [docs/architecture/tray-menu.md](../../docs/architecture/tray-menu.md).
+- **Desktop-only features** (system tray, global shortcuts, deep links, updater) are implemented on the JS side in [apps/web/src/features/app/](../web/src/features/app/) using `@tauri-apps/api` + plugin packages. The exception is the **system tray**: a JS-created tray loses its click handler when React remounts, so the icon and its native menu are built in [src/tray_menu.rs](src/tray_menu.rs) at startup and the frontend only pushes labels and state — see [docs/architecture/tray-menu.md](../../docs/architecture/tray-menu.md).
 - Every Tauri call on the client **must** be gated with `isTauri()` so the web build keeps working (`isTauri()` is false in the browser).
 - Native plugins enabled here (see [src/lib.rs](src/lib.rs)): global-shortcut, updater, os, single-instance, opener, process, deep-link. The `chatovo://` deep-link scheme is registered at runtime in dev (installers handle it in prod).
 

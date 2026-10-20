@@ -13,9 +13,13 @@ The app used to be a Next.js static export (`output: 'export'`). Once the public
 
 The app is a pure SPA behind auth with `noindex` pages. Vite gives it a fast dev server, a plain SPA fallback on the server (`try_files {path} /index.html`), the setup Tauri recommends, and no framework conventions to work around.
 
+## Layout
+
+A conventional Vite layout: `index.html`, the configs, `public/` and `assets/icons/` (the Tauri icon sources) at the package root; every source file under `src/`, which `@/` points at. `src/` holds the entry `main.tsx` and the app layer spread over plain folders — `router/` (route tree, search params, layouts, the crash screen), `providers/`, `styles/` — then the FSD layers `pages/`, `widgets/`, `features/`, `entities/`, `shared/`, plus the ambient `messages.d.ts`, `router-register.d.ts` and `vite-env.d.ts`. Without Next's Pages Router to dodge, the pages layer keeps its canonical name; the site still calls it `views/` ([fsd.md](fsd.md)).
+
 ## Routing
 
-TanStack Router, **code-based** (`app/router/router.ts`): seven routes don't justify a generated `routeTree.gen.ts`, and one file shows the whole tree next to the layouts it mounts. Links, `navigate` and search params are fully typed through the `Register` augmentation in `router.d.ts`.
+TanStack Router, **code-based** (`src/router/router.ts`): seven routes don't justify a generated `routeTree.gen.ts`, and one file shows the whole tree next to the layouts it mounts. Links, `navigate` and search params are fully typed through the `Register` augmentation in `src/router-register.d.ts`.
 
 ```text
 root            component: Outlet · errorComponent: RouteError · notFoundComponent: NotFound
@@ -30,11 +34,11 @@ root            component: Outlet · errorComponent: RouteError · notFoundCompo
     └── /account/delete
 ```
 
-- **The call outlives navigation** because lobby, room and admin share the `authed` layout, which owns `RoomSessionProvider` and `RoomSessionHost` ([room-session.md](room-session.md)). The provider order is held by `app/providers/_tests/authed-providers-order.test.ts`.
-- **Errors and 404s** are handled only at the root (`notFoundMode: 'root'`, no `defaultErrorComponent`), so an error anywhere replaces the layouts below it, as Next's root `error.tsx` did. A `CatchBoundary` around `RouterProvider` (`app/main.tsx`) replaces `global-error.tsx` for a crash in the providers themselves.
-- **Search params are plain strings.** The router parses and stringifies them with `URLSearchParams` (`app/router/search.ts`), not its default JSON encoding, so invite links like `/room?id=…&title=Team+sync` keep their shape and a numeric-looking id stays a string. Each route validates its params with a zod schema.
-- **Views load lazily** (`lazyRouteComponent`), so each screen is its own chunk, as each Next page was.
-- In components: `useNavigate()` for typed navigation (`navigate({ to: ROUTES.room, search: buildRoomSearch(id) })`), `useLocation({ select })` for the pathname, `useSearch({ strict: false })` outside a route's own view. `router.history` takes a raw path string (deep links, the title-bar history).
+- **The call outlives navigation** because lobby, room and admin share the `authed` layout, which owns `RoomSessionProvider` and `RoomSessionHost` ([room-session.md](room-session.md)). The provider order is held by `src/providers/_tests/authed-providers-order.test.ts`.
+- **Errors and 404s** are handled only at the root (`notFoundMode: 'root'`, no `defaultErrorComponent`), so an error anywhere replaces the layouts below it, as Next's root `error.tsx` did. A `CatchBoundary` around `RouterProvider` (`src/main.tsx`) replaces `global-error.tsx` for a crash in the providers themselves.
+- **Search params are plain strings.** The router parses and stringifies them with `URLSearchParams` (`src/router/search.ts`), not its default JSON encoding, so invite links like `/room?id=…&title=Team+sync` keep their shape and a numeric-looking id stays a string. Each route validates its params with a zod schema.
+- **Pages load lazily** (`lazyRouteComponent`), so each screen is its own chunk, as each Next page was.
+- In components: `useNavigate()` for typed navigation (`navigate({ to: ROUTES.room, search: buildRoomSearch(id) })`), `useLocation({ select })` for the pathname, `useSearch({ strict: false })` outside a route's own page. `router.history` takes a raw path string (deep links, the title-bar history).
 
 ## The rest of the swap
 
@@ -43,7 +47,7 @@ root            component: Outlet · errorComponent: RouteError · notFoundCompo
 | `next-intl` | `use-intl` — the same `IntlProvider` / `useTranslations`; `messages.d.ts` augments its `AppConfig` |
 | `next/image` + `loaderFile` | `Image` from `@chatovo/ui-kit`, fed by `ImageConfigProvider` with `IMAGE_CONFIG` from `shared/lib/image-loader` ([images.md](images.md)) |
 | `next/dynamic` | `React.lazy` inside a `Suspense fallback={null}` |
-| `next/font` | `@fontsource-variable/{manrope,lora,jetbrains-mono}` behind the same `--font-sans/--font-serif/--font-mono` variables (`app/globals.scss`) |
+| `next/font` | `@fontsource-variable/{manrope,lora,jetbrains-mono}` behind the same `--font-sans/--font-serif/--font-mono` variables (`src/styles/globals.scss`) |
 | `metadata` exports | static tags injected into `index.html` from `shared/seo` at build time; `DocumentTitleSync` still sets the localized title |
 | `process.env.NEXT_PUBLIC_*` | `import.meta.env.NEXT_PUBLIC_*` — the prefix is kept (`envPrefix`) so the root `.env`, the Docker build args and the GitHub secrets feed the app and the site under one name |
 | `out/` | `dist/` — Tauri's `frontendDist`, the `web` Docker image, Caddy's `/srv/www` |

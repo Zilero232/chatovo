@@ -25,7 +25,7 @@ widgets/channels-panel/ui/
       ...
 ```
 
-**No per-component `index.ts` outside `ui-kit`.** In `views/`, `widgets/`, `features/` and `entities/` the aggregating `ui/components/index.ts` points straight at each file. A handful of older folders still carry their own `index.ts`; don't copy them. Only `ui-kit` gives every component folder a barrel (§2.1 below).
+**No per-component `index.ts` outside `ui-kit`.** In `pages/` (site: `views/`), `widgets/`, `features/` and `entities/` the aggregating `ui/components/index.ts` points straight at each file. A handful of older folders still carry their own `index.ts`; don't copy them. Only `ui-kit` gives every component folder a barrel (§2.1 below).
 
 The parent imports through the barrel:
 

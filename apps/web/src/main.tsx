@@ -1,8 +1,8 @@
 import { CatchBoundary, RouterProvider } from '@tanstack/react-router';
 import { createRoot } from 'react-dom/client';
 
-import { GlobalError } from './global-error';
 import { router } from './router';
+import { GlobalError } from './router/global-error';
 
 import '@fontsource-variable/jetbrains-mono';
 import '@fontsource-variable/manrope';
@@ -10,7 +10,7 @@ import '@fontsource-variable/manrope';
 import '@fontsource-variable/lora/wght.css';
 import '@fontsource-variable/lora/wght-italic.css';
 import 'modern-normalize/modern-normalize.css';
-import './globals.scss';
+import './styles/globals.scss';
 
 const container = document.getElementById('root');
 

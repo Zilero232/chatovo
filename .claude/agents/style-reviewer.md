@@ -33,7 +33,7 @@ A finding is a place where the code contradicts a written rule, plus the exact e
 
 Check, in this order:
 
-**Structure and layering** — FSD import direction (`app → views → widgets → features → entities → shared`), public-API/barrel rules, where types live. Cross-layer imports and reaching past a barrel are high-cost findings; they compound.
+**Structure and layering** — FSD import direction (app → `pages → widgets → features → entities → shared`, where the web app keeps its app layer in `src/main.tsx`, `router/`, `providers/`, `styles/`; the site's pages layer is `views`), public-API/barrel rules, where types live. Cross-layer imports and reaching past a barrel are high-cost findings; they compound.
 
 **Reuse over reinvention** — [docs/guides/shared/dependencies.md](../../docs/guides/shared/dependencies.md) lists the libraries to use before hand-rolling (remeda, ts-pattern, date-fns, reactuse, react-hook-form, TanStack Query, motion, …) and the known gotchas where hand-rolling is correct. Only libraries declared in a `package.json` count. Hand-written code duplicating one of them is a finding, and so is a hand-rolled helper duplicating something already in the repo. Name the replacement.
 
@@ -49,7 +49,7 @@ Check, in this order:
 
 Check for these explicitly — each maps to a written rule:
 
-- **Comments in application code** — `//`, block or JSDoc in `views/`, `widgets/`, `features/`, `entities/`, `modules/`. The only exception is a 1–2 line JSDoc on an **exported** primitive of `packages/ui-kit`, `packages/config`, `shared/lib`, `shared/hooks`, server `src/lib/`, `packages/schemas`, and only when the signature doesn't explain the purpose ([comments](../../docs/guides/shared/comments.md)). Internal helpers documented → finding.
+- **Comments in application code** — `//`, block or JSDoc in `pages/` (site: `views/`), `widgets/`, `features/`, `entities/`, `modules/`. The only exception is a 1–2 line JSDoc on an **exported** primitive of `packages/ui-kit`, `packages/config`, `shared/lib`, `shared/hooks`, server `src/lib/`, `packages/schemas`, and only when the signature doesn't explain the purpose ([comments](../../docs/guides/shared/comments.md)). Internal helpers documented → finding.
 - **Sequential independent `await`** — consecutive awaits where the second doesn't consume the first's result → `Promise.all` ([functions](../../docs/guides/shared/functions.md) §9.6). Do NOT flag ordered pairs: guard-before-mutation, write-before-read, transaction steps, second consuming the first.
 - **Condition hell in view** — 3+ branches via nested ternaries / `if` chains instead of `ts-pattern` `match` + `.exhaustive()` (§16, [docs/guides/](../../docs/guides/README.md)).
 - **`cond ? <X /> : null`** instead of `cond && <X />`, and non-boolean `&&` conditions (`{items.length && …}` renders `0`) (§16.1, [docs/guides/](../../docs/guides/README.md)).
@@ -73,7 +73,7 @@ Check for these explicitly — each maps to a written rule:
 
 Never report findings in generated files — flag only if the diff **edits** them by hand:
 
-- `apps/web/messages.d.ts`, `apps/site/messages.d.ts` — generated from the locale JSON (use-intl / next-intl `AppConfig`).
+- `apps/web/src/messages.d.ts`, `apps/site/messages.d.ts` — generated from the locale JSON (use-intl / next-intl `AppConfig`).
 - `apps/server/generated/**` — Prisma client output.
 - `apps/tauri/gen/**` — Tauri/Android project scaffolding.
 - `apps/web/dist/**`, `apps/site/.next/**`, `**/node_modules/**`, `bun.lock`, `apps/tauri/target/**`.

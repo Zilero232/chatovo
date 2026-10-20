@@ -8,11 +8,11 @@ import {
 
 import { ROUTES } from '@/shared/constants';
 
-import { AuthedLayout } from '../routes/AuthedLayout';
-import { NotFound } from '../routes/NotFound';
-import { RootRedirect } from '../routes/RootRedirect';
-import { RouteError } from '../routes/RouteError';
-import { StandaloneLayout } from '../routes/StandaloneLayout';
+import { AuthedLayout } from './routes/AuthedLayout';
+import { NotFound } from './routes/NotFound';
+import { RootRedirect } from './routes/RootRedirect';
+import { RouteError } from './routes/RouteError';
+import { StandaloneLayout } from './routes/StandaloneLayout';
 import {
   lobbySearchSchema,
   parseSearch,
@@ -47,20 +47,20 @@ const lobbyRoute = createRoute({
   getParentRoute: () => authedRoute,
   path: ROUTES.lobby,
   validateSearch: lobbySearchSchema,
-  component: lazyRouteComponent(() => import('@/views/lobby'), 'LobbyPage')
+  component: lazyRouteComponent(() => import('@/pages/lobby'), 'LobbyPage')
 });
 
 const roomRoute = createRoute({
   getParentRoute: () => authedRoute,
   path: ROUTES.room,
   validateSearch: roomSearchSchema,
-  component: lazyRouteComponent(() => import('@/views/room'), 'RoomPage')
+  component: lazyRouteComponent(() => import('@/pages/room'), 'RoomPage')
 });
 
 const adminRoute = createRoute({
   getParentRoute: () => authedRoute,
   path: ROUTES.admin,
-  component: lazyRouteComponent(() => import('@/views/admin'), 'AdminPage')
+  component: lazyRouteComponent(() => import('@/pages/admin'), 'AdminPage')
 });
 
 // Auth and account deletion: no app shell, no session required.
@@ -73,20 +73,20 @@ const standaloneRoute = createRoute({
 const authRoute = createRoute({
   getParentRoute: () => standaloneRoute,
   path: ROUTES.auth,
-  component: lazyRouteComponent(() => import('@/views/auth'), 'AuthPage')
+  component: lazyRouteComponent(() => import('@/pages/auth'), 'AuthPage')
 });
 
 const resetPasswordRoute = createRoute({
   getParentRoute: () => standaloneRoute,
   path: ROUTES.resetPassword,
   validateSearch: resetPasswordSearchSchema,
-  component: lazyRouteComponent(() => import('@/views/reset-password'), 'ResetPasswordPage')
+  component: lazyRouteComponent(() => import('@/pages/reset-password'), 'ResetPasswordPage')
 });
 
 const accountDeleteRoute = createRoute({
   getParentRoute: () => standaloneRoute,
   path: ROUTES.accountDelete,
-  component: lazyRouteComponent(() => import('@/views/account-delete'), 'AccountDeletePage')
+  component: lazyRouteComponent(() => import('@/pages/account-delete'), 'AccountDeletePage')
 });
 
 const routeTree = rootRoute.addChildren([

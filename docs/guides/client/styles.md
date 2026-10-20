@@ -3,7 +3,7 @@
 | Layer | Format |
 |---|---|
 | `packages/ui-kit/**` | `*.module.scss` + CSS variables from `styles/_tokens.scss` |
-| widgets / features / views | `*.module.scss` |
+| widgets / features / pages (site: views) | `*.module.scss` |
 
 | Case | Where |
 |---|---|
@@ -16,7 +16,7 @@ The principle: JSX stays readable, and `s.root` / `s.header` tell you the struct
 
 ## 12. Global styles and tokens
 
-- Theme tokens, spacing and sizes are CSS variables in `packages/ui-kit/styles/_tokens.scss` (`--space-*`, `--icon-*`, `--control-*`, colours, radii); the shared global CSS is `styles/_base.scss`. Each app's `app/globals.scss` `@use`s `@chatovo/ui-kit/styles/tokens`, `keyframes` and `base`, then adds only its own page-level rules.
+- Theme tokens, spacing and sizes are CSS variables in `packages/ui-kit/styles/_tokens.scss` (`--space-*`, `--icon-*`, `--control-*`, colours, radii); the shared global CSS is `styles/_base.scss`. Each app's `globals.scss` (`apps/web/src/app/`, `apps/site/app/`) `@use`s `@chatovo/ui-kit/styles/tokens`, `keyframes` and `base`, then adds only its own page-level rules.
 - Dark theme is hardcoded as `<html className="dark">` (incompatible with `next-themes` + Tauri).
 - Component styles are `*.module.scss`; shared mixins come from `@use '@chatovo/ui-kit/styles/mixins' as *` (likewise `breakpoints`, `functions`). The repo `node_modules` is on the Sass load paths in each app (`css.preprocessorOptions.scss.loadPaths` in the web app's `vite.config.ts`, `sassOptions.loadPaths` plus `transpilePackages` in the site's `next.config.ts`) — never a relative `../../` into the package.
 - `clsx` joins module classes with the `className` prop.

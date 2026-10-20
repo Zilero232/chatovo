@@ -1,7 +1,7 @@
 ---
 paths:
   - 'apps/web/**/*.{ts,tsx}'
-  - 'apps/web/shared/i18n/locales/**'
+  - 'apps/web/src/shared/i18n/locales/**'
   - 'apps/site/**/*.{ts,tsx}'
   - 'apps/site/shared/i18n/locales/**'
   - 'packages/ui-kit/**/*.{ts,tsx}'

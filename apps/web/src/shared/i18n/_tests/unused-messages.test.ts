@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 
 import { en } from '../locales/en';
 
-const CLIENT_ROOT = join(import.meta.dirname, '..', '..', '..');
+const SOURCE_ROOT = join(import.meta.dirname, '..', '..', '..');
 
 const SKIPPED_DIRECTORIES = new Set(['.next', 'node_modules', 'out', 'locales', '.turbo']);
 
@@ -22,7 +22,7 @@ const collectSources = (directory: string): string[] => {
   });
 };
 
-const sourceText = collectSources(CLIENT_ROOT).join('\n');
+const sourceText = collectSources(SOURCE_ROOT).join('\n');
 
 const groupPaths = (value: unknown, prefix = ''): string[] => {
   if (typeof value !== 'object' || value === null) {

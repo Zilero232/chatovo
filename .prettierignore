@@ -9,7 +9,7 @@ bun.lock
 apps/tauri/gen
 apps/tauri/icons
 apps/server/prisma/migrations
-apps/web/shared/i18n/messages.d.ts
+apps/web/src/shared/i18n/messages.d.ts
 
 .agents
 .claude
