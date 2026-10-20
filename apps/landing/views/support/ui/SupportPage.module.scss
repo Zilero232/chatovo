@@ -1,0 +1,122 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.groups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.groupHead {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.groupIcon {
+  display: grid;
+  width: rem(38);
+  height: rem(38);
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--brand-violet) 14%, transparent);
+  color: var(--brand-violet);
+  place-items: center;
+
+  svg {
+    width: var(--icon-sm);
+    height: var(--icon-sm);
+  }
+}
+
+.groupHeading {
+  &#{&}#{&} {
+    font-family: var(--font-display);
+    font-size: clamp(#{rem(19)}, 2.2vw, #{rem(23)});
+  }
+
+  letter-spacing: -0.02em;
+}
+
+.items {
+  display: grid;
+  gap: 0 var(--space-8);
+  grid-template-columns: 1fr;
+
+  @include bp(md) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+  gap: rem(6);
+  line-height: 1.6;
+  padding-block: var(--space-4) var(--space-5);
+}
+
+.question {
+  &#{&}#{&} {
+    font-size: rem(16);
+  }
+
+  color: var(--foreground);
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-6);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  background-color: var(--surface-1);
+  gap: rem(6);
+}
+
+.contactHeading {
+  &#{&}#{&} {
+    font-family: var(--font-display);
+    font-size: clamp(#{rem(20)}, 2.4vw, #{rem(26)});
+  }
+
+  letter-spacing: -0.02em;
+}
+
+.contactActions {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: var(--space-4);
+  gap: var(--space-2);
+}
+
+.contactLink {
+  display: inline-flex;
+  align-items: center;
+  padding: rem(9) rem(16);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: rgb(var(--tint) / 8%);
+  color: var(--foreground);
+  font-size: 0.875rem;
+  gap: rem(8);
+  transition:
+    border-color var(--duration-fast) var(--timing-function-standard),
+    background var(--duration-fast) var(--timing-function-standard);
+
+  @include hover {
+    border-color: color-mix(in srgb, var(--brand-violet) 40%, transparent);
+    background: rgb(var(--tint) / 11%);
+  }
+
+  svg {
+    width: var(--icon-sm);
+    height: var(--icon-sm);
+  }
+}

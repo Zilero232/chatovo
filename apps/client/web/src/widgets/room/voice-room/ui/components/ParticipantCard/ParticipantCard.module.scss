@@ -1,0 +1,278 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  flex-direction: column;
+  border: 1px solid rgb(var(--tint) / 14%);
+  border-radius: var(--radius-2xl);
+  aspect-ratio: 16 / 9;
+  background: rgb(8 4 10 / 40%);
+  container-type: inline-size;
+  transition: border-color var(--duration-fast) var(--timing-function-standard);
+
+  &:after {
+    position: absolute;
+    z-index: var(--z-raised);
+    border: 1px solid transparent;
+    border-radius: calc(var(--radius-2xl) - 1px);
+    content: '';
+    inset: 0;
+    pointer-events: none;
+    transition: border-color var(--duration-fast) var(--timing-function-standard);
+  }
+
+  &[data-speaking='true'],
+  &[data-speaking='true']:after {
+    border-color: var(--brand-mint);
+  }
+}
+
+.rootInvisible {
+  border-style: dashed;
+  border-color: color-mix(in srgb, var(--brand-fuchsia) 45%, transparent);
+  opacity: 0.75;
+}
+
+.rootFill {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+}
+
+.stage {
+  position: relative;
+  min-height: 0;
+  flex: 1;
+}
+
+.videoGrid {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  animation: overlay-fade-in var(--duration-slow) var(--timing-function-out);
+  gap: 0.125rem;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-auto-flow: column;
+
+  > * {
+    min-width: 0;
+    min-height: 0;
+  }
+}
+
+.audioStage {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 9cqmin;
+  animation: overlay-fade-in var(--duration-slow) var(--timing-function-out);
+  background: linear-gradient(
+    to bottom right,
+    var(--surface-1),
+    var(--background),
+    var(--surface-1)
+  );
+}
+
+.tint {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.avatarHalo {
+  position: absolute;
+  width: 30cqmin;
+  height: 30cqmin;
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--brand-cyan) 0%, transparent);
+  filter: blur(6cqmin);
+  pointer-events: none;
+  transition:
+    background-color var(--duration-instant) var(--timing-function-standard),
+    opacity var(--duration-instant) var(--timing-function-standard);
+
+  @include tauri-mobile {
+    filter: none;
+    opacity: 0.55;
+  }
+}
+
+.avatarHaloSpeaking {
+  background: color-mix(in srgb, var(--brand-cyan) 30%, transparent);
+}
+
+.avatarHaloLocalSpeaking {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  background: color-mix(in srgb, var(--brand-cyan) 40%, transparent);
+
+  @include tauri-mobile {
+    animation: none;
+  }
+
+  @include reduced-motion {
+    animation: none;
+  }
+}
+
+.avatar {
+  position: relative;
+  width: 26cqmin;
+  min-width: 3rem;
+  height: 26cqmin;
+  min-height: 3rem;
+  border-radius: 9999px;
+  box-shadow: 0 0 0 rem(2) rgb(var(--tint) / 14%);
+  transition:
+    box-shadow var(--duration-instant) var(--timing-function-standard),
+    outline-color var(--duration-instant) var(--timing-function-standard),
+    outline-width var(--duration-instant) var(--timing-function-standard);
+}
+
+.avatarSpeaking {
+  box-shadow:
+    0 0 rem(22) rem(-2) color-mix(in srgb, var(--brand-mint) 80%, transparent),
+    0 0 0 rem(3.5) var(--brand-cyan);
+}
+
+.avatarFallback {
+  background: linear-gradient(
+    to bottom right,
+    color-mix(in srgb, var(--brand-violet) 50%, transparent),
+    color-mix(in srgb, var(--brand-cyan) 50%, transparent)
+  );
+  color: var(--foreground);
+  font-size: 12cqmin;
+  font-weight: 600;
+}
+
+.badges {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  padding: 0.125rem 0.5rem;
+  border: 1px solid rgb(var(--tint) / 14%);
+  border-radius: var(--radius-sm);
+  background: rgb(8 4 10 / 55%);
+  color: var(--foreground);
+  font-size: rem(10);
+  font-weight: 500;
+  gap: 0.25rem;
+
+  @include tauri-mobile {
+    background: rgb(8 4 10 / 80%);
+  }
+}
+
+.badgeInvisible {
+  border-color: color-mix(in srgb, var(--brand-fuchsia) 45%, transparent);
+  color: var(--brand-fuchsia);
+}
+
+.badgeIcon {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.metadata {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0.75rem 3cqmin;
+  background: linear-gradient(to top, rgb(8 4 10 / 75%), transparent);
+  color: var(--foreground);
+  font-size: 0.75rem;
+  gap: 0.25rem;
+  inset-inline: 0;
+}
+
+.identity {
+  display: flex;
+  max-width: 100%;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.micIcon {
+  width: 0.875rem;
+  height: 0.875rem;
+  flex-shrink: 0;
+  color: var(--destructive);
+}
+
+.name {
+  font-weight: 500;
+
+  @include text-ellipsis;
+}
+
+.nameTrigger {
+  min-width: 0;
+  border-radius: var(--radius-md);
+  outline: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 rem(2) color-mix(in srgb, var(--brand-cyan) 100%, transparent);
+  }
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes overlay-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.activity {
+  display: inline-flex;
+  max-width: 100%;
+  align-items: center;
+  padding: rem(1) rem(8);
+  border: 1px solid color-mix(in srgb, var(--brand-cyan) 26%, transparent);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--brand-cyan) 12%, transparent);
+  color: color-mix(in srgb, var(--brand-cyan) 88%, var(--foreground));
+  font-size: 0.625rem;
+  gap: 0.25rem;
+  line-height: 1.5;
+}
+
+.activityIcon {
+  width: rem(11);
+  height: rem(11);
+  flex-shrink: 0;
+}
+
+.activityLabel {
+  @include text-ellipsis;
+}

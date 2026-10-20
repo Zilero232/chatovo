@@ -1,0 +1,64 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.card {
+  display: grid;
+  max-width: 26rem;
+  padding: var(--space-3);
+  border-left: 3px solid var(--brand-violet);
+  margin-top: var(--space-1);
+  color: inherit;
+  gap: var(--space-3);
+  grid-template-columns: minmax(0, 1fr);
+  text-decoration: none;
+
+  @include surface-card(var(--radius-lg));
+  @include surface-card-hover;
+  @include focus-ring;
+
+  &[data-layout='thumbnail'] {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+}
+
+.text {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.site {
+  color: var(--muted-foreground);
+  font-size: var(--text-xs);
+
+  @include text-ellipsis;
+}
+
+.title {
+  font-size: var(--text-sm);
+  font-weight: 600;
+
+  @include line-clamp(2);
+}
+
+.description {
+  color: var(--muted-foreground);
+  font-size: var(--text-sm);
+
+  @include line-clamp(3);
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 16rem;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+
+  .card[data-layout='thumbnail'] & {
+    width: 5rem;
+    height: 5rem;
+    align-self: start;
+  }
+}

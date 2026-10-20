@@ -25,7 +25,7 @@ widgets/channels-panel/ui/
       ...
 ```
 
-**No per-component `index.ts` outside `ui-kit`.** In `views/`, `widgets/`, `features/` and `entities/` the aggregating `ui/components/index.ts` points straight at each file. A handful of older folders still carry their own `index.ts`; don't copy them. Only `ui-kit` gives every component folder a barrel (§2.1 below).
+**No per-component `index.ts` outside `ui-kit`.** In `pages/` (site: `views/`), `widgets/`, `features/` and `entities/` the aggregating `ui/components/index.ts` points straight at each file. A handful of older folders still carry their own `index.ts`; don't copy them. Only `ui-kit` gives every component folder a barrel (§2.1 below).
 
 The parent imports through the barrel:
 
@@ -41,14 +41,14 @@ import { ChannelsHeader } from './components/ChannelsHeader';
 
 - `.types.ts` — create it only when there are Props or local union types.
 - `.module.scss` — component styles (import as `import s from './Foo.module.scss'`). Mandatory on every layer.
-- `ui-kit/` — the design system (primitives/components/icons/styles). **No flat `button.tsx`** — every primitive lives in a PascalCase folder (§2.1 below). From outside, import `@/ui-kit`.
+- `packages/ui-kit/` — the design system (primitives/components/icons/styles/messages). **No flat `button.tsx`** — every primitive lives in a PascalCase folder (§2.1 below). From the apps, import `@chatovo/ui-kit`.
 
 ## 2.1. `ui-kit` structure
 
-`ui-kit/` is a separate layer next to `shared/`: every layer imports it, and it imports nothing but itself. Each component is its own PascalCase folder.
+The kit is the workspace package `packages/ui-kit` (`@chatovo/ui-kit`), shared by `apps/client/web` and `apps/landing`. In each app it acts as a layer next to `shared/`: every layer imports it, and it imports nothing from either app (no `@/` alias inside the package). Each component is its own PascalCase folder.
 
 ```
-ui-kit/
+packages/ui-kit/
   index.ts                    ← re-export primitives + components + icons
   primitives/                 ← base, depend on no other component
     index.ts                  ← re-export every primitive
@@ -74,18 +74,21 @@ ui-kit/
     LogoMark/
       LogoMark.tsx
       index.ts
-  styles/                     ← _tokens, _mixins, _functions, _breakpoints, _keyframes
+  messages/                   ← en.json, ru.json → uiMessages (the `ui` namespace)
+  styles/                     ← _tokens, _mixins, _functions, _breakpoints, _keyframes, _base
 ```
 
 **Rules:**
 
 - Component folder and file names are **PascalCase** (`Button/`, `Button.tsx`).
 - **`primitives/` vs `components/`**: a primitive imports no other ui-kit component (beyond its own parts); anything assembled from two or more primitives belongs in `components/`.
-- **A per-component `index.ts` is mandatory** — explicit named re-exports of the component and its types, no `export *`. Aggregating barrels (`primitives/index.ts`, `ui-kit/index.ts`) re-export the folders.
-- Styles are **`*.module.scss`**; shared utilities are imported as `@use '@/ui-kit/styles/mixins' as *` (the `@/` alias comes from `loadPaths` + `turbopack.resolveAlias` in `next.config.ts`, so no `../../../`).
+- **A per-component `index.ts` is mandatory** — explicit named re-exports of the component and its types, no `export *`. Aggregating barrels (`primitives/index.ts`, the package's root `index.ts`) re-export the folders.
+- Styles are **`*.module.scss`**; shared utilities are imported as `@use '@chatovo/ui-kit/styles/mixins' as *` — inside the kit as well as from the apps (each app's Sass load paths include the repo `node_modules`), so no `../../../`.
 - Headless + a11y come from **`@base-ui/react`** (Dialog → `Dialog`, Menu → `Menu`, Select → `Select`, …); import from the package subpath.
 - React types are **named imports** (`ComponentProps`, `ReactNode`, …), never `import type * as React`.
-- Inside `ui-kit`, imports between segments are relative (`../../primitives/Button`). From outside, only `@/ui-kit`.
+- Inside the kit, imports between segments are relative (`../../primitives/Button`). From the apps, only `@chatovo/ui-kit` (plus `@chatovo/ui-kit/messages` and `@chatovo/ui-kit/styles/*`).
+- A user-visible string in a kit component goes through `useTranslations('ui')`, with the key in both `messages/*.json`.
+- The kit knows nothing about either app: no routes, no API, no app i18n namespaces. Something only one app needs stays in that app.
 
 ## Slice barrel
 
@@ -131,7 +134,7 @@ export type VoiceRoomProps = {
 **`VoiceRoom.module.scss`:**
 
 ```scss
-@use '@/ui-kit/styles/mixins' as *;
+@use '@chatovo/ui-kit/styles/mixins' as *;
 
 .root {
   display: flex;
@@ -148,13 +151,11 @@ export type VoiceRoomProps = {
 }
 ```
 
-Conditional variants use `cva` from `class-variance-authority` on top of the module classes (see `ui-kit/primitives/Text/Text.variants.ts`).
+Conditional variants use `cva` from `class-variance-authority` on top of the module classes (see `packages/ui-kit/primitives/Text/Text.variants.ts`).
 
 **`VoiceRoom.tsx`:**
 
 ```tsx
-'use client';
-
 import s from './VoiceRoom.module.scss';
 import type { VoiceRoomProps } from './VoiceRoom.types';
 

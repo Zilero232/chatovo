@@ -1,11 +1,11 @@
 {
-  "rust-analyzer.linkedProjects": ["apps/tauri/Cargo.toml"],
+  "rust-analyzer.linkedProjects": ["apps/client/native/Cargo.toml"],
   "rust-analyzer.cargo.targetDir": true,
   "rust-analyzer.check.overrideCommand": [
     "cargo",
     "check",
     "--manifest-path",
-    "apps/tauri/Cargo.toml",
+    "apps/client/native/Cargo.toml",
     "--workspace",
     "--message-format=json-diagnostic-rendered-ansi"
   ],

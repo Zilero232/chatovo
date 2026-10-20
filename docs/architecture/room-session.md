@@ -21,7 +21,7 @@ AuthedProviders
 
 - **`entities/room/session`** holds the active session: `{ roomId, roomName, token, isDm, isInvisible }`. A plain React context, not TanStack Query — this is not server state, it has no key and no fetcher.
 - **`widgets/room/room-session-host`** is the only place `LiveKitRoom` is mounted. It sits next to `{children}` in `AuthedShell`, so a route change never touches it.
-- **`views/room`** no longer owns the connection. `useRoomPage` fetches the token and calls `open(...)`; the page then renders `null`, because the host draws the room.
+- **`pages/room`** no longer owns the connection. `useRoomPage` fetches the token and calls `open(...)`; the page then renders `null`, because the host draws the room.
 
 Expanded or collapsed is decided by `pathname === ROUTES.room`. The `isMinimized` prop on `VoiceRoom` swaps only the visual layer — `LiveKitRoom`, the microphone, deafen state and the chat panel are left untouched.
 

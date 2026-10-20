@@ -1,0 +1,46 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  height: 100%;
+  min-height: 0;
+  background-image: radial-gradient(
+    ellipse 70% 55% at 50% 0%,
+    color-mix(in srgb, var(--brand-violet) 8%, transparent),
+    transparent 65%
+  );
+  container: lobby-page / inline-size;
+}
+
+.main {
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  flex: 1;
+  flex-direction: column;
+  animation: lobby-enter 400ms ease-out both;
+}
+
+.aside {
+  display: none;
+  width: rem(320);
+  min-height: 0;
+  flex-shrink: 0;
+  animation: lobby-enter 400ms ease-out both;
+
+  @container lobby-page (min-width: 60rem) {
+    display: block;
+  }
+}
+
+@keyframes lobby-enter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

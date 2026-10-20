@@ -1,0 +1,58 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: rem(16);
+  padding-block: rem(20);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: rem(10);
+}
+
+.brandName {
+  font-size: rem(18);
+  font-weight: 650;
+}
+
+.actions {
+  display: inline-flex;
+  align-items: center;
+  gap: rem(16);
+}
+
+.action {
+  display: inline-flex;
+  align-items: center;
+  color: var(--muted-foreground);
+  font-size: rem(13);
+  gap: rem(6);
+
+  &:hover {
+    color: var(--foreground);
+  }
+}
+
+.actionIcon {
+  width: rem(14);
+  height: rem(14);
+}
+
+.body {
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  align-items: safe center;
+  justify-content: safe center;
+  padding-bottom: rem(24);
+}

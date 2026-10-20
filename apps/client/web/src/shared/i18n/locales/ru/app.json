@@ -1,0 +1,311 @@
+{
+  "pageMeta": {
+    "lobby": "Друзья",
+    "room": "Голосовая комната",
+    "admin": "Админка",
+    "auth": "Вход",
+    "resetPassword": "Сброс пароля",
+    "accountDelete": "Удаление аккаунта"
+  },
+  "appSidebar": {
+    "lobby": "Друзья",
+    "downloadApp": "Скачать приложение",
+    "downloadAppLabel": "Скачать приложение",
+    "checkUpdate": "Проверить обновления",
+    "checkUpdateLabel": "Проверить обновления приложения",
+    "gnomeVpn": "GnomeVPN",
+    "gnomeVpnLabel": "Открыть сайт GnomeVPN",
+    "showChannels": "Показать каналы",
+    "hideChannels": "Скрыть каналы",
+    "toggleChannels": "Переключить каналы",
+    "menu": "Меню",
+    "menuDescription": "Навигация и список комнат",
+    "openMenu": "Открыть меню",
+    "closeMenu": "Закрыть меню"
+  },
+  "settings": {
+    "logout": "Выйти",
+    "signedOut": "Выход выполнен",
+    "title": "Настройки",
+    "open": "Открыть настройки",
+    "description": "Устройства и звуковые предпочтения. Сохраняются на этом устройстве.",
+    "tabs": {
+      "profile": "Профиль",
+      "security": "Безопасность",
+      "audio": "Аудио",
+      "video": "Видео",
+      "sounds": "Звуки",
+      "system": "Система",
+      "shortcuts": "Hotkeys"
+    },
+    "profile": {
+      "displayNameLabel": "Отображаемое имя",
+      "displayNameHint": "Имя, которое другие видят в голосовых комнатах.",
+      "avatarLabel": "Аватар",
+      "avatarHint": "PNG, JPG, WebP или GIF, до 10 МБ.",
+      "avatarRemove": "Удалить аватар",
+      "avatarInvalidType": "Это не изображение.",
+      "bannerLabel": "Цвет баннера",
+      "bannerHint": "Цвет фона вашей карточки профиля.",
+      "bannerCustom": "Свой цвет",
+      "bannerReset": "Сбросить цвет баннера",
+      "save": "Сохранить",
+      "saved": "Профиль обновлён",
+      "profileUrlLabel": "Ссылка на профиль",
+      "profileUrlPlaceholder": "https://...",
+      "profileUrlHint": "Если заполнено, ваше имя станет кликабельной ссылкой. Очистите, чтобы убрать.",
+      "bioLabel": "О себе",
+      "bioPlaceholder": "Расскажите немного о себе...",
+      "bioHint": "Показывается в карточке профиля. До 280 символов."
+    },
+    "security": {
+      "emailTitle": "Email",
+      "currentEmailLabel": "Текущий email",
+      "newEmailLabel": "Новый email",
+      "newEmailPlaceholder": "you@example.com",
+      "emailChangeHint": "Мы отправим ссылку для подтверждения на текущий email.",
+      "emailChangeRequested": "Проверьте текущий email, чтобы подтвердить смену",
+      "changeEmail": "Сменить email",
+      "passwordTitle": "Пароль",
+      "currentPasswordLabel": "Текущий пароль",
+      "newPasswordLabel": "Новый пароль",
+      "confirmPasswordLabel": "Повторите новый пароль",
+      "changePassword": "Сменить пароль",
+      "passwordChanged": "Пароль обновлён",
+      "emailNotVerifiedTitle": "Email не подтверждён",
+      "emailNotVerifiedDescription": "Подтвердите {email}, чтобы защитить аккаунт и открыть все возможности.",
+      "emailVerificationSend": "Отправить письмо",
+      "emailVerificationResend": "Отправить снова",
+      "emailVerificationSent": "Письмо отправлено",
+      "emailVerificationSentHint": "Проверьте входящие и папку «Спам».",
+      "deleteTitle": "Удаление аккаунта"
+    },
+    "devices": {
+      "systemDefault": "Системное по умолчанию",
+      "noDevices": "Устройства не найдены",
+      "unknownDevice": "Неизвестное устройство",
+      "errorDenied": "Нет доступа к устройству «{device}». Разрешите доступ в настройках браузера.",
+      "errorNotFound": "Устройство «{device}» не найдено. Проверьте, подключено ли оно.",
+      "errorBusy": "Устройство «{device}» занято другим приложением.",
+      "errorUnknown": "Не удалось переключить устройство «{device}»."
+    },
+    "audio": {
+      "activation": "Активация микрофона",
+      "activationHint": "Когда передавать ваш голос.",
+      "activationVoice": "По голосу",
+      "activationPtt": "Push-to-talk",
+      "activationPttNoBinding": "Назначьте клавишу во вкладке <link>Hotkeys</link>, чтобы использовать этот режим.",
+      "autoSensitivity": "Автоматически определять чувствительность ввода",
+      "autoSensitivityHint": "Подстраивает порог под фоновый шум. Отключите, чтобы задать порог вручную.",
+      "sensitivity": "Чувствительность ввода",
+      "sensitivityHint": "Перетащите ползунок: звук передаётся, когда полоска заходит за него. Зелёный цвет означает, что вас слышно.",
+      "microphone": "Микрофон",
+      "microphoneHint": "Микрофон для захвата вашего голоса.",
+      "speakers": "Динамики",
+      "speakersHint": "Куда выводится звук комнаты.",
+      "testMic": "Проверка микрофона",
+      "testMicHint": "Говорите, чтобы увидеть уровень; нажмите, чтобы услышать себя.",
+      "stopTestMic": "Остановить проверку микрофона",
+      "noiseSuppression": "Шумоподавление",
+      "noiseSuppressionHint": "Отфильтровывает постоянный фоновый шум.",
+      "echoCancellation": "Подавление эха",
+      "echoCancellationHint": "Убирает эхо от ваших динамиков.",
+      "autoGainControl": "Авторегулировка громкости",
+      "autoGainControlHint": "Выравнивает громкость микрофона. Отключите для музыки.",
+      "voiceIsolation": "Изоляция голоса",
+      "voiceIsolationHint": "Экспериментально — усиленная изоляция голоса. Поддержка зависит от браузера."
+    },
+    "video": {
+      "camera": "Камера",
+      "cameraHint": "Камера, используемая при включении видео.",
+      "cameraQuality": "Качество камеры",
+      "cameraQualityHint": "Разрешение видео с камеры. Выше качество — больше нагрузка на сеть и процессор.",
+      "cameraQualityOptions": {
+        "720p": "720p",
+        "1080p": "1080p (Full HD)",
+        "1440p": "1440p (2K)",
+        "4k": "4K (Ultra HD)"
+      },
+      "screenQuality": "Качество демонстрации",
+      "screenQualityHint": "Разрешение и частота кадров при демонстрации экрана. 30 fps — для динамичного контента.",
+      "screenQualityOptions": {
+        "1080p15": "1080p · 15 fps",
+        "1080p30": "1080p · 30 fps",
+        "1440p30": "1440p · 30 fps",
+        "4k30": "4K · 30 fps"
+      },
+      "mirror": "Зеркалить моё видео",
+      "mirrorHint": "Отражает ваш собственный предпросмотр. Другие участники всегда видят вас без зеркала."
+    },
+    "sounds": {
+      "volumeLabel": "Громкость звуковых эффектов",
+      "volumeHint": "Громкость всех звуковых эффектов комнаты.",
+      "join": "Вход",
+      "joinHint": "Когда кто-то входит в комнату.",
+      "leave": "Выход",
+      "leaveHint": "Когда кто-то выходит из комнаты.",
+      "mute": "Микрофон вкл/выкл",
+      "muteHint": "Когда вы переключаете микрофон.",
+      "reconnect": "Переподключение",
+      "reconnectHint": "Когда соединение прерывается и восстанавливается.",
+      "message": "Сообщение в чате",
+      "messageHint": "Новое сообщение, когда чат закрыт.",
+      "reaction": "Реакция",
+      "reactionHint": "Когда кто-то отправляет эмодзи-реакцию.",
+      "call": "Звонок",
+      "callHint": "Входящий и исходящий звонок другу.",
+      "ambience": "Музыка одиночества",
+      "ambienceHint": "Спокойный эмбиент, когда вы остались в комнате одни."
+    },
+    "system": {
+      "closeToTray": "Сворачивать в трей при закрытии",
+      "closeToTrayHint": "Кнопка закрытия скрывает приложение в системный трей. Выключите, чтобы выходить при закрытии. Пункт «Выйти» в меню трея всегда завершает работу.",
+      "invisibleMode": "Режим невидимки",
+      "invisibleModeHint": "Заходите в любую комнату скрытно: без пароля, вас не видят и не слышат.",
+      "shareActivity": "Показывать, во что я играю",
+      "shareActivityHint": "Участники комнаты увидят название игры, в которую вы играете. Работает только в приложении для компьютера."
+    },
+    "shortcuts": {
+      "webNotice": "В браузере пока нельзя настроить hotkeys. <link>Скачайте</link> desktop-приложение.",
+      "actions": {
+        "muteToggle": "Включить/выключить микрофон",
+        "deafenToggle": "Включить/выключить звук",
+        "pttHold": "Push-to-talk (hold)",
+        "chatToggle": "Открыть/закрыть чат"
+      },
+      "unassigned": "Не назначено",
+      "recording": "Нажмите комбинацию… (Esc — отмена)",
+      "clear": "Очистить",
+      "errors": {
+        "needsModifier": "Используйте комбинацию с Ctrl, Shift или Alt",
+        "systemTaken": "Эта комбинация занята другим приложением"
+      }
+    },
+    "deleteAccount": {
+      "description": "Аккаунт будет удалён навсегда вместе с профилем, комнатами и списком друзей. Мы отправим письмо для подтверждения.",
+      "action": "Удалить аккаунт",
+      "requested": "Письмо с подтверждением отправлено",
+      "dialogTitle": "Удалить аккаунт?",
+      "dialogDescription": "Это действие необратимо.",
+      "hint": "Для подтверждения нужно перейти по ссылке из письма.",
+      "consequences": "Профиль, ваши комнаты, друзья и устройства для уведомлений будут удалены. Ваши сообщения останутся без имени автора.",
+      "confirm": "Отправить подтверждение",
+      "cancel": "Отмена"
+    }
+  },
+  "tray": {
+    "status": {
+      "online": "В сети",
+      "connecting": "Подключение…",
+      "reconnecting": "Переподключение…",
+      "inRoom": "В комнате: {room}",
+      "muted": "Микрофон выключен"
+    },
+    "mute": "Выключить микрофон",
+    "deafen": "Выключить звук",
+    "leaveRoom": "Покинуть комнату",
+    "openApp": "Открыть Chatovo",
+    "checkUpdates": "Проверить обновления",
+    "quit": "Выйти из Chatovo"
+  },
+  "update": {
+    "title": "Доступно обновление",
+    "description": "Версия {version} готова к установке",
+    "releasedOn": "Выпущено {date}",
+    "later": "Позже",
+    "install": "Обновить",
+    "checking": "Проверка обновлений…",
+    "downloading": "Загрузка… {percent}%",
+    "installing": "Установка…",
+    "failed": "Не удалось обновить. Попробуйте позже.",
+    "upToDate": "У вас последняя версия",
+    "checkFailed": "Не удалось проверить обновления",
+    "checkTimedOut": "Проверка обновлений не завершилась. Попробуйте позже."
+  },
+  "downloadApp": {
+    "title": "Скачать Chatovo",
+    "description": "Нативное приложение для Windows, macOS, Linux и Android.",
+    "loadFailed": "Не удалось загрузить последний релиз.",
+    "openReleases": "Открыть релизы на GitHub",
+    "version": "Версия {version}",
+    "notAvailable": "Пока недоступно",
+    "downloadAction": "Загрузить",
+    "platforms": {
+      "windows": "Windows",
+      "macos": "macOS",
+      "linux": "Linux",
+      "android": "Android"
+    },
+    "storeAction": "Открыть",
+    "googlePlay": "Google Play"
+  },
+  "feedback": {
+    "title": "Сообщить о проблеме",
+    "description": "Расскажите, что сломалось. Со скриншотом мы найдём причину гораздо быстрее.",
+    "descriptionLabel": "Описание проблемы",
+    "descriptionPlaceholder": "Что произошло и что вы делали перед этим…",
+    "screenshotLabel": "Скриншот",
+    "screenshotHint": "Необязательно. Изображение до 5 МБ.",
+    "submit": "Отправить",
+    "sent": "Спасибо! Ваше сообщение отправлено.",
+    "validation": {
+      "feedbackMin": "Минимум 10 символов",
+      "feedbackMax": "Максимум 2000 символов"
+    },
+    "hint": "Напишите, что вы делали прямо перед сбоем, — обычно именно этой детали и не хватает."
+  },
+  "easterEggs": {
+    "achievements": {
+      "konami": {
+        "title": "Код да Винчи",
+        "description": "Ты помнишь Konami-код. Уважение."
+      },
+      "nightOwl": {
+        "title": "Ночной сыч",
+        "description": "Зайти в чат в четвёртом часу ночи — это диагноз."
+      },
+      "quietOne": {
+        "title": "Молчун",
+        "description": "Час в комнате и ни звука. Мы всё слышали. Точнее — не слышали."
+      },
+      "soloConcert": {
+        "title": "Сольный концерт",
+        "description": "Полчаса один в комнате. Акустика отличная, публика скромная."
+      },
+      "muteMaster": {
+        "title": "Мастер мьюта",
+        "description": "25 раз щёлкнул микрофоном. Определись уже."
+      },
+      "snake": {
+        "title": "Змейку нашёл",
+        "description": "Кто вообще кликает по логотипу семь раз?"
+      }
+    },
+    "console": {
+      "hint": "Нашёл баг или хочешь помочь?"
+    },
+    "snake": {
+      "title": "Змейка",
+      "score": "Счёт: {score}",
+      "best": "Рекорд: {best}",
+      "gameOver": "Приехали",
+      "restart": "Ещё разок",
+      "hint": "Управление — стрелки или WASD",
+      "hintTouch": "Свайпай по полю"
+    },
+    "ambience": {
+      "started": "Тишина... включаем музыку",
+      "description": "Ты один в комнате"
+    }
+  },
+  "pushChannels": {
+    "messages": "Сообщения",
+    "calls": "Звонки"
+  },
+  "googlePlayPromo": {
+    "title": "Chatovo теперь в Google Play",
+    "description": "Уведомления о сообщениях и звонках, даже когда приложение свёрнуто.",
+    "action": "Открыть в Google Play",
+    "dismiss": "Скрыть"
+  }
+}

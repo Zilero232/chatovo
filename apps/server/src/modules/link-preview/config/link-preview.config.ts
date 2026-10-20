@@ -1,14 +1,14 @@
 import { CronExpression } from '@nestjs/schedule';
 import { hoursToMilliseconds, minutesToMilliseconds } from 'date-fns';
 
-import { clientBaseURL } from '../../../config/cors';
+import { siteBaseURL } from '../../../config/site';
 
 export const LINK_PREVIEW = {
   siteName: 'Chatovo',
   room: {
     cacheControl: 'public, max-age=60',
     image: {
-      url: `${clientBaseURL}/opengraph-image`,
+      url: `${siteBaseURL}/opengraph-image`,
       width: 1200,
       height: 630
     },

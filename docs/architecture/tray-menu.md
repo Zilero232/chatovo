@@ -1,12 +1,12 @@
 # Tray menu
 
-The desktop tray uses the **native context menu**, built in Rust. The whole thing lives in [apps/tauri/src/tray_menu.rs](../../apps/tauri/src/tray_menu.rs); the frontend only supplies translated labels and the current room state.
+The desktop tray uses the **native context menu**, built in Rust. The whole thing lives in [apps/client/native/src/tray_menu.rs](../../apps/client/native/src/tray_menu.rs); the frontend only supplies translated labels and the current room state.
 
 ## Pieces
 
 | Where | What it does |
 | --- | --- |
-| [apps/tauri/src/tray_menu.rs](../../apps/tauri/src/tray_menu.rs) | Builds the icon and its menu at startup, handles clicks, exposes `update_tray_labels` / `update_tray_state` |
+| [apps/client/native/src/tray_menu.rs](../../apps/client/native/src/tray_menu.rs) | Builds the icon and its menu at startup, handles clicks, exposes `update_tray_labels` / `update_tray_state` |
 | `features/app/system-tray/api/tray-state.ts` | The `invoke` wrappers and the `tray:action` listener — an I/O boundary, hence `api/` rather than `model/` |
 | `features/app/system-tray/model/hooks/use-tray-bridge/` | Pushes state on change, forwards actions back to the room |
 | `app/providers/TrayMenuProvider.tsx` | Sends the localized labels once the locale is known |
@@ -28,7 +28,7 @@ WebView2 blocks the thread owning the event loop, so the call never returns. Bui
 
 ## Startup order
 
-The menu is built during `setup()` with **English defaults**, before any webview exists — this is what makes it independent of React. The frontend then calls `update_tray_labels` once `next-intl` resolves the locale, and `update_tray_state` on every state change.
+The menu is built during `setup()` with **English defaults**, before any webview exists — this is what makes it independent of React. The frontend then calls `update_tray_labels` once `use-intl` resolves the locale, and `update_tray_state` on every state change.
 
 Items that change (`status`, `mute`, `deafen`, `leave`) are kept in a `static Mutex<Option<TrayItems>>`, because a `Menu` cannot be queried for its children after construction.
 

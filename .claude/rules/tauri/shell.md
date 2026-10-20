@@ -1,10 +1,10 @@
 ---
 paths:
-  - 'apps/tauri/**'
+  - 'apps/client/native/**'
 ---
 
 <!-- Compressed editing rules, loaded automatically when a file in the Tauri shell is edited. -->
-<!-- The full reasoning is apps/tauri/CLAUDE.md and docs/architecture/tray-menu.md; keep them in sync. -->
+<!-- The full reasoning is apps/client/native/CLAUDE.md and docs/architecture/tray-menu.md; keep them in sync. -->
 
 # Tauri shell
 

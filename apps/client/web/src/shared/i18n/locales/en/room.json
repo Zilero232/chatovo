@@ -1,0 +1,340 @@
+{
+  "lobby": {
+    "subtitle": "Jump into a voice room or start your own",
+    "appVersion": "App version",
+    "stats": {
+      "rooms": "Rooms",
+      "live": "Live now",
+      "online": "Online"
+    },
+    "searchPlaceholder": "Search rooms...",
+    "filters": {
+      "all": "All",
+      "live": "Live",
+      "mine": "Mine"
+    },
+    "view": {
+      "grid": "Grid view",
+      "list": "List view"
+    },
+    "nothingFound": "No rooms match \"{query}\"",
+    "nothingFoundHint": "Try a shorter query, or create a room with that name yourself.",
+    "roomsError": {
+      "title": "Could not load rooms",
+      "description": "Check your connection and try again.",
+      "retry": "Try again"
+    },
+    "empty": {
+      "title": "No rooms yet",
+      "text": "Rooms show up here the moment someone creates one. Start the first one and share the link — whoever opens it lands straight in the call."
+    },
+    "card": {
+      "live": "Live",
+      "empty": "Empty",
+      "people": "{count, plural, one {# person} other {# people}}",
+      "ownerTooltip": "Room owner",
+      "micMuted": "Microphone muted",
+      "deafened": "Sound off"
+    }
+  },
+  "room": {
+    "sections": {
+      "public": "Open",
+      "private": "Private"
+    },
+    "loading": "Loading room...",
+    "authorizing": "Authorizing access...",
+    "connecting": "Connecting to \"{name}\"...",
+    "reconnecting": "Reconnecting to \"{name}\"...",
+    "notFound": "Room not found",
+    "notFoundHint": "The owner deleted this room, or the link is out of date. Check the link or find the room in the lobby.",
+    "backToLobby": "Back to lobby",
+    "joinFailed": "Failed to join room",
+    "invite": {
+      "copyLink": "Copy invite link",
+      "tooltip": "Copy a link to invite others",
+      "linkCopied": "Invite link copied"
+    },
+    "connection": {
+      "measuring": "Measuring connection…",
+      "ping": "Connection: {ms} ms"
+    },
+    "mini": {
+      "label": "Active room “{name}”",
+      "inRoom": "You are in the room",
+      "inCall": "You are in a call",
+      "connecting": "Connecting…"
+    },
+    "soundboard": {
+      "label": "Admin soundboard",
+      "sounds": {
+        "siren": "Siren",
+        "airhorn": "Airhorn",
+        "drumroll": "Drumroll",
+        "sadTrombone": "Sad trombone",
+        "applause": "Applause"
+      }
+    },
+    "music": {
+      "label": "Room music",
+      "title": "Music in the room",
+      "description": "Play tracks for everyone in the room, or share your own music.",
+      "nowPlaying": {
+        "addedBy": "Added by {name}",
+        "live": "Live",
+        "play": "Play",
+        "pause": "Pause",
+        "previous": "Previous track",
+        "next": "Next track",
+        "stop": "Stop the music",
+        "open": "Open the source",
+        "expand": "Open the player"
+      },
+      "progress": {
+        "seek": "Track position",
+        "unknown": "–:––"
+      },
+      "empty": {
+        "title": "It's quiet here",
+        "description": "Paste a link or turn on the radio."
+      },
+      "search": {
+        "label": "Add music",
+        "placeholder": "Paste a link or search radio",
+        "hint": "YouTube, SoundCloud and Vimeo links or a direct link to an audio file go to the queue; anything else searches radio stations.",
+        "clear": "Clear"
+      },
+      "queue": {
+        "title": "Up next",
+        "empty": "Nothing queued yet.",
+        "remove": "Remove {title} from the queue"
+      },
+      "add": {
+        "link": "{source} link",
+        "submit": "Add to queue",
+        "added": "Added to the queue"
+      },
+      "radio": {
+        "label": "Stations",
+        "empty": "No stations found.",
+        "error": "Radio search is unavailable right now.",
+        "play": "Play {name}"
+      },
+      "genres": {
+        "title": "Radio by mood",
+        "items": {
+          "lofi": "Lo-fi",
+          "jazz": "Jazz",
+          "rock": "Rock",
+          "classical": "Classical",
+          "ambient": "Ambient",
+          "chill": "Chill"
+        }
+      },
+      "share": {
+        "title": "My music",
+        "hint": "Music plays from your account — VK Music, Yandex Music or anything else open in a browser tab — and everyone in the room hears it.",
+        "tab": "Share a tab's audio",
+        "tabHint": "In the picker, choose the tab with the music and turn on “Share tab audio”.",
+        "tabUnsupported": "Sharing a tab's audio needs a desktop browser.",
+        "files": "Play files from this device",
+        "sharingTab": "Sharing audio from a tab",
+        "playingFile": "Playing {name}",
+        "paused": "Paused: {name}",
+        "pause": "Pause",
+        "resume": "Resume",
+        "next": "Next file",
+        "stop": "Stop sharing",
+        "noAudio": "No audio was shared — turn on “Share tab audio” in the picker.",
+        "fileFailed": "Couldn't play {name}.",
+        "publishFailed": "Couldn't start sharing in this room."
+      },
+      "settings": {
+        "volume": "Music volume",
+        "ducking": "Lower the music while people talk"
+      },
+      "player": {
+        "unplayable": "This track can't be played here — skipping it.",
+        "unavailable": "The player didn't load — the service may be blocked on your network.",
+        "tapToListen": "Tap to listen"
+      },
+      "sources": {
+        "youtube": "YouTube",
+        "soundcloud": "SoundCloud",
+        "radio": "Radio",
+        "vimeo": "Vimeo",
+        "file": "Audio file"
+      },
+      "playInRoom": "Play in the room",
+      "tabOnly": {
+        "title": "{service} can't be embedded",
+        "hint": "Play it in a browser tab, then use “Share a tab's audio” in My music below — everyone in the room will hear it.",
+        "services": {
+          "vk": "VK",
+          "yandex": "Yandex Music",
+          "spotify": "Spotify",
+          "apple": "Apple Music",
+          "zvuk": "Zvuk",
+          "deezer": "Deezer"
+        }
+      }
+    },
+    "password": {
+      "heading": "This room is locked",
+      "hint": "Ask whoever sent you the link for the password — “{name}” will not open without it.",
+      "label": "Password",
+      "wrong": "Wrong password",
+      "join": "Join",
+      "validation": {
+        "passwordMin": "Min 4 characters",
+        "passwordMax": "Max 128 characters"
+      }
+    },
+    "shortcuts": {
+      "pttBlockedByMute": "Microphone is muted — unmute to use push-to-talk"
+    },
+    "controls": {
+      "mute": "Mute",
+      "unmute": "Unmute",
+      "micDevice": "Select microphone",
+      "camera": "Turn on camera",
+      "cameraOff": "Turn off camera",
+      "camDevice": "Select camera",
+      "screenShare": "Share screen",
+      "stopShare": "Stop sharing",
+      "react": "Send a reaction",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen",
+      "speakerDevice": "Select speakers",
+      "pttHint": "Push-to-talk",
+      "leave": "Leave",
+      "invisibleMicBlocked": "You cannot speak in invisible mode"
+    },
+    "dmWaiting": "Waiting for the other person to join…",
+    "expandVideo": "Expand video",
+    "collapseVideo": "Collapse video",
+    "invisibleBadge": "Invisible",
+    "invisibleNotice": "You joined hidden: nobody sees or hears you",
+    "badges": {
+      "screen": "Screen",
+      "music": "Music"
+    }
+  },
+  "chat": {
+    "title": "Chat",
+    "close": "Close chat",
+    "open": "Show chat",
+    "hide": "Hide chat",
+    "messagePlaceholder": "Message…",
+    "send": "Send message",
+    "attach": "Attach file",
+    "dropToSend": "Drop to send",
+    "uploading": "Uploading…",
+    "fileTooLarge": "File is too large (max 25 MB)",
+    "sending": "Sending…",
+    "sendFailed": "Not sent",
+    "retry": "Retry",
+    "discard": "Delete",
+    "edit": "Edit",
+    "delete": "Delete",
+    "edited": "edited",
+    "editHint": "Enter to save · Shift+Enter for a new line · Esc to cancel",
+    "editTitle": "Edit message",
+    "save": "Save",
+    "deletedPlaceholder": "Message deleted",
+    "deleteTitle": "Delete message?",
+    "deleteDescription": "This message will be permanently removed for everyone. This action cannot be undone.",
+    "cancel": "Cancel",
+    "editFailed": "Failed to edit message",
+    "deleteFailed": "Failed to delete message",
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "empty": {
+      "title": "It's quiet here",
+      "description": "Messages sent in this room appear here and stay for everyone who joins later. Drop a link, a file or just say hi."
+    },
+    "openInBrowser": "Open in browser",
+    "download": "Download"
+  },
+  "channels": {
+    "searchPlaceholder": "Search rooms...",
+    "noRoomsYet": "No rooms yet",
+    "nothingFound": "Nothing found",
+    "nothingFoundHint": "No room matches that name. Clear the search to see all of them again.",
+    "online": "online",
+    "createRoom": "Create a room",
+    "emptyHint": "Pick a room from the page, or start a new one.",
+    "privateRoom": "Private room",
+    "friends": {
+      "heading": "Friends",
+      "online": "Online — {count}",
+      "offline": "Offline — {count}"
+    },
+    "activity": {
+      "heading": "Friend activity",
+      "inRooms": "In rooms now",
+      "available": "{count, plural, one {# free to talk} other {# free to talk}}",
+      "join": "Join",
+      "others": "{count, plural, one {+# more person} other {+# more people}}",
+      "emptyTitle": "It's quiet right now",
+      "emptyHint": "None of your friends are around. Start a room and be the first one in."
+    }
+  },
+  "createRoom": {
+    "trigger": "Create room",
+    "title": "Create a room",
+    "description": "Set a name, pick who can join, and we drop you straight into the call.",
+    "nameLabel": "New room name",
+    "namePlaceholder": "team standup",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Min 4 chars",
+    "privateLabel": "Private (password required to join)",
+    "submit": "Create room",
+    "created": "Room created",
+    "nameCounter": "{count}/{max}",
+    "passwordHint": "At least 4 characters. Share it only with people you want inside.",
+    "privateExplainer": "The room stays listed under a lock. Only people with the password can get in.",
+    "publicExplainer": "Everyone sees the room in the lobby and can join without a password.",
+    "hint": "You can rename the room or change its password later from the room menu."
+  },
+  "manageRoom": {
+    "menu": {
+      "open": "Manage room",
+      "edit": "Edit room",
+      "delete": "Delete room"
+    },
+    "edit": {
+      "title": "Edit room",
+      "description": "Rename the room, or switch it between public and private.",
+      "nameLabel": "Name",
+      "passwordLabel": "New password",
+      "passwordHint": "Leave empty to keep the current password.",
+      "privateLabel": "Private (password required to join)",
+      "submit": "Save changes",
+      "saved": "Room updated",
+      "nameCounter": "{count}/{max}",
+      "privateExplainer": "The room stays listed under a lock. Only people with the password can get in.",
+      "publicExplainer": "Everyone sees the room in the lobby and can join without a password.",
+      "hint": "Changing the password does not kick anyone out — it only affects new joins."
+    },
+    "delete": {
+      "title": "Delete \"{name}\"?",
+      "description": "Anyone currently inside will be disconnected. This cannot be undone.",
+      "cancel": "Cancel",
+      "confirm": "Delete",
+      "deleted": "Room deleted",
+      "consequences": "The room, its chat history, and every channel inside it are gone for good.",
+      "hint": "Everyone currently in the call will be disconnected right away."
+    }
+  },
+  "participant": {
+    "muteForMe": "Mute for me",
+    "unmuteForMe": "Unmute for me",
+    "volume": "Volume",
+    "volumeFor": "Volume for {name}",
+    "screenVolume": "Screen audio",
+    "screenVolumeFor": "Screen audio volume for {name}",
+    "copyName": "Copy name",
+    "nameCopied": "Name copied"
+  }
+}

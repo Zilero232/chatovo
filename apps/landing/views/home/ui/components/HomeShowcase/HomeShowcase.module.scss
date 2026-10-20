@@ -1,0 +1,115 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.head {
+  display: flex;
+  max-width: rem(720);
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto var(--space-10);
+  gap: var(--space-3);
+  text-align: center;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(#{rem(32)}, 4.4vw, #{rem(52)});
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.subheading {
+  max-width: rem(600);
+  text-wrap: pretty;
+}
+
+.stage {
+  position: relative;
+}
+
+.window {
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-2xl);
+  background: var(--surface-1);
+  box-shadow: var(--shadow-elevated);
+}
+
+.titlebar {
+  position: relative;
+  display: flex;
+  height: rem(40);
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-2);
+  padding-inline: var(--space-4);
+}
+
+.dots {
+  position: absolute;
+  left: var(--space-4);
+  display: flex;
+  gap: rem(7);
+
+  span {
+    width: rem(11);
+    height: rem(11);
+    border-radius: 50%;
+    background: rgb(var(--tint) / 18%);
+  }
+}
+
+.address {
+  padding: rem(3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--background);
+  color: var(--subtle-foreground);
+  font-size: var(--text-xs);
+}
+
+.shot {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.chip {
+  position: absolute;
+  display: none;
+  align-items: center;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  background: var(--surface-2);
+  box-shadow: var(--shadow-elevated);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  gap: var(--space-2);
+
+  @include bp(lg) {
+    display: inline-flex;
+  }
+
+  &[data-position='music'] {
+    top: 12%;
+    left: rem(-28);
+  }
+
+  &[data-position='speaking'] {
+    top: 44%;
+    left: rem(-40);
+  }
+
+  &[data-position='chat'] {
+    top: 30%;
+    right: rem(-36);
+  }
+}
+
+.chipIcon {
+  width: var(--icon-sm);
+  height: var(--icon-sm);
+  color: var(--brand-coral);
+}

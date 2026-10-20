@@ -1,8 +1,8 @@
 # Repo-wide ignores. Build output and runtime data that belong to one package
 # live in that package's own .gitignore:
-#   apps/client/.gitignore    — .next/, out/, dist/, next-env.d.ts
+#   apps/client/web/.gitignore    — dist/
 #   apps/server/.gitignore    — generated/, dist/, uploads/, .image-cache/
-#   apps/tauri/.gitignore     — target/, gen/, icons/
+#   apps/client/native/.gitignore     — target/, gen/, icons/
 #   packages/schemas/.gitignore — dist/
 
 # Dependencies
@@ -27,7 +27,7 @@ lerna-debug.log*
 *.local
 
 # Signing material: Tauri updater minisign keys, Android keystores
-# (written by apps/tauri/scripts/android-signing.mjs), certificates
+# (written by apps/client/native/scripts/android-signing.mjs), certificates
 *.key
 *.key.pub
 *.keystore
@@ -64,3 +64,6 @@ docs/superpowers/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Agent worktrees (git worktree checkouts of this repo)
+.claude/worktrees/

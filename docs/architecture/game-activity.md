@@ -5,8 +5,8 @@ A participant can share the name of the game they have running — games only, n
 ## Where each piece lives
 
 ```text
-apps/tauri/src/game_detection/     Rust — resolves a running process to a display name
-apps/client/features/app/game-activity/
+apps/client/native/src/game_detection/     Rust — resolves a running process to a display name
+apps/client/web/src/features/app/game-activity/
 ├── api/detect-running-game.ts     invoke('detect_running_game'), null outside the desktop shell
 ├── model/hooks/use-game-activity      polls via TanStack Query, gated on the setting
 └── model/hooks/use-game-activity-sync publishes the result into presence

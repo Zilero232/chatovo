@@ -1,0 +1,53 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  position: relative;
+  padding: 0 rem(48) rem(56) 0;
+}
+
+.desktop {
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-xl);
+  background: var(--surface-2);
+  box-shadow: var(--shadow-elevated);
+}
+
+.titlebar {
+  display: flex;
+  height: rem(26);
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  gap: rem(6);
+  padding-inline: var(--space-3);
+
+  span {
+    width: rem(8);
+    height: rem(8);
+    border-radius: 50%;
+    background: rgb(var(--tint) / 18%);
+  }
+}
+
+.phone {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  width: 32%;
+  padding: rem(5);
+  border: 1px solid var(--border-strong);
+  border-radius: rem(28);
+  background: var(--background);
+  box-shadow: var(--shadow-elevated);
+
+  .shot {
+    border-radius: rem(23);
+  }
+}
+
+.shot {
+  display: block;
+  width: 100%;
+  height: auto;
+}

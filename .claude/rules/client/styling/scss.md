@@ -1,6 +1,8 @@
 ---
 paths:
-  - 'apps/client/**/*.scss'
+  - 'apps/client/web/**/*.scss'
+  - 'apps/landing/**/*.scss'
+  - 'packages/ui-kit/**/*.scss'
 ---
 
 <!-- Compressed editing rules, loaded automatically when an SCSS module is edited. -->
@@ -8,7 +10,7 @@ paths:
 
 # Client — styles
 
-SCSS modules only (`*.module.scss`, imported as `s`); CSS-in-JS is banned. Tokens are CSS variables (`ui-kit/styles/_tokens.scss` through `app/globals.scss`): `--space-*`, `--icon-*`, `--control-*`, colours, radii — no raw values where a token exists. Shared mixins: `@use '@/ui-kit/styles/mixins' as *`, never `../../../`.
+SCSS modules only (`*.module.scss`, imported as `s`); CSS-in-JS is banned. Tokens are CSS variables (`packages/ui-kit/styles/_tokens.scss`, pulled into each app's `globals.scss` (`apps/client/web/src/app/`, `apps/landing/app/`) with `_keyframes` and the shared `_base`): `--space-*`, `--icon-*`, `--control-*`, colours, radii — no raw values where a token exists. Shared mixins: `@use '@chatovo/ui-kit/styles/mixins' as *` (also `breakpoints`, `functions`), never `../../../`.
 
 The theme is dark, hard-coded on `<html className="dark">`. Property order is Stylelint's job — `bun lint:css:fix`.
 

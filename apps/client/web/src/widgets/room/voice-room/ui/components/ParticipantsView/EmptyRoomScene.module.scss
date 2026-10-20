@@ -1,0 +1,17 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  width: min(#{rem(280)}, 70%);
+  height: auto;
+  opacity: 0.45;
+  pointer-events: none;
+  translate: -50% -50%;
+
+  @include bp(md) {
+    width: min(#{rem(340)}, 70%);
+  }
+}

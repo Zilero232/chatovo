@@ -1,0 +1,17 @@
+@use '@chatovo/ui-kit/styles/functions' as *;
+
+.root {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 0.5rem;
+  border-radius: var(--radius-md);
+  background: rgb(var(--tint) / 11%);
+  box-shadow: inset 0 rem(2) rem(4) rgb(8 4 10 / 30%);
+}
+
+.indicator {
+  height: 100%;
+  background: var(--primary);
+  transition: width var(--duration-slow) var(--timing-function-out);
+}

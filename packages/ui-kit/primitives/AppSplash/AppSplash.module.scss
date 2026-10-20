@@ -1,0 +1,80 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+@use '@chatovo/ui-kit/styles/keyframes';
+
+.root {
+  position: fixed;
+  z-index: var(--z-splash);
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: var(--safe-area-top);
+  padding-bottom: var(--safe-area-bottom);
+  background-color: var(--background);
+  gap: 1.25rem;
+  inset: 0;
+  padding-inline: 1.5rem;
+}
+
+.iconBox {
+  position: relative;
+  z-index: var(--z-base);
+  display: flex;
+  width: 4.5rem;
+  height: 4.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-elevated);
+
+  &:after {
+    position: absolute;
+    border-radius: inherit;
+    animation: splash-halo 2.8s ease-in-out infinite;
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--brand-violet) 45%, transparent);
+    content: '';
+    inset: 0;
+
+    @include reduced-motion {
+      animation: none;
+    }
+  }
+}
+
+@keyframes splash-halo {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0;
+    transform: scale(1.35);
+  }
+}
+
+.brand {
+  position: relative;
+  z-index: var(--z-base);
+  color: var(--foreground);
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.content {
+  position: relative;
+  z-index: var(--z-base);
+  display: flex;
+  width: 100%;
+  max-width: 20rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.progress {
+  width: 100%;
+}

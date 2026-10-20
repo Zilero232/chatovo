@@ -1,6 +1,6 @@
 # Tauri on the client
 
-The desktop and Android apps load this same client in a Tauri webview. Desktop-only features (system tray, global shortcuts, deep links, the updater, window controls) are written on the JS side with `@tauri-apps/api` and the plugin packages; the Rust shell is described in [apps/tauri/CLAUDE.md](../../../apps/tauri/CLAUDE.md).
+The desktop and Android apps load this same client in a Tauri webview. Desktop-only features (system tray, global shortcuts, deep links, the updater, window controls) are written on the JS side with `@tauri-apps/api` and the plugin packages; the Rust shell is described in [apps/client/native/CLAUDE.md](../../../apps/client/native/CLAUDE.md).
 
 ## Gate every call
 

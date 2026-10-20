@@ -111,7 +111,7 @@ NEXT_PUBLIC_API_URL=https://api.chatovo.ru
 NEXT_PUBLIC_LIVEKIT_URL=wss://livekit.chatovo.ru
 ```
 
-After `bun android:init`, configure signing in `apps/tauri/gen/android/` per the
+After `bun android:init`, configure signing in `apps/client/native/gen/android/` per the
 [Tauri docs](https://v2.tauri.app/distribute/sign/android):
 
 1. `gen/android/keystore.properties` — path to the `.keystore`, alias, passwords
@@ -128,7 +128,7 @@ regenerated. Locally that is the same script CI runs:
 
 ```bash
 ANDROID_KEY_ALIAS=chatovo ANDROID_KEY_PASSWORD=... ANDROID_KEY_BASE64=$(base64 -w0 chatovo-release.keystore) \
-  node apps/tauri/scripts/android-signing.mjs
+  node apps/client/native/scripts/android-signing.mjs
 ```
 
 ## 6. What to upload to Play
@@ -136,7 +136,7 @@ ANDROID_KEY_ALIAS=chatovo ANDROID_KEY_PASSWORD=... ANDROID_KEY_BASE64=$(base64 -
 The AAB only:
 
 ```text
-apps/tauri/gen/android/app/build/outputs/bundle/universalRelease/app-universal-release.aab
+apps/client/native/gen/android/app/build/outputs/bundle/universalRelease/app-universal-release.aab
 ```
 
 Job `android` in `release.yml` attaches it to the draft GitHub Release as

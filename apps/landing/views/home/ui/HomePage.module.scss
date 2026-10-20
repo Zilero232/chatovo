@@ -1,0 +1,196 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+@use '@chatovo/ui-kit/styles/functions' as *;
+@use '@chatovo/ui-kit/styles/breakpoints' as *;
+@use 'shared/styles/container' as *;
+
+.hero {
+  @include page-container;
+
+  position: relative;
+  display: grid;
+  gap: var(--space-12);
+  grid-template-columns: 1fr;
+  padding-block: rem(104) rem(48);
+  place-items: center center;
+
+  @include bp(lg) {
+    gap: var(--space-10);
+    grid-template-columns: minmax(0, 1fr) auto;
+    justify-items: stretch;
+    padding-block: rem(136) rem(80);
+  }
+}
+
+.heroScene {
+  margin-inline: 8% 0;
+
+  @include bp(lg) {
+    margin-inline: 0 var(--space-6);
+  }
+}
+
+.heroPoints {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: var(--space-2) 0 0;
+  color: var(--muted-foreground);
+  font-size: var(--text-sm);
+  gap: var(--space-2);
+  list-style: none;
+}
+
+.heroPoint {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.heroPointIcon {
+  width: var(--icon-sm);
+  height: var(--icon-sm);
+  flex-shrink: 0;
+  color: var(--brand-mint);
+}
+
+.heroCopy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-5);
+}
+
+.heroTitle {
+  max-width: rem(640);
+  font-family: var(--font-display);
+  font-size: clamp(#{rem(40)}, 6vw, #{rem(68)});
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+.heroAccent {
+  position: relative;
+  display: inline;
+  color: var(--brand-sun);
+  font-style: italic;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--brand-coral) 55%, transparent);
+  text-decoration-thickness: rem(4);
+  text-underline-offset: rem(8);
+}
+
+.heroDescription {
+  max-width: rem(560);
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: var(--space-2);
+  gap: var(--space-3);
+}
+
+.steps {
+  display: grid;
+  padding: 0;
+  margin: 0;
+  gap: var(--space-4);
+  grid-template-columns: 1fr;
+  list-style: none;
+
+  @include bp(md) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-6);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  background: var(--surface-1);
+  gap: var(--space-2);
+}
+
+.stepIndex {
+  margin-bottom: var(--space-2);
+  color: var(--brand-coral);
+  font-family: var(--font-display);
+  font-size: rem(48);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.stepTitle {
+  font-size: rem(18);
+}
+
+.faq {
+  display: grid;
+  gap: var(--space-4);
+
+  @include bp(lg) {
+    align-items: start;
+    gap: var(--space-12);
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  }
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--border);
+}
+
+.faqItem {
+  border-top: 1px solid var(--border);
+
+  &[open] .faqChevron {
+    transform: rotate(180deg);
+  }
+}
+
+.faqQuestion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-5) 0;
+  font-size: rem(17);
+  font-weight: 600;
+  gap: var(--space-4);
+  list-style: none;
+  transition: color var(--duration-default) var(--timing-function-standard);
+
+  @include interactive-cursor;
+  @include focus-ring;
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  &:hover {
+    color: var(--brand-coral);
+  }
+}
+
+.faqChevron {
+  width: var(--icon-md);
+  height: var(--icon-md);
+  flex-shrink: 0;
+  color: var(--muted-foreground);
+  transition: transform var(--duration-default) var(--timing-function-standard);
+}
+
+.faqAnswer {
+  max-width: rem(640);
+  line-height: 1.7;
+  padding-block-end: var(--space-5);
+}

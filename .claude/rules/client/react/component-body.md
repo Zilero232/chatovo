@@ -1,6 +1,8 @@
 ---
 paths:
-  - 'apps/client/**/*.{ts,tsx}'
+  - 'apps/client/web/**/*.{ts,tsx}'
+  - 'apps/landing/**/*.{ts,tsx}'
+  - 'packages/ui-kit/**/*.{ts,tsx}'
 ---
 
 <!-- Compressed editing rules, loaded automatically when a client file is edited. -->

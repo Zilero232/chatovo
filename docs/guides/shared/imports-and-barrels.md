@@ -2,7 +2,7 @@
 
 ## Aliases
 
-`@/` → the `apps/client/` root. Use it for everything except relative imports within the same folder.
+`@/` → the app root (`apps/client/web/` or `apps/landing/`). Use it for everything except relative imports within the same folder. Workspace packages go by name: `@chatovo/ui-kit`, `@chatovo/config`, `@chatovo/schemas`.
 
 ## Group order
 
@@ -45,14 +45,14 @@ A deep import past a barrel is banned:
 ```ts
 // ✗ BANNED
 import { ChannelsList } from '@/widgets/room/channels-panel/ui/components/ChannelsList';
-import { Button } from '@/ui-kit/primitives/Button';
+import { Button } from '@chatovo/ui-kit/primitives/Button';
 
 // ✓ OK
 import { ChannelsPanel } from '@/widgets/room/channels-panel';
-import { Button } from '@/ui-kit';
+import { Button } from '@chatovo/ui-kit';
 ```
 
-`ui-kit` has a single root barrel, `@/ui-kit` (the atomic layer stays under the hood). Inside a slice, relative imports are fine.
+The design system has a single root barrel, `@chatovo/ui-kit` (the atomic layer stays under the hood); its only other entry points are `@chatovo/ui-kit/messages` and `@chatovo/ui-kit/styles/*`. Workspace packages (`@chatovo/ui-kit`, `@chatovo/config`, `@chatovo/schemas`) are imported by package name, never by a relative path. Inside a slice, relative imports are fine.
 
 ESLint does not check FSD boundaries — we catch them at review.
 

@@ -48,7 +48,7 @@ const readRole = (user: User | null): UserRole =>
   match(state).with('idle', () => null)
   ```
 
-- **Primitives in `ui-kit/`** — they follow their own convention (PascalCase folders, SCSS modules, Base UI). See [`ui-kit` structure](../client/slice-ui.md#21-ui-kit-structure).
+- **Primitives in `packages/ui-kit/`** — they follow their own convention (PascalCase folders, SCSS modules, Base UI). See [`ui-kit` structure](../client/slice-ui.md#21-ui-kit-structure).
 
 **Review rule:** if the arrow sits to the right of an `=` (a function declaration) — block body. If the arrow sits inside `(...)` or `{...}` (an argument) — your call, usually an expression.
 

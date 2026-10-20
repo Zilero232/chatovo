@@ -1,0 +1,46 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  --level: clamp(0, var(--voice-level, 0), 1);
+
+  position: absolute;
+  overflow: visible;
+  width: 36cqmin;
+  height: 36cqmin;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-fast) var(--timing-function-out);
+
+  &[data-speaking='true'] {
+    opacity: 1;
+  }
+}
+
+.inner,
+.outer {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: none;
+}
+
+.inner {
+  opacity: calc(0.45 + var(--level) * 0.55);
+  scale: calc(1 + var(--level) * 0.06);
+  stroke-width: calc(1.5 + var(--level) * 3.5);
+}
+
+.outer {
+  opacity: calc(var(--level) * 0.5);
+  scale: calc(1 + var(--level) * 0.1);
+  stroke-width: calc(0.75 + var(--level) * 1.75);
+}
+
+@include tauri-mobile {
+  .outer {
+    display: none;
+  }
+
+  .inner {
+    scale: calc(1 + var(--level) * 0.08);
+  }
+}

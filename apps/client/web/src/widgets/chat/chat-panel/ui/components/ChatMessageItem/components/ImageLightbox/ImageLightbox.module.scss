@@ -1,0 +1,77 @@
+@use '@chatovo/ui-kit/styles/functions' as *;
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.content {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  max-width: min(94vw, #{rem(1100)});
+  box-sizing: border-box;
+  flex-direction: column;
+  padding: 0;
+  gap: 0;
+
+  @include bp-sm-up {
+    max-width: min(94vw, #{rem(1100)});
+  }
+}
+
+.bar {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  padding: rem(10) rem(10) rem(10) rem(16);
+  border-bottom: 1px solid var(--border);
+  gap: rem(12);
+}
+
+.meta {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: rem(2);
+}
+
+.name {
+  overflow: hidden;
+  font-size: rem(13);
+  font-weight: 500;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.size {
+  color: var(--muted-foreground);
+  font-size: rem(11);
+  text-align: left;
+}
+
+.figure {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  background: rgb(8 4 10 / 55%);
+}
+
+.image {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: min(70vh, #{rem(780)});
+  object-fit: contain;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: rem(12) rem(16);
+  border-top: 1px solid var(--border);
+  gap: rem(8);
+}

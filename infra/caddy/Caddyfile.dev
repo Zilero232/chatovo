@@ -7,8 +7,8 @@
 # `bun dev` on the host, not containers.
 #
 # Browsers resolve any *.localhost name to 127.0.0.1 automatically — no hosts
-# file edit needed. Three origins are used so the browser performs real CORS
-# preflight, exactly as between chatovo.ru and api.chatovo.ru in prod.
+# file edit needed. Separate origins are used so the browser performs real
+# CORS preflight, exactly as between app.chatovo.ru and api.chatovo.ru in prod.
 #
 # --- One-time TLS trust setup ---
 # `tls internal` makes Caddy run its own CA. The browser will not trust it
@@ -24,24 +24,32 @@
 # Run with the dev compose file:
 #   docker compose -f docker-compose.dev.yml up
 #
-# Then open https://chatovo.localhost  (NOT localhost:3000 — go through Caddy).
+# Then open https://app.chatovo.localhost for the app and
+# https://chatovo.localhost for the site (NOT localhost:3000/3001 — go
+# through Caddy).
 #
 # Local env values to match this setup:
 #   .env :
 #     NEXT_PUBLIC_API_URL=https://api.chatovo.localhost
+#     NEXT_PUBLIC_APP_URL=https://app.chatovo.localhost
 #     NEXT_PUBLIC_LIVEKIT_URL=wss://livekit.chatovo.localhost
-#   .env :
-#     CORS_ORIGINS=https://chatovo.localhost
+#     CORS_ORIGINS=https://app.chatovo.localhost
 #     LIVEKIT_URL=ws://localhost:7880
 
-# Caddy runs in a container; `bun dev` (client :3000, server :4000) runs on the
-# host. host.docker.internal bridges the container to the host — see the
-# extra_hosts entry in docker-compose.dev.yml.
+# Caddy runs in a container; `bun dev` (client :3000, site :3001, server :4000)
+# runs on the host. host.docker.internal bridges the container to the host —
+# see the extra_hosts entry in docker-compose.dev.yml.
 
-# --- Web client (Next.js dev server on the host) ---
-chatovo.localhost {
+# --- Web app (Vite dev server on the host) ---
+app.chatovo.localhost {
 	tls internal
 	reverse_proxy host.docker.internal:3000
+}
+
+# --- Public website (Next.js dev server on the host) ---
+chatovo.localhost {
+	tls internal
+	reverse_proxy host.docker.internal:3001
 }
 
 # --- API server (NestJS / bun dev on the host) ---
@@ -60,8 +68,8 @@ livekit.chatovo.localhost {
 	# `Access-Control-Allow-Origin: *`; strip it (header_down -...) so it
 	# does not collide with the single value Caddy sets, otherwise the
 	# browser rejects the duplicated header and drops the user from the room.
-	@cors_web header Origin https://chatovo.localhost
-	header @cors_web Access-Control-Allow-Origin "https://chatovo.localhost"
+	@cors_web header Origin https://app.chatovo.localhost
+	header @cors_web Access-Control-Allow-Origin "https://app.chatovo.localhost"
 
 	@cors_preflight method OPTIONS
 	handle @cors_preflight {

@@ -10,8 +10,8 @@ Releases are unrelated to it.
 
 | Item | Status |
 |------|--------|
-| Privacy policy `/privacy` | Done (client) |
-| Terms `/terms` | Done (client) |
+| Privacy policy `/privacy` | Done (site, `https://chatovo.ru/privacy`) |
+| Terms `/terms` | Done (site, `https://chatovo.ru/terms`) |
 | Android Tauri config | Done (`tauri.android.conf.json`) |
 | Mobile capability | Done (`capabilities/mobile.json`) |
 | Android mic/camera manifest | Done (`build.rs` → `tauri_utils::build::update_android_manifest`) |
@@ -20,14 +20,14 @@ Releases are unrelated to it.
 | `gen/android/` project | `bun android:init` locally / in CI (gitignored) |
 | Upload key | Required — see [signing.md](signing.md) |
 | In-app account deletion | Done (Settings → Security → Delete account) |
-| Web account deletion page | Done (`/account/delete`) |
-| Community rules in `/terms` | Done (client, both locales) |
+| Web account deletion page | Done (`https://app.chatovo.ru/account/delete`) |
+| Community rules in `/terms` | Done (site, both locales) |
 | Report a user / a message | Done (`features/social/report-abuse`) |
 | Blocking offenders | Done (`modules/moderation` on the server) |
 | Consent checkbox on signup | Done (sign-up form) |
 | Admin panel | Done (`/admin`, four tabs — see [moderation.md](moderation.md)) |
 | Store listing | See [listing.md](listing.md) |
-| Icon + feature graphic | Done (`assets/`) |
+| Icon + feature graphic | Done (`assets/`, regenerated for the coral brand plaque) |
 | Phone screenshots | Done (`assets/screenshots/`, five 1080×1920 shots) |
 | Data safety form | See [data-safety.md](data-safety.md) |
 | Moderation and UGC | See [moderation.md](moderation.md) |
@@ -63,7 +63,7 @@ bun android:dev
 
 # Release build (APK + AAB)
 bun android:build
-# Output: apps/tauri/gen/android/app/build/outputs/bundle/universalRelease/app-universal-release.aab
+# Output: apps/client/native/gen/android/app/build/outputs/bundle/universalRelease/app-universal-release.aab
 ```
 
 ## CI (GitHub Actions)
@@ -71,7 +71,7 @@ bun android:build
 | Workflow | Trigger | Contents |
 |----------|---------|----------|
 | `release.yml` | push a `v*` tag | `vX.Y.Z` — desktop installers (Windows, macOS arm64 + x64, Linux) and the signed Android AAB |
-| `deploy.yml` | manual run | Web client + API images to GHCR, then the VPS stack (no GitHub Release) |
+| `deploy.yml` | manual run | Web, site and API images to GHCR, then the VPS stack (no GitHub Release) |
 
 Job `android` builds and signs the bundle, attaches it to the draft release and
 uploads it to the Play track in `PLAY_TRACK` (production by default), sent for
@@ -80,7 +80,7 @@ review. The service account setup is in
 
 ## Environment
 
-`apps/tauri/.env` (copy of `.env.example`) — read by every `android:*` script:
+`apps/client/native/.env` (copy of `.env.example`) — read by every `android:*` script:
 
 ```env
 JAVA_HOME=C:\Program Files\Android\Android Studio\jbr
@@ -166,7 +166,7 @@ build: every device that can install from Play has Google services.
 edit it by hand.
 
 1. Download `google-services.json` from the Firebase Console (Android app `chatovo.app`).
-2. Save it to **`apps/tauri/android/google-services.json`** (committed — not a secret).
+2. Save it to **`apps/client/native/android/google-services.json`** (committed — not a secret).
 3. Run any android script — `setup-android-fcm.mjs` copies the file and the `MainActivity.kt` overlay into `gen/android/app/` and patches Gradle.
 
 `POST_NOTIFICATIONS` is injected through `build.rs` on every build. Plugin
@@ -204,7 +204,7 @@ lobby opens the chat named by `?chat=`.
 3. Play App Signing enrolled and the upload key registered — see [signing.md](signing.md)
 4. Privacy policy URL filled in: `https://chatovo.ru/privacy`
 5. Data safety form completed from [data-safety.md](data-safety.md)
-6. Account deletion URL filled in: `https://chatovo.ru/account/delete`
+6. Account deletion URL filled in: `https://app.chatovo.ru/account/delete` (the `chatovo.ru` path 301s there; give Play the final URL)
 7. Support mailbox `zilero@chatovo.ru` reachable
 8. Reviewer credentials filled into the Play Console's *App access* section — **not** committed to this repo
 9. At least one account holding the `admin` role — promote the first one in the database, the rest from the Users tab: [moderation.md](moderation.md)

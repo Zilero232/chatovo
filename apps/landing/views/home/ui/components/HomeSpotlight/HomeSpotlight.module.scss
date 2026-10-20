@@ -1,0 +1,97 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  --tone: var(--brand-coral);
+
+  display: grid;
+  align-items: center;
+  gap: var(--space-8);
+  grid-template-columns: 1fr;
+
+  @include bp(lg) {
+    gap: var(--space-16);
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  }
+
+  &[data-tone='voice'] {
+    --tone: var(--brand-mint);
+  }
+
+  &[data-reversed='true'] {
+    @include bp(lg) {
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+
+      .copy {
+        order: 2;
+      }
+    }
+  }
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.eyebrow {
+  color: var(--tone);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(#{rem(28)}, 3.4vw, #{rem(42)});
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.points {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-4) 0 0;
+  border-top: 1px solid var(--border);
+  margin: var(--space-2) 0 0;
+  gap: var(--space-3);
+  list-style: none;
+}
+
+.point {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  line-height: 1.5;
+}
+
+.pointIcon {
+  width: var(--icon-sm);
+  height: var(--icon-sm);
+  flex-shrink: 0;
+  margin-top: rem(3);
+  color: var(--tone);
+}
+
+.visual {
+  position: relative;
+  padding: var(--space-6) 0 0 var(--space-6);
+
+  &:before {
+    position: absolute;
+    border-radius: var(--radius-2xl);
+    background: color-mix(in srgb, var(--tone) 16%, var(--surface-1));
+    content: '';
+    inset: 0 var(--space-6) var(--space-6) 0;
+  }
+}
+
+.shot {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-elevated);
+}

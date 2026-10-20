@@ -1,6 +1,8 @@
 ---
 paths:
-  - 'apps/client/**/*.{ts,tsx}'
+  - 'apps/client/web/**/*.{ts,tsx}'
+  - 'apps/landing/**/*.{ts,tsx}'
+  - 'packages/ui-kit/**/*.{ts,tsx}'
 ---
 
 <!-- Compressed editing rules, loaded automatically when a client file is edited. -->
@@ -8,7 +10,7 @@ paths:
 
 # Client — hooks, effects, queries
 
-`'use client'` in every file with hooks, state or handlers. The React Compiler is on — `useMemo` / `useCallback` only for a semantically stable ref. React types are named imports, never `import type * as React`.
+`'use client'` in every file with hooks, state or handlers in `apps/landing` and `packages/ui-kit`; the web app is a client-only SPA and has none. The React Compiler is on — `useMemo` / `useCallback` only for a semantically stable ref. React types are named imports, never `import type * as React`.
 
 ## Hook order
 

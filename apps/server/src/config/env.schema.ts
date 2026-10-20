@@ -68,6 +68,9 @@ export const envSchema = z.object({
   // missing is regenerated from the source. In Docker this is a mounted volume.
   IMAGE_CACHE_DIR: z.string().default('./.image-cache'),
 
+  // The public website. Room link previews take their Open Graph image from it.
+  SITE_URL: z.url().default('https://chatovo.ru'),
+
   // Comma-separated list of allowed CORS origins (web client domains).
   // Tauri origins are always allowed and don't need to be listed here.
   CORS_ORIGINS: z.string().default('http://localhost:3000')

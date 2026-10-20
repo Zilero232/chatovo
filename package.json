@@ -1,6 +1,6 @@
 {
   "name": "chatovo",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "private": true,
   "description": "Chatovo — real-time voice rooms for web and desktop. Bun-workspaces monorepo.",
   "keywords": [
@@ -26,53 +26,79 @@
   "workspaces": {
     "packages": [
       "apps/*",
+      "apps/client/*",
       "packages/*"
     ],
     "catalog": {
+      "@base-ui/react": "^1.8.0",
+      "@siberiacancode/reactuse": "^1.0.17",
+      "@testing-library/dom": "^10.4.1",
+      "@testing-library/jest-dom": "^7.0.1",
+      "@testing-library/react": "^16.3.3",
+      "@types/node": "^26.5.1",
       "@types/react": "^19.3.0",
       "@types/react-dom": "^19.3.0",
+      "@vitejs/plugin-react": "^6.1.1",
+      "babel-plugin-react-compiler": "^1.0.0",
       "better-auth": "^1.6.31",
+      "class-variance-authority": "^0.7.1",
+      "clsx": "^2.1.1",
       "date-fns": "^4.4.0",
+      "dotenv": "^17.4.2",
+      "jsdom": "^30.0.1",
+      "lucide-react": "^1.44.0",
+      "modern-normalize": "^3.0.1",
+      "motion": "^13.2.0",
+      "next": "^16.3.4",
+      "next-intl": "^4.14.3",
+      "pretty-bytes": "^7.1.3",
       "react": "^19.3.0",
       "react-dom": "^19.3.0",
       "remeda": "^2.48.0",
+      "sass-embedded": "^1.104.0",
+      "sonner": "^2.0.8",
       "ts-pattern": "^5.9.0",
       "typescript": "~6.0.3",
+      "use-intl": "^4.14.3",
+      "vite": "^8.2.2",
       "zod": "^4.6.1"
     }
   },
   "scripts": {
-    "android:build": "bun --filter @chatovo/tauri android:build",
-    "android:dev": "bun --filter @chatovo/tauri android:dev",
-    "android:init": "bun --filter @chatovo/tauri android:init",
-    "build": "bun --filter @chatovo/client build",
-    "dev": "bun --filter '@chatovo/server' --filter '@chatovo/client' --parallel dev",
-    "dev:client": "bun --filter @chatovo/client dev",
+    "android:build": "bun --filter @chatovo/client-native android:build",
+    "android:dev": "bun --filter @chatovo/client-native android:dev",
+    "android:init": "bun --filter @chatovo/client-native android:init",
+    "build": "bun --filter @chatovo/client-web build && bun --filter @chatovo/landing build",
+    "build:landing": "bun --filter @chatovo/landing build",
+    "build:web": "bun --filter @chatovo/client-web build",
+    "dev": "bun --filter '@chatovo/server' --filter '@chatovo/client-web' --filter '@chatovo/landing' --parallel dev",
     "dev:full": "docker compose -f docker-compose.dev.yml up -d && bun dev",
+    "dev:landing": "bun --filter @chatovo/landing dev",
     "dev:livekit": "docker compose -f docker-compose.dev.yml up",
     "dev:server": "bun --filter @chatovo/server dev",
+    "dev:web": "bun --filter @chatovo/client-web dev",
     "fix": "bun run lint:fix && bun run format && bun run lint:css:fix",
     "format": "prettier --write .",
     "format:caddy": "mise x -- caddy fmt --overwrite infra/caddy/Caddyfile && mise x -- caddy fmt --overwrite infra/caddy/Caddyfile.dev",
     "format:check": "prettier --check .",
-    "format:rust": "cargo fmt --manifest-path apps/tauri/Cargo.toml --all",
+    "format:rust": "cargo fmt --manifest-path apps/client/native/Cargo.toml --all",
     "lint": "eslint .",
     "lint:caddy": "mise x -- caddy fmt infra/caddy/Caddyfile > /dev/null && mise x -- caddy fmt infra/caddy/Caddyfile.dev > /dev/null && mise x -- caddy adapt --config infra/caddy/Caddyfile --adapter caddyfile > /dev/null && mise x -- caddy adapt --config infra/caddy/Caddyfile.dev --adapter caddyfile > /dev/null",
-    "lint:css": "stylelint \"apps/client/**/*.scss\"",
-    "lint:css:fix": "stylelint \"apps/client/**/*.scss\" --fix",
+    "lint:css": "stylelint \"{apps/client/web,apps/landing,packages/ui-kit}/**/*.scss\"",
+    "lint:css:fix": "stylelint \"{apps/client/web,apps/landing,packages/ui-kit}/**/*.scss\" --fix",
     "lint:fix": "eslint . --fix",
-    "lint:rust": "cargo clippy --manifest-path apps/tauri/Cargo.toml --all-targets -- -D warnings",
+    "lint:rust": "cargo clippy --manifest-path apps/client/native/Cargo.toml --all-targets -- -D warnings",
     "prepare": "husky",
-    "tauri": "bun --filter @chatovo/tauri tauri",
-    "tauri:build": "bun --filter @chatovo/tauri build",
-    "tauri:dev": "bun --filter '@chatovo/server' --filter '@chatovo/tauri' --parallel dev",
-    "tauri:icon": "bun --filter @chatovo/tauri icon",
+    "tauri": "bun --filter @chatovo/client-native tauri",
+    "tauri:build": "bun --filter @chatovo/client-native build",
+    "tauri:dev": "bun --filter '@chatovo/server' --filter '@chatovo/client-native' --parallel dev",
+    "tauri:icon": "bun --filter @chatovo/client-native icon",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:watch": "vitest",
-    "typecheck": "bun --filter @chatovo/schemas typecheck && bun --filter @chatovo/server typecheck && bun --filter @chatovo/client typecheck",
+    "typecheck": "bun --filter @chatovo/schemas typecheck && bun --filter @chatovo/config typecheck && bun --filter @chatovo/ui-kit typecheck && bun --filter @chatovo/server typecheck && bun --filter @chatovo/client-web typecheck && bun --filter @chatovo/landing typecheck",
     "verify": "bun run typecheck && bun run lint && bun run format:check && bun run lint:css"
   },
   "lint-staged": {
@@ -84,15 +110,15 @@
       "sort-package-json"
     ],
     "*.{json,md,yml,yaml}": "prettier --write",
-    "infra/caddy/Caddyfile*": "mise x -- caddy fmt --overwrite",
-    "apps/client/**/*.scss": [
+    "infra/caddy/Caddyfile*": "bash -c 'for file in \"$@\"; do mise x -- caddy fmt --overwrite \"$file\"; done' --",
+    "{apps/client/web,apps/landing,packages/ui-kit}/**/*.scss": [
       "stylelint --fix",
       "prettier --write"
     ]
   },
   "dependencies": {
-    "@types/react-dom": "^19.3.0",
-    "better-auth": "^1.6.31"
+    "@types/react-dom": "catalog:",
+    "better-auth": "catalog:"
   },
   "devDependencies": {
     "@commitlint/cli": "^21.2.2",
@@ -103,7 +129,7 @@
     "@siberiacancode/stylelint": "^1.2.0",
     "@siberiacancode/tsconfig": "^1.2.0",
     "@vitest/coverage-v8": "^4.1.11",
-    "babel-plugin-react-compiler": "^1.0.0",
+    "babel-plugin-react-compiler": "catalog:",
     "eslint": "^10.10.0",
     "fkill-cli": "^9.0.0",
     "husky": "^9.1.7",
@@ -114,7 +140,7 @@
     "stylelint-config-idiomatic-order": "^10.0.0",
     "stylelint-config-standard-scss": "17.0.0",
     "stylelint-order": "8.1.1",
-    "typescript": "~6.0.3",
+    "typescript": "catalog:",
     "vitest": "^4.1.11"
   }
 }

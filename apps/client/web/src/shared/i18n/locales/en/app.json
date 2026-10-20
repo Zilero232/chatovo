@@ -1,0 +1,311 @@
+{
+  "pageMeta": {
+    "lobby": "Friends",
+    "room": "Voice room",
+    "admin": "Admin",
+    "auth": "Sign in",
+    "resetPassword": "Reset password",
+    "accountDelete": "Delete account"
+  },
+  "appSidebar": {
+    "lobby": "Friends",
+    "downloadApp": "Download app",
+    "downloadAppLabel": "Download app",
+    "checkUpdate": "Check for updates",
+    "checkUpdateLabel": "Check for app updates",
+    "gnomeVpn": "GnomeVPN",
+    "gnomeVpnLabel": "Open GnomeVPN website",
+    "showChannels": "Show channels",
+    "hideChannels": "Hide channels",
+    "toggleChannels": "Toggle channels",
+    "menu": "Menu",
+    "menuDescription": "Navigation and room list",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "settings": {
+    "logout": "Logout",
+    "signedOut": "Signed out",
+    "title": "Settings",
+    "open": "Open settings",
+    "description": "Devices and sound preferences. Saved on this device.",
+    "tabs": {
+      "profile": "Profile",
+      "security": "Security",
+      "audio": "Audio",
+      "video": "Video",
+      "sounds": "Sounds",
+      "system": "System",
+      "shortcuts": "Hotkeys"
+    },
+    "profile": {
+      "displayNameLabel": "Display name",
+      "displayNameHint": "The name other people see in voice rooms.",
+      "avatarLabel": "Avatar",
+      "avatarHint": "PNG, JPG, WebP or GIF, up to 10 MB.",
+      "avatarRemove": "Remove avatar",
+      "avatarInvalidType": "That file is not an image.",
+      "bannerLabel": "Banner color",
+      "bannerHint": "The background color of your profile card.",
+      "bannerCustom": "Custom color",
+      "bannerReset": "Reset banner color",
+      "save": "Save",
+      "saved": "Profile updated",
+      "profileUrlLabel": "Profile link",
+      "profileUrlPlaceholder": "https://...",
+      "profileUrlHint": "When set, your name becomes a clickable link. Leave empty to remove.",
+      "bioLabel": "About me",
+      "bioPlaceholder": "Tell others a bit about yourself...",
+      "bioHint": "Shown on your profile card. Up to 280 characters."
+    },
+    "security": {
+      "emailTitle": "Email",
+      "currentEmailLabel": "Current email",
+      "newEmailLabel": "New email",
+      "newEmailPlaceholder": "you@example.com",
+      "emailChangeHint": "We'll send a confirmation link to your current email to approve the change.",
+      "emailChangeRequested": "Check your current email to approve the change",
+      "changeEmail": "Change email",
+      "passwordTitle": "Password",
+      "currentPasswordLabel": "Current password",
+      "newPasswordLabel": "New password",
+      "confirmPasswordLabel": "Confirm new password",
+      "changePassword": "Change password",
+      "passwordChanged": "Password updated",
+      "emailNotVerifiedTitle": "Email not verified",
+      "emailNotVerifiedDescription": "Confirm {email} to secure your account and unlock all features.",
+      "emailVerificationSend": "Send verification email",
+      "emailVerificationResend": "Resend email",
+      "emailVerificationSent": "Verification email sent",
+      "emailVerificationSentHint": "Check your inbox and spam folder.",
+      "deleteTitle": "Delete account"
+    },
+    "devices": {
+      "systemDefault": "System default",
+      "noDevices": "No devices found",
+      "unknownDevice": "Unknown device",
+      "errorDenied": "No access to \"{device}\". Allow access in your browser settings.",
+      "errorNotFound": "Device \"{device}\" not found. Check that it is connected.",
+      "errorBusy": "Device \"{device}\" is in use by another application.",
+      "errorUnknown": "Failed to switch to \"{device}\"."
+    },
+    "audio": {
+      "activation": "Microphone activation",
+      "activationHint": "When to transmit your voice.",
+      "activationVoice": "Voice activity",
+      "activationPtt": "Push-to-talk",
+      "activationPttNoBinding": "Assign a key in the <link>Hotkeys tab</link> to use this mode.",
+      "autoSensitivity": "Automatically determine input sensitivity",
+      "autoSensitivityHint": "Adapts the threshold to your background noise. Turn off to set it manually.",
+      "sensitivity": "Input sensitivity",
+      "sensitivityHint": "Drag the handle: audio is sent when the bar passes it. Green means you are being heard.",
+      "microphone": "Microphone",
+      "microphoneHint": "The microphone used to capture your voice.",
+      "speakers": "Speakers",
+      "speakersHint": "Where room audio is played back.",
+      "testMic": "Test microphone",
+      "testMicHint": "Speak to see the level; press to hear yourself.",
+      "stopTestMic": "Stop microphone test",
+      "noiseSuppression": "Noise suppression",
+      "noiseSuppressionHint": "Filters out steady background noise.",
+      "echoCancellation": "Echo cancellation",
+      "echoCancellationHint": "Removes echo from your speakers.",
+      "autoGainControl": "Auto gain control",
+      "autoGainControlHint": "Evens out your microphone loudness. Turn off for music.",
+      "voiceIsolation": "Voice isolation",
+      "voiceIsolationHint": "Experimental — stronger voice isolation. Browser support varies."
+    },
+    "video": {
+      "camera": "Camera",
+      "cameraHint": "The camera used when you turn on video.",
+      "cameraQuality": "Camera quality",
+      "cameraQualityHint": "Resolution of your camera video. Higher quality uses more network and CPU.",
+      "cameraQualityOptions": {
+        "720p": "720p",
+        "1080p": "1080p (Full HD)",
+        "1440p": "1440p (2K)",
+        "4k": "4K (Ultra HD)"
+      },
+      "screenQuality": "Screen share quality",
+      "screenQualityHint": "Resolution and frame rate when sharing your screen. 30 fps suits fast-moving content.",
+      "screenQualityOptions": {
+        "1080p15": "1080p · 15 fps",
+        "1080p30": "1080p · 30 fps",
+        "1440p30": "1440p · 30 fps",
+        "4k30": "4K · 30 fps"
+      },
+      "mirror": "Mirror my video",
+      "mirrorHint": "Flips your own preview. Other participants always see you unmirrored."
+    },
+    "sounds": {
+      "volumeLabel": "Sound effects volume",
+      "volumeHint": "Loudness of all room sound effects.",
+      "join": "Join",
+      "joinHint": "When someone joins the room.",
+      "leave": "Leave",
+      "leaveHint": "When someone leaves the room.",
+      "mute": "Mute / unmute",
+      "muteHint": "When you toggle your microphone.",
+      "reconnect": "Reconnect",
+      "reconnectHint": "When your connection drops and recovers.",
+      "message": "Chat message",
+      "messageHint": "A new message while the chat is closed.",
+      "reaction": "Reaction",
+      "reactionHint": "When someone sends an emoji reaction.",
+      "call": "Call",
+      "callHint": "Incoming and outgoing friend calls.",
+      "ambience": "Alone ambience",
+      "ambienceHint": "A calm loop that fades in when you are the only one left in a room."
+    },
+    "system": {
+      "closeToTray": "Minimize to tray on close",
+      "closeToTrayHint": "Close button hides the app to the system tray. Turn off to quit on close. The tray's Quit menu always exits.",
+      "invisibleMode": "Invisible mode",
+      "invisibleModeHint": "Join any room hidden: no password, and nobody sees or hears you.",
+      "shareActivity": "Show what I am playing",
+      "shareActivityHint": "People in the room see the name of the game you are playing. Desktop app only."
+    },
+    "shortcuts": {
+      "webNotice": "Custom hotkeys are not supported in the browser yet. To use custom hotkeys, <link>download</link> the desktop app.",
+      "actions": {
+        "muteToggle": "Toggle microphone",
+        "deafenToggle": "Toggle deafen",
+        "pttHold": "Push-to-talk (hold)",
+        "chatToggle": "Toggle chat"
+      },
+      "unassigned": "Not assigned",
+      "recording": "Press a combination… (Esc to cancel)",
+      "clear": "Clear",
+      "errors": {
+        "needsModifier": "Use a combination with Ctrl, Shift or Alt",
+        "systemTaken": "This combination is reserved by another application"
+      }
+    },
+    "deleteAccount": {
+      "description": "Your account is deleted for good, along with your profile, rooms and friend list. We will email you a confirmation link.",
+      "action": "Delete account",
+      "requested": "Confirmation email sent",
+      "dialogTitle": "Delete your account?",
+      "dialogDescription": "This cannot be undone.",
+      "hint": "Follow the link in the email to confirm.",
+      "consequences": "Your profile, rooms, friends and notification devices are removed. Your messages stay, without your name on them.",
+      "confirm": "Send confirmation",
+      "cancel": "Cancel"
+    }
+  },
+  "tray": {
+    "status": {
+      "online": "Online",
+      "connecting": "Connecting…",
+      "reconnecting": "Reconnecting…",
+      "inRoom": "In room: {room}",
+      "muted": "Microphone muted"
+    },
+    "mute": "Mute microphone",
+    "deafen": "Deafen",
+    "leaveRoom": "Leave room",
+    "openApp": "Open Chatovo",
+    "checkUpdates": "Check for updates",
+    "quit": "Quit Chatovo"
+  },
+  "update": {
+    "title": "Update available",
+    "description": "Version {version} is ready to install",
+    "releasedOn": "Released {date}",
+    "later": "Later",
+    "install": "Update",
+    "checking": "Checking for updates…",
+    "downloading": "Downloading… {percent}%",
+    "installing": "Installing…",
+    "failed": "Update failed. Try again later.",
+    "upToDate": "You're on the latest version",
+    "checkFailed": "Couldn't check for updates",
+    "checkTimedOut": "Update check timed out. Try again later."
+  },
+  "downloadApp": {
+    "title": "Download Chatovo",
+    "description": "Native app for Windows, macOS, Linux and Android.",
+    "loadFailed": "Couldn't load the latest release.",
+    "openReleases": "Open releases on GitHub",
+    "version": "Version {version}",
+    "notAvailable": "Not available yet",
+    "downloadAction": "Download",
+    "platforms": {
+      "windows": "Windows",
+      "macos": "macOS",
+      "linux": "Linux",
+      "android": "Android"
+    },
+    "storeAction": "Open",
+    "googlePlay": "Google Play"
+  },
+  "feedback": {
+    "title": "Report a problem",
+    "description": "Tell us what broke. A screenshot helps us find it much faster.",
+    "descriptionLabel": "Problem description",
+    "descriptionPlaceholder": "What happened and what you were doing…",
+    "screenshotLabel": "Screenshot",
+    "screenshotHint": "Optional. Image up to 5 MB.",
+    "submit": "Send",
+    "sent": "Thanks! Your report has been sent.",
+    "validation": {
+      "feedbackMin": "At least 10 characters",
+      "feedbackMax": "At most 2000 characters"
+    },
+    "hint": "Include what you were doing right before it happened — that is usually the missing piece."
+  },
+  "easterEggs": {
+    "achievements": {
+      "konami": {
+        "title": "The Da Vinci Code",
+        "description": "You still remember the Konami code. Respect."
+      },
+      "nightOwl": {
+        "title": "Night owl",
+        "description": "Joining a voice chat past 3 AM is a diagnosis."
+      },
+      "quietOne": {
+        "title": "The quiet one",
+        "description": "An hour in the room, not a sound. We heard everything. Or rather — nothing."
+      },
+      "soloConcert": {
+        "title": "Solo concert",
+        "description": "Half an hour alone in a room. Great acoustics, modest crowd."
+      },
+      "muteMaster": {
+        "title": "Mute master",
+        "description": "25 mic toggles. Make up your mind already."
+      },
+      "snake": {
+        "title": "Found the snake",
+        "description": "Who clicks a logo seven times, anyway?"
+      }
+    },
+    "console": {
+      "hint": "Found a bug or want to help?"
+    },
+    "snake": {
+      "title": "Snake",
+      "score": "Score: {score}",
+      "best": "Best: {best}",
+      "gameOver": "Game over",
+      "restart": "One more",
+      "hint": "Use arrow keys or WASD",
+      "hintTouch": "Swipe on the board"
+    },
+    "ambience": {
+      "started": "Quiet in here — starting the music",
+      "description": "You're alone in the room"
+    }
+  },
+  "pushChannels": {
+    "messages": "Messages",
+    "calls": "Calls"
+  },
+  "googlePlayPromo": {
+    "title": "Chatovo is now on Google Play",
+    "description": "Notifications for messages and calls, even when the app is in the background.",
+    "action": "Open in Google Play",
+    "dismiss": "Hide"
+  }
+}

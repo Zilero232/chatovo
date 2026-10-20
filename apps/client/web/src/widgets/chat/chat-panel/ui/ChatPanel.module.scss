@@ -1,0 +1,56 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+@use '@chatovo/ui-kit/styles/keyframes';
+
+.scrim {
+  position: fixed;
+  z-index: var(--z-sticky);
+  background: rgb(8 4 10 / 45%);
+  inset: 0;
+  transition: opacity var(--duration-slow);
+
+  @include bp(md) {
+    display: none;
+  }
+
+  &[data-open='false'] {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &[data-open='true'] {
+    animation: overlay-fade-in var(--duration-slow) var(--timing-function-out);
+  }
+}
+
+.root {
+  position: absolute;
+  z-index: 40;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  border: 0;
+  border-radius: 0;
+  border-left: 1px solid rgb(var(--tint) / 14%);
+  box-shadow: rem(-28) 0 rem(56) rem(-28) rgb(8 4 10 / 85%);
+  inset: 0;
+  transition: transform var(--duration-slow) var(--timing-function-out);
+
+  &[data-open='false'] {
+    pointer-events: none;
+    transform: translateX(100%);
+  }
+
+  &[data-open='true'] {
+    transform: translateX(0);
+  }
+
+  @include bp(sm, down) {
+    background-color: var(--column-content);
+  }
+
+  @include bp(sm) {
+    left: auto;
+    width: clamp(28rem, 40vw, 46rem);
+    padding-bottom: 0;
+  }
+}

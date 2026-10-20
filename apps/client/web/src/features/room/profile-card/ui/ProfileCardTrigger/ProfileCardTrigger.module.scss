@@ -1,0 +1,19 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.trigger {
+  min-width: 0;
+  border: none;
+  border-radius: var(--radius-md);
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+
+  @include button-focus-ring;
+}
+
+.content {
+  overflow: hidden;
+  width: 18rem;
+  padding: 0;
+}

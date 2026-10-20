@@ -1,0 +1,71 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.content {
+  max-width: rem(420);
+  gap: var(--space-3);
+  justify-items: center;
+}
+
+.title {
+  text-align: center;
+}
+
+.stats {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.board {
+  display: grid;
+  overflow: hidden;
+  width: 100%;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  aspect-ratio: 1;
+  background: rgb(var(--tint) / 3%);
+  gap: 1px;
+  touch-action: none;
+  user-select: none;
+}
+
+.cell {
+  border-radius: rem(2);
+  background: transparent;
+}
+
+.head {
+  background: var(--brand-cyan);
+}
+
+.body {
+  background: color-mix(in srgb, var(--brand-cyan) 55%, transparent);
+}
+
+.food {
+  border-radius: 50%;
+  animation: pulse-food 1.2s ease-in-out infinite;
+  background: var(--brand-fuchsia);
+
+  @include reduced-motion {
+    animation: none;
+  }
+}
+
+.overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+@keyframes pulse-food {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.75);
+  }
+}

@@ -1,6 +1,0 @@
-{
-  "default": "../client/app/app-icon.svg",
-  "bg_color": "#7b5cff",
-  "android_bg": "../client/app/app-icon-bg.svg",
-  "android_fg": "../client/app/app-icon-fg.svg"
-}

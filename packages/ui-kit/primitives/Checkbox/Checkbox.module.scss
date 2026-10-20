@@ -1,0 +1,65 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  display: inline-flex;
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(var(--tint) / 14%);
+  border-radius: rem(6);
+  background: rgb(var(--tint) / 9%);
+  box-shadow: inset 0 rem(1) rem(2) rgb(8 4 10 / 25%);
+  cursor: pointer;
+  outline: none;
+  transition:
+    background var(--duration-fast) var(--timing-function-standard),
+    border-color var(--duration-fast) var(--timing-function-standard),
+    box-shadow var(--duration-fast) var(--timing-function-standard);
+
+  @include focus-ring;
+
+  &:hover:not([data-disabled]) {
+    border-color: rgb(var(--tint) / 26%);
+    background: rgb(var(--tint) / 14%);
+  }
+
+  &:disabled,
+  &[data-disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  &[data-checked] {
+    border-color: transparent;
+    background: var(--primary);
+  }
+
+  &[aria-invalid='true'] {
+    border-color: var(--destructive);
+  }
+}
+
+.indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-foreground);
+  opacity: 0;
+  transform: scale(0.6);
+  transition:
+    transform var(--duration-fast) var(--timing-function-standard),
+    opacity var(--duration-fast) var(--timing-function-standard);
+
+  &[data-checked] {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.icon {
+  width: rem(13);
+  height: rem(13);
+  stroke-width: 3.25;
+}

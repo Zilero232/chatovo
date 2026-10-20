@@ -1,0 +1,8 @@
+# Build output
+dist/
+dist-ssr/
+
+# Leftovers of the Next.js build
+.next/
+out/
+next-env.d.ts

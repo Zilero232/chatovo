@@ -1,0 +1,59 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.popup {
+  @include bp(sm, down) {
+    padding: calc(var(--space-2) + var(--safe-area-top)) var(--space-2)
+      calc(var(--space-2) + var(--safe-area-bottom));
+  }
+}
+
+.content {
+  display: flex;
+  height: min(100%, #{rem(720)});
+  flex-direction: column;
+  padding: 0;
+  gap: var(--space-4);
+  overflow-y: hidden;
+
+  @include bp(sm) {
+    max-width: rem(480);
+  }
+}
+
+.staged {
+  @include bp(lg) {
+    max-width: rem(1040);
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-5) var(--space-12) 0 var(--space-5);
+  gap: var(--space-1);
+}
+
+.title {
+  font-size: rem(22);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.description {
+  color: var(--muted-foreground);
+  font-size: var(--text-sm);
+}
+
+.body {
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  flex-direction: column;
+
+  .staged & {
+    @include bp(lg) {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    }
+  }
+}

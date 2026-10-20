@@ -1,0 +1,58 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+@use '@chatovo/ui-kit/styles/functions' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.75rem 1rem;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.glow {
+  display: flex;
+  width: 2.75rem;
+  height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid color-mix(in srgb, var(--brand-violet) 24%, transparent);
+  border-radius: 9999px;
+  margin-bottom: 0.125rem;
+  animation: activity-empty-breathe 4s ease-in-out infinite;
+  background: color-mix(in srgb, var(--brand-violet) 10%, transparent);
+
+  @include reduced-motion {
+    animation: none;
+  }
+
+  @include tauri-mobile {
+    animation: none;
+  }
+}
+
+.icon {
+  width: 1.125rem;
+  height: 1.125rem;
+  color: var(--brand-violet);
+}
+
+.title {
+  color: color-mix(in srgb, var(--sidebar-foreground) 88%, transparent);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.hint {
+  max-width: 12rem;
+  color: var(--muted-foreground);
+  font-size: rem(11);
+  line-height: 1.45;
+}
+
+@keyframes activity-empty-breathe {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--brand-violet) 0%, transparent);
+  }
+}

@@ -1,6 +1,6 @@
 # Feature-Sliced Design — Chatovo
 
-The FSD methodology as applied to `apps/client/`. This document is the working reference for the frontend architecture: layer hierarchy, import rules, public APIs, segments.
+The FSD methodology as applied to the two frontend apps: `apps/client/web/` (the product app, a Vite SPA — [web-app.md](web-app.md)) and `apps/landing/` (the public website, Next.js). Both follow the same layers, import rules, public APIs and segments; the shared design system is the `@chatovo/ui-kit` workspace package (§5.1). This document is the working reference for the frontend architecture.
 
 Full specification: [feature-sliced.design](https://feature-sliced.design). Linter for FSD rules: [Steiger](https://github.com/feature-sliced/steiger).
 
@@ -8,10 +8,10 @@ Full specification: [feature-sliced.design](https://feature-sliced.design). Lint
 >
 > | FSD canon | Chatovo | Why |
 > |---|---|---|
-> | Root `src/` | Root `apps/client/` (no `src/`) | Monorepo: `apps/client` already isolates the frontend. `@/` → `apps/client/`. |
-> | Layer `pages/` | Layer `views/` | `pages/` at the Next.js root enables the Pages Router. `views/` sidesteps it. |
+> | Root `src/` | Web: `apps/client/web/src/` as in canon. Site: the app root, `apps/landing/` (no `src/`) | The site is a Next.js app whose route files live in a root `app/`. `@/` → `apps/client/web/src/` and `apps/landing/` respectively. |
+> | Layer `pages/` | Web: `pages/` as in canon. Site: `views/` | A top-level `pages/` in a Next.js app enables the Pages Router; `views/` sidesteps it. The Vite web app has no such clash. |
 >
-> Everywhere below where the canon says `pages` or `src/pages`, we have `views`. Where it says `src/`, we have the `apps/client/` root.
+> Everywhere below, the site's `views/` is what the canon and the web app call `pages/`.
 
 ---
 
@@ -20,43 +20,58 @@ Full specification: [feature-sliced.design](https://feature-sliced.design). Lint
 | # | Layer | Purpose | Slices? |
 |---|---|---|---|
 | 1 | App | Routing, providers, global styles, entrypoint | No |
-| 2 | Views *(canon: Pages)* | Whole screens / route-level compositions | Yes |
+| 2 | Pages *(site: Views)* | Whole screens / route-level compositions | Yes |
 | 3 | Widgets | Large self-contained UI blocks (reusable or independent) | Yes |
 | 4 | Features | User interactions with business value (forms, actions) | Yes |
 | 5 | Entities | Core business concepts (user, room, message) | Yes |
-| 6 | Shared | UI kit, API client, utilities, i18n, config — project-agnostic | No |
+| 6 | Shared | API client, utilities, i18n, config — project-agnostic | No |
 
 The `Processes` layer is deprecated — its contents move into `Features` or `App`.
 
 ### Directory structure
 
 ```
-apps/client/            # (canon: src/)
-├── app/                # App layer (no slices — segments only)
-├── views/              # Views layer (canon: pages/)
-│   └── <view-name>/
-├── widgets/            # Widgets layer
-│   └── <domain>/       # app | chat | layout | room | social
-│       └── <widget-name>/
-├── features/           # Features layer
-│   └── <domain>/       # app | auth | room | social
-│       └── <feature-name>/
-├── entities/           # Entities layer
-│   └── <domain>/       # app | auth | room | social
-│       └── <entity-name>/
-├── shared/             # Shared layer (no slices — segments only)
-│   ├── api/
-│   ├── config/
-│   ├── constants/
-│   ├── hooks/
-│   ├── i18n/
-│   ├── lib/
-│   └── seo/
-└── ui-kit/             # Design system (no slices — segments only)
-    ├── primitives/     # base: Button, Input, Dialog, …
-    ├── components/     # composed: FormField, ConfirmDialog, …
-    ├── icons/
-    └── styles/         # _tokens, _mixins, _functions, _breakpoints, _keyframes
+apps/client/web/
+├── index.html          # the page shell; entry /src/main.tsx
+├── assets/icons/       # Tauri icon sources (app-icon*.svg)
+└── src/
+    ├── main.tsx        # App layer, spread over plain folders at the top of src/ (no app/ folder):
+    ├── router/         #   route tree, search schemas, routes/ (layouts), global-error/
+    ├── providers/      #   AppProviders, AuthedProviders and their parts
+    ├── styles/         #   globals.scss
+    ├── pages/          # Pages layer
+    │   └── <page-name>/
+    ├── widgets/        # Widgets layer
+    │   └── <domain>/   # app | chat | layout | room | social
+    │       └── <widget-name>/
+    ├── features/       # Features layer
+    │   └── <domain>/   # app | auth | room | social
+    │       └── <feature-name>/
+    ├── entities/       # Entities layer
+    │   └── <domain>/   # app | auth | room | social
+    │       └── <entity-name>/
+    └── shared/         # Shared layer (no slices — segments only)
+        ├── api/
+        ├── config/
+        ├── constants/
+        ├── hooks/
+        ├── i18n/
+        ├── lib/
+        └── seo/        # the static index.html head tags (noindex)
+
+apps/landing/              # the public website, same layers, fewer slices
+├── app/                # [locale]/ routes, sitemap, robots, llms.txt
+├── views/              # Pages layer, named views/: home, features, download, changelog, about, support, legal, not-found
+├── widgets/marketing/  # marketing-shell: header, footer, sections, scene
+├── entities/release/   # server fetchers for release and contributor data
+└── shared/             # config/ constants/ hooks/ i18n/ lib/ seo/
+
+packages/ui-kit/        # @chatovo/ui-kit — the design system (no slices — segments only)
+├── primitives/         # base: Button, Input, Dialog, …
+├── components/         # composed: FormField, ConfirmDialog, …
+├── icons/
+├── messages/           # uiMessages: the `ui` namespace, spread into each app's messages
+└── styles/             # _tokens, _mixins, _functions, _breakpoints, _keyframes, _base
 ```
 
 > **Domain grouping of slices.** In Chatovo the slices inside `features/`, `entities/` and `widgets/` are grouped by business domain (`auth`, `room`, `app`, `layout`). This is a layer on top of the FSD canon (`<layer>/<slice>/`). Imports: `@/features/auth/sign-in`, `@/entities/room/room`, `@/widgets/layout/authed-shell`. The `app` group is cross-domain application infrastructure (release, locale, tray, shortcuts, update). The `layout` group is the root shell.
@@ -66,12 +81,12 @@ apps/client/            # (canon: src/)
 ## 2. The golden rule: import direction
 
 ```
-App → Views → Widgets → Features → Entities → Shared
+App → Pages → Widgets → Features → Entities → Shared
 ```
 
 A module imports only from layers **strictly below** it. Banned:
 
-- **Upwards** — a Feature cannot import from a Widget or a View.
+- **Upwards** — a Feature cannot import from a Widget or a Page.
 - **Sideways within a layer** — one Feature cannot import another Feature.
 
 **Exception — cross-entity references.** When Entity A needs a type from Entity B, use the `@x` pattern: `entities/A/@x/B.ts` exports only what B needs from A.
@@ -140,33 +155,65 @@ export { DeafenProvider } from './model/contexts';
 - **A domain group is not a public API** — `@/features/auth` does not exist; import the specific slice. The domain folder only organises files.
 - **`model/` — barrels in the subfolders, not at the `model/` level.** `model/hooks/index.ts`, `model/contexts/index.ts`, `model/stores/index.ts` — each subfolder gets its own barrel. Do NOT create a slice-level `model/index.ts`. The slice `index.ts` and internal imports go through the subfolder: `./model/hooks`, `../model/contexts`. More in [guides/client/segments.md](../guides/client/segments.md).
 - **No circular imports** — do not import from a slice's own `index.ts` inside that slice. Inside, use relative paths.
-- **`ui-kit/` is the design system, a separate layer next to `shared/`.** Segments: `primitives/` (base), `components/` (composed), `icons/`, `styles/`. **Every component gets its own PascalCase folder** (`primitives/Button/`, `components/FormField/`, …) with `Component.tsx`, `Component.module.scss`, optionally `Component.types.ts` and a mandatory `index.ts` barrel. The segment barrels (`primitives/index.ts`, …) and the root `ui-kit/index.ts` re-export everything. From outside, only `@/ui-kit`, never `@/ui-kit/primitives/Button`. Headless primitives come from **`@base-ui/react`**; styles are **SCSS modules**, tokens live in `app/globals.scss` + `ui-kit/styles/_tokens.scss`. More in [guides/client/slice-ui.md](../guides/client/slice-ui.md) §2.1.
+
+### 5.1. The design system — `@chatovo/ui-kit`
+
+The design system is a workspace package, `packages/ui-kit`, shared by `apps/client/web` and `apps/landing`. It sits beside `shared/` in both apps: every layer may import it, and it imports nothing from either app.
+
+- Segments: `primitives/` (base), `components/` (composed), `icons/`, `styles/`, `messages/`. **Every component gets its own PascalCase folder** (`primitives/Button/`, `components/FormField/`, …) with `Component.tsx`, `Component.module.scss`, optionally `Component.types.ts` and a mandatory `index.ts` barrel. The segment barrels and the root `index.ts` re-export everything.
+- From outside, only `import { Button } from '@chatovo/ui-kit'`, never a path into it; the package's other exports are `@chatovo/ui-kit/messages` and `@chatovo/ui-kit/styles/*`. SCSS: `@use '@chatovo/ui-kit/styles/mixins' as *` (each app's Sass load paths include the repo `node_modules`; the package ships sources, so the site lists it in `transpilePackages` and Vite compiles it as part of the web app).
+- Headless primitives come from **`@base-ui/react`**; styles are **SCSS modules**. Tokens live in `styles/_tokens.scss`; `styles/_base.scss` is the shared global CSS. Each app's `globals.scss` (`apps/client/web/src/app/`, `apps/landing/app/`) `@use`s tokens, keyframes and base, then adds its own page-level rules.
+- `messages/` exports `uiMessages` (namespace `ui`: the kit's own strings — close, loading, show password, …). Each app spreads `uiMessages.<locale>` into its messages. Kit components import `useTranslations` from `use-intl`, which works under the web app's `IntlProvider` and the site's `NextIntlClientProvider` alike. The kit imports no framework: images go through its own `Image` primitive, fed by an optional `ImageConfigProvider` loader.
+- Shared non-UI constants (site URLs, legal, external links, site paths) live in `@chatovo/config`, not in the kit.
+
+More in [guides/client/slice-ui.md](../guides/client/slice-ui.md) §2.1.
 
 ---
 
-## 6. Next.js integration (App Router)
+## 6. Routing integration
 
-`app/` stays at the `apps/client/` root. Route files are thin wrappers that delegate into `views/`:
+`app/` (`apps/client/web/src/app/`, `apps/landing/app/`) holds only routing, providers and global styles. All UI and logic lives in the pages layer — `pages/<name>/` in the web app, `views/<name>/` in the site; a route only points at a page.
+
+**Web app (TanStack Router, code-based).** The route tree is one file, `src/router/router.ts`; each route names its page and, if it has search params, a zod schema:
+
+```ts
+// apps/client/web/src/router/router.ts
+const roomRoute = createRoute({
+  getParentRoute: () => authedRoute,
+  path: ROUTES.room,
+  validateSearch: roomSearchSchema,
+  component: lazyRouteComponent(() => import('@/pages/room'), 'RoomPage')
+});
+```
+
+Layouts are components in `src/router/routes/` (`AuthedLayout`, `StandaloneLayout`) that wrap an `<Outlet />` in their providers. No file carries `'use client'` — there are no server components. The why and the full tree: [web-app.md](web-app.md).
+
+**Site (Next.js App Router).** Route files are thin server wrappers, without `'use client'`, that delegate into `views/`:
 
 ```tsx
-// app/(authed)/room/page.tsx — server, thin
-import { RoomPage } from '@/views/room';
+// apps/landing/app/[locale]/features/page.tsx — server, thin
+import { readPageLocale } from '@/shared/lib';
+import { FeaturesPage } from '@/views/features';
 
-const Page = () => <RoomPage />;
+const Page = async ({ params }: LocalePageProps) => (
+  <FeaturesPage locale={await readPageLocale(params)} />
+);
 
 export default Page;
 ```
 
-Route files (`page.tsx`, `layout.tsx`) are server components, without `'use client'`. They contain only metadata, a wrapper and a default export. All UI and logic lives in `views/<name>/`.
+They contain only metadata, a wrapper and a default export.
 
-> FSD canon recommends `export { Page as default } from '@/views/...'` and an empty `pages/` with a `.gitkeep`. In Chatovo the layer is named `views/`, so there is no clash with the Next.js Pages Router and no `.gitkeep` placeholder is needed. The route wrapper is written as an ordinary component (see above).
+> FSD canon recommends `export { Page as default } from '@/pages/...'` and an empty `pages/` with a `.gitkeep`. In the site the layer is named `views/`, so there is no clash with the Next.js Pages Router and no `.gitkeep` placeholder is needed. The route wrapper is written as an ordinary component (see above).
 
 ### Path aliases
 
-`@/` points at `apps/client/` (canon: at `src/`):
+`@/` points at `apps/client/web/src/` in the web app (as in canon) and at the app root `apps/landing/` in the site:
 
 ```jsonc
-// tsconfig.json
+// apps/client/web/tsconfig.json
+{ "compilerOptions": { "paths": { "@/*": ["./src/*"] } } }
+// apps/landing/tsconfig.json
 { "compilerOptions": { "paths": { "@/*": ["./*"] } } }
 ```
 
@@ -174,10 +221,10 @@ Route files (`page.tsx`, `layout.tsx`) are server components, without `'use clie
 
 ## 7. Composition patterns
 
-**View** *(canon: Page)*:
+**Page** *(site: View)*:
 
 ```
-View
+Page
 ├── imports Widget A (self-contained block)
 ├── imports Widget B
 ├── imports Feature X (interactive element)
@@ -212,7 +259,7 @@ Feature
 - [ ] Directory and file names are kebab-case (exception — component folders: PascalCase)
 - [ ] Component functions are named PascalCase exports (no default exports from slices)
 - [ ] Segments describe purpose (`model/`, `api/`), not technical role (`hooks/`, `components/`)
-- [ ] Route files are thin wrappers that delegate into `views/`
+- [ ] Route files are thin wrappers that delegate into the pages layer (`pages/` in web, `views/` in site)
 - [ ] The Shared layer holds no business logic — project-agnostic code only
 - [ ] The Entities layer holds no interaction UI logic — that is the Features level
 
@@ -225,12 +272,12 @@ Feature
 | Mistake | Fix |
 |---|---|
 | A Feature imports from another Feature | Move the shared logic into Entities or Shared |
-| A View holds business logic directly | Move it into a Feature, compose it in the View |
+| A Page holds business logic directly | Move it into a Feature, compose it in the Page |
 | `shared/hooks/useSignIn.ts` | Auth is a business domain → `features/auth/sign-in/model/use-sign-in.ts` |
-| A Widget imports from a View | Invert it: the View imports the Widget |
+| A Widget imports from a Page | Invert it: the Page imports the Widget |
 | A slice exports everything via `export *` | Explicit named re-exports |
 | A `components/` folder at the layer root | Classify it: is it a Widget, a Feature, an Entity or Shared UI? |
-| A route file holds the full page implementation | Move it into `views/<name>/`, leave the route a thin wrapper |
+| A route file holds the full page implementation | Move it into `pages/<name>/` (site: `views/<name>/`), leave the route a thin wrapper |
 
 ---
 

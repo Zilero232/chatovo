@@ -1,0 +1,15 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  min-width: 0;
+}
+
+.expanded {
+  overflow: hidden;
+  min-height: 0;
+  flex: 1;
+}
+
+.minimized {
+  flex-shrink: 0;
+}

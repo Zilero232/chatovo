@@ -1,0 +1,48 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-4);
+  border: 1px solid color-mix(in srgb, var(--brand-sun) 28%, transparent);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--brand-sun) 8%, var(--surface-1));
+  gap: var(--space-3);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.icon {
+  width: var(--icon-sm);
+  height: var(--icon-sm);
+  flex-shrink: 0;
+  margin-top: rem(2);
+  color: var(--brand-sun);
+}
+
+.copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.description {
+  line-height: 1.6;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.sent {
+  color: var(--subtle-foreground);
+  font-size: var(--text-xs);
+}

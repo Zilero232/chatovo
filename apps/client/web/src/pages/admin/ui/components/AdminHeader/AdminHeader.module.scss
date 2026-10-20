@@ -1,0 +1,50 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  margin-bottom: var(--space-1);
+}
+
+.text {
+  min-width: 0;
+  flex: 1;
+}
+
+.back {
+  flex-shrink: 0;
+}
+
+.backLabel {
+  display: none;
+
+  @container admin-page (min-width: 40rem) {
+    display: inline;
+  }
+}
+
+.badge {
+  display: grid;
+  width: var(--control-lg);
+  height: var(--control-lg);
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--brand-violet) 16%, var(--surface-2));
+  place-items: center;
+}
+
+.icon {
+  width: var(--icon-md);
+  height: var(--icon-md);
+  color: var(--brand-violet);
+}
+
+@container admin-page (min-width: 40rem) {
+  .badge {
+    width: rem(44);
+    height: rem(44);
+  }
+
+  .icon {
+    width: var(--icon-lg);
+    height: var(--icon-lg);
+  }
+}

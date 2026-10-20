@@ -1,0 +1,27 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  flex-wrap: wrap;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface-1);
+  gap: var(--space-3);
+  transition:
+    background-color var(--duration-fast) var(--timing-function-standard),
+    border-color var(--duration-fast) var(--timing-function-standard);
+
+  @include hover {
+    border-color: var(--border-strong);
+    background: var(--surface-2);
+  }
+}
+
+.info {
+  min-width: 0;
+  flex: 1;
+}
+
+.actions {
+  flex-shrink: 0;
+}

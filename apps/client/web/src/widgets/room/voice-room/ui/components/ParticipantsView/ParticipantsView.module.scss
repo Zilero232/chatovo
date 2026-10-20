@@ -1,0 +1,98 @@
+@use '@chatovo/ui-kit/styles/breakpoints' as *;
+@use '@chatovo/ui-kit/styles/functions' as *;
+
+.root {
+  position: relative;
+  z-index: var(--z-base);
+  min-height: 0;
+  flex: 1;
+  padding: 0.625rem;
+  overflow-y: auto;
+
+  @include bp(sm) {
+    padding: 0.75rem;
+  }
+}
+
+.grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 0.625rem;
+  grid-template-columns: 1fr;
+
+  @include bp(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.rootDm {
+  display: flex;
+  overflow: hidden;
+}
+
+.dmStage {
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
+  flex: 1;
+  border-radius: var(--radius-2xl);
+}
+
+.dmPeer,
+.dmSelf {
+  display: flex;
+
+  > * {
+    display: flex;
+    min-width: 0;
+    min-height: 0;
+    flex: 1;
+  }
+
+  > * > * {
+    min-width: 0;
+    min-height: 0;
+    flex: 1;
+  }
+}
+
+.dmPeer {
+  position: absolute;
+  inset: 0;
+}
+
+.dmSelf {
+  position: absolute;
+  z-index: 2;
+  right: 0.625rem;
+  bottom: 0.625rem;
+  overflow: hidden;
+  width: 38%;
+  min-width: 6.5rem;
+  max-width: 15rem;
+  border: 1px solid rgb(var(--tint) / 16%);
+  border-radius: var(--radius-lg);
+  aspect-ratio: 4 / 3;
+  box-shadow: 0 rem(10) rem(30) rem(-8) rgb(8 4 10 / 70%);
+
+  @include bp(sm) {
+    right: 1rem;
+    bottom: 1rem;
+    width: 30%;
+    min-width: 9rem;
+    border-radius: var(--radius-xl);
+    aspect-ratio: 16 / 9;
+  }
+}
+
+.dmWaiting {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  font-size: 0.9375rem;
+  inset: 0;
+  text-align: center;
+}

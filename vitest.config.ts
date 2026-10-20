@@ -5,8 +5,9 @@ export default defineConfig({
     projects: [
       'packages/schemas/vitest.config.ts',
       'apps/server/vitest.config.ts',
-      'apps/client/vitest.config.ts',
-      'apps/tauri/vitest.config.ts'
+      'apps/client/web/vitest.config.ts',
+      'apps/landing/vitest.config.ts',
+      'apps/client/native/vitest.config.ts'
     ],
     coverage: {
       provider: 'v8',
@@ -14,7 +15,8 @@ export default defineConfig({
       include: [
         'packages/schemas/src/**',
         'apps/server/src/**',
-        'apps/client/{entities,features,shared,widgets}/**'
+        'apps/client/web/src/{entities,features,pages,shared,widgets}/**',
+        'apps/landing/{entities,shared,views,widgets}/**'
       ],
       exclude: ['**/_tests/**', '**/*.types.ts', '**/index.ts']
     }

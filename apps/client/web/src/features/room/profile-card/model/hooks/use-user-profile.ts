@@ -1,0 +1,12 @@
+import { useQuery } from '@tanstack/react-query';
+import { minutesToMilliseconds } from 'date-fns';
+
+import { getUserProfile } from '@/shared/api';
+import { QUERY_KEYS } from '@/shared/constants';
+
+export const useUserProfile = (identity: string) =>
+  useQuery({
+    queryKey: QUERY_KEYS.userProfile(identity),
+    queryFn: () => getUserProfile(identity),
+    staleTime: minutesToMilliseconds(5)
+  });

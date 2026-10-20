@@ -1,0 +1,34 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.row {
+  display: flex;
+  align-items: flex-start;
+  cursor: pointer;
+  gap: var(--space-3);
+  line-height: 1.5;
+  padding-block: rem(2);
+}
+
+.link {
+  border-radius: var(--radius-sm);
+  color: var(--primary);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--primary) 40%, transparent);
+  text-underline-offset: rem(3);
+  transition:
+    color var(--duration-fast) var(--timing-function-standard),
+    text-decoration-color var(--duration-fast) var(--timing-function-standard);
+
+  @include focus-ring;
+
+  &:hover {
+    color: var(--primary-hover);
+    text-decoration-color: currentcolor;
+  }
+}

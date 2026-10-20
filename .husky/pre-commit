@@ -3,19 +3,20 @@ bunx lint-staged
 staged=$(git diff --cached --name-only --diff-filter=ACMR)
 
 staged_has() {
-  printf '%s\n' "$staged" | grep -qE "$1"
+  printf '%s\n' "$staged" | grep -E "$1" > /dev/null
 }
 
 # bun --filter takes no git range (there is no pnpm --filter=[HEAD^1] equivalent),
 # so work out the touched workspaces here and filter by path.
 typecheck_targets=''
 
-# Root configs and @chatovo/schemas affect every workspace at once.
-if staged_has '^(package\.json|bun\.lock|tsconfig.*\.json)$' || staged_has '^packages/schemas/'; then
-  typecheck_targets='./packages/schemas ./apps/server ./apps/client'
+# Root configs and the shared packages affect every workspace at once.
+if staged_has '^(package\.json|bun\.lock|tsconfig.*\.json)$' || staged_has '^packages/(schemas|config|ui-kit)/'; then
+  typecheck_targets='./packages/schemas ./packages/config ./packages/ui-kit ./apps/server ./apps/client/web ./apps/landing'
 else
   staged_has '^apps/server/' && typecheck_targets="$typecheck_targets ./apps/server"
-  staged_has '^apps/client/' && typecheck_targets="$typecheck_targets ./apps/client"
+  staged_has '^apps/client/web/' && typecheck_targets="$typecheck_targets ./apps/client/web"
+  staged_has '^apps/landing/' && typecheck_targets="$typecheck_targets ./apps/landing"
 fi
 
 for target in $typecheck_targets; do
@@ -23,6 +24,6 @@ for target in $typecheck_targets; do
 done
 
 if staged_has '\.rs$|Cargo\.(toml|lock)$'; then
-  cargo fmt --manifest-path apps/tauri/Cargo.toml --all --check
+  cargo fmt --manifest-path apps/client/native/Cargo.toml --all --check
   bun run lint:rust
 fi

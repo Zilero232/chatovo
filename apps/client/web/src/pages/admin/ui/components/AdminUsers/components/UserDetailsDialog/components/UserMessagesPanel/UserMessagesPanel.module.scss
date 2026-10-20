@@ -1,0 +1,9 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.list {
+  max-height: min(50vh, rem(360));
+}
+
+.spinner {
+  margin: 2rem auto;
+}

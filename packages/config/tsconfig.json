@@ -1,0 +1,4 @@
+{
+  "extends": "@chatovo/tsconfig/base.json",
+  "include": ["src/**/*"]
+}

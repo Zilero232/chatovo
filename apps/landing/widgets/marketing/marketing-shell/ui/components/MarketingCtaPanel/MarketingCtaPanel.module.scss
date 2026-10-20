@@ -1,0 +1,102 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column-reverse;
+  align-items: center;
+  padding: var(--space-10) var(--space-6) 0;
+  border-radius: var(--radius-2xl);
+  background: var(--brand-coral);
+  color: var(--primary-foreground);
+  gap: var(--space-6);
+  text-align: center;
+
+  @include bp(md) {
+    flex-direction: row-reverse;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: var(--space-12) var(--space-12) 0;
+    text-align: left;
+  }
+}
+
+.chato {
+  width: rem(180);
+  height: rem(180);
+  flex-shrink: 0;
+  margin-bottom: rem(-12);
+
+  @include bp(md) {
+    width: rem(260);
+    height: rem(260);
+  }
+}
+
+.copy {
+  display: flex;
+  max-width: rem(560);
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+
+  @include bp(md) {
+    align-items: flex-start;
+    padding-bottom: var(--space-10);
+  }
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(#{rem(36)}, 5vw, #{rem(60)});
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+}
+
+.text {
+  color: color-mix(in srgb, var(--primary-foreground) 78%, transparent);
+  line-height: 1.5;
+}
+
+.note {
+  color: color-mix(in srgb, var(--primary-foreground) 68%, transparent);
+  font-size: var(--text-sm);
+}
+
+.primary {
+  &#{&} {
+    background: var(--background);
+    color: var(--foreground);
+  }
+
+  @include hover {
+    &#{&} {
+      background: var(--surface-2);
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--space-2);
+  gap: var(--space-3) var(--space-4);
+}
+
+.secondary {
+  &#{&} {
+    border-color: color-mix(in srgb, var(--primary-foreground) 40%, transparent);
+    background: transparent;
+    color: var(--primary-foreground);
+  }
+
+  @include hover {
+    &#{&} {
+      background: color-mix(in srgb, var(--primary-foreground) 10%, transparent);
+    }
+  }
+}

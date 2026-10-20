@@ -1,0 +1,73 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  position: relative;
+  display: grid;
+  height: 1.75rem;
+  padding: 0.1875rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: rgb(var(--tint) / 7%);
+  gap: 0.125rem;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+}
+
+.indicator {
+  position: absolute;
+  top: 0.1875rem;
+  bottom: 0.1875rem;
+  left: 0.1875rem;
+  width: calc((100% - 0.5rem) / 2);
+  border-radius: calc(var(--radius-md) - 0.1875rem);
+  background: var(--accent);
+  box-shadow: 0 rem(1) rem(3) rgb(8 4 10 / 25%);
+  transition: transform var(--duration-default) cubic-bezier(0.22, 1, 0.36, 1);
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+.option {
+  position: relative;
+  display: flex;
+  width: 1.75rem;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: calc(var(--radius-md) - 0.1875rem);
+  background: transparent;
+  opacity: 0.55;
+  transition:
+    opacity var(--duration-fast) var(--timing-function-out),
+    transform var(--duration-fast) var(--timing-function-out);
+
+  @include interactive-cursor;
+
+  &:hover:not(:disabled) {
+    opacity: 0.85;
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 rem(2) color-mix(in srgb, var(--ring) 50%, transparent);
+    outline: none;
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.92);
+  }
+}
+
+.optionActive {
+  opacity: 1;
+}
+
+.flag {
+  width: 1.125rem;
+  height: 0.8125rem;
+  flex-shrink: 0;
+  border-radius: rem(2);
+  box-shadow: 0 0 0 1px rgb(8 4 10 / 25%);
+  object-fit: cover;
+}

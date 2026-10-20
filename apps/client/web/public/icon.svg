@@ -1,0 +1,24 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Chatovo">
+  <defs>
+    <linearGradient id="plaque" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff8f6b"/>
+      <stop offset="0.5" stop-color="#ff7a59"/>
+      <stop offset="1" stop-color="#f2643f"/>
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="22" fill="url(#plaque)"/>
+  <g transform="translate(50 50) scale(1.18) translate(-50 -49)">
+    <g fill="#fff6ea">
+      <path d="M21 41 Q18 16 35 23 Q43 27 45 40 Z"/>
+      <path d="M79 41 Q82 16 65 23 Q57 27 55 40 Z"/>
+      <path d="M50 30 Q79 30 79 56 Q79 76 64 82 Q57 80 50 82 Q43 80 36 82 Q21 76 21 56 Q21 30 50 30 Z"/>
+    </g>
+    <path d="M27 37 Q26 24 34 28 Q39 31 40 39 Z" fill="#ff9f86"/>
+    <path d="M73 37 Q74 24 66 28 Q61 31 60 39 Z" fill="#ff9f86"/>
+    <circle cx="40" cy="54" r="6.6" fill="#2c1a33"/>
+    <circle cx="42.3" cy="51.4" r="2.2" fill="#fff6ea"/>
+    <path d="M54 54 Q60 49 66 54" stroke="#2c1a33" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M50 61 L45.5 67 H54.5 Z" fill="#2c1a33"/>
+    <path d="M42 70 Q50 78 58 70" stroke="#2c1a33" stroke-width="4" fill="none" stroke-linecap="round"/>
+  </g>
+</svg>

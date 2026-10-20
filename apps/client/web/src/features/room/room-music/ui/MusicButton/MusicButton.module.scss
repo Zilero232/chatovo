@@ -1,0 +1,17 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.trigger {
+  @include round-trigger(var(--brand-coral));
+
+  &[aria-expanded='true'],
+  &[data-active] {
+    @include round-trigger-accent(var(--brand-coral));
+  }
+
+  svg {
+    @include bp(sm) {
+      width: var(--icon-md);
+      height: var(--icon-md);
+    }
+  }
+}

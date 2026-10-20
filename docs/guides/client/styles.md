@@ -2,8 +2,8 @@
 
 | Layer | Format |
 |---|---|
-| `ui-kit/**` | `*.module.scss` + CSS variables from `globals.scss` |
-| widgets / features / views | `*.module.scss` |
+| `packages/ui-kit/**` | `*.module.scss` + CSS variables from `styles/_tokens.scss` |
+| widgets / features / pages (site: views) | `*.module.scss` |
 
 | Case | Where |
 |---|---|
@@ -16,10 +16,9 @@ The principle: JSX stays readable, and `s.root` / `s.header` tell you the struct
 
 ## 12. Global styles and tokens
 
-- Theme tokens are CSS variables in `app/globals.scss` (`:root` + `.dark`).
+- Theme tokens, spacing and sizes are CSS variables in `packages/ui-kit/styles/_tokens.scss` (`--space-*`, `--icon-*`, `--control-*`, colours, radii); the shared global CSS is `styles/_base.scss`. Each app's `globals.scss` (`apps/client/web/src/app/`, `apps/landing/app/`) `@use`s `@chatovo/ui-kit/styles/tokens`, `keyframes` and `base`, then adds only its own page-level rules.
 - Dark theme is hardcoded as `<html className="dark">` (incompatible with `next-themes` + Tauri).
-- Theme tokens, spacing and sizes live in `ui-kit/styles/_tokens.scss` (`--space-*`, `--icon-*`, `--control-*`, colours, radii). Wired in through `app/globals.scss`.
-- Component styles are `*.module.scss`; shared mixins come from `@use '@/ui-kit/styles/mixins' as *` (`loadPaths` + `turbopack.resolveAlias` in `next.config.ts`).
+- Component styles are `*.module.scss`; shared mixins come from `@use '@chatovo/ui-kit/styles/mixins' as *` (likewise `breakpoints`, `functions`). The repo `node_modules` is on the Sass load paths in each app (`css.preprocessorOptions.scss.loadPaths` in the web app's `vite.config.ts`, `sassOptions.loadPaths` plus `transpilePackages` in the site's `next.config.ts`) — never a relative `../../` into the package.
 - `clsx` joins module classes with the `className` prop.
 
 ## Animation
@@ -28,4 +27,4 @@ Enter/exit animations, layout transitions and stagger go through **`motion`** (`
 
 ## Stylelint
 
-`bun lint:css:fix` sorts properties (`stylelint-config-idiomatic-order` on top of `@siberiacancode/stylelint`). Don't order properties by hand and don't argue with the output.
+`bun lint:css:fix` (over `apps/client/web`, `apps/landing` and `packages/ui-kit`) sorts properties (`stylelint-config-idiomatic-order` on top of `@siberiacancode/stylelint`). Don't order properties by hand and don't argue with the output.

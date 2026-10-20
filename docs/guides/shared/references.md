@@ -22,21 +22,23 @@ The table below already carries the resolved ids, so step 1 can be skipped for a
 | LiveKit platform guides | — | `/llmstxt/livekit_io_llms_txt` |
 | Server token minting | `livekit-server-sdk` ^2.18.0 | `/livekit/livekit` |
 | Auth (client + server) | `better-auth` ^1.7.2 | `/better-auth/better-auth` |
-| Web framework | `next` ^16.3.4 | `/vercel/next.js` |
+| Site framework | `next` ^16.3.4 | `/vercel/next.js` |
+| Web app build | `vite` ^8.2.2, `@vitejs/plugin-react` ^6.1.1 | `/vitejs/vite`, `/vitejs/vite-plugin-react` |
+| Web app routing | `@tanstack/react-router` ^1.170.0 | `/tanstack/router` |
 | UI runtime | `react` ^19.2.8 | `/reactjs/react.dev` |
 | Server state | `@tanstack/react-query` ^5.102.8 | `/tanstack/query` |
 | API framework | `@nestjs/core` 11.1.29 | `/nestjs/docs.nestjs.com` |
 | ORM | `prisma` ^7.9.1 | `/prisma/docs` |
 | Validation | `zod` ^4.5.4 | `/colinhacks/zod` |
 | UI primitives | `@base-ui/react` ^1.7.0 | `/mui/base-ui` |
-| i18n | `next-intl` ^4.14.1 | `/amannn/next-intl` |
+| i18n | `next-intl` ^4.14.3 (site), `use-intl` ^4.14.3 (web, ui-kit) | `/amannn/next-intl` |
 | Forms | `react-hook-form` ^7.87.0 | `/react-hook-form/documentation` |
 | Animation | `motion` ^13.1.1 | `/motiondivision/motion` |
 | Data helpers | `remeda` ^2.45.0 | `/remeda/remeda` |
 | Pattern matching | `ts-pattern` ^5.9.0 | `/gvergnaud/ts-pattern` |
 | Dates | `date-fns` ^4.4.0 | `/date-fns/date-fns` |
 | Generic hooks | `@siberiacancode/reactuse` ^1.0.16 | resolve on demand |
-| Desktop shell | `@tauri-apps/api` (Tauri 2) | `/tauri-apps/tauri` |
+| Desktop shell | `@tauri-apps/api` (Tauri 2) | `/tauri-apps/client/native` |
 
 Ids for anything not listed: resolve it, then add the row here.
 
@@ -46,7 +48,8 @@ Read the docs **before writing the code**, not after a failure, whenever the tas
 
 - **A LiveKit API beyond the hooks we already use** — track publication options, device switching, `RoomOptions`, `setVolume` and its source argument, ICE and reconnection behaviour, egress, data channels, participant permissions. This SDK changes fast and its types under-document the runtime.
 - **better-auth configuration** — session lifetime, hooks (`databaseHook`, `onError`), plugins, token transport, cookie versus Bearer, the Prisma adapter's schema expectations.
-- **A Next.js file convention or an async API** — `params`/`searchParams`, metadata, route handlers, caching, the RSC boundary. Version 16 differs from every tutorial written for 13-15.
+- **A Next.js file convention or an async API** (the site) — `params`/`searchParams`, metadata, route handlers, caching, the RSC boundary. Version 16 differs from every tutorial written for 13-15.
+- **A TanStack Router or Vite API beyond what the web app already uses** — route options, search validation, loaders, `vite.config.ts` options.
 - **A react-query behaviour that is not `useQuery(key, fn)`** — retry semantics, `gcTime` versus `staleTime`, invalidation, optimistic updates, the query and mutation caches.
 - **A Prisma migration or a schema-level feature** — relation modes, multi-file schema, `db push` versus `migrate`, generator options. Repo specifics live in [ops/migrations.md](../../ops/migrations.md).
 - **A Base UI primitive** — its parts, the render prop, portal and positioner behaviour, controlled state. Repo gotchas are in [client/base-ui.md](../client/base-ui.md).

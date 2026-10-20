@@ -1,6 +1,6 @@
 # Chatovo Style Guide
 
-Code-style conventions for `apps/client/`, `apps/server/` and `packages/`. Architectural rules for the client live in [`docs/architecture/fsd.md`](../architecture/fsd.md); the design decisions behind the product are in [`docs/architecture/`](../README.md#architecture). The compressed editing versions of these guides are the digests in [`.claude/rules/`](../../.claude/rules/), loaded automatically by path. A rule change goes into both.
+Code-style conventions for `apps/client/web/`, `apps/landing/`, `apps/server/` and `packages/`. Architectural rules for the two frontend apps (the Vite web app and the Next.js site) live in [`docs/architecture/fsd.md`](../architecture/fsd.md); the design decisions behind the product are in [`docs/architecture/`](../README.md#architecture). The compressed editing versions of these guides are the digests in [`.claude/rules/`](../../.claude/rules/), loaded automatically by path. A rule change goes into both.
 
 Tools:
 
@@ -8,7 +8,7 @@ Tools:
 - **Prettier** (`bun format` / `bun format:check`) — formatter. Config: `prettier.config.mjs` (re-exports `@siberiacancode/prettier`), exclusions in `.prettierignore`.
 - **Stylelint** (`bun lint:css` / `bun lint:css:fix`) — SCSS. Config: `stylelint.config.mjs` on top of `@siberiacancode/stylelint`; property order from `stylelint-config-idiomatic-order`.
 - **TypeScript** strict, with `noUnusedLocals` and `noUnusedParameters` (`packages/tsconfig`).
-- **clippy + rustfmt** for `apps/tauri` (`bun lint:rust`, `bun format:rust`).
+- **clippy + rustfmt** for `apps/client/native` (`bun lint:rust`, `bun format:rust`).
 - FSD boundaries, hook order and blank lines are kept by hand and caught at review — the linter covers none of them.
 
 One command each way: `bun run verify` (typecheck + ESLint + Prettier + Stylelint) and `bun run fix` (ESLint --fix + Prettier + Stylelint --fix).
@@ -19,7 +19,7 @@ One command each way: `bun run verify` (typecheck + ESLint + Prettier + Stylelin
 
 The `§` numbers are the sections of the old single-file guide; reviews and commit messages still cite them.
 
-### Client (`apps/client`)
+### Client (`apps/client/web`, `apps/landing`, `packages/ui-kit`)
 
 - [Slice structure](client/slices.md) — §1
 - [Slice `ui/` and `ui-kit`](client/slice-ui.md) — §2, §2.1, headless controllers
@@ -33,7 +33,7 @@ The `§` numbers are the sections of the old single-file guide; reviews and comm
 - [Conditional render](client/conditional-render.md) — §16, §16.1
 - [Drill cleanup](client/drill-cleanup.md) — §17
 - [Base UI](client/base-ui.md) — the gotchas of the `ui-kit` primitives
-- [i18n](client/i18n.md) — next-intl, locales, the locale tests
+- [i18n](client/i18n.md) — use-intl in the web app, next-intl on the site, locales, the locale tests
 - [Tauri on the client](client/tauri.md) — `isTauri()` gating, desktop vs mobile
 
 ### Server (`apps/server`)

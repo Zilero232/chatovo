@@ -1,0 +1,8 @@
+import { CenteredState, Spinner } from '@chatovo/ui-kit';
+import { useTranslations } from 'use-intl';
+
+export const RoomLoadingFallback = () => {
+  const t = useTranslations('room');
+
+  return <CenteredState icon={<Spinner size='sm' />} size='sm' title={t('loading')} />;
+};

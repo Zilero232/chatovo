@@ -1,0 +1,41 @@
+@use '@chatovo/ui-kit/styles/functions' as *;
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  gap: rem(10);
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  padding: rem(6) rem(14) rem(6) rem(6);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface-1);
+  color: inherit;
+  gap: rem(9);
+  transition:
+    border-color var(--duration-fast) var(--timing-function-standard),
+    background-color var(--duration-fast) var(--timing-function-standard),
+    transform var(--duration-fast) var(--timing-function-standard);
+
+  &:hover {
+    border-color: var(--border-strong);
+    background: var(--surface-2);
+    transform: translateY(rem(-2));
+  }
+}
+
+.avatar {
+  width: rem(28);
+  height: rem(28);
+  border-radius: 50%;
+}
+
+.name {
+  font-size: rem(14);
+}

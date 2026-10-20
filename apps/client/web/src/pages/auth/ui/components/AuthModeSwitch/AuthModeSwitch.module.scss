@@ -1,0 +1,20 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.toggle {
+  border-radius: var(--radius-sm);
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration-color: transparent;
+  text-underline-offset: rem(4);
+  transition:
+    color var(--duration-fast) var(--timing-function-standard),
+    text-decoration-color var(--duration-fast) var(--timing-function-standard);
+
+  @include focus-ring;
+
+  &:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+    text-decoration-color: currentcolor;
+  }
+}
