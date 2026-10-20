@@ -1,7 +1,7 @@
 # Chatovo — Caddy config (runs on the VPS).
 #
 # chatovo.ru is the public website: a Next.js server in the `site` container.
-# app.chatovo.ru is the web app: the static export baked into this image.
+# app.chatovo.ru is the web app: the static Vite SPA build baked into this image.
 # Each host sends the other's paths across with a permanent redirect, so old
 # links and bookmarks keep working.
 #
@@ -11,14 +11,17 @@
 (static_client) {
 	root * /srv/www
 
-	@assets path /_next/static/*
+	# Vite fingerprints everything it emits under /assets.
+	@assets path /assets/*
 	header @assets Cache-Control "public, max-age=31536000, immutable"
 
 	encode zstd gzip
 }
 
+# A single-page app: a real file wins, every other path gets index.html and the
+# client router renders the route (or its not-found page).
 (static_routing) {
-	try_files {path} {path}.html {path}/index.html /404.html
+	try_files {path} /index.html
 	file_server
 }
 
@@ -64,11 +67,11 @@ api.chatovo.ru {
 app.chatovo.ru {
 	import static_client
 
-	# Messenger and social crawlers don't run JS, so the static room page would
-	# unfurl as the generic site card. They get server-rendered Open Graph tags
+	# Messenger and social crawlers don't run JS, so the room page would unfurl
+	# as the generic site card. They get server-rendered Open Graph tags
 	# with the room name and live headcount instead; people still get the app.
 	@link_preview_bot {
-		path /room /room.html
+		path /room
 		header_regexp User-Agent (?i)(telegrambot|discordbot|twitterbot|facebookexternalhit|vkshare|whatsapp|slackbot|linkedinbot|skypeuripreview|viber|mattermost|iframely|redditbot)
 	}
 	handle @link_preview_bot {
@@ -93,12 +96,6 @@ app.chatovo.ru {
 	# Site pages used to be served from this host too.
 	@site path /features /download /changelog /about /support /privacy /terms /en /en/*
 	redir @site https://chatovo.ru{uri} permanent
-
-	# The lobby is this host's front page, which is why the app has no /lobby URL.
-	handle / {
-		rewrite * /lobby.html
-		file_server
-	}
 
 	handle {
 		import static_routing
