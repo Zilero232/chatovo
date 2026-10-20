@@ -1,23 +1,5 @@
 @use '@/ui-kit/styles/functions' as *;
 
-@keyframes aurora-drift {
-  0% {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-
-  33% {
-    transform: translate3d(6%, -8%, 0) scale(1.12);
-  }
-
-  66% {
-    transform: translate3d(-7%, 5%, 0) scale(0.94);
-  }
-
-  100% {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-}
-
 @keyframes shimmer-slide {
   0% {
     background-position: 120% 0;

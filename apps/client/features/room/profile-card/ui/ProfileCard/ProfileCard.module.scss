@@ -15,8 +15,8 @@
   flex-shrink: 0;
   background: linear-gradient(
     to bottom right,
-    color-mix(in oklch, var(--brand-violet) 60%, transparent),
-    color-mix(in oklch, var(--brand-cyan) 60%, transparent)
+    color-mix(in srgb, var(--brand-violet) 60%, transparent),
+    color-mix(in srgb, var(--brand-cyan) 60%, transparent)
   );
   border-start-end-radius: var(--radius-2xl);
   border-start-start-radius: var(--radius-2xl);

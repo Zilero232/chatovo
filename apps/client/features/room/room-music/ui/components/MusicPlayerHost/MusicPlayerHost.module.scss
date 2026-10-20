@@ -1,0 +1,16 @@
+.root {
+  position: fixed;
+  z-index: calc(var(--z-sticky) + 1);
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.raised {
+  z-index: calc(var(--z-modal) + 1);
+  border-radius: var(--radius-md);
+  pointer-events: auto;
+}

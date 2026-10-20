@@ -10,11 +10,11 @@
   transition: background-color var(--duration-fast) var(--timing-function-out);
 
   &:hover {
-    background: oklch(100% 0 0deg / 6%);
+    background: rgb(var(--tint) / 9%);
   }
 
   &:focus-within {
-    background: oklch(100% 0 0deg / 6%);
+    background: rgb(var(--tint) / 9%);
   }
 }
 
@@ -61,7 +61,7 @@
   color: #000;
 
   &:hover:not(:disabled) {
-    background: color-mix(in oklch, var(--brand-cyan) 85%, #fff);
+    background: color-mix(in srgb, var(--brand-cyan) 85%, var(--foreground));
   }
 }
 
@@ -69,7 +69,7 @@
   color: var(--muted-foreground);
 
   &:hover:not(:disabled) {
-    background: color-mix(in oklch, var(--destructive) 14%, transparent);
+    background: color-mix(in srgb, var(--destructive) 14%, transparent);
     color: var(--destructive);
   }
 }

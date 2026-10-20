@@ -15,11 +15,11 @@
   }
 
   &:hover {
-    background: oklch(100% 0 0deg / 6%);
+    background: rgb(var(--tint) / 9%);
   }
 
   &:focus-within {
-    background: oklch(100% 0 0deg / 6%);
+    background: rgb(var(--tint) / 9%);
   }
 }
 
@@ -49,12 +49,12 @@
 
 .add {
   flex-shrink: 0;
-  border: 1px solid color-mix(in oklch, var(--brand-cyan) 30%, transparent);
-  background: color-mix(in oklch, var(--brand-cyan) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--brand-cyan) 30%, transparent);
+  background: color-mix(in srgb, var(--brand-cyan) 10%, transparent);
   color: var(--brand-cyan);
 
   &:hover:not(:disabled) {
-    border-color: color-mix(in oklch, var(--brand-cyan) 55%, transparent);
-    background: color-mix(in oklch, var(--brand-cyan) 18%, transparent);
+    border-color: color-mix(in srgb, var(--brand-cyan) 55%, transparent);
+    background: color-mix(in srgb, var(--brand-cyan) 18%, transparent);
   }
 }

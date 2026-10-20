@@ -22,6 +22,7 @@ export const DownloadPage = async ({ locale }: DownloadPageProps) => {
   return (
     <MarketingShell locale={locale} path={ROUTES.download}>
       <MarketingHero
+        chato='wave'
         description={t('hero.description')}
         eyebrow={t('hero.eyebrow')}
         title={t('hero.title')}

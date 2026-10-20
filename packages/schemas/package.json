@@ -27,6 +27,7 @@
     "./json": "./src/json.ts",
     "./link-preview": "./src/link-preview/index.ts",
     "./livekit": "./src/livekit/index.ts",
+    "./music": "./src/music/index.ts",
     "./push": "./src/push/index.ts",
     "./realtime": "./src/realtime/index.ts",
     "./rooms": "./src/rooms/index.ts",

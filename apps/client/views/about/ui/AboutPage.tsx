@@ -13,7 +13,12 @@ export const AboutPage = async ({ locale }: AboutPageProps) => {
 
   return (
     <MarketingShell locale={locale} path={ROUTES.about}>
-      <MarketingHero description={t('description')} eyebrow={t('eyebrow')} title={t('title')} />
+      <MarketingHero
+        chato='listen'
+        description={t('description')}
+        eyebrow={t('eyebrow')}
+        title={t('title')}
+      />
 
       <AboutStory locale={locale} />
       <AboutStack locale={locale} />

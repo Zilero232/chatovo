@@ -38,7 +38,7 @@ export const LogoMark = ({
             <linearGradient id={plaqueId} x1='0' x2='1' y1='0' y2='1'>
               <stop offset='0' stopColor='#7b5cff' />
               <stop offset='0.5' stopColor='#6a4dff' />
-              <stop offset='1' stopColor='#4ea8e6' />
+              <stop offset='1' stopColor='#5a3df0' />
             </linearGradient>
           </defs>
           <rect fill={`url(#${plaqueId})`} height='100' rx='22' width='100' />

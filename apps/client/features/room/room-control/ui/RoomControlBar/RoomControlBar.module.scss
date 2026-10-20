@@ -17,6 +17,6 @@
   width: 1px;
   height: 2rem;
   flex-shrink: 0;
-  background: rgb(255 255 255 / 10%);
+  background: rgb(var(--tint) / 14%);
   margin-inline: 0.25rem;
 }

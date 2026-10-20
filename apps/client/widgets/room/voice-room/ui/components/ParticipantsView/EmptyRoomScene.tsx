@@ -24,8 +24,8 @@ export const EmptyRoomScene = ({ className, ...props }: EmptyRoomSceneProps) => 
     >
       <defs>
         <linearGradient id={gradientId} x1='0' x2='1' y1='0' y2='0'>
-          <stop offset='0%' stopColor='var(--brand-cyan)' />
-          <stop offset='100%' stopColor='var(--brand-violet)' />
+          <stop offset='0%' stopColor='var(--brand-coral)' />
+          <stop offset='100%' stopColor='var(--brand-sun)' />
         </linearGradient>
         <linearGradient id={fadeId} x1='0' x2='1' y1='0' y2='0'>
           <stop offset='0%' stopColor='white' stopOpacity='0' />

@@ -41,12 +41,12 @@
 
   &:hover {
     background: var(--destructive);
-    color: #fff;
+    color: var(--destructive-foreground);
   }
 
   &:focus-visible {
     background: var(--destructive);
-    color: #fff;
+    color: var(--destructive-foreground);
     outline: none;
   }
 }

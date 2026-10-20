@@ -66,11 +66,11 @@
 }
 
 .toneSubtle {
-  color: color-mix(in oklch, var(--foreground) 60%, transparent);
+  color: var(--subtle-foreground);
 }
 
 .toneBrand {
-  color: var(--brand-violet);
+  color: var(--primary);
 }
 
 .toneDestructive {

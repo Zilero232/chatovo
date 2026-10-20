@@ -1,12 +1,11 @@
-import type { LinkPreview, LinkPreviewImage, LinkPreviewResponse } from '@chatovo/schemas';
+import type { LinkPreview, LinkPreviewResponse } from '@chatovo/schemas';
 import type { Cache } from 'cache-manager';
 
 import { linkPreviewSchema } from '@chatovo/schemas';
 import { CACHE_MANAGER } from '@nestjs/cache-manager';
 import { Inject, Injectable } from '@nestjs/common';
 
-import { buildHashKey, fetchImage, resizeImage, safeFetch } from '../../../../lib';
-import { saveUpload, toArrayBuffer } from '../../../uploads';
+import { buildHashKey, safeFetch, saveRemoteImage } from '../../../../lib';
 import { LINK_PREVIEW } from '../../config';
 import { decodeHtml, extractLinkMetadata } from '../../lib';
 
@@ -14,23 +13,16 @@ import { decodeHtml, extractLinkMetadata } from '../../lib';
 export class LinkUnfurlService {
   constructor(@Inject(CACHE_MANAGER) private readonly cache: Cache) {}
 
-  private async saveImage(imageUrl: string): Promise<LinkPreviewImage | null> {
-    const original = await fetchImage({
-      url: imageUrl,
-      maxBytes: LINK_PREVIEW.unfurl.imageMaxBytes
-    });
+  private saveImage(imageUrl: string) {
     const { folder, maxWidth, quality } = LINK_PREVIEW.unfurl.image;
-    const resized = original && (await resizeImage({ buffer: original, width: maxWidth, quality }));
 
-    if (!resized) {
-      return null;
-    }
-
-    const { buffer, width, height } = resized;
-    const key = `${folder}/${buildHashKey([buffer])}.webp`;
-    const url = await saveUpload(key, toArrayBuffer(buffer));
-
-    return { url, width, height };
+    return saveRemoteImage({
+      url: imageUrl,
+      folder,
+      maxBytes: LINK_PREVIEW.unfurl.imageMaxBytes,
+      maxWidth,
+      quality
+    }).catch(() => null);
   }
 
   private async buildPreview(url: string): Promise<LinkPreview | null> {
@@ -54,7 +46,7 @@ export class LinkUnfurlService {
     }
 
     const { imageUrl, ...text } = metadata;
-    const image = imageUrl ? await this.saveImage(imageUrl).catch(() => null) : null;
+    const image = imageUrl ? await this.saveImage(imageUrl) : null;
     const preview = linkPreviewSchema.safeParse({ url, ...text, image });
 
     return preview.success ? preview.data : null;

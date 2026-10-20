@@ -70,7 +70,7 @@ export const ResetPasswordForm = ({ token, onSuccess }: ResetPasswordFormProps) 
         />
       </FormField>
 
-      <SubmitButton className={s.submit} isPending={isPending}>
+      <SubmitButton className={s.submit} isPending={isPending} size='lg'>
         {t('resetPassword')}
       </SubmitButton>
     </Stack>

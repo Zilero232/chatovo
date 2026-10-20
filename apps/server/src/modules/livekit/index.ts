@@ -4,8 +4,10 @@ export {
   bindLivekitCredentials,
   closeLivekitRoom,
   ejectParticipantEverywhere,
+  findRoomParticipant,
   getAdminSnapshot,
   getSnapshot,
+  hasRoomParticipants,
   removeLobbyConnection,
   syncRoom
 } from './presence';

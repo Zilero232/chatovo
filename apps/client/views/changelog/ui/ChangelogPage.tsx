@@ -22,7 +22,12 @@ export const ChangelogPage = async ({ locale }: ChangelogPageProps) => {
 
   return (
     <MarketingShell locale={locale} path={ROUTES.changelog}>
-      <MarketingHero description={t('description')} eyebrow={t('eyebrow')} title={t('title')}>
+      <MarketingHero
+        chato='wink'
+        description={t('description')}
+        eyebrow={t('eyebrow')}
+        title={t('title')}
+      >
         <ChangelogStats locale={locale} summary={summary} />
       </MarketingHero>
 

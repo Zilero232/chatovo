@@ -3,10 +3,11 @@
 .root {
   display: flex;
   flex-direction: column;
-  padding: 0.625rem 0.75rem;
-  gap: 0.25rem;
-
-  @include surface-card(rem(10), 3%);
+  padding: rem(10) var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface-2);
+  gap: var(--space-1);
 }
 
 .body {
@@ -19,16 +20,16 @@
 }
 
 .icon {
-  width: rem(15);
-  height: rem(15);
+  width: var(--icon-sm);
+  height: var(--icon-sm);
   flex-shrink: 0;
   color: var(--muted-foreground);
 }
 
 .link {
   overflow: hidden;
-  color: var(--brand-violet);
-  font-size: 0.875rem;
+  color: var(--primary);
+  font-size: var(--text-sm);
   text-overflow: ellipsis;
   white-space: nowrap;
 

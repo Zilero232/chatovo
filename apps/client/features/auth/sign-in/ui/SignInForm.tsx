@@ -67,7 +67,7 @@ export const SignInForm = ({ onForgotPassword }: SignInFormProps) => {
         {t('forgotPassword')}
       </button>
 
-      <SubmitButton className={s.submit} isPending={isPending}>
+      <SubmitButton className={s.submit} isPending={isPending} size='lg'>
         {t('signIn')}
       </SubmitButton>
     </Stack>

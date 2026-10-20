@@ -13,7 +13,12 @@ export const FeaturesPage = async ({ locale }: FeaturesPageProps) => {
 
   return (
     <MarketingShell locale={locale} path={ROUTES.features}>
-      <MarketingHero description={t('description')} eyebrow={t('eyebrow')} title={t('title')} />
+      <MarketingHero
+        chato='wink'
+        description={t('description')}
+        eyebrow={t('eyebrow')}
+        title={t('title')}
+      />
 
       {FEATURES_GROUP_KEYS.map((groupKey) => (
         <FeaturesGroup key={groupKey} groupKey={groupKey} locale={locale} />

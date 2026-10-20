@@ -8,12 +8,12 @@
 }
 
 .dots {
-  filter: drop-shadow(0 1px 0 rgb(0 0 0 / 45%));
+  filter: drop-shadow(0 1px 0 rgb(8 4 10 / 45%));
   opacity: 0.16;
 }
 
 .arcs {
-  filter: drop-shadow(0 1px 0 rgb(0 0 0 / 40%));
-  stroke: rgb(255 255 255 / 40%);
+  filter: drop-shadow(0 1px 0 rgb(8 4 10 / 40%));
+  stroke: rgb(var(--tint) / 40%);
   stroke-width: 1.25;
 }

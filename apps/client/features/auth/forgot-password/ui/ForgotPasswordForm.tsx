@@ -4,6 +4,7 @@ import type { ForgotPasswordValues } from '@chatovo/schemas';
 
 import { forgotPasswordSchema } from '@chatovo/schemas';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { ArrowLeft } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
@@ -51,11 +52,12 @@ export const ForgotPasswordForm = ({ onBack }: ForgotPasswordFormProps) => {
         <Input autoComplete='email' id='forgot-email' type='email' {...register('email')} />
       </FormField>
 
-      <SubmitButton className={s.submit} isPending={isPending}>
+      <SubmitButton className={s.submit} isPending={isPending} size='lg'>
         {t('sendResetLink')}
       </SubmitButton>
 
       <button className={s.backLink} type='button' onClick={onBack}>
+        <ArrowLeft aria-hidden />
         {t('backToSignIn')}
       </button>
     </Stack>

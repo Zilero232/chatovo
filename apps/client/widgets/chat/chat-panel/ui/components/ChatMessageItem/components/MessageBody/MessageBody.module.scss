@@ -2,7 +2,7 @@
   max-width: 100%;
   padding: 0.5rem 0.875rem;
   border-radius: var(--radius-2xl);
-  color: color-mix(in oklch, var(--muted-foreground) 60%, transparent);
+  color: color-mix(in srgb, var(--muted-foreground) 60%, transparent);
   font-size: 0.875rem;
   font-style: italic;
   user-select: none;

@@ -13,8 +13,10 @@ export {
   addLobbyConnection,
   addParticipant,
   clearRoom,
+  findRoomParticipant,
   getAdminSnapshot,
   getSnapshot,
+  hasRoomParticipants,
   patchParticipant,
   removeLobbyConnection,
   removeParticipant

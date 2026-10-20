@@ -25,9 +25,9 @@ export const LegalDocumentPage = ({ documentId, alternatePath }: LegalDocumentPa
 
   return (
     <StandaloneShell backHref={ROUTES.auth} backLabel={t('back')}>
-      <article className={clsx(s.shell, 'glass', 'shadow-glow-violet')}>
+      <article className={s.shell}>
         <header className={s.header}>
-          <h1 className={clsx(s.title, 'gradient-text')}>{content.title}</h1>
+          <h1 className={s.title}>{content.title}</h1>
           <Text size='sm' tone='muted'>
             {content.updated}
           </Text>

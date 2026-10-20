@@ -1,0 +1,44 @@
+.root {
+  position: relative;
+  display: inline-flex;
+  overflow: hidden;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: color-mix(in oklch, var(--brand-coral) 14%, var(--surface-2));
+  color: var(--brand-coral);
+}
+
+.sm {
+  width: var(--control-lg);
+  height: var(--control-lg);
+}
+
+.lg {
+  width: var(--space-12);
+  height: var(--space-12);
+  border-radius: var(--radius-lg);
+}
+
+.fill {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: inherit;
+
+  .icon {
+    width: var(--icon-md);
+    height: var(--icon-md);
+  }
+}
+
+.image {
+  object-fit: cover;
+}
+
+.icon {
+  width: var(--icon-sm);
+  height: var(--icon-sm);
+}

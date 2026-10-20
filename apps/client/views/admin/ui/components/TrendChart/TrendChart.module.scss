@@ -4,10 +4,11 @@
   display: flex;
   min-width: 0;
   flex-direction: column;
-  padding: 1rem 1.125rem;
-  gap: 0.75rem;
-
-  @include surface-card;
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  background: var(--surface-1);
+  gap: var(--space-3);
 }
 
 .head {
@@ -25,7 +26,7 @@
 }
 
 .total {
-  font-size: 1.375rem;
+  font-size: rem(24);
   font-variant-numeric: tabular-nums;
   font-weight: 600;
   line-height: 1.1;

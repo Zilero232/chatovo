@@ -40,6 +40,15 @@ The version code comes from the root `package.json` version, so every release mu
 
 Bun, Node and Rust come from [mise.toml](../../mise.toml) through `.github/actions/setup` (`jdx/mise-action`); a job asks for Rust with `tools: rust`, and the extra Rust targets (macOS arches, Android) through `rust-targets`. The JDK, the Android SDK and the NDK stay with their own actions (`setup-java`, `setup-android`, `setup-ndk`). Bumping bun means `mise.toml` and the `oven/bun` tag in both Dockerfiles.
 
+### 16 KB page size
+
+Google Play refuses an update whose 64-bit native libraries are not 16 KB aligned ([page-sizes guide](https://developer.android.com/guide/practices/page-sizes)). The only native library in the aab is the Rust one, `libchatovo_lib.so` per ABI — no `libc++_shared.so`, and the Gradle dependencies (FCM included) ship none. Two things keep it compliant:
+
+- **ELF alignment.** The `android` job uses NDK r28c, which links 16 KB aligned by default, and [apps/tauri/.cargo/config.toml](../../apps/tauri/.cargo/config.toml) passes `-z max-page-size=16384 -z common-page-size=16384` to the linker for every Android target on top, so an older local NDK cannot regress it. Keep that entry `cfg(target_os = "android")`: the Tauri CLI sets `CARGO_TARGET_<TRIPLE>_RUSTFLAGS` itself and cargo joins it with `cfg` entries only.
+- **Zip alignment.** The libs ship uncompressed (`extractNativeLibs="false"`), which needs AGP 8.5.1+; the Tauri template brings AGP 8.11 and no `useLegacyPackaging`, so nothing is set here.
+
+To check a build: `llvm-readelf -lW libchatovo_lib.so` (every `LOAD` `Align` at `0x4000` or more) on the libs in the aab's `base/lib/<abi>/`, and `zipalign -c -P 16 -v 4` on an apk built from it (`bundletool build-apks`).
+
 ## Secrets
 
 Listed in the header of `release.yml`: the `NEXT_PUBLIC_*` URLs baked into every bundle, `TAURI_SIGNING_PRIVATE_KEY` for the updater, and `ANDROID_KEY_*` for the Play upload key. The Android keystore is the *upload* key — Play App Signing holds the app key, so the upload key can be rotated from the Console if it leaks ([google-play/signing.md](google-play/signing.md)).

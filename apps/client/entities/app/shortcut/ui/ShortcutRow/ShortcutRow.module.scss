@@ -21,14 +21,14 @@
   width: 0.875rem;
   height: 0.875rem;
   flex-shrink: 0;
-  color: oklch(82.8% 0.189 84.429deg);
+  color: var(--brand-sun);
 }
 
 .tooltip {
   max-width: 12.5rem;
-  border: 1px solid oklch(82.8% 0.189 84.429deg / 40%);
+  border: 1px solid color-mix(in srgb, var(--brand-sun) 40%, transparent);
   background: var(--popover);
-  color: oklch(90.1% 0.076 70.697deg);
+  color: var(--brand-sun);
   line-height: 1.375;
   text-align: center;
   text-wrap: wrap;
@@ -48,12 +48,12 @@
 }
 
 .shortcutButtonConflict {
-  border-color: oklch(82.8% 0.189 84.429deg / 40%);
-  background: oklch(82.8% 0.189 84.429deg / 6%);
-  color: oklch(90.1% 0.076 70.697deg);
+  border-color: color-mix(in srgb, var(--brand-sun) 40%, transparent);
+  background: color-mix(in srgb, var(--brand-sun) 6%, transparent);
+  color: var(--brand-sun);
 
   &:hover:not(:disabled) {
-    background: oklch(82.8% 0.189 84.429deg / 10%);
+    background: color-mix(in srgb, var(--brand-sun) 10%, transparent);
   }
 }
 

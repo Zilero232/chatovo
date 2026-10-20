@@ -24,8 +24,8 @@ export const VoiceLevelRing = ({ speaking, className }: VoiceLevelRingProps) => 
     >
       <defs>
         <linearGradient id={gradientId} x1='0' x2='1' y1='0' y2='1'>
-          <stop offset='0%' stopColor='var(--brand-cyan)' />
-          <stop offset='100%' stopColor='var(--brand-violet)' />
+          <stop offset='0%' stopColor='var(--brand-mint)' />
+          <stop offset='100%' stopColor='var(--brand-mint)' />
         </linearGradient>
       </defs>
 

@@ -13,6 +13,7 @@ Things that have already bitten us. Each one looked like a bug in our code, or a
 
 ## Server and production
 
+- **`safeJsonParse` returns `{}` for a JSON array.** It is meant for objects (metadata, socket frames). An API that answers with an array — Radio Browser does — is parsed with `JSON.parse` in a `try` and validated with `z.array(...)`.
 - **Missing Telegram notifications in production are the network.** The VPS is in Russia, where `api.telegram.org` is blocked. The bot goes through `TELEGRAM_PROXY_URL`; check that before debugging the notification code.
 - **The dev database is on port 5433.** A Postgres installed on the host usually owns 5432; `P1000` against 5432 means the port is shadowed by it.
 - **better-auth minor releases add columns.** A required column with no default fails the migration on a non-empty table — [ops/migrations.md](../ops/migrations.md).
@@ -22,6 +23,10 @@ Things that have already bitten us. Each one looked like a bug in our code, or a
 - **The window icon is linked into the executable.** Swapping the icon files and restarting `bun tauri:dev` changes nothing; the binary has to be rebuilt (touch `build.rs` or clean the target).
 - **An old icon in the taskbar jump list after an update is Windows' icon cache**, not the build. The binary and the AUMID are already right; clearing `iconcache_*.db` fixes the machine.
 - **The start URL is `/lobby`.** `tauri.conf.json` opens it directly; an `isTauri()` redirect on the landing page never runs.
+
+## Android
+
+- **Play rejects a bundle whose native lib is 4 KB aligned** ("must support 16 KB memory page sizes"). Up to 1.7.0 the aab was built with NDK r27c, whose linker aligned the `LOAD` segments of `libchatovo_lib.so` at `0x1000`; the zip side was already fine. NDK r28+ in CI and the rustflags in `apps/tauri/.cargo/config.toml` fix it — [ops/release.md](../ops/release.md#16-kb-page-size). The flags have to stay a `cfg(target_os = "android")` entry: the Tauri CLI sets `CARGO_TARGET_<TRIPLE>_RUSTFLAGS` itself, which would override a `[target.<triple>]` entry, while cargo joins a `cfg` entry with it.
 
 ## Tooling
 

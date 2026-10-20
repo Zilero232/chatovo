@@ -1,25 +1,25 @@
-@use '@/ui-kit/styles/functions' as *;
+@use '@/ui-kit/styles/mixins' as *;
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: var(--space-4);
 }
 
 .field {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--space-2);
 }
 
 .label {
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
   font-weight: 500;
 }
 
 .hint {
-  color: var(--muted-foreground);
-  font-size: 0.75rem;
+  color: var(--subtle-foreground);
+  font-size: var(--text-xs);
 }
 
 .submit {
@@ -29,23 +29,19 @@
 .avatarRow {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: var(--space-4);
 }
 
 .avatarButton {
   position: relative;
-  width: 4rem;
-  height: 4rem;
+  width: var(--space-16);
+  height: var(--space-16);
   flex-shrink: 0;
-  padding: 0;
-  border: none;
   border-radius: 9999px;
   cursor: pointer;
   outline: none;
 
-  &:focus-visible {
-    box-shadow: 0 0 0 rem(2) var(--brand-cyan);
-  }
+  @include button-focus-ring;
 
   &:hover .avatarOverlay {
     opacity: 1;
@@ -53,8 +49,8 @@
 }
 
 .avatar {
-  width: 4rem !important;
-  height: 4rem !important;
+  width: var(--space-16) !important;
+  height: var(--space-16) !important;
 }
 
 .avatarOverlay {
@@ -63,33 +59,33 @@
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  background: rgb(0 0 0 / 50%);
+  background: var(--scrim);
   inset: 0;
   opacity: 0;
   transition: opacity var(--duration-fast) var(--timing-function-standard);
 }
 
 .avatarOverlayIcon {
-  width: 1.25rem;
-  height: 1.25rem;
-  color: #fff;
+  width: var(--icon-md);
+  height: var(--icon-md);
+  color: var(--foreground);
 }
 
 .avatarMeta {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: var(--space-1);
 }
 
 .avatarRemove {
   align-self: flex-start;
-  padding: 0;
-  border: none;
-  background: none;
+  border-radius: var(--radius-sm);
   color: var(--destructive);
   cursor: pointer;
-  font-size: 0.75rem;
+  font-size: var(--text-xs);
   text-underline-offset: rem(2);
+
+  @include focus-ring;
 
   &:hover {
     text-decoration: underline;
@@ -105,24 +101,22 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--space-2);
 }
 
 .bannerSwatch {
-  width: 1.75rem;
-  height: 1.75rem;
-  border: 1px solid rgb(255 255 255 / 15%);
+  width: rem(28);
+  height: rem(28);
+  border: 1px solid var(--border-strong);
   border-radius: 9999px;
   cursor: pointer;
   outline: none;
   transition: transform var(--duration-fast) var(--timing-function-standard);
 
+  @include button-focus-ring;
+
   &:hover:not(:disabled) {
     transform: scale(1.1);
-  }
-
-  &:focus-visible {
-    box-shadow: 0 0 0 rem(2) var(--brand-cyan);
   }
 
   &:disabled {
@@ -133,29 +127,27 @@
 
 .bannerSwatchActive {
   box-shadow:
-    0 0 0 rem(2) #fff,
-    0 0 0 rem(4) var(--background);
+    0 0 0 rem(2) var(--background),
+    0 0 0 rem(4) var(--foreground);
 }
 
 .bannerCustomTrigger {
   display: flex;
-  width: 1.75rem;
-  height: 1.75rem;
+  width: rem(28);
+  height: rem(28);
   align-items: center;
   justify-content: center;
-  border: 1px dashed rgb(255 255 255 / 30%);
+  border: 1px dashed var(--border-strong);
   border-radius: 9999px;
   background: transparent;
   cursor: pointer;
   outline: none;
   transition: transform var(--duration-fast) var(--timing-function-standard);
 
+  @include button-focus-ring;
+
   &:hover:not(:disabled) {
     transform: scale(1.1);
-  }
-
-  &:focus-visible {
-    box-shadow: 0 0 0 rem(2) var(--brand-cyan);
   }
 
   &:disabled {
@@ -165,13 +157,20 @@
 }
 
 .bannerCustomIcon {
-  width: 0.875rem;
-  height: 0.875rem;
-  color: #fff;
+  width: var(--icon-xs);
+  height: var(--icon-xs);
+  color: var(--foreground);
   mix-blend-mode: difference;
 }
 
 .bannerPickerPopover {
   width: auto;
-  padding: 0.75rem;
+  padding: var(--space-3);
+}
+
+@include reduced-motion {
+  .bannerSwatch:hover:not(:disabled),
+  .bannerCustomTrigger:hover:not(:disabled) {
+    transform: none;
+  }
 }

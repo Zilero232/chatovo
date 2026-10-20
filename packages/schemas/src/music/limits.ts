@@ -1,0 +1,7 @@
+export const MUSIC_QUEUE_MAX_LENGTH = 50;
+
+export const MUSIC_TITLE_MAX_LENGTH = 200;
+
+export const MUSIC_LINK_MAX_LENGTH = 2048;
+
+export const RADIO_SEARCH_QUERY_MAX_LENGTH = 80;

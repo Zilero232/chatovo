@@ -30,6 +30,7 @@ export const SupportPage = async ({ locale }: SupportPageProps) => {
       <FaqJsonLd items={faqItems} />
 
       <MarketingHero
+        chato='peek'
         description={t('hero.description')}
         eyebrow={t('hero.eyebrow')}
         title={t('hero.title')}

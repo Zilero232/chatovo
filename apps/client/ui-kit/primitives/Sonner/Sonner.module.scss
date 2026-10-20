@@ -39,23 +39,14 @@
   position: relative;
   overflow: hidden;
   border: 1px solid var(--glass-border);
-  backdrop-filter: blur(rem(24)) saturate(var(--glass-saturate));
   background: var(--surface-overlay);
-  box-shadow:
-    0 rem(20) rem(48) rem(-20) oklch(0% 0 0deg / 45%),
-    inset 0 1px 0 oklch(100% 0 0deg / 8%);
-
   &:before {
     position: absolute;
     left: 0;
     width: rem(2);
-    border-radius: 9999px;
+    border-radius: var(--radius-md);
     content: '';
     inset-block: 0;
-  }
-
-  @include tauri-mobile {
-    backdrop-filter: none;
   }
 }
 
@@ -75,20 +66,16 @@
 }
 
 .success {
-  box-shadow: var(--glow-cyan);
-
   &:before {
-    background: var(--brand-cyan);
+    background: var(--brand-mint);
   }
 
   :global([data-icon]) {
-    color: var(--brand-cyan);
+    color: var(--brand-mint);
   }
 }
 
 .error {
-  box-shadow: var(--glow-fuchsia);
-
   &:before {
     background: var(--destructive);
   }
@@ -109,20 +96,18 @@
 }
 
 .info {
-  box-shadow: var(--glow-violet);
-
   &:before {
-    background: var(--brand-violet);
+    background: var(--brand-sun);
   }
 
   :global([data-icon]) {
-    color: var(--brand-violet);
+    color: var(--brand-sun);
   }
 }
 
 .loading {
   :global([data-icon]) {
-    color: var(--brand-violet);
+    color: var(--primary);
   }
 }
 

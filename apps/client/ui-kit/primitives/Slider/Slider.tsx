@@ -7,7 +7,15 @@ import type { SliderProps } from './Slider.types';
 
 import s from './Slider.module.scss';
 
-const Slider = ({ className, max, min, onValueChange, ...props }: SliderProps) => (
+const Slider = ({
+  className,
+  max,
+  min,
+  thumbLabel,
+  getAriaValueText,
+  onValueChange,
+  ...props
+}: SliderProps) => (
   <BaseSlider.Root
     className={clsx(s.root, className)}
     data-slot='slider'
@@ -19,7 +27,12 @@ const Slider = ({ className, max, min, onValueChange, ...props }: SliderProps) =
     <BaseSlider.Control className={s.control} data-slot='slider-control'>
       <BaseSlider.Track className={s.track} data-slot='slider-track'>
         <BaseSlider.Indicator className={s.indicator} data-slot='slider-range' />
-        <BaseSlider.Thumb className={s.thumb} data-slot='slider-thumb' />
+        <BaseSlider.Thumb
+          aria-label={thumbLabel}
+          className={s.thumb}
+          data-slot='slider-thumb'
+          getAriaValueText={getAriaValueText}
+        />
       </BaseSlider.Track>
     </BaseSlider.Control>
   </BaseSlider.Root>

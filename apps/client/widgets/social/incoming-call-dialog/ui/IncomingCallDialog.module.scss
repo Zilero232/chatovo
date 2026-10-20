@@ -2,15 +2,10 @@
 
 .content {
   max-width: 24rem;
-  border-color: oklch(100% 0 0deg / 12%);
-  backdrop-filter: blur(rem(24));
-  background: color-mix(in oklch, var(--shell-surface) 95%, transparent);
-  box-shadow: 0 rem(24) rem(64) rem(-24) oklch(70% 0.22 295deg / 55%);
+  border-color: rgb(var(--tint) / 16%);
+  background: color-mix(in srgb, var(--shell-surface) 95%, transparent);
+  box-shadow: 0 rem(24) rem(64) rem(-24) color-mix(in srgb, var(--brand-violet) 55%, transparent);
   gap: 1.5rem;
-
-  @include tauri-mobile {
-    backdrop-filter: none;
-  }
 }
 
 .header {
@@ -33,8 +28,8 @@
   height: 5rem;
   animation: call-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   box-shadow:
-    0 0 0 rem(4) color-mix(in oklch, var(--brand-violet) 20%, transparent),
-    0 0 rem(40) rem(-8) oklch(70% 0.22 295deg / 75%);
+    0 0 0 rem(4) color-mix(in srgb, var(--brand-violet) 20%, transparent),
+    0 0 rem(40) rem(-8) color-mix(in srgb, var(--brand-violet) 75%, transparent);
 
   @include reduced-motion {
     animation: none;
@@ -61,7 +56,7 @@
   background-image: linear-gradient(
     to right,
     var(--foreground),
-    color-mix(in oklch, var(--foreground) 80%, transparent)
+    color-mix(in srgb, var(--foreground) 80%, transparent)
   );
   color: transparent;
   font-size: 1.125rem;

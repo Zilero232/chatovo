@@ -29,7 +29,7 @@ export const AdminOverview = ({ enabled }: AdminTabProps) => {
       <div className={s.charts}>
         <TrendChart hint={t('stats.chartHint')} points={stats.signups} title={t('stats.signups')} />
         <TrendChart
-          color='cyan'
+          color='mint'
           hint={t('stats.chartHint')}
           points={stats.messagesSeries}
           title={t('stats.messagesSeries')}

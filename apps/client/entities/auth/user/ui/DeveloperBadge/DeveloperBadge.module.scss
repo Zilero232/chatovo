@@ -7,16 +7,13 @@
   align-items: center;
   align-self: center;
   border-radius: 0.3125rem;
-  background: linear-gradient(100deg, oklch(72% 0.19 200deg), oklch(66% 0.24 300deg));
+  background: linear-gradient(100deg, var(--brand-mint), var(--brand-violet));
   box-shadow:
-    0 0 rem(12) oklch(70% 0.22 280deg / 45%),
-    inset 0 1px 0 oklch(100% 0 0deg / 25%);
-  color: oklch(99% 0 0deg);
+    0 0 rem(12) color-mix(in srgb, var(--brand-violet) 45%, transparent),
+    inset 0 1px 0 rgb(var(--tint) / 25%);
+  color: var(--foreground);
   font-weight: 700;
-  letter-spacing: 0.08em;
   line-height: 1;
-  text-shadow: 0 1px 1px oklch(20% 0.05 280deg / 45%);
-  text-transform: uppercase;
   white-space: nowrap;
 }
 

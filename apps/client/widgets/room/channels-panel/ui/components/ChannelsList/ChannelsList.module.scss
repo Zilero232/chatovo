@@ -46,10 +46,9 @@
 
 .sectionLabel {
   padding: 0.25rem 0.5rem;
-  color: color-mix(in oklch, var(--muted-foreground) 80%, transparent);
+  color: color-mix(in srgb, var(--muted-foreground) 80%, transparent);
   font-size: rem(10);
   font-weight: 600;
-  letter-spacing: 0.12em;
 }
 
 .sectionLabelOffset {

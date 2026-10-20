@@ -10,5 +10,6 @@ export { RoomAmbience } from './RoomAmbience/RoomAmbience';
 export { RoomControlsBar } from './RoomControlsBar/RoomControlsBar';
 export { RoomHeader } from './RoomHeader/RoomHeader';
 export { RoomInviteButton } from './RoomInviteButton/RoomInviteButton';
+export { RoomMusicScope } from './RoomMusicScope/RoomMusicScope';
 export { VoiceLevelRing } from './VoiceLevelRing/VoiceLevelRing';
 export { VoiceRoomChatButton } from './VoiceRoomChatButton/VoiceRoomChatButton';

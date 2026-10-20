@@ -3,8 +3,7 @@
 
 .root {
   animation: spin 1s linear infinite;
-  color: var(--brand-violet);
-  filter: drop-shadow(0 0 rem(8) oklch(70% 0.22 295deg / 60%));
+  color: var(--primary);
 }
 
 .sizeXs {

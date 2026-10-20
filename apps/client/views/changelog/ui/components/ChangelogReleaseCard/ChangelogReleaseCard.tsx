@@ -24,10 +24,10 @@ export const ChangelogReleaseCard = async ({
   });
 
   return (
-    <RevealOnScroll as='article' className={clsx(s.release, 'glass')}>
+    <RevealOnScroll as='article' className={s.release}>
       <header className={s.releaseHead}>
         <div className={s.releaseTitleRow}>
-          <Text as='h2' className={clsx(s.releaseVersion, isLatest && 'gradient-text')}>
+          <Text as='h2' className={clsx(s.releaseVersion, isLatest && s.releaseVersionLatest)}>
             {release.version}
           </Text>
 

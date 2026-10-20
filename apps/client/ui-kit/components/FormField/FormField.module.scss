@@ -5,9 +5,7 @@
 }
 
 .label {
-  color: color-mix(in oklch, var(--foreground) 70%, transparent);
+  color: color-mix(in srgb, var(--foreground) 70%, transparent);
   font-size: 0.75rem;
   font-weight: 500;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
 }

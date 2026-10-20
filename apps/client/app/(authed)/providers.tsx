@@ -3,6 +3,7 @@
 import type { ReactNode } from 'react';
 
 import { RealtimeProvider } from '@/entities/app/realtime';
+import { RoomMusicRealtimeSync } from '@/entities/room/music';
 import { LeaveSoundProvider, RoomsRealtimeSync } from '@/entities/room/room';
 import { MiniRoomSlotProvider, RoomSessionProvider } from '@/entities/room/session';
 import { FriendsRealtimeSync } from '@/entities/social/friend';
@@ -23,6 +24,7 @@ export const AuthedProviders = ({ children }: { children: ReactNode }) => (
                 <PushRegistration />
                 <FriendsRealtimeSync />
                 <RoomsRealtimeSync />
+                <RoomMusicRealtimeSync />
                 <ChatRealtimeSync />
                 <LeaveSoundProvider>{children}</LeaveSoundProvider>
               </FriendChatProvider>

@@ -25,6 +25,7 @@ import { ImagesModule } from './modules/images';
 import { LinkPreviewModule } from './modules/link-preview';
 import { LivekitModule } from './modules/livekit';
 import { ModerationModule } from './modules/moderation';
+import { MusicModule } from './modules/music';
 import { NotificationsModule } from './modules/notifications';
 import { PushModule } from './modules/push';
 import { RealtimeModule } from './modules/realtime';
@@ -91,6 +92,7 @@ import { UsersModule } from './modules/users';
     LinkPreviewModule,
     LivekitModule,
     ModerationModule,
+    MusicModule,
     PushModule,
     RealtimeModule
   ],

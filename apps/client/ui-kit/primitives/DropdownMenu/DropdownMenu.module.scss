@@ -31,7 +31,7 @@
   user-select: none;
 
   &[data-highlighted] {
-    background: oklch(100% 0 0deg / 8%);
+    background: rgb(var(--tint) / 11%);
     color: var(--foreground);
   }
 
@@ -45,10 +45,10 @@
   }
 
   &[data-variant='destructive'] {
-    color: color-mix(in oklch, var(--destructive) 90%, transparent);
+    color: color-mix(in srgb, var(--destructive) 90%, transparent);
 
     &[data-highlighted] {
-      background: color-mix(in oklch, var(--destructive) 15%, transparent);
+      background: color-mix(in srgb, var(--destructive) 15%, transparent);
       color: var(--destructive);
     }
 
@@ -62,7 +62,7 @@
     width: 0.875rem;
     height: 0.875rem;
     flex-shrink: 0;
-    color: color-mix(in oklch, var(--muted-foreground) 75%, transparent);
+    color: color-mix(in srgb, var(--muted-foreground) 75%, transparent);
     pointer-events: none;
   }
 }
@@ -127,7 +127,7 @@
 .separator {
   height: 1px;
   margin: 0.25rem -0.25rem;
-  background: oklch(100% 0 0deg / 10%);
+  background: rgb(var(--tint) / 14%);
 }
 
 .radioDot {

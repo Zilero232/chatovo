@@ -5,21 +5,21 @@
   min-width: 0;
   align-items: center;
   padding-right: 0.5rem;
-  border: 1px solid oklch(100% 0 0deg / 7%);
+  border: 1px solid rgb(var(--tint) / 10%);
   border-radius: var(--radius-xl);
-  background: oklch(100% 0 0deg / 4%);
+  background: rgb(var(--tint) / 7%);
   transition:
     border-color var(--duration-fast) var(--timing-function-out),
     background-color var(--duration-fast) var(--timing-function-out);
 
   @include hover {
-    border-color: color-mix(in oklch, var(--brand-violet) 32%, transparent);
-    background: color-mix(in oklch, var(--brand-violet) 10%, oklch(100% 0 0deg / 6%));
+    border-color: color-mix(in srgb, var(--brand-violet) 32%, transparent);
+    background: color-mix(in srgb, var(--brand-violet) 10%, rgb(var(--tint) / 9%));
   }
 
   &:focus-within {
-    border-color: color-mix(in oklch, var(--brand-violet) 32%, transparent);
-    background: color-mix(in oklch, var(--brand-violet) 10%, oklch(100% 0 0deg / 6%));
+    border-color: color-mix(in srgb, var(--brand-violet) 32%, transparent);
+    background: color-mix(in srgb, var(--brand-violet) 10%, rgb(var(--tint) / 9%));
   }
 }
 
@@ -38,7 +38,7 @@
   text-align: left;
 
   &:focus-visible {
-    box-shadow: inset 0 0 0 rem(2) color-mix(in oklch, var(--brand-cyan) 50%, transparent);
+    box-shadow: inset 0 0 0 rem(2) color-mix(in srgb, var(--brand-cyan) 50%, transparent);
     outline: none;
   }
 }
@@ -66,7 +66,6 @@
 
 .presenceOnline {
   background: var(--brand-cyan);
-  box-shadow: 0 0 rem(6) oklch(82% 0.16 200deg / 70%);
 }
 
 .info {
@@ -108,7 +107,7 @@
   height: rem(16);
   align-items: center;
   justify-content: center;
-  border-radius: 9999px;
+  border-radius: var(--radius-md);
   background: var(--brand-cyan);
   box-shadow: 0 0 0 rem(2) var(--background);
   color: #000;
@@ -130,15 +129,15 @@
   width: 2rem;
   height: 2rem;
   border-radius: 9999px;
-  background: oklch(100% 0 0deg / 5%);
-  color: color-mix(in oklch, var(--muted-foreground) 70%, transparent);
+  background: rgb(var(--tint) / 8%);
+  color: color-mix(in srgb, var(--muted-foreground) 70%, transparent);
   transition:
     background-color var(--duration-fast) var(--timing-function-out),
     color var(--duration-fast) var(--timing-function-out);
 
   .root:hover &,
   .root:focus-within & {
-    background: oklch(100% 0 0deg / 10%);
+    background: rgb(var(--tint) / 14%);
     color: var(--foreground);
   }
 }

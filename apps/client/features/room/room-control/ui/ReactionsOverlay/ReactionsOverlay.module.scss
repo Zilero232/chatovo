@@ -22,7 +22,7 @@
   position: absolute;
   right: 0.25rem;
   bottom: 0;
-  filter: drop-shadow(0 rem(2) rem(10) oklch(0% 0 0deg / 60%));
+  filter: drop-shadow(0 rem(2) rem(10) rgb(8 4 10 / 60%));
   font-size: 1.5rem;
 
   @include bp(sm) {

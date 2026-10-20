@@ -31,19 +31,28 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-2xl);
-  color: color-mix(in oklch, var(--foreground) 85%, transparent);
+  color: color-mix(in srgb, var(--foreground) 85%, transparent);
 }
 
 .iconBoxSm {
   width: 2.5rem;
   height: 2.5rem;
-  box-shadow: 0 0 rem(20) rem(-8) oklch(70% 0.2 270deg / 50%);
 }
 
 .iconBoxMd {
   width: 3.5rem;
   height: 3.5rem;
-  box-shadow: var(--glow-violet);
+  box-shadow: var(--shadow-elevated);
+}
+
+.chatoSm {
+  width: 5rem;
+  height: 5rem;
+}
+
+.chatoMd {
+  width: 9rem;
+  height: 9rem;
 }
 
 .title {

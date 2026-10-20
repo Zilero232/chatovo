@@ -42,6 +42,14 @@ export { ApiError, apiErrorCode, isUnauthorizedError } from './http';
 export { getLinkPreview } from './link-preview';
 export { fetchLiveKitToken } from './livekit';
 export { reportAbuse } from './moderation';
+export {
+  controlRoomMusic,
+  dequeueRoomMusic,
+  enqueueRoomMusic,
+  getRoomMusic,
+  searchRadioStations
+} from './music';
+export type { ControlRoomMusicInput, DequeueRoomMusicInput, EnqueueRoomMusicInput } from './music';
 export { registerPushDevice, unregisterPushDevice } from './push';
 export { queryClient } from './query-client';
 export { buildRealtimeUrl } from './realtime';

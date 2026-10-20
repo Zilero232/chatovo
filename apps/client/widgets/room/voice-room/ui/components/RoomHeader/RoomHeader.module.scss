@@ -6,7 +6,7 @@
   height: 3.5rem;
   flex-shrink: 0;
   align-items: center;
-  border-bottom: 1px solid oklch(100% 0 0deg / 8%);
+  border-bottom: 1px solid rgb(var(--tint) / 11%);
   gap: 0.5rem;
   padding-inline: 1rem;
 }
@@ -21,10 +21,9 @@
   border-radius: var(--radius-xl);
   background: linear-gradient(
     to bottom right,
-    color-mix(in oklch, var(--brand-violet) 35%, transparent),
-    color-mix(in oklch, var(--brand-cyan) 35%, transparent)
+    color-mix(in srgb, var(--brand-violet) 35%, transparent),
+    color-mix(in srgb, var(--brand-cyan) 35%, transparent)
   );
-  box-shadow: 0 0 rem(16) rem(-6) oklch(70% 0.22 295deg / 70%);
   color: var(--foreground);
 }
 

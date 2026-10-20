@@ -11,7 +11,7 @@
   padding: 0.625rem 0.75rem;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  background: color-mix(in oklch, var(--card) 60%, transparent);
+  background: color-mix(in srgb, var(--card) 60%, transparent);
   cursor: pointer;
   gap: 0.625rem;
   transition:
@@ -19,13 +19,13 @@
     background-color var(--duration-fast) var(--timing-function-standard);
 
   &:hover {
-    border-color: color-mix(in oklch, var(--brand-fuchsia) 45%, var(--border));
-    background: color-mix(in oklch, var(--brand-fuchsia) 8%, transparent);
+    border-color: color-mix(in srgb, var(--brand-fuchsia) 45%, var(--border));
+    background: color-mix(in srgb, var(--brand-fuchsia) 8%, transparent);
   }
 
   &:has([data-checked]) {
     border-color: var(--brand-fuchsia);
-    background: color-mix(in oklch, var(--brand-fuchsia) 12%, transparent);
+    background: color-mix(in srgb, var(--brand-fuchsia) 12%, transparent);
   }
 }
 

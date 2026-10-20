@@ -1,0 +1,79 @@
+@use '@/ui-kit/styles/mixins' as *;
+
+.root {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-6);
+
+  @include bp(lg) {
+    display: flex;
+  }
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-size: rem(20);
+  font-weight: 600;
+}
+
+.chato {
+  width: rem(200);
+  height: rem(200);
+}
+
+.title {
+  max-width: rem(400);
+  margin: 0;
+  font-size: rem(36);
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.accent {
+  font-style: italic;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--brand-sun);
+  text-decoration-thickness: rem(3);
+  text-underline-offset: rem(6);
+}
+
+.lines {
+  display: flex;
+  max-width: rem(400);
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  gap: var(--space-4);
+  list-style: none;
+}
+
+.line {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.lineIcon {
+  display: flex;
+  width: var(--control-md);
+  height: var(--control-md);
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: var(--surface-2);
+  color: var(--primary);
+
+  svg {
+    width: var(--icon-sm);
+    height: var(--icon-sm);
+  }
+}

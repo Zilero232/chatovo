@@ -1,0 +1,44 @@
+@use '@/ui-kit/styles/mixins' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.heading {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  gap: var(--space-2);
+  list-style: none;
+}
+
+.chip {
+  min-height: var(--control-sm);
+  padding: 0 var(--space-3);
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius-md);
+  background: var(--surface-2);
+  color: var(--foreground);
+  font-size: var(--text-sm);
+  transition:
+    background-color var(--duration-fast) var(--timing-function-standard),
+    border-color var(--duration-fast) var(--timing-function-standard);
+
+  @include interactive-cursor;
+  @include button-focus-ring;
+
+  @include hover {
+    border-color: var(--border-strong);
+    background: var(--surface-3);
+  }
+}

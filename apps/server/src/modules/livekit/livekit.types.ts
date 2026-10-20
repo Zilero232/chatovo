@@ -16,6 +16,11 @@ export type ToRoomParticipantInput = {
   participant: ParticipantInfo;
 };
 
+export type FindRoomParticipantInput = {
+  roomId: string;
+  identity: string;
+};
+
 export type ParticipantPatch = Partial<Pick<RoomParticipant, 'activity' | 'deafened' | 'micMuted'>>;
 
 export type LoadAccessibleRoomInput = {

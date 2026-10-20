@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: center;
   padding-top: 0.125rem;
-  border: 1px solid rgb(255 255 255 / 10%);
+  border: 1px solid rgb(var(--tint) / 14%);
   border-radius: 9999px;
   cursor: pointer;
   outline: none;
@@ -44,58 +44,55 @@
 }
 
 .toneOn {
-  background: rgb(255 255 255 / 8%);
+  background: rgb(var(--tint) / 11%);
   color: var(--foreground);
 
   &:hover:not(:disabled) {
-    background: rgb(255 255 255 / 14%);
+    background: rgb(var(--tint) / 14%);
   }
 }
 
 .toneOff {
-  background: rgb(255 255 255 / 5%);
+  background: rgb(var(--tint) / 8%);
   color: var(--muted-foreground);
 
   &:hover:not(:disabled) {
-    background: rgb(255 255 255 / 10%);
+    background: rgb(var(--tint) / 14%);
   }
 }
 
 .toneActive {
-  border-color: rgb(255 255 255 / 10%);
-  background: color-mix(in oklch, var(--brand-cyan) 20%, transparent);
-  box-shadow: 0 0 rem(18) rem(-4) oklch(82% 0.16 200deg / 70%);
+  border-color: rgb(var(--tint) / 14%);
+  background: color-mix(in srgb, var(--brand-cyan) 20%, transparent);
   color: var(--brand-cyan);
 
   &:hover:not(:disabled) {
-    background: color-mix(in oklch, var(--brand-cyan) 30%, transparent);
+    background: color-mix(in srgb, var(--brand-cyan) 30%, transparent);
   }
 }
 
 .toneDanger {
-  background: color-mix(in oklch, var(--destructive) 15%, transparent);
+  background: color-mix(in srgb, var(--destructive) 15%, transparent);
   color: var(--destructive);
 
   &:hover:not(:disabled) {
-    background: color-mix(in oklch, var(--destructive) 25%, transparent);
+    background: color-mix(in srgb, var(--destructive) 25%, transparent);
   }
 }
 
 .toneLeave {
   border-color: transparent;
   background: var(--destructive);
-  box-shadow: 0 rem(4) rem(14) rem(-2) oklch(70% 0.22 22deg / 50%);
-  color: #fff;
+  color: var(--destructive-foreground);
 
   &:hover:not(:disabled) {
-    background: oklch(66% 0.22 22deg);
-    box-shadow: 0 rem(6) rem(18) rem(-2) oklch(70% 0.22 22deg / 70%);
+    background: var(--destructive);
   }
 
   &:focus-visible {
     box-shadow:
-      0 0 0 rem(2) color-mix(in oklch, var(--destructive) 50%, transparent),
-      0 rem(4) rem(14) rem(-2) oklch(70% 0.22 22deg / 50%);
+      0 0 0 rem(2) color-mix(in srgb, var(--destructive) 50%, transparent),
+      0 rem(4) rem(14) rem(-2) color-mix(in srgb, var(--destructive) 50%, transparent);
   }
 }
 
@@ -106,7 +103,7 @@
   height: 2.25rem;
   flex-direction: column;
   flex-shrink: 0;
-  border: 1px solid rgb(255 255 255 / 10%);
+  border: 1px solid rgb(var(--tint) / 14%);
   border-radius: 9999px;
   transition: all var(--duration-fast) var(--timing-function-standard);
 
@@ -117,20 +114,19 @@
 }
 
 .shellToneOn {
-  background: rgb(255 255 255 / 8%);
+  background: rgb(var(--tint) / 11%);
 }
 
 .shellToneOff {
-  background: rgb(255 255 255 / 5%);
+  background: rgb(var(--tint) / 8%);
 }
 
 .shellToneActive {
-  background: color-mix(in oklch, var(--brand-cyan) 20%, transparent);
-  box-shadow: 0 0 rem(18) rem(-4) oklch(82% 0.16 200deg / 70%);
+  background: color-mix(in srgb, var(--brand-cyan) 20%, transparent);
 }
 
 .shellToneDanger {
-  background: color-mix(in oklch, var(--destructive) 15%, transparent);
+  background: color-mix(in srgb, var(--destructive) 15%, transparent);
 }
 
 .shellToneLeave {
@@ -186,7 +182,7 @@
   color: var(--foreground);
 
   &:hover:not(:disabled) {
-    background: rgb(255 255 255 / 8%);
+    background: rgb(var(--tint) / 11%);
   }
 }
 
@@ -194,7 +190,7 @@
   color: var(--muted-foreground);
 
   &:hover:not(:disabled) {
-    background: rgb(255 255 255 / 6%);
+    background: rgb(var(--tint) / 9%);
   }
 }
 
@@ -202,7 +198,7 @@
   color: var(--brand-cyan);
 
   &:hover:not(:disabled) {
-    background: color-mix(in oklch, var(--brand-cyan) 12%, transparent);
+    background: color-mix(in srgb, var(--brand-cyan) 12%, transparent);
   }
 }
 
@@ -210,12 +206,12 @@
   color: var(--destructive);
 
   &:hover:not(:disabled) {
-    background: color-mix(in oklch, var(--destructive) 12%, transparent);
+    background: color-mix(in srgb, var(--destructive) 12%, transparent);
   }
 }
 
 .mainToneLeave {
-  color: #fff;
+  color: var(--destructive-foreground);
 }
 
 .iconSlot {

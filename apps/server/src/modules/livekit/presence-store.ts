@@ -2,7 +2,7 @@ import type { RoomParticipant, RoomsParticipantsSnapshot } from '@chatovo/schema
 
 import { isDefined, pickBy } from 'remeda';
 
-import type { ParticipantPatch } from './livekit.types';
+import type { FindRoomParticipantInput, ParticipantPatch } from './livekit.types';
 
 import { emitPresenceSnapshot } from '../realtime';
 
@@ -38,6 +38,13 @@ const emit = () => {
 export const getSnapshot = () => buildSnapshot(false);
 
 export const getAdminSnapshot = () => buildSnapshot(true);
+
+export const findRoomParticipant = ({
+  roomId,
+  identity
+}: FindRoomParticipantInput): RoomParticipant | null => rooms.get(roomId)?.get(identity) ?? null;
+
+export const hasRoomParticipants = (roomId: string): boolean => rooms.has(roomId);
 
 export const addLobbyConnection = (userId: string) => {
   const current = lobbyConnections.get(userId) ?? 0;

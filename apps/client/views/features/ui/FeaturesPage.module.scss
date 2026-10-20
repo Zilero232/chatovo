@@ -5,7 +5,9 @@
   flex-direction: column;
   align-items: center;
   padding: var(--space-8) var(--space-6);
+  border: 1px solid var(--border);
   border-radius: var(--radius-2xl);
+  background-color: var(--surface-1);
   gap: var(--space-3);
   text-align: center;
 
@@ -16,11 +18,12 @@
 
 .ctaHeading {
   &#{&}#{&} {
-    font-size: clamp(#{rem(24)}, 3.2vw, #{rem(34)});
-    font-weight: 700;
+    font-family: var(--font-display);
+    font-size: clamp(#{rem(30)}, 3.6vw, #{rem(44)});
+    font-weight: 600;
   }
 
-  letter-spacing: -0.02em;
+  letter-spacing: -0.015em;
   text-wrap: balance;
 }
 

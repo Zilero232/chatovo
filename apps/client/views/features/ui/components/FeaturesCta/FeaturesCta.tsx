@@ -1,4 +1,3 @@
-import { clsx } from 'clsx';
 import { getTranslations } from 'next-intl/server';
 
 import { ROUTES } from '@/shared/constants';
@@ -14,7 +13,7 @@ export const FeaturesCta = async ({ locale }: FeaturesCtaProps) => {
 
   return (
     <MarketingSection>
-      <RevealOnScroll className={clsx(s.cta, 'glass')}>
+      <RevealOnScroll className={s.cta}>
         <Text as='h2' className={s.ctaHeading} weight='bold'>
           {t('heading')}
         </Text>

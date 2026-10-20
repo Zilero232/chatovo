@@ -6,5 +6,7 @@ export type SliderProps = Omit<
   'className' | 'onValueChange'
 > & {
   className?: string;
+  thumbLabel?: string;
+  getAriaValueText?: (formattedValue: string, value: number, index: number) => string;
   onValueChange?: (value: number | readonly number[]) => void;
 };

@@ -32,7 +32,7 @@ export const AdminHeader = () => {
       <Button
         className={s.back}
         size='sm'
-        variant='outline'
+        variant='secondary'
         onClick={() => router.push(ROUTES.lobby)}
       >
         <ArrowLeft />

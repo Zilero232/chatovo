@@ -10,7 +10,6 @@ export {
   type VolumeMap,
   type VolumeSource
 } from './participant-volume';
-export { readAudioLevel } from './read-audio-level';
 export { readConnectionRtt } from './read-connection-rtt';
 export { createSoundPlayer } from './sound-player';
 

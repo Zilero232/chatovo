@@ -39,6 +39,11 @@ type SoundSettings = {
   volume: number;
 };
 
+export type MusicSettings = {
+  volume: number;
+  ducking: boolean;
+};
+
 type TraySettings = {
   closeToTray: boolean;
 };
@@ -54,6 +59,7 @@ export type { ShortcutActionId, ShortcutBinding, ShortcutSettings } from '@/enti
 export type AppSettings = {
   audio: AudioSettings;
   devices: DeviceSettings;
+  music: MusicSettings;
   shortcuts: ShortcutSettings;
   sounds: SoundSettings;
   system: SystemSettings;

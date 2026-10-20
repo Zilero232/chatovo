@@ -18,17 +18,12 @@
 
 .fallback {
   padding: 1rem;
-  border: 1px solid rgb(255 255 255 / 10%);
+  border: 1px solid rgb(var(--tint) / 14%);
   border-radius: 0.5rem;
-  backdrop-filter: blur(rem(12));
-  background: rgb(255 255 255 / 5%);
+  background: rgb(var(--tint) / 8%);
   color: var(--muted-foreground);
   font-size: 0.875rem;
   text-align: center;
-
-  @include tauri-mobile {
-    backdrop-filter: none;
-  }
 }
 
 .fallbackLink {
@@ -46,13 +41,13 @@
   align-items: center;
   justify-content: center;
   padding-top: 1rem;
-  border-top: 1px solid oklch(100% 0 0deg / 8%);
+  border-top: 1px solid rgb(var(--tint) / 11%);
 }
 
 .version {
   padding: 0.25rem 0.625rem;
-  border-radius: 9999px;
-  background: oklch(100% 0 0deg / 5%);
+  border-radius: var(--radius-md);
+  background: rgb(var(--tint) / 8%);
   color: var(--muted-foreground);
   font-size: 0.75rem;
   font-variant-numeric: tabular-nums;

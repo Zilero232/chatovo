@@ -5,9 +5,9 @@
   flex-direction: column;
   align-items: center;
   padding: 1rem 0.875rem;
-  border: 1px solid oklch(100% 0 0deg / 8%);
+  border: 1px solid rgb(var(--tint) / 11%);
   border-radius: var(--radius-xl);
-  background: oklch(100% 0 0deg / 3%);
+  background: rgb(var(--tint) / 3%);
   color: inherit;
   gap: 0.625rem;
   text-align: center;
@@ -22,13 +22,13 @@
   @include interactive-cursor;
 
   &:hover {
-    border-color: color-mix(in oklch, var(--brand-cyan) 45%, transparent);
-    background: oklch(100% 0 0deg / 6%);
+    border-color: color-mix(in srgb, var(--brand-cyan) 45%, transparent);
+    background: rgb(var(--tint) / 9%);
   }
 
   &:focus-visible {
-    border-color: color-mix(in oklch, var(--brand-cyan) 60%, transparent);
-    box-shadow: 0 0 0 rem(3) color-mix(in oklch, var(--brand-cyan) 22%, transparent);
+    border-color: color-mix(in srgb, var(--brand-cyan) 60%, transparent);
+    box-shadow: 0 0 0 rem(3) color-mix(in srgb, var(--brand-cyan) 22%, transparent);
     outline: none;
   }
 }
@@ -49,11 +49,11 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-lg);
-  background: color-mix(in oklch, var(--brand-cyan) 12%, transparent);
+  background: color-mix(in srgb, var(--brand-cyan) 12%, transparent);
   transition: background-color var(--duration-default) var(--timing-function-out);
 
   .available:hover & {
-    background: color-mix(in oklch, var(--brand-cyan) 20%, transparent);
+    background: color-mix(in srgb, var(--brand-cyan) 20%, transparent);
   }
 }
 
@@ -88,10 +88,10 @@
   align-items: center;
   justify-content: center;
   padding: 0.4375rem 0.75rem;
-  border: 1px solid color-mix(in oklch, var(--brand-cyan) 40%, transparent);
+  border: 1px solid color-mix(in srgb, var(--brand-cyan) 40%, transparent);
   border-radius: var(--radius-md);
   margin-top: auto;
-  background: color-mix(in oklch, var(--brand-cyan) 16%, transparent);
+  background: color-mix(in srgb, var(--brand-cyan) 16%, transparent);
   color: var(--foreground);
   font-size: 0.8125rem;
   font-weight: 600;
@@ -101,8 +101,8 @@
     background-color var(--duration-default) var(--timing-function-out);
 
   .available:hover & {
-    border-color: color-mix(in oklch, var(--brand-cyan) 65%, transparent);
-    background: color-mix(in oklch, var(--brand-cyan) 28%, transparent);
+    border-color: color-mix(in srgb, var(--brand-cyan) 65%, transparent);
+    background: color-mix(in srgb, var(--brand-cyan) 28%, transparent);
   }
 }
 

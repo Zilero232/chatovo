@@ -1,12 +1,11 @@
 'use client';
 
-import { clsx } from 'clsx';
-import { Compass, RotateCw } from 'lucide-react';
+import { House, RotateCw } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 
 import { ROUTES } from '@/shared/constants';
-import { Button, ErrorGlyph, Text } from '@/ui-kit';
+import { Button, Chato, Text } from '@/ui-kit';
 
 import type { ErrorPageProps } from './ErrorPage.types';
 
@@ -19,12 +18,7 @@ export const ErrorPage = ({ reset }: ErrorPageProps) => {
 
   return (
     <main className={s.root}>
-      <span aria-hidden className={s.orb} data-tone='violet' />
-      <span aria-hidden className={s.orb} data-tone='cyan' />
-
-      <div className={clsx(s.badge, 'glass')}>
-        <ErrorGlyph className={s.logo} variant='broken-wave' />
-      </div>
+      <Chato className={s.chato} pose='sleep' />
 
       <h1 className={s.title}>{t('title')}</h1>
       <Text className={s.description} tone='muted'>
@@ -37,8 +31,8 @@ export const ErrorPage = ({ reset }: ErrorPageProps) => {
           {t('retry')}
         </Button>
 
-        <Button variant='outline' onClick={() => router.push(ROUTES.lobby)}>
-          <Compass />
+        <Button variant='ghost' onClick={() => router.push(ROUTES.lobby)}>
+          <House />
           {t('toLobby')}
         </Button>
       </div>

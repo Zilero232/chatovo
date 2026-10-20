@@ -23,6 +23,22 @@ export type ChangelogRelease = {
 
 export const CHANGELOG_RELEASES: ChangelogRelease[] = [
   {
+    version: '1.8.0',
+    date: '2026-10-20',
+    tone: 'major',
+    highlights: ['roomMusic', 'newLook'],
+    entries: [
+      { kind: 'feature', key: 'roomMusic' },
+      { kind: 'feature', key: 'shareMyMusic' },
+      { kind: 'feature', key: 'musicPlayer' },
+      { kind: 'improvement', key: 'musicDucking' },
+      { kind: 'improvement', key: 'newLook' },
+      { kind: 'fix', key: 'screenShareEcho' },
+      { kind: 'fix', key: 'speakingHighlight' },
+      { kind: 'fix', key: 'android16kb' }
+    ]
+  },
+  {
     version: '1.7.0',
     date: '2026-10-12',
     tone: 'major',

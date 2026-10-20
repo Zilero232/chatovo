@@ -2,22 +2,22 @@
 
 .forgotLink {
   align-self: flex-end;
-  padding: 0;
-  border: none;
   border-radius: var(--radius-sm);
-  margin-top: -0.5rem;
-  background: none;
+  margin-top: calc(var(--space-2) * -1);
   color: var(--muted-foreground);
-  cursor: pointer;
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
+  text-underline-offset: rem(4);
+  transition: color var(--duration-fast) var(--timing-function-standard);
 
   @include focus-ring;
 
   &:hover {
     color: var(--foreground);
+    text-decoration: underline;
   }
 }
 
 .submit {
   width: 100%;
+  margin-top: var(--space-2);
 }

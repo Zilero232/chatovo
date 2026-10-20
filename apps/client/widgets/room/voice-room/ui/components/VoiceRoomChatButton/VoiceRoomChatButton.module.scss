@@ -28,15 +28,14 @@
   height: 1rem;
   align-items: center;
   justify-content: center;
-  border: 1px solid oklch(100% 0 0deg / 10%);
+  border: 1px solid rgb(var(--tint) / 14%);
   border-radius: 9999px;
   animation:
     overlay-fade-in var(--duration-default) var(--timing-function-out),
     overlay-zoom-in var(--duration-default) var(--timing-function-out);
   animation-fill-mode: both;
-  background: var(--brand-violet);
-  box-shadow: 0 0 rem(10) rem(-2) oklch(70% 0.22 295deg / 80%);
-  color: #fff;
+  background: var(--brand-coral);
+  color: var(--primary-foreground);
   font-size: rem(10);
   font-weight: 600;
   padding-inline: 0.25rem;

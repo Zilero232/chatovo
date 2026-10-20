@@ -34,7 +34,7 @@
   &:focus-visible {
     border-radius: var(--radius-sm);
     background-size: 100% 1px;
-    box-shadow: 0 0 0 rem(2) color-mix(in oklch, var(--brand-violet) 50%, transparent);
+    box-shadow: 0 0 0 rem(2) color-mix(in srgb, var(--brand-violet) 50%, transparent);
     color: var(--primary);
     outline: none;
   }
@@ -45,7 +45,7 @@
 }
 
 .developerName.developerName {
-  background-image: linear-gradient(100deg, var(--brand-cyan) 10%, oklch(78% 0.19 320deg) 90%);
+  background-image: linear-gradient(var(--brand-violet), var(--brand-violet));
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -78,7 +78,7 @@
 
 .check {
   color: var(--background);
-  fill: oklch(68.5% 0.169 237.323deg);
+  fill: var(--brand-violet);
 }
 
 .checkSm {

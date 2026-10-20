@@ -4,8 +4,7 @@
 .scrim {
   position: fixed;
   z-index: var(--z-sticky);
-  backdrop-filter: blur(rem(4));
-  background: oklch(0% 0 0deg / 45%);
+  background: rgb(8 4 10 / 45%);
   inset: 0;
   transition: opacity var(--duration-slow);
 
@@ -21,10 +20,6 @@
   &[data-open='true'] {
     animation: overlay-fade-in var(--duration-slow) var(--timing-function-out);
   }
-
-  @include tauri-mobile {
-    backdrop-filter: none;
-  }
 }
 
 .root {
@@ -35,9 +30,9 @@
   flex-direction: column;
   border: 0;
   border-radius: 0;
-  border-left: 1px solid oklch(100% 0 0deg / 10%);
-  box-shadow: rem(-28) 0 rem(56) rem(-28) oklch(0% 0 0deg / 85%);
-  inset: 0;
+  border-left: 1px solid rgb(var(--tint) / 14%);
+  box-shadow: rem(-28) 0 rem(56) rem(-28) rgb(8 4 10 / 85%);
+  inset: var(--now-playing-offset, 0) 0 0;
   transition: transform var(--duration-slow) var(--timing-function-out);
 
   &[data-open='false'] {
@@ -50,7 +45,6 @@
   }
 
   @include bp(sm, down) {
-    backdrop-filter: none;
     background-color: var(--column-content);
   }
 

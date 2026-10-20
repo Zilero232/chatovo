@@ -49,7 +49,7 @@ export const SignUpForm = () => {
 
         <SignUpConsentField />
 
-        <SubmitButton className={s.submit} isPending={isPending}>
+        <SubmitButton className={s.submit} isPending={isPending} size='lg'>
           {t('signUp')}
         </SubmitButton>
       </Stack>

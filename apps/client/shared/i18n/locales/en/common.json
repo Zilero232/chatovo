@@ -10,9 +10,9 @@
   },
   "errorPage": {
     "title": "Something went wrong",
-    "description": "The page failed to load. Try again or go back to the lobby.",
+    "description": "Chato dozed off while loading this page. Try again — it usually helps.",
     "retry": "Try again",
-    "toLobby": "To lobby"
+    "toLobby": "Back home"
   },
   "errors": {
     "INTERNAL_ERROR": "Something went wrong. Please try again later.",
@@ -39,6 +39,11 @@
     "DM_SELF": "You can't start a chat with yourself.",
     "DM_NOT_FRIENDS": "Direct messages are only available between friends.",
     "CALL_ALREADY_RINGING": "This user is already receiving a call.",
+    "MUSIC_NOT_IN_ROOM": "Join the voice room to control its music.",
+    "MUSIC_LINK_UNSUPPORTED": "Paste a link to a YouTube video or a SoundCloud track.",
+    "MUSIC_TRACK_UNAVAILABLE": "This track can't be played right now.",
+    "MUSIC_QUEUE_FULL": "The queue is full — skip or remove a few tracks first.",
+    "MUSIC_TRACK_NOT_FOUND": "That track is no longer in the queue.",
     "INVALID_EMAIL_OR_PASSWORD": "Invalid email or password.",
     "INVALID_EMAIL": "Invalid email address.",
     "INVALID_PASSWORD": "Invalid password.",
@@ -99,9 +104,9 @@
     "forward": "Forward"
   },
   "notFound": {
-    "title": "This room doesn't exist",
-    "description": "The page you were looking for has been moved, deleted, or never existed. Let's get you back to a place with people in it.",
-    "toLobby": "Go to lobby",
+    "title": "Chato looked everywhere",
+    "description": "This page has moved, been deleted or never existed. Let's head back to where your friends are.",
+    "toLobby": "Back home",
     "back": "Go back"
   }
 }

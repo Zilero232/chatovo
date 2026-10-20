@@ -35,12 +35,8 @@
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  background: linear-gradient(
-    to bottom right,
-    color-mix(in oklch, var(--brand-violet) 40%, transparent),
-    color-mix(in oklch, var(--brand-cyan) 40%, transparent)
-  );
-  color: var(--foreground);
+  background: var(--surface-3);
+  color: var(--brand-sun);
   font-size: 0.875rem;
   font-weight: 500;
 

@@ -62,20 +62,15 @@
   top: calc(0.5rem + var(--hint-inset-top, 0px));
   right: calc(0.5rem + var(--hint-inset-right, 0px));
   padding: 0.25rem;
-  border: 1px solid oklch(100% 0 0deg / 10%);
+  border: 1px solid rgb(var(--tint) / 14%);
   border-radius: var(--radius-md);
-  backdrop-filter: blur(rem(12));
-  background: rgb(0 0 0 / 55%);
-  color: #fff;
+  background: rgb(8 4 10 / 55%);
+  color: var(--foreground);
   opacity: 0;
   transition: opacity var(--duration-fast) var(--timing-function-standard);
 
   @include coarse-pointer {
     padding: 0.5rem;
-  }
-
-  @include tauri-mobile {
-    backdrop-filter: none;
   }
 }
 

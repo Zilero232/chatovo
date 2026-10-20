@@ -12,7 +12,7 @@
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   background: var(--popover);
-  box-shadow: 0 rem(4) rem(6) rem(-1) oklch(0% 0 0deg / 10%);
+  box-shadow: 0 rem(4) rem(6) rem(-1) rgb(8 4 10 / 10%);
   color: var(--popover-foreground);
   transform-origin: var(--transform-origin);
 
@@ -50,7 +50,7 @@
     color: var(--destructive);
 
     &[data-highlighted] {
-      background: color-mix(in oklch, var(--destructive) 10%, transparent);
+      background: color-mix(in srgb, var(--destructive) 10%, transparent);
       color: var(--destructive);
     }
 

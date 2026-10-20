@@ -1,4 +1,5 @@
-export { AuthBrandPanel } from './AuthBrandPanel/AuthBrandPanel';
+export { AuthForm } from './AuthForm/AuthForm';
+export { AuthHeading } from './AuthHeading/AuthHeading';
 export { AuthLegalFooter } from './AuthLegalFooter/AuthLegalFooter';
-export { AuthRoomPreview } from './AuthRoomPreview/AuthRoomPreview';
-export { AuthStats } from './AuthStats/AuthStats';
+export { AuthModeSwitch } from './AuthModeSwitch/AuthModeSwitch';
+export { AuthScene } from './AuthScene/AuthScene';

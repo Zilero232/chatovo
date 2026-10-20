@@ -12,7 +12,7 @@
   resize: vertical;
 
   &::selection {
-    background: color-mix(in oklch, var(--brand-violet) 40%, transparent);
+    background: color-mix(in srgb, var(--brand-violet) 40%, transparent);
   }
 
   &:disabled {

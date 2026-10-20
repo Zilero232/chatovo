@@ -6,15 +6,10 @@
   height: 4rem;
   flex-shrink: 0;
   align-items: center;
-  border-top: 1px solid oklch(100% 0 0deg / 8%);
-  backdrop-filter: blur(rem(4));
-  background: oklch(100% 0 0deg / 2%);
+  border-top: 1px solid rgb(var(--tint) / 11%);
+  background: rgb(var(--tint) / 2%);
   gap: 0.5rem;
   padding-inline: 0.625rem;
-
-  @include tauri-mobile {
-    backdrop-filter: none;
-  }
 }
 
 .actions {
@@ -92,7 +87,6 @@
   height: 0.375rem;
   border-radius: 9999px;
   background: var(--brand-cyan);
-  box-shadow: 0 0 rem(6) oklch(82% 0.16 200deg / 70%);
 }
 
 @keyframes ping {

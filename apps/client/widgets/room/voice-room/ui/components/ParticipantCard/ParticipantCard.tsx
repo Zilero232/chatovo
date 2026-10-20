@@ -17,7 +17,7 @@ export const ParticipantCard = ({
   invisible = false,
   participant
 }: ParticipantCardProps) => {
-  const { isSpeaking, isLocal, hasScreen } = useParticipantMedia(participant);
+  const { isSpeaking, isLocal, hasScreen, hasMusic } = useParticipantMedia(participant);
 
   return (
     <ParticipantCardMenu participant={participant}>
@@ -28,7 +28,7 @@ export const ParticipantCard = ({
       >
         <ParticipantStage participant={participant} />
 
-        <ParticipantBadges hasScreen={hasScreen} invisible={invisible} />
+        <ParticipantBadges hasMusic={hasMusic} hasScreen={hasScreen} invisible={invisible} />
 
         <ParticipantMetadata activity={activity} deafened={deafened} participant={participant} />
       </div>

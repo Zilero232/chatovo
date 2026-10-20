@@ -1,88 +1,42 @@
-@use '@/ui-kit/styles/mixins' as *;
+@use '@/ui-kit/styles/functions' as *;
 
 .root {
-  position: relative;
   display: flex;
-  overflow: hidden;
   min-height: 100%;
   flex: 1;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: rem(24);
-  gap: rem(28);
+  padding: var(--space-6);
+  gap: var(--space-4);
   text-align: center;
 }
 
-.orb {
-  position: absolute;
-  z-index: 0;
-  width: rem(420);
-  height: rem(420);
-  border-radius: 9999px;
-  filter: blur(rem(90));
-  opacity: 0.5;
-  pointer-events: none;
-
-  @include tauri-mobile {
-    display: none;
-  }
-
-  &[data-tone='violet'] {
-    top: 12%;
-    left: 8%;
-    animation: not-found-drift 14s ease-in-out infinite;
-    background: var(--brand-violet);
-  }
-
-  &[data-tone='cyan'] {
-    right: 6%;
-    bottom: 10%;
-    animation: not-found-drift 18s ease-in-out infinite reverse;
-    background: var(--brand-cyan);
-  }
-}
-
-.badge {
-  position: relative;
-  z-index: var(--z-base);
-  display: flex;
-  width: rem(88);
-  height: rem(88);
-  align-items: center;
-  justify-content: center;
-  border-radius: rem(28);
-  animation: not-found-float 5s ease-in-out infinite;
-}
-
-.logo {
-  width: rem(56);
-  height: rem(56);
+.chato {
+  width: rem(168);
+  height: rem(168);
+  margin-bottom: var(--space-2);
 }
 
 .code {
-  position: relative;
-  z-index: var(--z-base);
   margin: 0;
-  font-size: clamp(rem(96), 22vw, rem(180));
-  font-variant-numeric: tabular-nums;
-  font-weight: 800;
-  letter-spacing: rem(-6);
-  line-height: 1;
-}
-
-.title {
-  position: relative;
-  z-index: var(--z-base);
-  margin: 0;
-  color: var(--foreground);
-  font-size: clamp(rem(20), 4vw, rem(28));
+  color: var(--brand-sun);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: var(--text-sm);
   font-weight: 600;
 }
 
+.title {
+  max-width: rem(560);
+  margin: 0;
+  color: var(--foreground);
+  font-family: var(--font-display);
+  font-size: clamp(rem(26), 5vw, rem(40));
+  font-weight: 600;
+  line-height: 1.15;
+}
+
 .description {
-  position: relative;
-  z-index: var(--z-base);
   max-width: rem(440);
   margin: 0;
   font-size: rem(15);
@@ -90,40 +44,10 @@
 }
 
 .actions {
-  position: relative;
-  z-index: var(--z-base);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: rem(12);
-}
-
-@keyframes not-found-float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(#{rem(-10)});
-  }
-}
-
-@keyframes not-found-drift {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-
-  50% {
-    transform: translate(#{rem(40)}, #{rem(-30)}) scale(1.12);
-  }
-}
-
-@include reduced-motion {
-  .badge,
-  .orb {
-    animation: none;
-  }
+  margin-top: var(--space-2);
+  gap: var(--space-3);
 }

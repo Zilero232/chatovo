@@ -1,5 +1,7 @@
 'use client';
 
+import { PlayInRoomButton } from '@/features/room/room-music';
+
 import { useChatMessage } from '../../../../../model/contexts';
 import { LinkPreviewCard } from '../LinkPreviewCard/LinkPreviewCard';
 import { MessageActions } from '../MessageActions/MessageActions';
@@ -23,7 +25,12 @@ export const MessageColumn = () => {
         {showActions && <MessageActions />}
       </div>
 
-      {previewUrl !== null && <LinkPreviewCard url={previewUrl} />}
+      {previewUrl !== null && (
+        <>
+          <LinkPreviewCard url={previewUrl} />
+          <PlayInRoomButton url={previewUrl} />
+        </>
+      )}
 
       {message.status && <MessageStatus status={message.status} />}
     </div>

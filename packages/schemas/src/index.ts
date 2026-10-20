@@ -9,6 +9,7 @@ export * from './json';
 export * from './link-preview';
 export * from './livekit';
 export * from './moderation';
+export * from './music';
 export * from './push';
 export * from './realtime';
 export * from './rooms';

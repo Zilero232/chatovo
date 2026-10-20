@@ -13,18 +13,18 @@
 }
 
 .fileCardOwn {
-  background: oklch(100% 0 0deg / 15%);
+  background: rgb(var(--tint) / 15%);
 
   &:hover {
-    background: oklch(100% 0 0deg / 25%);
+    background: rgb(var(--tint) / 25%);
   }
 }
 
 .fileCardOther {
-  background: oklch(100% 0 0deg / 8%);
+  background: rgb(var(--tint) / 11%);
 
   &:hover {
-    background: oklch(100% 0 0deg / 12%);
+    background: rgb(var(--tint) / 16%);
   }
 }
 
@@ -48,6 +48,6 @@
 }
 
 .fileSize {
-  color: color-mix(in oklch, currentcolor 70%, transparent);
+  color: color-mix(in srgb, currentcolor 70%, transparent);
   font-size: 0.75rem;
 }
