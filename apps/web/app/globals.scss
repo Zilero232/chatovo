@@ -3,6 +3,12 @@
 @use '@chatovo/ui-kit/styles/base';
 @use '@chatovo/ui-kit/styles/mixins' as *;
 
+:root {
+  --font-sans: 'Manrope Variable';
+  --font-serif: 'Lora Variable';
+  --font-mono: 'JetBrains Mono Variable';
+}
+
 html.tauri-desktop {
   --toast-title-bar: 2rem;
 }
@@ -10,6 +16,10 @@ html.tauri-desktop {
 html,
 body {
   overflow: hidden;
+  height: 100%;
+}
+
+#root {
   height: 100%;
 }
 

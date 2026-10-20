@@ -1,10 +1,8 @@
-'use client';
-
 import type { SignUpFormValues } from '@chatovo/schemas';
 
 import { FormField, Input, PasswordInput } from '@chatovo/ui-kit';
-import { useTranslations } from 'next-intl';
 import { useFormContext } from 'react-hook-form';
+import { useTranslations } from 'use-intl';
 
 import { useFieldError } from '@/entities/app/locale';
 

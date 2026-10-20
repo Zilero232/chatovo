@@ -1,7 +1,5 @@
-'use client';
-
 import { IMAGE_PROCESSABLE_MIMES } from '@chatovo/schemas';
-import Image from 'next/image';
+import { Image } from '@chatovo/ui-kit';
 import { useState } from 'react';
 
 import type { AttachmentImageProps } from './AttachmentImage.types';

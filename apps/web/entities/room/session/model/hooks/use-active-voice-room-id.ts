@@ -1,5 +1,3 @@
-'use client';
-
 import { useRoomSession } from '../contexts';
 
 export const useActiveVoiceRoomId = (): string | null => {

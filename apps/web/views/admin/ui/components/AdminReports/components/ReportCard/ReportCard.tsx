@@ -1,9 +1,7 @@
-'use client';
-
 import { Badge, Button, Row, Stack, Text } from '@chatovo/ui-kit';
 import { Check } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
 
 import { useResolveReport } from '@/entities/app/admin';
 import { useToastError } from '@/entities/app/locale';

@@ -1,9 +1,7 @@
-'use client';
-
 import { ScrollArea, Skeleton } from '@chatovo/ui-kit';
-import { useTranslations } from 'next-intl';
 import { isEmpty } from 'remeda';
 import { match } from 'ts-pattern';
+import { useTranslations } from 'use-intl';
 
 import { useRooms, useRoomsPresence } from '@/entities/room/room';
 import { useFriends } from '@/entities/social/friend';

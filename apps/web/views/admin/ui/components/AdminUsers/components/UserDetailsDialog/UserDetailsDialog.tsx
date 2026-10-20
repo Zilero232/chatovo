@@ -1,5 +1,3 @@
-'use client';
-
 import {
   Dialog,
   DialogContent,
@@ -12,8 +10,8 @@ import {
   TabsTrigger
 } from '@chatovo/ui-kit';
 import { Eye } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { useState } from 'react';
+import { useTranslations } from 'use-intl';
 
 import type { UserDetailsDialogProps } from './UserDetailsDialog.types';
 

@@ -1,5 +1,3 @@
-'use client';
-
 import type { UserRowDialogsProps } from './UserRowDialogs.types';
 
 import { BlockUserDialog } from '../../../BlockUserDialog/BlockUserDialog';

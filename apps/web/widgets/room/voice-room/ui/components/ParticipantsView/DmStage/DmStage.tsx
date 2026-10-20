@@ -1,8 +1,6 @@
-'use client';
-
 import { Text } from '@chatovo/ui-kit';
 import { clsx } from 'clsx';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import type { DmStageProps } from './DmStage.types';
 

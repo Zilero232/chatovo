@@ -1,5 +1,3 @@
-'use client';
-
 import { useRealtimeSubscribe } from '@/entities/app/realtime';
 
 import { useCurrentRoomId } from '../../../model/hooks';

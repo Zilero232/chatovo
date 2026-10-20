@@ -1,11 +1,9 @@
-'use client';
-
 import { ContextMenuItem, ContextMenuSeparator, Slider } from '@chatovo/ui-kit';
 import { useParticipantTracks } from '@livekit/components-react';
 import { Track } from 'livekit-client';
 import { MonitorSpeaker, Volume1, Volume2, VolumeX } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { isNonNullish } from 'remeda';
+import { useTranslations } from 'use-intl';
 
 import { formatPercent } from '@/shared/lib';
 

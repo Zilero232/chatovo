@@ -1,5 +1,3 @@
-'use client';
-
 import {
   Button,
   Dialog,
@@ -11,7 +9,7 @@ import {
 } from '@chatovo/ui-kit';
 import { format } from 'date-fns';
 import { ArrowUpCircle } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { useDateLocale } from '@/entities/app/locale';
 

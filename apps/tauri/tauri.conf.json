@@ -4,7 +4,7 @@
   "version": "../../package.json",
   "identifier": "chatovo.desktop",
   "build": {
-    "frontendDist": "../web/out",
+    "frontendDist": "../web/dist",
     "devUrl": "http://localhost:3000",
     "beforeBuildCommand": "bun --filter @chatovo/web build",
     "beforeDevCommand": "bun --filter @chatovo/web dev"

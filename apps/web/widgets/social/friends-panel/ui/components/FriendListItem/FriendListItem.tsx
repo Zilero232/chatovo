@@ -1,5 +1,3 @@
-'use client';
-
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,7 +7,7 @@ import {
 } from '@chatovo/ui-kit';
 import { clsx } from 'clsx';
 import { MessageCircle, MoreVertical, UserMinus } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { UserAvatar, UserName } from '@/entities/auth/user';
 import { formatBadgeCount } from '@/shared/lib';

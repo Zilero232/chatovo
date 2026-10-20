@@ -1,5 +1,3 @@
-'use client';
-
 import { AvatarWithBadges } from '@chatovo/ui-kit';
 import { Gamepad2 } from 'lucide-react';
 

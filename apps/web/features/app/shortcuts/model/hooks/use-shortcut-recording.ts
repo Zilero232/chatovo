@@ -1,10 +1,8 @@
-'use client';
-
 import { target, useBoolean, useEventListener } from '@siberiacancode/reactuse';
 import { isTauri } from '@tauri-apps/api/core';
-import { useTranslations } from 'next-intl';
 import { useEffect, useEffectEvent, useRef } from 'react';
 import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
 
 import type { ShortcutActionId, ShortcutSettings } from '@/entities/app/shortcut';
 

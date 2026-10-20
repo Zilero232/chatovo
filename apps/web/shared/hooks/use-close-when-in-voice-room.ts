@@ -1,13 +1,11 @@
-'use client';
-
-import { usePathname } from 'next/navigation';
+import { useLocation } from '@tanstack/react-router';
 
 import { ROUTES } from '@/shared/constants';
 
 import { useRunWhen } from './use-run-when';
 
 export const useCloseWhenInVoiceRoom = (close: () => void) => {
-  const pathname = usePathname();
+  const pathname = useLocation({ select: (location) => location.pathname });
 
   useRunWhen(pathname === ROUTES.room, close);
 };

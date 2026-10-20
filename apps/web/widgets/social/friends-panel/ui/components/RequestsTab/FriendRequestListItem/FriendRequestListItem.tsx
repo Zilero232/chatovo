@@ -1,8 +1,6 @@
-'use client';
-
 import { Button } from '@chatovo/ui-kit';
 import { Check, X } from 'lucide-react';
-import { useFormatter, useNow, useTranslations } from 'next-intl';
+import { useFormatter, useNow, useTranslations } from 'use-intl';
 
 import { UserAvatar, UserName } from '@/entities/auth/user';
 

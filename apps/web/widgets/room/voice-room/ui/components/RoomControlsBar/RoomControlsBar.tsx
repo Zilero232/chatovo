@@ -1,5 +1,3 @@
-'use client';
-
 import { clsx } from 'clsx';
 
 import { RoomControlBar } from '@/features/room/room-control';

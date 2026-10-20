@@ -1,5 +1,3 @@
-'use client';
-
 import type { FriendUser } from '@chatovo/schemas';
 
 import { useState } from 'react';

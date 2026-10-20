@@ -1,5 +1,3 @@
-'use client';
-
 import { ReactionsOverlay } from '@/features/room/room-control';
 import { ChatPanel } from '@/widgets/chat/chat-panel';
 

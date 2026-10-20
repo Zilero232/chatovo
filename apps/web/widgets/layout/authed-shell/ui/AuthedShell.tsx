@@ -1,5 +1,3 @@
-'use client';
-
 import { useBoolean, useMediaQuery } from '@siberiacancode/reactuse';
 import { Suspense } from 'react';
 

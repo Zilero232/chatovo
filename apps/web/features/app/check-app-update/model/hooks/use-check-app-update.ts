@@ -1,15 +1,13 @@
-'use client';
-
 import type { Update } from '@tauri-apps/plugin-updater';
 
 import { useCounter } from '@siberiacancode/reactuse';
 import { relaunch } from '@tauri-apps/plugin-process';
 import { check } from '@tauri-apps/plugin-updater';
-import { useTranslations } from 'next-intl';
 import { useEffect, useRef, useState } from 'react';
 import { clamp } from 'remeda';
 import { toast } from 'sonner';
 import { match } from 'ts-pattern';
+import { useTranslations } from 'use-intl';
 
 import { appEvents, isTauriDesktop, raceWithTimeout } from '@/shared/lib';
 

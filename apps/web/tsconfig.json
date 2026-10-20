@@ -1,13 +1,17 @@
 {
-  "extends": "@chatovo/tsconfig/nextjs.json",
+  "extends": "@chatovo/tsconfig/react.json",
   "compilerOptions": {
     "paths": {
       "@/*": ["./*"]
     }
   },
   "include": [
-    "next-env.d.ts",
+    "vite-env.d.ts",
     "messages.d.ts",
+    "router.d.ts",
+    "vite.config.ts",
+    "vitest.config.ts",
+    "vitest.setup.ts",
     "app/**/*.ts",
     "app/**/*.tsx",
     "entities/**/*.ts",
@@ -18,14 +22,8 @@
     "views/**/*.tsx",
     "shared/**/*.ts",
     "shared/**/*.tsx",
-    "ui-kit/**/*.ts",
-    "ui-kit/**/*.tsx",
     "widgets/**/*.ts",
-    "widgets/**/*.tsx",
-    "scripts/**/*.ts",
-    ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts",
-    "prisma.config.ts"
+    "widgets/**/*.tsx"
   ],
-  "exclude": ["node_modules", ".next", "out"]
+  "exclude": ["node_modules", "dist"]
 }

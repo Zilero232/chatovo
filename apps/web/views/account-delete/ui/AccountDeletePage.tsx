@@ -1,8 +1,6 @@
-'use client';
-
 import { Button, Chato, Text } from '@chatovo/ui-kit';
 import { motion } from 'motion/react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { LEGAL } from '@/shared/config';
 import { ROUTES } from '@/shared/constants';

@@ -1,10 +1,8 @@
-'use client';
-
 import { Button, Spinner } from '@chatovo/ui-kit';
 import { useKeyboard, useTextareaAutosize } from '@siberiacancode/reactuse';
 import { clsx } from 'clsx';
 import { Paperclip, SendHorizontal } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import type { ChatComposerProps } from './ChatComposer.types';
 

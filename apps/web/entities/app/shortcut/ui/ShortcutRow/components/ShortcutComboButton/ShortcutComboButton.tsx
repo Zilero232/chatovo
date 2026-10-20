@@ -1,9 +1,7 @@
-'use client';
-
 import { Button, Tooltip, TooltipContent, TooltipProvider } from '@chatovo/ui-kit';
 import { clsx } from 'clsx';
 import { TriangleAlert } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import type { ShortcutComboButtonProps } from './ShortcutComboButton.types';
 

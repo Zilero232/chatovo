@@ -1,20 +1,16 @@
-'use client';
-
 import { AppSplash } from '@chatovo/ui-kit';
-import { useRouter } from 'next/navigation';
+import { useNavigate } from '@tanstack/react-router';
 import { useEffect } from 'react';
 
 import { ROUTES } from '@/shared/constants';
 
-const AppRootPage = () => {
-  const router = useRouter();
+export const RootRedirect = () => {
+  const navigate = useNavigate();
 
   useEffect(() => {
-    router.replace(ROUTES.lobby);
-    // eslint-disable-next-line react/exhaustive-deps -- one redirect on mount; router is a stable ref
+    void navigate({ to: ROUTES.lobby, replace: true });
+    // eslint-disable-next-line react/exhaustive-deps -- one redirect on mount; navigate is a stable ref
   }, []);
 
   return <AppSplash />;
 };
-
-export default AppRootPage;

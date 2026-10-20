@@ -1,8 +1,6 @@
-'use client';
-
 import { Button } from '@chatovo/ui-kit';
 import { Play } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import type { MusicTrackPlayback } from '../../../model/types';
 

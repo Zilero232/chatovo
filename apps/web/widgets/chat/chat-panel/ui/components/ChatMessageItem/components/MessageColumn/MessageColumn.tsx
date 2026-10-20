@@ -1,5 +1,3 @@
-'use client';
-
 import { PlayInRoomButton } from '@/features/room/room-music';
 
 import { useChatMessage } from '../../../../../model/contexts';

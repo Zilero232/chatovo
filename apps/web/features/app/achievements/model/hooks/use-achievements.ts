@@ -1,9 +1,7 @@
-'use client';
-
 import { useLocalStorage } from '@siberiacancode/reactuse';
 import { format } from 'date-fns';
-import { useTranslations } from 'next-intl';
 import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
 
 import type { AchievementId, UnlockedToday } from '../types';
 

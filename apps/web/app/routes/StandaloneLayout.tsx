@@ -1,9 +1,9 @@
-import type { ReactNode } from 'react';
+import { Outlet } from '@tanstack/react-router';
 
 import { AppProviders } from '../providers/index';
 
-const StandaloneLayout = ({ children }: { children: ReactNode }) => (
-  <AppProviders>{children}</AppProviders>
+export const StandaloneLayout = () => (
+  <AppProviders>
+    <Outlet />
+  </AppProviders>
 );
-
-export default StandaloneLayout;

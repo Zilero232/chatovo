@@ -1,5 +1,3 @@
-'use client';
-
 import type { ParticipantsViewProps } from './ParticipantsView.types';
 
 import { useParticipantsView } from '../../../model/hooks';

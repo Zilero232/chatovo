@@ -1,8 +1,6 @@
-'use client';
-
 import { Tooltip, TooltipContent } from '@chatovo/ui-kit';
 import { Music } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { useCanControlMusic, useIsRoomMusicActive, useMusicDialog } from '../../model/hooks';
 

@@ -1,5 +1,3 @@
-'use client';
-
 import { getHours, minutesToMilliseconds } from 'date-fns';
 import { useEffect, useRef } from 'react';
 

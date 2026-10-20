@@ -1,5 +1,3 @@
-'use client';
-
 import type { SecretGamesHostProps } from './SecretGamesHost.types';
 
 import { useSecretGamesHost } from '../../model/hooks';

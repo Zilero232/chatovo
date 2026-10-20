@@ -1,17 +1,16 @@
-'use client';
-
-import { useRouter } from 'next/navigation';
+import { useNavigate } from '@tanstack/react-router';
 import { filter, indexBy, isNonNullish, map } from 'remeda';
 
 import { useRecentRooms, useRooms, useRoomsPresence } from '@/entities/room/room';
-import { buildRoomHref } from '@/shared/lib';
+import { ROUTES } from '@/shared/constants';
+import { buildRoomSearch } from '@/shared/lib';
 
 type UseRecentRoomsListParams = {
   onNavigate?: () => void;
 };
 
 export const useRecentRoomsList = ({ onNavigate }: UseRecentRoomsListParams) => {
-  const router = useRouter();
+  const navigateTo = useNavigate();
 
   const { recent } = useRecentRooms();
   const { rooms, isLoading } = useRooms();
@@ -20,7 +19,7 @@ export const useRecentRoomsList = ({ onNavigate }: UseRecentRoomsListParams) => 
   const roomsById = indexBy(rooms, (room) => room.id);
 
   const navigate = (roomId: string) => {
-    router.push(buildRoomHref(roomId));
+    navigateTo({ to: ROUTES.room, search: buildRoomSearch(roomId) });
     onNavigate?.();
   };
 

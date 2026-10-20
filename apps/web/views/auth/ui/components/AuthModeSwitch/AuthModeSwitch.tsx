@@ -1,7 +1,5 @@
-'use client';
-
 import { Text } from '@chatovo/ui-kit';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import type { AuthModeSwitchProps } from './AuthModeSwitch.types';
 

@@ -1,5 +1,3 @@
-'use client';
-
 import { useInterval } from '@siberiacancode/reactuse';
 import { createAudioAnalyser, LocalAudioTrack } from 'livekit-client';
 import { useEffect, useEffectEvent, useRef, useState } from 'react';

@@ -1,9 +1,7 @@
-'use client';
-
 import { useLocalParticipant } from '@livekit/components-react';
-import { useTranslations } from 'next-intl';
 import { isNullish } from 'remeda';
 import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
 
 import { useAppSettings } from '@/entities/app/settings';
 import { appEvents, isTauriDesktop, toggleMicStream } from '@/shared/lib';

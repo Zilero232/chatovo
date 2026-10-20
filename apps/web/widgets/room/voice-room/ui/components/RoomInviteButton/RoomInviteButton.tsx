@@ -1,10 +1,8 @@
-'use client';
-
 import { Button, Tooltip, TooltipContent } from '@chatovo/ui-kit';
 import { clsx } from 'clsx';
 import { Check, Link2 } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import type { RoomInviteButtonProps } from './RoomInviteButton.types';
 

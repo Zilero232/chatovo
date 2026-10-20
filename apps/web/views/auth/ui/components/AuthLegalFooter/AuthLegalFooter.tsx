@@ -1,7 +1,5 @@
-'use client';
-
 import { Text } from '@chatovo/ui-kit';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { EXTERNAL_LINKS } from '@/shared/constants';
 import { handleExternalLinkClick } from '@/shared/lib';

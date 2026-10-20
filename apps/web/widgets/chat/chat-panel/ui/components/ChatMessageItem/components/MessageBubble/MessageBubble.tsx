@@ -1,16 +1,13 @@
-'use client';
-
 import { isImageMime } from '@chatovo/schemas';
-import dynamic from 'next/dynamic';
+import { lazy, Suspense } from 'react';
 
 import { useChatMessage } from '../../../../../model/contexts';
 import { MessageAttachment } from '../MessageAttachment/MessageAttachment';
 import { MessageContextMenu } from '../MessageContextMenu/MessageContextMenu';
 import { bubbleVariants } from './MessageBubble.variants';
 
-const MessageContent = dynamic(
-  () => import('../MessageContent/MessageContent').then((m) => ({ default: m.MessageContent })),
-  { ssr: false }
+const MessageContent = lazy(async () =>
+  import('../MessageContent/MessageContent').then((m) => ({ default: m.MessageContent }))
 );
 
 export const MessageBubble = () => {
@@ -27,7 +24,13 @@ export const MessageBubble = () => {
           tail: isTail
         })}
       >
-        {attachment ? <MessageAttachment attachment={attachment} /> : <MessageContent />}
+        {attachment ? (
+          <MessageAttachment attachment={attachment} />
+        ) : (
+          <Suspense fallback={null}>
+            <MessageContent />
+          </Suspense>
+        )}
       </div>
     </MessageContextMenu>
   );

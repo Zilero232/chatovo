@@ -1,5 +1,3 @@
-'use client';
-
 import type { RealtimeServerMessage } from '@chatovo/schemas';
 
 import { useEffect, useEffectEvent } from 'react';

@@ -1,12 +1,10 @@
-'use client';
-
 import type { AdminStats } from '@chatovo/schemas';
 
 import { CenteredState, Spinner } from '@chatovo/ui-kit';
 import { ChartNoAxesColumn } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { isNonNullish } from 'remeda';
 import { match, P } from 'ts-pattern';
+import { useTranslations } from 'use-intl';
 
 import { useAdminStats } from '@/entities/app/admin';
 

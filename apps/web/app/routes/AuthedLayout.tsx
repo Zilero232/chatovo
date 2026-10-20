@@ -1,16 +1,15 @@
-import type { ReactNode } from 'react';
+import { Outlet } from '@tanstack/react-router';
 
 import { AuthedShell } from '@/widgets/layout/authed-shell';
 
-import { AppProviders } from '../providers/index';
-import { AuthedProviders } from './providers';
+import { AppProviders, AuthedProviders } from '../providers/index';
 
-const AuthedLayout = ({ children }: { children: ReactNode }) => (
+export const AuthedLayout = () => (
   <AppProviders>
     <AuthedProviders>
-      <AuthedShell>{children}</AuthedShell>
+      <AuthedShell>
+        <Outlet />
+      </AuthedShell>
     </AuthedProviders>
   </AppProviders>
 );
-
-export default AuthedLayout;

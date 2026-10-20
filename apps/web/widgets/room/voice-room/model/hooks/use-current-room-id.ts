@@ -1,5 +1,3 @@
-'use client';
-
 import { useRoomContext } from '@livekit/components-react';
 
 import { useActiveVoiceRoomId } from '@/entities/room/session';

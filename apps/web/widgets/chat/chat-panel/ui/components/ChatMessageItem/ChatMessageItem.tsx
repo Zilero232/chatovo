@@ -1,5 +1,3 @@
-'use client';
-
 import type { ChatMessageItemProps } from './ChatMessageItem.types';
 
 import { ChatMessageProvider, useChatMessage } from '../../../model/contexts';

@@ -1,5 +1,3 @@
-'use client';
-
 import { match } from 'ts-pattern';
 
 import type { MusicTrackPlayback } from '../../../model/types';

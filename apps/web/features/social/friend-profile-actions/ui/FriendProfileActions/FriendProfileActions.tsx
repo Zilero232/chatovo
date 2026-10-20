@@ -1,5 +1,3 @@
-'use client';
-
 import { Spinner } from '@chatovo/ui-kit';
 
 import { useFriendshipRelation } from '@/entities/social/friend';

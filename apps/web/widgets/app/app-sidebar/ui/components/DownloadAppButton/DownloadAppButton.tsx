@@ -1,9 +1,7 @@
-'use client';
-
 import { Button, Tooltip, TooltipContent } from '@chatovo/ui-kit';
 import { useBoolean } from '@siberiacancode/reactuse';
 import { Download } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { DownloadAppDialog } from '@/features/app/download-app';
 

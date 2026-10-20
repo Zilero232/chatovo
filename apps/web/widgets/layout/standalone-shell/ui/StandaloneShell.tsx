@@ -1,9 +1,7 @@
-'use client';
-
 import { BrandMark, Text } from '@chatovo/ui-kit';
+import { Link } from '@tanstack/react-router';
 import { clsx } from 'clsx';
 import { ArrowLeft } from 'lucide-react';
-import Link from 'next/link';
 
 import { SITE } from '@/shared/config';
 import { ROUTES } from '@/shared/constants';
@@ -16,7 +14,7 @@ import s from './StandaloneShell.module.scss';
 export const StandaloneShell = ({ children, backHref, backLabel }: StandaloneShellProps) => (
   <div className={clsx(s.root, 'inset-page-x')}>
     <header className={s.header}>
-      <Link className={s.brand} href={ROUTES.lobby}>
+      <Link className={s.brand} to={ROUTES.lobby}>
         <BrandMark glow size={28} />
         <Text as='span' className={clsx(s.brandName, 'gradient-text')} tone='inherit'>
           {SITE.name}
@@ -25,7 +23,7 @@ export const StandaloneShell = ({ children, backHref, backLabel }: StandaloneShe
 
       <div className={s.actions}>
         {backHref && backLabel && (
-          <Link className={s.action} href={backHref}>
+          <Link className={s.action} to={backHref}>
             <ArrowLeft aria-hidden className={s.actionIcon} />
             {backLabel}
           </Link>

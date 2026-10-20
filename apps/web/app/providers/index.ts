@@ -1,4 +1,5 @@
 export { AppProviders } from './AppProviders';
+export { AuthedProviders } from './AuthedProviders';
 export { AuthProvider } from './AuthProvider';
 export { DeepLinkProvider } from './DeepLinkProvider';
 export { I18nProvider } from './I18nProvider';

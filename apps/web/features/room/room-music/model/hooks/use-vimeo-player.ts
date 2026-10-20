@@ -1,5 +1,3 @@
-'use client';
-
 import type VimeoPlayer from '@vimeo/player';
 
 import { useEffect, useEffectEvent, useState } from 'react';

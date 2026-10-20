@@ -1,10 +1,8 @@
-'use client';
-
 import { useCopy } from '@siberiacancode/reactuse';
 import { clsx } from 'clsx';
 import { Copy } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
 
 import type { FriendTagProps } from './FriendTag.types';
 

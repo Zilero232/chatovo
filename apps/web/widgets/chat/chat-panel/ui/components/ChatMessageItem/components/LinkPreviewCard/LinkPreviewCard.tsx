@@ -1,7 +1,5 @@
-'use client';
-
+import { Image } from '@chatovo/ui-kit';
 import { motion } from 'motion/react';
-import Image from 'next/image';
 
 import { handleExternalLinkClick } from '@/shared/lib';
 

@@ -1,10 +1,8 @@
-'use client';
-
 import type { ReactNode } from 'react';
 
+import { useRouter } from '@tanstack/react-router';
 import { isTauri } from '@tauri-apps/api/core';
 import { getCurrent, onOpenUrl } from '@tauri-apps/plugin-deep-link';
-import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
 import { parseDeepLinkToAppPath } from '@/shared/lib/deep-link';
@@ -39,11 +37,11 @@ export const DeepLinkProvider = ({ children }: { children: ReactNode }) => {
       }
 
       if (current?.length) {
-        navigateDeepLinks(current, (path) => router.replace(path));
+        navigateDeepLinks(current, (path) => router.history.replace(path));
       }
 
       const stop = await onOpenUrl((urls) => {
-        navigateDeepLinks(urls, (path) => router.replace(path));
+        navigateDeepLinks(urls, (path) => router.history.replace(path));
       });
 
       if (cancelled) {

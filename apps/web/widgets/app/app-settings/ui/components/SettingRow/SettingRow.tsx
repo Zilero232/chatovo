@@ -1,5 +1,3 @@
-'use client';
-
 import type { SettingRowProps } from './SettingRow.types';
 
 import s from '../../AppSettingsButton.module.scss';

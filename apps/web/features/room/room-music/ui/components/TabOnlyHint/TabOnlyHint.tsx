@@ -1,7 +1,5 @@
-'use client';
-
 import { MonitorUp } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import type { TabOnlyHintProps } from './TabOnlyHint.types';
 

@@ -1,16 +1,14 @@
-'use client';
-
 import { Button } from '@chatovo/ui-kit';
+import { useNavigate } from '@tanstack/react-router';
 import { isTauri } from '@tauri-apps/api/core';
-import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/navigation';
+import { useTranslations } from 'use-intl';
 
 import { DEEP_LINKS, ROUTES } from '@/shared/constants';
 
 import s from './ResetPasswordDoneActions.module.scss';
 
 export const ResetPasswordDoneActions = () => {
-  const router = useRouter();
+  const navigate = useNavigate();
   const t = useTranslations('auth');
 
   if (isTauri()) {
@@ -19,7 +17,7 @@ export const ResetPasswordDoneActions = () => {
         className={s.action}
         size='lg'
         type='button'
-        onClick={() => router.replace(ROUTES.auth)}
+        onClick={() => navigate({ to: ROUTES.auth, replace: true })}
       >
         {t('signInInBrowser')}
       </Button>

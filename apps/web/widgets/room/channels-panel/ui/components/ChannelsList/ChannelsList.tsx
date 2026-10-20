@@ -1,13 +1,11 @@
-'use client';
-
 import type { ReactNode } from 'react';
 
 import { CenteredState, ScrollArea, SearchField, Skeleton } from '@chatovo/ui-kit';
 import { clsx } from 'clsx';
-import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { isEmpty as isEmptyList } from 'remeda';
 import { match } from 'ts-pattern';
+import { useTranslations } from 'use-intl';
 
 import { groupRooms, RoomsListError, useRooms, useRoomsPresence } from '@/entities/room/room';
 

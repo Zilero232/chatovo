@@ -1,5 +1,3 @@
-'use client';
-
 import { useBoolean } from '@siberiacancode/reactuse';
 
 import { appEvents } from '@/shared/lib';

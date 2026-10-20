@@ -1,8 +1,6 @@
-'use client';
-
 import { ContextMenuItem } from '@chatovo/ui-kit';
 import { Pencil, ShieldAlert, Trash2 } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { useChatMessage } from '../../../../../model/contexts';
 

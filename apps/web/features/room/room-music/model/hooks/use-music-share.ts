@@ -1,11 +1,9 @@
-'use client';
-
 import { useLocalParticipant } from '@livekit/components-react';
 import { useUnmount } from '@siberiacancode/reactuse';
 import { Track } from 'livekit-client';
-import { useTranslations } from 'next-intl';
 import { useRef, useState } from 'react';
 import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
 
 import { SHARED_AUDIO_PUBLISH } from '@/shared/lib';
 

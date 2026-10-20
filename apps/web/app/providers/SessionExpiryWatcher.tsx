@@ -1,19 +1,17 @@
-'use client';
-
-import { useRouter } from 'next/navigation';
+import { useNavigate } from '@tanstack/react-router';
 
 import { authClient, queryClient } from '@/shared/api';
 import { ROUTES } from '@/shared/constants';
 import { appEvents } from '@/shared/lib';
 
 export const SessionExpiryWatcher = () => {
-  const router = useRouter();
+  const navigate = useNavigate();
 
   appEvents.on.sessionExpired(() => {
     void authClient.getSession({ query: { disableCookieCache: true } });
 
     queryClient.clear();
-    router.replace(ROUTES.auth);
+    navigate({ to: ROUTES.auth, replace: true });
   });
 
   return null;

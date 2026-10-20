@@ -1,5 +1,3 @@
-'use client';
-
 import { useCopy } from '@siberiacancode/reactuse';
 
 import { buildPublicAppUrl, buildRoomHref } from '@/shared/lib';

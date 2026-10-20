@@ -1,5 +1,3 @@
-'use client';
-
 import { useScript } from '@siberiacancode/reactuse';
 import { useEffect, useEffectEvent, useState } from 'react';
 

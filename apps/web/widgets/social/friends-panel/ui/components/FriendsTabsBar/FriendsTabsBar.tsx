@@ -1,8 +1,6 @@
-'use client';
-
 import { Button, TabsList, TabsTrigger } from '@chatovo/ui-kit';
 import { UserPlus, Users } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import type { FriendsTabsBarProps } from './FriendsTabsBar.types';
 

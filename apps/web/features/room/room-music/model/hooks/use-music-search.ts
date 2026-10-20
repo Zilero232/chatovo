@@ -1,12 +1,10 @@
-'use client';
-
 import type { MusicEnqueueItem, RadioStation } from '@chatovo/schemas';
 import type { FormEvent } from 'react';
 
 import { useDebounceValue } from '@siberiacancode/reactuse';
-import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
 
 import { useToastError } from '@/entities/app/locale';
 import { useRadioStations } from '@/entities/room/music';

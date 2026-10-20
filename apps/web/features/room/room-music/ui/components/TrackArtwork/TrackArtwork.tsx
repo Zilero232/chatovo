@@ -1,8 +1,6 @@
-'use client';
-
+import { Image } from '@chatovo/ui-kit';
 import { clsx } from 'clsx';
 import { Music, Radio } from 'lucide-react';
-import Image from 'next/image';
 
 import type { TrackArtworkProps } from './TrackArtwork.types';
 

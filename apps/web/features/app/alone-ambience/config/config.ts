@@ -1,4 +1,4 @@
-const IS_DEV = process.env.NODE_ENV === 'development';
+const IS_DEV = import.meta.env.MODE === 'development';
 
 export const ALONE_AMBIENCE_SRC = '/audios/easter-eggs/alone-lofi.mp3';
 

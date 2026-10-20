@@ -1,5 +1,3 @@
-'use client';
-
 import {
   HeadphoneOff,
   Headphones,
@@ -11,7 +9,7 @@ import {
   Video,
   VideoOff
 } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { isScreenShareSupported } from '@/shared/lib';
 

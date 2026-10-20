@@ -1,5 +1,3 @@
-'use client';
-
 import { useEffect } from 'react';
 
 import { addSubscriptionRooms, removeSubscriptionRooms } from '../lib/subscription-registry';

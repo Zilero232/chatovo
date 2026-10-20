@@ -1,17 +1,11 @@
-'use client';
+import type { ErrorComponentProps } from '@tanstack/react-router';
 
 import { ErrorPage } from '@/views/error';
 
-import { AppProviders } from './providers/index';
+import { AppProviders } from '../providers/index';
 
-type ErrorProps = {
-  reset: () => void;
-};
-
-const RouteError = ({ reset }: ErrorProps) => (
+export const RouteError = ({ reset }: ErrorComponentProps) => (
   <AppProviders>
     <ErrorPage reset={reset} />
   </AppProviders>
 );
-
-export default RouteError;

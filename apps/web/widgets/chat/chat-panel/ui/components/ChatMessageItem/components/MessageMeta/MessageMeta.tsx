@@ -1,5 +1,3 @@
-'use client';
-
 import { UserName } from '@/entities/auth/user';
 import { ProfileCardTrigger } from '@/features/room/profile-card';
 import { formatMessageTime } from '@/shared/lib/format-date';

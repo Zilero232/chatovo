@@ -1,7 +1,5 @@
-'use client';
-
-import { useTranslations } from 'next-intl';
 import { Controller } from 'react-hook-form';
+import { useTranslations } from 'use-intl';
 
 import { useFieldError } from '@/entities/app/locale';
 

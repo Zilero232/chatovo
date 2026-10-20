@@ -1,5 +1,3 @@
-'use client';
-
 import { useEffect, useEffectEvent, useState } from 'react';
 
 import type { MusicPlayerAdapter, YoutubePlayer } from '../../lib';

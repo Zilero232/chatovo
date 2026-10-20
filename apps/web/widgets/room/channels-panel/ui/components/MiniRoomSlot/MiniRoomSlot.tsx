@@ -1,5 +1,3 @@
-'use client';
-
 import { useMediaQuery } from '@siberiacancode/reactuse';
 
 import { useMiniRoomSlot } from '@/entities/room/session';

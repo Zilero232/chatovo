@@ -1,5 +1,3 @@
-'use client';
-
 import { Select } from '@chatovo/ui-kit';
 
 import type { QualitySelectProps } from './QualitySelect.types';

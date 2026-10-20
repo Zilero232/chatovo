@@ -1,5 +1,3 @@
-'use client';
-
 import { ContextMenu, ContextMenuContent, ContextMenuTrigger } from '@chatovo/ui-kit';
 
 import type { MessageContextMenuProps } from './MessageContextMenu.types';

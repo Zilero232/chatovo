@@ -1,5 +1,3 @@
-'use client';
-
 import {
   Button,
   Dialog,
@@ -15,8 +13,8 @@ import {
 import { useBoolean } from '@siberiacancode/reactuse';
 import { clsx } from 'clsx';
 import { Settings } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { useState } from 'react';
+import { useTranslations } from 'use-intl';
 
 import { useCurrentUser } from '@/entities/auth/user';
 import { useIsTauriDesktop } from '@/shared/hooks';

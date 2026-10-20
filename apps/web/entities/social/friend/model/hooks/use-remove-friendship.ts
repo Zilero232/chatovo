@@ -1,5 +1,3 @@
-'use client';
-
 import { useMutation } from '@tanstack/react-query';
 
 import { removeFriendship } from '@/shared/api';

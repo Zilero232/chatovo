@@ -1,8 +1,6 @@
-'use client';
-
 import { Button } from '@chatovo/ui-kit';
 import { MessageSquare, Phone, UserMinus } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import type { FriendActionsProps } from './FriendActions.types';
 

@@ -1,5 +1,3 @@
-'use client';
-
 import { Text } from '@chatovo/ui-kit';
 
 import { useCurrentUser, UserAvatar, UserName } from '@/entities/auth/user';

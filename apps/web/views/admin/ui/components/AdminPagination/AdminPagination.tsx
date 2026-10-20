@@ -1,8 +1,6 @@
-'use client';
-
 import { Button, Row, Text } from '@chatovo/ui-kit';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import type { AdminPaginationProps } from './AdminPagination.types';
 

@@ -1,7 +1,5 @@
-'use client';
-
 import { Row, Stack, Text } from '@chatovo/ui-kit';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { formatDateTime } from '@/shared/lib';
 

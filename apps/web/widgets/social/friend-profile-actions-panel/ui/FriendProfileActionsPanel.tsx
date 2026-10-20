@@ -1,5 +1,3 @@
-'use client';
-
 import type { FriendChatPeer } from '@/features/social/friend-chat';
 
 import { useFriendChat } from '@/features/social/friend-chat';

@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { NextIntlClientProvider } from 'next-intl';
+import { IntlProvider } from 'use-intl';
 import { describe, expect, it, vi } from 'vitest';
 
 import { en as messages } from '@/shared/i18n/locales/en';
@@ -20,9 +20,9 @@ const renderForm = () => {
 
   return render(
     <QueryClientProvider client={queryClient}>
-      <NextIntlClientProvider locale='en' messages={messages} timeZone='UTC'>
+      <IntlProvider locale='en' messages={messages} timeZone='UTC'>
         <SignUpForm />
-      </NextIntlClientProvider>
+      </IntlProvider>
     </QueryClientProvider>
   );
 };

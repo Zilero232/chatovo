@@ -1,9 +1,7 @@
-'use client';
-
 import { CenteredState, IconButtonWithTooltip } from '@chatovo/ui-kit';
 import { X } from 'lucide-react';
 import { AnimatePresence } from 'motion/react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { useMusicQueue } from '../../../model/hooks';
 import { QueueItem } from '../QueueItem/QueueItem';

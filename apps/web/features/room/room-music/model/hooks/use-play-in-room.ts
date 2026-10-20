@@ -1,8 +1,6 @@
-'use client';
-
 import { parseMusicLink } from '@chatovo/schemas';
-import { useTranslations } from 'next-intl';
 import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
 
 import { useToastError } from '@/entities/app/locale';
 import { useRoomMusicActions } from '@/entities/room/music';

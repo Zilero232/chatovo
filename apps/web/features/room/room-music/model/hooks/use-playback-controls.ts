@@ -1,5 +1,3 @@
-'use client';
-
 import { useToastError } from '@/entities/app/locale';
 
 import { useCurrentRoomMusic } from './use-current-room-music';

@@ -1,8 +1,6 @@
-'use client';
-
 import { Button, Tooltip, TooltipContent } from '@chatovo/ui-kit';
 import { ShieldCheck } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { EXTERNAL_LINKS } from '@/shared/constants';
 

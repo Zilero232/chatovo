@@ -1,7 +1,5 @@
-'use client';
-
 import { SearchField, Tabs, TabsContent } from '@chatovo/ui-kit';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import type { FriendsTabValue } from '@/features/social/friend-chat';
 

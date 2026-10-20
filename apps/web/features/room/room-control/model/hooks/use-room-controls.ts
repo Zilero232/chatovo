@@ -1,5 +1,3 @@
-'use client';
-
 import { useRoomContext } from '@livekit/components-react';
 
 import { useCameraControl } from './use-camera-control';

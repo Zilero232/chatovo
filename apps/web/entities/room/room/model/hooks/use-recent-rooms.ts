@@ -1,5 +1,3 @@
-'use client';
-
 import { useLocalStorage } from '@siberiacancode/reactuse';
 import { isArray } from 'remeda';
 

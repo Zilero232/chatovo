@@ -1,10 +1,8 @@
-'use client';
-
 import { ConfirmDialog, Text } from '@chatovo/ui-kit';
+import { useNavigate, useSearch } from '@tanstack/react-router';
 import { Trash2 } from 'lucide-react';
-import { useTranslations } from 'next-intl';
-import { useRouter, useSearchParams } from 'next/navigation';
 import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
 
 import { useToastError } from '@/entities/app/locale';
 import { useDeleteRoom } from '@/entities/room/room';
@@ -17,8 +15,8 @@ export const DeleteRoomDialog = ({ room, open, onOpenChange }: DeleteRoomDialogP
   const t = useTranslations('manageRoom.delete');
   const toastError = useToastError();
 
-  const router = useRouter();
-  const params = useSearchParams();
+  const navigate = useNavigate();
+  const search = useSearch({ strict: false });
 
   const { close } = useRoomSession();
 
@@ -34,8 +32,8 @@ export const DeleteRoomDialog = ({ room, open, onOpenChange }: DeleteRoomDialogP
         onOpenChange(false);
         close(room.id);
 
-        if (params.get('id') === room.id) {
-          router.replace(ROUTES.lobby);
+        if (search.id === room.id) {
+          navigate({ to: ROUTES.lobby, replace: true });
         }
       },
       onError: toastError(`room-delete-${room.id}`)

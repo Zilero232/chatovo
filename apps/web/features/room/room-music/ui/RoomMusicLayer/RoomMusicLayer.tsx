@@ -1,5 +1,3 @@
-'use client';
-
 import { AnimatePresence } from 'motion/react';
 
 import type { RoomMusicLayerProps } from './RoomMusicLayer.types';

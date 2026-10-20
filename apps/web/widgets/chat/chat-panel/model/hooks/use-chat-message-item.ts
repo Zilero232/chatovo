@@ -1,5 +1,3 @@
-'use client';
-
 import { decodeChatAttachment } from '@chatovo/schemas';
 import { useState } from 'react';
 

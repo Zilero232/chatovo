@@ -1,5 +1,3 @@
-'use client';
-
 import { roomKindSchema } from '@chatovo/schemas';
 import { useAudio } from '@siberiacancode/reactuse';
 import { useState } from 'react';

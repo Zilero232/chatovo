@@ -1,5 +1,3 @@
-'use client';
-
 import { Avatar, AvatarFallback, AvatarImage } from '@chatovo/ui-kit';
 
 import { getAvatarColor, getDefaultAvatar, getInitials } from '@/shared/lib';

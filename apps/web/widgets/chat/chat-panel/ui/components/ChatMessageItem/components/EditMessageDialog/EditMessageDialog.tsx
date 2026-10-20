@@ -1,9 +1,7 @@
-'use client';
-
 import { ConfirmDialog, Text } from '@chatovo/ui-kit';
 import { useKeyboard, useMount, useTextareaAutosize } from '@siberiacancode/reactuse';
 import { clsx } from 'clsx';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import type { EditMessageDialogProps } from './EditMessageDialog.types';
 

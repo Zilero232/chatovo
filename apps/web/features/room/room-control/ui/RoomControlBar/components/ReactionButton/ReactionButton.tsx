@@ -1,10 +1,8 @@
-'use client';
-
 import { Popover, PopoverContent, PopoverTrigger } from '@chatovo/ui-kit';
 import { useBoolean } from '@siberiacancode/reactuse';
 import { clsx } from 'clsx';
 import { SmilePlus } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { QUICK_REACTIONS } from '../../../../config/reactions';
 import { useReactions } from '../../../../model/contexts';

@@ -1,5 +1,3 @@
-'use client';
-
 import type { Locale as DateFnsLocale } from 'date-fns';
 
 import { enGB, ru } from 'date-fns/locale';

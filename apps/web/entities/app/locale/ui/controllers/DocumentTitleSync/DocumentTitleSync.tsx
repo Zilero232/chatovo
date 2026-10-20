@@ -1,8 +1,6 @@
-'use client';
-
-import { useTranslations } from 'next-intl';
-import { usePathname } from 'next/navigation';
+import { useLocation } from '@tanstack/react-router';
 import { useEffect } from 'react';
+import { useTranslations } from 'use-intl';
 
 import { SITE } from '@/shared/config';
 import { ROUTES } from '@/shared/constants';
@@ -27,7 +25,7 @@ const readTitleKey = (pathname: string): TitleKey | undefined => {
 };
 
 export const DocumentTitleSync = () => {
-  const pathname = usePathname();
+  const pathname = useLocation({ select: (location) => location.pathname });
   const t = useTranslations('pageMeta');
 
   const { locale, isReady } = useLocale();

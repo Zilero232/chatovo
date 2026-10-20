@@ -1,5 +1,3 @@
-'use client';
-
 import { useRoomMusicContext } from '../contexts/room-music-context';
 
 export const useIsRoomMusicActive = () => {

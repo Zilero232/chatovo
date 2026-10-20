@@ -1,5 +1,3 @@
-'use client';
-
 import type { ChangePasswordValues } from '@chatovo/schemas';
 
 import { changePasswordSchema } from '@chatovo/schemas';

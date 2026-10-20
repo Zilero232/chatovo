@@ -1,5 +1,3 @@
-'use client';
-
 import type { Participant } from 'livekit-client';
 
 import { useParticipantTracks } from '@livekit/components-react';

@@ -1,8 +1,6 @@
-'use client';
-
 import { DropdownMenuCheckboxItem } from '@chatovo/ui-kit';
 import { Eye, EyeOff } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { useAppSettings } from '@/entities/app/settings';
 

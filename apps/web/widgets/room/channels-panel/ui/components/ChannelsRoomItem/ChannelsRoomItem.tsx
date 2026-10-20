@@ -1,6 +1,4 @@
-'use client';
-
-import { useSearchParams } from 'next/navigation';
+import { useSearch } from '@tanstack/react-router';
 
 import { useCurrentUser } from '@/entities/auth/user';
 import { useRoomParticipants } from '@/entities/room/room';
@@ -10,13 +8,13 @@ import type { ChannelsRoomItemProps } from './ChannelsRoomItem.types';
 import { RoomItemTrigger, RoomParticipantList } from './components';
 
 export const ChannelsRoomItem = ({ room, onNavigate }: ChannelsRoomItemProps) => {
-  const params = useSearchParams();
+  const search = useSearch({ strict: false });
 
   const { user } = useCurrentUser();
 
   const participants = useRoomParticipants(room.id);
 
-  const isActive = params.get('id') === room.id;
+  const isActive = search.id === room.id;
   const isOwner = user?.id === room.ownerId;
 
   return (

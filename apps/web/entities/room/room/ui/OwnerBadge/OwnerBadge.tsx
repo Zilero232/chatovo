@@ -1,8 +1,6 @@
-'use client';
-
 import { Badge } from '@chatovo/ui-kit';
 import { Crown } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import type { OwnerBadgeProps } from './OwnerBadge.types';
 

@@ -1,5 +1,3 @@
-'use client';
-
 import type { ReactNode } from 'react';
 
 import { Keyboard, Mic, Settings2, ShieldCheck, User, Video, Volume2 } from 'lucide-react';

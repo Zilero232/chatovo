@@ -1,12 +1,11 @@
-'use client';
-
+import { useNavigate } from '@tanstack/react-router';
 import { clsx } from 'clsx';
 import { Mic, MicOff } from 'lucide-react';
-import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/navigation';
+import { useTranslations } from 'use-intl';
 
 import { UserAvatar } from '@/entities/auth/user';
-import { buildRoomHref } from '@/shared/lib';
+import { ROUTES } from '@/shared/constants';
+import { buildRoomSearch } from '@/shared/lib';
 
 import type { ActivityRoomCardProps } from './ActivityRoomCard.types';
 
@@ -14,13 +13,13 @@ import s from './ActivityRoomCard.module.scss';
 
 export const ActivityRoomCard = ({ group, onNavigate }: ActivityRoomCardProps) => {
   const t = useTranslations('channels.activity');
-  const router = useRouter();
+  const navigate = useNavigate();
 
   const { friends, roomId, roomName, totalInRoom } = group;
   const others = totalInRoom - friends.length;
 
   const handleClick = () => {
-    router.push(buildRoomHref(roomId));
+    navigate({ to: ROUTES.room, search: buildRoomSearch(roomId) });
     onNavigate?.();
   };
 

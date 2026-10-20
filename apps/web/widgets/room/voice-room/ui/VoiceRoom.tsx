@@ -1,5 +1,3 @@
-'use client';
-
 import { LiveKitRoom } from '@livekit/components-react';
 import { clsx } from 'clsx';
 import { setLogLevel } from 'livekit-client';

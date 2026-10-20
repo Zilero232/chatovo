@@ -15,8 +15,11 @@ export default eslint(
       '**/target',
       'apps/tauri/gen',
       'apps/server/prisma/migrations',
-      // next-intl augments its own module here, which only `interface` can do.
+      // Module augmentation (use-intl / next-intl messages, the router register,
+      // Vite's import.meta.env) only works with `interface`.
       'apps/web/messages.d.ts',
+      'apps/web/router.d.ts',
+      'apps/web/vite-env.d.ts',
       'apps/site/messages.d.ts',
       'docs/**',
       '**/*.md/**'
@@ -83,7 +86,7 @@ export default eslint(
   },
 
   // `next dev` appends its own `# This is NOT the Next.js you know` block to
-  // apps/web/CLAUDE.md on every run and re-adds it when removed, so the
+  // apps/site/CLAUDE.md on every run and re-adds it when removed, so the
   // second H1 is not ours to fix.
   {
     name: 'chatovo/agent-docs',

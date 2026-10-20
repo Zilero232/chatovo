@@ -1,5 +1,3 @@
-'use client';
-
 import { useRef, useState } from 'react';
 
 import type { AudioSettings } from '@/entities/app/settings';

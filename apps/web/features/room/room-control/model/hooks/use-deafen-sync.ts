@@ -1,5 +1,3 @@
-'use client';
-
 import { appEvents } from '@/shared/lib';
 
 import { useDeafen } from './use-deafen';

@@ -1,8 +1,6 @@
-'use client';
-
 import { Progress, Text } from '@chatovo/ui-kit';
-import { useTranslations } from 'next-intl';
 import { match, P } from 'ts-pattern';
+import { useTranslations } from 'use-intl';
 
 import type { UpdateProgressProps } from './UpdateProgress.types';
 

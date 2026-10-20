@@ -1,11 +1,11 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { useRouter } from 'next/navigation';
+import { useNavigate } from '@tanstack/react-router';
 
 import { useAppSettings } from '@/entities/app/settings';
 import { useCurrentUser } from '@/entities/auth/user';
 import { fetchLiveKitToken } from '@/shared/api';
-import { QUERY_KEYS } from '@/shared/constants';
-import { buildRoomHref } from '@/shared/lib';
+import { QUERY_KEYS, ROUTES } from '@/shared/constants';
+import { buildRoomSearch } from '@/shared/lib';
 
 export type EnterRoomInput = {
   password?: string;
@@ -13,7 +13,7 @@ export type EnterRoomInput = {
 };
 
 export const useEnterRoom = () => {
-  const router = useRouter();
+  const navigate = useNavigate();
   const queryClient = useQueryClient();
 
   const { isAdmin } = useCurrentUser();
@@ -27,7 +27,7 @@ export const useEnterRoom = () => {
 
       queryClient.setQueryData(QUERY_KEYS.livekitToken(roomId, password), response);
 
-      router.push(buildRoomHref(roomId));
+      navigate({ to: ROUTES.room, search: buildRoomSearch(roomId) });
     }
   });
 };

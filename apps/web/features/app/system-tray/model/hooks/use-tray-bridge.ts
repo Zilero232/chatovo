@@ -1,5 +1,3 @@
-'use client';
-
 import { useEffect, useEffectEvent } from 'react';
 
 import { isTauriDesktop } from '@/shared/lib';

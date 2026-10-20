@@ -1,9 +1,7 @@
-'use client';
-
 import { Button, Tooltip, TooltipContent } from '@chatovo/ui-kit';
+import { useLocation, useNavigate } from '@tanstack/react-router';
 import { Users } from 'lucide-react';
-import { useTranslations } from 'next-intl';
-import { usePathname, useRouter } from 'next/navigation';
+import { useTranslations } from 'use-intl';
 
 import { useIncomingFriendRequests } from '@/entities/social/friend';
 import { useFriendChat } from '@/features/social/friend-chat';
@@ -16,8 +14,8 @@ import s from './LobbyButton.module.scss';
 
 export const LobbyButton = ({ side = 'right', onNavigate }: LobbyButtonProps) => {
   const t = useTranslations('appSidebar');
-  const router = useRouter();
-  const pathname = usePathname();
+  const navigate = useNavigate();
+  const pathname = useLocation({ select: (location) => location.pathname });
 
   const { dmUnread } = useFriendChat();
   const { data: requests } = useIncomingFriendRequests();
@@ -34,7 +32,7 @@ export const LobbyButton = ({ side = 'right', onNavigate }: LobbyButtonProps) =>
           size='icon'
           variant='ghost'
           onClick={() => {
-            router.push(ROUTES.lobby);
+            navigate({ to: ROUTES.lobby });
             onNavigate?.();
           }}
         >

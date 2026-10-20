@@ -1,5 +1,3 @@
-'use client';
-
 import { isImageMime } from '@chatovo/schemas';
 import { clsx } from 'clsx';
 import { FileIcon } from 'lucide-react';

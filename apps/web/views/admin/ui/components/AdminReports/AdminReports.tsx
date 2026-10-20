@@ -1,10 +1,8 @@
-'use client';
-
 import { CenteredState, Select, Spinner, Stack } from '@chatovo/ui-kit';
 import { ShieldCheck } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { match, P } from 'ts-pattern';
+import { useTranslations } from 'use-intl';
 
 import { useAdminReports } from '@/entities/app/admin';
 

@@ -1,5 +1,3 @@
-'use client';
-
 import type { Participant } from 'livekit-client';
 
 import { useDebounceCallback } from '@siberiacancode/reactuse';

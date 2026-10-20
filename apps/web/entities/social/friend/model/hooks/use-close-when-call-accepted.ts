@@ -1,5 +1,3 @@
-'use client';
-
 import { useRunWhen } from '@/shared/hooks';
 
 import { useOutgoingFriendCall } from './use-outgoing-friend-call';

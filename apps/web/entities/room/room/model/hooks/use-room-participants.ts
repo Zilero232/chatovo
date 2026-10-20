@@ -1,5 +1,3 @@
-'use client';
-
 import type { RoomParticipant } from '@chatovo/schemas';
 
 import { useRoomsPresence } from './use-rooms-presence';

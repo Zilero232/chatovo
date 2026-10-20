@@ -1,5 +1,3 @@
-'use client';
-
 import {
   Button,
   Dialog,
@@ -10,7 +8,7 @@ import {
   Spinner
 } from '@chatovo/ui-kit';
 import { PhoneOff } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { UserAvatar } from '@/entities/auth/user';
 

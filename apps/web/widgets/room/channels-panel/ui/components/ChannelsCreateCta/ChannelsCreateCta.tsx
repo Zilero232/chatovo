@@ -1,8 +1,6 @@
-'use client';
-
 import { IconButtonWithTooltip } from '@chatovo/ui-kit';
 import { Plus } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { CreateRoomDialog } from '@/features/room/create';
 

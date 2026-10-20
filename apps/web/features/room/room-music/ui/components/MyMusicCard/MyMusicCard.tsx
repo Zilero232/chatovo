@@ -1,8 +1,6 @@
-'use client';
-
 import { Button } from '@chatovo/ui-kit';
 import { AppWindow, FolderOpen } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { useShareMusicPanel } from '../../../model/hooks';
 import { ShareStatus } from '../ShareStatus/ShareStatus';

@@ -1,5 +1,3 @@
-'use client';
-
 import { useLocalParticipant } from '@livekit/components-react';
 
 import { getCameraCaptureOptions, useAppSettings } from '@/entities/app/settings';

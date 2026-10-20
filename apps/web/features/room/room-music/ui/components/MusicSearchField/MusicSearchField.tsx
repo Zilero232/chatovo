@@ -1,9 +1,7 @@
-'use client';
-
 import { IconButtonWithTooltip, SearchField, Spinner } from '@chatovo/ui-kit';
 import { X } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { useRef } from 'react';
+import { useTranslations } from 'use-intl';
 
 import type { MusicSearchProps } from './MusicSearchField.types';
 

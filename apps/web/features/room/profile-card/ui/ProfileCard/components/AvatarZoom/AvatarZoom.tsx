@@ -1,9 +1,13 @@
-'use client';
-
 import { AVATAR_MAX_DIMENSION } from '@chatovo/schemas';
-import { Button, Dialog, DialogContent, DialogDescription, DialogTitle } from '@chatovo/ui-kit';
-import { useTranslations } from 'next-intl';
-import Image from 'next/image';
+import {
+  Button,
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+  Image
+} from '@chatovo/ui-kit';
+import { useTranslations } from 'use-intl';
 
 import type { AvatarZoomProps } from './AvatarZoom.types';
 

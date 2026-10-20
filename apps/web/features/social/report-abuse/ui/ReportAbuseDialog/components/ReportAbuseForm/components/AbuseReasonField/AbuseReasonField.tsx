@@ -1,11 +1,9 @@
-'use client';
-
 import type { AbuseReason } from '@chatovo/schemas';
 
 import { abuseReasonSchema } from '@chatovo/schemas';
 import { FormField, Label, RadioGroup, RadioGroupItem } from '@chatovo/ui-kit';
-import { useTranslations } from 'next-intl';
 import { Controller } from 'react-hook-form';
+import { useTranslations } from 'use-intl';
 
 import type { AbuseReasonFieldProps } from './AbuseReasonField.types';
 

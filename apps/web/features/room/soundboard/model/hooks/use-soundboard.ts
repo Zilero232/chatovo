@@ -1,5 +1,3 @@
-'use client';
-
 import type { SoundboardSound } from '@chatovo/schemas';
 
 import { useRoomContext } from '@livekit/components-react';

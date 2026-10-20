@@ -1,9 +1,7 @@
-'use client';
-
-import { useTranslations } from 'next-intl';
 import { useEffect, useEffectEvent, useRef } from 'react';
 import { clamp } from 'remeda';
 import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
 
 import {
   ALONE_AFTER_MS,

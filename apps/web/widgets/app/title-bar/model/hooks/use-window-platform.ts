@@ -1,5 +1,3 @@
-'use client';
-
 import type { Platform } from '@tauri-apps/plugin-os';
 
 import { platform } from '@tauri-apps/plugin-os';

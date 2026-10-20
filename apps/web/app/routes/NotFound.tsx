@@ -1,11 +1,9 @@
 import { NotFoundPage } from '@/views/not-found';
 
-import { AppProviders } from './providers/index';
+import { AppProviders } from '../providers/index';
 
-const NotFound = () => (
+export const NotFound = () => (
   <AppProviders>
     <NotFoundPage />
   </AppProviders>
 );
-
-export default NotFound;

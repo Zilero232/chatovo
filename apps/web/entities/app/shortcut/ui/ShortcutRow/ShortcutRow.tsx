@@ -1,5 +1,3 @@
-'use client';
-
 import type { ShortcutRowProps } from './ShortcutRow.types';
 
 import { ShortcutClearButton, ShortcutComboButton } from './components';

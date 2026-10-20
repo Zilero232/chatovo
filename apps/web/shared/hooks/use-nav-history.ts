@@ -1,12 +1,10 @@
-'use client';
-
 import { useStateHistory } from '@siberiacancode/reactuse';
-import { usePathname, useRouter } from 'next/navigation';
+import { useLocation, useRouter } from '@tanstack/react-router';
 import { useEffect } from 'react';
 
 export const useNavHistory = () => {
   const router = useRouter();
-  const pathname = usePathname();
+  const pathname = useLocation({ select: (location) => location.pathname });
 
   const { value, index, history, canUndo, canRedo, set, undo, redo } = useStateHistory(pathname);
 
@@ -24,7 +22,7 @@ export const useNavHistory = () => {
 
     undo();
 
-    router.push(history[index - 1]);
+    router.history.push(history[index - 1]);
   };
 
   const goForward = () => {
@@ -34,7 +32,7 @@ export const useNavHistory = () => {
 
     redo();
 
-    router.push(history[index + 1]);
+    router.history.push(history[index + 1]);
   };
 
   return { canGoBack: canUndo, canGoForward: canRedo, goBack, goForward };

@@ -1,10 +1,8 @@
-'use client';
-
 import { Badge, ConfirmDialog, IconButtonWithTooltip, Row, Stack, Text } from '@chatovo/ui-kit';
 import { KeyRound, Lock, Trash2 } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
 
 import { useDeleteRoomAsAdmin } from '@/entities/app/admin';
 import { useToastError } from '@/entities/app/locale';

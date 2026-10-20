@@ -1,8 +1,6 @@
-'use client';
-
-import { useTranslations } from 'next-intl';
 import { useRef } from 'react';
 import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
 
 import { useCurrentRoomMusic } from './use-current-room-music';
 

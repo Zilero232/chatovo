@@ -1,10 +1,8 @@
-'use client';
-
 import type { ReactNode } from 'react';
 
 import { AppSplash } from '@chatovo/ui-kit';
-import { NextIntlClientProvider } from 'next-intl';
 import { useEffect } from 'react';
+import { IntlProvider } from 'use-intl';
 
 import { DocumentTitleSync, useLocale } from '@/entities/app/locale';
 import { DEFAULT_LOCALE, messages } from '@/shared/i18n';
@@ -23,13 +21,9 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
   }, [locale, isReady]);
 
   return (
-    <NextIntlClientProvider
-      locale={activeLocale}
-      messages={messages[activeLocale]}
-      timeZone={timeZone}
-    >
+    <IntlProvider locale={activeLocale} messages={messages[activeLocale]} timeZone={timeZone}>
       <DocumentTitleSync />
       {!isReady ? <AppSplash /> : children}
-    </NextIntlClientProvider>
+    </IntlProvider>
   );
 };

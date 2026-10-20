@@ -1,5 +1,3 @@
-'use client';
-
 import { ReportAbuseDialog } from '@/features/social/report-abuse';
 
 import { useChatMessage } from '../../../../../model/contexts';

@@ -1,5 +1,3 @@
-'use client';
-
 import { BrandMark } from '@chatovo/ui-kit';
 import { clsx } from 'clsx';
 

@@ -1,9 +1,7 @@
-'use client';
-
 import { Button } from '@chatovo/ui-kit';
 import { clsx } from 'clsx';
 import { X } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import type { ShortcutClearButtonProps } from './ShortcutClearButton.types';
 

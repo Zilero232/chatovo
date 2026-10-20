@@ -1,7 +1,5 @@
-'use client';
-
 import { CenteredState, Spinner } from '@chatovo/ui-kit';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 export const RoomLoadingFallback = () => {
   const t = useTranslations('room');

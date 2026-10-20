@@ -1,5 +1,3 @@
-'use client';
-
 import { SHORTCUT_ACTIONS } from '@/entities/app/shortcut';
 import { useIsTauriDesktop } from '@/shared/hooks';
 

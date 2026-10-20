@@ -1,5 +1,3 @@
-'use client';
-
 import { useLocalParticipant, useParticipants } from '@livekit/components-react';
 
 import { useAppSettings } from '@/entities/app/settings';

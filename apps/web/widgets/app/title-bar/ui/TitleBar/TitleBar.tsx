@@ -1,8 +1,6 @@
-'use client';
-
 import { clsx } from 'clsx';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { useNavHistory } from '@/shared/hooks';
 

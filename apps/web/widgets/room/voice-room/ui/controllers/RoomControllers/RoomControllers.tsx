@@ -1,5 +1,3 @@
-'use client';
-
 import { useGameActivitySync } from '@/features/app/game-activity';
 import { useDeafenSync } from '@/features/room/room-control';
 

@@ -1,8 +1,6 @@
-'use client';
-
 import { useMount } from '@siberiacancode/reactuse';
-import { useTranslations } from 'next-intl';
 import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
 
 import { useAppSettings } from '@/entities/app/settings';
 import { useCurrentUser } from '@/entities/auth/user';

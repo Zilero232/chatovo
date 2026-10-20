@@ -1,5 +1,3 @@
-'use client';
-
 import { useDebounceValue } from '@siberiacancode/reactuse';
 import { useState } from 'react';
 

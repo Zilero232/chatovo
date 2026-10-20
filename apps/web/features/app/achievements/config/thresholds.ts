@@ -1,4 +1,4 @@
-const IS_DEV = process.env.NODE_ENV === 'development';
+const IS_DEV = import.meta.env.MODE === 'development';
 
 export const NIGHT_OWL_FROM_HOUR = IS_DEV ? 0 : 3;
 export const NIGHT_OWL_TO_HOUR = IS_DEV ? 24 : 5;

@@ -1,10 +1,8 @@
-'use client';
-
 import { Popover, PopoverContent, PopoverTrigger } from '@chatovo/ui-kit';
 import { useBoolean } from '@siberiacancode/reactuse';
 import { clsx } from 'clsx';
 import { Siren } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import type { SoundboardButtonProps } from './SoundboardButton.types';
 

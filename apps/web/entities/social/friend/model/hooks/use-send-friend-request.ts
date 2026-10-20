@@ -1,5 +1,3 @@
-'use client';
-
 import type { SendFriendRequestInput } from '@chatovo/schemas';
 
 import { useMutation } from '@tanstack/react-query';

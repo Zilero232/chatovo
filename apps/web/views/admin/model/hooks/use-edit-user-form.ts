@@ -1,12 +1,10 @@
-'use client';
-
 import type { AdminUser, UpdateAdminUserValues } from '@chatovo/schemas';
 
 import { updateAdminUserSchema } from '@chatovo/schemas';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
 
 import { useUpdateUser } from '@/entities/app/admin';
 import { useToastError } from '@/entities/app/locale';

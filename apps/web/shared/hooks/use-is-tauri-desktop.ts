@@ -1,5 +1,3 @@
-'use client';
-
 import { useMount } from '@siberiacancode/reactuse';
 import { useState } from 'react';
 

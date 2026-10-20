@@ -1,5 +1,3 @@
-'use client';
-
 import { UserAvatar, UserName } from '@/entities/auth/user';
 
 import type { ActivityOnlineRowProps } from './ActivityOnlineRow.types';

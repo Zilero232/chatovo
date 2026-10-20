@@ -1,5 +1,3 @@
-'use client';
-
 import { useRoomMusicActions } from '@/entities/room/music';
 
 import { useRoomMusicContext } from '../contexts/room-music-context';

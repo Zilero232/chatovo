@@ -1,5 +1,3 @@
-'use client';
-
 import { useDebounceCallback, useInterval } from '@siberiacancode/reactuse';
 import { useState } from 'react';
 import { clamp } from 'remeda';

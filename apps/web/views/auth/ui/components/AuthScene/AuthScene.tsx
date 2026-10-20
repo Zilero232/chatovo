@@ -1,8 +1,6 @@
-'use client';
-
 import { BrandMark, Chato, Text } from '@chatovo/ui-kit';
 import { motion } from 'motion/react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { useEnterMotion } from '@/shared/hooks';
 

@@ -1,5 +1,3 @@
-'use client';
-
 import {
   Dialog,
   DialogContent,
@@ -9,7 +7,7 @@ import {
   DialogTitle
 } from '@chatovo/ui-kit';
 import { Settings2 } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import type { EditRoomDialogProps } from './EditRoomDialog.types';
 

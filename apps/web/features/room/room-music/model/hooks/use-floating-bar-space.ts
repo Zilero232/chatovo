@@ -1,5 +1,3 @@
-'use client';
-
 import { useEffect, useState } from 'react';
 
 import { FLOATING_BAR_SPACE } from '../../config/music';

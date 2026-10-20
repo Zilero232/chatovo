@@ -1,5 +1,3 @@
-'use client';
-
 import { Row } from '@chatovo/ui-kit';
 import { useState } from 'react';
 

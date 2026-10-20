@@ -1,5 +1,3 @@
-'use client';
-
 import type { AdminUserMessageQuery } from '@chatovo/schemas';
 
 import { keepPreviousData, useQuery } from '@tanstack/react-query';

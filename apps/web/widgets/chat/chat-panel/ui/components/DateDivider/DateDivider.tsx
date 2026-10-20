@@ -1,7 +1,5 @@
-'use client';
-
-import { useTranslations } from 'next-intl';
 import { match } from 'ts-pattern';
+import { useTranslations } from 'use-intl';
 
 import { getDateDivider } from '@/shared/lib';
 

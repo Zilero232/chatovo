@@ -1,5 +1,3 @@
-'use client';
-
 import type { ReactNode } from 'react';
 
 import { RealtimeProvider } from '@/entities/app/realtime';
@@ -11,7 +9,9 @@ import { PushRegistration } from '@/features/app/push-notifications';
 import { FriendChatProvider } from '@/features/social/friend-chat';
 import { ChatRealtimeSync } from '@/widgets/chat/chat-panel';
 
-import { DeepLinkProvider, ShortcutsProvider, UpdateProvider } from '../providers/index';
+import { DeepLinkProvider } from './DeepLinkProvider';
+import { ShortcutsProvider } from './ShortcutsProvider';
+import { UpdateProvider } from './UpdateProvider';
 
 export const AuthedProviders = ({ children }: { children: ReactNode }) => (
   <ShortcutsProvider>
