@@ -1,0 +1,67 @@
+@use '@/ui-kit/styles/mixins' as *;
+
+.root {
+  position: relative;
+  width: var(--scene-width);
+  max-width: 100%;
+  flex-shrink: 0;
+  aspect-ratio: 4 / 5;
+}
+
+.md {
+  --scene-width: #{rem(240)};
+
+  @include bp(lg) {
+    --scene-width: #{rem(300)};
+  }
+}
+
+.lg {
+  --scene-width: #{rem(340)};
+
+  @include bp(sm) {
+    --scene-width: #{rem(420)};
+  }
+}
+
+.arch {
+  position: absolute;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--scene-width) / 2) calc(var(--scene-width) / 2) var(--radius-2xl)
+    var(--radius-2xl);
+  background: linear-gradient(
+    180deg,
+    var(--surface-2) 0%,
+    var(--surface-1) 62%,
+    var(--background) 100%
+  );
+  inset: 0;
+}
+
+.moon {
+  position: absolute;
+  top: 22%;
+  right: 9%;
+  width: 9%;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  box-shadow: inset calc(var(--scene-width) * -0.022) calc(var(--scene-width) * 0.012) 0 0
+    var(--brand-sun);
+  transform: rotate(-18deg);
+}
+
+.floor {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 22%;
+  border-top: 1px solid rgb(var(--tint) / 8%);
+  background: rgb(8 4 10 / 28%);
+}
+
+.content {
+  position: absolute;
+  inset: 0;
+}

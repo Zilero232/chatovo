@@ -8,7 +8,7 @@ import { ENTER_ANIMATE, ENTER_INITIAL, ENTER_TRANSITION } from '@/shared/config'
 
 import type { MusicMiniBarProps } from './MusicMiniBar.types';
 
-import { useMusicMiniBar, useStripSpace } from '../../../model/hooks';
+import { useFloatingBarSpace, useMusicMiniBar } from '../../../model/hooks';
 import { MiniBarControls } from '../MiniBarControls/MiniBarControls';
 import { MiniProgress } from '../MiniProgress/MiniProgress';
 import { RadioAudio } from '../RadioAudio/RadioAudio';
@@ -20,7 +20,7 @@ export const MusicMiniBar = ({ music, track, isMinimized }: MusicMiniBarProps) =
   const t = useTranslations('room.music');
 
   const bar = useMusicMiniBar(track);
-  const setBarNode = useStripSpace(isMinimized);
+  const setBarNode = useFloatingBarSpace(isMinimized);
 
   return (
     <motion.section

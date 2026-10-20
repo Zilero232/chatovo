@@ -76,6 +76,14 @@ The speaking highlight on a participant card is an inset `outline`, not the card
 
 The illustrated, re-composed treatment — Chato, serif heroes, new sections — belongs to the public site, auth, and the 404 and error screens.
 
+## The public site
+
+- **Show the product.** The home hero puts Chato in the arch scene and lays a real-looking room card over it — people with the speaker ringed in mint, the room's music bar — so the first screen says what Chatovo is, not just who the mascot is. The "how it works" steps each end with the piece of UI that step uses (the create button, the invite link, the mic toggle).
+- **The arch scene** (`MarketingScene`) is the one frame for Chato on every page hero: a plum arch with a sun-coloured moon and a floor line, the pose standing on the floor. Chato never floats on the page background.
+- **Lists, not card grids.** Feature lists, support answers and the FAQ are rows divided by a hairline, with a small coral icon tile — not walls of identical bordered boxes. Boxes are kept for things that are objects: the bento mocks, the steps, release entries, the final call to action.
+- **One action in the header.** Every public page has "Sign in" / "Open the app" next to the language switch (inside the menu on phones).
+- **Rhythm.** Sections are 48 px apart on phones and 72 px on desktop; a section that has nothing to show (no contributors yet) does not render at all.
+
 ## Forbidden
 
 Gradient text, neon or glow shadows, `backdrop-filter`, aurora/orb/blob backgrounds, grid or noise textures, pointer-following glows, uppercase letter-spaced labels, emoji as icons in UI chrome, and violet-to-cyan gradients.

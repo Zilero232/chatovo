@@ -42,7 +42,7 @@ export const MarketingIconGrid = ({
             {title}
           </Text>
 
-          <Text size='sm' tone='muted'>
+          <Text className={s.iconGridText} size='sm' tone='muted'>
             {itemDescription}
           </Text>
         </RevealOnScroll>

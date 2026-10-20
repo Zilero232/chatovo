@@ -12,7 +12,9 @@
         "changelog": "Changelog",
         "about": "About",
         "support": "Support"
-      }
+      },
+      "signIn": "Sign in",
+      "openApp": "Open the app"
     },
     "hero": {
       "eyebrow": "Voice rooms for your people",
@@ -20,10 +22,19 @@
       "titleAccent": "Join and just talk.",
       "description": "Create a room, send the link, and fifteen seconds later you are together: voice, video, screen sharing and music for everyone. No servers, roles or setup.",
       "ctaPrimary": "Create a room",
-      "ctaNote": "Free · Right in the browser · Open source",
       "ctaOpenApp": "Open the app",
       "ctaDownload": "Download the app",
-      "stageLabel": "Chato the cat listening to music in headphones"
+      "stageLabel": "Chato the cat listening to music in headphones",
+      "points": {
+        "free": "Free, no ads and no limits on call length",
+        "everywhere": "In the browser, on Windows, macOS, Linux and Android"
+      },
+      "card": {
+        "room": "Evening call",
+        "live": "Live",
+        "track": "Lo-fi for the evening",
+        "source": "Radio · added by max"
+      }
     },
     "features": {
       "heading": "Everything a conversation needs",
@@ -70,7 +81,8 @@
       "items": {
         "create": {
           "title": "Create a room",
-          "description": "Give it a name and add a password if you want one."
+          "description": "Give it a name and add a password if you want one.",
+          "fragment": "Create a room"
         },
         "share": {
           "title": "Share the link",
@@ -78,7 +90,8 @@
         },
         "talk": {
           "title": "Start talking",
-          "description": "Your mic goes live immediately — talk, share your screen, type along."
+          "description": "Your mic goes live immediately — talk, share your screen, type along.",
+          "fragment": "Microphone on"
         }
       }
     },
@@ -152,10 +165,6 @@
         "about": "About",
         "support": "Support"
       }
-    },
-    "contributors": {
-      "heading": "Who built this",
-      "subheading": "Chatovo is open source — thanks to everyone who sent a pull request"
     }
   },
   "changelog": {

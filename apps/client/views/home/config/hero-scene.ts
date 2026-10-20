@@ -5,8 +5,8 @@ export const HERO_SCENE_COLORS = {
   ear: '#ff9f86',
   coral: '#ff7a59',
   sun: '#ffcf5c',
-  cushion: '#6a4dff',
-  cushionTrim: '#a48bff',
+  cushion: '#e8664a',
+  cushionTrim: '#ff9f86',
   shadow: '#08040a',
   sky: '#fff1dd',
   ground: '#2a1d3a'
@@ -33,7 +33,7 @@ export const HERO_SCENE_MOTION = {
   ringPeriod: 2.4,
   ringCount: 3,
   ringGrowth: 0.85,
-  ringOpacity: 0.5,
+  ringOpacity: 0.28,
   maxFrameDelta: 0.1
 } as const;
 

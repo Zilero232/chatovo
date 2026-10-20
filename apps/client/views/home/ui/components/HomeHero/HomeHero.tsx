@@ -1,11 +1,14 @@
+import { Check } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
 
 import { Text } from '@/ui-kit';
-import { MarketingAuthCta } from '@/widgets/marketing/marketing-shell';
+import { MarketingAuthCta, MarketingScene } from '@/widgets/marketing/marketing-shell';
 
 import type { HomePageProps } from '../../HomePage.types';
 
+import { HOME_HERO_POINT_KEYS } from '../../../config';
 import { HomeDownloadButton } from '../HomeDownloadButton/HomeDownloadButton';
+import { HomeHeroCard } from '../HomeHeroCard/HomeHeroCard';
 import { HomeHeroStage } from '../HomeHeroStage/HomeHeroStage';
 
 import s from '../../HomePage.module.scss';
@@ -38,12 +41,25 @@ export const HomeHero = async ({ locale }: HomePageProps) => {
           <HomeDownloadButton label={t('ctaDownload')} />
         </div>
 
-        <Text size='sm' tone='subtle'>
-          {t('ctaNote')}
-        </Text>
+        <ul className={s.heroPoints}>
+          {HOME_HERO_POINT_KEYS.map((key) => (
+            <li key={key} className={s.heroPoint}>
+              <Check aria-hidden className={s.heroPointIcon} />
+              {t(`points.${key}`)}
+            </li>
+          ))}
+        </ul>
       </div>
 
-      <HomeHeroStage label={t('stageLabel')} />
+      <MarketingScene className={s.heroScene} size='lg'>
+        <HomeHeroStage label={t('stageLabel')} />
+        <HomeHeroCard
+          live={t('card.live')}
+          room={t('card.room')}
+          source={t('card.source')}
+          track={t('card.track')}
+        />
+      </MarketingScene>
     </section>
   );
 };

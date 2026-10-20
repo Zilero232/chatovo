@@ -22,7 +22,7 @@ export const usePlayerPlacement = () => {
     let placed = '';
 
     const follow = () => {
-      const box = readSlotBox(slot);
+      const box = readSlotBox({ slot, host });
       const key = JSON.stringify(box);
 
       if (key !== placed) {

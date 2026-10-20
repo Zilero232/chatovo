@@ -4,6 +4,8 @@ import { Chato, RevealOnScroll, Text } from '@/ui-kit';
 
 import type { MarketingHeroProps } from './MarketingHero.types';
 
+import { MarketingScene } from '../MarketingScene/MarketingScene';
+
 import s from '../../MarketingShell.module.scss';
 
 export const MarketingHero = ({
@@ -37,6 +39,10 @@ export const MarketingHero = ({
       )}
     </div>
 
-    {chato && <Chato className={s.heroChato} pose={chato} />}
+    {chato && (
+      <MarketingScene className={s.heroScene}>
+        <Chato className={s.heroChato} pose={chato} />
+      </MarketingScene>
+    )}
   </section>
 );

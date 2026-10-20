@@ -6,11 +6,17 @@ import { MarketingSection, MarketingSectionHead } from '@/widgets/marketing/mark
 import type { HomePageProps } from '../../HomePage.types';
 
 import { HOME_STEP_KEYS } from '../../../config';
+import { HomeStepFragment } from '../HomeStepFragment/HomeStepFragment';
 
 import s from '../../HomePage.module.scss';
 
 export const HomeSteps = async ({ locale }: HomePageProps) => {
   const t = await getTranslations({ locale, namespace: 'home.steps' });
+
+  const fragmentLabels = {
+    create: t('items.create.fragment'),
+    talk: t('items.talk.fragment')
+  };
 
   return (
     <MarketingSection id='how-it-works'>
@@ -28,6 +34,7 @@ export const HomeSteps = async ({ locale }: HomePageProps) => {
             <Text size='sm' tone='muted'>
               {t(`items.${key}.description`)}
             </Text>
+            <HomeStepFragment labels={fragmentLabels} step={key} />
           </RevealOnScroll>
         ))}
       </ol>

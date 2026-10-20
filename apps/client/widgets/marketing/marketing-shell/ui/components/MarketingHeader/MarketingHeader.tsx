@@ -10,6 +10,7 @@ import { BrandMark, Text } from '@/ui-kit';
 import type { MarketingHeaderProps } from './MarketingHeader.types';
 
 import { MARKETING_PAGE_KEYS, marketingPageHref } from '../../../config';
+import { MarketingAuthCta } from '../MarketingAuthCta/MarketingAuthCta';
 import { MarketingHeaderMobileNav } from '../MarketingHeaderMobileNav/MarketingHeaderMobileNav';
 import { MarketingHeaderNav } from '../MarketingHeaderNav/MarketingHeaderNav';
 import { MarketingHeaderShell } from '../MarketingHeaderShell/MarketingHeaderShell';
@@ -50,7 +51,14 @@ export const MarketingHeader = async ({ locale, path }: MarketingHeaderProps) =>
           {t('localeSwitch')}
         </Link>
 
+        <MarketingAuthCta
+          className={s.headerCta}
+          openAppLabel={t('openApp')}
+          signInLabel={t('signIn')}
+        />
+
         <MarketingHeaderMobileNav
+          authLabels={{ signIn: t('signIn'), openApp: t('openApp') }}
           items={navItems}
           localeSwitchHref={localeSwitchHref}
           localeSwitchHrefLang={localeSwitchHrefLang}

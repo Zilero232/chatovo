@@ -150,6 +150,18 @@
   }
 }
 
+.headerCta {
+  display: none;
+
+  @include bp(sm) {
+    display: inline-flex;
+  }
+}
+
+.mobileNavCta {
+  width: 100%;
+}
+
 .headerBurger {
   @include bp(lg) {
     display: none;
@@ -211,11 +223,11 @@
 .section {
   position: relative;
   z-index: var(--z-base);
-  padding-block: rem(64);
+  padding-block: rem(48);
   scroll-margin-top: rem(80);
 
   @include bp(lg) {
-    padding-block: rem(104);
+    padding-block: rem(72);
   }
 }
 
@@ -277,6 +289,7 @@
   @include bp(md) {
     display: grid;
     align-items: center;
+    gap: var(--space-10);
     grid-template-columns: minmax(0, 1fr) auto;
   }
 }
@@ -288,19 +301,20 @@
   gap: var(--space-4);
 }
 
-.heroChato {
+.heroScene {
   display: none;
 
   @include bp(md) {
     display: block;
-    width: rem(220);
-    height: rem(220);
   }
+}
 
-  @include bp(lg) {
-    width: rem(280);
-    height: rem(280);
-  }
+.heroChato {
+  position: absolute;
+  bottom: 2%;
+  left: 5%;
+  width: 90%;
+  height: auto;
 }
 
 .heroTitle {
@@ -417,7 +431,7 @@
 
 .iconGrid {
   display: grid;
-  gap: var(--space-4);
+  gap: 0 var(--space-8);
   grid-template-columns: 1fr;
 
   @include bp(sm) {
@@ -444,51 +458,40 @@
 }
 
 .iconGridCard {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: var(--space-6);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
-  background: var(--surface-1);
-  gap: var(--space-3);
-  transition:
-    transform var(--duration-default) var(--timing-function-standard),
-    border-color var(--duration-default) var(--timing-function-standard);
-
-  &:hover {
-    border-color: var(--border-strong);
-    transform: translateY(#{rem(-3)});
-  }
+  display: grid;
+  align-content: start;
+  border-top: 1px solid var(--border);
+  gap: var(--space-2) var(--space-3);
+  grid-template-columns: auto minmax(0, 1fr);
+  padding-block: var(--space-5) var(--space-6);
 }
 
 .iconGridIcon {
   display: flex;
-  width: rem(42);
-  height: rem(42);
+  width: rem(32);
+  height: rem(32);
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-md);
   background: color-mix(in srgb, var(--brand-coral) 14%, transparent);
   color: var(--brand-coral);
-  transition:
-    background-color var(--duration-default) var(--timing-function-standard),
-    color var(--duration-default) var(--timing-function-standard);
+  grid-row: span 2;
 
   svg {
-    width: rem(19);
-    height: rem(19);
+    width: var(--icon-sm);
+    height: var(--icon-sm);
   }
 }
 
 .iconGridTitle {
   &#{&}#{&} {
-    font-size: rem(17);
+    font-size: rem(16);
+    line-height: 1.35;
   }
+
+  align-self: center;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .iconGridCard:hover {
-    transform: none;
-  }
+.iconGridText {
+  line-height: 1.6;
 }

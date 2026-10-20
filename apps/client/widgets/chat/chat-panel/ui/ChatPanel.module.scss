@@ -32,7 +32,7 @@
   border-radius: 0;
   border-left: 1px solid rgb(var(--tint) / 14%);
   box-shadow: rem(-28) 0 rem(56) rem(-28) rgb(8 4 10 / 85%);
-  inset: var(--now-playing-offset, 0) 0 0;
+  inset: 0;
   transition: transform var(--duration-slow) var(--timing-function-out);
 
   &[data-open='false'] {

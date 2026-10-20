@@ -1,5 +1,6 @@
 export { useCurrentRoomMusic } from './use-current-room-music';
 export { useFilePlayer } from './use-file-player';
+export { useFloatingBarSpace } from './use-floating-bar-space';
 export { useIsRoomMusicActive } from './use-is-room-music-active';
 export { useIsSharingMusic } from './use-is-sharing-music';
 export { useMusicDialog } from './use-music-dialog';
@@ -17,6 +18,5 @@ export { useRemoteMusicVolume } from './use-remote-music-volume';
 export { useRoomMusicShare } from './use-room-music-share';
 export { useShareMusicPanel } from './use-share-music-panel';
 export { useSoundcloudPlayer } from './use-soundcloud-player';
-export { useStripSpace } from './use-strip-space';
 export { useVimeoPlayer } from './use-vimeo-player';
 export { useYoutubePlayer } from './use-youtube-player';

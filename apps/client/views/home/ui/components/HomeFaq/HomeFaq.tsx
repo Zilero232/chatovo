@@ -15,21 +15,23 @@ export const HomeFaq = async ({ locale }: HomePageProps) => {
 
   return (
     <MarketingSection id='faq'>
-      <MarketingSectionHead description={t('subheading')} heading={t('heading')} />
+      <div className={s.faq}>
+        <MarketingSectionHead description={t('subheading')} heading={t('heading')} />
 
-      <RevealOnScroll className={s.faqList}>
-        {HOME_FAQ_KEYS.map((key) => (
-          <details key={key} className={s.faqItem}>
-            <summary className={s.faqQuestion}>
-              {t(`items.${key}.question`)}
-              <ChevronDown aria-hidden className={s.faqChevron} />
-            </summary>
-            <Text className={s.faqAnswer} size='sm' tone='muted'>
-              {t(`items.${key}.answer`)}
-            </Text>
-          </details>
-        ))}
-      </RevealOnScroll>
+        <RevealOnScroll className={s.faqList}>
+          {HOME_FAQ_KEYS.map((key) => (
+            <details key={key} className={s.faqItem}>
+              <summary className={s.faqQuestion}>
+                {t(`items.${key}.question`)}
+                <ChevronDown aria-hidden className={s.faqChevron} />
+              </summary>
+              <Text className={s.faqAnswer} size='base' tone='muted'>
+                {t(`items.${key}.answer`)}
+              </Text>
+            </details>
+          ))}
+        </RevealOnScroll>
+      </div>
     </MarketingSection>
   );
 };

@@ -1,8 +1,11 @@
 import { getTranslations } from 'next-intl/server';
 
 import { ROUTES } from '@/shared/constants';
-import { ContributorsSection } from '@/widgets/marketing/contributors-list';
-import { MarketingHero, MarketingShell } from '@/widgets/marketing/marketing-shell';
+import {
+  MarketingContributors,
+  MarketingHero,
+  MarketingShell
+} from '@/widgets/marketing/marketing-shell';
 
 import type { AboutPageProps } from './AboutPage.types';
 
@@ -22,7 +25,7 @@ export const AboutPage = async ({ locale }: AboutPageProps) => {
 
       <AboutStory locale={locale} />
       <AboutStack locale={locale} />
-      <ContributorsSection locale={locale} namespace='about.contributors' />
+      <MarketingContributors locale={locale} />
       <AboutContribute locale={locale} />
     </MarketingShell>
   );

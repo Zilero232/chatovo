@@ -64,10 +64,9 @@ export const RADIO_GENRES = [
   { id: 'chill', query: 'chill' }
 ] as const;
 
-export const STRIP_SPACE = {
-  dockedVar: '--now-playing-offset',
-  floatingVar: '--now-playing-floating-space',
-  floatingGapPx: 16
+export const FLOATING_BAR_SPACE = {
+  cssVar: '--now-playing-floating-space',
+  gapPx: 16
 } as const;
 
 export const TAB_ONLY_SERVICES = [

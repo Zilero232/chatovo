@@ -40,13 +40,14 @@ export const FriendsTabsBar = ({
       </TabsList>
 
       <Button
+        aria-label={t('addFriend')}
         className={s.addButton}
         size='sm'
         variant={isAddActive ? 'default' : 'ghost'}
         onClick={onAddFriend}
       >
         <UserPlus aria-hidden />
-        {t('addFriend')}
+        <span className={s.addLabel}>{t('addFriend')}</span>
       </Button>
     </div>
   );

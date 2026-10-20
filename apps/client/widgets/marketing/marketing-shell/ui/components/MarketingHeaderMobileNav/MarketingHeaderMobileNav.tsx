@@ -10,9 +10,12 @@ import { Button, Sheet, SheetContent, SheetDescription, SheetTitle } from '@/ui-
 
 import type { MarketingHeaderMobileNavProps } from './MarketingHeaderMobileNav.types';
 
+import { MarketingAuthCta } from '../MarketingAuthCta/MarketingAuthCta';
+
 import s from '../../MarketingShell.module.scss';
 
 export const MarketingHeaderMobileNav = ({
+  authLabels,
   items,
   localeSwitchHref,
   localeSwitchHrefLang,
@@ -70,6 +73,13 @@ export const MarketingHeaderMobileNav = ({
         </nav>
 
         <div className={s.mobileNavActions}>
+          <MarketingAuthCta
+            className={s.mobileNavCta}
+            openAppLabel={authLabels.openApp}
+            signInLabel={authLabels.signIn}
+            size='lg'
+            onClick={close}
+          />
           <Link
             className={clsx(s.localeSwitch, s.mobileNavLocaleSwitch)}
             href={localeSwitchHref}

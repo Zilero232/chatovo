@@ -7,23 +7,55 @@
   display: grid;
   width: 100%;
   max-width: rem(1160);
-  align-items: center;
   margin: 0 auto;
-  gap: var(--space-8);
+  gap: var(--space-12);
   grid-template-columns: 1fr;
-  padding-block: rem(104) rem(40);
+  padding-block: rem(104) rem(48);
   padding-inline: var(--space-4);
+  place-items: center center;
 
   @include bp(sm) {
     padding-inline: var(--space-6);
   }
 
   @include bp(lg) {
-    min-height: min(100dvh, rem(820));
     gap: var(--space-10);
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-    padding-block: rem(120) rem(64);
+    grid-template-columns: minmax(0, 1fr) auto;
+    justify-items: stretch;
+    padding-block: rem(136) rem(80);
   }
+}
+
+.heroScene {
+  margin-inline: 8% 0;
+
+  @include bp(lg) {
+    margin-inline: 0 var(--space-6);
+  }
+}
+
+.heroPoints {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: var(--space-2) 0 0;
+  color: var(--muted-foreground);
+  font-size: var(--text-sm);
+  gap: var(--space-2);
+  list-style: none;
+}
+
+.heroPoint {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.heroPointIcon {
+  width: var(--icon-sm);
+  height: var(--icon-sm);
+  flex-shrink: 0;
+  color: var(--brand-mint);
 }
 
 .heroCopy {
@@ -276,22 +308,25 @@
   }
 }
 
+.faq {
+  display: grid;
+  gap: var(--space-4);
+
+  @include bp(lg) {
+    align-items: start;
+    gap: var(--space-12);
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  }
+}
+
 .faqList {
   display: flex;
-  max-width: rem(820);
   flex-direction: column;
-  gap: var(--space-3);
+  border-bottom: 1px solid var(--border);
 }
 
 .faqItem {
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  background: var(--surface-1);
-  transition: border-color var(--duration-default) var(--timing-function-standard);
-
-  &[open] {
-    border-color: var(--border-strong);
-  }
+  border-top: 1px solid var(--border);
 
   &[open] .faqChevron {
     transform: rotate(180deg);
@@ -302,17 +337,22 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-5);
+  padding: var(--space-5) 0;
   font-size: rem(17);
   font-weight: 600;
   gap: var(--space-4);
   list-style: none;
+  transition: color var(--duration-default) var(--timing-function-standard);
 
   @include interactive-cursor;
   @include focus-ring;
 
   &::-webkit-details-marker {
     display: none;
+  }
+
+  &:hover {
+    color: var(--brand-coral);
   }
 }
 
@@ -325,10 +365,9 @@
 }
 
 .faqAnswer {
-  max-width: rem(680);
-  line-height: 1.65;
+  max-width: rem(640);
+  line-height: 1.7;
   padding-block-end: var(--space-5);
-  padding-inline: var(--space-5);
 }
 
 .finalCta {

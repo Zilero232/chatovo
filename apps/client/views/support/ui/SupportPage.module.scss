@@ -45,7 +45,7 @@
 
 .items {
   display: grid;
-  gap: var(--space-3);
+  gap: 0 var(--space-8);
   grid-template-columns: 1fr;
 
   @include bp(md) {
@@ -56,16 +56,15 @@
 .item {
   display: flex;
   flex-direction: column;
-  padding: var(--space-4);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  background-color: var(--surface-1);
+  border-top: 1px solid var(--border);
   gap: rem(6);
+  line-height: 1.6;
+  padding-block: var(--space-4) var(--space-5);
 }
 
 .question {
   &#{&}#{&} {
-    font-size: 0.9375rem;
+    font-size: rem(16);
   }
 
   color: var(--foreground);

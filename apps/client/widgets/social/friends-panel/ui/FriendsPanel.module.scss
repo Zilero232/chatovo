@@ -86,6 +86,12 @@
   margin-left: auto;
 }
 
+.addLabel {
+  @include bp(sm, down) {
+    display: none;
+  }
+}
+
 .body {
   display: flex;
   overflow: hidden;

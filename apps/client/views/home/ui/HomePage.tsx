@@ -1,5 +1,4 @@
 import { ROUTES } from '@/shared/constants';
-import { ContributorsSection } from '@/widgets/marketing/contributors-list';
 import { MarketingShell } from '@/widgets/marketing/marketing-shell';
 
 import type { HomePageProps } from './HomePage.types';
@@ -23,7 +22,6 @@ export const HomePage = ({ locale }: HomePageProps) => (
     <HomeSteps locale={locale} />
     <HomeDesktop locale={locale} />
     <HomeFaq locale={locale} />
-    <ContributorsSection locale={locale} namespace='home.contributors' />
     <HomeFinalCta locale={locale} />
   </MarketingShell>
 );
