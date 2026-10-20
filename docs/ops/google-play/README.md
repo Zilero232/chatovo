@@ -63,7 +63,7 @@ bun android:dev
 
 # Release build (APK + AAB)
 bun android:build
-# Output: apps/tauri/gen/android/app/build/outputs/bundle/universalRelease/app-universal-release.aab
+# Output: apps/client/native/gen/android/app/build/outputs/bundle/universalRelease/app-universal-release.aab
 ```
 
 ## CI (GitHub Actions)
@@ -80,7 +80,7 @@ review. The service account setup is in
 
 ## Environment
 
-`apps/tauri/.env` (copy of `.env.example`) — read by every `android:*` script:
+`apps/client/native/.env` (copy of `.env.example`) — read by every `android:*` script:
 
 ```env
 JAVA_HOME=C:\Program Files\Android\Android Studio\jbr
@@ -166,7 +166,7 @@ build: every device that can install from Play has Google services.
 edit it by hand.
 
 1. Download `google-services.json` from the Firebase Console (Android app `chatovo.app`).
-2. Save it to **`apps/tauri/android/google-services.json`** (committed — not a secret).
+2. Save it to **`apps/client/native/android/google-services.json`** (committed — not a secret).
 3. Run any android script — `setup-android-fcm.mjs` copies the file and the `MainActivity.kt` overlay into `gen/android/app/` and patches Gradle.
 
 `POST_NOTIFICATIONS` is injected through `build.rs` on every build. Plugin

@@ -12,11 +12,11 @@ typecheck_targets=''
 
 # Root configs and the shared packages affect every workspace at once.
 if staged_has '^(package\.json|bun\.lock|tsconfig.*\.json)$' || staged_has '^packages/(schemas|config|ui-kit)/'; then
-  typecheck_targets='./packages/schemas ./packages/config ./packages/ui-kit ./apps/server ./apps/web ./apps/site'
+  typecheck_targets='./packages/schemas ./packages/config ./packages/ui-kit ./apps/server ./apps/client/web ./apps/landing'
 else
   staged_has '^apps/server/' && typecheck_targets="$typecheck_targets ./apps/server"
-  staged_has '^apps/web/' && typecheck_targets="$typecheck_targets ./apps/web"
-  staged_has '^apps/site/' && typecheck_targets="$typecheck_targets ./apps/site"
+  staged_has '^apps/client/web/' && typecheck_targets="$typecheck_targets ./apps/client/web"
+  staged_has '^apps/landing/' && typecheck_targets="$typecheck_targets ./apps/landing"
 fi
 
 for target in $typecheck_targets; do
@@ -24,6 +24,6 @@ for target in $typecheck_targets; do
 done
 
 if staged_has '\.rs$|Cargo\.(toml|lock)$'; then
-  cargo fmt --manifest-path apps/tauri/Cargo.toml --all --check
+  cargo fmt --manifest-path apps/client/native/Cargo.toml --all --check
   bun run lint:rust
 fi

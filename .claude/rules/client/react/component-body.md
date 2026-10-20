@@ -1,7 +1,7 @@
 ---
 paths:
-  - 'apps/web/**/*.{ts,tsx}'
-  - 'apps/site/**/*.{ts,tsx}'
+  - 'apps/client/web/**/*.{ts,tsx}'
+  - 'apps/landing/**/*.{ts,tsx}'
   - 'packages/ui-kit/**/*.{ts,tsx}'
 ---
 

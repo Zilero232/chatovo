@@ -13,21 +13,21 @@ Respond to the user in Russian. Code, identifiers, comments, docs and commit mes
 
 ## Layout
 
-| Path                | What                                                                                                                                                                                                                  |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `apps/web`          | `@chatovo/web` — the product app (app.chatovo.ru): Vite + React 19 SPA, TanStack Router, FSD, SCSS modules, use-intl; also the UI of the Tauri apps — [CLAUDE.md](apps/web/CLAUDE.md)                                 |
-| `apps/site`         | `@chatovo/site` — the public website (chatovo.ru): Next.js 16, server-rendered (`output: 'standalone'`) in its own container, ru/en routing, SEO — [CLAUDE.md](apps/site/CLAUDE.md)                                   |
-| `apps/server`       | NestJS 11 on Bun + Prisma 7 + self-hosted Postgres, auth via better-auth, the realtime gateway, LiveKit tokens — [CLAUDE.md](apps/server/CLAUDE.md)                                                                   |
-| `apps/tauri`        | Tauri 2 (Rust) shell for desktop and Android around `apps/web` — [CLAUDE.md](apps/tauri/CLAUDE.md)                                                                                                                    |
-| `packages/ui-kit`   | `@chatovo/ui-kit`: the design system shared by web and site — primitives, components, icons, SCSS tokens/mixins/base, the `ui` messages ([fsd.md §5.1](docs/architecture/fsd.md#51-the-design-system--chatovoui-kit)) |
-| `packages/config`   | `@chatovo/config`: brand and URL constants shared by web and site — `SITE`, `LEGAL`, `EXTERNAL_LINKS`, `SITE_PATHS`, `SITE_EN_PREFIX`                                                                                 |
-| `packages/schemas`  | `@chatovo/schemas`: Zod contracts shared by the apps and the server, grouped by domain                                                                                                                                |
-| `packages/tsconfig` | the shared TypeScript presets                                                                                                                                                                                         |
-| `infra/`            | Caddy (chatovo.ru → site, app.chatovo.ru → web, cross-host 301s) and LiveKit configs                                                                                                                                  |
-| `.github/`          | `workflows/release.yml` (apps), `workflows/deploy.yml` (VPS), `actions/setup` (the mise toolchain)                                                                                                                    |
-| `e2e/`              | Playwright specs: `e2e/app/**` against the web app (:3000), `e2e/site/**` against the site (:3001)                                                                                                                    |
-| `docs/`             | `architecture/` (the why), `guides/` (the full style guide), `ops/` (deploy, release, Google Play) — [index](docs/README.md)                                                                                          |
-| `.claude/`          | `rules/` (path-scoped digests), `agents/style-reviewer.md`                                                                                                                                                            |
+| Path                 | What                                                                                                                                                                                                                  |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `apps/client/web`    | `@chatovo/client-web` — the product app (app.chatovo.ru): Vite + React 19 SPA, TanStack Router, FSD, SCSS modules, use-intl; also the UI of the Tauri apps — [CLAUDE.md](apps/client/web/CLAUDE.md)                   |
+| `apps/landing`       | `@chatovo/landing` — the public website (chatovo.ru): Next.js 16, server-rendered (`output: 'standalone'`) in its own container, ru/en routing, SEO — [CLAUDE.md](apps/landing/CLAUDE.md)                             |
+| `apps/server`        | NestJS 11 on Bun + Prisma 7 + self-hosted Postgres, auth via better-auth, the realtime gateway, LiveKit tokens — [CLAUDE.md](apps/server/CLAUDE.md)                                                                   |
+| `apps/client/native` | Tauri 2 (Rust) shell for desktop and Android around `apps/client/web` — [CLAUDE.md](apps/client/native/CLAUDE.md)                                                                                                     |
+| `packages/ui-kit`    | `@chatovo/ui-kit`: the design system shared by web and site — primitives, components, icons, SCSS tokens/mixins/base, the `ui` messages ([fsd.md §5.1](docs/architecture/fsd.md#51-the-design-system--chatovoui-kit)) |
+| `packages/config`    | `@chatovo/config`: brand and URL constants shared by web and site — `SITE`, `LEGAL`, `EXTERNAL_LINKS`, `SITE_PATHS`, `SITE_EN_PREFIX`                                                                                 |
+| `packages/schemas`   | `@chatovo/schemas`: Zod contracts shared by the apps and the server, grouped by domain                                                                                                                                |
+| `packages/tsconfig`  | the shared TypeScript presets                                                                                                                                                                                         |
+| `infra/`             | Caddy (chatovo.ru → site, app.chatovo.ru → web, cross-host 301s) and LiveKit configs                                                                                                                                  |
+| `.github/`           | `workflows/release.yml` (apps), `workflows/deploy.yml` (VPS), `actions/setup` (the mise toolchain)                                                                                                                    |
+| `e2e/`               | Playwright specs: `e2e/app/**` against the web app (:3000), `e2e/landing/**` against the site (:3001)                                                                                                                 |
+| `docs/`              | `architecture/` (the why), `guides/` (the full style guide), `ops/` (deploy, release, Google Play) — [index](docs/README.md)                                                                                          |
+| `.claude/`           | `rules/` (path-scoped digests), `agents/style-reviewer.md`                                                                                                                                                            |
 
 ## Commands
 
@@ -35,21 +35,21 @@ Respond to the user in Russian. Code, identifiers, comments, docs and commit mes
 mise install               # the pinned toolchain: bun, node, rust, caddy (mise.toml)
 bun install
 bun dev:full               # LiveKit + Caddy + Postgres in Docker, then web :3000 + site :3001 + server :4000
-bun dev                    # web + site + server only (dev:client, dev:site, dev:server for one)
+bun dev                    # web + site + server only (dev:web, dev:landing, dev:server for one)
 bun --filter @chatovo/server db:push   # local schema iteration; shipped changes need a migration
 bun run verify             # typecheck + ESLint + Prettier + Stylelint — before every commit
 bun run fix                # every autofixer, in the same order
 bun run test               # Vitest, every workspace (never bare `bun test`)
-bun run test:e2e           # Playwright: app-* projects on :3000, site-* on :3001 (E2E_APP_URL / E2E_SITE_URL)
-bun run build              # web Vite build + site standalone build; build:client / build:site for one
-bun run lint:rust          # clippy on apps/tauri (needs cargo)
+bun run test:e2e           # Playwright: app-* projects on :3000, site-* on :3001 (E2E_APP_URL / E2E_LANDING_URL)
+bun run build              # web Vite build + site standalone build; build:web / build:landing for one
+bun run lint:rust          # clippy on apps/client/native (needs cargo)
 bun run format:caddy       # caddy fmt on infra/caddy/Caddyfile*; lint:caddy checks format + config
 bun tauri:dev              # desktop dev shell; bun android:dev for Android
 ```
 
 **`bun run test`, never `bun test`.** Bare `bun test` is Bun's own runner, not Vitest.
 
-**One `.env`** at the repo root serves web, site and server (`.env.example` is the template); the site loads it in `next.config.ts`, the web app reads its `NEXT_PUBLIC_*` keys in `vite.config.ts`. Only `apps/tauri/.env` is separate (machine-specific Android SDK/NDK/JDK paths). Release and deploy credentials live only in GitHub Secrets; each workflow lists the ones it needs in its header.
+**One `.env`** at the repo root serves web, site and server (`.env.example` is the template); the site loads it in `next.config.ts`, the web app reads its `NEXT_PUBLIC_*` keys in `vite.config.ts`. Only `apps/client/native/.env` is separate (machine-specific Android SDK/NDK/JDK paths). Release and deploy credentials live only in GitHub Secrets; each workflow lists the ones it needs in its header.
 
 ## Release and deploy
 

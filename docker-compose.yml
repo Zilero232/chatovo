@@ -1,15 +1,15 @@
 # Chatovo production stack — runs on the Timeweb Cloud VPS.
 #
 #   web      — Caddy + the static web app export: serves app.chatovo.ru,
-#              proxies chatovo.ru to `site`, api.* to `server` and the
+#              proxies chatovo.ru to `landing`, api.* to `server` and the
 #              LiveKit WebSocket, terminates HTTPS; the only public-facing
 #              HTTP container
-#   site     — the public website, a Next.js server (chatovo.ru)
+#   landing  — the public website, a Next.js server (chatovo.ru)
 #   server   — NestJS API on Bun
 #   livekit  — self-hosted LiveKit SFU (WebRTC voice/video). Uses host networking
 #              so WebRTC media ports work directly without Docker NAT.
 #
-# The web, site and server images are built on CI and pushed to the private GitHub
+# The web, landing and server images are built on CI and pushed to the private GitHub
 # Container Registry (ghcr.io). LiveKit uses the official upstream image from
 # Docker Hub. The VPS builds nothing — it only pulls ready images. The VPS
 # must be logged in to ghcr.io once (see docs/ops/deploy.md).
@@ -34,7 +34,7 @@ services:
     restart: always
     depends_on:
       - server
-      - site
+      - landing
     ports:
       # 80 is required for the Let's Encrypt HTTP challenge; 443 serves HTTPS.
       - '80:80'
@@ -51,11 +51,11 @@ services:
     extra_hosts:
       - 'host.docker.internal:host-gateway'
 
-  site:
+  landing:
     # Image built and pushed by CI. Replace the owner if the GitHub account
     # differs — it must be lowercase.
-    image: ghcr.io/zilero232/chatovo-site:latest
-    container_name: chatovo-site
+    image: ghcr.io/zilero232/chatovo-landing:latest
+    container_name: chatovo-landing
     restart: always
     depends_on:
       - server

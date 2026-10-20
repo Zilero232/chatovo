@@ -1,12 +1,12 @@
 name: deploy
 
-# Builds the web, site and server images, pushes them to ghcr, then tells the VPS to pull and
+# Builds the web, landing and server images, pushes them to ghcr, then tells the VPS to pull and
 # restart. The VPS has no clone of the repo, so docker-compose.yml is copied
 # on every deploy.
 #
 # Secrets — Settings → Secrets and variables → Actions:
 #   NEXT_PUBLIC_API_URL       baked into the web image at build time
-#   NEXT_PUBLIC_APP_URL       likewise (web and site), the app host e.g. https://app.chatovo.ru
+#   NEXT_PUBLIC_APP_URL       likewise (web and landing), the app host e.g. https://app.chatovo.ru
 #   NEXT_PUBLIC_LIVEKIT_URL   likewise
 #   SSH_HOST                  production VPS
 #   SSH_USER
@@ -42,7 +42,13 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        image: [web, site, server]
+        include:
+          - image: web
+            dockerfile: apps/client/web/Dockerfile
+          - image: landing
+            dockerfile: apps/landing/Dockerfile
+          - image: server
+            dockerfile: apps/server/Dockerfile
 
     runs-on: ubuntu-24.04
     timeout-minutes: 45
@@ -71,7 +77,7 @@ jobs:
         uses: docker/build-push-action@53b7df96c91f9c12dcc8a07bcb9ccacbed38856a # v7
         with:
           context: .
-          file: apps/${{ matrix.image }}/Dockerfile
+          file: ${{ matrix.dockerfile }}
           push: true
           tags: ghcr.io/${{ steps.owner.outputs.value }}/chatovo-${{ matrix.image }}:latest
           build-args: |
@@ -122,7 +128,7 @@ jobs:
           script: |
             set -euo pipefail
             cd "$DEPLOY_PATH"
-            docker compose pull web site server
+            docker compose pull web landing server
             # Migrations run before the new code serves traffic. db:baseline
             # covers the pre-migration schema (P3005) and is a no-op after.
             docker compose run --rm --no-deps server bun db:baseline
@@ -132,7 +138,7 @@ jobs:
 
             # `up -d` returns when the container starts, not when the app
             # answers — wait for the compose healthcheck instead.
-            for service in server site; do
+            for service in server landing; do
               for attempt in $(seq 1 30); do
                 state=$(docker inspect -f '{{.State.Health.Status}}' "chatovo-$service" 2>/dev/null || echo missing)
 

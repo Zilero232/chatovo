@@ -33,13 +33,13 @@ app, and the developer contact to be live.
 ### Reporting
 
 "Report" sits in the context menu of a voice room participant
-([ParticipantCardMenu](../../../apps/web/src/widgets/room/voice-room/ui/components/ParticipantCardMenu/ParticipantCardMenu.tsx))
+([ParticipantCardMenu](../../../apps/client/web/src/widgets/room/voice-room/ui/components/ParticipantCardMenu/ParticipantCardMenu.tsx))
 and of a chat message
-([MessageMenuItems](../../../apps/web/src/widgets/chat/chat-panel/ui/components/ChatMessageItem/components/MessageMenuItems/MessageMenuItems.tsx)).
+([MessageMenuItems](../../../apps/client/web/src/widgets/chat/chat-panel/ui/components/ChatMessageItem/components/MessageMenuItems/MessageMenuItems.tsx)).
 Reporting yourself or your own message is not offered.
 
 The dialog is the
-[report-abuse](../../../apps/web/src/features/social/report-abuse/) feature: a reason
+[report-abuse](../../../apps/client/web/src/features/social/report-abuse/) feature: a reason
 from a fixed list (spam, harassment, hate speech, sexual content, violence,
 illegal content, other) and an optional comment.
 
@@ -85,8 +85,8 @@ outlived by an existing session or connection:
 
 The "Community rules and moderation" section in `/terms`
 (`legal.termsPage.sections` in
-[ru/marketing.json](../../../apps/site/shared/i18n/locales/ru/marketing.json) and
-[en/marketing.json](../../../apps/site/shared/i18n/locales/en/marketing.json), on the
+[ru/marketing.json](../../../apps/landing/shared/i18n/locales/ru/marketing.json) and
+[en/marketing.json](../../../apps/landing/shared/i18n/locales/en/marketing.json), on the
 site) lists the prohibited
 content, describes the reporting mechanism, post-moderation, and what a block
 means.

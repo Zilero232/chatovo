@@ -37,7 +37,7 @@ One-time setup:
 2. Play Console → Users and permissions → Invite new users: the service account's email, with access to Chatovo and the **Release apps to testing tracks** and **Release to production** permissions.
 3. GitHub → Settings → Secrets and variables → Actions: the whole JSON file as the `PLAY_SERVICE_ACCOUNT_JSON` secret, and optionally `PLAY_TRACK`.
 
-The version code comes from the root `package.json` version, so every release must bump it — Play rejects a version code it has already seen. "What's new" is filled from the changelog: `apps/site/scripts/write-play-release-notes.ts` takes the entry for the root version in the site's changelog (`apps/site/views/changelog/config/releases.ts`, strings in its `marketing.json`), turns its entry titles into bullets in Russian and English, and cuts them at Play's 500-character limit. A tag whose version has no changelog entry fails the `android` job before the build, so the changelog is written as part of the bump.
+The version code comes from the root `package.json` version, so every release must bump it — Play rejects a version code it has already seen. "What's new" is filled from the changelog: `apps/landing/scripts/write-play-release-notes.ts` takes the entry for the root version in the site's changelog (`apps/landing/views/changelog/config/releases.ts`, strings in its `marketing.json`), turns its entry titles into bullets in Russian and English, and cuts them at Play's 500-character limit. A tag whose version has no changelog entry fails the `android` job before the build, so the changelog is written as part of the bump.
 
 ## The toolchain
 
@@ -47,7 +47,7 @@ Bun, Node and Rust come from [mise.toml](../../mise.toml) through `.github/actio
 
 Google Play refuses an update whose 64-bit native libraries are not 16 KB aligned ([page-sizes guide](https://developer.android.com/guide/practices/page-sizes)). The only native library in the aab is the Rust one, `libchatovo_lib.so` per ABI — no `libc++_shared.so`, and the Gradle dependencies (FCM included) ship none. Two things keep it compliant:
 
-- **ELF alignment.** The `android` job uses NDK r28c, which links 16 KB aligned by default, and [apps/tauri/.cargo/config.toml](../../apps/tauri/.cargo/config.toml) passes `-z max-page-size=16384 -z common-page-size=16384` to the linker for every Android target on top, so an older local NDK cannot regress it. Keep that entry `cfg(target_os = "android")`: the Tauri CLI sets `CARGO_TARGET_<TRIPLE>_RUSTFLAGS` itself and cargo joins it with `cfg` entries only.
+- **ELF alignment.** The `android` job uses NDK r28c, which links 16 KB aligned by default, and [apps/client/native/.cargo/config.toml](../../apps/client/native/.cargo/config.toml) passes `-z max-page-size=16384 -z common-page-size=16384` to the linker for every Android target on top, so an older local NDK cannot regress it. Keep that entry `cfg(target_os = "android")`: the Tauri CLI sets `CARGO_TARGET_<TRIPLE>_RUSTFLAGS` itself and cargo joins it with `cfg` entries only.
 - **Zip alignment.** The libs ship uncompressed (`extractNativeLibs="false"`), which needs AGP 8.5.1+; the Tauri template brings AGP 8.11 and no `useLegacyPackaging`, so nothing is set here.
 
 To check a build: `llvm-readelf -lW libchatovo_lib.so` (every `LOAD` `Align` at `0x4000` or more) on the libs in the aab's `base/lib/<abi>/`, and `zipalign -c -P 16 -v 4` on an apk built from it (`bundletool build-apks`).

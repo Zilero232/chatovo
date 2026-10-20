@@ -1,6 +1,6 @@
 {
   "name": "chatovo",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "private": true,
   "description": "Chatovo — real-time voice rooms for web and desktop. Bun-workspaces monorepo.",
   "keywords": [
@@ -26,6 +26,7 @@
   "workspaces": {
     "packages": [
       "apps/*",
+      "apps/client/*",
       "packages/*"
     ],
     "catalog": {
@@ -64,40 +65,40 @@
     }
   },
   "scripts": {
-    "android:build": "bun --filter @chatovo/tauri android:build",
-    "android:dev": "bun --filter @chatovo/tauri android:dev",
-    "android:init": "bun --filter @chatovo/tauri android:init",
-    "build": "bun --filter @chatovo/web build && bun --filter @chatovo/site build",
-    "build:client": "bun --filter @chatovo/web build",
-    "build:site": "bun --filter @chatovo/site build",
-    "dev": "bun --filter '@chatovo/server' --filter '@chatovo/web' --filter '@chatovo/site' --parallel dev",
-    "dev:client": "bun --filter @chatovo/web dev",
+    "android:build": "bun --filter @chatovo/client-native android:build",
+    "android:dev": "bun --filter @chatovo/client-native android:dev",
+    "android:init": "bun --filter @chatovo/client-native android:init",
+    "build": "bun --filter @chatovo/client-web build && bun --filter @chatovo/landing build",
+    "build:landing": "bun --filter @chatovo/landing build",
+    "build:web": "bun --filter @chatovo/client-web build",
+    "dev": "bun --filter '@chatovo/server' --filter '@chatovo/client-web' --filter '@chatovo/landing' --parallel dev",
     "dev:full": "docker compose -f docker-compose.dev.yml up -d && bun dev",
+    "dev:landing": "bun --filter @chatovo/landing dev",
     "dev:livekit": "docker compose -f docker-compose.dev.yml up",
     "dev:server": "bun --filter @chatovo/server dev",
-    "dev:site": "bun --filter @chatovo/site dev",
+    "dev:web": "bun --filter @chatovo/client-web dev",
     "fix": "bun run lint:fix && bun run format && bun run lint:css:fix",
     "format": "prettier --write .",
     "format:caddy": "mise x -- caddy fmt --overwrite infra/caddy/Caddyfile && mise x -- caddy fmt --overwrite infra/caddy/Caddyfile.dev",
     "format:check": "prettier --check .",
-    "format:rust": "cargo fmt --manifest-path apps/tauri/Cargo.toml --all",
+    "format:rust": "cargo fmt --manifest-path apps/client/native/Cargo.toml --all",
     "lint": "eslint .",
     "lint:caddy": "mise x -- caddy fmt infra/caddy/Caddyfile > /dev/null && mise x -- caddy fmt infra/caddy/Caddyfile.dev > /dev/null && mise x -- caddy adapt --config infra/caddy/Caddyfile --adapter caddyfile > /dev/null && mise x -- caddy adapt --config infra/caddy/Caddyfile.dev --adapter caddyfile > /dev/null",
-    "lint:css": "stylelint \"{apps/web,apps/site,packages/ui-kit}/**/*.scss\"",
-    "lint:css:fix": "stylelint \"{apps/web,apps/site,packages/ui-kit}/**/*.scss\" --fix",
+    "lint:css": "stylelint \"{apps/client/web,apps/landing,packages/ui-kit}/**/*.scss\"",
+    "lint:css:fix": "stylelint \"{apps/client/web,apps/landing,packages/ui-kit}/**/*.scss\" --fix",
     "lint:fix": "eslint . --fix",
-    "lint:rust": "cargo clippy --manifest-path apps/tauri/Cargo.toml --all-targets -- -D warnings",
+    "lint:rust": "cargo clippy --manifest-path apps/client/native/Cargo.toml --all-targets -- -D warnings",
     "prepare": "husky",
-    "tauri": "bun --filter @chatovo/tauri tauri",
-    "tauri:build": "bun --filter @chatovo/tauri build",
-    "tauri:dev": "bun --filter '@chatovo/server' --filter '@chatovo/tauri' --parallel dev",
-    "tauri:icon": "bun --filter @chatovo/tauri icon",
+    "tauri": "bun --filter @chatovo/client-native tauri",
+    "tauri:build": "bun --filter @chatovo/client-native build",
+    "tauri:dev": "bun --filter '@chatovo/server' --filter '@chatovo/client-native' --parallel dev",
+    "tauri:icon": "bun --filter @chatovo/client-native icon",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:watch": "vitest",
-    "typecheck": "bun --filter @chatovo/schemas typecheck && bun --filter @chatovo/config typecheck && bun --filter @chatovo/ui-kit typecheck && bun --filter @chatovo/server typecheck && bun --filter @chatovo/web typecheck && bun --filter @chatovo/site typecheck",
+    "typecheck": "bun --filter @chatovo/schemas typecheck && bun --filter @chatovo/config typecheck && bun --filter @chatovo/ui-kit typecheck && bun --filter @chatovo/server typecheck && bun --filter @chatovo/client-web typecheck && bun --filter @chatovo/landing typecheck",
     "verify": "bun run typecheck && bun run lint && bun run format:check && bun run lint:css"
   },
   "lint-staged": {
@@ -110,7 +111,7 @@
     ],
     "*.{json,md,yml,yaml}": "prettier --write",
     "infra/caddy/Caddyfile*": "bash -c 'for file in \"$@\"; do mise x -- caddy fmt --overwrite \"$file\"; done' --",
-    "{apps/web,apps/site,packages/ui-kit}/**/*.scss": [
+    "{apps/client/web,apps/landing,packages/ui-kit}/**/*.scss": [
       "stylelint --fix",
       "prettier --write"
     ]

@@ -26,10 +26,10 @@ export default {
       // These override cva size variants and Base UI's own inline styles, which
       // nothing weaker than !important can win against.
       files: [
-        'apps/web/src/styles/globals.scss',
-        'apps/web/src/features/auth/update-profile/ui/UpdateProfileForm.module.scss',
-        'apps/web/src/widgets/room/voice-room/ui/components/RoomInviteButton/RoomInviteButton.module.scss',
-        'apps/web/src/widgets/room/voice-room/ui/components/VoiceRoomChatButton/VoiceRoomChatButton.module.scss'
+        'apps/client/web/src/styles/globals.scss',
+        'apps/client/web/src/features/auth/update-profile/ui/UpdateProfileForm.module.scss',
+        'apps/client/web/src/widgets/room/voice-room/ui/components/RoomInviteButton/RoomInviteButton.module.scss',
+        'apps/client/web/src/widgets/room/voice-room/ui/components/VoiceRoomChatButton/VoiceRoomChatButton.module.scss'
       ],
       rules: {
         'declaration-no-important': null

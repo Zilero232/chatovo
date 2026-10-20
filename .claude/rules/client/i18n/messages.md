@@ -1,9 +1,9 @@
 ---
 paths:
-  - 'apps/web/**/*.{ts,tsx}'
-  - 'apps/web/src/shared/i18n/locales/**'
-  - 'apps/site/**/*.{ts,tsx}'
-  - 'apps/site/shared/i18n/locales/**'
+  - 'apps/client/web/**/*.{ts,tsx}'
+  - 'apps/client/web/src/shared/i18n/locales/**'
+  - 'apps/landing/**/*.{ts,tsx}'
+  - 'apps/landing/shared/i18n/locales/**'
   - 'packages/ui-kit/**/*.{ts,tsx}'
   - 'packages/ui-kit/messages/**'
 ---

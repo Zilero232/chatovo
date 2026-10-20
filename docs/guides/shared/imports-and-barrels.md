@@ -2,7 +2,7 @@
 
 ## Aliases
 
-`@/` → the app root (`apps/web/` or `apps/site/`). Use it for everything except relative imports within the same folder. Workspace packages go by name: `@chatovo/ui-kit`, `@chatovo/config`, `@chatovo/schemas`.
+`@/` → the app root (`apps/client/web/` or `apps/landing/`). Use it for everything except relative imports within the same folder. Workspace packages go by name: `@chatovo/ui-kit`, `@chatovo/config`, `@chatovo/schemas`.
 
 ## Group order
 

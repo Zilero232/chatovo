@@ -1,0 +1,34 @@
+{
+  "name": "@chatovo/client-native",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Chatovo desktop and Android shell — Tauri 2 wrapping the web client.",
+  "homepage": "https://chatovo.ru",
+  "bugs": {
+    "url": "https://github.com/Zilero232/Chatovo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zilero232/Chatovo.git",
+    "directory": "apps/client/native"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "author": "Alexandr Artemev",
+  "type": "module",
+  "scripts": {
+    "android:build": "bun run icon && node ./scripts/setup-android-fcm.mjs && bun --env-file .env tauri android build --apk --aab --target aarch64 --target x86_64",
+    "android:dev": "bun run icon && node ./scripts/setup-android-fcm.mjs && bun --env-file .env tauri android dev",
+    "android:init": "bun --env-file .env tauri android init && node ./scripts/setup-android-fcm.mjs",
+    "build": "bun run icon && tauri build",
+    "build:debug": "bun run icon && tauri build --debug",
+    "predev": "fkill --force --silent chatovo.exe chatovo; bun run icon",
+    "dev": "tauri dev",
+    "icon": "tauri icon icon.manifest.json -o icons",
+    "info": "tauri info",
+    "signer:generate": "tauri signer generate -w ~/.tauri/chatovo.key --password \"\"",
+    "tauri": "tauri"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.11.4"
+  }
+}

@@ -1,12 +1,12 @@
 # Documentation index
 
-Everything under `docs/`, grouped by concern. Agent-facing editing digests live separately in [.claude/rules/](../.claude/rules/) (loaded by path) and in the `CLAUDE.md` files: [root](../CLAUDE.md), [apps/web](../apps/web/CLAUDE.md), [apps/site](../apps/site/CLAUDE.md), [apps/server](../apps/server/CLAUDE.md), [apps/tauri](../apps/tauri/CLAUDE.md). The public overview is the [README](../README.md).
+Everything under `docs/`, grouped by concern. Agent-facing editing digests live separately in [.claude/rules/](../.claude/rules/) (loaded by path) and in the `CLAUDE.md` files: [root](../CLAUDE.md), [apps/client/web](../apps/client/web/CLAUDE.md), [apps/landing](../apps/landing/CLAUDE.md), [apps/server](../apps/server/CLAUDE.md), [apps/client/native](../apps/client/native/CLAUDE.md). The public overview is the [README](../README.md).
 
 ## Architecture
 
 Design decisions — the "why" behind the code, and what has already gone wrong.
 
-- [architecture/fsd.md](architecture/fsd.md) — Feature-Sliced Design as used by `apps/web` and `apps/site`: layers, slices, segments, where a thing goes, and the `@chatovo/ui-kit` package. Read before structural changes.
+- [architecture/fsd.md](architecture/fsd.md) — Feature-Sliced Design as used by `apps/client/web` and `apps/landing`: layers, slices, segments, where a thing goes, and the `@chatovo/ui-kit` package. Read before structural changes.
 - [architecture/visual-design.md](architecture/visual-design.md) — "a warm evening with Chato": palette, type, the logo colours, the mascot, the WebGL hero, and how the site and the app share one look.
 - [architecture/room-session.md](architecture/room-session.md) — the call outlives navigation: the session above the route, the collapsed bar, leaving without re-opening.
 - [architecture/room-music.md](architecture/room-music.md) — music in a room: a shared queue for YouTube, SoundCloud and radio played by each listener's own embed, "My music" as a LiveKit track, ducking, and echo-free shared audio.
@@ -22,7 +22,7 @@ Design decisions — the "why" behind the code, and what has already gone wrong.
 
 The style guide, split by stack. Index and tooling: [guides/README.md](guides/README.md).
 
-- `guides/client/` — for `apps/web`, `apps/site` and `packages/ui-kit`: slices, `ui/` and `ui-kit`, `model/hooks`, segments, React, component body and size, styles and animation, forms, conditional render, drill cleanup, Base UI, i18n, Tauri on the client.
+- `guides/client/` — for `apps/client/web`, `apps/landing` and `packages/ui-kit`: slices, `ui/` and `ui-kit`, `model/hooks`, segments, React, component body and size, styles and animation, forms, conditional render, drill cleanup, Base UI, i18n, Tauri on the client.
 - `guides/server/` — [NestJS modules](guides/server/nestjs.md), [Prisma and Postgres](guides/server/data.md).
 - `guides/shared/` — naming, imports and barrels, types, functions, blank lines, readability, comments, shared schemas, dependencies, library references, tests, forbidden list, pre-commit checklist.
 

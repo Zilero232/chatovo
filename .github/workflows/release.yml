@@ -6,7 +6,7 @@ name: release
 #   version ─┐
 #   lint ────┤
 #   test ────┼─ draft ─┬─ desktop ──────────────┬─ publish
-#   site ────┤         └─ android ──────────────┘
+#   landing ─┤         └─ android ──────────────┘
 #   web ─────┘
 #
 # Push a `v*` tag to release everything; a manual run takes a `targets` choice
@@ -15,7 +15,7 @@ name: release
 # appended to rather than replaced. The aab goes to the Play track named by the
 # PLAY_TRACK variable (production when unset) and is sent for review; Google
 # publishes it once moderation passes. Its "What's new" is the version's entry
-# in apps/site/views/changelog/config/releases.ts, in Russian and English.
+# in apps/landing/views/changelog/config/releases.ts, in Russian and English.
 #
 # Secrets — Settings → Secrets and variables → Actions. GITHUB_TOKEN is
 # provided by Actions.
@@ -26,7 +26,7 @@ name: release
 #
 #   Desktop — updater signing
 #     TAURI_SIGNING_PRIVATE_KEY  contents of ~/.tauri/chatovo.key
-#                                (bun --filter @chatovo/tauri signer:generate)
+#                                (bun --filter @chatovo/client-native signer:generate)
 #
 #   Android — apk/aab signing, used by the `android` job
 #     ANDROID_KEY_ALIAS          keystore alias
@@ -143,7 +143,7 @@ jobs:
 
       - run: bun run test
 
-  site:
+  landing:
     permissions:
       contents: read
 
@@ -158,14 +158,14 @@ jobs:
       - uses: ./.github/actions/setup
 
       # Nothing built here ships; a placeholder keeps this runnable on a fork.
-      - name: Build the site
+      - name: Build the landing
         env:
           NODE_ENV: production
           NEXT_PUBLIC_APP_URL: https://app.invalid
-        run: bun --filter @chatovo/site build
+        run: bun --filter @chatovo/landing build
 
   # The web build and clippy share a job: tauri validates frontendDist at build
-  # time, so apps/web/dist must exist before clippy touches the crate.
+  # time, so apps/client/web/dist must exist before clippy touches the crate.
   web:
     permissions:
       contents: read
@@ -197,12 +197,12 @@ jobs:
           NODE_ENV: production
           NEXT_PUBLIC_API_URL: https://api.invalid
           NEXT_PUBLIC_LIVEKIT_URL: wss://livekit.invalid
-        run: bun --filter @chatovo/web build
+        run: bun --filter @chatovo/client-web build
 
       - run: bun run lint:rust
 
   draft:
-    needs: [version, lint, test, site, web]
+    needs: [version, lint, test, landing, web]
 
     permissions:
       contents: write
@@ -288,7 +288,7 @@ jobs:
           TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
           TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ''
         with:
-          projectPath: apps/tauri
+          projectPath: apps/client/native
           tagName: v__VERSION__
           releaseName: Chatovo v__VERSION__
           # Stays a draft until Android has uploaded too; `publish` flips it.
@@ -325,7 +325,7 @@ jobs:
           path: |
             ~/.gradle/caches
             ~/.gradle/wrapper
-          key: gradle-${{ hashFiles('apps/tauri/Cargo.toml', 'apps/tauri/scripts/setup-android-fcm.mjs', '') }}
+          key: gradle-${{ hashFiles('apps/client/native/Cargo.toml', 'apps/client/native/scripts/setup-android-fcm.mjs', '') }}
           restore-keys: gradle-
 
       - uses: android-actions/setup-android@40fd30fb8d7440372e1316f5d1809ec01dcd3699 # v4
@@ -334,7 +334,7 @@ jobs:
 
       # setup-android ships the SDK but not the NDK, which cargo needs to
       # cross-compile to the android targets. r28+ links 16 KB aligned by
-      # default, which Play requires (apps/tauri/.cargo/config.toml pins it too).
+      # default, which Play requires (apps/client/native/.cargo/config.toml pins it too).
       - uses: nttld/setup-ndk@ed92fe6cadad69be94a966a7ee3271275e62f779 # v1
         id: ndk
         with:
@@ -349,12 +349,12 @@ jobs:
       # Play's "What's new" comes from the changelog entry of this version; a
       # release without one fails here, before the long build.
       - name: Write the Play release notes
-        run: bun apps/site/scripts/write-play-release-notes.ts target/whatsnew
+        run: bun apps/landing/scripts/write-play-release-notes.ts target/whatsnew
 
       # `tauri android init` regenerates gen/android from scratch: overlays and
       # signing config go after it, never before.
       - name: Prepare the android project
-        working-directory: apps/tauri
+        working-directory: apps/client/native
         env:
           NDK_HOME: ${{ steps.ndk.outputs.ndk-path }}
         run: |
@@ -367,11 +367,11 @@ jobs:
           ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
           ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
           ANDROID_KEY_BASE64: ${{ secrets.ANDROID_KEY_BASE64 }}
-        run: node apps/tauri/scripts/android-signing.mjs
+        run: node apps/client/native/scripts/android-signing.mjs
 
       # Only the aab: Play derives the per-device apks from it.
       - name: Build the aab
-        working-directory: apps/tauri
+        working-directory: apps/client/native
         env:
           NDK_HOME: ${{ steps.ndk.outputs.ndk-path }}
           NODE_ENV: production
@@ -384,7 +384,7 @@ jobs:
         run: |
           set -euo pipefail
           version=$(node -p "require('./package.json').version")
-          gen=apps/tauri/gen/android
+          gen=apps/client/native/gen/android
           aab=$(find "$gen" -path '*/outputs/*' -name '*release*.aab' | head -1)
 
           if [ -z "$aab" ]; then

@@ -45,7 +45,7 @@ import { ChannelsHeader } from './components/ChannelsHeader';
 
 ## 2.1. `ui-kit` structure
 
-The kit is the workspace package `packages/ui-kit` (`@chatovo/ui-kit`), shared by `apps/web` and `apps/site`. In each app it acts as a layer next to `shared/`: every layer imports it, and it imports nothing from either app (no `@/` alias inside the package). Each component is its own PascalCase folder.
+The kit is the workspace package `packages/ui-kit` (`@chatovo/ui-kit`), shared by `apps/client/web` and `apps/landing`. In each app it acts as a layer next to `shared/`: every layer imports it, and it imports nothing from either app (no `@/` alias inside the package). Each component is its own PascalCase folder.
 
 ```
 packages/ui-kit/

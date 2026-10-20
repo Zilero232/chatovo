@@ -8,7 +8,7 @@ paths:
 
 # Verification
 
-`bun run fix`, then `bun run verify` (typecheck + ESLint + Prettier + Stylelint). `bun run test` is separate — never bare `bun test`, which is Bun's own runner. `bun --filter @chatovo/web build` is the only check that catches a static-export breakage; `bun --filter @chatovo/site build` catches site server/client boundary and metadata errors (`bun run build` runs both). `bun run lint:rust` when `apps/tauri` changed; `bun run lint:caddy` (fix with `format:caddy`) when `infra/caddy` changed — Caddy comes from mise.
+`bun run fix`, then `bun run verify` (typecheck + ESLint + Prettier + Stylelint). `bun run test` is separate — never bare `bun test`, which is Bun's own runner. `bun --filter @chatovo/client-web build` is the only check that catches a static-export breakage; `bun --filter @chatovo/landing build` catches site server/client boundary and metadata errors (`bun run build` runs both). `bun run lint:rust` when `apps/client/native` changed; `bun run lint:caddy` (fix with `format:caddy`) when `infra/caddy` changed — Caddy comes from mise.
 
 `fix` does not fix blank lines, hook order or FSD boundaries.
 

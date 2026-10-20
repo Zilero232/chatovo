@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="apps/web/public/icon.svg" width="88" height="88" alt="Chatovo" />
+  <img src="apps/client/web/public/icon.svg" width="88" height="88" alt="Chatovo" />
 </p>
 
 <h1 align="center">Chatovo</h1>
@@ -126,7 +126,7 @@ flowchart LR
   API --> LK
 ```
 
-The product app (`apps/web`, app.chatovo.ru) and the public website (`apps/site`, chatovo.ru) are two React apps — a Vite SPA and a server-rendered Next.js site — sharing one design system, `@chatovo/ui-kit`. Both follow **[Feature-Sliced Design](docs/architecture/fsd.md)** — the site names the `pages/` layer `views/` to avoid clashing with the Next.js Pages Router.
+The product app (`apps/client/web`, app.chatovo.ru) and the public website (`apps/landing`, chatovo.ru) are two React apps — a Vite SPA and a server-rendered Next.js site — sharing one design system, `@chatovo/ui-kit`. Both follow **[Feature-Sliced Design](docs/architecture/fsd.md)** — the site names the `pages/` layer `views/` to avoid clashing with the Next.js Pages Router.
 
 <br/>
 
@@ -172,7 +172,7 @@ chatovo/
 | [mise](https://mise.jdx.dev)   | The pinned toolchain — Bun, Node and Rust from [mise.toml](mise.toml), the same versions CI uses |
 | Docker + Compose               | Local LiveKit / Postgres                                                                         |
 | Tauri system deps              | Desktop builds only → [prerequisites](https://v2.tauri.app/start/prerequisites/)                 |
-| Android Studio (SDK, NDK, JDK) | Android builds only → `apps/tauri/.env`                                                          |
+| Android Studio (SDK, NDK, JDK) | Android builds only → `apps/client/native/.env`                                                  |
 
 ### 2 · Clone & install
 
@@ -235,7 +235,7 @@ bun tauri:build               # desktop release
 bun android:init        # first-time Android setup
 bun android:dev         # Android on device / emulator
 bun android:build       # APK + AAB
-bun tauri:icon                # icons from apps/web/assets/icons/app-icon*.svg
+bun tauri:icon                # icons from apps/client/web/assets/icons/app-icon*.svg
 ```
 
 > The version lives in the root **`package.json`** only — the per-app manifests
@@ -246,7 +246,7 @@ bun tauri:icon                # icons from apps/web/assets/icons/app-icon*.svg
 ```bash
 bun verify         # typecheck + lint + format:check + lint:css — run before committing
 bun fix            # lint:fix + format + lint:css:fix
-bun lint:rust      # clippy on apps/tauri
+bun lint:rust      # clippy on apps/client/native
 bun run test       # Vitest, every workspace (never bare `bun test`)
 ```
 
@@ -320,5 +320,5 @@ code they cover; conventions are in [docs/guides/shared/testing.md](docs/guides/
 </p>
 
 <p align="center">
-  <img src="apps/web/public/icon.svg" width="32" height="32" alt="" />
+  <img src="apps/client/web/public/icon.svg" width="32" height="32" alt="" />
 </p>

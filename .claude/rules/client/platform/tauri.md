@@ -1,6 +1,6 @@
 ---
 paths:
-  - 'apps/web/**/*.{ts,tsx}'
+  - 'apps/client/web/**/*.{ts,tsx}'
 ---
 
 <!-- Compressed editing rules, loaded automatically when a client file is edited. -->

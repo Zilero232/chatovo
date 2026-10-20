@@ -15,10 +15,10 @@ across subdomains of a single domain, `chatovo.ru`:
 | `api.chatovo.ru`     | NestJS API (Bun)                    |
 | `livekit.chatovo.ru` | LiveKit SFU (WSS signalling)        |
 
-The site and the app are **two separate apps**. The app (`apps/web`) is a
+The site and the app are **two separate apps**. The app (`apps/client/web`) is a
 Vite single-page app baked into the `web` image, whose Caddy serves it on
-`app.chatovo.ru`. The site (`apps/site`) is a server-rendered Next.js app in its
-own `site` container; Caddy reverse-proxies `chatovo.ru` to `site:3000`.
+`app.chatovo.ru`. The site (`apps/landing`) is a server-rendered Next.js app in its
+own `site` container; Caddy reverse-proxies `chatovo.ru` to `landing:3000`.
 
 Each host sends the other's paths across with a 301, so old links keep working:
 `chatovo.ru` redirects `/lobby`, `/room`, `/auth`, `/admin` and
@@ -53,13 +53,13 @@ builds nothing: it only pulls ready-made images and runs them.
    └───────────────────────────────────────────────────────┘
 ```
 
-- **Web app** — Vite + React SPA. The `chatovo-web` image builds `apps/web/dist`
+- **Web app** — Vite + React SPA. The `chatovo-web` image builds `apps/client/web/dist`
   and serves it through the bundled Caddy (every unknown path falls back to
   `index.html`), which terminates
   HTTPS for all four subdomains. This is the only container facing the internet.
-- **Site** — Next.js with `output: 'standalone'`. The `chatovo-site` image runs
-  `node apps/site/server.js` on port 3000 inside the docker network; Caddy
-  proxies `chatovo.ru` → `site:3000`. It reads release and contributor data
+- **Site** — Next.js with `output: 'standalone'`. The `chatovo-landing` image runs
+  `node apps/landing/server.js` on port 3000 inside the docker network; Caddy
+  proxies `chatovo.ru` → `landing:3000`. It reads release and contributor data
   from the API over the compose network (`API_INTERNAL_URL=http://server:4000`,
   set in `docker-compose.yml`), so it needs no public API URL and no CORS entry.
   It must bind `HOSTNAME=0.0.0.0` (the Dockerfile sets it —
@@ -72,7 +72,7 @@ builds nothing: it only pulls ready-made images and runs them.
   (pinned to a specific version, not `latest`). Caddy proxies
   `wss://livekit.chatovo.ru` to the signalling port. WebRTC media traffic goes
   directly over the UDP range 50000–50100 (see below).
-- **Registry** — the `chatovo-web`, `chatovo-site` and `chatovo-server` images live in the
+- **Registry** — the `chatovo-web`, `chatovo-landing` and `chatovo-server` images live in the
   private ghcr.io. CI publishes them with the built-in `GITHUB_TOKEN`; the VPS
   pulls with a personal access token (PAT). The LiveKit image comes straight
   from Docker Hub.
@@ -91,7 +91,7 @@ builds nothing: it only pulls ready-made images and runs them.
    ┌──────── VPS ────────────────────────────────────────────────┐
    │                                                             │
    │  Caddy (web container)                                      │
-   │     • chatovo.ru          → site:3000 (Next.js server)      │
+   │     • chatovo.ru          → landing:3000 (Next.js server)      │
    │     • app.chatovo.ru      → app static files                │
    │     • api.chatovo.ru      → server:4000 (NestJS)            │
    │     • livekit.chatovo.ru  → host.docker.internal:7880 (WSS) │
@@ -137,8 +137,8 @@ Web and site variables (`NEXT_PUBLIC_*`):
 
 | File                           | Purpose                                             |
 | ------------------------------ | --------------------------------------------------- |
-| `apps/web/Dockerfile`          | Web image: Vite SPA build + Caddy; built in CI      |
-| `apps/site/Dockerfile`         | Site image: Next.js standalone on Node; built in CI |
+| `apps/client/web/Dockerfile`          | Web image: Vite SPA build + Caddy; built in CI      |
+| `apps/landing/Dockerfile`         | Site image: Next.js standalone on Node; built in CI |
 | `apps/server/Dockerfile`       | Server image (Bun + Prisma); built in CI            |
 | `infra/caddy/Caddyfile`        | Caddy config (copied into the web image)            |
 | `infra/livekit/livekit.yaml`   | Config template for the self-hosted LiveKit server  |
@@ -269,7 +269,7 @@ echo "<YOUR_PAT>" | docker login ghcr.io -u <YOUR_GITHUB_LOGIN> --password-stdin
 Docker saves the credentials — you do not need to repeat this on every deploy.
 
 > The image names in `docker-compose.yml` are `ghcr.io/zilero232/chatovo-web`,
-> `ghcr.io/zilero232/chatovo-site` and `ghcr.io/zilero232/chatovo-server`. If your GitHub account differs, fix
+> `ghcr.io/zilero232/chatovo-landing` and `ghcr.io/zilero232/chatovo-server`. If your GitHub account differs, fix
 > the owner in the `image:` lines (lowercase only).
 
 ### 1.9. Start the stack
@@ -654,11 +654,11 @@ nano .env
 #    the other NEXT_PUBLIC_* — production values
 
 # 2. Build the web export, then the Tauri bundle
-bun --filter @chatovo/web build
+bun --filter @chatovo/client-web build
 bun tauri:build
 ```
 
-The finished installers appear in `apps/tauri/target/release/bundle/`. On the
+The finished installers appear in `apps/client/native/target/release/bundle/`. On the
 server, CORS allows the Tauri origin (`tauri://localhost`) automatically, plus
 `https://app.chatovo.ru` through `CORS_ORIGINS`.
 

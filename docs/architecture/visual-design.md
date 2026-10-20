@@ -1,6 +1,6 @@
 # Visual design — "a warm evening with Chato"
 
-The whole product — the public site, auth, the lobby, the room, the music panel, settings, the 404 and error screens, the OG card — speaks one visual language, even though the public site (`apps/site`, chatovo.ru) and the product (`apps/web`, app.chatovo.ru) are separate apps. Both read the same design system, `@chatovo/ui-kit`. This file is the reference; the tokens live in `packages/ui-kit/styles/_tokens.scss`.
+The whole product — the public site, auth, the lobby, the room, the music panel, settings, the 404 and error screens, the OG card — speaks one visual language, even though the public site (`apps/landing`, chatovo.ru) and the product (`apps/client/web`, app.chatovo.ru) are separate apps. Both read the same design system, `@chatovo/ui-kit`. This file is the reference; the tokens live in `packages/ui-kit/styles/_tokens.scss`.
 
 ## Why it changed
 
@@ -46,7 +46,7 @@ The legacy names (`--brand-cyan`, `--brand-fuchsia`, `--brand-lime`) are remappe
 
 ## Motion
 
-`motion` for everything that moves, presets in `apps/web/src/shared/config/motion.ts` and the kit's `*.motion.ts` files. Things settle, they do not bounce around: a short ease-out for UI, a spring only for the cat and for drag. Only `transform` and `opacity` animate. Reduced motion means static, not slower; the WebGL hero does not mount at all.
+`motion` for everything that moves, presets in `apps/client/web/src/shared/config/motion.ts` and the kit's `*.motion.ts` files. Things settle, they do not bounce around: a short ease-out for UI, a spring only for the cat and for drag. Only `transform` and `opacity` animate. Reduced motion means static, not slower; the WebGL hero does not mount at all.
 
 ## Chato
 
@@ -62,7 +62,7 @@ On the home page Chato is also a real-time 3D scene (`three` + `@react-three/fib
 
 - **The poster is the content.** The SVG Chato paints first; the canvas mounts over it in a box of the same aspect ratio and fades in after its first frame.
 - **Code-split** through `next/dynamic` with `ssr: false`; three and r3f live in their own lazy chunk.
-- **When to load** is `useWebglStage` (`apps/site/shared/hooks`, built on `shared/lib/webgl`): `webglTier` turns the environment into `off` / `lite` / `full` (off for reduced motion, Save-Data, slow connections, no WebGL, ≤ 2 GB or ≤ 2 cores; lite for ≤ 4 GB, ≤ 4 cores or a phone). `full` loads on idle, `lite` on the first interaction.
+- **When to load** is `useWebglStage` (`apps/landing/shared/hooks`, built on `shared/lib/webgl`): `webglTier` turns the environment into `off` / `lite` / `full` (off for reduced motion, Save-Data, slow connections, no WebGL, ≤ 2 GB or ≤ 2 cores; lite for ≤ 4 GB, ≤ 4 cores or a phone). `full` loads on idle, `lite` on the first interaction.
 - **When to run.** The frame loop stops while the canvas is off-screen or the tab is hidden.
 - **Cheap.** Procedural geometry and `MeshToonMaterial` only — no models, textures or HDRs.
 
@@ -82,7 +82,7 @@ The illustrated, re-composed treatment — Chato, serif heroes, new sections —
 
 ## The public site
 
-The site is its own server-rendered app, `apps/site` ([CLAUDE.md](../../apps/site/CLAUDE.md)); everything below lives there.
+The site is its own server-rendered app, `apps/landing` ([CLAUDE.md](../../apps/landing/CLAUDE.md)); everything below lives there.
 
 - **Show the product.** The home hero puts Chato in the arch scene and lays a real-looking room card over it — people with the speaker ringed in mint, the room's music bar — so the first screen says what Chatovo is, not just who the mascot is. The "how it works" steps each end with the piece of UI that step uses (the create button, the invite link, the mic toggle).
 - **The arch scene** (`MarketingScene`) is the one frame for Chato on every page hero: a plum arch with a sun-coloured moon and a floor line, the pose standing on the floor. Chato never floats on the page background.

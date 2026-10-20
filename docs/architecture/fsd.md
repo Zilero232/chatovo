@@ -1,6 +1,6 @@
 # Feature-Sliced Design — Chatovo
 
-The FSD methodology as applied to the two frontend apps: `apps/web/` (the product app, a Vite SPA — [web-app.md](web-app.md)) and `apps/site/` (the public website, Next.js). Both follow the same layers, import rules, public APIs and segments; the shared design system is the `@chatovo/ui-kit` workspace package (§5.1). This document is the working reference for the frontend architecture.
+The FSD methodology as applied to the two frontend apps: `apps/client/web/` (the product app, a Vite SPA — [web-app.md](web-app.md)) and `apps/landing/` (the public website, Next.js). Both follow the same layers, import rules, public APIs and segments; the shared design system is the `@chatovo/ui-kit` workspace package (§5.1). This document is the working reference for the frontend architecture.
 
 Full specification: [feature-sliced.design](https://feature-sliced.design). Linter for FSD rules: [Steiger](https://github.com/feature-sliced/steiger).
 
@@ -8,7 +8,7 @@ Full specification: [feature-sliced.design](https://feature-sliced.design). Lint
 >
 > | FSD canon | Chatovo | Why |
 > |---|---|---|
-> | Root `src/` | Web: `apps/web/src/` as in canon. Site: the app root, `apps/site/` (no `src/`) | The site is a Next.js app whose route files live in a root `app/`. `@/` → `apps/web/src/` and `apps/site/` respectively. |
+> | Root `src/` | Web: `apps/client/web/src/` as in canon. Site: the app root, `apps/landing/` (no `src/`) | The site is a Next.js app whose route files live in a root `app/`. `@/` → `apps/client/web/src/` and `apps/landing/` respectively. |
 > | Layer `pages/` | Web: `pages/` as in canon. Site: `views/` | A top-level `pages/` in a Next.js app enables the Pages Router; `views/` sidesteps it. The Vite web app has no such clash. |
 >
 > Everywhere below, the site's `views/` is what the canon and the web app call `pages/`.
@@ -31,7 +31,7 @@ The `Processes` layer is deprecated — its contents move into `Features` or `Ap
 ### Directory structure
 
 ```
-apps/web/
+apps/client/web/
 ├── index.html          # the page shell; entry /src/main.tsx
 ├── assets/icons/       # Tauri icon sources (app-icon*.svg)
 └── src/
@@ -59,7 +59,7 @@ apps/web/
         ├── lib/
         └── seo/        # the static index.html head tags (noindex)
 
-apps/site/              # the public website, same layers, fewer slices
+apps/landing/              # the public website, same layers, fewer slices
 ├── app/                # [locale]/ routes, sitemap, robots, llms.txt
 ├── views/              # Pages layer, named views/: home, features, download, changelog, about, support, legal, not-found
 ├── widgets/marketing/  # marketing-shell: header, footer, sections, scene
@@ -158,11 +158,11 @@ export { DeafenProvider } from './model/contexts';
 
 ### 5.1. The design system — `@chatovo/ui-kit`
 
-The design system is a workspace package, `packages/ui-kit`, shared by `apps/web` and `apps/site`. It sits beside `shared/` in both apps: every layer may import it, and it imports nothing from either app.
+The design system is a workspace package, `packages/ui-kit`, shared by `apps/client/web` and `apps/landing`. It sits beside `shared/` in both apps: every layer may import it, and it imports nothing from either app.
 
 - Segments: `primitives/` (base), `components/` (composed), `icons/`, `styles/`, `messages/`. **Every component gets its own PascalCase folder** (`primitives/Button/`, `components/FormField/`, …) with `Component.tsx`, `Component.module.scss`, optionally `Component.types.ts` and a mandatory `index.ts` barrel. The segment barrels and the root `index.ts` re-export everything.
 - From outside, only `import { Button } from '@chatovo/ui-kit'`, never a path into it; the package's other exports are `@chatovo/ui-kit/messages` and `@chatovo/ui-kit/styles/*`. SCSS: `@use '@chatovo/ui-kit/styles/mixins' as *` (each app's Sass load paths include the repo `node_modules`; the package ships sources, so the site lists it in `transpilePackages` and Vite compiles it as part of the web app).
-- Headless primitives come from **`@base-ui/react`**; styles are **SCSS modules**. Tokens live in `styles/_tokens.scss`; `styles/_base.scss` is the shared global CSS. Each app's `globals.scss` (`apps/web/src/app/`, `apps/site/app/`) `@use`s tokens, keyframes and base, then adds its own page-level rules.
+- Headless primitives come from **`@base-ui/react`**; styles are **SCSS modules**. Tokens live in `styles/_tokens.scss`; `styles/_base.scss` is the shared global CSS. Each app's `globals.scss` (`apps/client/web/src/app/`, `apps/landing/app/`) `@use`s tokens, keyframes and base, then adds its own page-level rules.
 - `messages/` exports `uiMessages` (namespace `ui`: the kit's own strings — close, loading, show password, …). Each app spreads `uiMessages.<locale>` into its messages. Kit components import `useTranslations` from `use-intl`, which works under the web app's `IntlProvider` and the site's `NextIntlClientProvider` alike. The kit imports no framework: images go through its own `Image` primitive, fed by an optional `ImageConfigProvider` loader.
 - Shared non-UI constants (site URLs, legal, external links, site paths) live in `@chatovo/config`, not in the kit.
 
@@ -172,12 +172,12 @@ More in [guides/client/slice-ui.md](../guides/client/slice-ui.md) §2.1.
 
 ## 6. Routing integration
 
-`app/` (`apps/web/src/app/`, `apps/site/app/`) holds only routing, providers and global styles. All UI and logic lives in the pages layer — `pages/<name>/` in the web app, `views/<name>/` in the site; a route only points at a page.
+`app/` (`apps/client/web/src/app/`, `apps/landing/app/`) holds only routing, providers and global styles. All UI and logic lives in the pages layer — `pages/<name>/` in the web app, `views/<name>/` in the site; a route only points at a page.
 
 **Web app (TanStack Router, code-based).** The route tree is one file, `src/router/router.ts`; each route names its page and, if it has search params, a zod schema:
 
 ```ts
-// apps/web/src/router/router.ts
+// apps/client/web/src/router/router.ts
 const roomRoute = createRoute({
   getParentRoute: () => authedRoute,
   path: ROUTES.room,
@@ -191,7 +191,7 @@ Layouts are components in `src/router/routes/` (`AuthedLayout`, `StandaloneLayou
 **Site (Next.js App Router).** Route files are thin server wrappers, without `'use client'`, that delegate into `views/`:
 
 ```tsx
-// apps/site/app/[locale]/features/page.tsx — server, thin
+// apps/landing/app/[locale]/features/page.tsx — server, thin
 import { readPageLocale } from '@/shared/lib';
 import { FeaturesPage } from '@/views/features';
 
@@ -208,12 +208,12 @@ They contain only metadata, a wrapper and a default export.
 
 ### Path aliases
 
-`@/` points at `apps/web/src/` in the web app (as in canon) and at the app root `apps/site/` in the site:
+`@/` points at `apps/client/web/src/` in the web app (as in canon) and at the app root `apps/landing/` in the site:
 
 ```jsonc
-// apps/web/tsconfig.json
+// apps/client/web/tsconfig.json
 { "compilerOptions": { "paths": { "@/*": ["./src/*"] } } }
-// apps/site/tsconfig.json
+// apps/landing/tsconfig.json
 { "compilerOptions": { "paths": { "@/*": ["./*"] } } }
 ```
 

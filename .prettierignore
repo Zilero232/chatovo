@@ -6,10 +6,10 @@ generated
 target
 next-env.d.ts
 bun.lock
-apps/tauri/gen
-apps/tauri/icons
+apps/client/native/gen
+apps/client/native/icons
 apps/server/prisma/migrations
-apps/web/src/shared/i18n/messages.d.ts
+apps/client/web/src/shared/i18n/messages.d.ts
 
 .agents
 .claude

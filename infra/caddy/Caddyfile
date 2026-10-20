@@ -1,6 +1,6 @@
 # Chatovo — Caddy config (runs on the VPS).
 #
-# chatovo.ru is the public website: a Next.js server in the `site` container.
+# chatovo.ru is the public website: a Next.js server in the `landing` container.
 # app.chatovo.ru is the web app: the static Vite SPA build baked into this image.
 # Each host sends the other's paths across with a permanent redirect, so old
 # links and bookmarks keep working.
@@ -109,5 +109,5 @@ chatovo.ru {
 	@app path /lobby /lobby/* /room /room/* /auth /auth/* /admin /admin/* /account/delete /account/delete/*
 	redir @app https://app.chatovo.ru{uri} permanent
 
-	reverse_proxy site:3000
+	reverse_proxy landing:3000
 }

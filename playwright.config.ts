@@ -1,8 +1,8 @@
 import { defineConfig, devices } from '@playwright/test';
 
 const APP_URL = process.env.E2E_APP_URL ?? 'http://localhost:3000';
-const SITE_URL = process.env.E2E_SITE_URL ?? 'http://localhost:3001';
-const HAS_EXTERNAL_TARGETS = Boolean(process.env.E2E_APP_URL && process.env.E2E_SITE_URL);
+const LANDING_URL = process.env.E2E_LANDING_URL ?? 'http://localhost:3001';
+const HAS_EXTERNAL_TARGETS = Boolean(process.env.E2E_APP_URL && process.env.E2E_LANDING_URL);
 
 const DESKTOP = { ...devices['Desktop Chrome'], viewport: { width: 1280, height: 800 } };
 const MOBILE = devices['Pixel 7'];
@@ -24,14 +24,14 @@ export default defineConfig({
     ? undefined
     : [
         {
-          command: 'bun --filter @chatovo/web dev',
+          command: 'bun --filter @chatovo/client-web dev',
           url: APP_URL,
           reuseExistingServer: !process.env.CI,
           timeout: 180_000
         },
         {
-          command: 'bun --filter @chatovo/site dev',
-          url: SITE_URL,
+          command: 'bun --filter @chatovo/landing dev',
+          url: LANDING_URL,
           reuseExistingServer: !process.env.CI,
           timeout: 180_000
         }
@@ -46,7 +46,7 @@ export default defineConfig({
   projects: [
     { name: 'app-desktop', testMatch: 'app/**', use: { ...DESKTOP, baseURL: APP_URL } },
     { name: 'app-mobile', testMatch: 'app/**', use: { ...MOBILE, baseURL: APP_URL } },
-    { name: 'site-desktop', testMatch: 'site/**', use: { ...DESKTOP, baseURL: SITE_URL } },
-    { name: 'site-mobile', testMatch: 'site/**', use: { ...MOBILE, baseURL: SITE_URL } }
+    { name: 'landing-desktop', testMatch: 'landing/**', use: { ...DESKTOP, baseURL: LANDING_URL } },
+    { name: 'landing-mobile', testMatch: 'landing/**', use: { ...MOBILE, baseURL: LANDING_URL } }
   ]
 });

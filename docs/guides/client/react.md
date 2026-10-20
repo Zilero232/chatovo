@@ -1,7 +1,7 @@
 # React conventions
 
 - Function components, arrow functions.
-- `'use client'` in every file with hooks / state / event handlers — in `apps/site` and `packages/ui-kit`, which render under React Server Components. The web app is a client-only SPA and carries no directive.
+- `'use client'` in every file with hooks / state / event handlers — in `apps/landing` and `packages/ui-kit`, which render under React Server Components. The web app is a client-only SPA and carries no directive.
 - React Compiler is enabled — no `useMemo` / `useCallback` for micro-optimisation. Keep them only for a semantically stable ref (`useEffect` dependencies, a key in a Map).
 - Event handlers are `on<Event>` in camelCase: `onSubmit`, `onSelectRoom`.
 - React types are **named imports**: `import type { ComponentProps, ReactNode } from 'react'`. **`import type * as React from 'react'` is banned.**

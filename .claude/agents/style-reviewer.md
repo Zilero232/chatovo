@@ -10,7 +10,7 @@ You review code against **the conventions the repository writes down about itsel
 ## What to read first, every time
 
 1. The root `CLAUDE.md`.
-2. Every nested `CLAUDE.md` covering the changed files (`apps/web/CLAUDE.md`, `apps/site/CLAUDE.md`, `apps/server/CLAUDE.md`, `apps/tauri/CLAUDE.md`). The nested file extends the root; both apply.
+2. Every nested `CLAUDE.md` covering the changed files (`apps/client/web/CLAUDE.md`, `apps/landing/CLAUDE.md`, `apps/server/CLAUDE.md`, `apps/client/native/CLAUDE.md`). The nested file extends the root; both apply.
 3. **The full style guide — [docs/guides/](../../docs/guides/README.md)**, split into `client/`, `server/` and `shared/` — plus [docs/architecture/fsd.md](../../docs/architecture/fsd.md) for the architecture of the web app, the site and `packages/ui-kit` and [docs/architecture/pitfalls.md](../../docs/architecture/pitfalls.md). Read the guides covering the changed files in full: they carry the examples, anti-patterns and reasoning. The digests in `.claude/rules/**/*.md` (one topic per file) are the editing-time versions; they auto-load while writing code but are not the review reference.
 4. The lint configuration actually in force — `eslint.config.mjs`, `prettier.config.mjs`, `stylelint.config.mjs`.
 
@@ -56,7 +56,7 @@ Check for these explicitly — each maps to a written rule:
 - **Expression-body arrow declarations** — top-level `const f = () => value;`. Block body with `return` required; JSX components and inline callbacks are exempt (§9, [docs/guides/](../../docs/guides/README.md)).
 - **Brace-less `if`** — `if (cond) return;` (§9.5, [docs/guides/](../../docs/guides/README.md)).
 - **Slice-level `model/index.ts`** — barrels belong in `model/hooks/`, `model/contexts/`, `model/stores/` (§11, [docs/guides/](../../docs/guides/README.md)).
-- **Per-component `index.ts`** inside `ui/components/` that only re-exports its neighbour (`apps/web/CLAUDE.md`).
+- **Per-component `index.ts`** inside `ui/components/` that only re-exports its neighbour (`apps/client/web/CLAUDE.md`).
 - **Hook order** — Navigation → Store → Data → State → Ref → Memo → Effects → Derived, blank line between groups (§10.1, [docs/guides/](../../docs/guides/README.md)). Don't reorder across a real data dependency.
 - **Props field order** must match in three places: `type Props` ↔ destructuring ↔ JSX call — data → id/className/style → `on<Event>` (§8.1, [docs/guides/](../../docs/guides/README.md)).
 - **`useMutation` destructured** — mutation objects stay whole; `useQuery` gets destructured with `data` renamed (§10.3, [docs/guides/](../../docs/guides/README.md)).
@@ -73,11 +73,11 @@ Check for these explicitly — each maps to a written rule:
 
 Never report findings in generated files — flag only if the diff **edits** them by hand:
 
-- `apps/web/src/messages.d.ts`, `apps/site/messages.d.ts` — generated from the locale JSON (use-intl / next-intl `AppConfig`).
+- `apps/client/web/src/messages.d.ts`, `apps/landing/messages.d.ts` — generated from the locale JSON (use-intl / next-intl `AppConfig`).
 - `apps/server/generated/**` — Prisma client output.
-- `apps/tauri/gen/**` — Tauri/Android project scaffolding.
-- `apps/web/dist/**`, `apps/site/.next/**`, `**/node_modules/**`, `bun.lock`, `apps/tauri/target/**`.
-- The `<!-- BEGIN:nextjs-agent-rules -->` block in `apps/site/CLAUDE.md` — rewritten by `next dev`.
+- `apps/client/native/gen/**` — Tauri/Android project scaffolding.
+- `apps/client/web/dist/**`, `apps/landing/.next/**`, `**/node_modules/**`, `bun.lock`, `apps/client/native/target/**`.
+- The `<!-- BEGIN:nextjs-agent-rules -->` block in `apps/landing/CLAUDE.md` — rewritten by `next dev`.
 
 Also not findings:
 
@@ -91,7 +91,7 @@ Also not findings:
 
 Run `bun run verify` before reporting (typecheck × 3 workspaces + ESLint + Prettier + Stylelint). Report the real result: expect **0 errors**; warnings it already emitted before the change are the baseline. If it fails, say what failed and paste the relevant lines. Never report clean without having run it.
 
-Some checks need a toolchain that may be missing (Rust/cargo for `apps/tauri`). If a check cannot run, say so explicitly rather than implying it passed.
+Some checks need a toolchain that may be missing (Rust/cargo for `apps/client/native`). If a check cannot run, say so explicitly rather than implying it passed.
 
 ## Output
 

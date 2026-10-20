@@ -38,7 +38,7 @@ The table below already carries the resolved ids, so step 1 can be skipped for a
 | Pattern matching | `ts-pattern` ^5.9.0 | `/gvergnaud/ts-pattern` |
 | Dates | `date-fns` ^4.4.0 | `/date-fns/date-fns` |
 | Generic hooks | `@siberiacancode/reactuse` ^1.0.16 | resolve on demand |
-| Desktop shell | `@tauri-apps/api` (Tauri 2) | `/tauri-apps/tauri` |
+| Desktop shell | `@tauri-apps/api` (Tauri 2) | `/tauri-apps/client/native` |
 
 Ids for anything not listed: resolve it, then add the row here.
 
