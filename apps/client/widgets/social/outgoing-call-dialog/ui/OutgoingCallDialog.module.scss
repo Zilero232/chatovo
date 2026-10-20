@@ -2,15 +2,10 @@
 
 .content {
   max-width: 24rem;
-  border-color: oklch(100% 0 0deg / 12%);
-  backdrop-filter: blur(rem(24));
-  background: color-mix(in oklch, var(--shell-surface) 95%, transparent);
-  box-shadow: 0 rem(24) rem(64) rem(-24) oklch(82% 0.16 200deg / 45%);
+  border-color: rgb(var(--tint) / 16%);
+  background: color-mix(in srgb, var(--shell-surface) 95%, transparent);
+  box-shadow: 0 rem(24) rem(64) rem(-24) color-mix(in srgb, var(--brand-mint) 45%, transparent);
   gap: 1.5rem;
-
-  @include tauri-mobile {
-    backdrop-filter: none;
-  }
 }
 
 .header {
@@ -32,8 +27,8 @@
   width: 5rem;
   height: 5rem;
   box-shadow:
-    0 0 0 rem(4) color-mix(in oklch, var(--brand-cyan) 20%, transparent),
-    0 0 rem(40) rem(-8) oklch(82% 0.16 200deg / 65%);
+    0 0 0 rem(4) color-mix(in srgb, var(--brand-cyan) 20%, transparent),
+    0 0 rem(40) rem(-8) color-mix(in srgb, var(--brand-mint) 65%, transparent);
 }
 
 .avatarFallback {
@@ -45,7 +40,7 @@
   background-image: linear-gradient(
     to right,
     var(--foreground),
-    color-mix(in oklch, var(--foreground) 80%, transparent)
+    color-mix(in srgb, var(--foreground) 80%, transparent)
   );
   color: transparent;
   font-size: 1.125rem;

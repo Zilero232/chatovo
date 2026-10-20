@@ -1,22 +1,27 @@
 @use '@/ui-kit/styles/mixins' as *;
 
 .root {
-  margin-top: 1.5rem;
-  color: oklch(55% 0.01 280deg);
+  display: flex;
+  justify-content: center;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+  color: var(--subtle-foreground);
+  gap: var(--space-2);
 }
 
 .link {
-  color: oklch(65% 0.01 280deg);
+  border-radius: var(--radius-sm);
   text-underline-offset: rem(4);
   transition: color var(--duration-fast) var(--timing-function-standard);
 
+  @include focus-ring;
+
   &:hover {
-    color: oklch(85% 0.01 280deg);
+    color: var(--foreground);
     text-decoration: underline;
   }
 }
 
 .sep {
-  color: oklch(45% 0.01 280deg);
-  margin-inline: 0.5rem;
+  color: var(--border-strong);
 }

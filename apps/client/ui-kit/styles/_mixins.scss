@@ -3,18 +3,18 @@
 @use '@/ui-kit/styles/functions' as *;
 @use '@/ui-kit/styles/breakpoints' as *;
 
-@mixin focus-ring($color: var(--brand-violet)) {
+@mixin focus-ring($color: var(--ring)) {
   &:focus-visible {
-    box-shadow: 0 0 0 #{rem(2)} color-mix(in oklch, #{$color} 50%, transparent);
+    box-shadow: 0 0 0 #{rem(2)} #{$color};
     outline: none;
   }
 }
 
-@mixin button-focus-ring($color: var(--brand-violet)) {
+@mixin button-focus-ring($color: var(--ring)) {
   &:focus-visible {
     box-shadow:
-      0 0 0 #{rem(2)} color-mix(in oklch, #{$color} 50%, transparent),
-      0 0 0 #{rem(4)} var(--background);
+      0 0 0 #{rem(2)} var(--background),
+      0 0 0 #{rem(4)} #{$color};
     outline: none;
   }
 }
@@ -44,36 +44,28 @@
 
 @mixin field-base {
   min-width: 0;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  backdrop-filter: blur(rem(12));
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius-md);
   background: var(--input);
-  box-shadow: inset 0 rem(2) rem(4) oklch(0% 0 0deg / 20%);
   color: var(--foreground);
   outline: none;
-  transition: all var(--duration-fast) var(--timing-function-standard);
-
-  @include tauri-mobile {
-    backdrop-filter: none;
-    transition:
-      border-color var(--duration-fast) var(--timing-function-standard),
-      box-shadow var(--duration-fast) var(--timing-function-standard);
-  }
+  transition:
+    border-color var(--duration-fast) var(--timing-function-standard),
+    box-shadow var(--duration-fast) var(--timing-function-standard);
 
   &::placeholder {
-    color: var(--muted-foreground);
+    color: var(--subtle-foreground);
   }
 
   &:hover:not(:disabled) {
-    border-color: oklch(100% 0 0deg / 20%);
+    border-color: var(--border-strong);
   }
 }
 
 @mixin field-focus {
   &:focus-visible {
-    border-color: color-mix(in oklch, var(--brand-cyan) 60%, transparent);
-    background: oklch(100% 0 0deg / 8%);
-    box-shadow: 0 0 0 #{rem(2)} color-mix(in oklch, var(--brand-cyan) 25%, transparent);
+    border-color: var(--ring);
+    box-shadow: 0 0 0 #{rem(1)} var(--ring);
   }
 }
 
@@ -91,9 +83,9 @@
   align-items: center;
   justify-content: center;
   border: none;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   font-size: var(--text-sm);
-  font-weight: 500;
+  font-weight: 600;
   gap: var(--space-2);
   outline: none;
   text-decoration: none;
@@ -254,5 +246,50 @@
 @mixin tauri-mobile {
   :global(.tauri-mobile) & {
     @content;
+  }
+}
+
+@mixin round-trigger-accent($accent) {
+  border-color: color-mix(in srgb, #{$accent} 45%, transparent);
+  background: color-mix(in srgb, #{$accent} 18%, transparent);
+  color: $accent;
+}
+
+@mixin round-trigger($accent) {
+  display: flex;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(var(--tint) / 14%);
+  border-radius: 9999px;
+  background: rgb(var(--tint) / 8%);
+  color: var(--muted-foreground);
+  transition: all var(--duration-fast) var(--timing-function-standard);
+
+  @include interactive-cursor;
+  @include button-focus-ring;
+
+  @include bp(sm) {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  @include hover {
+    @include round-trigger-accent($accent);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &[data-popup-open] {
+    @include round-trigger-accent($accent);
+  }
+
+  svg {
+    width: var(--icon-sm);
+    height: var(--icon-sm);
   }
 }

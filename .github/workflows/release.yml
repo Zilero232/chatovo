@@ -265,11 +265,12 @@ jobs:
           packages: platform-tools
 
       # setup-android ships the SDK but not the NDK, which cargo needs to
-      # cross-compile to the android targets.
+      # cross-compile to the android targets. r28+ links 16 KB aligned by
+      # default, which Play requires (apps/tauri/.cargo/config.toml pins it too).
       - uses: nttld/setup-ndk@ed92fe6cadad69be94a966a7ee3271275e62f779 # v1
         id: ndk
         with:
-          ndk-version: r27c
+          ndk-version: r28c
 
       - uses: ./.github/actions/setup
         with:

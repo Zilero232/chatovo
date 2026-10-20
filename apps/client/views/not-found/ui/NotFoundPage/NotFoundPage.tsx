@@ -1,12 +1,11 @@
 'use client';
 
-import { clsx } from 'clsx';
-import { ArrowLeft, Compass } from 'lucide-react';
+import { ArrowLeft, House } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 
 import { ROUTES } from '@/shared/constants';
-import { Button, ErrorGlyph, Text } from '@/ui-kit';
+import { Button, Chato, Text } from '@/ui-kit';
 
 import s from './NotFoundPage.module.scss';
 
@@ -17,14 +16,9 @@ export const NotFoundPage = () => {
 
   return (
     <main className={s.root}>
-      <span aria-hidden className={s.orb} data-tone='violet' />
-      <span aria-hidden className={s.orb} data-tone='cyan' />
+      <Chato className={s.chato} pose='peek' />
 
-      <div className={clsx(s.badge, 'glass')}>
-        <ErrorGlyph className={s.logo} variant='severed-ring' />
-      </div>
-
-      <p className={clsx(s.code, 'gradient-text')}>404</p>
+      <p className={s.code}>404</p>
 
       <h1 className={s.title}>{t('title')}</h1>
       <Text className={s.description} tone='muted'>
@@ -33,11 +27,11 @@ export const NotFoundPage = () => {
 
       <div className={s.actions}>
         <Button onClick={() => router.push(ROUTES.lobby)}>
-          <Compass />
+          <House />
           {t('toLobby')}
         </Button>
 
-        <Button variant='outline' onClick={() => router.back()}>
+        <Button variant='ghost' onClick={() => router.back()}>
           <ArrowLeft />
           {t('back')}
         </Button>

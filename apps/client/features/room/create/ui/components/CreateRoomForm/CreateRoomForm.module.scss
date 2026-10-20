@@ -9,7 +9,7 @@
   padding: var(--space-3);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  background: oklch(100% 0 0deg / 3%);
+  background: rgb(var(--tint) / 3%);
 }
 
 .privacyLabel {

@@ -3,13 +3,12 @@
 .root {
   display: flex;
   flex-direction: column;
-  gap: 0.625rem;
+  gap: var(--space-3);
 }
 
 .title {
   padding-left: rem(2);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-size: var(--text-base);
 }
 
 .grid {

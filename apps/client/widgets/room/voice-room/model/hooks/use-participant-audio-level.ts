@@ -6,16 +6,14 @@ import { useParticipantTracks } from '@livekit/components-react';
 import { createAudioAnalyser, LocalAudioTrack, RemoteAudioTrack, Track } from 'livekit-client';
 import { useEffect, useState } from 'react';
 
-import { isTauriMobile } from '@/shared/lib';
+import { AUDIO_LEVEL_ANALYSER, isTauriMobile, readAudioLevel } from '@/shared/lib';
 
 import {
-  ANALYSER_OPTIONS,
   FRAME_INTERVAL_MS,
   LEVEL_ATTACK,
   LEVEL_RELEASE,
   LITE_FRAME_INTERVAL_MS
 } from '../../config';
-import { readAudioLevel } from '../../lib';
 
 export const useParticipantAudioLevel = <T extends HTMLElement>(participant: Participant) => {
   const [micTrack] = useParticipantTracks([Track.Source.Microphone], participant.identity);
@@ -33,7 +31,7 @@ export const useParticipantAudioLevel = <T extends HTMLElement>(participant: Par
       return;
     }
 
-    const { analyser, cleanup } = createAudioAnalyser(track, ANALYSER_OPTIONS);
+    const { analyser, cleanup } = createAudioAnalyser(track, AUDIO_LEVEL_ANALYSER);
     const bins = new Uint8Array(new ArrayBuffer(analyser.frequencyBinCount));
     const interval = isTauriMobile() ? LITE_FRAME_INTERVAL_MS : FRAME_INTERVAL_MS;
 
@@ -50,7 +48,7 @@ export const useParticipantAudioLevel = <T extends HTMLElement>(participant: Par
 
       lastFrameAt = now;
 
-      const level = readAudioLevel(analyser, bins);
+      const level = readAudioLevel({ analyser, bins });
 
       smoothed += (level - smoothed) * (level > smoothed ? LEVEL_ATTACK : LEVEL_RELEASE);
 

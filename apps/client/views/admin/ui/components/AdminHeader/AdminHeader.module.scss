@@ -1,7 +1,7 @@
 @use '@/ui-kit/styles/mixins' as *;
 
 .root {
-  margin-bottom: 0.25rem;
+  margin-bottom: var(--space-1);
 }
 
 .text {
@@ -23,18 +23,17 @@
 
 .badge {
   display: grid;
-  width: rem(38);
-  height: rem(38);
+  width: var(--control-lg);
+  height: var(--control-lg);
   flex-shrink: 0;
-  border: 1px solid oklch(70% 0.2 270deg / 30%);
-  border-radius: rem(13);
-  background: oklch(70% 0.2 270deg / 14%);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--brand-violet) 16%, var(--surface-2));
   place-items: center;
 }
 
 .icon {
-  width: rem(19);
-  height: rem(19);
+  width: var(--icon-md);
+  height: var(--icon-md);
   color: var(--brand-violet);
 }
 
@@ -45,7 +44,7 @@
   }
 
   .icon {
-    width: rem(22);
-    height: rem(22);
+    width: var(--icon-lg);
+    height: var(--icon-lg);
   }
 }

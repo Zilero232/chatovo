@@ -21,22 +21,19 @@
 }
 
 .barInactive {
-  background: oklch(100% 0 0deg / 15%);
+  background: rgb(var(--tint) / 15%);
 }
 
 .barGood {
   background: var(--brand-cyan);
-  box-shadow: 0 0 rem(6) oklch(82% 0.16 200deg / 60%);
 }
 
 .barFair {
-  background: oklch(85% 0.18 85deg);
-  box-shadow: 0 0 rem(6) oklch(85% 0.18 85deg / 60%);
+  background: var(--brand-sun);
 }
 
 .barPoor {
   background: var(--destructive);
-  box-shadow: 0 0 rem(6) oklch(70% 0.22 22deg / 60%);
 }
 
 .ping {

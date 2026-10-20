@@ -31,7 +31,7 @@ export const MarketingIconGrid = ({
         <RevealOnScroll
           key={key}
           as='article'
-          className={clsx(s.iconGridCard, 'glass')}
+          className={s.iconGridCard}
           delay={Math.min(index, 5) * delayStep}
         >
           <span aria-hidden className={s.iconGridIcon}>

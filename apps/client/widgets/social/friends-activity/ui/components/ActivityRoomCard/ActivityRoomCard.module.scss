@@ -6,17 +6,17 @@
   width: 100%;
   flex-direction: column;
   padding: 0.625rem 0.6875rem;
-  border: 1px solid color-mix(in oklch, var(--brand-cyan) 22%, transparent);
+  border: 1px solid color-mix(in srgb, var(--brand-cyan) 22%, transparent);
   border-radius: var(--radius-lg);
-  background: color-mix(in oklch, var(--brand-cyan) 6%, transparent);
+  background: color-mix(in srgb, var(--brand-cyan) 6%, transparent);
   gap: 0.5rem;
   text-align: left;
   transition: all var(--duration-fast) var(--timing-function-standard);
 
   @include hover {
-    border-color: color-mix(in oklch, var(--brand-cyan) 42%, transparent);
-    background: color-mix(in oklch, var(--brand-cyan) 11%, transparent);
-    box-shadow: 0 rem(8) rem(22) rem(-14) oklch(82% 0.16 200deg / 60%);
+    border-color: color-mix(in srgb, var(--brand-cyan) 42%, transparent);
+    background: color-mix(in srgb, var(--brand-cyan) 11%, transparent);
+    box-shadow: 0 rem(8) rem(22) rem(-14) color-mix(in srgb, var(--brand-mint) 60%, transparent);
   }
 
   @include button-focus-ring(var(--brand-cyan));
@@ -35,7 +35,6 @@
   border-radius: 9999px;
   animation: activity-pulse 2s ease-in-out infinite;
   background: var(--brand-cyan);
-  box-shadow: 0 0 rem(8) rem(2) oklch(82% 0.16 200deg / 55%);
 
   @include reduced-motion {
     animation: none;
@@ -62,9 +61,7 @@
   color: var(--brand-cyan);
   font-size: rem(10);
   font-weight: 600;
-  letter-spacing: 0.06em;
   opacity: 0;
-  text-transform: uppercase;
   transition: opacity var(--duration-fast) var(--timing-function-standard);
 
   .root:hover & {
@@ -110,13 +107,12 @@
   padding: rem(2);
   border: rem(2) solid var(--shell-surface);
   border-radius: 9999px;
-  background: color-mix(in oklch, var(--muted-foreground) 55%, var(--shell-surface));
+  background: color-mix(in srgb, var(--muted-foreground) 55%, var(--shell-surface));
   color: var(--shell-surface);
 }
 
 .micDotLive {
-  background: oklch(78% 0.19 145deg);
-  box-shadow: 0 0 rem(6) oklch(78% 0.19 145deg / 70%);
+  background: var(--brand-mint);
 }
 
 .micIcon {
@@ -128,7 +124,7 @@
 .personName {
   overflow: hidden;
   min-width: 0;
-  color: color-mix(in oklch, var(--sidebar-foreground) 82%, transparent);
+  color: color-mix(in srgb, var(--sidebar-foreground) 82%, transparent);
   font-size: 0.75rem;
 
   @include text-ellipsis;

@@ -5,14 +5,9 @@
   min-width: 0;
   flex-direction: column;
   padding: 0.625rem;
-  border-top: 1px solid oklch(100% 0 0deg / 8%);
-  backdrop-filter: blur(rem(4));
-  background: oklch(100% 0 0deg / 2%);
+  border-top: 1px solid rgb(var(--tint) / 11%);
+  background: rgb(var(--tint) / 2%);
   gap: 0.5rem;
-
-  @include tauri-mobile {
-    backdrop-filter: none;
-  }
 }
 
 .floating {
@@ -21,7 +16,7 @@
   right: 0.5rem;
   bottom: calc(0.5rem + var(--safe-area-bottom));
   left: 0.5rem;
-  border: 1px solid oklch(100% 0 0deg / 12%);
+  border: 1px solid rgb(var(--tint) / 16%);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-elevated);
 }
@@ -47,14 +42,13 @@
   height: rem(28);
   flex-shrink: 0;
   border-radius: 9999px;
-  background: color-mix(in oklch, var(--muted-foreground) 18%, transparent);
+  background: color-mix(in srgb, var(--muted-foreground) 18%, transparent);
   color: var(--muted-foreground);
   place-items: center;
 }
 
 .pulseLive {
-  background: color-mix(in oklch, var(--brand-violet) 22%, transparent);
-  box-shadow: 0 0 rem(14) rem(-4) var(--brand-violet);
+  background: color-mix(in srgb, var(--brand-violet) 22%, transparent);
   color: var(--brand-violet);
 }
 
@@ -83,24 +77,24 @@
 .action {
   flex: 1;
   border-radius: var(--radius-md);
-  background: oklch(100% 0 0deg / 6%);
+  background: rgb(var(--tint) / 9%);
   color: var(--muted-foreground);
 
   @include hover {
     &:not(:disabled) {
-      background: oklch(100% 0 0deg / 12%);
+      background: rgb(var(--tint) / 16%);
       color: var(--foreground);
     }
   }
 }
 
 .off {
-  background: color-mix(in oklch, var(--destructive) 15%, transparent);
+  background: color-mix(in srgb, var(--destructive) 15%, transparent);
   color: var(--destructive);
 
   @include hover {
     &:not(:disabled) {
-      background: color-mix(in oklch, var(--destructive) 25%, transparent);
+      background: color-mix(in srgb, var(--destructive) 25%, transparent);
       color: var(--destructive);
     }
   }
@@ -111,7 +105,7 @@
 
   @include hover {
     &:not(:disabled) {
-      background: color-mix(in oklch, var(--destructive) 15%, transparent);
+      background: color-mix(in srgb, var(--destructive) 15%, transparent);
       color: var(--destructive);
     }
   }

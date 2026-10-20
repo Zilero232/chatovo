@@ -19,6 +19,7 @@ export type {
   AudioSettings,
   DeviceSettings,
   MicActivationMode,
+  MusicSettings,
   ScreenQuality,
   ShortcutActionId,
   ShortcutBinding,

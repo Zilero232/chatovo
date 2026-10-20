@@ -4,20 +4,30 @@ export const GLOBAL_ERROR_STYLES = {
   main: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '1.5rem',
+    gap: '1.25rem',
     alignItems: 'center',
     justifyContent: 'center',
     minHeight: '100vh',
     padding: '1.5rem',
-    textAlign: 'center'
+    textAlign: 'center',
+    color: '#f5ecdf',
+    background: '#16111b'
   },
-  title: { margin: 0, fontSize: '1.5rem', fontWeight: 600 },
-  description: { margin: 0, maxWidth: '28rem', opacity: 0.7 },
+  title: {
+    margin: 0,
+    fontFamily: "Lora, Georgia, 'Times New Roman', serif",
+    fontSize: '1.75rem',
+    fontWeight: 600,
+    lineHeight: 1.2
+  },
+  description: { margin: 0, maxWidth: '28rem', color: '#b8acbf', lineHeight: 1.6 },
   button: {
-    padding: '0.625rem 1.25rem',
-    border: '1px solid rgb(255 255 255 / 15%)',
-    borderRadius: '0.5rem',
-    color: 'inherit',
-    background: 'rgb(255 255 255 / 8%)'
+    padding: '0.625rem 1.375rem',
+    border: 'none',
+    borderRadius: '9999px',
+    color: '#2a1015',
+    background: '#ff7a59',
+    fontWeight: 600,
+    cursor: 'pointer'
   }
 } satisfies Record<string, CSSProperties>;

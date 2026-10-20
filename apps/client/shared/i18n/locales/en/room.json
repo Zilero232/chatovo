@@ -8,10 +8,6 @@
       "live": "Live now",
       "online": "Online"
     },
-    "recent": {
-      "heading": "Continue",
-      "privateRoom": "Private room"
-    },
     "roomsHeading": "Rooms",
     "searchPlaceholder": "Search rooms...",
     "filters": {
@@ -44,6 +40,10 @@
       "ownerTooltip": "Room owner",
       "micMuted": "Microphone muted",
       "deafened": "Sound off"
+    },
+    "recent": {
+      "heading": "Continue",
+      "privateRoom": "Private room"
     }
   },
   "room": {
@@ -84,6 +84,110 @@
         "applause": "Applause"
       }
     },
+    "music": {
+      "label": "Room music",
+      "title": "Music in the room",
+      "description": "Play tracks for everyone in the room, or share your own music.",
+      "nowPlaying": {
+        "addedBy": "Added by {name}",
+        "live": "Live",
+        "play": "Play",
+        "pause": "Pause",
+        "previous": "Previous track",
+        "next": "Next track",
+        "stop": "Stop the music",
+        "open": "Open the source",
+        "expand": "Open the player"
+      },
+      "progress": {
+        "seek": "Track position",
+        "unknown": "–:––"
+      },
+      "empty": {
+        "title": "It's quiet here",
+        "description": "Paste a link or turn on the radio."
+      },
+      "search": {
+        "label": "Add music",
+        "placeholder": "Paste a link or search radio",
+        "hint": "YouTube, SoundCloud and Vimeo links or a direct link to an audio file go to the queue; anything else searches radio stations.",
+        "clear": "Clear"
+      },
+      "queue": {
+        "title": "Up next",
+        "empty": "Nothing queued yet.",
+        "remove": "Remove {title} from the queue"
+      },
+      "add": {
+        "link": "{source} link",
+        "submit": "Add to queue",
+        "added": "Added to the queue"
+      },
+      "radio": {
+        "label": "Stations",
+        "empty": "No stations found.",
+        "error": "Radio search is unavailable right now.",
+        "play": "Play {name}"
+      },
+      "genres": {
+        "title": "Radio by mood",
+        "items": {
+          "lofi": "Lo-fi",
+          "jazz": "Jazz",
+          "rock": "Rock",
+          "classical": "Classical",
+          "ambient": "Ambient",
+          "chill": "Chill"
+        }
+      },
+      "share": {
+        "title": "My music",
+        "hint": "Music plays from your account — VK Music, Yandex Music or anything else open in a browser tab — and everyone in the room hears it.",
+        "tab": "Share a tab's audio",
+        "tabHint": "In the picker, choose the tab with the music and turn on “Share tab audio”.",
+        "tabUnsupported": "Sharing a tab's audio needs a desktop browser.",
+        "files": "Play files from this device",
+        "sharingTab": "Sharing audio from a tab",
+        "playingFile": "Playing {name}",
+        "paused": "Paused: {name}",
+        "pause": "Pause",
+        "resume": "Resume",
+        "next": "Next file",
+        "stop": "Stop sharing",
+        "noAudio": "No audio was shared — turn on “Share tab audio” in the picker.",
+        "fileFailed": "Couldn't play {name}.",
+        "publishFailed": "Couldn't start sharing in this room."
+      },
+      "settings": {
+        "volume": "Music volume",
+        "ducking": "Lower the music while people talk"
+      },
+      "player": {
+        "unplayable": "This track can't be played here — skipping it.",
+        "unavailable": "The player didn't load — the service may be blocked on your network.",
+        "tapToListen": "Tap to listen"
+      },
+      "sources": {
+        "youtube": "YouTube",
+        "soundcloud": "SoundCloud",
+        "radio": "Radio",
+        "vimeo": "Vimeo",
+        "file": "Audio file"
+      },
+      "playInRoom": "Play in the room",
+      "tabOnly": {
+        "title": "{service} can't be embedded",
+        "hint": "Play it in a browser tab, then use “Share a tab's audio” in My music below — everyone in the room will hear it.",
+        "services": {
+          "vk": "VK",
+          "yandex": "Yandex Music",
+          "spotify": "Spotify",
+          "apple": "Apple Music",
+          "zvuk": "Zvuk",
+          "deezer": "Deezer"
+        }
+      }
+    },
     "password": {
       "heading": "This room is locked",
       "hint": "Ask whoever sent you the link for the password — “{name}” will not open without it.",
@@ -120,7 +224,11 @@
     "collapseVideo": "Collapse video",
     "invisibleBadge": "Invisible",
     "invisibleNotice": "You joined hidden: nobody sees or hears you",
-    "invisibleSwitching": "Reconnecting — invisible mode changed"
+    "invisibleSwitching": "Reconnecting — invisible mode changed",
+    "badges": {
+      "screen": "Screen",
+      "music": "Music"
+    }
   },
   "chat": {
     "title": "Chat",

@@ -1,0 +1,24 @@
+.root {
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.scroll {
+  min-height: 0;
+  flex: 1;
+}
+
+.sections {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-1) var(--space-5) var(--space-4);
+  gap: var(--space-6);
+}
+
+.footer {
+  padding: var(--space-3) var(--space-5) var(--space-4);
+  border-top: 1px solid var(--border);
+}

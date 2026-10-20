@@ -71,10 +71,10 @@
   width: 38%;
   min-width: 6.5rem;
   max-width: 15rem;
-  border: 1px solid oklch(100% 0 0deg / 12%);
+  border: 1px solid rgb(var(--tint) / 16%);
   border-radius: var(--radius-lg);
   aspect-ratio: 4 / 3;
-  box-shadow: 0 rem(10) rem(30) rem(-8) oklch(0% 0 0deg / 70%);
+  box-shadow: 0 rem(10) rem(30) rem(-8) rgb(8 4 10 / 70%);
 
   @include bp(sm) {
     right: 1rem;

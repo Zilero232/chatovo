@@ -16,11 +16,11 @@
   height: 2.75rem;
   align-items: center;
   justify-content: center;
-  border: 1px solid color-mix(in oklch, var(--brand-violet) 24%, transparent);
+  border: 1px solid color-mix(in srgb, var(--brand-violet) 24%, transparent);
   border-radius: 9999px;
   margin-bottom: 0.125rem;
   animation: activity-empty-breathe 4s ease-in-out infinite;
-  background: color-mix(in oklch, var(--brand-violet) 10%, transparent);
+  background: color-mix(in srgb, var(--brand-violet) 10%, transparent);
 
   @include reduced-motion {
     animation: none;
@@ -38,7 +38,7 @@
 }
 
 .title {
-  color: color-mix(in oklch, var(--sidebar-foreground) 88%, transparent);
+  color: color-mix(in srgb, var(--sidebar-foreground) 88%, transparent);
   font-size: 0.8125rem;
   font-weight: 600;
 }
@@ -53,10 +53,6 @@
 @keyframes activity-empty-breathe {
   0%,
   100% {
-    box-shadow: 0 0 0 0 oklch(70% 0.2 270deg / 0%);
-  }
-
-  50% {
-    box-shadow: 0 0 rem(18) rem(2) oklch(70% 0.2 270deg / 22%);
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--brand-violet) 0%, transparent);
   }
 }

@@ -15,7 +15,7 @@ export const StatCard = ({ label, value, icon: Icon, hint, tone = 'default' }: S
     </span>
 
     <div className={s.body}>
-      <Text truncate className={s.label} size='xs' tone='muted'>
+      <Text truncate size='xs' tone='muted'>
         {label}
       </Text>
 

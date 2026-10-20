@@ -22,6 +22,12 @@ const rooms = {
     ['livekit-token', roomName, password ?? null, invisible ?? false] as const
 };
 
+const music = {
+  roomMusicRoot: () => ['room-music'] as const,
+  roomMusic: (roomId: string) => ['room-music', roomId] as const,
+  radioStations: (query: string) => ['radio-stations', query] as const
+};
+
 const chat = {
   chatMessagesRoot: () => ['chat-messages'] as const,
   chatMessages: (roomId: string) => ['chat-messages', roomId] as const,
@@ -53,6 +59,7 @@ const meta = {
 export const QUERY_KEYS = {
   ...admin,
   ...rooms,
+  ...music,
   ...chat,
   ...friends,
   ...users,

@@ -1,3 +1,2 @@
-export { AUTH_EQ_BARS } from './equalizer';
-export { AUTH_FEATURES } from './features';
-export { AUTH_ROOM_SPEAKERS, AUTH_STAT_KEYS } from './room-preview';
+export { AUTH_CHATO_POSE } from './chato';
+export { AUTH_SCENE_LINES } from './scene';

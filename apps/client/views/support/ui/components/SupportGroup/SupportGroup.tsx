@@ -1,4 +1,3 @@
-import { clsx } from 'clsx';
 import { getTranslations } from 'next-intl/server';
 
 import { RevealOnScroll, Text } from '@/ui-kit';
@@ -36,7 +35,7 @@ export const SupportGroup = async ({ groupKey, locale }: SupportGroupProps) => {
           <RevealOnScroll
             key={itemKey}
             as='article'
-            className={clsx(s.item, 'glass')}
+            className={s.item}
             delay={Math.min(index, 4) * 0.05}
           >
             <Text as='h3' className={s.question} weight='semibold'>

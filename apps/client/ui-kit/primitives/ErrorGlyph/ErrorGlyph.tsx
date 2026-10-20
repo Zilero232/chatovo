@@ -23,8 +23,8 @@ export const ErrorGlyph = ({ variant = 'broken-wave', className, ...props }: Err
     >
       <defs>
         <linearGradient id={gradientId} x1='0' x2='1' y1='0' y2='1'>
-          <stop offset='0%' stopColor='var(--brand-cyan)' />
-          <stop offset='100%' stopColor='var(--brand-violet)' />
+          <stop offset='0%' stopColor='var(--brand-coral)' />
+          <stop offset='100%' stopColor='var(--brand-sun)' />
         </linearGradient>
       </defs>
 

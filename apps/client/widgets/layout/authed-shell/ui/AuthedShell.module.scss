@@ -23,7 +23,7 @@
 
   @include bp(md) {
     flex-direction: row;
-    border: 1px solid oklch(0% 0 0deg / 30%);
+    border: 1px solid rgb(8 4 10 / 30%);
     border-radius: var(--radius-2xl);
     background-color: var(--column-content);
     box-shadow: var(--shadow-elevated);
@@ -48,6 +48,7 @@
   min-height: 0;
   flex: 1;
   flex-direction: column;
+  padding-bottom: var(--now-playing-floating-space, 0);
 
   &:empty {
     flex: 0;
@@ -55,5 +56,5 @@
 }
 
 .content:has([data-mini-room='floating']) .page {
-  padding-bottom: calc(5.5rem + var(--safe-area-bottom));
+  padding-bottom: calc(5.5rem + var(--safe-area-bottom) + var(--now-playing-floating-space, 0px));
 }

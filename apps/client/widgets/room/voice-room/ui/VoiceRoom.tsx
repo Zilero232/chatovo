@@ -6,12 +6,13 @@ import { setLogLevel } from 'livekit-client';
 
 import { useMiniRoomSlot } from '@/entities/room/session';
 import { DeafenProvider, ReactionsProvider, RoomAudio } from '@/features/room/room-control';
+import { RoomMusicLayer } from '@/features/room/room-music';
 
 import type { VoiceRoomProps } from './VoiceRoom.types';
 
 import { LocalSpeakingProvider } from '../model/contexts';
 import { useChatToggle, useRoomConnection } from '../model/hooks';
-import { ExpandedRoomView, MiniRoomHost } from './components';
+import { ExpandedRoomView, MiniRoomHost, RoomHeader, RoomMusicScope } from './components';
 import { RoomControllers } from './controllers';
 
 import s from './VoiceRoom.module.scss';
@@ -56,28 +57,34 @@ export const VoiceRoom = ({
         >
           <LocalSpeakingProvider>
             <DeafenProvider>
-              <ReactionsProvider roomId={roomId}>
-                {isMinimized ? (
-                  <MiniRoomHost
-                    isDm={isDm}
-                    roomName={roomName}
-                    slot={slot}
-                    variant={miniVariant}
-                    onExpand={onExpand}
-                  />
-                ) : (
-                  <ExpandedRoomView
-                    isChatOpen={isChatOpen}
-                    isDm={isDm}
-                    roomId={roomId}
-                    roomName={roomName}
-                    onToggleChat={toggleChat}
-                  />
-                )}
+              <RoomMusicScope roomId={roomId}>
+                <ReactionsProvider roomId={roomId}>
+                  {!isMinimized && <RoomHeader isDm={isDm} name={roomName} />}
 
-                <RoomAudio />
-                <RoomControllers />
-              </ReactionsProvider>
+                  <RoomMusicLayer isMinimized={isMinimized} />
+
+                  {isMinimized ? (
+                    <MiniRoomHost
+                      isDm={isDm}
+                      roomName={roomName}
+                      slot={slot}
+                      variant={miniVariant}
+                      onExpand={onExpand}
+                    />
+                  ) : (
+                    <ExpandedRoomView
+                      isChatOpen={isChatOpen}
+                      isDm={isDm}
+                      roomId={roomId}
+                      roomName={roomName}
+                      onToggleChat={toggleChat}
+                    />
+                  )}
+
+                  <RoomAudio />
+                  <RoomControllers />
+                </ReactionsProvider>
+              </RoomMusicScope>
             </DeafenProvider>
           </LocalSpeakingProvider>
         </LiveKitRoom>

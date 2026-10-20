@@ -1,4 +1,3 @@
-import { clsx } from 'clsx';
 import { getTranslations } from 'next-intl/server';
 
 import { RevealOnScroll, Text } from '@/ui-kit';
@@ -16,9 +15,9 @@ export const HomeDesktop = async ({ locale }: HomePageProps) => {
 
   return (
     <MarketingSection id='desktop'>
-      <RevealOnScroll className={clsx(s.desktop, 'glass')}>
+      <RevealOnScroll className={s.desktop}>
         <div className={s.desktopCopy}>
-          <Text as='span' className={s.eyebrow} size='xs' weight='medium'>
+          <Text as='span' className={s.eyebrow} size='sm' weight='medium'>
             <span aria-hidden className={s.eyebrowDot} />
             {t('eyebrow')}
           </Text>

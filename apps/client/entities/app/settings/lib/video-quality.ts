@@ -1,4 +1,11 @@
-import type { TrackPublishDefaults, VideoCaptureOptions, VideoResolution } from 'livekit-client';
+import type {
+  ScreenShareCaptureOptions,
+  TrackPublishDefaults,
+  VideoCaptureOptions,
+  VideoResolution
+} from 'livekit-client';
+
+import { DISPLAY_AUDIO_CAPTURE } from '@/shared/lib';
 
 import type { ScreenQuality, VideoQuality } from '../model/types';
 
@@ -36,10 +43,12 @@ export const getCameraCaptureOptions = (quality: VideoQuality): VideoCaptureOpti
   resolution: CAMERA_PRESETS[quality]
 });
 
-export const getScreenCaptureOptions = (quality: ScreenQuality) => ({
+export const getScreenCaptureOptions = (quality: ScreenQuality): ScreenShareCaptureOptions => ({
   resolution: SCREEN_PRESETS[quality],
-  contentHint: 'detail' as const,
-  audio: true
+  contentHint: 'detail',
+  audio: DISPLAY_AUDIO_CAPTURE,
+  selfBrowserSurface: 'exclude',
+  systemAudio: 'include'
 });
 
 export const getPublishDefaults = (

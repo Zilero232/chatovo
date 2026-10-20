@@ -5,9 +5,9 @@
   height: 1.75rem;
   flex-shrink: 0;
   padding: 0;
-  border: 1px solid oklch(100% 0 0deg / 8%);
+  border: 1px solid rgb(var(--tint) / 11%);
   border-radius: 0.5rem;
-  background: oklch(22% 0.018 280deg / 85%);
+  background: color-mix(in srgb, var(--surface-1) 85%, transparent);
   color: var(--muted-foreground);
   cursor: pointer;
   transition:
@@ -16,8 +16,8 @@
     border-color var(--duration-fast) var(--timing-function-standard);
 
   &:hover {
-    border-color: color-mix(in oklch, var(--brand-violet) 40%, transparent);
-    background: oklch(28% 0.02 280deg / 95%);
+    border-color: color-mix(in srgb, var(--brand-violet) 40%, transparent);
+    background: color-mix(in srgb, var(--surface-3) 95%, transparent);
     color: var(--foreground);
   }
 

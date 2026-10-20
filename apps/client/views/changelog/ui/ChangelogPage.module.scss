@@ -32,6 +32,7 @@
   order: 1;
   margin: 0;
   color: var(--foreground);
+  font-family: var(--font-display);
   font-size: clamp(#{rem(20)}, 3vw, #{rem(26)});
   font-weight: 600;
   letter-spacing: -0.02em;
@@ -45,7 +46,9 @@
 
 .release {
   padding: var(--space-5);
+  border: 1px solid var(--border);
   border-radius: var(--radius-xl);
+  background-color: var(--surface-1);
 }
 
 .releaseHead {
@@ -65,6 +68,7 @@
 
 .releaseVersion {
   &#{&}#{&} {
+    font-family: var(--font-display);
     font-size: clamp(#{rem(20)}, 2.5vw, #{rem(26)});
     font-weight: 600;
   }
@@ -74,18 +78,16 @@
 
 .releaseTone {
   padding: rem(2) rem(10);
-  border: 1px solid oklch(100% 0 0deg / 10%);
-  border-radius: 9999px;
-  background: oklch(100% 0 0deg / 5%);
+  border: 1px solid rgb(var(--tint) / 14%);
+  border-radius: var(--radius-md);
+  background: rgb(var(--tint) / 8%);
   color: var(--muted-foreground);
   font-size: 0.6875rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
 }
 
 .releaseToneMajor {
-  border-color: color-mix(in oklch, var(--brand-violet) 40%, transparent);
-  background: color-mix(in oklch, var(--brand-violet) 15%, transparent);
+  border-color: color-mix(in srgb, var(--brand-violet) 40%, transparent);
+  background: color-mix(in srgb, var(--brand-violet) 15%, transparent);
   color: var(--brand-violet);
 }
 
@@ -103,10 +105,10 @@
 
 .highlight {
   padding: rem(3) rem(10);
-  border: 1px solid color-mix(in oklch, var(--brand-cyan) 30%, transparent);
-  border-radius: 9999px;
-  background: color-mix(in oklch, var(--brand-cyan) 12%, transparent);
-  color: var(--brand-cyan);
+  border: 1px solid color-mix(in srgb, var(--brand-mint) 30%, transparent);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--brand-mint) 12%, transparent);
+  color: var(--brand-mint);
   font-size: 0.75rem;
 }
 
@@ -165,29 +167,34 @@
     display: inline-flex;
     align-items: center;
     padding: rem(2) rem(8);
-    border-radius: 9999px;
-    background: oklch(100% 0 0deg / 6%);
+    border-radius: var(--radius-md);
+    background: rgb(var(--tint) / 9%);
     font-size: 0.6875rem;
     white-space: nowrap;
   }
 }
 
 .kindFeature {
-  background: color-mix(in oklch, var(--brand-violet) 16%, transparent);
+  background: color-mix(in srgb, var(--brand-violet) 16%, transparent);
   color: var(--brand-violet);
 }
 
 .kindFix {
-  background: color-mix(in oklch, oklch(85% 0.18 85deg) 16%, transparent);
-  color: oklch(90% 0.12 85deg);
+  background: color-mix(in srgb, var(--brand-sun) 16%, transparent);
+  color: var(--brand-sun);
 }
 
 .kindImprovement {
-  background: color-mix(in oklch, var(--brand-cyan) 16%, transparent);
-  color: var(--brand-cyan);
+  background: color-mix(in srgb, var(--brand-mint) 16%, transparent);
+  color: var(--brand-mint);
 }
 
 .kindSecurity {
-  background: color-mix(in oklch, var(--destructive) 16%, transparent);
+  background: color-mix(in srgb, var(--destructive) 16%, transparent);
   color: var(--destructive);
+}
+
+.releaseVersionLatest {
+  color: var(--brand-sun);
+  font-style: italic;
 }

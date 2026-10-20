@@ -1,17 +1,17 @@
 'use client';
 
 import { clsx } from 'clsx';
-import { EyeOff, ScreenShare } from 'lucide-react';
+import { EyeOff, Music, ScreenShare } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 import type { ParticipantBadgesProps } from './ParticipantBadges.types';
 
 import s from '../../ParticipantCard.module.scss';
 
-export const ParticipantBadges = ({ hasScreen, invisible }: ParticipantBadgesProps) => {
+export const ParticipantBadges = ({ hasMusic, hasScreen, invisible }: ParticipantBadgesProps) => {
   const t = useTranslations('room');
 
-  if (!hasScreen && !invisible) {
+  if (!hasMusic && !hasScreen && !invisible) {
     return null;
   }
 
@@ -26,7 +26,13 @@ export const ParticipantBadges = ({ hasScreen, invisible }: ParticipantBadgesPro
       {hasScreen && (
         <span className={s.badge}>
           <ScreenShare className={s.badgeIcon} />
-          share
+          {t('badges.screen')}
+        </span>
+      )}
+      {hasMusic && (
+        <span className={s.badge}>
+          <Music className={s.badgeIcon} />
+          {t('badges.music')}
         </span>
       )}
     </div>

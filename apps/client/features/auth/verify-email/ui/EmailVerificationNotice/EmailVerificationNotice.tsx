@@ -1,13 +1,13 @@
 'use client';
 
-import { Loader2, MailWarning } from 'lucide-react';
+import { MailWarning } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { toast } from 'sonner';
 
 import { useToastError } from '@/entities/app/locale';
 import { useCurrentUser, useSendVerificationEmail } from '@/entities/auth/user';
-import { Button, Text } from '@/ui-kit';
+import { Button, Spinner, Text } from '@/ui-kit';
 
 import s from './EmailVerificationNotice.module.scss';
 
@@ -37,7 +37,7 @@ export const EmailVerificationNotice = () => {
   return (
     <div className={s.root} role='status'>
       <div className={s.header}>
-        <MailWarning className={s.icon} />
+        <MailWarning aria-hidden className={s.icon} />
         <div className={s.copy}>
           <Text size='sm' weight='medium'>
             {t('emailNotVerifiedTitle')}
@@ -50,7 +50,7 @@ export const EmailVerificationNotice = () => {
 
       <div className={s.actions}>
         <Button disabled={isPending} size='sm' type='button' variant='secondary' onClick={send}>
-          {isPending && <Loader2 className={s.spinner} />}
+          {isPending && <Spinner decorative />}
           {sent ? t('emailVerificationResend') : t('emailVerificationSend')}
         </Button>
         {sent && <span className={s.sent}>{t('emailVerificationSentHint')}</span>}

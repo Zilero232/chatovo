@@ -6,15 +6,7 @@
   transition:
     transform 120ms cubic-bezier(0.2, 0, 0, 1),
     background-color var(--duration-fast) var(--timing-function-standard),
-    box-shadow var(--duration-fast) var(--timing-function-standard),
     color var(--duration-fast) var(--timing-function-standard);
-
-  @include tauri-mobile {
-    transition:
-      transform 120ms cubic-bezier(0.2, 0, 0, 1),
-      background-color var(--duration-fast) var(--timing-function-standard),
-      color var(--duration-fast) var(--timing-function-standard);
-  }
 
   &:active:not(:disabled) {
     transform: scale(0.96);
@@ -30,27 +22,23 @@
 }
 
 .default {
-  background: var(--brand-violet);
-  color: oklch(98% 0 0deg);
+  background: var(--primary);
+  color: var(--primary-foreground);
 
   @include hover {
     &:not(:disabled) {
-      background: oklch(57% 0.185 272deg);
+      background: var(--primary-hover);
     }
-  }
-
-  &:active:not(:disabled) {
-    background: oklch(52% 0.175 272deg);
   }
 }
 
 .destructive {
-  background: var(--destructive);
-  color: oklch(98% 0 0deg);
+  background: color-mix(in srgb, var(--destructive) 16%, transparent);
+  color: var(--destructive);
 
   @include hover {
     &:not(:disabled) {
-      background: oklch(64% 0.22 22deg);
+      background: color-mix(in srgb, var(--destructive) 26%, transparent);
     }
   }
 }
@@ -62,18 +50,19 @@
 
   @include hover {
     &:not(:disabled) {
-      background: oklch(100% 0 0deg / 7%);
+      background: var(--surface-2);
     }
   }
 }
 
 .secondary {
-  background: var(--secondary);
-  color: var(--secondary-foreground);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--foreground);
 
   @include hover {
     &:not(:disabled) {
-      background: oklch(38% 0.01 268deg / 70%);
+      background: var(--surface-3);
     }
   }
 }
@@ -84,20 +73,24 @@
 
   @include hover {
     &:not(:disabled) {
-      background: oklch(100% 0 0deg / 7%);
+      background: var(--surface-2);
       color: var(--foreground);
     }
   }
 }
 
 .link {
+  height: auto;
+  padding: 0;
   background: transparent;
-  color: var(--brand-cyan);
+  color: var(--brand-coral);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--brand-coral) 40%, transparent);
   text-underline-offset: rem(4);
 
   @include hover {
     &:not(:disabled) {
-      text-decoration: underline;
+      text-decoration-color: currentcolor;
     }
   }
 }
@@ -109,7 +102,6 @@
 
 .sizeXs {
   height: var(--control-xs);
-  border-radius: var(--radius-md);
   font-size: var(--text-xs);
   gap: var(--space-1);
   padding-inline: var(--space-2);
@@ -122,14 +114,13 @@
 
 .sizeSm {
   height: var(--control-sm);
-  border-radius: var(--radius-md);
   gap: var(--space-2);
   padding-inline: var(--space-3);
 }
 
 .sizeLg {
-  height: var(--control-lg);
-  border-radius: var(--radius-lg);
+  height: rem(48);
+  font-size: var(--text-base);
   padding-inline: var(--space-5);
 }
 
@@ -143,7 +134,6 @@
   width: var(--control-xs);
   height: var(--control-xs);
   padding: 0;
-  border-radius: var(--radius-md);
 
   svg {
     width: var(--icon-xs);

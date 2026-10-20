@@ -6,18 +6,13 @@
   max-height: calc(100dvh - var(--safe-area-top) - var(--safe-area-bottom) - 2rem);
   flex-direction: column;
   padding: 1rem;
-  border: 1px solid oklch(100% 0 0deg / 12%);
-  backdrop-filter: blur(rem(24));
-  background: color-mix(in oklch, var(--shell-surface) 95%, transparent);
+  border: 1px solid rgb(var(--tint) / 16%);
+  background: color-mix(in srgb, var(--shell-surface) 95%, transparent);
   gap: 1rem;
 
   @include bp(sm) {
     max-width: 48rem;
     padding: 1.5rem;
-  }
-
-  @include tauri-mobile {
-    backdrop-filter: none;
   }
 }
 
@@ -55,11 +50,10 @@
   align-items: stretch;
   justify-content: flex-start;
   padding: 0.25rem;
-  border: 1px solid oklch(100% 0 0deg / 10%);
+  border: 1px solid rgb(var(--tint) / 14%);
   border-radius: var(--radius-xl);
-  backdrop-filter: blur(rem(12));
-  background: oklch(100% 0 0deg / 5%);
-  box-shadow: inset 0 1px 0 oklch(100% 0 0deg / 6%);
+  background: rgb(var(--tint) / 8%);
+  box-shadow: inset 0 1px 0 rgb(var(--tint) / 9%);
   gap: 0.25rem;
   overflow-x: auto;
 
@@ -68,10 +62,6 @@
   @include bp(sm) {
     height: auto;
     flex-direction: column;
-  }
-
-  @include tauri-mobile {
-    backdrop-filter: none;
   }
 }
 
@@ -83,12 +73,11 @@
   gap: 0.5rem;
 
   &:hover:not([data-active]) {
-    background: oklch(100% 0 0deg / 5%);
+    background: rgb(var(--tint) / 8%);
   }
 
   &[data-active] {
-    background: oklch(100% 0 0deg / 10%);
-    box-shadow: 0 0 rem(16) rem(-6) oklch(70% 0.2 270deg / 50%);
+    background: rgb(var(--tint) / 14%);
   }
 
   @include bp(sm) {
@@ -102,7 +91,7 @@
   height: 0.375rem;
   flex-shrink: 0;
   border-radius: 9999px;
-  background: oklch(82.8% 0.189 84.429deg);
+  background: var(--brand-sun);
 }
 
 .settingsButtonAlert {
@@ -116,7 +105,7 @@
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 9999px;
-  background: oklch(82.8% 0.189 84.429deg);
+  background: var(--brand-sun);
   box-shadow: 0 0 0 rem(2) var(--background);
   pointer-events: none;
 }
@@ -150,7 +139,7 @@
   margin-right: -0.5rem;
   gap: 0.25rem;
   overflow-y: auto;
-  scrollbar-color: oklch(100% 0 0deg / 15%) transparent;
+  scrollbar-color: rgb(var(--tint) / 15%) transparent;
   scrollbar-width: thin;
 
   @include bp(sm) {
@@ -221,20 +210,19 @@
   overflow: hidden;
   height: 0.5rem;
   flex: 1;
-  border-radius: 9999px;
-  background: oklch(100% 0 0deg / 8%);
-  box-shadow: inset 0 rem(2) rem(4) oklch(0% 0 0deg / 30%);
+  border-radius: var(--radius-md);
+  background: rgb(var(--tint) / 11%);
+  box-shadow: inset 0 rem(2) rem(4) rgb(8 4 10 / 30%);
 }
 
 .meterFill {
   height: 100%;
-  border-radius: 9999px;
-  background: oklch(100% 0 0deg / 25%);
+  border-radius: var(--radius-md);
+  background: rgb(var(--tint) / 25%);
   transition: all 100ms ease-out;
 
   &[data-open='true'] {
-    background: oklch(76.5% 0.177 163.223deg);
-    box-shadow: 0 0 rem(8) oklch(82% 0.18 150deg / 60%);
+    background: var(--brand-mint);
   }
 }
 
@@ -257,10 +245,9 @@
   width: 0.375rem;
   height: 1rem;
   flex-shrink: 0;
-  border: 1px solid oklch(100% 0 0deg / 80%);
+  border: 1px solid rgb(var(--tint) / 80%);
   border-radius: 9999px;
-  background: #fff;
-  box-shadow: 0 0 rem(10) rem(-1) oklch(100% 0 0deg / 70%);
+  background: var(--foreground);
   outline: none;
   transition: transform var(--duration-fast) var(--timing-function-out);
 
@@ -269,7 +256,7 @@
   }
 
   &:focus-visible {
-    box-shadow: 0 0 0 rem(2) oklch(100% 0 0deg / 50%);
+    box-shadow: 0 0 0 rem(2) rgb(var(--tint) / 50%);
   }
 }
 
@@ -282,7 +269,7 @@
   margin-right: -0.5rem;
   gap: 1.5rem;
   overflow-y: auto;
-  scrollbar-color: oklch(100% 0 0deg / 15%) transparent;
+  scrollbar-color: rgb(var(--tint) / 15%) transparent;
   scrollbar-width: thin;
 
   @include bp(sm) {
@@ -352,16 +339,11 @@
   display: flex;
   align-items: flex-start;
   padding: 1rem;
-  border: 1px solid color-mix(in oklch, var(--brand-cyan) 40%, transparent);
+  border: 1px solid color-mix(in srgb, var(--brand-cyan) 40%, transparent);
   border-radius: var(--radius-lg);
-  backdrop-filter: blur(rem(12));
-  background: color-mix(in oklch, var(--brand-cyan) 10%, transparent);
+  background: color-mix(in srgb, var(--brand-cyan) 10%, transparent);
   font-size: 0.875rem;
   gap: 0.75rem;
-
-  @include tauri-mobile {
-    backdrop-filter: none;
-  }
 }
 
 .webNoticeIcon {
@@ -397,17 +379,17 @@
   width: 100%;
   justify-content: flex-start;
   padding: 0.625rem 0.875rem;
-  border: 1px solid color-mix(in oklch, var(--destructive) 28%, transparent);
+  border: 1px solid color-mix(in srgb, var(--destructive) 28%, transparent);
   border-radius: var(--radius-md);
-  background: color-mix(in oklch, var(--destructive) 10%, transparent);
+  background: color-mix(in srgb, var(--destructive) 10%, transparent);
   color: var(--destructive);
   font-weight: 500;
   gap: 0.5rem;
 
   @include hover {
     &:not(:disabled) {
-      border-color: color-mix(in oklch, var(--destructive) 55%, transparent);
-      background: color-mix(in oklch, var(--destructive) 20%, transparent);
+      border-color: color-mix(in srgb, var(--destructive) 55%, transparent);
+      background: color-mix(in srgb, var(--destructive) 20%, transparent);
       color: var(--destructive);
     }
   }

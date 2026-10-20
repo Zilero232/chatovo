@@ -1,80 +1,41 @@
 'use client';
 
 import { clsx } from 'clsx';
-import { useTranslations } from 'next-intl';
+import { motion } from 'motion/react';
 import { useState } from 'react';
-import { match } from 'ts-pattern';
 
-import { ForgotPasswordForm } from '@/features/auth/forgot-password';
-import { SignInForm } from '@/features/auth/sign-in';
-import { SignUpForm } from '@/features/auth/sign-up';
-import { AuthBackground, BrandMark, Text } from '@/ui-kit';
+import { useEnterMotion } from '@/shared/hooks';
 import { LanguageSwitcher } from '@/widgets/app/language-switcher';
 
-import type { AuthMode } from './AuthPage.types';
+import type { AuthMode } from '../model/types';
 
-import { AuthBrandPanel, AuthLegalFooter } from './components';
+import { AuthForm, AuthHeading, AuthLegalFooter, AuthModeSwitch, AuthScene } from './components';
 
 import s from './AuthPage.module.scss';
 
 export const AuthPage = () => {
-  const t = useTranslations('auth');
+  const enterMotion = useEnterMotion();
 
   const [mode, setMode] = useState<AuthMode>('signin');
 
   return (
     <div className={clsx(s.root, 'inset-page-x', 'inset-page-y')}>
-      <AuthBackground />
-
       <header className={s.topBar}>
         <LanguageSwitcher />
       </header>
 
-      <div className={clsx(s.shell, 'glass', 'shadow-glow-violet')}>
-        <AuthBrandPanel />
+      <div className={s.shell}>
+        <AuthScene mode={mode} />
 
-        <div className={s.panel}>
-          <BrandMark glow className={s.mobileMark} size={44} />
+        <motion.section className={s.card} {...enterMotion}>
+          <AuthHeading mode={mode} />
 
-          <div className={s.header}>
-            <h1 className={clsx(s.title, 'gradient-text')}>
-              {match(mode)
-                .with('signup', () => t('signUp'))
-                .with('forgot', () => t('forgotPasswordTitle'))
-                .otherwise(() => t('signIn'))}
-            </h1>
-            <Text size='sm' tone='muted'>
-              {match(mode)
-                .with('signup', () => t('subtitleSignUp'))
-                .with('forgot', () => t('forgotPasswordSubtitle'))
-                .otherwise(() => t('subtitleSignIn'))}
-            </Text>
-          </div>
+          <AuthForm mode={mode} onModeChange={setMode} />
 
-          <div key={mode} className={s.form}>
-            {match(mode)
-              .with('signup', () => <SignUpForm />)
-              .with('forgot', () => <ForgotPasswordForm onBack={() => setMode('signin')} />)
-              .otherwise(() => (
-                <SignInForm onForgotPassword={() => setMode('forgot')} />
-              ))}
-          </div>
-
-          {mode !== 'forgot' && (
-            <Text align='center' className={s.toggle} size='sm' tone='muted'>
-              {t(mode === 'signup' ? 'hasAccount' : 'noAccount')}{' '}
-              <button
-                className={s.toggleButton}
-                type='button'
-                onClick={() => setMode(mode === 'signup' ? 'signin' : 'signup')}
-              >
-                {t(mode === 'signup' ? 'signIn' : 'signUp')}
-              </button>
-            </Text>
-          )}
+          {mode !== 'forgot' && <AuthModeSwitch mode={mode} onModeChange={setMode} />}
 
           <AuthLegalFooter />
-        </div>
+        </motion.section>
       </div>
     </div>
   );

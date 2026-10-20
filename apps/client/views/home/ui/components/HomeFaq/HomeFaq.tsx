@@ -1,4 +1,4 @@
-import { clsx } from 'clsx';
+import { ChevronDown } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
 
 import { RevealOnScroll, Text } from '@/ui-kit';
@@ -17,23 +17,19 @@ export const HomeFaq = async ({ locale }: HomePageProps) => {
     <MarketingSection id='faq'>
       <MarketingSectionHead description={t('subheading')} heading={t('heading')} />
 
-      <div className={s.faqList}>
-        {HOME_FAQ_KEYS.map((key, index) => (
-          <RevealOnScroll
-            key={key}
-            as='article'
-            className={clsx(s.faqItem, 'glass')}
-            delay={Math.min(index, 4) * 0.05}
-          >
-            <Text as='h3' className={s.faqQuestion} weight='semibold'>
+      <RevealOnScroll className={s.faqList}>
+        {HOME_FAQ_KEYS.map((key) => (
+          <details key={key} className={s.faqItem}>
+            <summary className={s.faqQuestion}>
               {t(`items.${key}.question`)}
-            </Text>
+              <ChevronDown aria-hidden className={s.faqChevron} />
+            </summary>
             <Text className={s.faqAnswer} size='sm' tone='muted'>
               {t(`items.${key}.answer`)}
             </Text>
-          </RevealOnScroll>
+          </details>
         ))}
-      </div>
+      </RevealOnScroll>
     </MarketingSection>
   );
 };

@@ -1,9 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { Cron } from '@nestjs/schedule';
-import { join } from 'node:path';
 
-import { listFileStats, removeFiles, selectEvictions } from '../../../../lib';
-import { UPLOADS_DIR } from '../../../uploads';
+import { sweepUploadFolder } from '../../../../lib';
 import { LINK_PREVIEW } from '../../config';
 
 @Injectable()
@@ -13,14 +11,10 @@ export class LinkPreviewSweeperService {
   @Cron(LINK_PREVIEW.unfurl.image.sweepCron)
   async sweep(): Promise<number> {
     const { folder, maxAgeMs } = LINK_PREVIEW.unfurl.image;
-    const files = await listFileStats(join(UPLOADS_DIR, folder));
-
-    const removed = await removeFiles(
-      selectEvictions({ files, now: Date.now(), maxIdleMs: maxAgeMs, clock: 'modified' })
-    );
+    const { removed, total } = await sweepUploadFolder({ folder, maxAgeMs });
 
     if (removed > 0) {
-      this.logger.log(`Removed ${removed} of ${files.length} link preview images`);
+      this.logger.log(`Removed ${removed} of ${total} link preview images`);
     }
 
     return removed;

@@ -6,5 +6,5 @@
 
 .glow {
   border-radius: var(--radius-lg);
-  box-shadow: 0 0 rem(14) color-mix(in oklch, var(--brand-violet) 35%, transparent);
+  box-shadow: var(--shadow-soft);
 }

@@ -15,22 +15,25 @@ import { Text } from '@/ui-kit';
 
 import type { TrendChartProps } from './TrendChart.types';
 
+import {
+  CHART_AXIS_TICK,
+  CHART_COLORS,
+  CHART_CURSOR_STROKE,
+  CHART_GRID_STROKE
+} from '../../../config';
 import { sumTrendPoints } from '../../../lib';
 import { ChartTooltip } from '../ChartTooltip/ChartTooltip';
 
 import s from './TrendChart.module.scss';
 
-const AXIS_STYLE = { fill: 'currentColor', fontSize: 11 };
-
-export const TrendChart = ({ title, hint, points, color = 'violet' }: TrendChartProps) => {
-  const gradientId = `trend-${color}`;
-  const stroke = color === 'violet' ? 'var(--brand-violet)' : 'var(--brand-cyan)';
+export const TrendChart = ({ title, hint, points, color = 'coral' }: TrendChartProps) => {
+  const stroke = CHART_COLORS[color];
 
   return (
     <section className={s.root}>
       <header className={s.head}>
         <div className={s.headText}>
-          <Text size='sm' weight='medium'>
+          <Text size='sm' weight='semibold'>
             {title}
           </Text>
           <Text size='xs' tone='muted'>
@@ -44,36 +47,30 @@ export const TrendChart = ({ title, hint, points, color = 'violet' }: TrendChart
       <div className={s.chart}>
         <ResponsiveContainer height='100%' width='100%'>
           <AreaChart data={points} margin={{ top: 4, right: 4, bottom: 0, left: -22 }}>
-            <defs>
-              <linearGradient id={gradientId} x1='0' x2='0' y1='0' y2='1'>
-                <stop offset='0%' stopColor={stroke} stopOpacity={0.35} />
-                <stop offset='100%' stopColor={stroke} stopOpacity={0} />
-              </linearGradient>
-            </defs>
-
-            <CartesianGrid stroke='var(--border)' strokeDasharray='3 3' vertical={false} />
+            <CartesianGrid stroke={CHART_GRID_STROKE} strokeDasharray='3 3' vertical={false} />
             <XAxis
               axisLine={false}
               dataKey='date'
               minTickGap={24}
-              tick={AXIS_STYLE}
+              tick={CHART_AXIS_TICK}
               tickFormatter={formatDay}
               tickLine={false}
             />
             <YAxis
               allowDecimals={false}
               axisLine={false}
-              tick={AXIS_STYLE}
+              tick={CHART_AXIS_TICK}
               tickLine={false}
               width={44}
             />
             <Tooltip
               content={<ChartTooltip label={title} />}
-              cursor={{ stroke: 'var(--border)' }}
+              cursor={{ stroke: CHART_CURSOR_STROKE }}
             />
             <Area
               dataKey='count'
-              fill={`url(#${gradientId})`}
+              fill={stroke}
+              fillOpacity={0.16}
               stroke={stroke}
               strokeWidth={2}
               type='monotone'

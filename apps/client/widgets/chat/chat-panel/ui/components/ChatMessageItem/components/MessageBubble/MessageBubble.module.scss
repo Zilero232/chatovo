@@ -9,7 +9,7 @@
 }
 
 .own {
-  color: #fff;
+  color: var(--foreground);
 }
 
 .other {
@@ -23,27 +23,17 @@
 
 .padded {
   padding: 0.5rem 0.875rem;
-  box-shadow: 0 rem(1) rem(2) oklch(0% 0 0deg / 5%);
+  box-shadow: 0 rem(1) rem(2) rgb(8 4 10 / 5%);
 }
 
 .ownPadded {
-  background: linear-gradient(
-    to bottom right,
-    var(--brand-violet),
-    color-mix(in oklch, var(--brand-violet) 85%, transparent)
-  );
-  box-shadow: 0 rem(2) rem(10) rem(-2) oklch(70% 0.2 270deg / 50%);
+  border: 1px solid color-mix(in srgb, var(--brand-coral) 30%, transparent);
+  background: color-mix(in srgb, var(--brand-coral) 20%, var(--surface-2));
 }
 
 .otherPadded {
-  border: 1px solid oklch(100% 0 0deg / 8%);
-  backdrop-filter: blur(rem(12));
-  background: oklch(100% 0 0deg / 6%);
-
-  @include tauri-mobile {
-    backdrop-filter: none;
-    background: oklch(28% 0.02 280deg);
-  }
+  border: 1px solid var(--border);
+  background: var(--surface-2);
 }
 
 .ownTail {

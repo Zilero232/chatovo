@@ -21,7 +21,7 @@
 }
 
 .author {
-  color: color-mix(in oklch, var(--foreground) 80%, transparent);
+  color: color-mix(in srgb, var(--foreground) 80%, transparent);
   font-weight: 500;
 }
 

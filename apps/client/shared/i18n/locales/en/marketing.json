@@ -15,39 +15,27 @@
       }
     },
     "hero": {
-      "eyebrow": "Voice chat without the setup",
-      "title": "Get everyone in a room",
-      "titleAccent": "in fifteen seconds",
-      "description": "Name it, share the link, start talking. No servers, no roles, no channels — just you and the people you invited.",
-      "ctaPrimary": "Start for free",
-      "ctaNote": "Right in your browser · No install",
-      "liveLabel": "{count} people live",
-      "stats": {
-        "setup": {
-          "value": "15 sec",
-          "suffix": " sec",
-          "label": "to the first word"
-        },
-        "install": {
-          "value": "0",
-          "suffix": "",
-          "label": "installs required"
-        },
-        "limit": {
-          "value": "∞",
-          "suffix": "",
-          "label": "minutes per call"
-        }
-      },
-      "ctaOpenApp": "Open the app"
+      "eyebrow": "Voice rooms for your people",
+      "title": "A room for your people.",
+      "titleAccent": "Join and just talk.",
+      "description": "Create a room, send the link, and fifteen seconds later you are together: voice, video, screen sharing and music for everyone. No servers, roles or setup.",
+      "ctaPrimary": "Create a room",
+      "ctaNote": "Free · Right in the browser · Open source",
+      "ctaOpenApp": "Open the app",
+      "ctaDownload": "Download the app",
+      "stageLabel": "Chato the cat listening to music in headphones"
     },
     "features": {
-      "heading": "What Chatovo does",
-      "subheading": "Everything a conversation needs — and nothing you have to configure.",
+      "heading": "Everything a conversation needs",
+      "subheading": "And nothing you would have to set up.",
       "items": {
         "rooms": {
           "title": "A room in one click",
           "description": "Press one button and the room exists. No structure to plan — the conversation starts right away."
+        },
+        "music": {
+          "title": "Music for the whole room",
+          "description": "Paste a YouTube or SoundCloud link, play a radio station or your own music — everyone listens together, and it gets quieter whenever someone talks."
         },
         "quality": {
           "title": "Clear voice and video",
@@ -69,17 +57,16 @@
           "title": "Open source",
           "description": "No tiers, no call duration cap. The source is open, so you can run it on your own server."
         }
+      },
+      "roomsMock": "{name} is speaking",
+      "musicMock": {
+        "title": "Lo-fi for the evening",
+        "subtitle": "Radio · put on by max"
       }
     },
     "steps": {
       "heading": "How it works",
       "subheading": "Three steps from an empty screen to a live conversation.",
-      "diagram": {
-        "caption": "Your audio goes to the LiveKit server, which forwards it to everyone else in the room.",
-        "client": "You",
-        "peers": "Others",
-        "sfu": "LiveKit SFU"
-      },
       "items": {
         "create": {
           "title": "Create a room",
@@ -616,6 +603,38 @@
       "roomChatOpaque": {
         "title": "Room chat no longer see-through on phones",
         "description": "The room header no longer shows through the chat panel."
+      },
+      "roomMusic": {
+        "title": "Music in rooms",
+        "description": "Paste a YouTube, SoundCloud or Vimeo link, a direct link to an audio file, or turn on internet radio — everyone in the room listens in sync."
+      },
+      "shareMyMusic": {
+        "title": "Share your own music",
+        "description": "Play VK Music, Yandex Music or anything else in a browser tab and share its sound, or play files from your device."
+      },
+      "musicPlayer": {
+        "title": "A mini player with an expanded view",
+        "description": "Pause, previous and next right under the room header or in the corner while you browse; the full player opens like a dialog."
+      },
+      "musicDucking": {
+        "title": "Music steps aside for voices",
+        "description": "The music quietens while someone talks and comes back after."
+      },
+      "newLook": {
+        "title": "A warmer new look",
+        "description": "A calm evening palette, readable contrast, crisper shapes and Chato the cat on the site."
+      },
+      "screenShareEcho": {
+        "title": "No echo when sharing a screen with sound",
+        "description": "Viewers no longer hear the room's own voices back through the stream."
+      },
+      "speakingHighlight": {
+        "title": "A clean speaking highlight",
+        "description": "The ring around a speaker's avatar is no longer clipped and doesn't cover the name."
+      },
+      "android16kb": {
+        "title": "Ready for newer Android phones",
+        "description": "The Android app now supports devices with 16 KB memory pages, as Google Play requires."
       }
     },
     "highlights": {
@@ -663,7 +682,9 @@
       "passwordRoomLogout": "No more sign-outs",
       "oldImagesOptimized": "Older images optimised",
       "pushReliable": "Reliable notifications",
-      "smoothMobileMenu": "Smooth menu"
+      "smoothMobileMenu": "Smooth menu",
+      "roomMusic": "Music in rooms",
+      "newLook": "New look"
     }
   },
   "features": {

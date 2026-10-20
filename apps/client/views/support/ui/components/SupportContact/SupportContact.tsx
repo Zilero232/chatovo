@@ -1,4 +1,3 @@
-import { clsx } from 'clsx';
 import { Mail } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
 
@@ -13,7 +12,7 @@ export const SupportContact = async ({ locale }: SupportContactProps) => {
   const t = await getTranslations({ locale, namespace: 'support.contact' });
 
   return (
-    <div className={clsx(s.contact, 'glass')}>
+    <div className={s.contact}>
       <Text as='h2' className={s.contactHeading} weight='semibold'>
         {t('heading')}
       </Text>

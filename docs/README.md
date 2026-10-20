@@ -8,6 +8,7 @@ Design decisions — the "why" behind the code, and what has already gone wrong.
 
 - [architecture/fsd.md](architecture/fsd.md) — Feature-Sliced Design as used by `apps/client`: layers, slices, segments, where a thing goes. Read before structural changes.
 - [architecture/room-session.md](architecture/room-session.md) — the call outlives navigation: the session above the route, the collapsed bar, leaving without re-opening.
+- [architecture/room-music.md](architecture/room-music.md) — music in a room: a shared queue for YouTube, SoundCloud and radio played by each listener's own embed, "My music" as a LiveKit track, ducking, and echo-free shared audio.
 - [architecture/invisible-mode.md](architecture/invisible-mode.md) — an admin joins rooms hidden: server-enforced, presence filtered.
 - [architecture/game-activity.md](architecture/game-activity.md) — the "Playing X" status, games only: Steam, Epic and GOG libraries plus the Windows Game Bar list; opt-in, desktop-only.
 - [architecture/tray-menu.md](architecture/tray-menu.md) — the native tray: Rust owns the icon and menu, the client pushes labels and state.

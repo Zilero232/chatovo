@@ -7,12 +7,7 @@
   flex-shrink: 0;
   align-items: stretch;
   border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(rem(12));
-  background: color-mix(in oklch, var(--background) 80%, transparent);
-
-  @include tauri-mobile {
-    backdrop-filter: none;
-  }
+  background: color-mix(in srgb, var(--background) 80%, transparent);
 }
 
 .rootMacos {

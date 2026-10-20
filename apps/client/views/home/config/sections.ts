@@ -2,7 +2,9 @@ import type { Messages } from '@/shared/i18n';
 
 export type HomeFaqKey = keyof Messages['home']['faq']['items'];
 
-export const HOME_FEATURE_KEYS = ['rooms', 'quality', 'privacy', 'screen', 'link', 'free'] as const;
+export const HOME_FEATURE_SPOTLIGHT_KEYS = ['rooms', 'music'] as const;
+
+export const HOME_FEATURE_KEYS = ['quality', 'privacy', 'screen', 'link', 'free'] as const;
 
 export const HOME_STEP_KEYS = ['create', 'share', 'talk'] as const;
 

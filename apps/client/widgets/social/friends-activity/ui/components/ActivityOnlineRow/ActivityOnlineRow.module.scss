@@ -11,7 +11,7 @@
   transition: background-color var(--duration-fast) var(--timing-function-out);
 
   @include hover {
-    background: oklch(100% 0 0deg / 7%);
+    background: rgb(var(--tint) / 10%);
   }
 }
 
@@ -37,7 +37,7 @@
   width: 0.625rem;
   height: 0.625rem;
   border-radius: 9999px;
-  background: oklch(78% 0.19 145deg);
+  background: var(--brand-mint);
   box-shadow: 0 0 0 rem(2) var(--background);
 }
 
@@ -52,7 +52,7 @@
 .name {
   overflow: hidden;
   min-width: 0;
-  color: color-mix(in oklch, var(--foreground) 88%, transparent);
+  color: color-mix(in srgb, var(--foreground) 88%, transparent);
   font-size: 0.875rem;
   font-weight: 500;
 

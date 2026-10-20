@@ -1,22 +1,21 @@
 'use client';
 
-import { isTauri } from '@tauri-apps/api/core';
 import { clsx } from 'clsx';
-import { CheckCircle2 } from 'lucide-react';
+import { motion } from 'motion/react';
 import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/navigation';
 
 import { ResetPasswordForm } from '@/features/auth/reset-password';
-import { DEEP_LINKS, ROUTES } from '@/shared/constants';
-import { AuthBackground, Button, LogoMark, Text } from '@/ui-kit';
+import { useEnterMotion } from '@/shared/hooks';
+import { Chato, Text } from '@/ui-kit';
 
 import { useResetPasswordToken } from '../model/hooks';
+import { ResetPasswordDoneActions } from './components';
 
 import s from './ResetPasswordPage.module.scss';
 
 export const ResetPasswordPage = () => {
-  const router = useRouter();
   const t = useTranslations('auth');
+  const enterMotion = useEnterMotion();
 
   const resetToken = useResetPasswordToken();
 
@@ -28,56 +27,22 @@ export const ResetPasswordPage = () => {
 
   return (
     <div className={clsx(s.root, 'inset-page-x', 'inset-page-y')}>
-      <AuthBackground />
+      <motion.section className={s.card} {...enterMotion}>
+        <div className={s.header}>
+          <Chato className={s.chato} pose={isDone ? 'wink' : 'peek'} />
 
-      <div className={clsx(s.shell, 'glass', 'shadow-glow-violet')}>
-        <div className={s.panel}>
-          <span className={clsx(s.mark, 'gradient-brand', 'shadow-glow-cyan')}>
-            {isDone ? (
-              <CheckCircle2 className={s.markIcon} />
-            ) : (
-              <LogoMark className={s.markIcon} size={30} />
-            )}
-          </span>
-
-          <div className={s.header}>
-            <h1 className={clsx(s.title, 'gradient-text')}>
-              {isDone ? t('resetDoneTitle') : t('resetPasswordTitle')}
-            </h1>
-            <Text size='sm' tone='muted'>
-              {isDone ? t('resetDoneSubtitle') : t('resetPasswordSubtitle')}
-            </Text>
-          </div>
-
-          {isDone ? (
-            <div className={s.actions}>
-              {isTauri() ? (
-                <Button
-                  className={s.fullWidth}
-                  type='button'
-                  onClick={() => router.replace(ROUTES.auth)}
-                >
-                  {t('signInInBrowser')}
-                </Button>
-              ) : (
-                <>
-                  <Button className={s.fullWidth} href={ROUTES.auth}>
-                    {t('signInInBrowser')}
-                  </Button>
-
-                  <a className={s.secondaryLink} href={DEEP_LINKS.auth}>
-                    {t('openInApp')}
-                  </a>
-                </>
-              )}
-            </div>
-          ) : (
-            <div className={s.form}>
-              <ResetPasswordForm token={token} onSuccess={markDone} />
-            </div>
-          )}
+          <h1 className={s.title}>{isDone ? t('resetDoneTitle') : t('resetPasswordTitle')}</h1>
+          <Text size='sm' tone='muted'>
+            {isDone ? t('resetDoneSubtitle') : t('resetPasswordSubtitle')}
+          </Text>
         </div>
-      </div>
+
+        {isDone ? (
+          <ResetPasswordDoneActions />
+        ) : (
+          <ResetPasswordForm token={token} onSuccess={markDone} />
+        )}
+      </motion.section>
     </div>
   );
 };

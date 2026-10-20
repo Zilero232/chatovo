@@ -1,11 +1,8 @@
 export {
-  ANALYSER_OPTIONS,
   FRAME_INTERVAL_MS,
   LEVEL_ATTACK,
-  LEVEL_GAIN,
   LEVEL_RELEASE,
-  LITE_FRAME_INTERVAL_MS,
-  NOISE_FLOOR
+  LITE_FRAME_INTERVAL_MS
 } from './audio-level';
 export { MIN_CONNECTION_BARS, RTT_BAR_THRESHOLDS_MS, RTT_POLL_INTERVAL_MS } from './connection';
 export { FAILURE_REASONS } from './disconnect-reasons';

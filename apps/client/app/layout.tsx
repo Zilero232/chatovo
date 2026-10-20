@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 
 import { clsx } from 'clsx';
-import { JetBrains_Mono, Manrope } from 'next/font/google';
+import { JetBrains_Mono, Lora, Manrope } from 'next/font/google';
 
 import { SITE } from '@/shared/config';
 import { getTauriMobileHmrShim } from '@/shared/lib/tauri-mobile-hmr-shim';
@@ -18,6 +18,14 @@ const sans = Manrope({
   display: 'swap'
 });
 
+const serif = Lora({
+  subsets: ['latin', 'cyrillic'],
+  variable: '--font-serif',
+  style: ['normal', 'italic'],
+  display: 'swap',
+  adjustFontFallback: true
+});
+
 const mono = JetBrains_Mono({
   subsets: ['latin'],
   variable: '--font-mono',
@@ -29,7 +37,7 @@ const tauriMobileHmrShim = getTauriMobileHmrShim();
 const RootLayout = ({ children }: { children: ReactNode }) => (
   <html
     suppressHydrationWarning
-    className={clsx('dark', sans.variable, mono.variable)}
+    className={clsx('dark', sans.variable, serif.variable, mono.variable)}
     lang={SITE.lang}
   >
     <head>

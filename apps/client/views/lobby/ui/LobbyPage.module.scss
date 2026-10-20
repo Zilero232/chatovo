@@ -8,7 +8,7 @@
   min-height: 0;
   background-image: radial-gradient(
     ellipse 70% 55% at 50% 0%,
-    oklch(70% 0.185 272deg / 8%),
+    color-mix(in srgb, var(--brand-violet) 8%, transparent),
     transparent 65%
   );
   container: lobby-page / inline-size;

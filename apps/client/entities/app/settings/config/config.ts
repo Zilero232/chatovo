@@ -39,6 +39,10 @@ export const DEFAULT_APP_SETTINGS: AppSettings = {
       ambience: true
     }
   },
+  music: {
+    volume: 0.5,
+    ducking: true
+  },
   system: {
     tray: {
       closeToTray: true

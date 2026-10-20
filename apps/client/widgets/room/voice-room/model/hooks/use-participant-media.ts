@@ -7,6 +7,7 @@ import { Track } from 'livekit-client';
 import { isNonNullish } from 'remeda';
 
 import { readParticipantMeta } from '@/entities/room/room';
+import { useIsSharingMusic } from '@/features/room/room-music';
 
 import { useParticipantIsSpeaking } from './use-participant-is-speaking';
 
@@ -16,6 +17,7 @@ export const useParticipantMedia = (participant: Participant) => {
   const [micTrack] = useParticipantTracks([Track.Source.Microphone], participant.identity);
 
   const isSpeaking = useParticipantIsSpeaking(participant);
+  const hasMusic = useIsSharingMusic(participant);
   const micMuted = useIsMuted(micTrack ?? { participant, source: Track.Source.Microphone });
   const cameraMuted = useIsMuted(cameraTrack ?? { participant, source: Track.Source.Camera });
   const screenMuted = useIsMuted(screenTrack ?? { participant, source: Track.Source.ScreenShare });
@@ -39,6 +41,7 @@ export const useParticipantMedia = (participant: Participant) => {
     isLocal: participant.isLocal,
     hasCamera,
     hasScreen,
+    hasMusic,
     hasVideo: hasCamera || hasScreen
   };
 };

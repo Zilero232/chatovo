@@ -12,11 +12,6 @@
   padding-top: var(--safe-area-top);
   padding-bottom: var(--safe-area-bottom);
   background-color: var(--background);
-  background-image: radial-gradient(
-    ellipse 80% 60% at 50% 38%,
-    oklch(70% 0.185 272deg / 12%),
-    transparent 70%
-  );
   gap: 1.25rem;
   inset: 0;
   padding-inline: 1.5rem;
@@ -31,13 +26,13 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-2xl);
-  box-shadow: var(--glow-violet);
+  box-shadow: var(--shadow-elevated);
 
   &:after {
     position: absolute;
     border-radius: inherit;
     animation: splash-halo 2.8s ease-in-out infinite;
-    box-shadow: 0 0 0 1px color-mix(in oklch, var(--brand-violet) 45%, transparent);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--brand-violet) 45%, transparent);
     content: '';
     inset: 0;
 

@@ -6,12 +6,7 @@
   background: var(--scrim);
   inset: 0;
 
-  @include bp(md) {
-    backdrop-filter: blur(var(--scrim-blur)) saturate(0.7);
-  }
-
   @include tauri-mobile {
-    backdrop-filter: none;
     background: var(--scrim-strong);
   }
 }
@@ -33,7 +28,6 @@
   outline: none;
 
   @include tauri-mobile {
-    backdrop-filter: none;
     background-color: var(--background);
   }
 }
@@ -124,11 +118,10 @@
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  border: 1px solid oklch(100% 0 0deg / 10%);
+  border: 1px solid rgb(var(--tint) / 14%);
   border-radius: var(--radius-lg);
-  backdrop-filter: blur(rem(4));
-  background: oklch(100% 0 0deg / 5%);
-  color: color-mix(in oklch, var(--foreground) 70%, transparent);
+  background: rgb(var(--tint) / 8%);
+  color: color-mix(in srgb, var(--foreground) 70%, transparent);
   cursor: pointer;
   transition:
     border-color var(--duration-fast) var(--timing-function-standard),
@@ -136,13 +129,13 @@
     background-color var(--duration-fast) var(--timing-function-standard);
 
   &:hover {
-    border-color: oklch(100% 0 0deg / 20%);
-    background: oklch(100% 0 0deg / 10%);
+    border-color: rgb(var(--tint) / 20%);
+    background: rgb(var(--tint) / 14%);
     color: var(--foreground);
   }
 
   &:focus-visible {
-    box-shadow: 0 0 0 rem(2) color-mix(in oklch, var(--brand-violet) 40%, transparent);
+    box-shadow: 0 0 0 rem(2) color-mix(in srgb, var(--brand-violet) 40%, transparent);
     outline: none;
   }
 
@@ -155,9 +148,5 @@
     width: 1rem;
     height: 1rem;
     pointer-events: none;
-  }
-
-  @include tauri-mobile {
-    backdrop-filter: none;
   }
 }

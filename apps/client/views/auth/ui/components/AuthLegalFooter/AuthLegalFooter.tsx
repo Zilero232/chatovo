@@ -16,7 +16,9 @@ export const AuthLegalFooter = () => {
       <Link className={s.link} href={LEGAL.privacyPath}>
         {t('privacy')}
       </Link>
-      <span className={s.sep}>·</span>
+      <span aria-hidden className={s.sep}>
+        ·
+      </span>
       <Link className={s.link} href={LEGAL.termsPath}>
         {t('terms')}
       </Link>

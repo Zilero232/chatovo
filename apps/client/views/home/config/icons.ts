@@ -8,14 +8,12 @@ import {
   MonitorSmartphone,
   Radio,
   ScreenShare,
-  ShieldCheck,
-  Sparkles
+  ShieldCheck
 } from 'lucide-react';
 
 import type { HomeDesktopKey, HomeFeatureKey } from './sections';
 
 export const HOME_FEATURE_ICONS: Record<HomeFeatureKey, LucideIcon> = {
-  rooms: Sparkles,
   quality: AudioWaveform,
   privacy: ShieldCheck,
   screen: ScreenShare,

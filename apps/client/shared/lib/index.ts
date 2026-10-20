@@ -27,11 +27,24 @@ export { allowsNativeContextMenu } from './native-context-menu';
 export { handleExternalLinkClick, openExternal } from './open-external';
 export type { HandleExternalLinkClickInput } from './open-external';
 export { raceWithTimeout } from './race-with-timeout';
+export { AUDIO_LEVEL_ANALYSER, readAudioLevel, type ReadAudioLevelInput } from './read-audio-level';
 export { readStoredJson, writeStoredJson } from './read-stored-json';
-export { isScreenShareSupported } from './screen-share';
+export {
+  DISPLAY_AUDIO_CAPTURE,
+  isScreenShareSupported,
+  SHARED_AUDIO_PUBLISH
+} from './screen-share';
 export { stripEmailDomain } from './strip-email-domain';
 export { isTauriDesktop, isTauriMobile } from './tauri-platform';
 export { armPttStream, readMicStreamEnabled, toggleMicStream } from './toggle-mic-stream';
+export {
+  readWebglEnvironment,
+  type UseWebglStageInput,
+  WEBGL_STAGE,
+  type WebglEnvironment,
+  type WebglTier,
+  webglTier
+} from './webgl';
 export {
   closeMainWindow,
   hideMainWindow,

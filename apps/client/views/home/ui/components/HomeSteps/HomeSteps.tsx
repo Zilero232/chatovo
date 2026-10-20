@@ -6,7 +6,6 @@ import { MarketingSection, MarketingSectionHead } from '@/widgets/marketing/mark
 import type { HomePageProps } from '../../HomePage.types';
 
 import { HOME_STEP_KEYS } from '../../../config';
-import { HomeFlowDiagram } from '../HomeFlowDiagram/HomeFlowDiagram';
 
 import s from '../../HomePage.module.scss';
 
@@ -20,9 +19,9 @@ export const HomeSteps = async ({ locale }: HomePageProps) => {
       <ol className={s.steps}>
         {HOME_STEP_KEYS.map((key, index) => (
           <RevealOnScroll key={key} as='li' className={s.step} delay={index * 0.08}>
-            <Text as='span' className={s.stepIndex} size='xs' tone='inherit' weight='semibold'>
-              {String(index + 1).padStart(2, '0')}
-            </Text>
+            <span aria-hidden className={s.stepIndex}>
+              {index + 1}
+            </span>
             <Text as='h3' className={s.stepTitle} weight='semibold'>
               {t(`items.${key}.title`)}
             </Text>
@@ -32,10 +31,6 @@ export const HomeSteps = async ({ locale }: HomePageProps) => {
           </RevealOnScroll>
         ))}
       </ol>
-
-      <RevealOnScroll delay={0.24}>
-        <HomeFlowDiagram locale={locale} />
-      </RevealOnScroll>
     </MarketingSection>
   );
 };

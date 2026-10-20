@@ -7,10 +7,9 @@
   align-items: center;
   justify-content: space-between;
   padding: var(--space-2) var(--space-3);
-  border: 1px solid oklch(100% 0 0deg / 10%);
+  border: 1px solid var(--input-border);
   border-radius: var(--radius-lg);
-  backdrop-filter: blur(rem(12));
-  background: oklch(100% 0 0deg / 5%);
+  background: rgb(var(--tint) / 8%);
   color: var(--foreground);
   font-size: var(--text-sm);
   gap: var(--space-2);
@@ -20,16 +19,12 @@
   @include focus-ring;
 
   &:hover:not([data-disabled]) {
-    border-color: oklch(100% 0 0deg / 20%);
-    background: oklch(100% 0 0deg / 8%);
+    border-color: rgb(var(--tint) / 20%);
+    background: rgb(var(--tint) / 11%);
   }
 
   &[data-disabled] {
     opacity: 0.5;
-  }
-
-  @include tauri-mobile {
-    backdrop-filter: none;
   }
 }
 
@@ -97,7 +92,7 @@
   @include interactive-cursor;
 
   &[data-highlighted] {
-    background: oklch(100% 0 0deg / 8%);
+    background: rgb(var(--tint) / 11%);
     color: var(--foreground);
   }
 

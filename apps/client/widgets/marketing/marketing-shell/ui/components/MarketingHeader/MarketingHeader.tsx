@@ -33,8 +33,8 @@ export const MarketingHeader = async ({ locale, path }: MarketingHeaderProps) =>
   return (
     <MarketingHeaderShell>
       <Link className={s.brand} href={localizeMarketingPath({ path: ROUTES.home, locale })}>
-        <BrandMark glow size={30} />
-        <Text as='span' className={clsx(s.brandName, 'gradient-text')} tone='inherit'>
+        <BrandMark size={30} />
+        <Text as='span' className={s.brandName} tone='inherit'>
           {SITE.name}
         </Text>
       </Link>
