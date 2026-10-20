@@ -2,7 +2,7 @@
 
 Guidance for Claude Code when working in the desktop shell. Extends the root [../../CLAUDE.md](../../CLAUDE.md); those rules still apply. The digest in `.claude/rules/tauri/` loads automatically when you edit files here; the client side of Tauri is [docs/guides/client/tauri.md](../../docs/guides/client/tauri.md).
 
-Desktop shell — **Tauri 2 (Rust)**. Wraps the same Next.js client ([apps/client](../client/)) in a native window; no separate UI lives here.
+Desktop shell — **Tauri 2 (Rust)**. Wraps the same Next.js web app ([apps/web](../web/)) in a native window — not the public site; no separate UI lives here.
 
 ## Layout
 
@@ -14,7 +14,7 @@ src/
 ├── webview_lockdown.rs # Windows release builds: WebView2 browser shortcuts off (reload, print, devtools)
 └── game_detection/   # "Playing X", games only: Steam/Epic/GOG + Windows Game Bar list (docs/architecture/game-activity.md)
 capabilities/         # permission sets granted to the webview
-icons/                # generated — source: icon.manifest.json + apps/client/app/app-icon*.svg
+icons/                # generated — source: icon.manifest.json + apps/web/app/app-icon*.svg
 tauri.conf.json       # config — frontendDist points at the built client, bundle/updater settings
 Cargo.toml            # Rust deps (tauri + plugins)
 ```
@@ -22,7 +22,7 @@ Cargo.toml            # Rust deps (tauri + plugins)
 ## How it relates to the client
 
 - The window loads the client build via `tauri.conf.json` → `frontendDist`.
-- **Desktop-only features** (system tray, global shortcuts, deep links, updater) are implemented on the JS side in [apps/client/features/app/](../client/features/app/) using `@tauri-apps/api` + plugin packages. The exception is the **system tray**: a JS-created tray loses its click handler when React remounts, so the icon and its native menu are built in [src/tray_menu.rs](src/tray_menu.rs) at startup and the frontend only pushes labels and state — see [docs/architecture/tray-menu.md](../../docs/architecture/tray-menu.md).
+- **Desktop-only features** (system tray, global shortcuts, deep links, updater) are implemented on the JS side in [apps/web/features/app/](../web/features/app/) using `@tauri-apps/api` + plugin packages. The exception is the **system tray**: a JS-created tray loses its click handler when React remounts, so the icon and its native menu are built in [src/tray_menu.rs](src/tray_menu.rs) at startup and the frontend only pushes labels and state — see [docs/architecture/tray-menu.md](../../docs/architecture/tray-menu.md).
 - Every Tauri call on the client **must** be gated with `isTauri()` so the web build keeps working (`isTauri()` is false in the browser).
 - Native plugins enabled here (see [src/lib.rs](src/lib.rs)): global-shortcut, updater, os, single-instance, opener, process, deep-link. The `chatovo://` deep-link scheme is registered at runtime in dev (installers handle it in prod).
 

@@ -19,11 +19,11 @@ Not `__tests__`, not a bare test file beside the source, not a separate `tests/`
 
 `bun run test` from the repo root — **one** Vitest run across the whole monorepo, wired through `test.projects` in the root [vitest.config.ts](../../../vitest.config.ts). Workspaces carry their own configs (`name`, environment, aliases); they have no `test` script of their own and don't need one.
 
-E2E — `bun run test:e2e`, two projects (`desktop` + `mobile`); the config starts the client dev server itself. CI runs `bun run test` only.
+E2E — `bun run test:e2e`, four projects: `app-desktop` / `app-mobile` run `e2e/app/**` against the web app (:3000), `site-desktop` / `site-mobile` run `e2e/site/**` against the site (:3001). The config starts both dev servers itself unless `E2E_APP_URL` and `E2E_SITE_URL` point at running targets. CI runs `bun run test` only.
 
 ## Environment
 
-- **client** — jsdom, `@testing-library/react`, setup in [apps/client/vitest.setup.ts](../../../apps/client/vitest.setup.ts) (mocks `next/navigation`, cleans the DOM after each test). Client env is declared in the config — don't read `.env` from a test.
+- **web** and **site** — jsdom, `@testing-library/react`, setup in [apps/web/vitest.setup.ts](../../../apps/web/vitest.setup.ts) and [apps/site/vitest.setup.ts](../../../apps/site/vitest.setup.ts) (both clean the DOM after each test; the web one also mocks `next/navigation`). Env is declared in each config — don't read `.env` from a test.
 - **server** — node, with a dummy env in the config. Without it any import that pulls the Prisma chain fails Zod env validation. Adding a test for a module with a new required variable means adding that variable there too.
 - **schemas** — node, no env.
 

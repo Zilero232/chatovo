@@ -11,7 +11,7 @@ Over the limit means refactor:
 **A barrel of related primitives is no exception.** `ui-kit` components like `Dialog` / `Sheet` / `DropdownMenu` export 8–15 small parts (`Dialog`, `DialogContent`, `DialogHeader`, …). Keeping them in one file is not allowed: each part goes in `components/<Name>/`, and `<Name>.tsx` stays a thin re-export.
 
 ```
-ui-kit/primitives/Dialog/
+packages/ui-kit/primitives/Dialog/
   Dialog.tsx                  ← only `export { ... } from './components'`
   Dialog.types.ts
   Dialog.module.scss
@@ -26,4 +26,4 @@ ui-kit/primitives/Dialog/
 
 Group by meaning, not "one file per export": related parts (`Header` / `Footer` / `Title` / `Description`) live together.
 
-**Context shared by the parts goes into its own module** next to `<Name>.tsx` (`dialog-overlay-context.ts`), never inside the component: otherwise `components/*` import the parent and the parent imports them. Context shared by several primitives goes in `ui-kit/lib/` (`menu-radio-group-context.ts`).
+**Context shared by the parts goes into its own module** next to `<Name>.tsx` (`dialog-overlay-context.ts`), never inside the component: otherwise `components/*` import the parent and the parent imports them. Context shared by several primitives goes in a `lib/` folder at the package root (`packages/ui-kit/lib/`).

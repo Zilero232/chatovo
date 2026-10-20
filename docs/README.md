@@ -1,12 +1,13 @@
 # Documentation index
 
-Everything under `docs/`, grouped by concern. Agent-facing editing digests live separately in [.claude/rules/](../.claude/rules/) (loaded by path) and in the `CLAUDE.md` files: [root](../CLAUDE.md), [apps/client](../apps/client/CLAUDE.md), [apps/server](../apps/server/CLAUDE.md), [apps/tauri](../apps/tauri/CLAUDE.md). The public overview is the [README](../README.md).
+Everything under `docs/`, grouped by concern. Agent-facing editing digests live separately in [.claude/rules/](../.claude/rules/) (loaded by path) and in the `CLAUDE.md` files: [root](../CLAUDE.md), [apps/web](../apps/web/CLAUDE.md), [apps/site](../apps/site/CLAUDE.md), [apps/server](../apps/server/CLAUDE.md), [apps/tauri](../apps/tauri/CLAUDE.md). The public overview is the [README](../README.md).
 
 ## Architecture
 
 Design decisions — the "why" behind the code, and what has already gone wrong.
 
-- [architecture/fsd.md](architecture/fsd.md) — Feature-Sliced Design as used by `apps/client`: layers, slices, segments, where a thing goes. Read before structural changes.
+- [architecture/fsd.md](architecture/fsd.md) — Feature-Sliced Design as used by `apps/web` and `apps/site`: layers, slices, segments, where a thing goes, and the `@chatovo/ui-kit` package. Read before structural changes.
+- [architecture/visual-design.md](architecture/visual-design.md) — "a warm evening with Chato": palette, type, the logo colours, the mascot, the WebGL hero, and how the site and the app share one look.
 - [architecture/room-session.md](architecture/room-session.md) — the call outlives navigation: the session above the route, the collapsed bar, leaving without re-opening.
 - [architecture/room-music.md](architecture/room-music.md) — music in a room: a shared queue for YouTube, SoundCloud and radio played by each listener's own embed, "My music" as a LiveKit track, ducking, and echo-free shared audio.
 - [architecture/invisible-mode.md](architecture/invisible-mode.md) — an admin joins rooms hidden: server-enforced, presence filtered.
@@ -20,13 +21,13 @@ Design decisions — the "why" behind the code, and what has already gone wrong.
 
 The style guide, split by stack. Index and tooling: [guides/README.md](guides/README.md).
 
-- `guides/client/` — slices, `ui/` and `ui-kit`, `model/hooks`, segments, React, component body and size, styles and animation, forms, conditional render, drill cleanup, Base UI, i18n, Tauri on the client.
+- `guides/client/` — for `apps/web`, `apps/site` and `packages/ui-kit`: slices, `ui/` and `ui-kit`, `model/hooks`, segments, React, component body and size, styles and animation, forms, conditional render, drill cleanup, Base UI, i18n, Tauri on the client.
 - `guides/server/` — [NestJS modules](guides/server/nestjs.md), [Prisma and Postgres](guides/server/data.md).
 - `guides/shared/` — naming, imports and barrels, types, functions, blank lines, readability, comments, shared schemas, dependencies, library references, tests, forbidden list, pre-commit checklist.
 
 ## Ops
 
-- [ops/deploy.md](ops/deploy.md) — the VPS: DNS, ports, the server's `.env`, self-hosted LiveKit, CI/CD secrets, first deploy, rollback.
+- [ops/deploy.md](ops/deploy.md) — the VPS: DNS for chatovo.ru (site) and app.chatovo.ru (web), ports, the containers, the server's `.env`, self-hosted LiveKit, CI/CD secrets, first deploy, rollback.
 - [ops/migrations.md](ops/migrations.md) — Prisma migrations: the baseline, the deploy order, better-auth schema drift.
 - [ops/release.md](ops/release.md) — desktop and Android releases from a tag.
 - [ops/google-play/](ops/google-play/README.md) — the Play release: listing, data safety, signing, moderation, store assets.

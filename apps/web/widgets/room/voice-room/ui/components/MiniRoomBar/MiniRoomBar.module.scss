@@ -1,0 +1,112 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: 0.625rem;
+  border-top: 1px solid rgb(var(--tint) / 11%);
+  background: rgb(var(--tint) / 2%);
+  gap: 0.5rem;
+}
+
+.floating {
+  position: absolute;
+  z-index: var(--z-sticky);
+  right: 0.5rem;
+  bottom: calc(0.5rem + var(--safe-area-bottom));
+  left: 0.5rem;
+  border: 1px solid rgb(var(--tint) / 16%);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-elevated);
+}
+
+.identity {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: none;
+  gap: 0.5rem;
+  text-align: start;
+
+  @include interactive-cursor;
+  @include button-focus-ring;
+}
+
+.pulse {
+  display: grid;
+  width: rem(28);
+  height: rem(28);
+  flex-shrink: 0;
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--muted-foreground) 18%, transparent);
+  color: var(--muted-foreground);
+  place-items: center;
+}
+
+.pulseLive {
+  background: color-mix(in srgb, var(--brand-violet) 22%, transparent);
+  color: var(--brand-violet);
+}
+
+.pulseGlyph {
+  width: var(--icon-sm);
+  height: var(--icon-sm);
+}
+
+.meta {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+}
+
+.name {
+  color: var(--foreground);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.action {
+  flex: 1;
+  border-radius: var(--radius-md);
+  background: rgb(var(--tint) / 9%);
+  color: var(--muted-foreground);
+
+  @include hover {
+    &:not(:disabled) {
+      background: rgb(var(--tint) / 16%);
+      color: var(--foreground);
+    }
+  }
+}
+
+.off {
+  background: color-mix(in srgb, var(--destructive) 15%, transparent);
+  color: var(--destructive);
+
+  @include hover {
+    &:not(:disabled) {
+      background: color-mix(in srgb, var(--destructive) 25%, transparent);
+      color: var(--destructive);
+    }
+  }
+}
+
+.leave {
+  color: var(--destructive);
+
+  @include hover {
+    &:not(:disabled) {
+      background: color-mix(in srgb, var(--destructive) 15%, transparent);
+      color: var(--destructive);
+    }
+  }
+}

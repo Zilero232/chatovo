@@ -1,6 +1,6 @@
 # Feature-Sliced Design — Chatovo
 
-The FSD methodology as applied to `apps/client/`. This document is the working reference for the frontend architecture: layer hierarchy, import rules, public APIs, segments.
+The FSD methodology as applied to the two Next.js apps: `apps/web/` (the product app) and `apps/site/` (the public website). Both follow the same layers, import rules, public APIs and segments; the shared design system is the `@chatovo/ui-kit` workspace package (§5.1). This document is the working reference for the frontend architecture.
 
 Full specification: [feature-sliced.design](https://feature-sliced.design). Linter for FSD rules: [Steiger](https://github.com/feature-sliced/steiger).
 
@@ -8,10 +8,10 @@ Full specification: [feature-sliced.design](https://feature-sliced.design). Lint
 >
 > | FSD canon | Chatovo | Why |
 > |---|---|---|
-> | Root `src/` | Root `apps/client/` (no `src/`) | Monorepo: `apps/client` already isolates the frontend. `@/` → `apps/client/`. |
+> | Root `src/` | The app root, `apps/web/` or `apps/site/` (no `src/`) | Monorepo: each app folder already isolates its frontend. `@/` → that app's root. |
 > | Layer `pages/` | Layer `views/` | `pages/` at the Next.js root enables the Pages Router. `views/` sidesteps it. |
 >
-> Everywhere below where the canon says `pages` or `src/pages`, we have `views`. Where it says `src/`, we have the `apps/client/` root.
+> Everywhere below where the canon says `pages` or `src/pages`, we have `views`. Where it says `src/`, we have the app root (`apps/web/` or `apps/site/`).
 
 ---
 
@@ -24,14 +24,14 @@ Full specification: [feature-sliced.design](https://feature-sliced.design). Lint
 | 3 | Widgets | Large self-contained UI blocks (reusable or independent) | Yes |
 | 4 | Features | User interactions with business value (forms, actions) | Yes |
 | 5 | Entities | Core business concepts (user, room, message) | Yes |
-| 6 | Shared | UI kit, API client, utilities, i18n, config — project-agnostic | No |
+| 6 | Shared | API client, utilities, i18n, config — project-agnostic | No |
 
 The `Processes` layer is deprecated — its contents move into `Features` or `App`.
 
 ### Directory structure
 
 ```
-apps/client/            # (canon: src/)
+apps/web/            # (canon: src/)
 ├── app/                # App layer (no slices — segments only)
 ├── views/              # Views layer (canon: pages/)
 │   └── <view-name>/
@@ -51,12 +51,21 @@ apps/client/            # (canon: src/)
 │   ├── hooks/
 │   ├── i18n/
 │   ├── lib/
-│   └── seo/
-└── ui-kit/             # Design system (no slices — segments only)
-    ├── primitives/     # base: Button, Input, Dialog, …
-    ├── components/     # composed: FormField, ConfirmDialog, …
-    ├── icons/
-    └── styles/         # _tokens, _mixins, _functions, _breakpoints, _keyframes
+│   └── seo/            # app-only metadata (noindex)
+
+apps/site/              # the public website, same layers, fewer slices
+├── app/                # [locale]/ routes, sitemap, robots, llms.txt
+├── views/              # home, features, download, changelog, about, support, legal, not-found
+├── widgets/marketing/  # marketing-shell: header, footer, sections, scene
+├── entities/release/   # server fetchers for release and contributor data
+└── shared/             # config/ constants/ hooks/ i18n/ lib/ seo/
+
+packages/ui-kit/        # @chatovo/ui-kit — the design system (no slices — segments only)
+├── primitives/         # base: Button, Input, Dialog, …
+├── components/         # composed: FormField, ConfirmDialog, …
+├── icons/
+├── messages/           # uiMessages: the `ui` namespace, spread into each app's next-intl messages
+└── styles/             # _tokens, _mixins, _functions, _breakpoints, _keyframes, _base
 ```
 
 > **Domain grouping of slices.** In Chatovo the slices inside `features/`, `entities/` and `widgets/` are grouped by business domain (`auth`, `room`, `app`, `layout`). This is a layer on top of the FSD canon (`<layer>/<slice>/`). Imports: `@/features/auth/sign-in`, `@/entities/room/room`, `@/widgets/layout/authed-shell`. The `app` group is cross-domain application infrastructure (release, locale, tray, shortcuts, update). The `layout` group is the root shell.
@@ -140,13 +149,24 @@ export { DeafenProvider } from './model/contexts';
 - **A domain group is not a public API** — `@/features/auth` does not exist; import the specific slice. The domain folder only organises files.
 - **`model/` — barrels in the subfolders, not at the `model/` level.** `model/hooks/index.ts`, `model/contexts/index.ts`, `model/stores/index.ts` — each subfolder gets its own barrel. Do NOT create a slice-level `model/index.ts`. The slice `index.ts` and internal imports go through the subfolder: `./model/hooks`, `../model/contexts`. More in [guides/client/segments.md](../guides/client/segments.md).
 - **No circular imports** — do not import from a slice's own `index.ts` inside that slice. Inside, use relative paths.
-- **`ui-kit/` is the design system, a separate layer next to `shared/`.** Segments: `primitives/` (base), `components/` (composed), `icons/`, `styles/`. **Every component gets its own PascalCase folder** (`primitives/Button/`, `components/FormField/`, …) with `Component.tsx`, `Component.module.scss`, optionally `Component.types.ts` and a mandatory `index.ts` barrel. The segment barrels (`primitives/index.ts`, …) and the root `ui-kit/index.ts` re-export everything. From outside, only `@/ui-kit`, never `@/ui-kit/primitives/Button`. Headless primitives come from **`@base-ui/react`**; styles are **SCSS modules**, tokens live in `app/globals.scss` + `ui-kit/styles/_tokens.scss`. More in [guides/client/slice-ui.md](../guides/client/slice-ui.md) §2.1.
+
+### 5.1. The design system — `@chatovo/ui-kit`
+
+The design system is a workspace package, `packages/ui-kit`, shared by `apps/web` and `apps/site`. It sits beside `shared/` in both apps: every layer may import it, and it imports nothing from either app.
+
+- Segments: `primitives/` (base), `components/` (composed), `icons/`, `styles/`, `messages/`. **Every component gets its own PascalCase folder** (`primitives/Button/`, `components/FormField/`, …) with `Component.tsx`, `Component.module.scss`, optionally `Component.types.ts` and a mandatory `index.ts` barrel. The segment barrels and the root `index.ts` re-export everything.
+- From outside, only `import { Button } from '@chatovo/ui-kit'`, never a path into it; the package's other exports are `@chatovo/ui-kit/messages` and `@chatovo/ui-kit/styles/*`. SCSS: `@use '@chatovo/ui-kit/styles/mixins' as *` (each app's `sassOptions.loadPaths` includes the repo `node_modules`; the package is in `transpilePackages`, since it ships sources).
+- Headless primitives come from **`@base-ui/react`**; styles are **SCSS modules**. Tokens live in `styles/_tokens.scss`; `styles/_base.scss` is the shared global CSS. Each app's `app/globals.scss` `@use`s tokens, keyframes and base, then adds its own page-level rules.
+- `messages/` exports `uiMessages` (namespace `ui`: the kit's own strings — close, loading, show password, …). Each app spreads `uiMessages.<locale>` into its next-intl messages.
+- Shared non-UI constants (site URLs, legal, external links, site paths) live in `@chatovo/config`, not in the kit.
+
+More in [guides/client/slice-ui.md](../guides/client/slice-ui.md) §2.1.
 
 ---
 
 ## 6. Next.js integration (App Router)
 
-`app/` stays at the `apps/client/` root. Route files are thin wrappers that delegate into `views/`:
+`app/` stays at the app root. Route files are thin wrappers that delegate into `views/`:
 
 ```tsx
 // app/(authed)/room/page.tsx — server, thin
@@ -163,7 +183,7 @@ Route files (`page.tsx`, `layout.tsx`) are server components, without `'use clie
 
 ### Path aliases
 
-`@/` points at `apps/client/` (canon: at `src/`):
+`@/` points at the app root, `apps/web/` or `apps/site/` (canon: at `src/`):
 
 ```jsonc
 // tsconfig.json

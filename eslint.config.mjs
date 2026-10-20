@@ -16,7 +16,8 @@ export default eslint(
       'apps/tauri/gen',
       'apps/server/prisma/migrations',
       // next-intl augments its own module here, which only `interface` can do.
-      'apps/client/messages.d.ts',
+      'apps/web/messages.d.ts',
+      'apps/site/messages.d.ts',
       'docs/**',
       '**/*.md/**'
     ]
@@ -82,7 +83,7 @@ export default eslint(
   },
 
   // `next dev` appends its own `# This is NOT the Next.js you know` block to
-  // apps/client/CLAUDE.md on every run and re-adds it when removed, so the
+  // apps/web/CLAUDE.md on every run and re-adds it when removed, so the
   // second H1 is not ours to fix.
   {
     name: 'chatovo/agent-docs',

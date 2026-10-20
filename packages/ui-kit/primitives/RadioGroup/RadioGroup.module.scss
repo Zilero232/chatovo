@@ -1,0 +1,46 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.item {
+  display: grid;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  border: 1px solid var(--input);
+  border-radius: 9999px;
+  aspect-ratio: 1;
+  box-shadow: 0 rem(1) rem(2) rgb(8 4 10 / 5%);
+  color: var(--primary);
+  cursor: pointer;
+  outline: none;
+  place-items: center;
+  transition: colors var(--duration-fast) var(--timing-function-standard);
+
+  @include focus-ring(var(--ring));
+
+  &:disabled,
+  &[data-disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  &[data-checked] {
+    border-color: var(--primary);
+  }
+}
+
+.indicator {
+  display: grid;
+  place-items: center;
+}
+
+.dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: var(--primary);
+}

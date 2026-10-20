@@ -4,12 +4,19 @@ Things that have already bitten us. Each one looked like a bug in our code, or a
 
 ## Client
 
-- **Rooms are addressed by a query param.** The client is a static export (`output: 'export'`) with no SPA fallback, so `/room/<id>` is a 404 in production. A room is `/room?id=…`, built by `buildRoomHref` in `shared/lib`.
+- **Rooms are addressed by a query param.** The web app is a static export (`output: 'export'`) with no SPA fallback, so `/room/<id>` is a 404 in production. A room is `/room?id=…`, built by `buildRoomHref` in `shared/lib`.
 - **The auth splash covers only the first load.** better-auth refetches the session on window focus, and `useCurrentUser` reports `isLoading` again. `AuthProvider` shows the splash only until the session has resolved once (`hasResolvedRef`); gating on `isLoading` alone remounted the whole tree on every tab switch and wiped the forms on the auth pages.
 - **Leaving a room can re-open it.** `close()` is synchronous and `router.replace` is not, so the room page re-requested a token and re-opened the session it had just closed. The session context remembers `leftRoomId`; see [room-session.md](room-session.md).
 - **A LiveKit processor restart drops the `AudioContext`.** `TrackProcessor.restart()` is called without one on a device change. The voice gate caches the context from `init` and falls back to it; without that it crashed on every microphone switch. LiveKit has no built-in noise gate, which is why that processor is our own (`entities/app/settings/lib/voice-gate`).
 - **A private room's password prompt must be reachable without a grant.** Reading a room once required a LiveKit grant, which only the password gives — so the prompt asking for it could never render. Viewing (`assertCanViewRoom`) and entering (`assertCanAccessRoom`) are separate checks on the server.
+- **An `outline` doesn't follow the corners of a rounded `overflow: hidden` card.** The participant card's speaking ring was an inset outline and showed square corners; a coloured border alone got clipped at the radius. It is now the card border plus an inner `::after` ring with radius `calc(var(--radius-2xl) - 1px)` — [visual-design.md](visual-design.md#the-app-keeps-its-layout).
 - **Base UI menus fail silently.** A `DropdownMenuLabel` outside a group stops the menu from opening, with no console error. The full list is in [guides/client/base-ui.md](../guides/client/base-ui.md).
+
+## Site
+
+- **The standalone server must bind `HOSTNAME=0.0.0.0`.** Docker sets `HOSTNAME` to the container id, and Next's standalone `server.js` binds to it. next-intl's internal rewrite of a bare (Russian) path to `/ru/...` goes to `localhost`, misses the server and every page loops into a 307. The site Dockerfile sets `HOSTNAME=0.0.0.0`; keep it.
+- **A page that fetches the API must be `force-dynamic`.** Otherwise `next build` prerenders it, fetching the API at build time — in CI there is none, and the page ships with empty data until revalidation.
+- **The site can't know who is signed in.** The session token lives in the app origin's localStorage; the header CTA is a static link into the app.
 
 ## Server and production
 
@@ -22,7 +29,7 @@ Things that have already bitten us. Each one looked like a bug in our code, or a
 
 - **The window icon is linked into the executable.** Swapping the icon files and restarting `bun tauri:dev` changes nothing; the binary has to be rebuilt (touch `build.rs` or clean the target).
 - **An old icon in the taskbar jump list after an update is Windows' icon cache**, not the build. The binary and the AUMID are already right; clearing `iconcache_*.db` fixes the machine.
-- **The start URL is `/lobby`.** `tauri.conf.json` opens it directly; an `isTauri()` redirect on the landing page never runs.
+- **The start URL is `/lobby`.** `tauri.conf.json` opens it directly; `/` in the web app only redirects there.
 
 ## Android
 
@@ -31,5 +38,5 @@ Things that have already bitten us. Each one looked like a bug in our code, or a
 ## Tooling
 
 - **`bun run test`, never bare `bun test`.** Bare `bun test` is Bun's own runner, not Vitest, and fails the suite.
-- **`next dev` rewrites `apps/client/CLAUDE.md`.** The `<!-- BEGIN:nextjs-agent-rules -->` block is re-added on every run; committing it keeps the tree clean.
+- **`next dev` rewrites the app's `CLAUDE.md`** (`apps/web`, `apps/site`). The `<!-- BEGIN:nextjs-agent-rules -->` block is re-added on every run; committing it keeps the tree clean.
 - **A performance symptom that survives two library swaps is not the library.** Repeat the action (a fast second time is first-mount or dev compilation), try a production build, or read a profile before swapping a third time.

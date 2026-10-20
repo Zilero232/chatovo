@@ -3,8 +3,11 @@ name: release
 # Ships one version everywhere: desktop installers to a GitHub Release, and the
 # signed Android bundle attached to it and uploaded to Google Play.
 #
-#   checks ─ draft ─┬─ desktop ──────────────┬─ publish
-#                   └─ android ──────────────┘
+#   version ─┐
+#   lint ────┤
+#   test ────┼─ draft ─┬─ desktop ──────────────┬─ publish
+#   site ────┤         └─ android ──────────────┘
+#   web ─────┘
 #
 # Push a `v*` tag to release everything; a manual run takes a `targets` choice
 # (all / desktop / android) to rebuild one platform without paying for the
@@ -12,7 +15,7 @@ name: release
 # appended to rather than replaced. The aab goes to the Play track named by the
 # PLAY_TRACK variable (production when unset) and is sent for review; Google
 # publishes it once moderation passes. Its "What's new" is the version's entry
-# in apps/client/views/changelog/config/releases.ts, in Russian and English.
+# in apps/site/views/changelog/config/releases.ts, in Russian and English.
 #
 # Secrets — Settings → Secrets and variables → Actions. GITHUB_TOKEN is
 # provided by Actions.
@@ -50,7 +53,7 @@ name: release
 # jobs hold the signing keys.
 
 on:
-  # `workflow_run` cannot filter on a tag; hence the `checks` job, not a chain.
+  # `workflow_run` cannot filter on a tag; hence the check jobs here, not a chain.
   push:
     tags: ['v*']
   workflow_dispatch:
@@ -76,13 +79,13 @@ concurrency:
 
 jobs:
   # The gate: a tag on a commit that does not pass never produces signed artefacts.
-  checks:
-    # The root `permissions: {}` strips every scope; the clone needs this back.
+  # The checks are independent, so they run as parallel jobs and `draft` waits for all.
+  version:
     permissions:
       contents: read
 
     runs-on: ubuntu-24.04
-    timeout-minutes: 30
+    timeout-minutes: 5
 
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
@@ -105,9 +108,79 @@ jobs:
 
           echo "releasing v$root"
 
+  lint:
+    permissions:
+      contents: read
+
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+
       - uses: ./.github/actions/setup
         with:
-          tools: rust caddy
+          tools: caddy
+
+      - run: bun run verify
+      - run: bun run lint:caddy
+
+  test:
+    permissions:
+      contents: read
+
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+
+      - uses: ./.github/actions/setup
+
+      - run: bun run test
+
+  site:
+    permissions:
+      contents: read
+
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+
+      - uses: ./.github/actions/setup
+
+      # Nothing built here ships; a placeholder keeps this runnable on a fork.
+      - name: Build the site
+        env:
+          NODE_ENV: production
+          NEXT_PUBLIC_APP_URL: https://app.invalid
+        run: bun --filter @chatovo/site build
+
+  # The web export and clippy share a job: tauri validates frontendDist at build
+  # time, so the exported app must exist before clippy touches the crate.
+  web:
+    permissions:
+      contents: read
+
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+
+      - uses: ./.github/actions/setup
+        with:
+          tools: rust
           cache-key: verify
 
       # tauri links against webkit2gtk; clippy cannot build without these.
@@ -116,25 +189,20 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf libsoup-3.0-dev
 
-      # frontendDist is validated at build time: icons and the exported client
-      # must exist before clippy touches the crate.
       - run: bun run tauri:icon
 
       # Nothing built here ships; placeholders keep this runnable on a fork.
-      - name: Build the client
+      - name: Build the web app
         env:
           NODE_ENV: production
           NEXT_PUBLIC_API_URL: https://api.invalid
           NEXT_PUBLIC_LIVEKIT_URL: wss://livekit.invalid
-        run: bun --filter @chatovo/client build
+        run: bun --filter @chatovo/web build
 
-      - run: bun run verify
-      - run: bun run test
       - run: bun run lint:rust
-      - run: bun run lint:caddy
 
   draft:
-    needs: checks
+    needs: [version, lint, test, site, web]
 
     permissions:
       contents: write
@@ -281,7 +349,7 @@ jobs:
       # Play's "What's new" comes from the changelog entry of this version; a
       # release without one fails here, before the long build.
       - name: Write the Play release notes
-        run: bun apps/client/scripts/write-play-release-notes.ts target/whatsnew
+        run: bun apps/site/scripts/write-play-release-notes.ts target/whatsnew
 
       # `tauri android init` regenerates gen/android from scratch: overlays and
       # signing config go after it, never before.

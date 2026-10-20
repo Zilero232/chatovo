@@ -1,0 +1,37 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.menu {
+  min-width: 13rem;
+}
+
+.trigger {
+  border: 1px solid color-mix(in srgb, var(--brand-violet) 32%, transparent);
+  background: color-mix(in srgb, var(--brand-violet) 12%, transparent);
+  color: var(--brand-violet);
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--brand-violet) 48%, transparent);
+    background: color-mix(in srgb, var(--brand-violet) 20%, transparent);
+  }
+}
+
+.triggerActive {
+  border-color: var(--brand-violet);
+  background: color-mix(in srgb, var(--brand-violet) 26%, transparent);
+}
+
+.triggerInvisible {
+  position: relative;
+  color: var(--brand-fuchsia);
+
+  &:after {
+    position: absolute;
+    right: 0.375rem;
+    bottom: 0.375rem;
+    width: 0.375rem;
+    height: 0.375rem;
+    border-radius: 9999px;
+    background: var(--brand-fuchsia);
+    content: '';
+  }
+}

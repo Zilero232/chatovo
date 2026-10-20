@@ -1,12 +1,12 @@
 name: deploy
 
-# Builds both images, pushes them to ghcr, then tells the VPS to pull and
+# Builds the web, site and server images, pushes them to ghcr, then tells the VPS to pull and
 # restart. The VPS has no clone of the repo, so docker-compose.yml is copied
 # on every deploy.
 #
 # Secrets — Settings → Secrets and variables → Actions:
 #   NEXT_PUBLIC_API_URL       baked into the web image at build time
-#   NEXT_PUBLIC_APP_URL       likewise, the app host e.g. https://app.chatovo.ru
+#   NEXT_PUBLIC_APP_URL       likewise (web and site), the app host e.g. https://app.chatovo.ru
 #   NEXT_PUBLIC_LIVEKIT_URL   likewise
 #   SSH_HOST                  production VPS
 #   SSH_USER
@@ -33,10 +33,16 @@ env:
 permissions: {}
 
 jobs:
+  # The three images are independent, so they build in parallel.
   images:
     permissions:
       contents: read
       packages: write
+
+    strategy:
+      fail-fast: true
+      matrix:
+        image: [web, site, server]
 
     runs-on: ubuntu-24.04
     timeout-minutes: 45
@@ -59,29 +65,21 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and push the web image
+      # Secrets are not available to the matrix itself, so every image gets the
+      # same NEXT_PUBLIC_* set; each Dockerfile declares only the ARGs it uses.
+      - name: Build and push the ${{ matrix.image }} image
         uses: docker/build-push-action@53b7df96c91f9c12dcc8a07bcb9ccacbed38856a # v7
         with:
           context: .
-          file: apps/client/Dockerfile
+          file: apps/${{ matrix.image }}/Dockerfile
           push: true
-          tags: ghcr.io/${{ steps.owner.outputs.value }}/chatovo-web:latest
+          tags: ghcr.io/${{ steps.owner.outputs.value }}/chatovo-${{ matrix.image }}:latest
           build-args: |
             NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}
             NEXT_PUBLIC_APP_URL=${{ secrets.NEXT_PUBLIC_APP_URL }}
             NEXT_PUBLIC_LIVEKIT_URL=${{ secrets.NEXT_PUBLIC_LIVEKIT_URL }}
-          cache-from: type=gha,scope=web
-          cache-to: type=gha,mode=max,scope=web
-
-      - name: Build and push the server image
-        uses: docker/build-push-action@53b7df96c91f9c12dcc8a07bcb9ccacbed38856a # v7
-        with:
-          context: .
-          file: apps/server/Dockerfile
-          push: true
-          tags: ghcr.io/${{ steps.owner.outputs.value }}/chatovo-server:latest
-          cache-from: type=gha,scope=server
-          cache-to: type=gha,mode=max,scope=server
+          cache-from: type=gha,scope=${{ matrix.image }}
+          cache-to: type=gha,mode=max,scope=${{ matrix.image }}
 
   vps:
     needs: images
@@ -124,7 +122,7 @@ jobs:
           script: |
             set -euo pipefail
             cd "$DEPLOY_PATH"
-            docker compose pull web server
+            docker compose pull web site server
             # Migrations run before the new code serves traffic. db:baseline
             # covers the pre-migration schema (P3005) and is a no-op after.
             docker compose run --rm --no-deps server bun db:baseline
@@ -134,16 +132,18 @@ jobs:
 
             # `up -d` returns when the container starts, not when the app
             # answers — wait for the compose healthcheck instead.
-            for attempt in $(seq 1 30); do
-              state=$(docker inspect -f '{{.State.Health.Status}}' chatovo-server 2>/dev/null || echo missing)
+            for service in server site; do
+              for attempt in $(seq 1 30); do
+                state=$(docker inspect -f '{{.State.Health.Status}}' "chatovo-$service" 2>/dev/null || echo missing)
 
-              [ "$state" = healthy ] && break
+                [ "$state" = healthy ] && break
 
-              if [ "$attempt" = 30 ]; then
-                echo "server never became healthy (last state: $state)" >&2
-                docker compose logs --tail 50 server >&2
-                exit 1
-              fi
+                if [ "$attempt" = 30 ]; then
+                  echo "$service never became healthy (last state: $state)" >&2
+                  docker compose logs --tail 50 "$service" >&2
+                  exit 1
+                fi
 
-              sleep 5
+                sleep 5
+              done
             done

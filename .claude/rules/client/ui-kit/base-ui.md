@@ -1,6 +1,6 @@
 ---
 paths:
-  - 'apps/client/ui-kit/**'
+  - 'packages/ui-kit/**'
 ---
 
 <!-- Compressed editing rules, loaded automatically when a ui-kit file is edited. -->

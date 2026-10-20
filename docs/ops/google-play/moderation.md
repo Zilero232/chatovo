@@ -33,13 +33,13 @@ app, and the developer contact to be live.
 ### Reporting
 
 "Report" sits in the context menu of a voice room participant
-([ParticipantCardMenu](../../../apps/client/widgets/room/voice-room/ui/components/ParticipantCardMenu/ParticipantCardMenu.tsx))
+([ParticipantCardMenu](../../../apps/web/widgets/room/voice-room/ui/components/ParticipantCardMenu/ParticipantCardMenu.tsx))
 and of a chat message
-([MessageMenuItems](../../../apps/client/widgets/chat/chat-panel/ui/components/ChatMessageItem/components/MessageMenuItems/MessageMenuItems.tsx)).
+([MessageMenuItems](../../../apps/web/widgets/chat/chat-panel/ui/components/ChatMessageItem/components/MessageMenuItems/MessageMenuItems.tsx)).
 Reporting yourself or your own message is not offered.
 
 The dialog is the
-[report-abuse](../../../apps/client/features/social/report-abuse/) feature: a reason
+[report-abuse](../../../apps/web/features/social/report-abuse/) feature: a reason
 from a fixed list (spam, harassment, hate speech, sexual content, violence,
 illegal content, other) and an optional comment.
 
@@ -85,14 +85,15 @@ outlived by an existing session or connection:
 
 The "Community rules and moderation" section in `/terms`
 (`legal.termsPage.sections` in
-[ru/marketing.json](../../../apps/client/shared/i18n/locales/ru/marketing.json) and
-[en/marketing.json](../../../apps/client/shared/i18n/locales/en/marketing.json)) lists the prohibited
+[ru/marketing.json](../../../apps/site/shared/i18n/locales/ru/marketing.json) and
+[en/marketing.json](../../../apps/site/shared/i18n/locales/en/marketing.json), on the
+site) lists the prohibited
 content, describes the reporting mechanism, post-moderation, and what a block
 means.
 
 ## The admin panel
 
-`/admin` is a route inside the client, visible only to an account with
+`/admin` is a route inside the web app, visible only to an account with
 `role = 'admin'` — the shield button appears in the sidebar for them. It has four
 tabs:
 
@@ -106,7 +107,7 @@ tabs:
 Every action goes through the moderation endpoints, so a block from the panel
 runs the full eviction — it is never a raw database write.
 
-The route guard is client-side (the client is a static export, so there is no
+The route guard is client-side (the web app is a static export, so there is no
 middleware). It only hides the UI; the real check is `assertIsAdmin` on every
 endpoint.
 

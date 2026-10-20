@@ -1,0 +1,14 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  width: rem(220);
+  max-width: 100%;
+  height: rem(220);
+  opacity: 0.55;
+  pointer-events: none;
+  translate: -50% -50%;
+}

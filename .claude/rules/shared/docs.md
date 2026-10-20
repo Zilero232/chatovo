@@ -20,4 +20,4 @@ Where a thing goes:
 
 A new doc gets a line in `docs/README.md`. Links are relative to the file. Third-party docs are never vendored — they come from context7.
 
-The `<!-- BEGIN:nextjs-agent-rules -->` block in `apps/client/CLAUDE.md` is written by `next dev`; leave it.
+The `<!-- BEGIN:nextjs-agent-rules -->` block in `apps/web/CLAUDE.md` and `apps/site/CLAUDE.md` is written by `next dev`; leave it.

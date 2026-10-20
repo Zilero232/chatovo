@@ -1,0 +1,17 @@
+@use '@chatovo/ui-kit/styles/functions' as *;
+
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-block: 0.25rem;
+}
+
+.label {
+  padding: 0.125rem 0.75rem;
+  border-radius: var(--radius-md);
+  background: rgb(var(--tint) / 11%);
+  color: var(--muted-foreground);
+  font-size: rem(11);
+  font-weight: 500;
+}

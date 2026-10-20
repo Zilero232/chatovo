@@ -1,0 +1,41 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  align-self: center;
+  border-radius: 0.3125rem;
+  background: linear-gradient(100deg, var(--brand-mint), var(--brand-violet));
+  box-shadow:
+    0 0 rem(12) color-mix(in srgb, var(--brand-violet) 45%, transparent),
+    inset 0 1px 0 rgb(var(--tint) / 25%);
+  color: var(--foreground);
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.sm {
+  padding: 0.1875rem 0.3125rem;
+  font-size: rem(9);
+  gap: 0.1875rem;
+}
+
+.md {
+  padding: 0.25rem 0.4375rem;
+  font-size: rem(10);
+  gap: 0.25rem;
+}
+
+.icon {
+  width: 0.6875rem;
+  height: 0.6875rem;
+  opacity: 0.9;
+
+  .md & {
+    width: 0.8125rem;
+    height: 0.8125rem;
+  }
+}

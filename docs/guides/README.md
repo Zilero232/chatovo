@@ -1,6 +1,6 @@
 # Chatovo Style Guide
 
-Code-style conventions for `apps/client/`, `apps/server/` and `packages/`. Architectural rules for the client live in [`docs/architecture/fsd.md`](../architecture/fsd.md); the design decisions behind the product are in [`docs/architecture/`](../README.md#architecture). The compressed editing versions of these guides are the digests in [`.claude/rules/`](../../.claude/rules/), loaded automatically by path. A rule change goes into both.
+Code-style conventions for `apps/web/`, `apps/site/`, `apps/server/` and `packages/`. Architectural rules for the two Next.js apps live in [`docs/architecture/fsd.md`](../architecture/fsd.md); the design decisions behind the product are in [`docs/architecture/`](../README.md#architecture). The compressed editing versions of these guides are the digests in [`.claude/rules/`](../../.claude/rules/), loaded automatically by path. A rule change goes into both.
 
 Tools:
 
@@ -19,7 +19,7 @@ One command each way: `bun run verify` (typecheck + ESLint + Prettier + Stylelin
 
 The `§` numbers are the sections of the old single-file guide; reviews and commit messages still cite them.
 
-### Client (`apps/client`)
+### Client (`apps/web`, `apps/site`, `packages/ui-kit`)
 
 - [Slice structure](client/slices.md) — §1
 - [Slice `ui/` and `ui-kit`](client/slice-ui.md) — §2, §2.1, headless controllers

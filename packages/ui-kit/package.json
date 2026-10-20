@@ -1,0 +1,55 @@
+{
+  "name": "@chatovo/ui-kit",
+  "version": "0.0.0",
+  "private": true,
+  "description": "The Chatovo design system: tokens, SCSS mixins, primitives, composed components and icons.",
+  "homepage": "https://chatovo.ru",
+  "bugs": {
+    "url": "https://github.com/Zilero232/Chatovo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zilero232/Chatovo.git",
+    "directory": "packages/ui-kit"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "author": "Alexandr Artemev",
+  "type": "module",
+  "exports": {
+    ".": "./index.ts",
+    "./messages": "./messages/index.ts",
+    "./styles/*": "./styles/*"
+  },
+  "main": "index.ts",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@base-ui/react": "catalog:",
+    "@siberiacancode/reactuse": "catalog:",
+    "class-variance-authority": "catalog:",
+    "clsx": "catalog:",
+    "lucide-react": "catalog:",
+    "motion": "catalog:",
+    "pretty-bytes": "catalog:",
+    "remeda": "catalog:",
+    "sonner": "catalog:",
+    "ts-pattern": "catalog:"
+  },
+  "devDependencies": {
+    "@chatovo/tsconfig": "workspace:*",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "next": "catalog:",
+    "next-intl": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "typescript": "catalog:"
+  },
+  "peerDependencies": {
+    "next": "catalog:",
+    "next-intl": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:"
+  }
+}

@@ -1,0 +1,83 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.card {
+  display: flex;
+  width: 100%;
+  max-width: rem(600);
+  max-height: 100%;
+  flex-direction: column;
+  padding: var(--space-6);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  background: var(--surface-1);
+  box-shadow: var(--shadow-soft);
+  gap: var(--space-6);
+  overflow-y: auto;
+
+  @include bp(sm) {
+    padding: var(--space-8);
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.chato {
+  width: rem(88);
+  height: rem(88);
+  margin-bottom: var(--space-2);
+}
+
+.title {
+  margin: 0;
+  font-size: rem(30);
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  gap: var(--space-3);
+  list-style: none;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.stepNumber {
+  display: flex;
+  width: var(--control-xs);
+  height: var(--control-xs);
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--primary) 16%, transparent);
+  color: var(--primary);
+  font-size: var(--text-xs);
+  font-weight: 700;
+}
+
+.note {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--surface-2);
+  gap: var(--space-2);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}

@@ -1,0 +1,10 @@
+{
+  "ui": {
+    "chooseFile": "Choose file",
+    "close": "Close",
+    "loading": "Loading...",
+    "remove": "Remove",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password"
+  }
+}

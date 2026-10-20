@@ -1,7 +1,11 @@
 ---
 paths:
-  - 'apps/client/**/*.{ts,tsx}'
-  - 'apps/client/shared/i18n/locales/**'
+  - 'apps/web/**/*.{ts,tsx}'
+  - 'apps/web/shared/i18n/locales/**'
+  - 'apps/site/**/*.{ts,tsx}'
+  - 'apps/site/shared/i18n/locales/**'
+  - 'packages/ui-kit/**/*.{ts,tsx}'
+  - 'packages/ui-kit/messages/**'
 ---
 
 <!-- Compressed editing rules, loaded automatically when a client file is edited. -->
@@ -9,4 +13,6 @@ paths:
 
 # Client — i18n
 
-Every user-visible string goes through `next-intl`: `useTranslations` in client components, `getTranslations` from `next-intl/server` in server ones. Keys live in `shared/i18n/locales/{en,ru}/<namespace>.json` — the same files and keys in both; the tests in `shared/i18n/_tests/` fail on a missing key, an untranslated error code or an unused key. Don't edit the generated `messages.d.ts`.
+Every user-visible string goes through `next-intl`: `useTranslations` in client components, `getTranslations` from `next-intl/server` in server ones. Keys live in each app's `shared/i18n/locales/{en,ru}/<namespace>.json` — the same files and keys in both; the tests in `shared/i18n/_tests/` fail on a missing key, an untranslated error code (web) or an unused key. Web namespaces: `admin`, `app`, `auth`, `common`, `room`, `social`; the site has one `marketing.json`. A kit component reads the `ui` namespace (`packages/ui-kit/messages/{en,ru}.json`, exported as `uiMessages` and spread into both apps' messages). Don't edit the generated `messages.d.ts`.
+
+Site: its client components receive only the `ui` namespace — pass them strings as props from a server parent. Pages read the locale with `readPageLocale(params)`; internal links go through `localizeMarketingPath`.

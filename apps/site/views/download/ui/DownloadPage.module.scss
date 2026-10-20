@@ -1,0 +1,16 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.platforms {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.inlineLink {
+  color: var(--brand-coral);
+  text-decoration: underline;
+}
+
+.fallbackAction {
+  align-self: flex-start;
+}

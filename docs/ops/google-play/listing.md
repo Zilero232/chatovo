@@ -116,8 +116,8 @@ Everything below lives in [assets/](assets/), ready to upload.
 
 | Asset | Requirements | In the repo |
 |-------|--------------|-------------|
-| Icon | 512×512, **32-bit PNG with alpha**, up to 1 MB | `assets/icon-512.png` |
-| Feature graphic | 1024×500, **24-bit PNG or JPEG, no alpha** — mandatory, the listing cannot publish without it | `assets/feature-graphic.png` |
+| Icon | 512×512, **32-bit PNG with alpha**, up to 1 MB | `assets/icon-512.png` (coral plaque, regenerated with the brand recolour) |
+| Feature graphic | 1024×500, **24-bit PNG or JPEG, no alpha** — mandatory, the listing cannot publish without it | `assets/feature-graphic.png` (regenerated with the brand recolour) |
 | Phone screenshots | 2–8, **24-bit PNG or JPEG, no alpha**, each side 320–3840 px, the long side at most twice the short one | `assets/screenshots/` |
 | Tablet screenshots | 4 each for 7-inch and 10-inch, only if the app is distributed to tablets | — |
 | Video | a YouTube link, optional | — |

@@ -1,3 +1,4 @@
+export { detectDownloadPlatform, toRelease } from './lib';
 export {
   appDownloadsSchema,
   gitHubContributorListSchema,
@@ -7,4 +8,12 @@ export {
   gitHubReleaseSchema
 } from './outputs';
 
-export type { AppDownloads, GitHubContributor, GitHubRelease, GitHubReleaseAsset } from './types';
+export type {
+  AppDownloads,
+  DownloadPlatform,
+  GitHubContributor,
+  GitHubRelease,
+  GitHubReleaseAsset,
+  Release,
+  ReleaseAsset
+} from './types';

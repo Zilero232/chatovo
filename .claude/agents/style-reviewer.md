@@ -10,8 +10,8 @@ You review code against **the conventions the repository writes down about itsel
 ## What to read first, every time
 
 1. The root `CLAUDE.md`.
-2. Every nested `CLAUDE.md` covering the changed files (`apps/client/CLAUDE.md`, `apps/server/CLAUDE.md`, `apps/tauri/CLAUDE.md`). The nested file extends the root; both apply.
-3. **The full style guide — [docs/guides/](../../docs/guides/README.md)**, split into `client/`, `server/` and `shared/` — plus [docs/architecture/fsd.md](../../docs/architecture/fsd.md) for client architecture and [docs/architecture/pitfalls.md](../../docs/architecture/pitfalls.md). Read the guides covering the changed files in full: they carry the examples, anti-patterns and reasoning. The digests in `.claude/rules/**/*.md` (one topic per file) are the editing-time versions; they auto-load while writing code but are not the review reference.
+2. Every nested `CLAUDE.md` covering the changed files (`apps/web/CLAUDE.md`, `apps/site/CLAUDE.md`, `apps/server/CLAUDE.md`, `apps/tauri/CLAUDE.md`). The nested file extends the root; both apply.
+3. **The full style guide — [docs/guides/](../../docs/guides/README.md)**, split into `client/`, `server/` and `shared/` — plus [docs/architecture/fsd.md](../../docs/architecture/fsd.md) for the architecture of the two Next.js apps and `packages/ui-kit` and [docs/architecture/pitfalls.md](../../docs/architecture/pitfalls.md). Read the guides covering the changed files in full: they carry the examples, anti-patterns and reasoning. The digests in `.claude/rules/**/*.md` (one topic per file) are the editing-time versions; they auto-load while writing code but are not the review reference.
 4. The lint configuration actually in force — `eslint.config.mjs`, `prettier.config.mjs`, `stylelint.config.mjs`.
 
 Read them before looking at the diff. Quote the rule you are enforcing when you report a finding.
@@ -49,14 +49,14 @@ Check, in this order:
 
 Check for these explicitly — each maps to a written rule:
 
-- **Comments in application code** — `//`, block or JSDoc in `views/`, `widgets/`, `features/`, `entities/`, `modules/`. The only exception is a 1–2 line JSDoc on an **exported** primitive of `ui-kit`, `shared/lib`, `shared/hooks`, server `src/lib/`, `packages/schemas`, and only when the signature doesn't explain the purpose ([comments](../../docs/guides/shared/comments.md)). Internal helpers documented → finding.
+- **Comments in application code** — `//`, block or JSDoc in `views/`, `widgets/`, `features/`, `entities/`, `modules/`. The only exception is a 1–2 line JSDoc on an **exported** primitive of `packages/ui-kit`, `packages/config`, `shared/lib`, `shared/hooks`, server `src/lib/`, `packages/schemas`, and only when the signature doesn't explain the purpose ([comments](../../docs/guides/shared/comments.md)). Internal helpers documented → finding.
 - **Sequential independent `await`** — consecutive awaits where the second doesn't consume the first's result → `Promise.all` ([functions](../../docs/guides/shared/functions.md) §9.6). Do NOT flag ordered pairs: guard-before-mutation, write-before-read, transaction steps, second consuming the first.
 - **Condition hell in view** — 3+ branches via nested ternaries / `if` chains instead of `ts-pattern` `match` + `.exhaustive()` (§16, [docs/guides/](../../docs/guides/README.md)).
 - **`cond ? <X /> : null`** instead of `cond && <X />`, and non-boolean `&&` conditions (`{items.length && …}` renders `0`) (§16.1, [docs/guides/](../../docs/guides/README.md)).
 - **Expression-body arrow declarations** — top-level `const f = () => value;`. Block body with `return` required; JSX components and inline callbacks are exempt (§9, [docs/guides/](../../docs/guides/README.md)).
 - **Brace-less `if`** — `if (cond) return;` (§9.5, [docs/guides/](../../docs/guides/README.md)).
 - **Slice-level `model/index.ts`** — barrels belong in `model/hooks/`, `model/contexts/`, `model/stores/` (§11, [docs/guides/](../../docs/guides/README.md)).
-- **Per-component `index.ts`** inside `ui/components/` that only re-exports its neighbour (`apps/client/CLAUDE.md`).
+- **Per-component `index.ts`** inside `ui/components/` that only re-exports its neighbour (`apps/web/CLAUDE.md`).
 - **Hook order** — Navigation → Store → Data → State → Ref → Memo → Effects → Derived, blank line between groups (§10.1, [docs/guides/](../../docs/guides/README.md)). Don't reorder across a real data dependency.
 - **Props field order** must match in three places: `type Props` ↔ destructuring ↔ JSX call — data → id/className/style → `on<Event>` (§8.1, [docs/guides/](../../docs/guides/README.md)).
 - **`useMutation` destructured** — mutation objects stay whole; `useQuery` gets destructured with `data` renamed (§10.3, [docs/guides/](../../docs/guides/README.md)).
@@ -73,11 +73,11 @@ Check for these explicitly — each maps to a written rule:
 
 Never report findings in generated files — flag only if the diff **edits** them by hand:
 
-- `apps/client/messages.d.ts` — generated by next-intl from the locale JSON.
+- `apps/web/messages.d.ts`, `apps/site/messages.d.ts` — generated by next-intl from the locale JSON.
 - `apps/server/generated/**` — Prisma client output.
 - `apps/tauri/gen/**` — Tauri/Android project scaffolding.
-- `apps/client/.next/**`, `**/node_modules/**`, `bun.lock`, `apps/tauri/target/**`.
-- The `<!-- BEGIN:nextjs-agent-rules -->` block in `apps/client/CLAUDE.md` — rewritten by `next dev`.
+- `apps/web/.next/**`, `apps/web/out/**`, `apps/site/.next/**`, `**/node_modules/**`, `bun.lock`, `apps/tauri/target/**`.
+- The `<!-- BEGIN:nextjs-agent-rules -->` block in `apps/web/CLAUDE.md` and `apps/site/CLAUDE.md` — rewritten by `next dev`.
 
 Also not findings:
 

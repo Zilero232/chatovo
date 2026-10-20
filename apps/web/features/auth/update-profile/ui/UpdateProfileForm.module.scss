@@ -1,0 +1,176 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.label {
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.hint {
+  color: var(--subtle-foreground);
+  font-size: var(--text-xs);
+}
+
+.submit {
+  align-self: flex-start;
+}
+
+.avatarRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.avatarButton {
+  position: relative;
+  width: var(--space-16);
+  height: var(--space-16);
+  flex-shrink: 0;
+  border-radius: 9999px;
+  cursor: pointer;
+  outline: none;
+
+  @include button-focus-ring;
+
+  &:hover .avatarOverlay {
+    opacity: 1;
+  }
+}
+
+.avatar {
+  width: var(--space-16) !important;
+  height: var(--space-16) !important;
+}
+
+.avatarOverlay {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: var(--scrim);
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--timing-function-standard);
+}
+
+.avatarOverlayIcon {
+  width: var(--icon-md);
+  height: var(--icon-md);
+  color: var(--foreground);
+}
+
+.avatarMeta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.avatarRemove {
+  align-self: flex-start;
+  border-radius: var(--radius-sm);
+  color: var(--destructive);
+  cursor: pointer;
+  font-size: var(--text-xs);
+  text-underline-offset: rem(2);
+
+  @include focus-ring;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+.bannerRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.bannerSwatch {
+  width: rem(28);
+  height: rem(28);
+  border: 1px solid var(--border-strong);
+  border-radius: 9999px;
+  cursor: pointer;
+  outline: none;
+  transition: transform var(--duration-fast) var(--timing-function-standard);
+
+  @include button-focus-ring;
+
+  &:hover:not(:disabled) {
+    transform: scale(1.1);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+.bannerSwatchActive {
+  box-shadow:
+    0 0 0 rem(2) var(--background),
+    0 0 0 rem(4) var(--foreground);
+}
+
+.bannerCustomTrigger {
+  display: flex;
+  width: rem(28);
+  height: rem(28);
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed var(--border-strong);
+  border-radius: 9999px;
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+  transition: transform var(--duration-fast) var(--timing-function-standard);
+
+  @include button-focus-ring;
+
+  &:hover:not(:disabled) {
+    transform: scale(1.1);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+.bannerCustomIcon {
+  width: var(--icon-xs);
+  height: var(--icon-xs);
+  color: var(--foreground);
+  mix-blend-mode: difference;
+}
+
+.bannerPickerPopover {
+  width: auto;
+  padding: var(--space-3);
+}
+
+@include reduced-motion {
+  .bannerSwatch:hover:not(:disabled),
+  .bannerCustomTrigger:hover:not(:disabled) {
+    transform: none;
+  }
+}

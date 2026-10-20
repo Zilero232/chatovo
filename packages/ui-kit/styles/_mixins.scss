@@ -1,0 +1,295 @@
+@forward '@chatovo/ui-kit/styles/breakpoints';
+@forward '@chatovo/ui-kit/styles/functions';
+@use '@chatovo/ui-kit/styles/functions' as *;
+@use '@chatovo/ui-kit/styles/breakpoints' as *;
+
+@mixin focus-ring($color: var(--ring)) {
+  &:focus-visible {
+    box-shadow: 0 0 0 #{rem(2)} #{$color};
+    outline: none;
+  }
+}
+
+@mixin button-focus-ring($color: var(--ring)) {
+  &:focus-visible {
+    box-shadow:
+      0 0 0 #{rem(2)} var(--background),
+      0 0 0 #{rem(4)} #{$color};
+    outline: none;
+  }
+}
+
+@mixin interactive-cursor {
+  cursor: pointer;
+
+  &:disabled,
+  &[data-disabled],
+  &[aria-disabled='true'] {
+    cursor: not-allowed;
+  }
+}
+
+@mixin control-disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+@mixin control-invalid {
+  &[aria-invalid='true'] {
+    border-color: color-mix(in oklch, var(--destructive) 60%, transparent);
+    box-shadow: 0 0 0 #{rem(2)} color-mix(in oklch, var(--destructive) 30%, transparent);
+  }
+}
+
+@mixin field-base {
+  min-width: 0;
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius-md);
+  background: var(--input);
+  color: var(--foreground);
+  outline: none;
+  transition:
+    border-color var(--duration-fast) var(--timing-function-standard),
+    box-shadow var(--duration-fast) var(--timing-function-standard);
+
+  &::placeholder {
+    color: var(--subtle-foreground);
+  }
+
+  &:hover:not(:disabled) {
+    border-color: var(--border-strong);
+  }
+}
+
+@mixin field-focus {
+  &:focus-visible {
+    border-color: var(--ring);
+    box-shadow: 0 0 0 #{rem(1)} var(--ring);
+  }
+}
+
+@mixin field-text-size {
+  font-size: var(--text-base);
+
+  @include bp(sm) {
+    font-size: var(--text-sm);
+  }
+}
+
+@mixin button-base {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  gap: var(--space-2);
+  outline: none;
+  text-decoration: none;
+  transition: colors var(--duration-fast) var(--timing-function-out);
+  white-space: nowrap;
+
+  @include interactive-cursor;
+  @include button-focus-ring;
+
+  &:disabled,
+  &[data-disabled] {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  &[aria-invalid='true'] {
+    box-shadow: 0 0 0 #{rem(2)} color-mix(in oklch, var(--destructive) 40%, transparent);
+  }
+
+  svg {
+    width: var(--icon-sm);
+    height: var(--icon-sm);
+    flex-shrink: 0;
+    pointer-events: none;
+  }
+}
+
+@mixin surface-card($radius: rem(14), $alpha: 4%) {
+  border: 1px solid var(--border);
+  border-radius: $radius;
+  background: oklch(100% 0 0deg / #{$alpha});
+}
+
+@mixin surface-card-hover($alpha: 6%) {
+  transition: background var(--duration-fast) var(--timing-function-standard);
+
+  @include hover {
+    background: oklch(100% 0 0deg / #{$alpha});
+  }
+}
+
+@mixin overlay-enter {
+  &[data-starting-style] {
+    animation:
+      overlay-fade-in var(--duration-default) var(--timing-function-out),
+      overlay-zoom-in var(--duration-default) var(--timing-function-out);
+  }
+
+  &[data-ending-style] {
+    animation:
+      overlay-fade-out var(--duration-default) var(--timing-function-in),
+      overlay-zoom-out var(--duration-default) var(--timing-function-in);
+  }
+}
+
+@mixin slide-from-side {
+  &[data-side='bottom'][data-starting-style] {
+    animation: slide-in-from-top var(--duration-default) var(--timing-function-out);
+  }
+
+  &[data-side='top'][data-starting-style] {
+    animation: slide-in-from-bottom var(--duration-default) var(--timing-function-out);
+  }
+
+  &[data-side='left'][data-starting-style] {
+    animation: slide-in-from-right var(--duration-default) var(--timing-function-out);
+  }
+
+  &[data-side='right'][data-starting-style] {
+    animation: slide-in-from-left var(--duration-default) var(--timing-function-out);
+  }
+}
+
+@mixin coarse-pointer {
+  @media (hover: none), (pointer: coarse) {
+    @content;
+  }
+}
+
+@mixin hover {
+  @media (any-hover: hover) and (any-pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin hover-press {
+  @include hover {
+    @content;
+  }
+
+  @include coarse-pointer {
+    &:active {
+      @content;
+    }
+  }
+}
+
+@mixin text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/// Hides the scrollbar while keeping the element scrollable. Does not set `overflow`.
+@mixin hide-scrollbar {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/// Enlarges the hit area of a small control via a transparent `::after`,
+/// leaving its visual size untouched. Sets `position: relative` on the target.
+@mixin tap-target($size: rem(44)) {
+  position: relative;
+
+  &:after {
+    position: absolute;
+    min-width: $size;
+    min-height: $size;
+    content: '';
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/// Hides an element visually but keeps it readable by screen readers.
+/// Never use on interactive controls — their state must stay visible.
+@mixin visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  margin: -1px;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@mixin line-clamp($lines: 2) {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+  line-clamp: $lines;
+}
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+@mixin tauri-mobile {
+  :global(.tauri-mobile) & {
+    @content;
+  }
+}
+
+@mixin round-trigger-accent($accent) {
+  border-color: color-mix(in srgb, #{$accent} 45%, transparent);
+  background: color-mix(in srgb, #{$accent} 18%, transparent);
+  color: $accent;
+}
+
+@mixin round-trigger($accent) {
+  display: flex;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(var(--tint) / 14%);
+  border-radius: 9999px;
+  background: rgb(var(--tint) / 8%);
+  color: var(--muted-foreground);
+  transition: all var(--duration-fast) var(--timing-function-standard);
+
+  @include interactive-cursor;
+  @include button-focus-ring;
+
+  @include bp(sm) {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  @include hover {
+    @include round-trigger-accent($accent);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &[data-popup-open] {
+    @include round-trigger-accent($accent);
+  }
+
+  svg {
+    width: var(--icon-sm);
+    height: var(--icon-sm);
+  }
+}

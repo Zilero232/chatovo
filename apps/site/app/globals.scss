@@ -1,0 +1,16 @@
+@use '@chatovo/ui-kit/styles/tokens';
+@use '@chatovo/ui-kit/styles/keyframes';
+@use '@chatovo/ui-kit/styles/base';
+
+html,
+body {
+  overflow: clip auto;
+  min-height: 100%;
+  scrollbar-gutter: stable;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

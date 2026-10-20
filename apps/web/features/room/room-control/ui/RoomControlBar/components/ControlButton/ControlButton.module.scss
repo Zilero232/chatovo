@@ -1,0 +1,221 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.controlButton {
+  display: flex;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0.125rem;
+  border: 1px solid rgb(var(--tint) / 14%);
+  border-radius: 9999px;
+  cursor: pointer;
+  outline: none;
+  transition: all var(--duration-fast) var(--timing-function-standard);
+
+  @include bp(sm) {
+    width: 2.75rem;
+    height: 2.75rem;
+    padding-top: 0;
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.95);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+
+    @include bp(sm) {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+
+  @include focus-ring(var(--brand-cyan));
+}
+
+.toneOn {
+  background: rgb(var(--tint) / 11%);
+  color: var(--foreground);
+
+  &:hover:not(:disabled) {
+    background: rgb(var(--tint) / 14%);
+  }
+}
+
+.toneOff {
+  background: rgb(var(--tint) / 8%);
+  color: var(--muted-foreground);
+
+  &:hover:not(:disabled) {
+    background: rgb(var(--tint) / 14%);
+  }
+}
+
+.toneActive {
+  border-color: rgb(var(--tint) / 14%);
+  background: color-mix(in srgb, var(--brand-cyan) 20%, transparent);
+  color: var(--brand-cyan);
+
+  &:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--brand-cyan) 30%, transparent);
+  }
+}
+
+.toneDanger {
+  background: color-mix(in srgb, var(--destructive) 15%, transparent);
+  color: var(--destructive);
+
+  &:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--destructive) 25%, transparent);
+  }
+}
+
+.toneLeave {
+  border-color: transparent;
+  background: var(--destructive);
+  color: var(--destructive-foreground);
+
+  &:hover:not(:disabled) {
+    background: var(--destructive);
+  }
+
+  &:focus-visible {
+    box-shadow:
+      0 0 0 rem(2) color-mix(in srgb, var(--destructive) 50%, transparent),
+      0 rem(4) rem(14) rem(-2) color-mix(in srgb, var(--destructive) 50%, transparent);
+  }
+}
+
+.controlShell {
+  display: flex;
+  overflow: hidden;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex-direction: column;
+  flex-shrink: 0;
+  border: 1px solid rgb(var(--tint) / 14%);
+  border-radius: 9999px;
+  transition: all var(--duration-fast) var(--timing-function-standard);
+
+  @include bp(sm) {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+}
+
+.shellToneOn {
+  background: rgb(var(--tint) / 11%);
+}
+
+.shellToneOff {
+  background: rgb(var(--tint) / 8%);
+}
+
+.shellToneActive {
+  background: color-mix(in srgb, var(--brand-cyan) 20%, transparent);
+}
+
+.shellToneDanger {
+  background: color-mix(in srgb, var(--destructive) 15%, transparent);
+}
+
+.shellToneLeave {
+  border-color: transparent;
+  background: var(--destructive);
+}
+
+.controlMain {
+  display: flex;
+  width: 100%;
+  min-height: 0;
+  flex: 1;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 0.125rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+  transition: colors var(--duration-fast) var(--timing-function-standard);
+
+  @include bp(sm) {
+    align-items: center;
+    padding-bottom: 0;
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  &:focus-visible {
+    box-shadow: inset 0 0 0 rem(2) var(--brand-cyan);
+  }
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+
+    @include bp(sm) {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+}
+
+.mainToneOn {
+  color: var(--foreground);
+
+  &:hover:not(:disabled) {
+    background: rgb(var(--tint) / 11%);
+  }
+}
+
+.mainToneOff {
+  color: var(--muted-foreground);
+
+  &:hover:not(:disabled) {
+    background: rgb(var(--tint) / 9%);
+  }
+}
+
+.mainToneActive {
+  color: var(--brand-cyan);
+
+  &:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--brand-cyan) 12%, transparent);
+  }
+}
+
+.mainToneDanger {
+  color: var(--destructive);
+
+  &:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--destructive) 12%, transparent);
+  }
+}
+
+.mainToneLeave {
+  color: var(--destructive-foreground);
+}
+
+.iconSlot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

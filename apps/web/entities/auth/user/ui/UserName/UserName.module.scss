@@ -1,0 +1,92 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+.root {
+  display: inline-flex;
+  min-width: 0;
+  max-width: 100%;
+  align-items: center;
+  gap: 0.25rem;
+  line-height: 1;
+}
+
+.link,
+.text {
+  min-width: 0;
+}
+
+.link {
+  padding-bottom: 1px;
+  background-image: linear-gradient(currentcolor, currentcolor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+
+  @include text-ellipsis;
+
+  transition:
+    background-size var(--duration-default) var(--timing-function-out),
+    color var(--duration-default) var(--timing-function-out);
+
+  &:hover {
+    background-size: 100% 1px;
+    color: var(--primary);
+  }
+
+  &:focus-visible {
+    border-radius: var(--radius-sm);
+    background-size: 100% 1px;
+    box-shadow: 0 0 0 rem(2) color-mix(in srgb, var(--brand-violet) 50%, transparent);
+    color: var(--primary);
+    outline: none;
+  }
+}
+
+.text {
+  @include text-ellipsis;
+}
+
+.developerName.developerName {
+  background-image: linear-gradient(var(--brand-violet), var(--brand-violet));
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  color: var(--brand-cyan);
+  font-weight: 650;
+
+  @supports (background-clip: text) or (-webkit-background-clip: text) {
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &:hover,
+  &:focus-visible {
+    background-size: 100% 100%;
+    color: var(--brand-cyan);
+
+    @supports (background-clip: text) or (-webkit-background-clip: text) {
+      color: transparent;
+    }
+  }
+}
+
+.checkWrap {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-self: center;
+  transform: translateY(1px);
+}
+
+.check {
+  color: var(--background);
+  fill: var(--brand-violet);
+}
+
+.checkSm {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.checkMd {
+  width: 1rem;
+  height: 1rem;
+}

@@ -1,0 +1,17 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.scope {
+  width: 100%;
+
+  @container admin-page (min-width: 30rem) {
+    width: rem(220);
+  }
+}
+
+.list {
+  min-width: 0;
+}
+
+.spinner {
+  margin: 3rem auto;
+}

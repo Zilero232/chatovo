@@ -1,0 +1,96 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  padding: var(--space-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface-1);
+  gap: var(--space-3);
+}
+
+.docked {
+  flex-shrink: 0;
+  margin: rem(10) rem(10) 0;
+
+  @include bp(sm) {
+    margin: var(--space-3) var(--space-3) 0;
+  }
+}
+
+.floating {
+  position: fixed;
+  z-index: var(--z-sticky);
+  right: var(--space-4);
+  bottom: calc(var(--space-4) + var(--safe-area-bottom));
+  width: min(#{rem(400)}, calc(100% - 2 * var(--space-4)));
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-elevated);
+
+  @include bp(md, down) {
+    right: var(--space-3);
+    bottom: calc(5.5rem + var(--safe-area-bottom));
+    width: calc(100% - 2 * var(--space-3));
+  }
+}
+
+.identity {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  align-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: none;
+  color: inherit;
+  gap: var(--space-3);
+  text-align: start;
+
+  @include interactive-cursor;
+  @include button-focus-ring;
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
+.thumb {
+  display: block;
+  overflow: hidden;
+  width: rem(80);
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  aspect-ratio: 16 / 9;
+  background: var(--background);
+}
+
+.square {
+  width: rem(45);
+  aspect-ratio: 1;
+}
+
+.meta {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: rem(2);
+}
+
+.title {
+  color: var(--foreground);
+  font-size: var(--text-sm);
+  font-weight: 600;
+
+  @include text-ellipsis;
+}
+
+.subtitle {
+  color: var(--muted-foreground);
+  font-size: var(--text-xs);
+
+  @include text-ellipsis;
+}

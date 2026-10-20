@@ -16,7 +16,7 @@ Only libraries **already declared** in a `package.json` count. A transitive depe
 | Dates and times | `date-fns` | No `Date` arithmetic by hand |
 | Class composition | `clsx` | Directly — no `cn()` wrapper |
 | Validation schemas | Zod 4 via `@chatovo/schemas` | The schema is the source of truth; infer types with `z.infer` ([schemas](schemas.md)) |
-| UI primitives (dialog, dropdown, tooltip, popover, tabs, switch) | `@base-ui/react` inside `ui-kit/` | Import from the subpath (`@base-ui/react/menu`). No hand-made focus trap or aria ([Base UI](../client/base-ui.md)) |
+| UI primitives (dialog, dropdown, tooltip, popover, tabs, switch) | `@base-ui/react` inside `packages/ui-kit/` | Import from the subpath (`@base-ui/react/menu`). No hand-made focus trap or aria ([Base UI](../client/base-ui.md)) |
 | Icons | `lucide-react` | Inline SVG only for brand marks |
 | Toasts | `sonner` | `toast.success` / `toast.error` |
 | LiveKit room state, participants, tracks, chat | `@livekit/components-react` | `useChat`, `useParticipants`, `useTracks`, `useConnectionState`. Raw `Room` listeners only when no hook covers it |

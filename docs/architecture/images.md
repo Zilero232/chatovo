@@ -36,7 +36,7 @@ The first link in a message, found with the same `remark-gfm` parse the chat ren
 
 Results, failures included (for a shorter time), are cached with `cache-manager`. The route is throttled per user. `LinkPreviewSweeperService` deletes stored preview images older than 30 days. A live preview is rebuilt, and its image rewritten, every 6 hours at most, so a 30-day-old file belongs to no live preview.
 
-Room links unfurl too. The outbound user agent says `like TwitterBot`, so Caddy serves our own room Open Graph page (`GET /link-preview/room`) to it, exactly as it does for Telegram and Discord.
+Room links unfurl too. The outbound user agent says `like TwitterBot`, so Caddy serves our own room Open Graph page (`GET /link-preview/room`) to it, exactly as it does for Telegram and Discord. Its image is the site's OG card, `${SITE_URL}/opengraph-image` — the server's `SITE_URL` defaults to `https://chatovo.ru`, since the card is rendered by `apps/site`, not the web export.
 
 ## Outbound fetches and SSRF
 

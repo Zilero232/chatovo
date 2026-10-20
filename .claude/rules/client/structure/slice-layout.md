@@ -1,6 +1,8 @@
 ---
 paths:
-  - 'apps/client/**/*.{ts,tsx}'
+  - 'apps/web/**/*.{ts,tsx}'
+  - 'apps/site/**/*.{ts,tsx}'
+  - 'packages/ui-kit/**/*.{ts,tsx}'
 ---
 
 <!-- Compressed editing rules, loaded automatically when a client file is edited. -->
@@ -12,9 +14,9 @@ Segments: `ui/` `model/` `lib/` `api/` `config/` + `index.ts`; the minimum is `u
 
 ## `ui/`
 
-The main component sits flat: `VoiceRoom.tsx`, `VoiceRoom.types.ts`, `VoiceRoom.module.scss`. Subcomponents go in `ui/components/<Name>/`; the aggregating `ui/components/index.ts` points straight at the file (`export { X } from './X/X'`) — **no per-component `index.ts` outside `ui-kit`**. Side effects with no markup are headless controllers in `ui/controllers/` that render `null`.
+The main component sits flat: `VoiceRoom.tsx`, `VoiceRoom.types.ts`, `VoiceRoom.module.scss`. Subcomponents go in `ui/components/<Name>/`; the aggregating `ui/components/index.ts` points straight at the file (`export { X } from './X/X'`) — **no per-component `index.ts` outside `packages/ui-kit`**. Side effects with no markup are headless controllers in `ui/controllers/` that render `null`.
 
-`ui-kit`: `primitives/` (base) `components/` (composed) `icons/` `styles/`, each component a PascalCase folder **with** its own `index.ts`.
+`packages/ui-kit`: `primitives/` (base) `components/` (composed) `icons/` `styles/` `messages/`, each component a PascalCase folder **with** its own `index.ts`; segments import each other relatively, never through `@/`.
 
 ## `model/`
 

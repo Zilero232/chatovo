@@ -4,7 +4,8 @@ paths:
   - 'e2e/**/*.spec.ts'
   - '**/vitest.config.*'
   - 'playwright.config.ts'
-  - 'apps/client/vitest.setup.ts'
+  - 'apps/web/vitest.setup.ts'
+  - 'apps/site/vitest.setup.ts'
 ---
 
 <!-- Compressed editing rules, loaded automatically when a test or its config is edited. -->

@@ -15,10 +15,12 @@ Data safety form from this, and answer a reviewer from it.
 | No selling of collected data | Data is never sold or handed to advertisers |
 | Encryption in transit | Done — HTTPS / WSS |
 | In-app account deletion | Done — Settings → Security → Delete account |
-| Web account deletion URL | Done — `https://chatovo.ru/account/delete` |
+| Web account deletion URL | Done — `https://app.chatovo.ru/account/delete` |
 
 Play requires **both** deletion paths for an app with accounts: one inside the
-app and one reachable on the web without installing it. See
+app and one reachable on the web without installing it. The page lives on the
+app host, where the session is; the old `https://chatovo.ru/account/delete`
+301s there. The privacy policy stays on the site and answers 200 directly. See
 [moderation.md](moderation.md) for the UGC side.
 
 ## What is collected
@@ -91,7 +93,7 @@ advertising.
 ## Deletion
 
 Self-service, from Settings → Security → Delete account, or from
-`https://chatovo.ru/account/delete`. better-auth emails a confirmation link;
+`https://app.chatovo.ru/account/delete`. better-auth emails a confirmation link;
 following it deletes the account.
 
 Removed: the profile, the avatar files on disk, the rooms the user created,

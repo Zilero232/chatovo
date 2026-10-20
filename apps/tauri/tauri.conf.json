@@ -4,10 +4,10 @@
   "version": "../../package.json",
   "identifier": "chatovo.desktop",
   "build": {
-    "frontendDist": "../client/out",
+    "frontendDist": "../web/out",
     "devUrl": "http://localhost:3000",
-    "beforeBuildCommand": "bun --filter @chatovo/client build",
-    "beforeDevCommand": "bun --filter @chatovo/client dev"
+    "beforeBuildCommand": "bun --filter @chatovo/web build",
+    "beforeDevCommand": "bun --filter @chatovo/web dev"
   },
   "app": {
     "windows": [

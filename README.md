@@ -1,12 +1,12 @@
 <p align="center">
-  <img src="apps/client/app/icon.svg" width="88" height="88" alt="Chatovo" />
+  <img src="apps/web/app/icon.svg" width="88" height="88" alt="Chatovo" />
 </p>
 
 <h1 align="center">Chatovo</h1>
 
 <p align="center">
   <strong>Real-time voice rooms for web, desktop & Android.</strong><br/>
-  One Next.js client · Tauri native shells · LiveKit media · Self-hostable
+  One Next.js app · Tauri native shells · LiveKit media · Self-hostable
 </p>
 
 <p align="center">
@@ -125,7 +125,7 @@ flowchart LR
   API --> LK
 ```
 
-Frontend follows **[Feature-Sliced Design](docs/architecture/fsd.md)** — the `pages/` layer is named `views/` to avoid clashing with the Next.js router.
+The product app (`apps/web`, app.chatovo.ru) and the public website (`apps/site`, chatovo.ru) are two Next.js apps sharing one design system, `@chatovo/ui-kit`. Both follow **[Feature-Sliced Design](docs/architecture/fsd.md)** — the `pages/` layer is named `views/` to avoid clashing with the Next.js router.
 
 <br/>
 
@@ -136,7 +136,7 @@ Frontend follows **[Feature-Sliced Design](docs/architecture/fsd.md)** — the `
 | **Client**  | React 19 · SCSS modules · Base UI · Motion · TanStack Query · React Hook Form · Zod |
 | **Native**  | Tauri 2 · Rust · deep-link · updater · global-shortcut                              |
 | **Server**  | NestJS on Bun · Prisma · better-auth · React Email                                  |
-| **Shared**  | `@chatovo/schemas` — Zod types for client & server                                  |
+| **Shared**  | `@chatovo/schemas` (Zod contracts) · `@chatovo/ui-kit` · `@chatovo/config`          |
 | **Tooling** | ESLint · Prettier · Stylelint · TypeScript · React Compiler · Bun workspaces        |
 
 <br/>
@@ -146,10 +146,14 @@ Frontend follows **[Feature-Sliced Design](docs/architecture/fsd.md)** — the `
 ```
 chatovo/
 ├── apps/
-│   ├── client/       Next.js · FSD (app / views / widgets / features / entities / shared)
+│   ├── web/          The app · Next.js static export · FSD (app / views / widgets / features / entities / shared)
+│   ├── site/         The public website · server-rendered Next.js · ru/en
 │   ├── server/       NestJS API · Prisma · modules/
 │   └── tauri/        Rust shell · desktop + Android
-├── packages/schemas/ Shared Zod schemas
+├── packages/
+│   ├── ui-kit/       The design system — primitives, components, icons, SCSS tokens
+│   ├── config/       Brand and URL constants shared by web and site
+│   └── schemas/      Shared Zod schemas
 ├── infra/            Caddy · LiveKit configs
 ├── docs/             Architecture, style guides, ops — indexed in docs/README.md
 ├── docker-compose.yml
@@ -180,8 +184,8 @@ bun install
 
 ### 3 · Environment
 
-One `.env` at the repo root serves both the client and the server; the client
-reads its `NEXT_PUBLIC_*` out of it via `loadRootEnv()` in `next.config.ts`.
+One `.env` at the repo root serves the web app, the site and the server; each
+Next app loads its `NEXT_PUBLIC_*` out of it in `next.config.ts`.
 
 ```bash
 cp .env.example .env
@@ -192,8 +196,9 @@ cp .env.example .env
 | `BETTER_AUTH_SECRET`          | Auth signing                                       |
 | `DATABASE_URL` / `DIRECT_URL` | Postgres (**`DIRECT_URL` is required** for Prisma) |
 | `LIVEKIT_*`                   | SFU credentials (server)                           |
-| `NEXT_PUBLIC_API_URL`         | Client → API                                       |
-| `NEXT_PUBLIC_LIVEKIT_URL`     | Client → media                                     |
+| `NEXT_PUBLIC_API_URL`         | Web / site → API                                   |
+| `NEXT_PUBLIC_APP_URL`         | Site → app links                                   |
+| `NEXT_PUBLIC_LIVEKIT_URL`     | Web → media                                        |
 | `CORS_ORIGINS`                | Allowed web origins                                |
 
 ### 4 · Database
@@ -210,8 +215,8 @@ bun --filter @chatovo/server db:push
 bun dev:full
 ```
 
-Opens LiveKit + Caddy in Docker, then client (`:3000`) and server (`:4000`).  
-Browse **`https://chatovo.localhost`** — accept the local certificate once.
+Opens LiveKit + Caddy + Postgres in Docker, then the web app (`:3000`), the site (`:3001`) and the server (`:4000`).  
+Browse **`https://app.chatovo.localhost`** for the app and **`https://chatovo.localhost`** for the site — accept the local certificate once.
 
 **Split terminals**
 
@@ -228,7 +233,7 @@ bun tauri:build               # desktop release
 bun android:init        # first-time Android setup
 bun android:dev         # Android on device / emulator
 bun android:build       # APK + AAB
-bun tauri:icon                # icons from apps/client/app/icon.svg
+bun tauri:icon                # icons from apps/web/app/icon.svg
 ```
 
 > The version lives in the root **`package.json`** only — the per-app manifests
@@ -251,7 +256,7 @@ Both run in GitHub Actions; there are no local release scripts.
 
 | Workflow      | Trigger                         | Result                                                                   |
 | :------------ | :------------------------------ | :----------------------------------------------------------------------- |
-| `deploy.yml`  | Actions → deploy → Run workflow | Builds the web + server images, pushes to GHCR, restarts the VPS stack   |
+| `deploy.yml`  | Actions → deploy → Run workflow | Builds the web, site and server images, pushes to GHCR, restarts the VPS |
 | `release.yml` | Push a `v*` tag                 | Windows, macOS (arm64 + x64), Linux and Android bundles → GitHub Release |
 
 Cutting a release — bump `version` in the root `package.json`, then:
@@ -260,7 +265,7 @@ Cutting a release — bump `version` in the root `package.json`, then:
 git tag v1.2.8 && git push --tags
 ```
 
-The `checks` job refuses a tag that doesn't match it. Details: [docs/ops/release.md](docs/ops/release.md);
+The `version` job refuses a tag that doesn't match it. Details: [docs/ops/release.md](docs/ops/release.md);
 the VPS setup: [docs/ops/deploy.md](docs/ops/deploy.md). Every CI tool comes from [mise.toml](mise.toml)
 through `.github/actions/setup`.
 
@@ -313,5 +318,5 @@ code they cover; conventions are in [docs/guides/shared/testing.md](docs/guides/
 </p>
 
 <p align="center">
-  <img src="apps/client/app/icon.svg" width="32" height="32" alt="" />
+  <img src="apps/web/app/icon.svg" width="32" height="32" alt="" />
 </p>

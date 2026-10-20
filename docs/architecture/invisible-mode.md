@@ -54,6 +54,7 @@ The room roster is drawn from LiveKit's `useParticipants`, which never returns h
 - **The toggle** is `InvisibleModeMenuItem` (`features/app/invisible-mode`), a `DropdownMenuCheckboxItem` inside `AdminMenuButton` — the single admin entry point in the sidebar, which also holds the link to the admin panel and renders only for `isAdmin`. It lives there rather than in the settings dialog because it is an admin tool, not a user preference, and because the sidebar is reachable on web and desktop alike — the system settings tab is desktop-only. It is stored in `settings.system.invisibleMode`.
 - **The token request** — `useEnterRoom` and `useRoomToken` send `invisible: isAdmin && settings.system.invisibleMode`. A non-admin never sends `true`, and even if they did the server rejects it.
 - **The join/leave sounds** — `useVoiceRoomSounds` suppresses the admin's *own* join and leave chimes while invisible. Other people never hear them either, because a hidden participant emits no `ParticipantConnected` to their clients.
+- **Room music is listen-only** — the server refuses a hidden admin's mutations (`addedBy` would give them away), so the music button is hidden and the minibar has no controls ([room-music.md](room-music.md)).
 
 ## Adding a surface that lists participants
 

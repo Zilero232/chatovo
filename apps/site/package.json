@@ -1,0 +1,60 @@
+{
+  "name": "@chatovo/site",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Chatovo public website — server-rendered Next.js 16: landing, features, downloads, changelog, legal.",
+  "homepage": "https://chatovo.ru",
+  "bugs": {
+    "url": "https://github.com/Zilero232/Chatovo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zilero232/Chatovo.git",
+    "directory": "apps/site"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "author": "Alexandr Artemev",
+  "type": "module",
+  "scripts": {
+    "build": "next build",
+    "predev": "fkill :3001 --force --silent",
+    "dev": "next dev -p 3001",
+    "start": "next start -p 3001",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@chatovo/config": "workspace:*",
+    "@chatovo/schemas": "workspace:*",
+    "@chatovo/ui-kit": "workspace:*",
+    "@react-three/fiber": "^9.8.2",
+    "clsx": "catalog:",
+    "date-fns": "catalog:",
+    "lucide-react": "catalog:",
+    "modern-normalize": "catalog:",
+    "motion": "catalog:",
+    "next": "catalog:",
+    "next-intl": "catalog:",
+    "pretty-bytes": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "remeda": "catalog:",
+    "three": "^0.186.1",
+    "ts-pattern": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@chatovo/tsconfig": "workspace:*",
+    "@testing-library/dom": "catalog:",
+    "@testing-library/jest-dom": "catalog:",
+    "@testing-library/react": "catalog:",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "@types/three": "^0.186.0",
+    "@vitejs/plugin-react": "catalog:",
+    "dotenv": "catalog:",
+    "jsdom": "catalog:",
+    "sass-embedded": "catalog:",
+    "typescript": "catalog:"
+  }
+}

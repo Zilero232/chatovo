@@ -10,21 +10,24 @@ across subdomains of a single domain, `chatovo.ru`:
 
 | Subdomain            | What it serves                      |
 | -------------------- | ----------------------------------- |
-| `chatovo.ru`         | Public site                         |
+| `chatovo.ru`         | Public site (the `site` container)  |
 | `app.chatovo.ru`     | The app, with the lobby at its root |
 | `api.chatovo.ru`     | NestJS API (Bun)                    |
 | `livekit.chatovo.ru` | LiveKit SFU (WSS signalling)        |
 
-The site and the app are **one static build**: Caddy decides what each host
-exposes, so there is no second build and no second deploy. On `app.chatovo.ru`
-the root serves `lobby.html`, which is why the app has no `/lobby` path.
+The site and the app are **two separate apps**. The app (`apps/web`) is a
+static export baked into the `web` image, whose Caddy serves it on
+`app.chatovo.ru`. The site (`apps/site`) is a server-rendered Next.js app in its
+own `site` container; Caddy reverse-proxies `chatovo.ru` to `site:3000`.
 
-Because both hosts serve the same export, `chatovo.ru` would otherwise answer on
-the app's own pages as well. It redirects `/lobby`, `/room`, `/auth` and `/admin`
-to `app.chatovo.ru` instead — the session lives in that origin's storage, so an
-app page opened on the site host would look signed out.
+Each host sends the other's paths across with a 301, so old links keep working:
+`chatovo.ru` redirects `/lobby`, `/room`, `/auth`, `/admin` and
+`/account/delete` to `app.chatovo.ru` — the session lives in that origin's
+storage, so an app page opened on the site host would look signed out — and
+`app.chatovo.ru` redirects `/features`, `/download`, `/changelog`, `/about`,
+`/support`, `/privacy`, `/terms` and `/en` to `chatovo.ru`.
 
-The client and the server are packaged as Docker images — the images are built
+The web app, the site and the server are packaged as Docker images — the images are built
 in CI and published to the private GitHub Container Registry (ghcr.io). The VPS
 builds nothing: it only pulls ready-made images and runs them.
 
@@ -32,16 +35,17 @@ builds nothing: it only pulls ready-made images and runs them.
    push to master
         │
         ▼
-   GitHub Actions:  builds 2 images  ──►  ghcr.io (private registry)
+   GitHub Actions:  builds 3 images  ──►  ghcr.io (private registry)
         │                                        │
         │ SSH                                    │ pull
         ▼                                        ▼
    ┌──────────────── VPS (Timeweb Cloud) ─────────────────┐
    │                                                       │
-   │  web      — Caddy + client static files, terminates   │
+   │  web      — Caddy + the app's static files, terminates│
    │             HTTPS for chatovo.ru / app.chatovo.ru /   │
    │             api.chatovo.ru / livekit.chatovo.ru;      │
    │             ports 80/443 exposed                      │
+   │  site     — Next.js server, :3000 (network-internal)  │
    │  server   — NestJS on Bun, :4000 (network-internal)   │
    │  livekit  — SFU, host networking, 7881/tcp + UDP media│
    │  postgres — self-hosted PostgreSQL, :5432             │
@@ -49,9 +53,17 @@ builds nothing: it only pulls ready-made images and runs them.
    └───────────────────────────────────────────────────────┘
 ```
 
-- **Client** — Next.js with `output: 'export'`. The `chatovo-web` image builds
+- **Web app** — Next.js with `output: 'export'`. The `chatovo-web` image builds
   the static export and serves it through the bundled Caddy, which terminates
   HTTPS for all four subdomains. This is the only container facing the internet.
+- **Site** — Next.js with `output: 'standalone'`. The `chatovo-site` image runs
+  `node apps/site/server.js` on port 3000 inside the docker network; Caddy
+  proxies `chatovo.ru` → `site:3000`. It reads release and contributor data
+  from the API over the compose network (`API_INTERNAL_URL=http://server:4000`,
+  set in `docker-compose.yml`), so it needs no public API URL and no CORS entry.
+  It must bind `HOSTNAME=0.0.0.0` (the Dockerfile sets it —
+  [pitfalls](../architecture/pitfalls.md#site)). A healthcheck fetches
+  `/robots.txt`.
 - **Server** — NestJS on Bun. The `chatovo-server` image listens on port 4000
   inside the docker network only — from outside it is reachable solely through
   `web` (Caddy proxies `api.chatovo.ru` → `server:4000`).
@@ -59,7 +71,7 @@ builds nothing: it only pulls ready-made images and runs them.
   (pinned to a specific version, not `latest`). Caddy proxies
   `wss://livekit.chatovo.ru` to the signalling port. WebRTC media traffic goes
   directly over the UDP range 50000–50100 (see below).
-- **Registry** — the `chatovo-web` and `chatovo-server` images live in the
+- **Registry** — the `chatovo-web`, `chatovo-site` and `chatovo-server` images live in the
   private ghcr.io. CI publishes them with the built-in `GITHUB_TOKEN`; the VPS
   pulls with a personal access token (PAT). The LiveKit image comes straight
   from Docker Hub.
@@ -78,8 +90,8 @@ builds nothing: it only pulls ready-made images and runs them.
    ┌──────── VPS ────────────────────────────────────────────────┐
    │                                                             │
    │  Caddy (web container)                                      │
-   │     • chatovo.ru          → site static files               │
-   │     • app.chatovo.ru      → app static files (root = lobby) │
+   │     • chatovo.ru          → site:3000 (Next.js server)      │
+   │     • app.chatovo.ru      → app static files                │
    │     • api.chatovo.ru      → server:4000 (NestJS)            │
    │     • livekit.chatovo.ru  → host.docker.internal:7880 (WSS) │
    │                                                             │
@@ -106,24 +118,33 @@ Server variables:
 3. The server reads them through `process.env`, and a Zod schema
    (`apps/server/src/lib/env.ts`) checks that everything is present.
 
-Client variables (`NEXT_PUBLIC_*`):
+The server's `SITE_URL` (default `https://chatovo.ru`, so production needs
+nothing) is where room link previews take their OG image from:
+`${SITE_URL}/opengraph-image`.
 
-- They are baked into the static export **at image build time**. CI passes them
-  to `docker build` as build-args, taking the values from GitHub Secrets. These
-  are not secrets — they are visible in the browser bundle anyway.
+Web and site variables (`NEXT_PUBLIC_*`):
+
+- They are baked into the web export and the site build **at image build
+  time**. CI passes them to `docker build` as build-args, taking the values from
+  GitHub Secrets. These are not secrets — they are visible in the browser bundle
+  anyway. The site uses `NEXT_PUBLIC_APP_URL` for its links into the app.
+- `API_INTERNAL_URL` is a runtime variable of the `site` container only, set in
+  `docker-compose.yml`. Locally it is empty and the site falls back to
+  `NEXT_PUBLIC_API_URL`, then `http://localhost:4000`.
 
 ## What lives in the repository
 
 | File                           | Purpose                                             |
 | ------------------------------ | --------------------------------------------------- |
-| `apps/client/Dockerfile`       | Client image: static build + Caddy; built in CI     |
+| `apps/web/Dockerfile`          | Web image: static export + Caddy; built in CI       |
+| `apps/site/Dockerfile`         | Site image: Next.js standalone on Node; built in CI |
 | `apps/server/Dockerfile`       | Server image (Bun + Prisma); built in CI            |
-| `infra/caddy/Caddyfile`        | Caddy config (copied into the client image)         |
+| `infra/caddy/Caddyfile`        | Caddy config (copied into the web image)            |
 | `infra/livekit/livekit.yaml`   | Config template for the self-hosted LiveKit server  |
 | `docs/ops/deploy.md`           | This document — the deployment guide                |
-| `docker-compose.yml`           | Runs web + server + postgres + livekit on the VPS   |
+| `docker-compose.yml`           | Runs web + site + server + postgres + livekit       |
 | `.github/workflows/deploy.yml` | CI/CD: build the images → deploy                    |
-| `.env.example`                 | Template for the shared client and server variables |
+| `.env.example`                 | Template for the shared web, site and server variables |
 
 ---
 
@@ -229,7 +250,7 @@ repository. Details are in the "Self-hosted LiveKit" section below.
 
 ### 1.7. Check the domain in the Caddyfile
 
-The domain is baked into the client image at build time. If your domain is not
+The domain is baked into the web image at build time. If your domain is not
 `chatovo.ru`, edit `infra/caddy/Caddyfile` (including the `app.chatovo.ru` and
 `livekit.chatovo.ru` blocks) BEFORE the first CI run.
 
@@ -246,8 +267,8 @@ echo "<YOUR_PAT>" | docker login ghcr.io -u <YOUR_GITHUB_LOGIN> --password-stdin
 
 Docker saves the credentials — you do not need to repeat this on every deploy.
 
-> The image names in `docker-compose.yml` are `ghcr.io/zilero232/chatovo-web`
-> and `ghcr.io/zilero232/chatovo-server`. If your GitHub account differs, fix
+> The image names in `docker-compose.yml` are `ghcr.io/zilero232/chatovo-web`,
+> `ghcr.io/zilero232/chatovo-site` and `ghcr.io/zilero232/chatovo-server`. If your GitHub account differs, fix
 > the owner in the `image:` lines (lowercase only).
 
 ### 1.9. Start the stack
@@ -260,14 +281,14 @@ verify on the VPS:
 
 ```bash
 cd /opt/chatovo
-docker compose ps          # web, server, postgres, livekit should be up
+docker compose ps          # web, site, server, postgres, livekit should be up
 ```
 
 To pull and restart by hand, if you ever need to:
 
 ```bash
-docker compose pull      # pull the web/server images from ghcr.io + livekit
-docker compose up -d     # start web, server, postgres, livekit
+docker compose pull      # pull the web/site/server images from ghcr.io + livekit
+docker compose up -d     # start web, site, server, postgres, livekit
 ```
 
 On its first start, Caddy inside the `web` image issues TLS certificates for
@@ -275,8 +296,8 @@ all four domains at once: `chatovo.ru`, `app.chatovo.ru`, `api.chatovo.ru` and
 `livekit.chatovo.ru`. To check:
 
 ```bash
-curl https://chatovo.ru                 # returns the site HTML
-curl https://app.chatovo.ru             # returns the lobby HTML
+curl https://chatovo.ru                 # returns the site HTML (from the site container)
+curl https://app.chatovo.ru             # returns the app shell, which opens the lobby
 curl https://api.chatovo.ru/health      # expected: {"ok":true}
 curl -I https://livekit.chatovo.ru      # expected: 200/426 from LiveKit
 ```
@@ -285,7 +306,8 @@ curl -I https://livekit.chatovo.ru      # expected: 200/426 from LiveKit
 > `docker compose pull` will fail — that is expected. Do Part 2 first.
 
 If the certificate was not issued, check DNS and ports 80/443, then
-`docker compose logs web`.
+`docker compose logs web`. If `chatovo.ru` answers 502, the `site` container
+is down: `docker compose logs site`.
 
 ---
 
@@ -399,13 +421,13 @@ to go back to Cloud.
 The `.github/workflows/deploy.yml` workflow is triggered manually
 (**Actions → deploy → Run workflow**) and:
 
-1. builds the client Docker image and publishes it to ghcr.io;
-2. builds the server Docker image and publishes it to ghcr.io;
-3. copies `docker-compose.yml` to the VPS (`scp`), then over SSH pulls both
-   images, applies the Prisma migrations (`bun db:baseline`, `bun db:deploy`)
-   and restarts the stack;
-4. waits for the `server` container to report healthy, and fails the deploy if
-   it never does.
+1. builds the web, site and server Docker images **in parallel** (a matrix
+   job) and publishes them to ghcr.io;
+2. copies `docker-compose.yml` to the VPS (`scp`), then over SSH pulls the
+   three images (`docker compose pull web site server`), applies the Prisma
+   migrations (`bun db:baseline`, `bun db:deploy`) and restarts the stack;
+3. waits for the `server` and `site` containers to report healthy, and fails
+   the deploy if either never does.
 
 The images are built in CI, not on the VPS. CI publishes them using the
 built-in `GITHUB_TOKEN` — no separate secret is needed for that.
@@ -571,7 +593,7 @@ Repo → **Settings → Secrets and variables → Actions → New repository sec
 | `SSH_PRIVATE_KEY`         | Contents of the `chatovo_deploy` file (the whole private key)               |
 | `DEPLOY_PATH`             | `/opt/chatovo`                                                              |
 | `NEXT_PUBLIC_API_URL`     | `https://api.chatovo.ru` (one secret for both web and Tauri)                |
-| `NEXT_PUBLIC_APP_URL`     | `https://app.chatovo.ru`                                                    |
+| `NEXT_PUBLIC_APP_URL`     | `https://app.chatovo.ru` (web and site: the site's links into the app)      |
 | `NEXT_PUBLIC_LIVEKIT_URL` | `wss://livekit.chatovo.ru` (self-hosted) or `wss://<project>.livekit.cloud` |
 
 ### 2.4. Run the deploy
@@ -589,14 +611,15 @@ applied and the stack is running on the VPS.
 | Action                        | Command                                       |
 | ----------------------------- | --------------------------------------------- |
 | Deploy                        | **Actions → deploy → Run workflow**           |
-| Client / Caddy logs           | `docker compose logs -f web` (on the VPS)     |
+| Web app / Caddy logs          | `docker compose logs -f web` (on the VPS)     |
+| Site logs                     | `docker compose logs -f site`                 |
 | Server logs                   | `docker compose logs -f server`               |
 | Pull fresh images and restart | `docker compose pull && docker compose up -d` |
 | Container status              | `docker compose ps`                           |
 
 ### Rolling back to a previous version
 
-The workflow publishes both images under the `latest` tag, so a rollback means
+The workflow publishes every image under the `latest` tag, so a rollback means
 re-running the deploy from the commit you want: **Actions → deploy → Run
 workflow**, selecting that commit's branch or tag. The commit SHA of a working
 build can be found in git history or on the Actions tab.
@@ -618,19 +641,19 @@ for how migrations are authored and why the baseline step exists.
 
 ## Building the Tauri app for production
 
-Tauri uses the same static build and the same production API as the site. Both
-web and desktop talk to `https://api.chatovo.ru` — there is no longer any
+Tauri uses the same static export and the same production API as the web app.
+Both web and desktop talk to `https://api.chatovo.ru` — there is no longer any
 difference between the `NEXT_PUBLIC_API_URL` values of the two builds.
 
 ```bash
-# 1. Prepare the client .env for a production build
+# 1. Prepare the .env for a production build
 cp .env.example .env
 nano .env
 #    NEXT_PUBLIC_API_URL=https://api.chatovo.ru
 #    the other NEXT_PUBLIC_* — production values
 
-# 2. Build the client, then the Tauri bundle
-bun --filter @chatovo/client build
+# 2. Build the web export, then the Tauri bundle
+bun --filter @chatovo/web build
 bun tauri:build
 ```
 
@@ -659,11 +682,12 @@ starts on the VPS.
 - [ ] Deploy SSH key added to the VPS
 - [ ] PAT with `read:packages` created, `docker login ghcr.io` run on the VPS
 - [ ] All secrets set in GitHub Actions
-- [ ] The deploy workflow ran green — both images appeared in ghcr.io and the
+- [ ] The deploy workflow ran green — the three images appeared in ghcr.io and the
       migrations applied
-- [ ] `docker compose ps` on the VPS shows web, server, postgres and livekit up
+- [ ] `docker compose ps` on the VPS shows web, site, server, postgres and livekit up
 - [ ] Caddy issued the certificates, `https://api.chatovo.ru/health` → `{"ok":true}`
-- [ ] `https://chatovo.ru` opens, `https://app.chatovo.ru` opens on the lobby
+- [ ] `https://chatovo.ru` opens (site), `https://app.chatovo.ru` opens on the lobby,
+      `https://chatovo.ru/lobby` 301s to the app host
 - [ ] The app reaches `api.chatovo.ru` with no CORS errors
 - [ ] `https://livekit.chatovo.ru` returns 200/426 (self-hosted)
 - [ ] Voice in a room genuinely connects from the browser

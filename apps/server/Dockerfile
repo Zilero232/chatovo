@@ -25,8 +25,11 @@ COPY packages/tsconfig ./packages/tsconfig
 # Bun's --frozen-lockfile validates the on-disk workspace topology against the
 # lockfile, so every workspace member in bun.lock must have its manifest
 # present — even those not used by this image.
-COPY apps/client/package.json ./apps/client/package.json
+COPY apps/web/package.json ./apps/web/package.json
+COPY apps/site/package.json ./apps/site/package.json
 COPY apps/tauri/package.json ./apps/tauri/package.json
+COPY packages/config/package.json ./packages/config/package.json
+COPY packages/ui-kit/package.json ./packages/ui-kit/package.json
 # `bun install` triggers the server's `postinstall` (prisma generate); the schema
 # is not copied yet, so disable lifecycle scripts here and run generate later.
 RUN bun install --frozen-lockfile --ignore-scripts

@@ -3,8 +3,11 @@
 Desktop installers and the Android bundle ship together from [.github/workflows/release.yml](../../.github/workflows/release.yml). There are no local release scripts.
 
 ```text
-checks ─ draft ─┬─ desktop (windows, macos-aarch64, macos-x86_64, linux) ─┬─ publish
-                └─ android (signed aab) ──────────────────────────────────┘
+version ─┐
+lint ────┤
+test ────┼─ draft ─┬─ desktop (windows, macos-aarch64, macos-x86_64, linux) ─┬─ publish
+site ────┤         └─ android (signed aab) ──────────────────────────────────┘
+web ─────┘
 ```
 
 ## Cutting a release
@@ -15,13 +18,13 @@ The version lives in the root `package.json` only; the per-app manifests stay at
 git tag v1.2.8 && git push --tags
 ```
 
-The `checks` job refuses a tag that doesn't match the root version, then runs the client build, `bun run verify`, `bun run test` and `bun run lint:rust`. Nothing is signed for a commit that doesn't pass.
+Five check jobs run in parallel, and `draft` waits for all of them: `version` refuses a tag that doesn't match the root version, `lint` runs `bun run verify` and `lint:caddy`, `test` runs `bun run test`, `site` builds the website, and `web` builds the app export, generates the Tauri icons and runs `lint:rust` on them (Tauri validates `frontendDist` and the icons, so clippy needs both). Nothing is signed for a commit that doesn't pass.
 
 A manual run (Actions → release → Run workflow) takes `targets` — `all`, `desktop` or `android` — to rebuild one platform without paying for the other. Either way the release is appended to, never replaced, and stays a draft until `publish` flips it.
 
 ## What each job does
 
-- **desktop** — `tauri-action` on a runner per platform (Tauri can't cross-compile). It builds the client itself and merges every platform into one `latest.json` for the updater. macOS ships separate bundles per architecture because the updater keys its platforms on it.
+- **desktop** — `tauri-action` on a runner per platform (Tauri can't cross-compile). It builds the web export itself and merges every platform into one `latest.json` for the updater. macOS ships separate bundles per architecture because the updater keys its platforms on it.
 - **android** — `tauri android init` regenerates `gen/android`, then the FCM and signing overlays are applied, then the aab is built for `aarch64` and `x86_64`, attached to the draft and uploaded to Google Play ([below](#google-play-upload)).
 
 ## Google Play upload
@@ -34,11 +37,11 @@ One-time setup:
 2. Play Console → Users and permissions → Invite new users: the service account's email, with access to Chatovo and the **Release apps to testing tracks** and **Release to production** permissions.
 3. GitHub → Settings → Secrets and variables → Actions: the whole JSON file as the `PLAY_SERVICE_ACCOUNT_JSON` secret, and optionally `PLAY_TRACK`.
 
-The version code comes from the root `package.json` version, so every release must bump it — Play rejects a version code it has already seen. "What's new" is filled from the changelog: `apps/client/scripts/write-play-release-notes.ts` takes the entry for the root version in `views/changelog/config/releases.ts`, turns its entry titles into bullets in Russian and English, and cuts them at Play's 500-character limit. A tag whose version has no changelog entry fails the `android` job before the build, so the changelog is written as part of the bump.
+The version code comes from the root `package.json` version, so every release must bump it — Play rejects a version code it has already seen. "What's new" is filled from the changelog: `apps/site/scripts/write-play-release-notes.ts` takes the entry for the root version in the site's changelog (`apps/site/views/changelog/config/releases.ts`, strings in its `marketing.json`), turns its entry titles into bullets in Russian and English, and cuts them at Play's 500-character limit. A tag whose version has no changelog entry fails the `android` job before the build, so the changelog is written as part of the bump.
 
 ## The toolchain
 
-Bun, Node and Rust come from [mise.toml](../../mise.toml) through `.github/actions/setup` (`jdx/mise-action`); a job asks for Rust with `tools: rust`, and the extra Rust targets (macOS arches, Android) through `rust-targets`. The JDK, the Android SDK and the NDK stay with their own actions (`setup-java`, `setup-android`, `setup-ndk`). Bumping bun means `mise.toml` and the `oven/bun` tag in both Dockerfiles.
+Bun, Node and Rust come from [mise.toml](../../mise.toml) through `.github/actions/setup` (`jdx/mise-action`); a job asks for Rust with `tools: rust`, and the extra Rust targets (macOS arches, Android) through `rust-targets`. The JDK, the Android SDK and the NDK stay with their own actions (`setup-java`, `setup-android`, `setup-ndk`). Bumping bun means `mise.toml` and the `oven/bun` tag in the web, site and server Dockerfiles.
 
 ### 16 KB page size
 

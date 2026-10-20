@@ -1,0 +1,69 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  overflow: visible;
+  width: rem(96);
+  height: rem(96);
+}
+
+.ring {
+  animation: connecting-ring calc(var(--duration-slower) * 3.6) var(--timing-function-out) infinite;
+  animation-delay: var(--ring-delay, 0s);
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+
+  @include tauri-mobile {
+    animation: none;
+    opacity: 0.4;
+  }
+
+  @include reduced-motion {
+    animation: none;
+    opacity: 0.4;
+  }
+}
+
+.core {
+  animation: connecting-core calc(var(--duration-slower) * 3.6) var(--timing-function-standard)
+    infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+
+  @include tauri-mobile {
+    animation: none;
+  }
+
+  @include reduced-motion {
+    animation: none;
+  }
+}
+
+@keyframes connecting-ring {
+  0% {
+    opacity: 0;
+    scale: 0.35;
+  }
+
+  25% {
+    opacity: 0.75;
+  }
+
+  100% {
+    opacity: 0;
+    scale: 1.35;
+  }
+}
+
+@keyframes connecting-core {
+  0%,
+  100% {
+    opacity: 0.75;
+    scale: 0.92;
+  }
+
+  50% {
+    opacity: 1;
+    scale: 1.08;
+  }
+}

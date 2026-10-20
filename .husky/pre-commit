@@ -12,10 +12,10 @@ typecheck_targets=''
 
 # Root configs and @chatovo/schemas affect every workspace at once.
 if staged_has '^(package\.json|bun\.lock|tsconfig.*\.json)$' || staged_has '^packages/schemas/'; then
-  typecheck_targets='./packages/schemas ./apps/server ./apps/client'
+  typecheck_targets='./packages/schemas ./apps/server ./apps/web'
 else
   staged_has '^apps/server/' && typecheck_targets="$typecheck_targets ./apps/server"
-  staged_has '^apps/client/' && typecheck_targets="$typecheck_targets ./apps/client"
+  staged_has '^apps/web/' && typecheck_targets="$typecheck_targets ./apps/web"
 fi
 
 for target in $typecheck_targets; do

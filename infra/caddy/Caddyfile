@@ -1,7 +1,9 @@
 # Chatovo — Caddy config (runs on the VPS).
 #
-# chatovo.ru and app.chatovo.ru serve ONE static export; Caddy decides which
-# pages each host exposes, so there is no second build.
+# chatovo.ru is the public website: a Next.js server in the `site` container.
+# app.chatovo.ru is the web app: the static export baked into this image.
+# Each host sends the other's paths across with a permanent redirect, so old
+# links and bookmarks keep working.
 #
 # Needs DNS A-records for chatovo.ru, www, app, api and livekit pointing here,
 # plus ports 80 and 443 open. TLS certificates are issued automatically.
@@ -88,6 +90,10 @@ app.chatovo.ru {
 			ROBOTS 200
 	}
 
+	# Site pages used to be served from this host too.
+	@site path /features /download /changelog /about /support /privacy /terms /en /en/*
+	redir @site https://chatovo.ru{uri} permanent
+
 	# The lobby is this host's front page, which is why the app has no /lobby URL.
 	handle / {
 		rewrite * /lobby.html
@@ -100,12 +106,11 @@ app.chatovo.ru {
 }
 
 chatovo.ru {
-	import static_client
+	encode zstd gzip
 
-	# The app lives on its own host. Both hosts serve the same export, so without
-	# this the app pages would answer here too and split the session across origins.
-	@app path /lobby /lobby/* /room /room/* /auth /auth/* /admin /admin/*
+	# App pages live on the app host, where the session is.
+	@app path /lobby /lobby/* /room /room/* /auth /auth/* /admin /admin/* /account/delete /account/delete/*
 	redir @app https://app.chatovo.ru{uri} permanent
 
-	import static_routing
+	reverse_proxy site:3000
 }

@@ -5,8 +5,9 @@ node_modules
 **/node_modules
 
 # Build artifacts
-apps/client/.next
-apps/client/out
+apps/web/.next
+apps/web/out
+apps/site/.next
 apps/server/dist
 apps/server/generated
 apps/tauri/target

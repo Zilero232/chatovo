@@ -1,0 +1,21 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface-3);
+  box-shadow: var(--shadow-elevated);
+  font-size: var(--text-xs);
+  gap: rem(2);
+}
+
+.date {
+  color: var(--subtle-foreground);
+}
+
+.value {
+  font-variant-numeric: tabular-nums;
+}

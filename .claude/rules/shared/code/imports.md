@@ -10,4 +10,4 @@ paths:
 
 Groups, a blank line between, sorted by `bun lint:fix`: external types → external values → `@/` types → `@/` values → relative types → relative values → styles. Don't hand-edit the order.
 
-A deep import past a barrel is banned (`@/ui-kit`, not `@/ui-kit/primitives/Button`). `export * from` is banned — explicit named exports only. A barrel exports only what is needed outside.
+A deep import past a barrel is banned (`@chatovo/ui-kit`, not `@chatovo/ui-kit/primitives/Button`). `@/` is the app root; workspace packages (`@chatovo/ui-kit`, `@chatovo/config`, `@chatovo/schemas`) go by name. `export * from` is banned — explicit named exports only. A barrel exports only what is needed outside.

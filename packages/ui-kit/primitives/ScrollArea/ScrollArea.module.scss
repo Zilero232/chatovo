@@ -1,0 +1,28 @@
+@use '@chatovo/ui-kit/styles/functions' as *;
+
+.root {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.viewport {
+  overflow: hidden auto;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  outline: none;
+  overscroll-behavior: contain;
+  transition:
+    color var(--duration-fast) var(--timing-function-standard),
+    box-shadow var(--duration-fast) var(--timing-function-standard);
+
+  &:focus-visible {
+    box-shadow: 0 0 0 rem(3) color-mix(in srgb, var(--ring) 50%, transparent);
+    outline: 1px solid transparent;
+  }
+
+  > div {
+    min-width: 0;
+  }
+}

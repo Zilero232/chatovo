@@ -14,6 +14,6 @@ paths:
 
 ## The narrow exception
 
-An **exported** primitive of a reusable module — `ui-kit`, `shared/lib`, `shared/hooks`, server `src/lib/`, `packages/schemas` — may carry a 1–2 line JSDoc when the signature doesn't explain it (units, a side effect, an edge case). Internal helpers never.
+An **exported** primitive of a reusable module — `packages/ui-kit`, `packages/config`, `shared/lib`, `shared/hooks`, server `src/lib/`, `packages/schemas` — may carry a 1–2 line JSDoc when the signature doesn't explain it (units, a side effect, an edge case). Internal helpers never.
 
 Always allowed: `eslint-disable-next-line <rule> -- <reason>`, `@ts-expect-error` with a reason, `'use client'`. Commented-out code and a `// TODO` without a ticket are banned everywhere. Leave pre-existing comments in files you didn't author.

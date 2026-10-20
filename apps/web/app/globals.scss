@@ -1,0 +1,47 @@
+@use '@chatovo/ui-kit/styles/tokens';
+@use '@chatovo/ui-kit/styles/keyframes';
+@use '@chatovo/ui-kit/styles/base';
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+html.tauri-desktop {
+  --toast-title-bar: 2rem;
+}
+
+html,
+body {
+  overflow: hidden;
+  height: 100%;
+}
+
+.lobby-ambience {
+  position: absolute;
+  overflow: hidden;
+  inset: 0;
+  pointer-events: none;
+}
+
+.lobby-ambience-orb,
+.accent-top-line {
+  display: none;
+}
+
+.animate-reaction-float {
+  animation: reaction-float 6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+@include reduced-motion {
+  .animate-reaction-float {
+    animation: none;
+  }
+}
+
+// April 1st only — `useAprilFools` adds this class for a single day, then removes it.
+.april-fools {
+  [data-slot='avatar'] {
+    transition: transform var(--duration-default) var(--timing-function-standard);
+
+    &:hover {
+      transform: rotate(-8deg) scale(1.08);
+    }
+  }
+}
