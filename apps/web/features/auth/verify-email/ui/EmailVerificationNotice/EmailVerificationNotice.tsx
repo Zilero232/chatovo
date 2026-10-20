@@ -1,10 +1,8 @@
-'use client';
-
 import { Button, Spinner, Text } from '@chatovo/ui-kit';
 import { MailWarning } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
 
 import { useToastError } from '@/entities/app/locale';
 import { useCurrentUser, useSendVerificationEmail } from '@/entities/auth/user';

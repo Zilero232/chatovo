@@ -1,5 +1,3 @@
-'use client';
-
 import { useParticipants, useRoomContext } from '@livekit/components-react';
 import { indexBy } from 'remeda';
 

@@ -1,6 +1,4 @@
-'use client';
-
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { useCurrentUser, UserAvatar, UserName } from '@/entities/auth/user';
 import { ReportProblemButton } from '@/features/app/report-problem';

@@ -1,8 +1,6 @@
-'use client';
-
 import { CircleAlert, Clock3 } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { match } from 'ts-pattern';
+import { useTranslations } from 'use-intl';
 
 import type { MessageStatusProps } from './MessageStatus.types';
 

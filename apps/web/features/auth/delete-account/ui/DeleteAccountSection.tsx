@@ -1,10 +1,8 @@
-'use client';
-
 import { Button, ConfirmDialog, Text } from '@chatovo/ui-kit';
 import { useBoolean } from '@siberiacancode/reactuse';
 import { Trash2 } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
 
 import { useToastError } from '@/entities/app/locale';
 

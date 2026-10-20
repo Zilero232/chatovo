@@ -1,9 +1,7 @@
-'use client';
-
 import { Button, Spinner } from '@chatovo/ui-kit';
-import { useTranslations } from 'next-intl';
 import { isNonNullish } from 'remeda';
 import { match, P } from 'ts-pattern';
+import { useTranslations } from 'use-intl';
 
 import { useCurrentUser } from '@/entities/auth/user';
 import { useEnterRoom } from '@/entities/room/room';

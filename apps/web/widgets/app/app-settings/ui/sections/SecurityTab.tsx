@@ -1,7 +1,5 @@
-'use client';
-
 import { Separator } from '@chatovo/ui-kit';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { ChangeEmailForm } from '@/features/auth/change-email';
 import { ChangePasswordForm } from '@/features/auth/change-password';

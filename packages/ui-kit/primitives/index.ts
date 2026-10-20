@@ -9,6 +9,7 @@ export * from './Dialog';
 export * from './DropdownMenu';
 export * from './EmptyStatePattern';
 export * from './ErrorGlyph';
+export * from './Image';
 export * from './Input';
 export * from './Label';
 export * from './PasswordInput';

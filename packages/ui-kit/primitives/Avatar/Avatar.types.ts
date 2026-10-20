@@ -1,5 +1,6 @@
-import type { ImageProps } from 'next/image';
 import type { ComponentProps } from 'react';
+
+import type { ImageProps } from '../Image';
 
 export type AvatarSize = 'default' | 'lg' | 'sm';
 

@@ -1,15 +1,13 @@
-'use client';
-
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger
 } from '@chatovo/ui-kit';
+import { useLocation, useNavigate } from '@tanstack/react-router';
 import { clsx } from 'clsx';
 import { Wrench } from 'lucide-react';
-import { useTranslations } from 'next-intl';
-import { usePathname, useRouter } from 'next/navigation';
+import { useTranslations } from 'use-intl';
 
 import { useAppSettings } from '@/entities/app/settings';
 import { useCurrentUser } from '@/entities/auth/user';
@@ -21,8 +19,8 @@ import type { AdminMenuButtonProps } from './AdminMenuButton.types';
 import s from './AdminMenuButton.module.scss';
 
 export const AdminMenuButton = ({ side = 'right', onNavigate }: AdminMenuButtonProps) => {
-  const router = useRouter();
-  const pathname = usePathname();
+  const navigate = useNavigate();
+  const pathname = useLocation({ select: (location) => location.pathname });
 
   const t = useTranslations('admin');
   const { isAdmin } = useCurrentUser();
@@ -54,7 +52,7 @@ export const AdminMenuButton = ({ side = 'right', onNavigate }: AdminMenuButtonP
         {!isInAdmin && (
           <DropdownMenuItem
             onSelect={() => {
-              router.push(ROUTES.admin);
+              navigate({ to: ROUTES.admin });
               onNavigate?.();
             }}
           >

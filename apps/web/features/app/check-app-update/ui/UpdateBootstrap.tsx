@@ -1,10 +1,8 @@
-'use client';
-
 import type { ReactNode } from 'react';
 
 import { AppSplash } from '@chatovo/ui-kit';
-import { useTranslations } from 'next-intl';
 import { match } from 'ts-pattern';
+import { useTranslations } from 'use-intl';
 
 import { useCheckAppUpdate } from '../model/hooks';
 import { UpdateDialog } from './UpdateDialog/UpdateDialog';

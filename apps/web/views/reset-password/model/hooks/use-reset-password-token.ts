@@ -1,26 +1,23 @@
-'use client';
-
-import { useTranslations } from 'next-intl';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useNavigate, useSearch } from '@tanstack/react-router';
 import { useEffect, useEffectEvent, useState } from 'react';
 import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
 
 import { ROUTES } from '@/shared/constants';
 
 export const useResetPasswordToken = () => {
-  const router = useRouter();
-  const params = useSearchParams();
+  const navigate = useNavigate();
+  const { token, error } = useSearch({ strict: false });
   const t = useTranslations('auth');
 
   const [isDone, setIsDone] = useState(false);
 
-  const token = params.get('token');
-  const isInvalid = !token || params.has('error');
+  const isInvalid = !token || error !== undefined;
 
   const rejectInvalidToken = useEffectEvent(() => {
     toast.error(t('resetTokenMissing'), { id: 'reset-token-invalid' });
 
-    router.replace(ROUTES.auth);
+    navigate({ to: ROUTES.auth, replace: true });
   });
 
   useEffect(() => {

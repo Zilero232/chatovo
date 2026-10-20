@@ -1,5 +1,3 @@
-'use client';
-
 import { useRoomContext } from '@livekit/components-react';
 import { useInterval } from '@siberiacancode/reactuse';
 import { useEffect, useEffectEvent, useState } from 'react';

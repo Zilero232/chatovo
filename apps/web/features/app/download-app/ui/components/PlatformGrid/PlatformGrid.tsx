@@ -1,8 +1,6 @@
-'use client';
-
 import { Download, ExternalLink, Smartphone } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import prettyBytes from 'pretty-bytes';
+import { useTranslations } from 'use-intl';
 
 import { DOWNLOAD_PLATFORMS } from '@/entities/app/release';
 import { EXTERNAL_LINKS } from '@/shared/constants';

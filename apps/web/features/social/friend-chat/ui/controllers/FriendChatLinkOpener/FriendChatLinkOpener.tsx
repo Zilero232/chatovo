@@ -1,9 +1,7 @@
-'use client';
-
 import type { FriendUser } from '@chatovo/schemas';
 
 import { FRIEND_CHAT_QUERY_PARAM } from '@chatovo/schemas';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useNavigate, useSearch } from '@tanstack/react-router';
 import { useEffect, useEffectEvent } from 'react';
 
 import { useFriends } from '@/entities/social/friend';
@@ -12,11 +10,11 @@ import { ROUTES } from '@/shared/constants';
 import { useFriendChat } from '../../../model/contexts';
 
 export const FriendChatLinkOpener = () => {
-  const router = useRouter();
-  const searchParams = useSearchParams();
+  const navigate = useNavigate();
+  const search = useSearch({ strict: false });
 
   const { open } = useFriendChat();
-  const friendId = searchParams.get(FRIEND_CHAT_QUERY_PARAM);
+  const friendId = search[FRIEND_CHAT_QUERY_PARAM];
   const { data: friends } = useFriends(Boolean(friendId));
 
   const openFromLink = useEffectEvent((friend: FriendUser | undefined) => {
@@ -24,7 +22,7 @@ export const FriendChatLinkOpener = () => {
       open(friend);
     }
 
-    router.replace(ROUTES.lobby);
+    navigate({ to: ROUTES.lobby, replace: true });
   });
 
   useEffect(() => {

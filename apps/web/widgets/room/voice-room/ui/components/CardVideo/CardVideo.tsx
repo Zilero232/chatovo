@@ -1,12 +1,10 @@
-'use client';
-
 import { useIsMuted, VideoTrack } from '@livekit/components-react';
 import { target, useEventListener } from '@siberiacancode/reactuse';
 import { clsx } from 'clsx';
 import { Expand, Shrink } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
+import { useTranslations } from 'use-intl';
 
 import { useAppSettings } from '@/entities/app/settings';
 

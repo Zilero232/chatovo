@@ -1,8 +1,11 @@
-'use client';
+import type { ImageConfig, ImageLoaderInput } from '@chatovo/ui-kit';
 
-import type { ImageLoaderProps } from 'next/image';
-
-import { IMAGE_DEFAULT_QUALITY, IMAGE_REMOTE_HOSTS } from '@chatovo/schemas';
+import {
+  IMAGE_DEFAULT_QUALITY,
+  IMAGE_DEVICE_SIZES,
+  IMAGE_REMOTE_HOSTS,
+  IMAGE_SIZES
+} from '@chatovo/schemas';
 
 import { env } from '@/shared/config';
 
@@ -35,8 +38,8 @@ export const isOptimizableImage = (src: string): boolean => {
   return isOurUpload(source, api) || isAllowedRemote(source);
 };
 
-/** `next/image` loader: routes optimizable sources through GET /images, passes everything else through. */
-const imageLoader = ({ src, width, quality }: ImageLoaderProps): string => {
+/** Image loader: routes optimizable sources through GET /images, passes everything else through. */
+export const imageLoader = ({ src, width, quality }: ImageLoaderInput): string => {
   if (!isOptimizableImage(src)) {
     return src;
   }
@@ -52,4 +55,9 @@ const imageLoader = ({ src, width, quality }: ImageLoaderProps): string => {
   return endpoint.toString();
 };
 
-export default imageLoader;
+/** The `ImageConfigProvider` config: the loader plus the widths the server optimizer accepts. */
+export const IMAGE_CONFIG: ImageConfig = {
+  loader: imageLoader,
+  deviceSizes: IMAGE_DEVICE_SIZES,
+  imageSizes: IMAGE_SIZES
+};

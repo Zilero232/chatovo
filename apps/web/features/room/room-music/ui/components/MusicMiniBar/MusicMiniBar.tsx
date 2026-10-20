@@ -1,8 +1,6 @@
-'use client';
-
 import { clsx } from 'clsx';
 import { motion } from 'motion/react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { ENTER_ANIMATE, ENTER_INITIAL, ENTER_TRANSITION } from '@/shared/config';
 

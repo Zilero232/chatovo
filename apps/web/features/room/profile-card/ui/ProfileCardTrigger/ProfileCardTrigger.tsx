@@ -1,5 +1,3 @@
-'use client';
-
 import { PopoverContent } from '@chatovo/ui-kit';
 import { clsx } from 'clsx';
 

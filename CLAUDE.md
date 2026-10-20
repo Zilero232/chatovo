@@ -5,16 +5,17 @@ Real-time voice rooms — web, desktop and Android. LiveKit SFU (WebRTC) carries
 - Every doc, indexed: [docs/README.md](docs/README.md)
 - Client architecture (FSD) — read before structural changes: [docs/architecture/fsd.md](docs/architecture/fsd.md)
 - The call that outlives navigation: [docs/architecture/room-session.md](docs/architecture/room-session.md)
+- The web app is a Vite SPA, not Next — routing, env, gotchas: [docs/architecture/web-app.md](docs/architecture/web-app.md)
 - Things that have already bitten us: [docs/architecture/pitfalls.md](docs/architecture/pitfalls.md)
 - Deploying the VPS: [docs/ops/deploy.md](docs/ops/deploy.md); releasing the apps: [docs/ops/release.md](docs/ops/release.md); migrations: [docs/ops/migrations.md](docs/ops/migrations.md)
 
-Respond to the user in Russian. Code, identifiers, comments, docs and commit messages are in English. UI text is in Russian and English via next-intl.
+Respond to the user in Russian. Code, identifiers, comments, docs and commit messages are in English. UI text is in Russian and English via use-intl (web) and next-intl (site).
 
 ## Layout
 
 | Path                | What                                                                                                                                                                                                                  |
 | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `apps/web`          | `@chatovo/web` — the product app (app.chatovo.ru): Next.js 16 / React 19, static export, FSD, SCSS modules, next-intl; also the UI of the Tauri apps — [CLAUDE.md](apps/web/CLAUDE.md)                                |
+| `apps/web`          | `@chatovo/web` — the product app (app.chatovo.ru): Vite + React 19 SPA, TanStack Router, FSD, SCSS modules, use-intl; also the UI of the Tauri apps — [CLAUDE.md](apps/web/CLAUDE.md)                                 |
 | `apps/site`         | `@chatovo/site` — the public website (chatovo.ru): Next.js 16, server-rendered (`output: 'standalone'`) in its own container, ru/en routing, SEO — [CLAUDE.md](apps/site/CLAUDE.md)                                   |
 | `apps/server`       | NestJS 11 on Bun + Prisma 7 + self-hosted Postgres, auth via better-auth, the realtime gateway, LiveKit tokens — [CLAUDE.md](apps/server/CLAUDE.md)                                                                   |
 | `apps/tauri`        | Tauri 2 (Rust) shell for desktop and Android around `apps/web` — [CLAUDE.md](apps/tauri/CLAUDE.md)                                                                                                                    |
@@ -40,7 +41,7 @@ bun run verify             # typecheck + ESLint + Prettier + Stylelint — befor
 bun run fix                # every autofixer, in the same order
 bun run test               # Vitest, every workspace (never bare `bun test`)
 bun run test:e2e           # Playwright: app-* projects on :3000, site-* on :3001 (E2E_APP_URL / E2E_SITE_URL)
-bun run build              # web static export + site standalone build; build:client / build:site for one
+bun run build              # web Vite build + site standalone build; build:client / build:site for one
 bun run lint:rust          # clippy on apps/tauri (needs cargo)
 bun run format:caddy       # caddy fmt on infra/caddy/Caddyfile*; lint:caddy checks format + config
 bun tauri:dev              # desktop dev shell; bun android:dev for Android
@@ -48,7 +49,7 @@ bun tauri:dev              # desktop dev shell; bun android:dev for Android
 
 **`bun run test`, never `bun test`.** Bare `bun test` is Bun's own runner, not Vitest.
 
-**One `.env`** at the repo root serves web, site and server (`.env.example` is the template); each Next app loads it in its `next.config.ts`. Only `apps/tauri/.env` is separate (machine-specific Android SDK/NDK/JDK paths). Release and deploy credentials live only in GitHub Secrets; each workflow lists the ones it needs in its header.
+**One `.env`** at the repo root serves web, site and server (`.env.example` is the template); the site loads it in `next.config.ts`, the web app reads its `NEXT_PUBLIC_*` keys in `vite.config.ts`. Only `apps/tauri/.env` is separate (machine-specific Android SDK/NDK/JDK paths). Release and deploy credentials live only in GitHub Secrets; each workflow lists the ones it needs in its header.
 
 ## Release and deploy
 
@@ -68,7 +69,7 @@ The full style guide is [docs/guides/](docs/guides/README.md) (split into `clien
 - **Tauri.** Every Tauri call is behind `isTauri()` so the web build keeps working ([Tauri on the client](docs/guides/client/tauri.md)).
 - **Let the code breathe and keep the order.** Blank lines between logical steps, hook order, component body order — held by hand, `bun run fix` doesn't do them ([blank lines](docs/guides/shared/blank-lines.md), [React](docs/guides/client/react.md)).
 - **Tests** live in `_tests/` beside the source and cover logic, not markup ([tests](docs/guides/shared/testing.md)).
-- **i18n.** Every user-visible string goes through next-intl, in both `en` and `ru` ([i18n](docs/guides/client/i18n.md)).
+- **i18n.** Every user-visible string goes through use-intl / next-intl, in both `en` and `ru` ([i18n](docs/guides/client/i18n.md)).
 - **Verify before claiming anything works** — `bun run verify`, `bun run test`, and `bun run build` for anything that could break the web export or the site build ([checklist](docs/guides/shared/checklist.md)).
 - **Measure before swapping for perf.** A symptom that survives two library swaps is not the library: repeat the action, try a production build, or read a profile first.
 - **No emojis in code** unless asked.

@@ -1,5 +1,3 @@
-'use client';
-
 import { target, useEventListener } from '@siberiacancode/reactuse';
 import { useRef } from 'react';
 

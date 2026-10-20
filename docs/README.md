@@ -13,7 +13,8 @@ Design decisions — the "why" behind the code, and what has already gone wrong.
 - [architecture/invisible-mode.md](architecture/invisible-mode.md) — an admin joins rooms hidden: server-enforced, presence filtered.
 - [architecture/game-activity.md](architecture/game-activity.md) — the "Playing X" status, games only: Steam, Epic and GOG libraries plus the Windows Game Bar list; opt-in, desktop-only.
 - [architecture/tray-menu.md](architecture/tray-menu.md) — the native tray: Rust owns the icon and menu, the client pushes labels and state.
-- [architecture/images.md](architecture/images.md) — images without Next's optimizer: upload-time normalising, the `/images` resizer + `next/image` loader, chat link previews, SSRF-safe outbound fetches.
+- [architecture/web-app.md](architecture/web-app.md) — why the web app is a Vite SPA with TanStack Router, not Next: the route tree, typed search params, what replaced each Next feature, the env and dev-server gotchas.
+- [architecture/images.md](architecture/images.md) — images without a framework optimizer: upload-time normalising, the `/images` resizer + the kit's `Image` loader, chat link previews, SSRF-safe outbound fetches.
 - [architecture/developer-role.md](architecture/developer-role.md) — `user.role = 'admin'`: the Developers tab, the badge, the contributors strip.
 - [architecture/pitfalls.md](architecture/pitfalls.md) — things that have already bitten us.
 

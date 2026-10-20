@@ -1,5 +1,3 @@
-'use client';
-
 import { Suspense } from 'react';
 
 import { GooglePlayPromo } from '@/features/app/google-play-promo';

@@ -1,9 +1,7 @@
-'use client';
-
 import { useFileDialog } from '@siberiacancode/reactuse';
 import { Camera } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
 
 import { UserAvatar } from '@/entities/auth/user';
 

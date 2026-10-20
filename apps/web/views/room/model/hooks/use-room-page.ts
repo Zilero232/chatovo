@@ -1,6 +1,4 @@
-'use client';
-
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useNavigate, useSearch } from '@tanstack/react-router';
 import { useEffect, useState } from 'react';
 import { isNonNullish } from 'remeda';
 
@@ -13,8 +11,8 @@ import { ROUTES } from '@/shared/constants';
 import { resolvePasswordGate } from '../../lib';
 
 export const useRoomPage = () => {
-  const router = useRouter();
-  const params = useSearchParams();
+  const navigate = useNavigate();
+  const { id, title: titleOverride, view } = useSearch({ strict: false });
 
   const { settings } = useAppSettings();
   const { isAdmin } = useCurrentUser();
@@ -22,9 +20,8 @@ export const useRoomPage = () => {
 
   const [passwordByRoom, setPasswordByRoom] = useState<Record<string, string>>({});
 
-  const roomId = params.get('id');
-  const titleOverride = params.get('title');
-  const isChatOpen = params.get('view') === 'chat';
+  const roomId = id ?? null;
+  const isChatOpen = view === 'chat';
   const password = roomId ? passwordByRoom[roomId] : undefined;
   const isSessionOpen = session?.roomId === roomId;
 
@@ -49,16 +46,16 @@ export const useRoomPage = () => {
 
   useEffect(() => {
     if (!roomId) {
-      router.replace(ROUTES.lobby);
+      navigate({ to: ROUTES.lobby, replace: true });
     }
-    // eslint-disable-next-line react/exhaustive-deps -- redirect must fire only on roomId change; router is a stable ref
+    // eslint-disable-next-line react/exhaustive-deps -- redirect must fire only on roomId change; navigate is a stable ref
   }, [roomId]);
 
   useEffect(() => {
     if (!isPrivate && tokenFailed) {
-      router.replace(ROUTES.lobby);
+      navigate({ to: ROUTES.lobby, replace: true });
     }
-    // eslint-disable-next-line react/exhaustive-deps -- redirect must fire only when a public-room token fetch fails; router is a stable ref
+    // eslint-disable-next-line react/exhaustive-deps -- redirect must fire only when a public-room token fetch fails; navigate is a stable ref
   }, [isPrivate, tokenFailed]);
 
   useEffect(

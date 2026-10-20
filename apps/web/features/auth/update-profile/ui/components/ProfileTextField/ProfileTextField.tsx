@@ -1,5 +1,3 @@
-'use client';
-
 import { FormField, Input, Textarea } from '@chatovo/ui-kit';
 
 import type { ProfileTextFieldProps } from './ProfileTextField.types';

@@ -1,11 +1,9 @@
-'use client';
-
 import { roomPasswordSchema } from '@chatovo/schemas';
 import { EmptyStatePattern, FormField, Input, Stack } from '@chatovo/ui-kit';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { clsx } from 'clsx';
-import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
+import { useTranslations } from 'use-intl';
 import { z } from 'zod';
 
 import { useFieldError } from '@/entities/app/locale';

@@ -1,8 +1,6 @@
-'use client';
-
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@chatovo/ui-kit';
 import { clsx } from 'clsx';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { useCurrentRoomMusic, useMusicDialog } from '../../../model/hooks';
 import { MusicPanel } from '../MusicPanel/MusicPanel';

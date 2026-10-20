@@ -1,5 +1,3 @@
-'use client';
-
 import type { SyntheticEvent } from 'react';
 
 import { useMemo, useState } from 'react';

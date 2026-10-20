@@ -1,9 +1,7 @@
-'use client';
-
 import type { ReactNode } from 'react';
 
-import { useTranslations } from 'next-intl';
 import { useEffect, useEffectEvent } from 'react';
+import { useTranslations } from 'use-intl';
 
 import {
   localizeTray,

@@ -1,11 +1,9 @@
-'use client';
-
 import { friendCallStatusSchema } from '@chatovo/schemas';
 import { useQueryClient } from '@tanstack/react-query';
-import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/navigation';
+import { useNavigate } from '@tanstack/react-router';
 import { useEffect, useEffectEvent, useRef } from 'react';
 import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
 
 import { useToastError } from '@/entities/app/locale';
 import {
@@ -14,15 +12,15 @@ import {
   useOutgoingFriendCall
 } from '@/entities/social/friend';
 import { ackOutgoingFriendCall } from '@/shared/api';
-import { QUERY_KEYS } from '@/shared/constants';
-import { buildRoomHref } from '@/shared/lib';
+import { QUERY_KEYS, ROUTES } from '@/shared/constants';
+import { buildRoomSearch } from '@/shared/lib';
 
 const CALL_STATUS = friendCallStatusSchema.enum;
 
 export const useOutgoingCall = () => {
   const t = useTranslations('friends.outgoingCall');
   const toastError = useToastError();
-  const router = useRouter();
+  const navigate = useNavigate();
   const queryClient = useQueryClient();
   const handledRef = useRef<string | null>(null);
 
@@ -57,7 +55,10 @@ export const useOutgoingCall = () => {
     handledRef.current = key;
 
     if (call.status === CALL_STATUS.accepted) {
-      router.push(buildRoomHref(call.roomId, { title: call.callee.name }));
+      navigate({
+        to: ROUTES.room,
+        search: buildRoomSearch(call.roomId, { title: call.callee.name })
+      });
       clearOutgoing();
       return;
     }

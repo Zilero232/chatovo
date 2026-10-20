@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { NextIntlClientProvider } from 'next-intl';
+import { IntlProvider } from 'use-intl';
 import { describe, expect, it, vi } from 'vitest';
 
 import { en as messages } from '@/shared/i18n/locales/en';
@@ -19,9 +19,9 @@ const { AdminMenuButton } = await import('../AdminMenuButton');
 
 const renderMenu = () =>
   render(
-    <NextIntlClientProvider locale='en' messages={messages} timeZone='UTC'>
+    <IntlProvider locale='en' messages={messages} timeZone='UTC'>
       <AdminMenuButton />
-    </NextIntlClientProvider>
+    </IntlProvider>
   );
 
 describe('AdminMenuButton', () => {

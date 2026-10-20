@@ -1,7 +1,5 @@
-'use client';
-
 import { clsx } from 'clsx';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { handleExternalLinkClick } from '@/shared/lib';
 

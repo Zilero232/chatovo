@@ -1,5 +1,3 @@
-'use client';
-
 import type { ChangeEmailValues } from '@chatovo/schemas';
 
 import { changeEmailSchema } from '@chatovo/schemas';

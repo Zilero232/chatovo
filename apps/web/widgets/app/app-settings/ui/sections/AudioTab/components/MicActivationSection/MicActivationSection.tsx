@@ -1,8 +1,6 @@
-'use client';
-
 import { RadioGroup, RadioGroupItem } from '@chatovo/ui-kit';
-import { useTranslations } from 'next-intl';
 import { useId } from 'react';
+import { useTranslations } from 'use-intl';
 
 import type { MicActivationMode } from '@/entities/app/settings';
 

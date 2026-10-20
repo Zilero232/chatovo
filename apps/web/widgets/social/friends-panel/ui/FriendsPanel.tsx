@@ -1,5 +1,3 @@
-'use client';
-
 import { FriendsTabs } from './components';
 
 import s from './FriendsPanel.module.scss';

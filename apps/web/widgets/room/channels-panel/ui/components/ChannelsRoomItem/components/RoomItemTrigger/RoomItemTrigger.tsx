@@ -1,12 +1,11 @@
-'use client';
-
+import { useNavigate } from '@tanstack/react-router';
 import { clsx } from 'clsx';
 import { Crown, Headphones, Lock } from 'lucide-react';
-import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/navigation';
+import { useTranslations } from 'use-intl';
 
 import { ManageRoomMenu } from '@/features/room/manage';
-import { buildRoomHref } from '@/shared/lib';
+import { ROUTES } from '@/shared/constants';
+import { buildRoomSearch } from '@/shared/lib';
 
 import type { RoomItemTriggerProps } from './RoomItemTrigger.types';
 
@@ -14,10 +13,10 @@ import s from '../../ChannelsRoomItem.module.scss';
 
 export const RoomItemTrigger = ({ isActive, isOwner, room, onNavigate }: RoomItemTriggerProps) => {
   const t = useTranslations('channels');
-  const router = useRouter();
+  const navigate = useNavigate();
 
   const handleClick = () => {
-    router.push(buildRoomHref(room.id));
+    navigate({ to: ROUTES.room, search: buildRoomSearch(room.id) });
     onNavigate?.();
   };
 

@@ -1,7 +1,5 @@
-'use client';
-
 import { Gamepad2, HeadphoneOff, MicOff } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { UserName } from '@/entities/auth/user';
 import { ProfileCardTrigger } from '@/features/room/profile-card';

@@ -1,9 +1,7 @@
-'use client';
-
 import { Chato, Text } from '@chatovo/ui-kit';
 import { clsx } from 'clsx';
 import { motion } from 'motion/react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { ResetPasswordForm } from '@/features/auth/reset-password';
 import { useEnterMotion } from '@/shared/hooks';

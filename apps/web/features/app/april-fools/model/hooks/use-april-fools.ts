@@ -1,5 +1,3 @@
-'use client';
-
 import { getDate, getMonth } from 'date-fns';
 import { useEffect } from 'react';
 

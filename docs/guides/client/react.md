@@ -1,7 +1,7 @@
 # React conventions
 
 - Function components, arrow functions.
-- `'use client'` in every file with hooks / state / event handlers.
+- `'use client'` in every file with hooks / state / event handlers — in `apps/site` and `packages/ui-kit`, which render under React Server Components. The web app is a client-only SPA and carries no directive.
 - React Compiler is enabled — no `useMemo` / `useCallback` for micro-optimisation. Keep them only for a semantically stable ref (`useEffect` dependencies, a key in a Map).
 - Event handlers are `on<Event>` in camelCase: `onSubmit`, `onSelectRoom`.
 - React types are **named imports**: `import type { ComponentProps, ReactNode } from 'react'`. **`import type * as React from 'react'` is banned.**
@@ -95,7 +95,7 @@ This composes with the [component body order](component-body.md) rather than rep
 
 A `useEffect` `deps` array holds only what **should actually re-trigger** the effect. If we know the effect needs a single `roomId`, we don't add `room`, `router` or mutation objects "to keep the linter quiet".
 
-**Stable refs don't go into deps.** `router` from `next/navigation` and `reset` / `mutate` from react-query are stable across renders. Adding them is pointless — the effect must not react to them "changing". `// eslint-disable-next-line react/exhaustive-deps -- reason` with an explicit reason is normal practice, not a hack.
+**Stable refs don't go into deps.** `navigate` from TanStack Router (`router` from `next/navigation` on the site) and `reset` / `mutate` from react-query are stable across renders. Adding them is pointless — the effect must not react to them "changing". `// eslint-disable-next-line react/exhaustive-deps -- reason` with an explicit reason is normal practice, not a hack.
 
 ```tsx
 // ✗ BAD — surplus deps, and the mutation object changes its ref every render

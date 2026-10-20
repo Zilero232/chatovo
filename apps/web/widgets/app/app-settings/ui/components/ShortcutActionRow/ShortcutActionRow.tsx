@@ -1,7 +1,5 @@
-'use client';
-
-import { useTranslations } from 'next-intl';
 import { isNullish } from 'remeda';
+import { useTranslations } from 'use-intl';
 
 import { useAppSettings } from '@/entities/app/settings';
 import { formatBindingDisplay, ShortcutRow } from '@/entities/app/shortcut';

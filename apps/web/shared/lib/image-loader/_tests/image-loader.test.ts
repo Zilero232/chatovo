@@ -6,7 +6,7 @@ const apiEnv = vi.hoisted(() => ({ NEXT_PUBLIC_API_URL: 'http://localhost:4000' 
 
 vi.mock('@/shared/config', () => ({ env: apiEnv }));
 
-const { default: imageLoader, isOptimizableImage } = await import('../image-loader');
+const { imageLoader, isOptimizableImage } = await import('../image-loader');
 
 const UPLOAD = `${API_URL}/uploads/avatars/u1/avatar.webp?v=7`;
 const GITHUB_AVATAR = 'https://avatars.githubusercontent.com/u/1?v=4';

@@ -1,5 +1,3 @@
-'use client';
-
 import { AppSplash } from '@chatovo/ui-kit';
 
 import type { AdminGuardProps } from './AdminGuard.types';

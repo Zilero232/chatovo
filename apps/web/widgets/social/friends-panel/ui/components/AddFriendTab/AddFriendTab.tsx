@@ -1,14 +1,12 @@
-'use client';
-
 import type { SendFriendRequestInput } from '@chatovo/schemas';
 
 import { sendFriendRequestInputSchema } from '@chatovo/schemas';
 import { Button, Spinner } from '@chatovo/ui-kit';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { UserPlus } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
 
 import { useToastError } from '@/entities/app/locale';
 import { useCurrentUser } from '@/entities/auth/user';

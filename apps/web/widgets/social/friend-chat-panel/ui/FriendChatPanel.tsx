@@ -1,8 +1,6 @@
-'use client';
-
 import { Button } from '@chatovo/ui-kit';
 import { ArrowLeft, Phone } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { useToastError } from '@/entities/app/locale';
 import { useCurrentUser, UserAvatar, UserName } from '@/entities/auth/user';

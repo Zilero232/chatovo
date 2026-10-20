@@ -1,8 +1,6 @@
-'use client';
-
 import type { MusicTrack } from '@chatovo/schemas';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { useRoomMusicContext } from '../contexts/room-music-context';
 

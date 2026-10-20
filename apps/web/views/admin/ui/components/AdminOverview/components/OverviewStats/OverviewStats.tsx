@@ -1,7 +1,5 @@
-'use client';
-
 import { Ban, DoorOpen, Flag, Lock, MessageSquare, Radio, ShieldCheck, Users } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import type { OverviewStatsProps } from './OverviewStats.types';
 

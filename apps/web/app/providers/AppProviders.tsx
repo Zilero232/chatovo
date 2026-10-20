@@ -1,14 +1,13 @@
-'use client';
-
 import type { ReactNode } from 'react';
 
-import { Toaster, TooltipProvider } from '@chatovo/ui-kit';
+import { ImageConfigProvider, Toaster, TooltipProvider } from '@chatovo/ui-kit';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { MotionConfig } from 'motion/react';
 
 import { queryClient } from '@/shared/api';
 import { isTauriDesktop } from '@/shared/lib';
+import { IMAGE_CONFIG } from '@/shared/lib/image-loader';
 import { TitleBar } from '@/widgets/app/title-bar';
 
 import { AuthProvider } from './AuthProvider';
@@ -23,32 +22,34 @@ import { TrayMenuProvider } from './TrayMenuProvider';
 
 export const AppProviders = ({ children }: { children: ReactNode }) => (
   <QueryClientProvider client={queryClient}>
-    <I18nProvider>
-      <QueryFocusManager />
-      <SessionExpiryWatcher />
-      <TauriMobileInsets />
-      <TauriDesktopDocumentClass />
-      <TauriNativeMenuGuard />
-      <MotionConfig reducedMotion='user'>
-        <TooltipProvider>
-          <div style={{ display: 'flex', height: '100%', flexDirection: 'column' }}>
-            {isTauriDesktop() && <TitleBar />}
+    <ImageConfigProvider config={IMAGE_CONFIG}>
+      <I18nProvider>
+        <QueryFocusManager />
+        <SessionExpiryWatcher />
+        <TauriMobileInsets />
+        <TauriDesktopDocumentClass />
+        <TauriNativeMenuGuard />
+        <MotionConfig reducedMotion='user'>
+          <TooltipProvider>
+            <div style={{ display: 'flex', height: '100%', flexDirection: 'column' }}>
+              {isTauriDesktop() && <TitleBar />}
 
-            <div style={{ minHeight: 0, flex: 1 }}>
-              <TrayMenuProvider>
-                <AuthProvider>{children}</AuthProvider>
-              </TrayMenuProvider>
+              <div style={{ minHeight: 0, flex: 1 }}>
+                <TrayMenuProvider>
+                  <AuthProvider>{children}</AuthProvider>
+                </TrayMenuProvider>
+              </div>
             </div>
-          </div>
-        </TooltipProvider>
-      </MotionConfig>
+          </TooltipProvider>
+        </MotionConfig>
 
-      <Toaster />
-      <EasterEggsProvider />
+        <Toaster />
+        <EasterEggsProvider />
 
-      {process.env.NODE_ENV === 'development' && (
-        <ReactQueryDevtools buttonPosition='bottom-right' />
-      )}
-    </I18nProvider>
+        {import.meta.env.MODE === 'development' && (
+          <ReactQueryDevtools buttonPosition='bottom-right' />
+        )}
+      </I18nProvider>
+    </ImageConfigProvider>
   </QueryClientProvider>
 );

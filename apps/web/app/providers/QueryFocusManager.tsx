@@ -1,5 +1,3 @@
-'use client';
-
 import { focusManager } from '@tanstack/react-query';
 import { useEffect } from 'react';
 

@@ -1,12 +1,10 @@
-'use client';
-
 import type { AdminUserFilter } from '@chatovo/schemas';
 
 import { CenteredState, Row, SearchField, Select, Spinner, Stack, Text } from '@chatovo/ui-kit';
 import { Users } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { match, P } from 'ts-pattern';
+import { useTranslations } from 'use-intl';
 
 import { useAdminUsers } from '@/entities/app/admin';
 

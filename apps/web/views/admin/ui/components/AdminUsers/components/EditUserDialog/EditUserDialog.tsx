@@ -1,5 +1,3 @@
-'use client';
-
 import {
   Dialog,
   DialogContent,
@@ -13,7 +11,7 @@ import {
   Textarea
 } from '@chatovo/ui-kit';
 import { Pencil } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { useFieldError } from '@/entities/app/locale';
 

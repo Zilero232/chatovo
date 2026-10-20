@@ -1,11 +1,9 @@
-'use client';
-
 import type { AdminUserDetails } from '@chatovo/schemas';
 
 import { Badge, Row, Spinner, Stack, Text } from '@chatovo/ui-kit';
-import { useTranslations } from 'next-intl';
 import { isNonNullish } from 'remeda';
 import { match, P } from 'ts-pattern';
+import { useTranslations } from 'use-intl';
 
 import { useAdminUserDetails } from '@/entities/app/admin';
 import { formatDateTime } from '@/shared/lib';

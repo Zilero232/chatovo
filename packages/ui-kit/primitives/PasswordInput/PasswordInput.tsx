@@ -3,8 +3,8 @@
 import { useBoolean } from '@siberiacancode/reactuse';
 import { clsx } from 'clsx';
 import { Eye, EyeOff } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { useId } from 'react';
+import { useTranslations } from 'use-intl';
 
 import type { PasswordInputProps } from './PasswordInput.types';
 

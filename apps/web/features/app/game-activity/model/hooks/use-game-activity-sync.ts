@@ -1,5 +1,3 @@
-'use client';
-
 import { useConnectionState, useRoomContext } from '@livekit/components-react';
 import { ConnectionState } from 'livekit-client';
 import { useEffect } from 'react';

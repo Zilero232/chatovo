@@ -1,9 +1,7 @@
-'use client';
-
 import { DropdownMenuRadioItem } from '@chatovo/ui-kit';
 import { clsx } from 'clsx';
 import { Check } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import type { DeviceMenuItemProps } from './DeviceMenuItem.types';
 

@@ -1,12 +1,10 @@
-'use client';
-
 import { Text } from '@chatovo/ui-kit';
 import { useConnectionState } from '@livekit/components-react';
 import { clsx } from 'clsx';
 import { ConnectionState } from 'livekit-client';
 import { AnimatePresence, motion } from 'motion/react';
-import { useTranslations } from 'next-intl';
 import { match } from 'ts-pattern';
+import { useTranslations } from 'use-intl';
 
 import type { ConnectingOverlayProps } from './ConnectingOverlay.types';
 

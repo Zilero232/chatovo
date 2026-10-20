@@ -1,5 +1,3 @@
-'use client';
-
 import { useEffect, useEffectEvent, useRef } from 'react';
 
 import type { UseVolumeRampInput } from './use-volume-ramp.types';

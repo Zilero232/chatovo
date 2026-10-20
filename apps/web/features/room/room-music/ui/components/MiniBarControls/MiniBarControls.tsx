@@ -1,8 +1,6 @@
-'use client';
-
 import { IconButtonWithTooltip } from '@chatovo/ui-kit';
 import { Maximize2, Pause, Play, SkipBack, SkipForward } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import type { MiniBarControlsProps } from './MiniBarControls.types';
 

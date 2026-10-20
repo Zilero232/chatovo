@@ -1,9 +1,7 @@
-'use client';
-
 import { IconButtonWithTooltip, Row } from '@chatovo/ui-kit';
 import { Ban, Eye, Pencil, ShieldOff } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
 
 import { useUnblockUser } from '@/entities/app/admin';
 import { useToastError } from '@/entities/app/locale';

@@ -1,5 +1,3 @@
-'use client';
-
 import { useLocalStorage, useSwipe } from '@siberiacancode/reactuse';
 import { useEffect, useRef, useState } from 'react';
 

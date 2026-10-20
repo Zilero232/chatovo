@@ -1,5 +1,3 @@
-'use client';
-
 import type { UpdateRoomRequest } from '@chatovo/schemas';
 
 import { useMutation, useQueryClient } from '@tanstack/react-query';

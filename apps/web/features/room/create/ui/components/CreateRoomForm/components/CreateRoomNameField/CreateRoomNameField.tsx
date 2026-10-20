@@ -1,8 +1,6 @@
-'use client';
-
 import { ROOM_NAME_MAX_LENGTH } from '@chatovo/schemas';
 import { FormField, Input, Text } from '@chatovo/ui-kit';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import type { CreateRoomNameFieldProps } from './CreateRoomNameField.types';
 

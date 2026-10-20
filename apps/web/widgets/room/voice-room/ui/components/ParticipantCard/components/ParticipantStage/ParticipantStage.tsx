@@ -1,5 +1,3 @@
-'use client';
-
 import { clsx } from 'clsx';
 
 import { UserAvatar } from '@/entities/auth/user';

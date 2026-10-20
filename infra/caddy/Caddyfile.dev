@@ -40,7 +40,7 @@
 # runs on the host. host.docker.internal bridges the container to the host —
 # see the extra_hosts entry in docker-compose.dev.yml.
 
-# --- Web app (Next.js dev server on the host) ---
+# --- Web app (Vite dev server on the host) ---
 app.chatovo.localhost {
 	tls internal
 	reverse_proxy host.docker.internal:3000

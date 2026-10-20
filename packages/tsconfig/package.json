@@ -17,7 +17,8 @@
   "files": [
     "base.json",
     "nextjs.json",
-    "node.json"
+    "node.json",
+    "react.json"
   ],
   "peerDependencies": {
     "typescript": "catalog:"

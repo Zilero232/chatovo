@@ -4,7 +4,8 @@ Things that have already bitten us. Each one looked like a bug in our code, or a
 
 ## Client
 
-- **Rooms are addressed by a query param.** The web app is a static export (`output: 'export'`) with no SPA fallback, so `/room/<id>` is a 404 in production. A room is `/room?id=…`, built by `buildRoomHref` in `shared/lib`.
+- **Rooms are addressed by a query param.** A room is `/room?id=…`, built by `buildRoomHref` / `buildRoomSearch` in `shared/lib`. It dates from the Next static export, which had no SPA fallback; invite links in the wild use it, so it stays, and the router keeps search params as plain `URLSearchParams` strings so those links still resolve ([web-app.md](web-app.md)).
+- **The root `.env` makes a development build.** Its `NODE_ENV=development` is for the server, and Bun loads it into every script. `vite.config.ts` reads only the `NEXT_PUBLIC_*` keys and forces production for `vite build`; without that the web bundle ships development React.
 - **The auth splash covers only the first load.** better-auth refetches the session on window focus, and `useCurrentUser` reports `isLoading` again. `AuthProvider` shows the splash only until the session has resolved once (`hasResolvedRef`); gating on `isLoading` alone remounted the whole tree on every tab switch and wiped the forms on the auth pages.
 - **Leaving a room can re-open it.** `close()` is synchronous and `router.replace` is not, so the room page re-requested a token and re-opened the session it had just closed. The session context remembers `leftRoomId`; see [room-session.md](room-session.md).
 - **A LiveKit processor restart drops the `AudioContext`.** `TrackProcessor.restart()` is called without one on a device change. The voice gate caches the context from `init` and falls back to it; without that it crashed on every microphone switch. LiveKit has no built-in noise gate, which is why that processor is our own (`entities/app/settings/lib/voice-gate`).
@@ -38,5 +39,5 @@ Things that have already bitten us. Each one looked like a bug in our code, or a
 ## Tooling
 
 - **`bun run test`, never bare `bun test`.** Bare `bun test` is Bun's own runner, not Vitest, and fails the suite.
-- **`next dev` rewrites the app's `CLAUDE.md`** (`apps/web`, `apps/site`). The `<!-- BEGIN:nextjs-agent-rules -->` block is re-added on every run; committing it keeps the tree clean.
+- **`next dev` rewrites the site's `CLAUDE.md`** (`apps/site`). The `<!-- BEGIN:nextjs-agent-rules -->` block is re-added on every run; committing it keeps the tree clean.
 - **A performance symptom that survives two library swaps is not the library.** Repeat the action (a fast second time is first-mount or dev compilation), try a production build, or read a profile before swapping a third time.

@@ -1,9 +1,7 @@
-'use client';
-
 import { ScrollArea, Tabs, TabsContent, TabsList, TabsTrigger } from '@chatovo/ui-kit';
 import { clsx } from 'clsx';
-import { useTranslations } from 'next-intl';
 import { useState } from 'react';
+import { useTranslations } from 'use-intl';
 
 import type { AdminTab } from './AdminPage.types';
 

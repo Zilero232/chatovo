@@ -1,9 +1,10 @@
 'use client';
 
 import { clsx } from 'clsx';
-import Image from 'next/image';
 
 import type { AvatarFallbackProps, AvatarImageProps, AvatarProps } from './Avatar.types';
+
+import { Image } from '../Image';
 
 import s from './Avatar.module.scss';
 

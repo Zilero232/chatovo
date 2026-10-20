@@ -1,5 +1,3 @@
-'use client';
-
 import { entries, find, isNullish, pipe } from 'remeda';
 
 import { useRooms, useRoomsPresence } from '@/entities/room/room';

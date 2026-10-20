@@ -20,4 +20,4 @@ export const formatBytes = (bytes: number): string => {
 
 **Internal helpers are never documented** — not in `shared/`, not anywhere else. The rule covers only what leaves through a barrel.
 
-The exception does not lift the other bans: commented-out code, a `// TODO` with no ticket, and placeholder comments are banned everywhere. Technical directives are legitimate — `eslint-disable-next-line ... -- reason` ([effect deps](../client/react.md#102-hook--effect-dependencies)), `@ts-expect-error` with a reason, `'use client'`.
+The exception does not lift the other bans: commented-out code, a `// TODO` with no ticket, and placeholder comments are banned everywhere. Technical directives are legitimate — `eslint-disable-next-line ... -- reason` ([effect deps](../client/react.md#102-hook--effect-dependencies)), `@ts-expect-error` with a reason, `'use client'` (site and kit).

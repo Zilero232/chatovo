@@ -1,5 +1,3 @@
-'use client';
-
 import type { ProfileValues, UpdateProfileInput } from '@chatovo/schemas';
 
 import { profileSchema } from '@chatovo/schemas';

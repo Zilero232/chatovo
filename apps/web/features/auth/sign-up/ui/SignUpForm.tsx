@@ -1,13 +1,11 @@
-'use client';
-
 import type { SignUpFormValues, SignUpValues } from '@chatovo/schemas';
 
 import { signUpSchema } from '@chatovo/schemas';
 import { Stack, SubmitButton } from '@chatovo/ui-kit';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useTranslations } from 'next-intl';
 import { FormProvider, useForm } from 'react-hook-form';
 import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
 
 import { useToastError } from '@/entities/app/locale';
 

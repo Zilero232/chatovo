@@ -1,8 +1,6 @@
-'use client';
-
 import { clsx } from 'clsx';
 import { EyeOff, Music, ScreenShare } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import type { ParticipantBadgesProps } from './ParticipantBadges.types';
 

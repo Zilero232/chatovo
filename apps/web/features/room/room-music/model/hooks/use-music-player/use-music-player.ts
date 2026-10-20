@@ -1,5 +1,3 @@
-'use client';
-
 import type { UseMusicPlayerInput } from './use-music-player.types';
 
 import { useRoomMusicContext } from '../../contexts/room-music-context';

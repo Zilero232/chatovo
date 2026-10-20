@@ -1,10 +1,7 @@
-'use client';
-
-import { Button, Dialog, DialogContent, DialogTitle } from '@chatovo/ui-kit';
+import { Button, Dialog, DialogContent, DialogTitle, Image } from '@chatovo/ui-kit';
 import { Download, ExternalLink, X } from 'lucide-react';
-import { useTranslations } from 'next-intl';
-import Image from 'next/image';
 import prettyBytes from 'pretty-bytes';
+import { useTranslations } from 'use-intl';
 
 import { buildDownloadUrl, openExternal } from '@/shared/lib';
 

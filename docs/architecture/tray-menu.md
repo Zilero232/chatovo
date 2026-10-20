@@ -28,7 +28,7 @@ WebView2 blocks the thread owning the event loop, so the call never returns. Bui
 
 ## Startup order
 
-The menu is built during `setup()` with **English defaults**, before any webview exists — this is what makes it independent of React. The frontend then calls `update_tray_labels` once `next-intl` resolves the locale, and `update_tray_state` on every state change.
+The menu is built during `setup()` with **English defaults**, before any webview exists — this is what makes it independent of React. The frontend then calls `update_tray_labels` once `use-intl` resolves the locale, and `update_tray_state` on every state change.
 
 Items that change (`status`, `mute`, `deafen`, `leave`) are kept in a `static Mutex<Option<TrayItems>>`, because a `Menu` cannot be queried for its children after construction.
 

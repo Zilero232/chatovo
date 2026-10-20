@@ -1,5 +1,3 @@
-'use client';
-
 import { Spinner, Tooltip, TooltipContent } from '@chatovo/ui-kit';
 import { clsx } from 'clsx';
 import { AnimatePresence, motion } from 'motion/react';

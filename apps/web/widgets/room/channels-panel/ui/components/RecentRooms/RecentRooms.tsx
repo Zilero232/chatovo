@@ -1,9 +1,7 @@
-'use client';
-
 import { Skeleton } from '@chatovo/ui-kit';
 import { Clock, Lock } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { isEmpty } from 'remeda';
+import { useTranslations } from 'use-intl';
 
 import type { RecentRoomsProps } from './RecentRooms.types';
 

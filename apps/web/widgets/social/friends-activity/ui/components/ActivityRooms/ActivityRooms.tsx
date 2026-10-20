@@ -1,8 +1,6 @@
-'use client';
-
 import { Radio } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import {
   LIST_ITEM_ANIMATE,

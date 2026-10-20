@@ -1,5 +1,3 @@
-'use client';
-
 import type { DisconnectReason } from 'livekit-client';
 
 import { useRef } from 'react';

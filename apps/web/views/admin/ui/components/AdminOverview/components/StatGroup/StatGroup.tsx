@@ -1,5 +1,3 @@
-'use client';
-
 import { Text } from '@chatovo/ui-kit';
 
 import type { StatGroupProps } from './StatGroup.types';

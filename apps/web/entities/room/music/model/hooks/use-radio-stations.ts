@@ -1,5 +1,3 @@
-'use client';
-
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
 
 import { searchRadioStations } from '@/shared/api';

@@ -1,12 +1,10 @@
-'use client';
-
 import type { UserProfile } from '@chatovo/schemas';
 
 import { CenteredState, Spinner } from '@chatovo/ui-kit';
 import { AnimatePresence, motion } from 'motion/react';
-import { useTranslations } from 'next-intl';
 import { isEmpty } from 'remeda';
 import { match, P } from 'ts-pattern';
+import { useTranslations } from 'use-intl';
 
 import {
   LIST_ITEM_ANIMATE,

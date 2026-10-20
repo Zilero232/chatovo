@@ -1,8 +1,6 @@
-'use client';
-
 import { ConfirmDialog, Text } from '@chatovo/ui-kit';
 import { UserMinus } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { useToastError } from '@/entities/app/locale';
 import { useRemoveFriendship } from '@/entities/social/friend';

@@ -1,10 +1,8 @@
-'use client';
-
 import { useConnectionState, useLocalParticipant, useRoomContext } from '@livekit/components-react';
 import { ConnectionState } from 'livekit-client';
-import { useTranslations } from 'next-intl';
 import { isNullish } from 'remeda';
 import { match } from 'ts-pattern';
+import { useTranslations } from 'use-intl';
 
 import type { TrayAction } from '@/features/app/system-tray';
 

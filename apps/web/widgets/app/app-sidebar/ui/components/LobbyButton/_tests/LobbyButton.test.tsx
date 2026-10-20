@@ -3,20 +3,21 @@ import type { ReactNode } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { NextIntlClientProvider } from 'next-intl';
+import { IntlProvider } from 'use-intl';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { en as messages } from '@/shared/i18n/locales/en';
 
-const push = vi.fn();
+const navigate = vi.fn();
 
 let pathname = '/room';
 let dmUnread = 0;
 let incomingRequests: { friendshipId: string }[] = [];
 
-vi.mock('next/navigation', () => ({
-  useRouter: () => ({ push }),
-  usePathname: () => pathname
+vi.mock('@tanstack/react-router', () => ({
+  useNavigate: () => navigate,
+  useLocation: ({ select }: { select: (location: { pathname: string }) => string }) =>
+    select({ pathname })
 }));
 
 vi.mock('@/features/social/friend-chat', () => ({
@@ -34,9 +35,9 @@ const renderButton = (onNavigate?: () => void) => {
 
   const Wrapper = ({ children }: { children: ReactNode }) => (
     <QueryClientProvider client={queryClient}>
-      <NextIntlClientProvider locale='en' messages={messages} timeZone='UTC'>
+      <IntlProvider locale='en' messages={messages} timeZone='UTC'>
         {children}
-      </NextIntlClientProvider>
+      </IntlProvider>
     </QueryClientProvider>
   );
 
@@ -45,7 +46,7 @@ const renderButton = (onNavigate?: () => void) => {
 
 describe('LobbyButton', () => {
   beforeEach(() => {
-    push.mockReset();
+    navigate.mockReset();
     pathname = '/room';
     dmUnread = 0;
     incomingRequests = [];
@@ -56,7 +57,7 @@ describe('LobbyButton', () => {
 
     await userEvent.click(screen.getByRole('button', { name: messages.appSidebar.lobby }));
 
-    expect(push).toHaveBeenCalledWith('/lobby');
+    expect(navigate).toHaveBeenCalledWith({ to: '/lobby' });
   });
 
   it('closes the mobile drawer it was opened from', async () => {

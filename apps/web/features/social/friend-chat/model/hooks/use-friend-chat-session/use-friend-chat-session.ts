@@ -1,9 +1,7 @@
-'use client';
-
 import type { Room } from '@chatovo/schemas';
 
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { usePathname, useRouter } from 'next/navigation';
+import { useLocation, useNavigate } from '@tanstack/react-router';
 import { useState } from 'react';
 
 import { useToastError } from '@/entities/app/locale';
@@ -16,8 +14,8 @@ import { appEvents } from '@/shared/lib';
 import type { FriendChatPeer, FriendChatSession } from '../../types';
 
 export const useFriendChatSession = () => {
-  const router = useRouter();
-  const pathname = usePathname();
+  const navigate = useNavigate();
+  const pathname = useLocation({ select: (location) => location.pathname });
 
   const queryClient = useQueryClient();
   const toastError = useToastError();
@@ -59,7 +57,7 @@ export const useFriendChatSession = () => {
     appEvents.emit.profileCardClose();
 
     if (pathname !== ROUTES.lobby) {
-      router.push(ROUTES.lobby);
+      navigate({ to: ROUTES.lobby });
     }
   };
 

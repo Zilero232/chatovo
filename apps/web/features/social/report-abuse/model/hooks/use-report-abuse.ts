@@ -1,5 +1,3 @@
-'use client';
-
 import type { ReportAbuseValues } from '@chatovo/schemas';
 
 import { useMutation } from '@tanstack/react-query';

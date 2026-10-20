@@ -1,5 +1,3 @@
-'use client';
-
 import { useAutoScroll } from '@siberiacancode/reactuse';
 import { isEmpty } from 'remeda';
 

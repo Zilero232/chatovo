@@ -1,9 +1,7 @@
-'use client';
-
 import { Button, Chato, Text } from '@chatovo/ui-kit';
+import { useNavigate } from '@tanstack/react-router';
 import { House, RotateCw } from 'lucide-react';
-import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/navigation';
+import { useTranslations } from 'use-intl';
 
 import { ROUTES } from '@/shared/constants';
 
@@ -12,7 +10,7 @@ import type { ErrorPageProps } from './ErrorPage.types';
 import s from './ErrorPage.module.scss';
 
 export const ErrorPage = ({ reset }: ErrorPageProps) => {
-  const router = useRouter();
+  const navigate = useNavigate();
 
   const t = useTranslations('errorPage');
 
@@ -31,7 +29,7 @@ export const ErrorPage = ({ reset }: ErrorPageProps) => {
           {t('retry')}
         </Button>
 
-        <Button variant='ghost' onClick={() => router.push(ROUTES.lobby)}>
+        <Button variant='ghost' onClick={() => navigate({ to: ROUTES.lobby })}>
           <House />
           {t('toLobby')}
         </Button>

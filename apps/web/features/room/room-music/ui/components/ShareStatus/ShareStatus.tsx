@@ -1,9 +1,7 @@
-'use client';
-
 import { Button, IconButtonWithTooltip, Text } from '@chatovo/ui-kit';
 import { AudioLines, Pause, Play, SkipForward, Square } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { match } from 'ts-pattern';
+import { useTranslations } from 'use-intl';
 
 import { useRoomMusicShare } from '../../../model/hooks';
 

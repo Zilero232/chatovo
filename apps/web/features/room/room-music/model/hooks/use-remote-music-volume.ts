@@ -1,5 +1,3 @@
-'use client';
-
 import { useTracks } from '@livekit/components-react';
 import { RemoteAudioTrack, Track, TrackEvent } from 'livekit-client';
 

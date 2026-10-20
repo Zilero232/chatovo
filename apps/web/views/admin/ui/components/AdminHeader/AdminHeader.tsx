@@ -1,16 +1,14 @@
-'use client';
-
 import { Button, Row, Stack, Text } from '@chatovo/ui-kit';
+import { useNavigate } from '@tanstack/react-router';
 import { ArrowLeft, ShieldCheck } from 'lucide-react';
-import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/navigation';
+import { useTranslations } from 'use-intl';
 
 import { ROUTES } from '@/shared/constants';
 
 import s from './AdminHeader.module.scss';
 
 export const AdminHeader = () => {
-  const router = useRouter();
+  const navigate = useNavigate();
   const t = useTranslations('admin');
 
   return (
@@ -33,7 +31,7 @@ export const AdminHeader = () => {
         className={s.back}
         size='sm'
         variant='secondary'
-        onClick={() => router.push(ROUTES.lobby)}
+        onClick={() => navigate({ to: ROUTES.lobby })}
       >
         <ArrowLeft />
         <span className={s.backLabel}>{t('backToLobby')}</span>

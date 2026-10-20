@@ -1,5 +1,3 @@
-'use client';
-
 import {
   BrandMark,
   Button,
@@ -9,7 +7,7 @@ import {
   SheetTitle
 } from '@chatovo/ui-kit';
 import { Menu, X } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { SecretClickArea } from '@/features/app/secret-games';
 import { AppSidebar } from '@/widgets/app/app-sidebar';

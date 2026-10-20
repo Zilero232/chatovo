@@ -10,10 +10,10 @@ const clientSchema = z.object({
 });
 
 const parsed = clientSchema.safeParse({
-  NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
-  NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
-  NEXT_PUBLIC_LIVEKIT_URL: process.env.NEXT_PUBLIC_LIVEKIT_URL,
-  NEXT_PUBLIC_APP_VERSION: process.env.NEXT_PUBLIC_APP_VERSION
+  NEXT_PUBLIC_API_URL: import.meta.env.NEXT_PUBLIC_API_URL,
+  NEXT_PUBLIC_APP_URL: import.meta.env.NEXT_PUBLIC_APP_URL,
+  NEXT_PUBLIC_LIVEKIT_URL: import.meta.env.NEXT_PUBLIC_LIVEKIT_URL,
+  NEXT_PUBLIC_APP_VERSION: import.meta.env.NEXT_PUBLIC_APP_VERSION
 });
 
 if (!parsed.success) {

@@ -1,10 +1,8 @@
-'use client';
-
 import { useMediaDeviceSelect } from '@livekit/components-react';
-import { useTranslations } from 'next-intl';
 import { useEffect, useEffectEvent } from 'react';
 import { isEmpty } from 'remeda';
 import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
 
 import { useAppSettings } from '@/entities/app/settings';
 

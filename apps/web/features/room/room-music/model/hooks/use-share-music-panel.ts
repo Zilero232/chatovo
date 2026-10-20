@@ -1,5 +1,3 @@
-'use client';
-
 import { useFileDialog } from '@siberiacancode/reactuse';
 
 import { isScreenShareSupported } from '@/shared/lib';

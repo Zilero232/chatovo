@@ -1,5 +1,3 @@
-'use client';
-
 import { isTauri } from '@tauri-apps/api/core';
 import { clsx } from 'clsx';
 

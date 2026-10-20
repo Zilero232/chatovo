@@ -1,10 +1,8 @@
-'use client';
-
 import type { SignUpFormValues } from '@chatovo/schemas';
 
 import { Checkbox, Label, Text } from '@chatovo/ui-kit';
-import { useTranslations } from 'next-intl';
 import { Controller, useFormContext } from 'react-hook-form';
+import { useTranslations } from 'use-intl';
 
 import { useFieldError } from '@/entities/app/locale';
 import { EXTERNAL_LINKS } from '@/shared/constants';

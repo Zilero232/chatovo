@@ -1,5 +1,3 @@
-'use client';
-
 import type { LocalParticipant } from 'livekit-client';
 
 import { useUnmount } from '@siberiacancode/reactuse';

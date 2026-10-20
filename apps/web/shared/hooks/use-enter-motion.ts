@@ -1,5 +1,3 @@
-'use client';
-
 import { useReducedMotion } from 'motion/react';
 
 import { ENTER_ANIMATE, ENTER_INITIAL, ENTER_TRANSITION } from '../config';

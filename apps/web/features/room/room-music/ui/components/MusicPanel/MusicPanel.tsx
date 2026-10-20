@@ -1,5 +1,3 @@
-'use client';
-
 import { ScrollArea } from '@chatovo/ui-kit';
 
 import { useMusicSearch } from '../../../model/hooks';

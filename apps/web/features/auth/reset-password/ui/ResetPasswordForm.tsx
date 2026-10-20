@@ -1,13 +1,11 @@
-'use client';
-
 import type { ResetPasswordValues } from '@chatovo/schemas';
 
 import { resetPasswordSchema } from '@chatovo/schemas';
 import { FormField, PasswordInput, Stack, SubmitButton } from '@chatovo/ui-kit';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
 
 import { useFieldError, useToastError } from '@/entities/app/locale';
 

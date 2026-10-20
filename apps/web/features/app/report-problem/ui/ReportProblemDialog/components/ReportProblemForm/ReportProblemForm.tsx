@@ -1,14 +1,12 @@
-'use client';
-
 import type { ReportProblemValues } from '@chatovo/schemas';
 
 import { reportProblemSchema } from '@chatovo/schemas';
 import { FilePicker, FormField, Stack, SubmitButton, Textarea } from '@chatovo/ui-kit';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
 
 import { useFieldError, useToastError } from '@/entities/app/locale';
 

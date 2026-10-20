@@ -1,6 +1,3 @@
-'use client';
-
-import { useTranslations } from 'next-intl';
 import { useEffect, useEffectEvent } from 'react';
 import {
   checkPermissions,
@@ -10,6 +7,7 @@ import {
   register,
   requestPermissions
 } from 'tauri-plugin-fcm';
+import { useTranslations } from 'use-intl';
 
 import { registerPushDevice } from '@/shared/api';
 import { isTauriMobile } from '@/shared/lib';

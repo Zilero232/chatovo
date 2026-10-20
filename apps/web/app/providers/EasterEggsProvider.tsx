@@ -1,5 +1,3 @@
-'use client';
-
 import { useAchievements } from '@/features/app/achievements';
 import { useAprilFools } from '@/features/app/april-fools';
 import { SecretGamesHost } from '@/features/app/secret-games';

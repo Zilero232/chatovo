@@ -18,15 +18,16 @@ afterEach(() => {
   cleanup();
 });
 
-vi.mock('next/navigation', () => ({
-  useRouter: () => ({
-    push: vi.fn(),
-    replace: vi.fn(),
-    back: vi.fn(),
-    forward: vi.fn(),
-    refresh: vi.fn(),
-    prefetch: vi.fn()
-  }),
-  usePathname: () => '/',
-  useSearchParams: () => new URLSearchParams()
-}));
+vi.mock('@tanstack/react-router', async (importOriginal) => {
+  const location = { pathname: '/', search: {}, searchStr: '', hash: '', href: '/' };
+
+  return {
+    ...(await importOriginal<typeof import('@tanstack/react-router')>()),
+    useNavigate: () => vi.fn(),
+    useRouter: () => ({ history: { push: vi.fn(), replace: vi.fn(), back: vi.fn() } }),
+    useLocation: (options?: { select?: (value: typeof location) => unknown }) =>
+      options?.select ? options.select(location) : location,
+    useSearch: (options?: { select?: (value: object) => unknown }) =>
+      options?.select ? options.select({}) : {}
+  };
+});

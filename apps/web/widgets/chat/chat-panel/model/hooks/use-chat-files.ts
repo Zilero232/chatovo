@@ -1,13 +1,11 @@
-'use client';
-
 import type { ClipboardEvent } from 'react';
 
 import { ATTACHMENT_MAX_BYTES, encodeChatAttachment } from '@chatovo/schemas';
 import { useDropZone, useFileDialog } from '@siberiacancode/reactuse';
 import { useMutation } from '@tanstack/react-query';
-import { useTranslations } from 'next-intl';
 import { useRef } from 'react';
 import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
 
 import { useToastError } from '@/entities/app/locale';
 import { uploadChatAttachment } from '@/shared/api';

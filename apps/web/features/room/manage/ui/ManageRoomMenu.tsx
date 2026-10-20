@@ -1,5 +1,3 @@
-'use client';
-
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,8 +6,8 @@ import {
 } from '@chatovo/ui-kit';
 import { clsx } from 'clsx';
 import { MoreHorizontal, Pencil, Trash2 } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { useState } from 'react';
+import { useTranslations } from 'use-intl';
 
 import { useCurrentUser } from '@/entities/auth/user';
 

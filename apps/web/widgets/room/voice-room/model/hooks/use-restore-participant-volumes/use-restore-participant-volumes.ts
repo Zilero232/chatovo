@@ -1,5 +1,3 @@
-'use client';
-
 import { useParticipants } from '@livekit/components-react';
 import { RemoteParticipant, Track } from 'livekit-client';
 import { useEffect } from 'react';

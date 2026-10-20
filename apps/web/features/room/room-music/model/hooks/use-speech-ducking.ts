@@ -1,5 +1,3 @@
-'use client';
-
 import type { RemoteAudioTrack } from 'livekit-client';
 
 import { useRoomContext } from '@livekit/components-react';

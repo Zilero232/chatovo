@@ -1,5 +1,3 @@
-'use client';
-
 import type { RealtimeClientMessage, RoomsParticipantsSnapshot } from '@chatovo/schemas';
 
 import { isPrivilegesChangedCloseCode, isSessionEndedCloseCode } from '@chatovo/schemas';
@@ -96,7 +94,7 @@ export const useRealtimeState = () => {
     const ws = new WebSocket(() => buildRealtimeUrl(), [], {
       connectionTimeout: 10_000,
       maxRetries: Infinity,
-      debug: process.env.NODE_ENV === 'development'
+      debug: import.meta.env.MODE === 'development'
     });
 
     wsRef.current = ws;

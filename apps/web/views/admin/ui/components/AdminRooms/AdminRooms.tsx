@@ -1,9 +1,7 @@
-'use client';
-
 import { CenteredState, Row, SearchField, Spinner, Stack, Text } from '@chatovo/ui-kit';
 import { DoorOpen } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { match, P } from 'ts-pattern';
+import { useTranslations } from 'use-intl';
 
 import { useAdminRooms } from '@/entities/app/admin';
 

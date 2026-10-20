@@ -1,5 +1,3 @@
-'use client';
-
 import { appEvents } from '@/shared/lib';
 
 import type { SecretClickAreaProps } from './SecretClickArea.types';

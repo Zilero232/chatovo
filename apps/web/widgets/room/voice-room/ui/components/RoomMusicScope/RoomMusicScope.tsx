@@ -1,5 +1,3 @@
-'use client';
-
 import { useDeafen } from '@/features/room/room-control';
 import { RoomMusicProvider } from '@/features/room/room-music';
 

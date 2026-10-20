@@ -1,8 +1,6 @@
-'use client';
-
 import { Chato, Text } from '@chatovo/ui-kit';
-import { useTranslations } from 'next-intl';
 import { match } from 'ts-pattern';
+import { useTranslations } from 'use-intl';
 
 import type { AuthHeadingProps } from './AuthHeading.types';
 

@@ -3,7 +3,7 @@
 import { Dialog as BaseDialog } from '@base-ui/react/dialog';
 import { clsx } from 'clsx';
 import { Lightbulb } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import type { DialogFooterProps, DialogHeaderProps, DialogHintProps } from '../../Dialog.types';
 

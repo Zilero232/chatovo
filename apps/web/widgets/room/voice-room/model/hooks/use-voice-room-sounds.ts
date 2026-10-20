@@ -1,5 +1,3 @@
-'use client';
-
 import type { TrackPublication } from 'livekit-client';
 
 import { useLocalParticipant, useRoomContext } from '@livekit/components-react';

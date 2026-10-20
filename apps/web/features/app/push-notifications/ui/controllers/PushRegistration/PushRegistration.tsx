@@ -1,5 +1,3 @@
-'use client';
-
 import { useCurrentUser } from '@/entities/auth/user';
 import { isTauriMobile } from '@/shared/lib';
 

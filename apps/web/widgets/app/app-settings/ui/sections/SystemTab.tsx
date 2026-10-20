@@ -1,7 +1,5 @@
-'use client';
-
 import { Switch } from '@chatovo/ui-kit';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { useAppSettings } from '@/entities/app/settings';
 import { useIsTauriDesktop } from '@/shared/hooks';

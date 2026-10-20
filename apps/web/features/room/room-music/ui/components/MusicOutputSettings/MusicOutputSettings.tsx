@@ -1,8 +1,6 @@
-'use client';
-
 import { Slider, Switch } from '@chatovo/ui-kit';
 import { Volume2, VolumeX } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { formatPercent } from '@/shared/lib';
 

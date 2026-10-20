@@ -1,8 +1,6 @@
-'use client';
-
 import { FormField, Label, Select, Switch } from '@chatovo/ui-kit';
-import { useTranslations } from 'next-intl';
 import { Controller } from 'react-hook-form';
+import { useTranslations } from 'use-intl';
 
 import type { EditUserAccessFieldsProps } from './EditUserAccessFields.types';
 

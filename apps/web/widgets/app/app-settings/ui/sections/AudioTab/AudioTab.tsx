@@ -1,7 +1,5 @@
-'use client';
-
-import { useTranslations } from 'next-intl';
 import { isNullish } from 'remeda';
+import { useTranslations } from 'use-intl';
 
 import type { AudioSettings, MicActivationMode } from '@/entities/app/settings';
 

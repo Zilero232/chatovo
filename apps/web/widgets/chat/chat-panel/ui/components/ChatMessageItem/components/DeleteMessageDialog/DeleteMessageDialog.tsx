@@ -1,7 +1,5 @@
-'use client';
-
 import { ConfirmDialog } from '@chatovo/ui-kit';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import type { DeleteMessageDialogProps } from './DeleteMessageDialog.types';
 

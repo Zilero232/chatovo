@@ -1,5 +1,3 @@
-'use client';
-
 import type { MusicTrackPlayback } from '../../../model/types';
 
 import { useFilePlayer } from '../../../model/hooks';

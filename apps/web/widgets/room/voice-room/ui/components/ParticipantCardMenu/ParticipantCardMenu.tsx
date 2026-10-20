@@ -1,5 +1,3 @@
-'use client';
-
 import {
   ContextMenu,
   ContextMenuContent,
@@ -11,9 +9,9 @@ import {
 } from '@chatovo/ui-kit';
 import { useCopy } from '@siberiacancode/reactuse';
 import { Copy, ShieldAlert } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
 
 import { useCurrentUser } from '@/entities/auth/user';
 import { ReportAbuseDialog } from '@/features/social/report-abuse';

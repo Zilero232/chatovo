@@ -1,10 +1,8 @@
-'use client';
-
 import { Popover, PopoverContent, PopoverTrigger } from '@chatovo/ui-kit';
 import { clsx } from 'clsx';
 import { Palette } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { HexColorPicker } from 'react-colorful';
+import { useTranslations } from 'use-intl';
 
 import type { BannerColorFieldProps } from './BannerColorField.types';
 

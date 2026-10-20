@@ -164,8 +164,8 @@ jobs:
           NEXT_PUBLIC_APP_URL: https://app.invalid
         run: bun --filter @chatovo/site build
 
-  # The web export and clippy share a job: tauri validates frontendDist at build
-  # time, so the exported app must exist before clippy touches the crate.
+  # The web build and clippy share a job: tauri validates frontendDist at build
+  # time, so apps/web/dist must exist before clippy touches the crate.
   web:
     permissions:
       contents: read

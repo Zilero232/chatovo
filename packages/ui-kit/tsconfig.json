@@ -1,5 +1,5 @@
 {
-  "extends": "@chatovo/tsconfig/nextjs.json",
+  "extends": "@chatovo/tsconfig/react.json",
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }

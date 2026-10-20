@@ -1,7 +1,5 @@
-'use client';
-
 import { Crown } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import type { OwnerCrownProps } from './OwnerCrown.types';
 

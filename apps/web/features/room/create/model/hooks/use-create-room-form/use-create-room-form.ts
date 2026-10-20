@@ -1,12 +1,10 @@
-'use client';
-
 import type { CreateRoomRequest } from '@chatovo/schemas';
 
 import { createRoomInputSchema } from '@chatovo/schemas';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
 
 import { useToastError } from '@/entities/app/locale';
 import { useCreateRoom, useEnterRoom } from '@/entities/room/room';

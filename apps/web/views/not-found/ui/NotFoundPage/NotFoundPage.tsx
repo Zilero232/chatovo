@@ -1,15 +1,14 @@
-'use client';
-
 import { Button, Chato, Text } from '@chatovo/ui-kit';
+import { useNavigate, useRouter } from '@tanstack/react-router';
 import { ArrowLeft, House } from 'lucide-react';
-import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/navigation';
+import { useTranslations } from 'use-intl';
 
 import { ROUTES } from '@/shared/constants';
 
 import s from './NotFoundPage.module.scss';
 
 export const NotFoundPage = () => {
+  const navigate = useNavigate();
   const router = useRouter();
 
   const t = useTranslations('notFound');
@@ -26,12 +25,12 @@ export const NotFoundPage = () => {
       </Text>
 
       <div className={s.actions}>
-        <Button onClick={() => router.push(ROUTES.lobby)}>
+        <Button onClick={() => navigate({ to: ROUTES.lobby })}>
           <House />
           {t('toLobby')}
         </Button>
 
-        <Button variant='ghost' onClick={() => router.back()}>
+        <Button variant='ghost' onClick={() => router.history.back()}>
           <ArrowLeft />
           {t('back')}
         </Button>

@@ -1,8 +1,6 @@
-'use client';
-
 import { FormField, PasswordInput } from '@chatovo/ui-kit';
 import { AnimatePresence, motion } from 'motion/react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import type { CreateRoomPasswordFieldProps } from './CreateRoomPasswordField.types';
 

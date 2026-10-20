@@ -1,9 +1,7 @@
-'use client';
-
 import { useLocalParticipant } from '@livekit/components-react';
 import { target, useEventListener } from '@siberiacancode/reactuse';
 import { clsx } from 'clsx';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import type { ChatPanelProps } from './ChatPanel.types';
 

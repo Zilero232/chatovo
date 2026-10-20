@@ -1,5 +1,3 @@
-'use client';
-
 import {
   useConnectionQualityIndicator,
   useConnectionState,
@@ -7,8 +5,8 @@ import {
 } from '@livekit/components-react';
 import { clsx } from 'clsx';
 import { ConnectionState } from 'livekit-client';
-import { useTranslations } from 'next-intl';
 import { isNonNullish } from 'remeda';
+import { useTranslations } from 'use-intl';
 
 import { barsFromQuality, barsFromRtt } from '../../../lib';
 import { useConnectionRtt } from '../../../model/hooks';

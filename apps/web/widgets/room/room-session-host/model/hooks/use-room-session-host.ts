@@ -1,29 +1,28 @@
-'use client';
-
-import { useTranslations } from 'next-intl';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useLocation, useNavigate, useSearch } from '@tanstack/react-router';
+import { isNonNullish } from 'remeda';
 import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
 
 import { useRoomSession } from '@/entities/room/session';
 import { ROUTES } from '@/shared/constants';
-import { buildRoomHref } from '@/shared/lib';
+import { buildRoomSearch } from '@/shared/lib';
 
 export const useRoomSessionHost = () => {
-  const router = useRouter();
-  const pathname = usePathname();
-  const params = useSearchParams();
+  const navigate = useNavigate();
+  const pathname = useLocation({ select: (location) => location.pathname });
+  const searchRoomId = useSearch({ strict: false, select: (search) => search.id });
   const t = useTranslations('room');
 
   const { session, close } = useRoomSession();
 
   const isRoomRoute = pathname === ROUTES.room;
-  const isExpanded = isRoomRoute && params.get('id') === session?.roomId;
+  const isExpanded = isRoomRoute && isNonNullish(session) && searchRoomId === session.roomId;
 
   const leave = (roomId: string) => {
     close(roomId);
 
-    if (isRoomRoute && params.get('id') === roomId) {
-      router.replace(ROUTES.lobby);
+    if (isRoomRoute && searchRoomId === roomId) {
+      navigate({ to: ROUTES.lobby, replace: true });
     }
   };
 
@@ -33,7 +32,7 @@ export const useRoomSessionHost = () => {
   };
 
   const expand = (roomId: string) => {
-    router.push(buildRoomHref(roomId));
+    navigate({ to: ROUTES.room, search: buildRoomSearch(roomId) });
   };
 
   return { session, isExpanded, expand, failConnection, leave };

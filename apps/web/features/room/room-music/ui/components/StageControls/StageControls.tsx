@@ -1,8 +1,6 @@
-'use client';
-
 import { IconButtonWithTooltip } from '@chatovo/ui-kit';
 import { Pause, Play, SkipBack, SkipForward, Square } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { usePlaybackControls } from '../../../model/hooks';
 

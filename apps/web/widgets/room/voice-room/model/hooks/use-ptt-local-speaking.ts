@@ -1,5 +1,3 @@
-'use client';
-
 import { useLocalParticipant } from '@livekit/components-react';
 import { createAudioAnalyser } from 'livekit-client';
 import { useEffect, useEffectEvent } from 'react';

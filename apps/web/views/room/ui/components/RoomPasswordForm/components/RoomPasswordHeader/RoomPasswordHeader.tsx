@@ -1,9 +1,7 @@
-'use client';
-
 import { Stack, Text } from '@chatovo/ui-kit';
 import { clsx } from 'clsx';
 import { Lock } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import type { RoomPasswordHeaderProps } from './RoomPasswordHeader.types';
 

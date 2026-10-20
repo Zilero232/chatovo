@@ -1,11 +1,9 @@
-'use client';
-
 import type { SelectOption } from '@chatovo/ui-kit';
 
 import { Select } from '@chatovo/ui-kit';
 import { useMediaDeviceSelect } from '@livekit/components-react';
-import { useTranslations } from 'next-intl';
 import { isEmpty } from 'remeda';
+import { useTranslations } from 'use-intl';
 
 import { KIND_TO_SLOT, useAppSettings } from '@/entities/app/settings';
 

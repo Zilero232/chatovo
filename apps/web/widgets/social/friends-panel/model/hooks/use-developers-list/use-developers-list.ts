@@ -1,5 +1,3 @@
-'use client';
-
 import { useCurrentUser, useDevelopers } from '@/entities/auth/user';
 import { useFriends } from '@/entities/social/friend';
 

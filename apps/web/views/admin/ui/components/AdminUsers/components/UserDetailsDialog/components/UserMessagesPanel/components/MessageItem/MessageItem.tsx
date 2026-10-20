@@ -1,10 +1,8 @@
-'use client';
-
 import { decodeChatAttachment, isImageMime } from '@chatovo/schemas';
 import { Row, Text } from '@chatovo/ui-kit';
 import { FileText, Image as ImageIcon } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import prettyBytes from 'pretty-bytes';
+import { useTranslations } from 'use-intl';
 
 import { formatDateTime } from '@/shared/lib';
 

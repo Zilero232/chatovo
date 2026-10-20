@@ -1,5 +1,3 @@
-'use client';
-
 import { createContextHook } from '@siberiacancode/reactuse';
 import { useState } from 'react';
 

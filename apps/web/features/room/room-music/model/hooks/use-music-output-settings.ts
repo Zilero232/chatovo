@@ -1,5 +1,3 @@
-'use client';
-
 import { useAppSettings } from '@/entities/app/settings';
 
 export const useMusicOutputSettings = () => {

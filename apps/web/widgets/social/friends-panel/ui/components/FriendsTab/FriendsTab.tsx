@@ -1,11 +1,9 @@
-'use client';
-
 import type { FriendEntry } from '@chatovo/schemas';
 
 import { CenteredState, Spinner } from '@chatovo/ui-kit';
-import { useTranslations } from 'next-intl';
 import { isEmpty } from 'remeda';
 import { match, P } from 'ts-pattern';
+import { useTranslations } from 'use-intl';
 
 import { RemoveFriendConfirmDialog } from '@/features/social/remove-friend';
 

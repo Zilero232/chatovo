@@ -1,11 +1,9 @@
-'use client';
-
 import { IconButtonWithTooltip, Text } from '@chatovo/ui-kit';
 import { useConnectionState } from '@livekit/components-react';
 import { clsx } from 'clsx';
 import { ConnectionState } from 'livekit-client';
 import { AudioLines, HeadphoneOff, Headphones, LogOut, Mic, MicOff } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { useRoomControls } from '@/features/room/room-control';
 

@@ -1,7 +1,5 @@
-'use client';
-
 import { Plus, Radio } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import type { StationResultsProps } from './StationResults.types';
 

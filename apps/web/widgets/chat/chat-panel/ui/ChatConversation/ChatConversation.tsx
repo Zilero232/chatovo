@@ -1,12 +1,10 @@
-'use client';
-
 import type { Ref } from 'react';
 
 import { Spinner } from '@chatovo/ui-kit';
 import { Paperclip } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { Fragment } from 'react';
 import { match } from 'ts-pattern';
+import { useTranslations } from 'use-intl';
 
 import type { ChatConversationProps } from './ChatConversation.types';
 

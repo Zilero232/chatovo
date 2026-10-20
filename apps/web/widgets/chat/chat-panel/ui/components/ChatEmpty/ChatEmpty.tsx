@@ -1,8 +1,6 @@
-'use client';
-
 import { CenteredState } from '@chatovo/ui-kit';
 import { MessageSquare } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import s from './ChatEmpty.module.scss';
 

@@ -1,9 +1,7 @@
-'use client';
-
 import { Button, Text } from '@chatovo/ui-kit';
 import { ExternalLink, Smartphone, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import { EXTERNAL_LINKS } from '@/shared/constants';
 

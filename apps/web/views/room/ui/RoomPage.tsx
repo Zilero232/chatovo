@@ -1,5 +1,3 @@
-'use client';
-
 import { match, P } from 'ts-pattern';
 
 import { useErrorMessage } from '@/entities/app/locale';

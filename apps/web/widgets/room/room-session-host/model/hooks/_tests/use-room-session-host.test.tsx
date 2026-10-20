@@ -7,19 +7,19 @@ import type { RoomSession } from '@/entities/room/session';
 
 import { RoomSessionProvider, useRoomSession } from '@/entities/room/session';
 
-const replace = vi.fn();
-const push = vi.fn();
+const navigate = vi.fn();
 
 let pathname = '/room';
-let searchParams = new URLSearchParams();
+let search: { id?: string } = {};
 
-vi.mock('next/navigation', () => ({
-  useRouter: () => ({ replace, push }),
-  usePathname: () => pathname,
-  useSearchParams: () => searchParams
+vi.mock('@tanstack/react-router', () => ({
+  useNavigate: () => navigate,
+  useLocation: ({ select }: { select: (location: { pathname: string }) => string }) =>
+    select({ pathname }),
+  useSearch: ({ select }: { select: (value: typeof search) => unknown }) => select(search)
 }));
 
-vi.mock('next-intl', () => ({
+vi.mock('use-intl', () => ({
   useTranslations: () => (key: string) => key
 }));
 
@@ -44,10 +44,9 @@ const renderHost = () =>
 
 describe('useRoomSessionHost', () => {
   beforeEach(() => {
-    replace.mockReset();
-    push.mockReset();
+    navigate.mockReset();
     pathname = '/room';
-    searchParams = new URLSearchParams();
+    search = {};
   });
 
   it('stays collapsed while no session is open', () => {
@@ -58,7 +57,7 @@ describe('useRoomSessionHost', () => {
   });
 
   it('expands the room the url points at', () => {
-    searchParams = new URLSearchParams({ id: 'room-1' });
+    search = { id: 'room-1' };
 
     const { result, rerender } = renderHost();
 
@@ -69,7 +68,7 @@ describe('useRoomSessionHost', () => {
   });
 
   it('keeps the call collapsed when the url points at a different room', () => {
-    searchParams = new URLSearchParams({ id: 'room-2' });
+    search = { id: 'room-2' };
 
     const { result, rerender } = renderHost();
 
@@ -81,7 +80,7 @@ describe('useRoomSessionHost', () => {
 
   it('keeps the call collapsed away from the room route', () => {
     pathname = '/lobby';
-    searchParams = new URLSearchParams({ id: 'room-1' });
+    search = { id: 'room-1' };
 
     const { result, rerender } = renderHost();
 
@@ -92,7 +91,7 @@ describe('useRoomSessionHost', () => {
   });
 
   it('clears the session and returns to the lobby when leaving from the room route', () => {
-    searchParams = new URLSearchParams({ id: 'room-1' });
+    search = { id: 'room-1' };
 
     const { result, rerender } = renderHost();
 
@@ -102,7 +101,7 @@ describe('useRoomSessionHost', () => {
     rerender();
 
     expect(result.current.session.session).toBeNull();
-    expect(replace).toHaveBeenCalledWith('/lobby');
+    expect(navigate).toHaveBeenCalledWith({ to: '/lobby', replace: true });
   });
 
   it('leaves without navigating when the user is already elsewhere', () => {
@@ -116,11 +115,11 @@ describe('useRoomSessionHost', () => {
     rerender();
 
     expect(result.current.session.session).toBeNull();
-    expect(replace).not.toHaveBeenCalled();
+    expect(navigate).not.toHaveBeenCalled();
   });
 
   it('ignores a leave from a room the user already switched away from', () => {
-    searchParams = new URLSearchParams({ id: 'room-2' });
+    search = { id: 'room-2' };
 
     const { result, rerender } = renderHost();
 
@@ -130,7 +129,7 @@ describe('useRoomSessionHost', () => {
     rerender();
 
     expect(result.current.session.session?.roomId).toBe('room-2');
-    expect(replace).not.toHaveBeenCalled();
+    expect(navigate).not.toHaveBeenCalled();
   });
 
   it('navigates back to the room when expanding', () => {
@@ -140,6 +139,6 @@ describe('useRoomSessionHost', () => {
 
     act(() => result.current.host.expand('room-1'));
 
-    expect(push).toHaveBeenCalledWith('/room?id=room-1');
+    expect(navigate).toHaveBeenCalledWith({ to: '/room', search: { id: 'room-1' } });
   });
 });

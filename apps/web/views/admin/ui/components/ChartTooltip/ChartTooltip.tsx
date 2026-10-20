@@ -1,5 +1,3 @@
-'use client';
-
 import { formatDay } from '@/shared/lib';
 
 import type { ChartTooltipProps } from './ChartTooltip.types';

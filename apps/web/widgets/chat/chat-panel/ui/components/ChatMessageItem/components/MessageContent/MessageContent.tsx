@@ -1,12 +1,10 @@
-'use client';
-
 import type { Components } from 'react-markdown';
 
 import { clsx } from 'clsx';
-import { useTranslations } from 'next-intl';
 import Markdown from 'react-markdown';
 import remarkBreaks from 'remark-breaks';
 import remarkGfm from 'remark-gfm';
+import { useTranslations } from 'use-intl';
 
 import { handleExternalLinkClick } from '@/shared/lib';
 

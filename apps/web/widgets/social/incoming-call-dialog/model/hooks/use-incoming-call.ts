@@ -1,6 +1,4 @@
-'use client';
-
-import { useRouter } from 'next/navigation';
+import { useNavigate } from '@tanstack/react-router';
 
 import { useToastError } from '@/entities/app/locale';
 import {
@@ -9,11 +7,12 @@ import {
   useFriendCallRingtone,
   useIncomingFriendCall
 } from '@/entities/social/friend';
-import { buildRoomHref } from '@/shared/lib';
+import { ROUTES } from '@/shared/constants';
+import { buildRoomSearch } from '@/shared/lib';
 
 export const useIncomingCall = () => {
   const toastError = useToastError();
-  const router = useRouter();
+  const navigate = useNavigate();
 
   const { data } = useIncomingFriendCall();
   const acceptCall = useAcceptIncomingFriendCall();
@@ -37,7 +36,10 @@ export const useIncomingCall = () => {
           return;
         }
 
-        router.push(buildRoomHref(accepted.roomId, { title: accepted.caller.name }));
+        navigate({
+          to: ROUTES.room,
+          search: buildRoomSearch(accepted.roomId, { title: accepted.caller.name })
+        });
       },
       onError: toastError('incoming-call-accept')
     });

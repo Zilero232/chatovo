@@ -1,5 +1,3 @@
-'use client';
-
 import { useLocalParticipant } from '@livekit/components-react';
 import { useEffect } from 'react';
 import { isNullish } from 'remeda';

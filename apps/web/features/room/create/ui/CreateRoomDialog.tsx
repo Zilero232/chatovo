@@ -1,5 +1,3 @@
-'use client';
-
 import {
   Button,
   Dialog,
@@ -11,7 +9,7 @@ import {
 } from '@chatovo/ui-kit';
 import { useBoolean } from '@siberiacancode/reactuse';
 import { Plus, Radio } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'use-intl';
 
 import type { CreateRoomDialogProps } from './CreateRoomDialog.types';
 

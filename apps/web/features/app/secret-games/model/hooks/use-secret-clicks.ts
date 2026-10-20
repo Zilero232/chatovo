@@ -1,5 +1,3 @@
-'use client';
-
 import { useRef } from 'react';
 
 import { SECRET_CLICK_RESET_MS } from '../../config';

@@ -1,5 +1,3 @@
-'use client';
-
 import { useRealtime } from '@/entities/app/realtime';
 
 export const useRoomsPresence = () => {
