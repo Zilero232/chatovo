@@ -301,6 +301,18 @@
   gap: var(--space-4);
 }
 
+.heroVisual {
+  width: 100%;
+
+  @include bp(md) {
+    width: rem(440);
+  }
+
+  @include bp(lg) {
+    width: rem(520);
+  }
+}
+
 .heroScene {
   display: none;
 

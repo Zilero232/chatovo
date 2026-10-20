@@ -1,10 +1,10 @@
 import Image from 'next/image';
 
-import type { HomeDevicesProps } from './HomeDevices.types';
+import type { MarketingDevicesProps } from './MarketingDevices.types';
 
-import s from './HomeDevices.module.scss';
+import s from './MarketingDevices.module.scss';
 
-export const HomeDevices = ({ locale, desktopAlt, mobileAlt }: HomeDevicesProps) => (
+export const MarketingDevices = ({ locale, desktopAlt, mobileAlt }: MarketingDevicesProps) => (
   <div className={s.root}>
     <div className={s.desktop}>
       <div aria-hidden className={s.titlebar}>

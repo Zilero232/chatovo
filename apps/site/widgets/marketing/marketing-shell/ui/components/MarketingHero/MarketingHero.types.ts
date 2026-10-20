@@ -6,5 +6,6 @@ export type MarketingHeroProps = {
   description: string;
   eyebrow?: string;
   chato?: ChatoPose;
+  visual?: ReactNode;
   children?: ReactNode;
 };

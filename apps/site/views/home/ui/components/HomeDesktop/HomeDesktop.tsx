@@ -1,12 +1,11 @@
 import { RevealOnScroll, Text } from '@chatovo/ui-kit';
 import { getTranslations } from 'next-intl/server';
 
-import { MarketingSection } from '@/widgets/marketing/marketing-shell';
+import { MarketingDevices, MarketingSection } from '@/widgets/marketing/marketing-shell';
 
 import type { HomePageProps } from '../../HomePage.types';
 
 import { HOME_DESKTOP_ICONS, HOME_DESKTOP_KEYS, HOME_PLATFORMS_LINE } from '../../../config';
-import { HomeDevices } from '../HomeDevices/HomeDevices';
 import { HomeDownloadButton } from '../HomeDownloadButton/HomeDownloadButton';
 
 import s from './HomeDesktop.module.scss';
@@ -50,7 +49,7 @@ export const HomeDesktop = async ({ locale }: HomePageProps) => {
       </RevealOnScroll>
 
       <RevealOnScroll delay={0.08}>
-        <HomeDevices desktopAlt={t('desktopAlt')} locale={locale} mobileAlt={t('mobileAlt')} />
+        <MarketingDevices desktopAlt={t('desktopAlt')} locale={locale} mobileAlt={t('mobileAlt')} />
       </RevealOnScroll>
     </MarketingSection>
   );

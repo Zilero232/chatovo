@@ -4,6 +4,7 @@ import { getTranslations } from 'next-intl/server';
 import { APP_ROUTES, EXTERNAL_LINKS, ROUTES } from '@/shared/constants';
 import { buildAppHref } from '@/shared/lib';
 import {
+  MarketingDevices,
   MarketingHero,
   MarketingSection,
   MarketingSectionHead,
@@ -22,7 +23,13 @@ export const DownloadPage = async ({ locale }: DownloadPageProps) => {
   return (
     <MarketingShell locale={locale} path={ROUTES.download}>
       <MarketingHero
-        chato='wave'
+        visual={
+          <MarketingDevices
+            desktopAlt={t('hero.desktopAlt')}
+            locale={locale}
+            mobileAlt={t('hero.mobileAlt')}
+          />
+        }
         description={t('hero.description')}
         eyebrow={t('hero.eyebrow')}
         title={t('hero.title')}

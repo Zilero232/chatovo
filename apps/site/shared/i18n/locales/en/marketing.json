@@ -987,7 +987,9 @@
     "hero": {
       "eyebrow": "Apps",
       "title": "Chatovo on your device",
-      "description": "The web version runs in any browser with WebRTC. The desktop app adds global shortcuts, push-to-talk and a tray icon."
+      "description": "The web version runs in any browser with WebRTC. The desktop app adds global shortcuts, push-to-talk and a tray icon.",
+      "desktopAlt": "Chatovo on a computer",
+      "mobileAlt": "Chatovo on a phone"
     },
     "desktop": {
       "heading": "Every platform",

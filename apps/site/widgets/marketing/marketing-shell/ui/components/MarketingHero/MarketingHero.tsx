@@ -12,9 +12,10 @@ export const MarketingHero = ({
   description,
   eyebrow,
   chato,
+  visual,
   children
 }: MarketingHeroProps) => (
-  <section className={clsx(s.container, s.hero, chato && s.heroWithChato)}>
+  <section className={clsx(s.container, s.hero, (chato || visual) && s.heroWithChato)}>
     <div className={s.heroCopy}>
       {eyebrow && (
         <Text as='span' className={s.eyebrow} size='xs' weight='medium'>
@@ -38,7 +39,9 @@ export const MarketingHero = ({
       )}
     </div>
 
-    {chato && (
+    {visual && <div className={s.heroVisual}>{visual}</div>}
+
+    {chato && !visual && (
       <MarketingScene className={s.heroScene}>
         <Chato className={s.heroChato} pose={chato} />
       </MarketingScene>
