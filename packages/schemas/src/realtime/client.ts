@@ -1,7 +1,6 @@
 import { z } from 'zod';
 
 import { roomSchema } from '../rooms/outputs';
-import { soundboardSoundSchema } from './soundboard';
 
 export const realtimeSubscribeSchema = z.object({
   op: z.literal('subscribe'),
@@ -22,12 +21,6 @@ export const realtimeRoomReactionSchema = z.object({
   emoji: z.string().min(1).max(16)
 });
 
-export const realtimeRoomSoundboardSchema = z.object({
-  op: z.literal('room.soundboard'),
-  roomId: roomSchema.shape.id,
-  sound: soundboardSoundSchema
-});
-
 export const realtimeClientActivitySchema = z.object({
   op: z.literal('client.activity'),
   active: z.boolean()
@@ -37,6 +30,5 @@ export const realtimeClientMessageSchema = z.discriminatedUnion('op', [
   realtimeSubscribeSchema,
   realtimePresencePatchSchema,
   realtimeRoomReactionSchema,
-  realtimeRoomSoundboardSchema,
   realtimeClientActivitySchema
 ]);

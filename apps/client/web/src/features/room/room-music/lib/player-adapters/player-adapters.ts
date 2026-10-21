@@ -1,7 +1,7 @@
 import type VimeoPlayer from '@vimeo/player';
 
 import type { SoundcloudWidget } from '../soundcloud-widget.types';
-import type { YoutubePlayer } from '../youtube-api';
+import type { YoutubePlayer } from '../youtube-api/index';
 import type { AudioElementAdapterInput, MusicPlayerAdapter } from './player-adapters.types';
 
 const toPercent = (volume: number): number => Math.round(volume * 100);

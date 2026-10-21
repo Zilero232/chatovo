@@ -56,7 +56,6 @@
     "joinFailed": "Impossible de rejoindre le salon",
     "invite": {
       "copyLink": "Copier le lien d'invitation",
-      "tooltip": "Copier un lien pour inviter d'autres personnes",
       "linkCopied": "Lien d'invitation copié",
       "aloneTitle": "Tu es seul ici",
       "aloneDescription": "Envoie le lien et tes amis te rejoignent en un clic."
@@ -71,20 +70,24 @@
       "inCall": "Tu es en appel",
       "connecting": "Connexion…"
     },
-    "soundboard": {
-      "label": "Boîte à sons admin",
-      "sounds": {
-        "siren": "Sirène",
-        "airhorn": "Klaxon",
-        "drumroll": "Roulement de tambour",
-        "sadTrombone": "Trombone triste",
-        "applause": "Applaudissements"
-      }
-    },
     "music": {
       "label": "Musique du salon",
       "title": "Musique dans le salon",
       "description": "Diffuse des titres pour tout le salon, ou partage ta propre musique.",
+      "tabs": {
+        "queue": "File d'attente",
+        "radio": "Radio"
+      },
+      "fields": {
+        "link": {
+          "label": "Ajouter un lien",
+          "placeholder": "Lien YouTube, SoundCloud, Vimeo ou d'un fichier audio"
+        },
+        "radio": {
+          "label": "Chercher une radio",
+          "placeholder": "Cherche une station"
+        }
+      },
       "nowPlaying": {
         "addedBy": "Ajouté par {name}",
         "live": "En direct",
@@ -102,12 +105,10 @@
       },
       "empty": {
         "title": "C'est calme ici",
-        "description": "Colle un lien ou allume la radio."
+        "description": "Colle un lien ou allume la radio.",
+        "openRadio": "Lancer la radio"
       },
       "search": {
-        "label": "Ajouter de la musique",
-        "placeholder": "Colle un lien ou cherche une radio",
-        "hint": "Les liens YouTube, SoundCloud et Vimeo ou un lien direct vers un fichier audio vont dans la file ; le reste lance une recherche de stations de radio.",
         "clear": "Effacer"
       },
       "queue": {
@@ -120,8 +121,12 @@
         "submit": "Ajouter à la file",
         "added": "Ajouté à la file"
       },
+      "link": {
+        "searchRadio": "Chercher « {query} » parmi les stations"
+      },
       "radio": {
         "label": "Stations",
+        "popular": "Stations populaires",
         "empty": "Aucune station trouvée.",
         "error": "La recherche de radios est indisponible pour le moment.",
         "play": "Écouter {name}"
@@ -144,6 +149,7 @@
         "tabHint": "Dans le sélecteur, choisis l'onglet avec la musique et active « Partager l'audio de l'onglet ».",
         "tabUnsupported": "Partager le son d'un onglet nécessite un navigateur de bureau.",
         "files": "Lire des fichiers de cet appareil",
+        "filesHint": "Choisis des fichiers audio — ils seront joués pour tout le salon depuis ton appareil.",
         "sharingTab": "Partage du son d'un onglet",
         "playingFile": "Lecture de {name}",
         "paused": "En pause : {name}",
@@ -156,6 +162,7 @@
         "publishFailed": "Impossible de lancer le partage dans ce salon."
       },
       "settings": {
+        "label": "Son de la musique",
         "volume": "Volume de la musique",
         "ducking": "Baisser la musique quand on parle"
       },
@@ -174,7 +181,8 @@
       "playInRoom": "Lire dans le salon",
       "tabOnly": {
         "title": "{service} ne peut pas être intégré",
-        "hint": "Lance-le dans un onglet du navigateur, puis utilise « Partager le son d'un onglet » dans Ma musique ci-dessous — tout le salon l'entendra.",
+        "hint": "Lance-le dans un onglet du navigateur et partage le son de cet onglet depuis Ma musique — tout le salon l'entendra.",
+        "open": "Ouvrir Ma musique",
         "services": {
           "vk": "VK",
           "yandex": "Yandex Music",
@@ -216,6 +224,10 @@
       "leave": "Quitter",
       "invisibleMicBlocked": "Tu ne peux pas parler en mode invisible",
       "mutedByOwner": "Micro coupé par le propriétaire du salon"
+    },
+    "screen": {
+      "sharingTitle": "Tu partages ton écran",
+      "sharingHint": "Ton aperçu est masqué pour que l'écran ne se répète pas à l'infini en lui-même. Les autres le voient."
     },
     "dmWaiting": "En attente de l'autre personne…",
     "expandVideo": "Agrandir la vidéo",

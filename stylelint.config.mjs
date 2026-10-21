@@ -28,7 +28,6 @@ export default {
       files: [
         'apps/client/web/src/styles/globals.scss',
         'apps/client/web/src/features/auth/update-profile/ui/UpdateProfileForm.module.scss',
-        'apps/client/web/src/widgets/room/voice-room/ui/components/RoomInviteButton/RoomInviteButton.module.scss',
         'apps/client/web/src/widgets/room/voice-room/ui/components/VoiceRoomChatButton/VoiceRoomChatButton.module.scss'
       ],
       rules: {

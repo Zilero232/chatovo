@@ -3,7 +3,7 @@ import { useEffect, useEffectEvent, useRef } from 'react';
 import type { UseVolumeRampInput } from './use-volume-ramp.types';
 
 import { VOLUME_RAMP } from '../../../config/music';
-import { interpolateVolume } from '../../../lib';
+import { interpolateVolume } from '../../../lib/index';
 
 export const useVolumeRamp = ({
   target,

@@ -1,0 +1,52 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.tabs {
+  display: flex;
+  width: auto;
+  margin-inline: var(--space-5);
+}
+
+.tab {
+  min-width: 0;
+  padding-inline: var(--space-2);
+}
+
+.tabLabel {
+  @include text-ellipsis;
+}
+
+.count {
+  min-width: rem(20);
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--brand-coral) 22%, transparent);
+  color: var(--foreground);
+  font-size: var(--text-xs);
+  font-variant-numeric: tabular-nums;
+  line-height: rem(20);
+  padding-inline: var(--space-1);
+  text-align: center;
+}
+
+.panel {
+  gap: var(--space-3);
+}
+
+.scroll {
+  min-height: 0;
+  flex: 1;
+}
+
+.sections {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-1) var(--space-5) var(--space-5);
+  gap: var(--space-5);
+}

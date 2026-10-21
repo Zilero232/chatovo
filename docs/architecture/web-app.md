@@ -74,7 +74,7 @@ The first chunk is whatever `main.tsx` reaches through static imports, so one ea
 - **`sideEffects`** in `apps/client/web/package.json` and `packages/ui-kit/package.json` lists only styles (and `main.tsx`). Without it Rollup keeps every module a barrel re-exports — `shared/lib` re-exports `screen-share`, which imports `livekit-client` — even when nothing uses it. A new module with a top-level side effect that must run without any of its exports being used has to be added to that list.
 - **The `authed` layout is lazy.** It mounts `AuthedProviders`, whose realtime syncs and chat panel import LiveKit hooks.
 
-The same rule keeps other once-in-a-while code out of the entry: every language is its own chunk (`loadMessages`), the Tauri window and event APIs are imported where they are used, behind `isTauri()` paths, and the achievement confetti is imported when it fires. The chat's profanity filter (`@2toad/profanity` + `russian-bad-words`) lives in the lazy `MessageContent` chunk.
+The same rule keeps other once-in-a-while code out of the entry: every language is its own chunk (`loadMessages`), the Tauri window and event APIs are imported where they are used, behind `isTauri()` paths, and the achievement confetti is imported when it fires. The chat's profanity filter (`@2toad/profanity`, `bad-words-next`, `naughty-words`) lives in the lazy `MessageContent` chunk.
 
 To find what drags a module into the entry, trace it at build time: a throwaway plugin whose `generateBundle` walks `this.getModuleInfo(id).importers` from the module up to the entry prints the chain.
 

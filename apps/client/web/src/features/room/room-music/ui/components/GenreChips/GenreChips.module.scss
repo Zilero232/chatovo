@@ -41,4 +41,9 @@
     border-color: var(--border-strong);
     background: var(--surface-3);
   }
+
+  &[aria-pressed='true'] {
+    border-color: var(--brand-coral);
+    background: color-mix(in srgb, var(--brand-coral) 18%, var(--surface-2));
+  }
 }

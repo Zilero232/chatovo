@@ -12,23 +12,23 @@ The old look was the default of every AI-generated landing page: near-black, vio
 
 ## Palette
 
-All text pairs are AA on their background; the ratios were computed, not eyeballed.
+All text pairs are AA on their background; the ratios were computed, not eyeballed. Every surface was later raised about 3 lightness points (the background was `#16111b`), keeping hue and saturation: the old ink read as near-black.
 
 | Token | Value | Use | Ratio |
 | --- | --- | --- | --- |
-| `--background` | `#16111b` | the page | — |
-| `--surface-1` | `#221a2b` | cards, panels | — |
-| `--surface-2` | `#2e2439` | raised: popovers, inputs, hover | — |
-| `--surface-3` | `#3b2f48` | highest: active rows, tooltips | — |
-| `--foreground` | `#f5ecdf` | text | 15.9 on bg |
-| `--muted-foreground` | `#b8acbf` | secondary text | 8.6 on bg, 7.3 on surface-2 |
-| `--subtle-foreground` | `#a092aa` | captions, meta | ≥ 4.5 on every surface |
-| `--brand-coral` (`--primary`) | `#ff7a59` | the action colour: buttons, live, links | 7.2 on bg |
+| `--background` | `#1e1724` | the page | — |
+| `--surface-1` | `#2a2035` | cards, panels | — |
+| `--surface-2` | `#362a42` | raised: popovers, inputs, hover | — |
+| `--surface-3` | `#433551` | highest: active rows, tooltips | — |
+| `--foreground` | `#f5ecdf` | text | 14.9 on bg |
+| `--muted-foreground` | `#b8acbf` | secondary text | 8.1 on bg, 6.2 on surface-2 |
+| `--subtle-foreground` | `#a092aa` | captions, meta | 6.0 on bg, 4.6 on surface-2; below AA on surface-3 (3.8), so not for text there |
+| `--brand-coral` (`--primary`) | `#ff7a59` | the action colour: buttons, live, links | 6.8 on bg |
 | `--primary-foreground` | `#2a1015` | text on coral | 6.9 |
-| `--brand-sun` | `#ffcf5c` | warm highlight: badges, "new", the marker under a word | 12.7 on bg |
-| `--brand-violet` | `#a48bff` | secondary accent, focus ring | 6.8 on bg |
-| `--brand-mint` | `#7ee0b5` | speaking, success, online | 11.7 on bg |
-| `--destructive` | `#ff6b78` | errors, leave | 6.8 on bg |
+| `--brand-sun` | `#ffcf5c` | warm highlight: badges, "new", the marker under a word | 11.9 on bg |
+| `--brand-violet` | `#a48bff` | secondary accent, focus ring | 6.4 on bg |
+| `--brand-mint` | `#7ee0b5` | speaking, success, online | 11.0 on bg |
+| `--destructive` | `#ff6b78` | errors, leave | 6.3 on bg |
 
 The legacy names (`--brand-cyan`, `--brand-fuchsia`, `--brand-lime`) are remapped onto this palette so untouched components follow; new code uses the names above.
 
@@ -78,9 +78,9 @@ Inside the product — the lobby, the room, the chat, the room list, friends, di
 
 The speaking highlight on a participant card turns the card's own 1px border mint and adds an inner ring: an absolutely positioned `::after` with a 1px border and radius `calc(var(--radius-2xl) - 1px)`, so the two read as one 2px edge that follows the corner exactly. An inset `outline` was tried first and dropped: on a rounded `overflow: hidden` card the outline doesn't follow the radius, so the corners showed square ([pitfalls](pitfalls.md)). The voice ring around the avatar draws outside its SVG box (`overflow: visible`) and is sized so its loudest state stays clear of the name.
 
-The participant grid fills the stage instead of stacking from the top-left corner. `getStageGridShape` (`widgets/room/voice-room/lib/grid-shape`) picks columns and rows for the tile count — a near-square grid on a wide stage, one column for two people and two for more on a narrow one — and hands both shapes to CSS as custom properties. The stage is a size container: each tile is as large as the stage allows at 16:9 (`min(100cqw / cols, 100cqh / rows × 16/9)`), never narrower than 11rem (past that the stage scrolls). The grid starts at the top of the stage and is centred only horizontally: centring it vertically left a band of empty stage above two cards. Alone in a room you see your tile and, beside it, an invite tile of the same size (a dashed card with the copy-link button), laid out as a two-tile grid; a line of text under a lone card read as a glitch. The room header carries no invite button: the link lives in the control bar and on the alone tile.
+The participant grid fills the stage instead of stacking from the top-left corner. `getStageGridShape` (`widgets/room/voice-room/lib/grid-shape`) picks columns and rows for the tile count — a near-square grid on a wide stage, one column for two people and two for more on a narrow one — and hands both shapes to CSS as custom properties. The stage is a size container: each tile is as large as the stage allows at 16:9 (`min(100cqw / cols, 100cqh / rows × 16/9)`), never narrower than 11rem (past that the stage scrolls). The grid starts at the top of the stage and is centred only horizontally: centring it vertically left a band of empty stage above two cards. Alone in a room you see your tile and, beside it, an invite tile of the same size (a dashed card with the copy-link button), laid out as a two-tile grid; a line of text under a lone card read as a glitch. Neither the room header nor the control bar carries an invite button: the copy-link button lives only on the alone tile.
 
-The room chat opens at full height. From `xl` the room gives it its width (`--room-chat-width`, padding on the room), so the participants and the whole control bar stay in view; below `xl` there isn't room for both columns, and the chat slides over a dimmed room like a drawer.
+The room chat opens at full height and slides over the room; the room never moves to make space for it. Docking it beside the room (padding on the room from `xl`) was tried in 1.10.1 and dropped: opening the chat reflowed the participant grid and shifted the control bar. The room behind it is dimmed on every screen size (the scrim covers the room, not the window, so the title bar and the sidebar stay live), and a click on the dimmed room closes the chat.
 
 On a phone the lobby opens on a Rooms / Friends switch (`pages/lobby/ui/components/LobbySections`), Rooms first: joining a room is the app's main action, and it used to sit behind the hamburger. The hamburger drawer is a menu, not a second copy of that list: labelled navigation (`AppSidebar variant='menu'`) and the account bar (`widgets/app/user-bar` — avatar, report, settings) at the bottom. On a phone settings take the whole screen; on a wider screen they are a fixed-height dialog, so switching tabs doesn't make it jump. Logging out lives in the Account tab; Language (a select, `LocaleSelect` from `entities/app/locale`, the same one the auth and standalone pages show) and the chat filter live in General. A horizontal tab row that doesn't fit fades on whichever edge hides tabs (`scroll-fade-x` in the kit's mixins, driven by the scroll position), so a cut label reads as "scroll", not as a bug.
 

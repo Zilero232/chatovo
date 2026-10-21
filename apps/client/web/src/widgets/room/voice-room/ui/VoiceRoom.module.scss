@@ -36,13 +36,6 @@
   display: flex;
   height: 100%;
   flex-direction: column;
-  transition: padding-right var(--duration-slow) var(--timing-function-out);
-}
-
-.roomChatOpen {
-  @include bp(xl) {
-    padding-right: var(--room-chat-width);
-  }
 }
 
 .body {
@@ -75,7 +68,7 @@
   flex-shrink: 0;
   align-items: center;
   padding: 0.5rem;
-  border-top: 1px solid rgb(var(--tint) / 11%);
+  border-top: 1px solid var(--border);
   gap: 0.375rem;
 
   @include bp(md) {
@@ -114,14 +107,6 @@
 
   @include bp(sm) {
     gap: 0.5rem;
-  }
-}
-
-.desktopInvite {
-  display: none;
-
-  @include bp(md) {
-    display: block;
   }
 }
 

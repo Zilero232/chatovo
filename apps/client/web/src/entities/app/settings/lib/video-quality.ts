@@ -5,7 +5,7 @@ import type {
   VideoResolution
 } from 'livekit-client';
 
-import { DISPLAY_AUDIO_CAPTURE } from '@/shared/lib';
+import { createCaptureController, DISPLAY_AUDIO_CAPTURE } from '@/shared/lib';
 
 import type { ScreenQuality, VideoQuality } from '../model/types';
 
@@ -47,6 +47,7 @@ export const getScreenCaptureOptions = (quality: ScreenQuality): ScreenShareCapt
   resolution: SCREEN_PRESETS[quality],
   contentHint: 'detail',
   audio: DISPLAY_AUDIO_CAPTURE,
+  controller: createCaptureController(),
   selfBrowserSurface: 'exclude',
   systemAudio: 'include'
 });

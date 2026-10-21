@@ -3,7 +3,6 @@ export {
   realtimeClientMessageSchema,
   realtimePresencePatchSchema,
   realtimeRoomReactionSchema,
-  realtimeRoomSoundboardSchema,
   realtimeSubscribeSchema
 } from './client';
 export {
@@ -21,10 +20,8 @@ export {
   realtimeRoomMusicEventSchema,
   realtimeRoomReactionEventSchema,
   realtimeRoomRemovedEventSchema,
-  realtimeRoomSoundboardEventSchema,
   realtimeRoomUpsertedEventSchema,
   realtimeServerMessageSchema
 } from './server';
-export { SOUNDBOARD_SOUNDS, soundboardSoundSchema } from './soundboard';
 
-export type { RealtimeClientMessage, RealtimeServerMessage, SoundboardSound } from './types';
+export type { RealtimeClientMessage, RealtimeServerMessage } from './types';

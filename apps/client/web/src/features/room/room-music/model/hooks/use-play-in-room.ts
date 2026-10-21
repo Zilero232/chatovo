@@ -5,7 +5,7 @@ import { useTranslations } from 'use-intl';
 import { useToastError } from '@/entities/app/locale';
 import { useRoomMusicActions } from '@/entities/room/music';
 
-import { useMaybeRoomMusicContext } from '../contexts/room-music-context';
+import { useMaybeRoomMusicContext } from '../contexts';
 
 export const usePlayInRoom = (url: string) => {
   const t = useTranslations('room.music.add');

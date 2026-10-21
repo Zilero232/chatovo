@@ -10,8 +10,7 @@ export const useRadioStations = (query: string) => {
     queryKey: QUERY_KEYS.radioStations(query),
     queryFn: () => searchRadioStations(query),
     staleTime: RADIO_STATIONS_STALE_MS,
-    placeholderData: keepPreviousData,
-    enabled: query !== ''
+    placeholderData: keepPreviousData
   });
 
   return { stations: data?.stations ?? [], isFetching, isError };

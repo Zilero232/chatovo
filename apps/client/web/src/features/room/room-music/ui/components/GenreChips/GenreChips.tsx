@@ -6,7 +6,7 @@ import { RADIO_GENRES } from '../../../config/music';
 
 import s from './GenreChips.module.scss';
 
-export const GenreChips = ({ onPick }: GenreChipsProps) => {
+export const GenreChips = ({ activeQuery, onPick }: GenreChipsProps) => {
   const t = useTranslations('room.music.genres');
 
   return (
@@ -16,7 +16,12 @@ export const GenreChips = ({ onPick }: GenreChipsProps) => {
       <ul className={s.list}>
         {RADIO_GENRES.map((genre) => (
           <li key={genre.id}>
-            <button className={s.chip} type='button' onClick={() => onPick(genre)}>
+            <button
+              aria-pressed={activeQuery === genre.query}
+              className={s.chip}
+              type='button'
+              onClick={() => onPick(genre)}
+            >
               {t(`items.${genre.id}`)}
             </button>
           </li>

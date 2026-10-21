@@ -56,7 +56,6 @@
     "joinFailed": "No se pudo entrar a la sala",
     "invite": {
       "copyLink": "Copiar enlace de invitación",
-      "tooltip": "Copia un enlace para invitar a otros",
       "linkCopied": "Enlace de invitación copiado",
       "aloneTitle": "Solo estás tú aquí",
       "aloneDescription": "Envía el enlace y tus amigos entran con un clic."
@@ -71,20 +70,24 @@
       "inCall": "Estás en una llamada",
       "connecting": "Conectando…"
     },
-    "soundboard": {
-      "label": "Panel de sonidos del admin",
-      "sounds": {
-        "siren": "Sirena",
-        "airhorn": "Bocina",
-        "drumroll": "Redoble",
-        "sadTrombone": "Trombón triste",
-        "applause": "Aplausos"
-      }
-    },
     "music": {
       "label": "Música de la sala",
       "title": "Música en la sala",
       "description": "Reproduce pistas para todos en la sala o comparte tu propia música.",
+      "tabs": {
+        "queue": "Cola",
+        "radio": "Radio"
+      },
+      "fields": {
+        "link": {
+          "label": "Añadir un enlace",
+          "placeholder": "Enlace de YouTube, SoundCloud, Vimeo o de un archivo de audio"
+        },
+        "radio": {
+          "label": "Buscar radio",
+          "placeholder": "Busca emisoras"
+        }
+      },
       "nowPlaying": {
         "addedBy": "Agregada por {name}",
         "live": "En vivo",
@@ -102,12 +105,10 @@
       },
       "empty": {
         "title": "Qué silencio por aquí",
-        "description": "Pega un enlace o pon la radio."
+        "description": "Pega un enlace o pon la radio.",
+        "openRadio": "Poner la radio"
       },
       "search": {
-        "label": "Agregar música",
-        "placeholder": "Pega un enlace o busca radios",
-        "hint": "Los enlaces de YouTube, SoundCloud y Vimeo o un enlace directo a un archivo de audio van a la cola; cualquier otra cosa busca emisoras de radio.",
         "clear": "Borrar"
       },
       "queue": {
@@ -120,8 +121,12 @@
         "submit": "Agregar a la cola",
         "added": "Agregada a la cola"
       },
+      "link": {
+        "searchRadio": "Buscar «{query}» en las emisoras"
+      },
       "radio": {
         "label": "Emisoras",
+        "popular": "Emisoras populares",
         "empty": "No se encontraron emisoras.",
         "error": "La búsqueda de radio no está disponible ahora.",
         "play": "Reproducir {name}"
@@ -144,6 +149,7 @@
         "tabHint": "En el selector, elige la pestaña con la música y activa “Compartir audio de la pestaña”.",
         "tabUnsupported": "Para compartir el audio de una pestaña necesitas un navegador de escritorio.",
         "files": "Reproducir archivos de este dispositivo",
+        "filesHint": "Elige archivos de audio: sonarán para toda la sala directamente desde tu dispositivo.",
         "sharingTab": "Compartiendo el audio de una pestaña",
         "playingFile": "Reproduciendo {name}",
         "paused": "En pausa: {name}",
@@ -156,6 +162,7 @@
         "publishFailed": "No se pudo empezar a compartir en esta sala."
       },
       "settings": {
+        "label": "Sonido de la música",
         "volume": "Volumen de la música",
         "ducking": "Bajar la música cuando alguien habla"
       },
@@ -174,7 +181,8 @@
       "playInRoom": "Reproducir en la sala",
       "tabOnly": {
         "title": "{service} no se puede insertar",
-        "hint": "Reprodúcelo en una pestaña del navegador y luego usa “Compartir el audio de una pestaña” en Mi música, abajo: todos en la sala lo escucharán.",
+        "hint": "Reprodúcelo en una pestaña del navegador y comparte el audio de esa pestaña desde Mi música: todos en la sala lo escucharán.",
+        "open": "Abrir Mi música",
         "services": {
           "vk": "VK",
           "yandex": "Yandex Music",
@@ -216,6 +224,10 @@
       "leave": "Salir",
       "invisibleMicBlocked": "No puedes hablar en modo invisible",
       "mutedByOwner": "Silenciado por el dueño de la sala"
+    },
+    "screen": {
+      "sharingTitle": "Estás compartiendo tu pantalla",
+      "sharingHint": "Tu vista previa está oculta para que la pantalla no se repita dentro de sí misma. Los demás la ven."
     },
     "dmWaiting": "Esperando a que la otra persona se una…",
     "expandVideo": "Ampliar video",

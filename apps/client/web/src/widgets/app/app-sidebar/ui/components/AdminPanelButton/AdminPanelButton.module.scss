@@ -1,0 +1,20 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.rail {
+  border: 1px solid color-mix(in srgb, var(--brand-violet) 32%, transparent);
+  background: color-mix(in srgb, var(--brand-violet) 12%, transparent);
+  color: var(--brand-violet);
+
+  @include hover {
+    border-color: color-mix(in srgb, var(--brand-violet) 48%, transparent);
+    background: color-mix(in srgb, var(--brand-violet) 20%, transparent);
+  }
+
+  &[aria-current='page'] {
+    border-color: var(--brand-violet);
+  }
+}
+
+.menu svg {
+  color: var(--brand-violet);
+}

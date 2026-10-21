@@ -1,1 +1,1 @@
-export { censorProfanity, remarkCensorProfanity } from './censor-profanity';
+export { censorProfanity } from './censor-profanity';

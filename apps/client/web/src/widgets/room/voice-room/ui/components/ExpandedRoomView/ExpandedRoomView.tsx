@@ -25,7 +25,7 @@ export const ExpandedRoomView = ({
       <ConnectingOverlay roomName={roomName} />
     </div>
 
-    <RoomControlsBar isChatOpen={isChatOpen} isDm={isDm} onToggleChat={() => onToggleChat()} />
+    <RoomControlsBar isChatOpen={isChatOpen} onToggleChat={() => onToggleChat()} />
 
     <ChatPanel isOpen={isChatOpen} roomId={roomId} onClose={() => onToggleChat(false)} />
   </>

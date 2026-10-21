@@ -46,47 +46,6 @@ describe('handleClientMessage', () => {
     filterAccessibleRooms.mockReset().mockResolvedValue([]);
   });
 
-  it('broadcasts a soundboard sound sent by an admin', async () => {
-    await handleClientMessage(
-      connectionOf(true, [ROOM_ID]),
-      JSON.stringify({ op: 'room.soundboard', roomId: ROOM_ID, sound: 'siren' })
-    );
-
-    expect(emitRoomEvent).toHaveBeenCalledWith(ROOM_ID, {
-      type: 'room.soundboard',
-      roomId: ROOM_ID,
-      sound: 'siren',
-      senderId: 'user-1'
-    });
-  });
-
-  it('drops a soundboard sound sent by a regular user', async () => {
-    await handleClientMessage(
-      connectionOf(false, [ROOM_ID]),
-      JSON.stringify({ op: 'room.soundboard', roomId: ROOM_ID, sound: 'siren' })
-    );
-
-    expect(emitRoomEvent).not.toHaveBeenCalled();
-  });
-
-  it('drops a soundboard sound aimed at a room the admin has not joined', async () => {
-    await handleClientMessage(
-      connectionOf(true, []),
-      JSON.stringify({ op: 'room.soundboard', roomId: ROOM_ID, sound: 'siren' })
-    );
-
-    expect(emitRoomEvent).not.toHaveBeenCalled();
-  });
-
-  it('rejects a sound outside the allowed set', async () => {
-    await handleClientMessage(
-      connectionOf(true, [ROOM_ID]),
-      JSON.stringify({ op: 'room.soundboard', roomId: ROOM_ID, sound: 'nuke' })
-    );
-
-    expect(emitRoomEvent).not.toHaveBeenCalled();
-  });
-
   it('still broadcasts reactions from a regular user', async () => {
     await handleClientMessage(
       connectionOf(false, [ROOM_ID]),

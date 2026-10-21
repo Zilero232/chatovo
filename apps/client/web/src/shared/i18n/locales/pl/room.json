@@ -56,7 +56,6 @@
     "joinFailed": "Nie udało się dołączyć do pokoju",
     "invite": {
       "copyLink": "Kopiuj link z zaproszeniem",
-      "tooltip": "Skopiuj link, aby zaprosić innych",
       "linkCopied": "Link z zaproszeniem skopiowany",
       "aloneTitle": "Na razie jesteś tu tylko ty",
       "aloneDescription": "Wyślij link — znajomi dołączą jednym kliknięciem."
@@ -71,20 +70,24 @@
       "inCall": "Jesteś w rozmowie",
       "connecting": "Łączenie…"
     },
-    "soundboard": {
-      "label": "Panel dźwięków admina",
-      "sounds": {
-        "siren": "Syrena",
-        "airhorn": "Trąbka",
-        "drumroll": "Werble",
-        "sadTrombone": "Smutny puzon",
-        "applause": "Brawa"
-      }
-    },
     "music": {
       "label": "Muzyka w pokoju",
       "title": "Muzyka w pokoju",
       "description": "Puszczaj utwory dla wszystkich w pokoju albo udostępnij własną muzykę.",
+      "tabs": {
+        "queue": "Kolejka",
+        "radio": "Radio"
+      },
+      "fields": {
+        "link": {
+          "label": "Dodaj link",
+          "placeholder": "Link do YouTube, SoundCloud, Vimeo lub pliku audio"
+        },
+        "radio": {
+          "label": "Szukaj radia",
+          "placeholder": "Szukaj stacji radiowej"
+        }
+      },
       "nowPlaying": {
         "addedBy": "Dodane przez: {name}",
         "live": "Na żywo",
@@ -102,12 +105,10 @@
       },
       "empty": {
         "title": "Cicho tu",
-        "description": "Wklej link albo włącz radio."
+        "description": "Wklej link albo włącz radio.",
+        "openRadio": "Włącz radio"
       },
       "search": {
-        "label": "Dodaj muzykę",
-        "placeholder": "Wklej link lub szukaj radia",
-        "hint": "Linki z YouTube, SoundCloud i Vimeo albo bezpośredni link do pliku audio trafiają do kolejki; wszystko inne wyszukuje stacje radiowe.",
         "clear": "Wyczyść"
       },
       "queue": {
@@ -120,8 +121,12 @@
         "submit": "Dodaj do kolejki",
         "added": "Dodano do kolejki"
       },
+      "link": {
+        "searchRadio": "Szukaj „{query}” wśród stacji"
+      },
       "radio": {
         "label": "Stacje",
+        "popular": "Popularne stacje",
         "empty": "Nie znaleziono stacji.",
         "error": "Wyszukiwanie radia jest teraz niedostępne.",
         "play": "Włącz {name}"
@@ -144,6 +149,7 @@
         "tabHint": "W oknie wyboru wskaż kartę z muzyką i włącz „Udostępnij dźwięk karty”.",
         "tabUnsupported": "Udostępnianie dźwięku z karty wymaga przeglądarki na komputerze.",
         "files": "Odtwórz pliki z tego urządzenia",
+        "filesHint": "Wybierz pliki audio — zagrają dla wszystkich w pokoju prosto z twojego urządzenia.",
         "sharingTab": "Udostępniasz dźwięk z karty",
         "playingFile": "Gra: {name}",
         "paused": "Pauza: {name}",
@@ -156,6 +162,7 @@
         "publishFailed": "Nie udało się rozpocząć udostępniania w tym pokoju."
       },
       "settings": {
+        "label": "Dźwięk muzyki",
         "volume": "Głośność muzyki",
         "ducking": "Ściszaj muzykę, gdy ktoś mówi"
       },
@@ -174,7 +181,8 @@
       "playInRoom": "Odtwórz w pokoju",
       "tabOnly": {
         "title": "{service} nie obsługuje osadzania",
-        "hint": "Włącz muzykę w karcie przeglądarki, a potem użyj „Udostępnij dźwięk z karty” w sekcji Moja muzyka poniżej — usłyszą ją wszyscy w pokoju.",
+        "hint": "Włącz muzykę w karcie przeglądarki i udostępnij dźwięk tej karty w sekcji Moja muzyka — usłyszą ją wszyscy w pokoju.",
+        "open": "Otwórz Moją muzykę",
         "services": {
           "vk": "VK",
           "yandex": "Yandex Music",
@@ -216,6 +224,10 @@
       "leave": "Wyjdź",
       "invisibleMicBlocked": "W trybie niewidzialnym nie możesz mówić",
       "mutedByOwner": "Wyciszono przez właściciela pokoju"
+    },
+    "screen": {
+      "sharingTitle": "Udostępniasz ekran",
+      "sharingHint": "Twój podgląd jest ukryty, żeby ekran nie powtarzał się sam w sobie. Pozostali go widzą."
     },
     "dmWaiting": "Czekamy, aż druga osoba dołączy…",
     "expandVideo": "Powiększ wideo",

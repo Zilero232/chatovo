@@ -55,7 +55,7 @@
   @include hover {
     background: var(--surface-2);
 
-    .add {
+    .play {
       color: var(--brand-coral);
     }
   }
@@ -97,7 +97,7 @@
   @include text-ellipsis;
 }
 
-.add {
+.play {
   width: var(--icon-sm);
   height: var(--icon-sm);
   flex-shrink: 0;

@@ -56,7 +56,6 @@
     "joinFailed": "Beitritt zum Raum fehlgeschlagen",
     "invite": {
       "copyLink": "Einladungslink kopieren",
-      "tooltip": "Link kopieren, um andere einzuladen",
       "linkCopied": "Einladungslink kopiert",
       "aloneTitle": "Du bist allein hier",
       "aloneDescription": "Schick den Link, und deine Freunde sind mit einem Klick dabei."
@@ -71,20 +70,24 @@
       "inCall": "Du bist in einem Anruf",
       "connecting": "Verbinde…"
     },
-    "soundboard": {
-      "label": "Admin-Soundboard",
-      "sounds": {
-        "siren": "Sirene",
-        "airhorn": "Drucklufthorn",
-        "drumroll": "Trommelwirbel",
-        "sadTrombone": "Traurige Posaune",
-        "applause": "Applaus"
-      }
-    },
     "music": {
       "label": "Raummusik",
       "title": "Musik im Raum",
       "description": "Spiel Tracks für alle im Raum ab oder teile deine eigene Musik.",
+      "tabs": {
+        "queue": "Warteschlange",
+        "radio": "Radio"
+      },
+      "fields": {
+        "link": {
+          "label": "Link hinzufügen",
+          "placeholder": "Link zu YouTube, SoundCloud, Vimeo oder einer Audiodatei"
+        },
+        "radio": {
+          "label": "Radio suchen",
+          "placeholder": "Radiosender suchen"
+        }
+      },
       "nowPlaying": {
         "addedBy": "Hinzugefügt von {name}",
         "live": "Live",
@@ -102,12 +105,10 @@
       },
       "empty": {
         "title": "Hier ist es still",
-        "description": "Füge einen Link ein oder schalte das Radio an."
+        "description": "Füge einen Link ein oder schalte das Radio an.",
+        "openRadio": "Radio einschalten"
       },
       "search": {
-        "label": "Musik hinzufügen",
-        "placeholder": "Link einfügen oder Radio suchen",
-        "hint": "Links von YouTube, SoundCloud und Vimeo oder ein direkter Link zu einer Audiodatei kommen in die Warteschlange; alles andere sucht nach Radiosendern.",
         "clear": "Leeren"
       },
       "queue": {
@@ -120,8 +121,12 @@
         "submit": "Zur Warteschlange",
         "added": "Zur Warteschlange hinzugefügt"
       },
+      "link": {
+        "searchRadio": "„{query}“ unter den Radiosendern suchen"
+      },
       "radio": {
         "label": "Sender",
+        "popular": "Beliebte Sender",
         "empty": "Keine Sender gefunden.",
         "error": "Die Radiosuche ist gerade nicht verfügbar.",
         "play": "{name} abspielen"
@@ -144,6 +149,7 @@
         "tabHint": "Wähle im Dialog den Tab mit der Musik und aktiviere „Tab-Audio teilen“.",
         "tabUnsupported": "Zum Teilen von Tab-Audio brauchst du einen Desktop-Browser.",
         "files": "Dateien von diesem Gerät abspielen",
+        "filesHint": "Wähle Audiodateien – sie laufen für alle im Raum direkt von deinem Gerät.",
         "sharingTab": "Audio aus einem Tab wird geteilt",
         "playingFile": "Spielt {name}",
         "paused": "Pausiert: {name}",
@@ -156,6 +162,7 @@
         "publishFailed": "Teilen in diesem Raum konnte nicht gestartet werden."
       },
       "settings": {
+        "label": "Ton der Musik",
         "volume": "Musiklautstärke",
         "ducking": "Musik leiser, wenn jemand spricht"
       },
@@ -174,7 +181,8 @@
       "playInRoom": "Im Raum abspielen",
       "tabOnly": {
         "title": "{service} lässt sich nicht einbetten",
-        "hint": "Spiel es in einem Browser-Tab ab und nutze dann unten unter „Meine Musik“ die Option „Tab-Audio teilen“ – alle im Raum hören es.",
+        "hint": "Spiel es in einem Browser-Tab ab und teile unter „Meine Musik“ den Ton dieses Tabs – alle im Raum hören es.",
+        "open": "„Meine Musik“ öffnen",
         "services": {
           "vk": "VK",
           "yandex": "Yandex Music",
@@ -216,6 +224,10 @@
       "leave": "Verlassen",
       "invisibleMicBlocked": "Im unsichtbaren Modus kannst du nicht sprechen",
       "mutedByOwner": "Vom Raumbesitzer stummgeschaltet"
+    },
+    "screen": {
+      "sharingTitle": "Du teilst deinen Bildschirm",
+      "sharingHint": "Deine eigene Vorschau ist ausgeblendet, damit sich der Bildschirm nicht endlos in sich selbst wiederholt. Alle anderen sehen ihn."
     },
     "dmWaiting": "Warte, bis die andere Person beitritt…",
     "expandVideo": "Video vergrößern",

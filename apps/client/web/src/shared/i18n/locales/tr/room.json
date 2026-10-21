@@ -56,7 +56,6 @@
     "joinFailed": "Odaya katılınamadı",
     "invite": {
       "copyLink": "Davet bağlantısını kopyala",
-      "tooltip": "Başkalarını davet etmek için bağlantıyı kopyala",
       "linkCopied": "Davet bağlantısı kopyalandı",
       "aloneTitle": "Burada sadece sen varsın",
       "aloneDescription": "Bağlantıyı gönder, arkadaşların tek tıkla katılsın."
@@ -71,20 +70,24 @@
       "inCall": "Görüşmedesin",
       "connecting": "Bağlanıyor…"
     },
-    "soundboard": {
-      "label": "Yönetici ses paneli",
-      "sounds": {
-        "siren": "Siren",
-        "airhorn": "Korna",
-        "drumroll": "Trampet",
-        "sadTrombone": "Hüzünlü trombon",
-        "applause": "Alkış"
-      }
-    },
     "music": {
       "label": "Oda müziği",
       "title": "Odada müzik",
       "description": "Odadaki herkes için parça çal ya da kendi müziğini paylaş.",
+      "tabs": {
+        "queue": "Sıra",
+        "radio": "Radyo"
+      },
+      "fields": {
+        "link": {
+          "label": "Bağlantı ekle",
+          "placeholder": "YouTube, SoundCloud, Vimeo ya da ses dosyası bağlantısı"
+        },
+        "radio": {
+          "label": "Radyo ara",
+          "placeholder": "Radyo istasyonu ara"
+        }
+      },
       "nowPlaying": {
         "addedBy": "Ekleyen: {name}",
         "live": "Canlı",
@@ -102,12 +105,10 @@
       },
       "empty": {
         "title": "Burası sessiz",
-        "description": "Bir bağlantı yapıştır ya da radyoyu aç."
+        "description": "Bir bağlantı yapıştır ya da radyoyu aç.",
+        "openRadio": "Radyoyu aç"
       },
       "search": {
-        "label": "Müzik ekle",
-        "placeholder": "Bağlantı yapıştır veya radyo ara",
-        "hint": "YouTube, SoundCloud ve Vimeo bağlantıları ya da bir ses dosyasının doğrudan bağlantısı sıraya eklenir; diğer her şey radyo istasyonlarında aranır.",
         "clear": "Temizle"
       },
       "queue": {
@@ -120,8 +121,12 @@
         "submit": "Sıraya ekle",
         "added": "Sıraya eklendi"
       },
+      "link": {
+        "searchRadio": "İstasyonlarda “{query}” ara"
+      },
       "radio": {
         "label": "İstasyonlar",
+        "popular": "Popüler istasyonlar",
         "empty": "İstasyon bulunamadı.",
         "error": "Radyo araması şu anda kullanılamıyor.",
         "play": "Çal: {name}"
@@ -144,6 +149,7 @@
         "tabHint": "Seçicide müziğin çaldığı sekmeyi seç ve “Sekme sesini de paylaş” seçeneğini aç.",
         "tabUnsupported": "Sekme sesini paylaşmak için masaüstü tarayıcı gerekir.",
         "files": "Bu cihazdaki dosyaları çal",
+        "filesHint": "Ses dosyalarını seç — doğrudan cihazından odadaki herkes için çalar.",
         "sharingTab": "Bir sekmenin sesi paylaşılıyor",
         "playingFile": "Çalınıyor: {name}",
         "paused": "Duraklatıldı: {name}",
@@ -156,6 +162,7 @@
         "publishFailed": "Bu odada paylaşım başlatılamadı."
       },
       "settings": {
+        "label": "Müzik sesi",
         "volume": "Müzik sesi",
         "ducking": "Konuşulurken müziğin sesini kıs"
       },
@@ -174,7 +181,8 @@
       "playInRoom": "Odada çal",
       "tabOnly": {
         "title": "{service} gömülemiyor",
-        "hint": "Bir tarayıcı sekmesinde çal, sonra aşağıdaki Müziğim bölümünde “Sekme sesini paylaş” seçeneğini kullan — odadaki herkes duyacak.",
+        "hint": "Bir tarayıcı sekmesinde çal ve o sekmenin sesini Müziğim bölümünden paylaş — odadaki herkes duyacak.",
+        "open": "Müziğim'i aç",
         "services": {
           "vk": "VK",
           "yandex": "Yandex Music",
@@ -216,6 +224,10 @@
       "leave": "Ayrıl",
       "invisibleMicBlocked": "Görünmez modda konuşamazsın",
       "mutedByOwner": "Oda sahibi tarafından susturuldu"
+    },
+    "screen": {
+      "sharingTitle": "Ekranını paylaşıyorsun",
+      "sharingHint": "Ekran kendi içinde tekrarlanmasın diye kendi önizlemen gizlendi. Diğerleri onu görüyor."
     },
     "dmWaiting": "Karşı tarafın katılması bekleniyor…",
     "expandVideo": "Videoyu genişlet",

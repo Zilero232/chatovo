@@ -46,7 +46,7 @@ export const VoiceRoom = ({
         <LiveKitRoom
           connect
           audio={audioCapture}
-          className={clsx(s.room, isMinimized ? s.roomMinimized : isChatOpen && s.roomChatOpen)}
+          className={clsx(s.room, isMinimized && s.roomMinimized)}
           options={{ webAudioMix: true, publishDefaults }}
           serverUrl={serverUrl}
           token={token}

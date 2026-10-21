@@ -4,10 +4,10 @@ import { useRoomContext } from '@livekit/components-react';
 import { useEffect, useState } from 'react';
 import { isNonNullish } from 'remeda';
 
-import type { SpeechProbe } from '../../lib';
+import type { SpeechProbe } from '../../lib/index';
 
 import { DUCKING } from '../../config/music';
-import { createSpeechProbe, isProbeSpeaking, readLiveMicTrack } from '../../lib';
+import { createSpeechProbe, isProbeSpeaking, readLiveMicTrack } from '../../lib/index';
 
 export const useSpeechDucking = (enabled: boolean) => {
   const room = useRoomContext();

@@ -1,6 +1,7 @@
 import { useIsMuted, VideoTrack } from '@livekit/components-react';
 import { target, useEventListener } from '@siberiacancode/reactuse';
 import { clsx } from 'clsx';
+import { Track } from 'livekit-client';
 import { Expand, Shrink } from 'lucide-react';
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
@@ -21,7 +22,10 @@ export const CardVideo = ({ trackRef }: CardVideoProps) => {
 
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const isMirrored = trackRef.participant.isLocal && settings.video.mirrorVideo;
+  const isMirrored =
+    trackRef.participant.isLocal &&
+    trackRef.source === Track.Source.Camera &&
+    settings.video.mirrorVideo;
 
   const videoClassName = clsx(s.video, { [s.videoMirrored]: isMirrored });
   const expandedVideoClassName = clsx(s.video, s.videoContain, {

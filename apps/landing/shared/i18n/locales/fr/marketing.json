@@ -207,6 +207,34 @@
       "minor": "Version régulière"
     },
     "entries": {
+      "musicLibrary": {
+        "title": "La musique en onglets",
+        "description": "File d'attente, Radio et Ma musique ont chacun leur onglet, et le volume se règle via le bouton son."
+      },
+      "popularRadio": {
+        "title": "La radio sans chercher",
+        "description": "L'onglet Radio s'ouvre sur les stations les plus populaires — un geste et le salon écoute."
+      },
+      "chatOverRoom": {
+        "title": "Le chat par-dessus le salon",
+        "description": "Le chat glisse de nouveau par-dessus le salon assombri au lieu de le rétrécir."
+      },
+      "lighterTheme": {
+        "title": "Un thème plus clair",
+        "description": "Le thème sombre est un peu plus clair, et les lignes entre les panneaux se voient mieux."
+      },
+      "shareStaysHere": {
+        "title": "Partager sans quitter Chatovo",
+        "description": "Choisir un onglet ou une fenêtre à partager ne t'y envoie plus."
+      },
+      "noScreenInScreen": {
+        "title": "Plus d'écran dans l'écran",
+        "description": "Ton propre partage d'écran affiche un avis au lieu de se répéter à l'infini ; les autres le voient toujours."
+      },
+      "smarterFilter": {
+        "title": "Un filtre plus malin",
+        "description": "Les gros mots sont repérés sous plus de formes et dans les neuf langues, et les mots ordinaires ne sont plus masqués."
+      },
       "chatBesideRoom": {
         "title": "Le chat à côté du salon",
         "description": "Sur un grand écran, le salon fait de la place au chat et tous les participants et boutons restent visibles."
@@ -741,6 +769,8 @@
       }
     },
     "highlights": {
+      "musicLibrary": "La musique en onglets",
+      "lighterTheme": "Un thème plus clair",
       "chatBesideRoom": "Le chat à côté du salon",
       "tidierMenu": "Un menu plus clair sur téléphone",
       "nineLanguages": "Neuf langues",

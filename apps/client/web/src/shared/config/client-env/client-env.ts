@@ -6,14 +6,19 @@ const clientSchema = z.object({
   NEXT_PUBLIC_API_URL: z.string().min(1).default('http://localhost:4000'),
   NEXT_PUBLIC_APP_URL: z.string().default(''),
   NEXT_PUBLIC_LIVEKIT_URL: z.string().min(1),
-  NEXT_PUBLIC_APP_VERSION: z.string().min(1).default('0.0.0')
+  NEXT_PUBLIC_APP_VERSION: z.string().min(1).default('0.0.0'),
+  NEXT_PUBLIC_QUERY_DEVTOOLS: z
+    .enum(['true', 'false'])
+    .default('false')
+    .transform((value) => value === 'true')
 });
 
 const parsed = clientSchema.safeParse({
   NEXT_PUBLIC_API_URL: import.meta.env.NEXT_PUBLIC_API_URL,
   NEXT_PUBLIC_APP_URL: import.meta.env.NEXT_PUBLIC_APP_URL,
   NEXT_PUBLIC_LIVEKIT_URL: import.meta.env.NEXT_PUBLIC_LIVEKIT_URL,
-  NEXT_PUBLIC_APP_VERSION: import.meta.env.NEXT_PUBLIC_APP_VERSION
+  NEXT_PUBLIC_APP_VERSION: import.meta.env.NEXT_PUBLIC_APP_VERSION,
+  NEXT_PUBLIC_QUERY_DEVTOOLS: import.meta.env.NEXT_PUBLIC_QUERY_DEVTOOLS
 });
 
 if (!parsed.success) {
@@ -32,5 +37,6 @@ export const env = {
   get NEXT_PUBLIC_LIVEKIT_URL() {
     return resolveMobileDevUrl(base.NEXT_PUBLIC_LIVEKIT_URL);
   },
-  NEXT_PUBLIC_APP_VERSION: base.NEXT_PUBLIC_APP_VERSION
+  NEXT_PUBLIC_APP_VERSION: base.NEXT_PUBLIC_APP_VERSION,
+  NEXT_PUBLIC_QUERY_DEVTOOLS: base.NEXT_PUBLIC_QUERY_DEVTOOLS
 };

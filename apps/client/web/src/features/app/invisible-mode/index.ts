@@ -1,1 +1,1 @@
-export { InvisibleModeMenuItem } from './ui/InvisibleModeMenuItem/InvisibleModeMenuItem';
+export { useInvisibleMode } from './model/hooks';

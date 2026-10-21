@@ -1,9 +1,10 @@
-import { DISPLAY_AUDIO_CAPTURE } from '@/shared/lib';
+import { createCaptureController, DISPLAY_AUDIO_CAPTURE } from '@/shared/lib';
 
 export const captureTabAudio = async (): Promise<MediaStreamTrack | null> => {
   const stream = await navigator.mediaDevices.getDisplayMedia({
     video: true,
     audio: DISPLAY_AUDIO_CAPTURE,
+    controller: createCaptureController(),
     selfBrowserSurface: 'exclude',
     systemAudio: 'include'
   } as DisplayMediaStreamOptions);

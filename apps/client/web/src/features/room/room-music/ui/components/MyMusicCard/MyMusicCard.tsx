@@ -1,8 +1,8 @@
-import { Button } from '@chatovo/ui-kit';
 import { AppWindow, FolderOpen } from 'lucide-react';
 import { useTranslations } from 'use-intl';
 
 import { useShareMusicPanel } from '../../../model/hooks';
+import { ShareOption } from '../ShareOption/ShareOption';
 import { ShareStatus } from '../ShareStatus/ShareStatus';
 
 import s from './MyMusicCard.module.scss';
@@ -18,28 +18,23 @@ export const MyMusicCard = () => {
 
   return (
     <section className={s.root}>
-      <div className={s.text}>
-        <h3 className={s.title}>{t('title')}</h3>
-        <p className={s.hint}>{t('hint')}</p>
-      </div>
+      <p className={s.lead}>{t('hint')}</p>
 
-      <div className={s.actions}>
-        <Button
-          disabled={!canShareTab}
-          size='sm'
-          variant='secondary'
-          onClick={() => void share.shareTab()}
-        >
-          <AppWindow aria-hidden />
-          {t('tab')}
-        </Button>
-        <Button size='sm' variant='secondary' onClick={pickFiles}>
-          <FolderOpen aria-hidden />
-          {t('files')}
-        </Button>
+      <div className={s.options}>
+        <ShareOption
+          description={canShareTab ? t('tabHint') : t('tabUnsupported')}
+          icon={<AppWindow />}
+          isDisabled={!canShareTab}
+          title={t('tab')}
+          onSelect={() => void share.shareTab()}
+        />
+        <ShareOption
+          description={t('filesHint')}
+          icon={<FolderOpen />}
+          title={t('files')}
+          onSelect={pickFiles}
+        />
       </div>
-
-      <p className={s.note}>{canShareTab ? t('tabHint') : t('tabUnsupported')}</p>
     </section>
   );
 };

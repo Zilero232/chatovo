@@ -1,0 +1,46 @@
+@use '@chatovo/ui-kit/styles/functions' as *;
+
+.root {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  min-height: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  background: color-mix(in srgb, var(--brand-violet) 8%, var(--surface-1));
+  gap: var(--space-2);
+  text-align: center;
+}
+
+.icon {
+  display: grid;
+  width: var(--control-lg);
+  height: var(--control-lg);
+  border-radius: var(--radius-lg);
+  background: color-mix(in oklch, var(--brand-violet) 18%, transparent);
+  color: var(--brand-violet);
+  place-items: center;
+
+  svg {
+    width: var(--icon-md);
+    height: var(--icon-md);
+  }
+}
+
+.title {
+  margin: 0;
+  color: var(--foreground);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.hint {
+  max-width: rem(280);
+  margin: 0 0 var(--space-1);
+  color: var(--muted-foreground);
+  font-size: var(--text-xs);
+  line-height: 1.45;
+}
