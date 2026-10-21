@@ -26,6 +26,7 @@
     "@chatovo/config": "workspace:*",
     "@chatovo/schemas": "workspace:*",
     "@chatovo/ui-kit": "workspace:*",
+    "@formatjs/intl-localematcher": "catalog:",
     "@react-three/fiber": "^9.8.2",
     "@siberiacancode/reactuse": "catalog:",
     "clsx": "catalog:",

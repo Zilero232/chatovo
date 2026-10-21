@@ -1,0 +1,100 @@
+{
+  "friends": {
+    "title": "Amis",
+    "description": "Tes amis et les demandes reçues.",
+    "online": "en ligne",
+    "offline": "hors ligne",
+    "requestsTab": "Demandes",
+    "developersTab": "Équipe",
+    "onlineTab": "En ligne",
+    "allTab": "Tous",
+    "onlineCount": "En ligne — {count}",
+    "allCount": "Tous les amis — {count}",
+    "pendingCount": "En attente — {count}",
+    "searchPlaceholder": "Rechercher",
+    "nothingFound": "Aucun résultat",
+    "nothingFoundHint": "Aucun ami ne correspond à la recherche. Efface-la pour voir tout le monde.",
+    "emptyOnlineTitle": "Personne n'est en ligne pour le moment",
+    "addFriendHint": "Ajoute des amis grâce à leur tag. Les chiffres après le # comptent.",
+    "yourTagTitle": "Ton tag",
+    "yourTagHint": "Partage-le pour que les autres puissent t'ajouter en ami.",
+    "emptyFriendsTitle": "Pas encore d'amis",
+    "emptyFriendsHint": "Clique sur l'avatar de quelqu'un dans un salon vocal et envoie-lui une demande. Une fois acceptée, tu pourras lui écrire ou l'appeler directement d'ici.",
+    "emptyRequestsTitle": "Aucune demande en attente",
+    "emptyRequestsHint": "Quand quelqu'un t'ajoute avec ton tag, sa demande arrive ici en attendant ta réponse.",
+    "emptyDevelopersTitle": "Aucun membre de l'équipe",
+    "emptyDevelopersHint": "La liste des développeurs de Chatovo est vide pour l'instant. Reviens plus tard pour rencontrer ceux qui créent l'app.",
+    "addFriend": "Ajouter en ami",
+    "cancelRequest": "Annuler la demande",
+    "accept": "Accepter",
+    "decline": "Refuser",
+    "messageFriend": "Message",
+    "backToFriends": "Retour aux amis",
+    "callFriend": "Appeler",
+    "friendActions": "Actions sur l'ami",
+    "unreadMessages": "{count, plural, one {# message non lu} other {# messages non lus}}",
+    "removeFriend": "Retirer l'ami",
+    "removeFriendConfirm": {
+      "title": "Retirer cet ami ?",
+      "description": "{name} sera retiré de ta liste d'amis. Cette action est irréversible.",
+      "confirm": "Retirer",
+      "cancel": "Annuler",
+      "failed": "Impossible de retirer l'ami",
+      "consequences": "Votre historique de discussion reste, mais vous ne vous verrez plus en ligne et ne pourrez plus vous appeler tant que vous ne serez pas de nouveau amis."
+    },
+    "tagPlaceholder": "tag de l'ami (ex. : alex#4821)",
+    "sendByTag": "Envoyer",
+    "requestSent": "Demande d'ami envoyée",
+    "copyTag": "Copier le tag",
+    "tagCopied": "Tag copié",
+    "tagCopyFailed": "Impossible de copier le tag",
+    "sendFailed": "Impossible d'envoyer la demande d'ami",
+    "incomingCall": {
+      "title": "Appel entrant",
+      "description": "{name} t'appelle",
+      "accept": "Accepter",
+      "decline": "Refuser"
+    },
+    "outgoingCall": {
+      "title": "Appel en cours…",
+      "description": "En attente de la réponse de {name}",
+      "cancel": "Annuler",
+      "declined": "{name} a refusé l'appel"
+    }
+  },
+  "blocks": {
+    "block": "Bloquer",
+    "unblock": "Débloquer",
+    "unblockUser": "Débloquer {name}",
+    "tab": "Bloqués",
+    "count": "Bloqués — {count}",
+    "notice": "Tu as bloqué cette personne. Débloque-la pour lui envoyer une demande d'ami.",
+    "blockedToast": "Tu as bloqué {name}",
+    "unblockedToast": "Tu as débloqué {name}",
+    "emptyTitle": "Personne n'est bloqué",
+    "emptyHint": "Les personnes que tu bloques apparaissent ici. Débloquer quelqu'un ne vous rend pas amis à nouveau.",
+    "hiddenMessage": "Message d'un utilisateur bloqué",
+    "showMessage": "Afficher",
+    "confirm": {
+      "title": "Bloquer {name} ?",
+      "description": "{name} ne sera pas prévenu. Votre amitié et toute demande en attente entre vous seront supprimées.",
+      "consequences": "Ses messages dans les salons sont réduits à une ligne, sa voix est coupée pour toi et aucun de vous ne peut envoyer de demande d'ami tant que tu ne l'as pas débloqué.",
+      "confirm": "Bloquer",
+      "cancel": "Annuler"
+    }
+  },
+  "user": {
+    "verified": "Compte vérifié",
+    "developer": "Développeur",
+    "developerHint": "Développeur de Chatovo"
+  },
+  "profileCard": {
+    "inVoice": "Dans un salon vocal",
+    "notInVoice": "Pas dans un salon vocal",
+    "join": "Rejoindre",
+    "openSettingsHint": "Ouvre les paramètres pour modifier ton profil.",
+    "avatarAlt": "Avatar de {name}",
+    "avatarZoomDescription": "Photo de profil agrandie",
+    "zoomAvatar": "Ouvrir l'avatar"
+  }
+}

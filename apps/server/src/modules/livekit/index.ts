@@ -1,4 +1,5 @@
 export { LivekitModule } from './livekit.module';
+export { lockMic, unlockMic } from './mic-lock-store';
 export {
   addLobbyConnection,
   bindLivekitCredentials,
@@ -9,11 +10,14 @@ export {
   getSnapshot,
   hasRoomParticipants,
   removeLobbyConnection,
+  removeRoomParticipant,
+  setParticipantMicLock,
   syncRoom
 } from './presence';
 export {
   grantRoomAccess,
   hasRoomGrant,
+  revokeRoomGrant,
   revokeRoomGrants,
   revokeUserGrants
 } from './room-grant-store';

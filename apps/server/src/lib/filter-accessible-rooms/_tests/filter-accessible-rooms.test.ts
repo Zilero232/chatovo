@@ -2,11 +2,16 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 const findRooms = vi.fn();
 const hasRoomGrant = vi.fn();
+const findBannedRoomIds = vi.fn();
 
 vi.mock('../../../core', () => ({
   basePrisma: {
     room: { findMany: (...args: unknown[]) => findRooms(...args) }
   }
+}));
+
+vi.mock('../../find-banned-room-ids', () => ({
+  findBannedRoomIds: (input: unknown) => findBannedRoomIds(input)
 }));
 
 vi.mock('../../../modules/livekit', () => ({
@@ -31,6 +36,7 @@ describe('filterAccessibleRooms', () => {
   beforeEach(() => {
     findRooms.mockReset();
     hasRoomGrant.mockReset().mockReturnValue(false);
+    findBannedRoomIds.mockReset().mockResolvedValue(new Set());
   });
 
   it('skips the query entirely for an empty list', async () => {
@@ -62,6 +68,26 @@ describe('filterAccessibleRooms', () => {
     await expect(filterAccessibleRooms({ roomIds: ['private-granted'], userId })).resolves.toEqual([
       'private-granted'
     ]);
+  });
+
+  it('drops a room the user is banned from, so a banned user cannot subscribe to it', async () => {
+    findRooms.mockResolvedValueOnce([room({ id: 'public' }), room({ id: 'banned' })]);
+    findBannedRoomIds.mockResolvedValueOnce(new Set(['banned']));
+
+    await expect(filterAccessibleRooms({ roomIds: ['public', 'banned'], userId })).resolves.toEqual(
+      ['public']
+    );
+  });
+
+  it('checks bans only among the rooms that passed the access rule', async () => {
+    findRooms.mockResolvedValueOnce([
+      room({ id: 'public' }),
+      room({ id: 'private-stranger', isPrivate: true })
+    ]);
+
+    await filterAccessibleRooms({ roomIds: ['public', 'private-stranger'], userId });
+
+    expect(findBannedRoomIds).toHaveBeenCalledWith({ roomIds: ['public'], userId });
   });
 
   it('drops ids that no longer resolve to a room', async () => {

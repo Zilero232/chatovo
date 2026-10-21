@@ -1,0 +1,394 @@
+{
+  "lobby": {
+    "subtitle": "Únete a una sala de voz o crea la tuya",
+    "appVersion": "Versión de la app",
+    "stats": {
+      "rooms": "Salas",
+      "live": "En vivo ahora",
+      "online": "En línea"
+    },
+    "searchPlaceholder": "Buscar salas...",
+    "filters": {
+      "all": "Todas",
+      "live": "En vivo",
+      "mine": "Mías"
+    },
+    "view": {
+      "grid": "Vista de cuadrícula",
+      "list": "Vista de lista"
+    },
+    "nothingFound": "Ninguna sala coincide con \"{query}\"",
+    "nothingFoundHint": "Prueba con una búsqueda más corta o crea tú mismo una sala con ese nombre.",
+    "roomsError": {
+      "title": "No se pudieron cargar las salas",
+      "description": "Revisa tu conexión e inténtalo de nuevo.",
+      "retry": "Reintentar"
+    },
+    "empty": {
+      "title": "Aún no hay salas",
+      "text": "Las salas aparecen aquí en cuanto alguien crea una. Crea la primera y comparte el enlace: quien lo abra entra directo a la llamada."
+    },
+    "card": {
+      "live": "En vivo",
+      "empty": "Vacía",
+      "people": "{count, plural, one {# persona} other {# personas}}",
+      "ownerTooltip": "Propietario de la sala",
+      "micMuted": "Micrófono silenciado",
+      "deafened": "Sonido desactivado"
+    },
+    "sections": {
+      "rooms": "Salas",
+      "friends": "Amigos"
+    }
+  },
+  "room": {
+    "sections": {
+      "public": "Abiertas",
+      "private": "Privadas"
+    },
+    "loading": "Cargando sala...",
+    "authorizing": "Autorizando acceso...",
+    "connecting": "Conectando a \"{name}\"...",
+    "reconnecting": "Reconectando a \"{name}\"...",
+    "notFound": "Sala no encontrada",
+    "notFoundHint": "El propietario eliminó esta sala o el enlace está desactualizado. Revisa el enlace o busca la sala en el lobby.",
+    "backToLobby": "Volver al lobby",
+    "joinFailed": "No se pudo entrar a la sala",
+    "invite": {
+      "copyLink": "Copiar enlace de invitación",
+      "tooltip": "Copia un enlace para invitar a otros",
+      "linkCopied": "Enlace de invitación copiado",
+      "aloneTitle": "Solo estás tú aquí",
+      "aloneDescription": "Envía el enlace y tus amigos entran con un clic."
+    },
+    "connection": {
+      "measuring": "Midiendo la conexión…",
+      "ping": "Conexión: {ms} ms"
+    },
+    "mini": {
+      "label": "Sala activa “{name}”",
+      "inRoom": "Estás en la sala",
+      "inCall": "Estás en una llamada",
+      "connecting": "Conectando…"
+    },
+    "soundboard": {
+      "label": "Panel de sonidos del admin",
+      "sounds": {
+        "siren": "Sirena",
+        "airhorn": "Bocina",
+        "drumroll": "Redoble",
+        "sadTrombone": "Trombón triste",
+        "applause": "Aplausos"
+      }
+    },
+    "music": {
+      "label": "Música de la sala",
+      "title": "Música en la sala",
+      "description": "Reproduce pistas para todos en la sala o comparte tu propia música.",
+      "nowPlaying": {
+        "addedBy": "Agregada por {name}",
+        "live": "En vivo",
+        "play": "Reproducir",
+        "pause": "Pausar",
+        "previous": "Pista anterior",
+        "next": "Siguiente pista",
+        "stop": "Detener la música",
+        "open": "Abrir la fuente",
+        "expand": "Abrir el reproductor"
+      },
+      "progress": {
+        "seek": "Posición de la pista",
+        "unknown": "–:––"
+      },
+      "empty": {
+        "title": "Qué silencio por aquí",
+        "description": "Pega un enlace o pon la radio."
+      },
+      "search": {
+        "label": "Agregar música",
+        "placeholder": "Pega un enlace o busca radios",
+        "hint": "Los enlaces de YouTube, SoundCloud y Vimeo o un enlace directo a un archivo de audio van a la cola; cualquier otra cosa busca emisoras de radio.",
+        "clear": "Borrar"
+      },
+      "queue": {
+        "title": "A continuación",
+        "empty": "Aún no hay nada en la cola.",
+        "remove": "Quitar {title} de la cola"
+      },
+      "add": {
+        "link": "Enlace de {source}",
+        "submit": "Agregar a la cola",
+        "added": "Agregada a la cola"
+      },
+      "radio": {
+        "label": "Emisoras",
+        "empty": "No se encontraron emisoras.",
+        "error": "La búsqueda de radio no está disponible ahora.",
+        "play": "Reproducir {name}"
+      },
+      "genres": {
+        "title": "Radio según tu ánimo",
+        "items": {
+          "lofi": "Lo-fi",
+          "jazz": "Jazz",
+          "rock": "Rock",
+          "classical": "Clásica",
+          "ambient": "Ambient",
+          "chill": "Chill"
+        }
+      },
+      "share": {
+        "title": "Mi música",
+        "hint": "La música suena desde tu cuenta (VK Music, Yandex Music o lo que tengas abierto en una pestaña del navegador) y todos en la sala la escuchan.",
+        "tab": "Compartir el audio de una pestaña",
+        "tabHint": "En el selector, elige la pestaña con la música y activa “Compartir audio de la pestaña”.",
+        "tabUnsupported": "Para compartir el audio de una pestaña necesitas un navegador de escritorio.",
+        "files": "Reproducir archivos de este dispositivo",
+        "sharingTab": "Compartiendo el audio de una pestaña",
+        "playingFile": "Reproduciendo {name}",
+        "paused": "En pausa: {name}",
+        "pause": "Pausar",
+        "resume": "Reanudar",
+        "next": "Siguiente archivo",
+        "stop": "Dejar de compartir",
+        "noAudio": "No se compartió audio: activa “Compartir audio de la pestaña” en el selector.",
+        "fileFailed": "No se pudo reproducir {name}.",
+        "publishFailed": "No se pudo empezar a compartir en esta sala."
+      },
+      "settings": {
+        "volume": "Volumen de la música",
+        "ducking": "Bajar la música cuando alguien habla"
+      },
+      "player": {
+        "unplayable": "Esta pista no se puede reproducir aquí; la saltamos.",
+        "unavailable": "El reproductor no cargó; puede que el servicio esté bloqueado en tu red.",
+        "tapToListen": "Toca para escuchar"
+      },
+      "sources": {
+        "youtube": "YouTube",
+        "soundcloud": "SoundCloud",
+        "radio": "Radio",
+        "vimeo": "Vimeo",
+        "file": "Archivo de audio"
+      },
+      "playInRoom": "Reproducir en la sala",
+      "tabOnly": {
+        "title": "{service} no se puede insertar",
+        "hint": "Reprodúcelo en una pestaña del navegador y luego usa “Compartir el audio de una pestaña” en Mi música, abajo: todos en la sala lo escucharán.",
+        "services": {
+          "vk": "VK",
+          "yandex": "Yandex Music",
+          "spotify": "Spotify",
+          "apple": "Apple Music",
+          "zvuk": "Zvuk",
+          "deezer": "Deezer"
+        }
+      }
+    },
+    "password": {
+      "heading": "Esta sala tiene contraseña",
+      "hint": "Pídele la contraseña a quien te envió el enlace: “{name}” no se abre sin ella.",
+      "label": "Contraseña",
+      "wrong": "Contraseña incorrecta",
+      "join": "Unirse",
+      "validation": {
+        "passwordMin": "Mín. 4 caracteres",
+        "passwordMax": "Máx. 128 caracteres"
+      }
+    },
+    "shortcuts": {
+      "pttBlockedByMute": "El micrófono está silenciado: actívalo para usar Presionar para hablar"
+    },
+    "controls": {
+      "mute": "Silenciar",
+      "unmute": "Activar micrófono",
+      "micDevice": "Elegir micrófono",
+      "camera": "Activar cámara",
+      "cameraOff": "Desactivar cámara",
+      "camDevice": "Elegir cámara",
+      "screenShare": "Compartir pantalla",
+      "stopShare": "Dejar de compartir",
+      "react": "Enviar una reacción",
+      "deafen": "Ensordecer",
+      "undeafen": "Dejar de ensordecer",
+      "speakerDevice": "Elegir altavoces",
+      "pttHint": "Presionar para hablar",
+      "leave": "Salir",
+      "invisibleMicBlocked": "No puedes hablar en modo invisible",
+      "mutedByOwner": "Silenciado por el dueño de la sala"
+    },
+    "dmWaiting": "Esperando a que la otra persona se una…",
+    "expandVideo": "Ampliar video",
+    "collapseVideo": "Contraer video",
+    "invisibleBadge": "Invisible",
+    "invisibleNotice": "Entraste oculto: nadie te ve ni te escucha",
+    "badges": {
+      "screen": "Pantalla",
+      "music": "Música"
+    },
+    "callService": {
+      "text": "Estás en una sala de voz. Toca para volver.",
+      "channel": "Llamada en curso"
+    }
+  },
+  "chat": {
+    "title": "Chat",
+    "close": "Cerrar chat",
+    "open": "Mostrar chat",
+    "hide": "Ocultar chat",
+    "messagePlaceholder": "Mensaje…",
+    "send": "Enviar mensaje",
+    "attach": "Adjuntar archivo",
+    "dropToSend": "Suelta para enviar",
+    "uploading": "Subiendo…",
+    "fileTooLarge": "El archivo es demasiado grande (máx. 25 MB)",
+    "sending": "Enviando…",
+    "sendFailed": "No enviado",
+    "retry": "Reintentar",
+    "discard": "Eliminar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "edited": "editado",
+    "editHint": "Enter para guardar · Shift+Enter para nueva línea · Esc para cancelar",
+    "editTitle": "Editar mensaje",
+    "save": "Guardar",
+    "deletedPlaceholder": "Mensaje eliminado",
+    "deleteTitle": "¿Eliminar mensaje?",
+    "deleteDescription": "Este mensaje se eliminará para todos de forma permanente. Esta acción no se puede deshacer.",
+    "cancel": "Cancelar",
+    "editFailed": "No se pudo editar el mensaje",
+    "deleteFailed": "No se pudo eliminar el mensaje",
+    "today": "Hoy",
+    "yesterday": "Ayer",
+    "empty": {
+      "title": "Qué silencio por aquí",
+      "description": "Los mensajes enviados en esta sala aparecen aquí y quedan para todos los que entren después. Comparte un enlace, un archivo o simplemente saluda."
+    },
+    "openInBrowser": "Abrir en el navegador",
+    "download": "Descargar"
+  },
+  "channels": {
+    "searchPlaceholder": "Buscar salas...",
+    "noRoomsYet": "Aún no hay salas",
+    "nothingFound": "No se encontró nada",
+    "nothingFoundHint": "Ninguna sala coincide con ese nombre. Borra la búsqueda para verlas todas de nuevo.",
+    "online": "en línea",
+    "createRoom": "Crear una sala",
+    "emptyHint": "Elige una sala de la página o crea una nueva.",
+    "privateRoom": "Sala privada",
+    "friends": {
+      "heading": "Amigos",
+      "online": "En línea — {count}",
+      "offline": "Desconectados — {count}"
+    },
+    "activity": {
+      "heading": "Actividad de amigos",
+      "inRooms": "En salas ahora",
+      "available": "{count, plural, one {# disponible para hablar} other {# disponibles para hablar}}",
+      "join": "Unirse",
+      "others": "{count, plural, one {+# persona más} other {+# personas más}}",
+      "emptyTitle": "Todo está tranquilo ahora",
+      "emptyHint": "Ninguno de tus amigos está conectado. Crea una sala y sé el primero en entrar."
+    }
+  },
+  "createRoom": {
+    "trigger": "Crear sala",
+    "title": "Crear una sala",
+    "description": "Ponle nombre, elige quién puede unirse y te llevamos directo a la llamada.",
+    "nameLabel": "Nombre de la nueva sala",
+    "namePlaceholder": "reunión del equipo",
+    "passwordLabel": "Contraseña",
+    "passwordPlaceholder": "Mín. 4 caracteres",
+    "privateLabel": "Privada (se necesita contraseña para entrar)",
+    "submit": "Crear sala",
+    "created": "Sala creada",
+    "nameCounter": "{count}/{max}",
+    "passwordHint": "Al menos 4 caracteres. Compártela solo con quienes quieras dentro.",
+    "privateExplainer": "La sala sigue en la lista, con un candado. Solo quienes tengan la contraseña pueden entrar.",
+    "publicExplainer": "Todos ven la sala en el lobby y pueden entrar sin contraseña.",
+    "hint": "Puedes cambiar el nombre o la contraseña de la sala más tarde desde su menú."
+  },
+  "manageRoom": {
+    "menu": {
+      "open": "Administrar sala",
+      "edit": "Editar sala",
+      "delete": "Eliminar sala"
+    },
+    "edit": {
+      "title": "Editar sala",
+      "description": "Cambia el nombre de la sala o hazla pública o privada.",
+      "nameLabel": "Nombre",
+      "passwordLabel": "Nueva contraseña",
+      "passwordHint": "Déjalo vacío para mantener la contraseña actual.",
+      "privateLabel": "Privada (se necesita contraseña para entrar)",
+      "submit": "Guardar cambios",
+      "saved": "Sala actualizada",
+      "nameCounter": "{count}/{max}",
+      "privateExplainer": "La sala sigue en la lista, con un candado. Solo quienes tengan la contraseña pueden entrar.",
+      "publicExplainer": "Todos ven la sala en el lobby y pueden entrar sin contraseña.",
+      "hint": "Cambiar la contraseña no expulsa a nadie: solo afecta a quienes entren después."
+    },
+    "delete": {
+      "title": "¿Eliminar \"{name}\"?",
+      "description": "Quienes estén dentro se desconectarán. Esto no se puede deshacer.",
+      "cancel": "Cancelar",
+      "confirm": "Eliminar",
+      "deleted": "Sala eliminada",
+      "consequences": "La sala, su historial de chat y todos sus canales desaparecen para siempre.",
+      "hint": "Todos los que estén en la llamada se desconectarán de inmediato."
+    }
+  },
+  "participant": {
+    "muteForMe": "Silenciar para mí",
+    "unmuteForMe": "Dejar de silenciar para mí",
+    "volume": "Volumen",
+    "volumeFor": "Volumen de {name}",
+    "screenVolume": "Audio de pantalla",
+    "screenVolumeFor": "Volumen del audio de pantalla de {name}",
+    "copyName": "Copiar nombre",
+    "nameCopied": "Nombre copiado"
+  },
+  "roomModeration": {
+    "label": "Moderación de la sala",
+    "mute": "Silenciar para todos",
+    "unmute": "Permitir hablar",
+    "remove": "Expulsar de la sala",
+    "ban": "Prohibir la entrada a la sala",
+    "toasts": {
+      "mute": "{name} quedó silenciado para todos",
+      "unmute": "{name} ya puede volver a hablar",
+      "remove": "{name} fue expulsado de la sala",
+      "ban": "{name} ya no puede entrar a la sala"
+    },
+    "confirm": {
+      "cancel": "Cancelar",
+      "remove": {
+        "title": "¿Expulsar a {name} de la sala?",
+        "description": "{name} se desconectará de inmediato y volverá al lobby. Podrá entrar de nuevo.",
+        "confirm": "Expulsar"
+      },
+      "ban": {
+        "title": "¿Prohibir la entrada a {name}?",
+        "description": "{name} se desconectará de inmediato y no podrá volver hasta que levantes la prohibición desde el menú de la sala.",
+        "confirm": "Prohibir la entrada"
+      }
+    },
+    "notices": {
+      "removed": "Te expulsaron de la sala",
+      "banned": "Te prohibieron la entrada a la sala",
+      "muted": "El dueño de la sala silenció tu micrófono",
+      "unmuted": "El dueño de la sala te permitió volver a hablar",
+      "roomName": "«{name}»"
+    },
+    "bans": {
+      "menu": "Entradas prohibidas",
+      "title": "Entradas prohibidas",
+      "description": "Quienes tienen prohibida la entrada a \"{name}\" no podrán entrar hasta que levantes la prohibición.",
+      "empty": "Nadie tiene prohibida la entrada a esta sala.",
+      "bannedAt": "Prohibida desde el {date}",
+      "unban": "Levantar prohibición",
+      "unbanUser": "Levantar la prohibición a {name}",
+      "unbanned": "{name} ya puede volver a entrar a la sala"
+    }
+  }
+}

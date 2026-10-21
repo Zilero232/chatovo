@@ -1,51 +1,42 @@
-import { getCurrentWindow } from '@tauri-apps/api/window';
+const currentWindow = async () => (await import('@tauri-apps/api/window')).getCurrentWindow();
 
-const safeWindow = async (label: string, fn: () => Promise<void>) => {
+type MainWindow = Awaited<ReturnType<typeof currentWindow>>;
+
+const withWindow = async (label: string, action: (appWindow: MainWindow) => Promise<void>) => {
   try {
-    await fn();
+    await action(await currentWindow());
   } catch (err) {
     console.error(`Window ${label} failed`, err);
   }
 };
 
-export const hideMainWindow = async () => {
-  await safeWindow('hide', async () => {
-    await getCurrentWindow().hide();
-  });
-};
+export const hideMainWindow = () => withWindow('hide', (appWindow) => appWindow.hide());
 
-export const minimizeMainWindow = async () => {
-  await safeWindow('minimize', async () => {
-    await getCurrentWindow().minimize();
-  });
-};
+export const minimizeMainWindow = () => withWindow('minimize', (appWindow) => appWindow.minimize());
 
-export const toggleMaximizeMainWindow = async () => {
-  await safeWindow('toggleMaximize', async () => {
-    await getCurrentWindow().toggleMaximize();
-  });
-};
+export const toggleMaximizeMainWindow = () =>
+  withWindow('toggleMaximize', (appWindow) => appWindow.toggleMaximize());
 
-export const closeMainWindow = async () => {
-  await safeWindow('close', async () => {
-    await getCurrentWindow().close();
-  });
-};
+export const closeMainWindow = () => withWindow('close', (appWindow) => appWindow.close());
 
 export const isMainWindowMaximized = async () => {
   try {
-    return await getCurrentWindow().isMaximized();
+    return await (await currentWindow()).isMaximized();
   } catch (err) {
     console.error('Window isMaximized failed', err);
+
     return false;
   }
 };
 
 export const onMainWindowResized = async (handler: () => void) => {
   try {
-    return await getCurrentWindow().onResized(handler);
+    const appWindow = await currentWindow();
+
+    return await appWindow.onResized(handler);
   } catch (err) {
     console.error('Window onResized failed', err);
+
     return () => {};
   }
 };

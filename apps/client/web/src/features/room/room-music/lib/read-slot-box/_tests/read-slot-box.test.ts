@@ -2,7 +2,15 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import { readSlotBox } from '../read-slot-box';
 
-const RECT = { left: 10, top: 20, width: 160, height: 90 };
+const RECT = {
+  left: 10,
+  top: 20,
+  width: 160,
+  height: 90,
+  clipTop: 0,
+  clipBottom: 0,
+  isPassive: false
+};
 
 const mount = () => {
   const slot = document.createElement('span');
@@ -59,5 +67,51 @@ describe('readSlotBox', () => {
     const { host } = mount();
 
     expect(readSlotBox({ slot: null, host })).toBeNull();
+  });
+
+  it('clips the part of the slot scrolled out of the music viewport', () => {
+    const { slot, inner, host } = mount();
+    const viewport = document.createElement('div');
+
+    viewport.dataset.musicViewport = 'clip';
+    viewport.append(slot);
+    document.body.append(viewport);
+    vi.spyOn(viewport, 'getBoundingClientRect').mockReturnValue(
+      DOMRect.fromRect({ x: 0, y: 50, width: 400, height: 40 })
+    );
+    hitTest(inner);
+
+    expect(readSlotBox({ slot, host })).toEqual({ ...RECT, clipTop: 30, clipBottom: 20 });
+    expect(document.elementFromPoint).toHaveBeenCalledWith(90, 70);
+  });
+
+  it('hides the player once the slot is scrolled out of the music viewport', () => {
+    const { slot, inner, host } = mount();
+    const viewport = document.createElement('div');
+
+    viewport.dataset.musicViewport = 'scroll';
+    viewport.append(slot);
+    document.body.append(viewport);
+    vi.spyOn(viewport, 'getBoundingClientRect').mockReturnValue(
+      DOMRect.fromRect({ x: 0, y: 200, width: 400, height: 300 })
+    );
+    hitTest(inner);
+
+    expect(readSlotBox({ slot, host })).toBeNull();
+  });
+
+  it('lets touches and the wheel through to a scrolling viewport under the player', () => {
+    const { slot, inner, host } = mount();
+    const viewport = document.createElement('div');
+
+    viewport.dataset.musicViewport = 'scroll';
+    viewport.append(slot);
+    document.body.append(viewport);
+    vi.spyOn(viewport, 'getBoundingClientRect').mockReturnValue(
+      DOMRect.fromRect({ x: 0, y: 0, width: 400, height: 400 })
+    );
+    hitTest(inner);
+
+    expect(readSlotBox({ slot, host })).toEqual({ ...RECT, isPassive: true });
   });
 });

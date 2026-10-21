@@ -1,11 +1,6 @@
-import { SITE_EN_PREFIX, SITE_PATHS } from '@chatovo/config';
+import { SITE_PATHS } from '@chatovo/config';
 
-export const EN_PREFIX = SITE_EN_PREFIX;
-
-export const ROUTES = {
-  ...SITE_PATHS,
-  homeEn: EN_PREFIX
-} as const;
+export const ROUTES = SITE_PATHS;
 
 export const APP_ROUTES = {
   lobby: '/lobby',

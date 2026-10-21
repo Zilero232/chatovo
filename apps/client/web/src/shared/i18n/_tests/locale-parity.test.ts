@@ -1,6 +1,7 @@
 import { uiMessages } from '@chatovo/ui-kit/messages';
 import { describe, expect, it } from 'vitest';
 
+import { de } from '../locales/de';
 import { en } from '../locales/en';
 import enAdmin from '../locales/en/admin.json';
 import enApp from '../locales/en/app.json';
@@ -8,7 +9,15 @@ import enAuth from '../locales/en/auth.json';
 import enCommon from '../locales/en/common.json';
 import enRoom from '../locales/en/room.json';
 import enSocial from '../locales/en/social.json';
+import { es } from '../locales/es';
+import { fr } from '../locales/fr';
+import { pl } from '../locales/pl';
+import { pt } from '../locales/pt';
 import { ru } from '../locales/ru';
+import { tr } from '../locales/tr';
+import { uk } from '../locales/uk';
+
+const TRANSLATIONS = Object.entries({ ru, uk, es, pt, de, fr, tr, pl });
 
 const EN_CHUNKS = {
   ui: uiMessages.en,
@@ -34,12 +43,12 @@ const keyPaths = (value: unknown, prefix = ''): string[] => {
 };
 
 describe('locale files', () => {
-  it('expose the same key paths in both languages', () => {
-    expect(keyPaths(ru).sort()).toEqual(keyPaths(en).sort());
+  it.each(TRANSLATIONS)('%s exposes the same key paths as english', (_, messages) => {
+    expect(keyPaths(messages).sort()).toEqual(keyPaths(en).sort());
   });
 
-  it('keep the namespaces in the same order in both languages', () => {
-    expect(Object.keys(ru)).toEqual(Object.keys(en));
+  it.each(TRANSLATIONS)('%s keeps the namespaces in the english order', (_, messages) => {
+    expect(Object.keys(messages)).toEqual(Object.keys(en));
   });
 
   it('resolves every key path to a string, never a stray object or null', () => {
@@ -48,19 +57,35 @@ describe('locale files', () => {
     expect(broken).toEqual([]);
   });
 
-  it('translates every russian message rather than leaving the english text', () => {
-    const untranslated = keyPaths(ru).filter((path) => {
-      const value = readPath(path, ru);
+  it.each([['en', en] as const, ...TRANSLATIONS])(
+    '%s never puts an ICU-escaping apostrophe before a tag, a brace or #',
+    (_, messages) => {
+      const escaped = keyPaths(messages).filter((path) => {
+        const value = readPath(path, messages);
 
-      if (typeof value !== 'string' || value.length < 24) {
-        return false;
-      }
+        return typeof value === 'string' && /'[{}#<|]/.test(value);
+      });
 
-      return value === readPath(path, en);
-    });
+      expect(escaped).toEqual([]);
+    }
+  );
 
-    expect(untranslated).toEqual([]);
-  });
+  it.each(TRANSLATIONS)(
+    '%s translates every message rather than leaving the english text',
+    (_, messages) => {
+      const untranslated = keyPaths(messages).filter((path) => {
+        const value = readPath(path, messages);
+
+        if (typeof value !== 'string' || value.length < 24) {
+          return false;
+        }
+
+        return value === readPath(path, en);
+      });
+
+      expect(untranslated).toEqual([]);
+    }
+  );
 });
 
 describe('locale chunks', () => {

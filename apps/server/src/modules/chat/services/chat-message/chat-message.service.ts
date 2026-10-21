@@ -1,9 +1,12 @@
 import type { ChatMessage, ChatMessagesPage } from '@chatovo/schemas';
 
+import { USER_ROLE } from '@chatovo/schemas';
 import { Injectable } from '@nestjs/common';
-import { isNonNullish } from 'remeda';
+import { isNonNullish, isNullish } from 'remeda';
 
 import type {
+  AssertCanDeleteMessageInput,
+  AssertSenderNotProtectedInput,
   DeleteChatMessageInput,
   EditChatMessageInput,
   GetOwnMessageInput,
@@ -13,7 +16,12 @@ import type {
 
 import { AppForbiddenException, AppNotFoundException } from '../../../../common/exceptions';
 import { PrismaService } from '../../../../core';
-import { assertCanAccessRoom, senderSelect } from '../../../../lib';
+import {
+  assertCanAccessRoom,
+  assertCanModerateRoom,
+  assertDmWithoutUserBlock,
+  senderSelect
+} from '../../../../lib';
 import { emitChatEvent } from '../../emit-chat-event';
 import { toChatMessage } from '../../mappers';
 
@@ -25,6 +33,7 @@ export class ChatMessageService {
     const { id, roomId, body } = input;
 
     await assertCanAccessRoom({ roomId, userId: senderId });
+    await assertDmWithoutUserBlock({ roomId, userId: senderId });
 
     const existing = await this.prisma.message.findUnique({
       where: { id },
@@ -74,7 +83,7 @@ export class ChatMessageService {
     };
   }
 
-  private async getOwnMessageOrThrow({ messageId, senderId }: GetOwnMessageInput) {
+  private async getLiveMessageOrThrow(messageId: string) {
     const message = await this.prisma.message.findUnique({
       where: { id: messageId },
       select: { id: true, senderId: true, roomId: true, deletedAt: true }
@@ -84,6 +93,12 @@ export class ChatMessageService {
       throw new AppNotFoundException('MESSAGE_NOT_FOUND', 'Message not found');
     }
 
+    return message;
+  }
+
+  private async getOwnMessageOrThrow({ messageId, senderId }: GetOwnMessageInput) {
+    const message = await this.getLiveMessageOrThrow(messageId);
+
     if (message.senderId !== senderId) {
       throw new AppForbiddenException('MESSAGE_NOT_OWNED', 'Not your message');
     }
@@ -91,6 +106,43 @@ export class ChatMessageService {
     await assertCanAccessRoom({ roomId: message.roomId, userId: senderId });
 
     return message;
+  }
+
+  private async assertCanDeleteMessage({
+    messageId,
+    userId
+  }: AssertCanDeleteMessageInput): Promise<void> {
+    const { senderId, roomId } = await this.getLiveMessageOrThrow(messageId);
+
+    if (senderId === userId) {
+      await assertCanAccessRoom({ roomId, userId });
+
+      return;
+    }
+
+    await assertCanModerateRoom({ roomId, userId });
+    await this.assertSenderNotProtected({ senderId, userId });
+  }
+
+  private async assertSenderNotProtected({
+    senderId,
+    userId
+  }: AssertSenderNotProtectedInput): Promise<void> {
+    if (isNullish(senderId)) {
+      return;
+    }
+
+    const [actor, sender] = await Promise.all([
+      this.prisma.user.findUnique({ where: { id: userId }, select: { role: true } }),
+      this.prisma.user.findUnique({ where: { id: senderId }, select: { role: true } })
+    ]);
+
+    if (actor?.role !== USER_ROLE.admin && sender?.role === USER_ROLE.admin) {
+      throw new AppForbiddenException(
+        'ROOM_MODERATION_TARGET_PROTECTED',
+        'This participant cannot be moderated'
+      );
+    }
   }
 
   async editMessage({ messageId, input, senderId }: EditChatMessageInput): Promise<ChatMessage> {
@@ -114,8 +166,8 @@ export class ChatMessageService {
     return chatMessage;
   }
 
-  async deleteMessage({ messageId, senderId }: DeleteChatMessageInput): Promise<ChatMessage> {
-    await this.getOwnMessageOrThrow({ messageId, senderId });
+  async deleteMessage({ messageId, userId }: DeleteChatMessageInput): Promise<ChatMessage> {
+    await this.assertCanDeleteMessage({ messageId, userId });
 
     const message = await this.prisma.message.update({
       where: { id: messageId },

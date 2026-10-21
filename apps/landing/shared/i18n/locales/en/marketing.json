@@ -2,7 +2,7 @@
   "home": {
     "nav": {
       "ariaLabel": "Page sections",
-      "localeSwitch": "RU",
+      "language": "Language",
       "menuLabel": "Open menu",
       "menuTitle": "Navigation menu",
       "menuDescription": "Site sections, language switch and app sign-in.",
@@ -175,6 +175,10 @@
         "about": "About",
         "support": "Support"
       }
+    },
+    "meta": {
+      "title": "Chatovo — Real-time voice & video rooms",
+      "description": "Free voice and video rooms that run in your browser. Create a room in seconds, share the link, and talk — with screen sharing and chat. No install, no server setup."
     }
   },
   "changelog": {
@@ -203,13 +207,53 @@
       "minor": "Regular release"
     },
     "entries": {
+      "nineLanguages": {
+        "title": "Nine languages",
+        "description": "Chatovo now speaks English, Russian, Ukrainian, Spanish, Portuguese, German, French, Turkish and Polish. It follows the system language and can be changed in Settings."
+      },
+      "roomModeration": {
+        "title": "Room moderation",
+        "description": "A room owner can mute someone for everyone, remove them or ban them, and lift the ban later."
+      },
+      "blockUsers": {
+        "title": "Blocking",
+        "description": "A blocked person can’t message you, call you or add you, and their messages in rooms are collapsed."
+      },
+      "chatFilter": {
+        "title": "A chat filter",
+        "description": "Swear words in the chat are masked with asterisks. The filter can be turned off in Settings."
+      },
+      "backgroundCalls": {
+        "title": "Calls in the background on Android",
+        "description": "With the screen off or another app open, the call keeps your microphone and shows a notification."
+      },
+      "calmerIcon": {
+        "title": "A calmer icon",
+        "description": "The icon moved to a soft violet that stands out on a dark screen."
+      },
+      "phoneLayout": {
+        "title": "A tidier phone layout",
+        "description": "Rooms and friends get their own tabs in the lobby, and the call grid fits any screen."
+      },
+      "stopMusic": {
+        "title": "Stop the music",
+        "description": "One button ends the music in a room, and the music window scrolls on a phone."
+      },
+      "honestMute": {
+        "title": "Mute means mute",
+        "description": "A muted microphone no longer lets sound through or lights up the speaking ring."
+      },
+      "voiceSettingsMidCall": {
+        "title": "Voice settings mid-call",
+        "description": "Noise and echo suppression switch on the spot, and push-to-talk stays closed after changing the microphone."
+      },
       "googlePlay": {
         "title": "App on Google Play",
         "description": "The Android version of Chatovo moved to Google Play and updates straight from there."
       },
       "accountDeletion": {
         "title": "Delete your account from the app",
-        "description": "Delete the account in Settings → Security, confirmed by email. A public page with the steps lives at chatovo.ru/account/delete."
+        "description": "Delete the account in Settings → Account, confirmed by email. A public page with the steps lives at chatovo.ru/account/delete."
       },
       "participantVolume": {
         "title": "Per-participant volume is remembered",
@@ -677,6 +721,8 @@
       }
     },
     "highlights": {
+      "nineLanguages": "Nine languages",
+      "roomModeration": "Room moderation",
       "googlePlay": "Moved to Google Play",
       "accountDeletion": "Account deletion",
       "participantVolume": "Volume is remembered",
@@ -1212,7 +1258,7 @@
             "Account and profile data is kept while your account is active.",
             "Chat messages and uploaded files are kept until deleted by you or removed as part of account deletion.",
             "Session logs are kept for a limited period required for security and troubleshooting.",
-            "You can delete the account yourself: Settings → Security → Delete account, or from chatovo.ru/account/delete. Deletion is confirmed through a link we email you."
+            "You can delete the account yourself: Settings → Account → Delete account, or from chatovo.ru/account/delete. Deletion is confirmed through a link we email you."
           ]
         },
         {
@@ -1350,6 +1396,14 @@
           "paragraphs": ["Questions about these Terms: {contact}"]
         }
       ]
+    },
+    "privacyMeta": {
+      "title": "Privacy Policy",
+      "description": "Chatovo privacy policy — how we collect, use, and protect your data."
+    },
+    "termsMeta": {
+      "title": "Terms of Service",
+      "description": "Chatovo terms of service and community rules."
     }
   },
   "notFound": {
@@ -1362,7 +1416,6 @@
     "loadFailed": "Couldn't load the latest release.",
     "openReleases": "Open releases on GitHub",
     "version": "Version {version}",
-    "notAvailable": "Not available yet",
     "downloadAction": "Download",
     "platforms": {
       "windows": "Windows",
@@ -1371,6 +1424,7 @@
       "android": "Android"
     },
     "storeAction": "Open",
-    "googlePlay": "Google Play"
+    "googlePlay": "Google Play",
+    "notAvailable": "Not available yet"
   }
 }

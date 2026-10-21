@@ -2,7 +2,13 @@ import { Track } from 'livekit-client';
 import { describe, expect, it } from 'vitest';
 
 import { MAX_STORED_VOLUMES } from '../../../config';
-import { buildVolumeStorageKey, capMutes, capVolumes, clampVolume } from '../participant-volume';
+import {
+  buildVolumeStorageKey,
+  capMutes,
+  capVolumes,
+  clampVolume,
+  resolveParticipantVolume
+} from '../participant-volume';
 
 describe('buildVolumeStorageKey', () => {
   it('keeps the bare identity for the microphone so volumes saved before screen share still load', () => {
@@ -61,5 +67,23 @@ describe('capMutes', () => {
 
     expect(Object.keys(capped)).toHaveLength(MAX_STORED_VOLUMES);
     expect(capped).not.toHaveProperty('user-0');
+  });
+});
+
+describe('resolveParticipantVolume', () => {
+  it('plays the saved volume for someone neither muted nor blocked', () => {
+    expect(resolveParticipantVolume({ volume: 0.4, isMuted: false, isBlocked: false })).toBe(0.4);
+  });
+
+  it('silences a blocked participant even when their saved choice is unmuted at full volume', () => {
+    expect(resolveParticipantVolume({ volume: 1, isMuted: false, isBlocked: true })).toBe(0);
+  });
+
+  it('keeps a participant muted by hand silent after an unblock', () => {
+    expect(resolveParticipantVolume({ volume: 0.7, isMuted: true, isBlocked: false })).toBe(0);
+  });
+
+  it('holds an out-of-range saved volume inside the slider range', () => {
+    expect(resolveParticipantVolume({ volume: 3, isMuted: false, isBlocked: false })).toBe(1);
   });
 });

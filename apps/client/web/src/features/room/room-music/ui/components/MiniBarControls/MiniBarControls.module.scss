@@ -1,14 +1,11 @@
 @use '@chatovo/ui-kit/styles/mixins' as *;
 
-.root {
+.root,
+.transport {
   display: flex;
   flex-shrink: 0;
   align-items: center;
   gap: var(--space-1);
-}
-
-.play {
-  margin-inline: rem(2);
 }
 
 .expand {

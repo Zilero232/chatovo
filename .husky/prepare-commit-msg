@@ -1,0 +1,9 @@
+#!/bin/sh
+# Added by `commit-jazzer init`: asks the commit-jazzer questions on `git commit`.
+if [ -x node_modules/.bin/commit-jazzer ]; then
+  exec node_modules/.bin/commit-jazzer hook "$1" "$2"
+fi
+if command -v commit-jazzer >/dev/null 2>&1; then
+  exec commit-jazzer hook "$1" "$2"
+fi
+exit 0

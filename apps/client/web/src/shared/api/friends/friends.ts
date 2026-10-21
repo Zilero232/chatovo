@@ -6,7 +6,8 @@ import type {
   IncomingFriendCallResponse,
   OutgoingFriendCallResponse,
   Room,
-  SendFriendRequestInput
+  SendFriendRequestInput,
+  UserBlockEntry
 } from '@chatovo/schemas';
 
 import { api } from '../http';
@@ -49,6 +50,22 @@ export const declineFriendRequest = async (friendshipId: string): Promise<void> 
 
 export const removeFriendship = async (userId: string): Promise<void> => {
   await api.delete(`/friends/${userId}`);
+};
+
+export const listBlockedUsers = async (): Promise<UserBlockEntry[]> => {
+  const { data } = await api.get('/friends/blocks');
+
+  return data;
+};
+
+export const blockUser = async (userId: string): Promise<UserBlockEntry> => {
+  const { data } = await api.post(`/friends/blocks/${userId}`);
+
+  return data;
+};
+
+export const unblockUser = async (userId: string): Promise<void> => {
+  await api.delete(`/friends/blocks/${userId}`);
 };
 
 export const getOrCreateFriendDmRoom = async (userId: string): Promise<Room> => {

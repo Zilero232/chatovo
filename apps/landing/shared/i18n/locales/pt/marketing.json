@@ -1,0 +1,1430 @@
+{
+  "home": {
+    "nav": {
+      "ariaLabel": "Seções da página",
+      "language": "Idioma",
+      "menuLabel": "Abrir menu",
+      "menuTitle": "Menu de navegação",
+      "menuDescription": "Seções do site, troca de idioma e acesso ao app.",
+      "pages": {
+        "features": "Recursos",
+        "download": "Baixar",
+        "changelog": "Novidades",
+        "about": "Sobre",
+        "support": "Suporte"
+      },
+      "signIn": "Entrar"
+    },
+    "hero": {
+      "eyebrow": "Salas de voz para a sua turma",
+      "title": "Uma sala para a sua turma.",
+      "titleAccent": "Entre e é só conversar.",
+      "description": "Crie uma sala, mande o link e, quinze segundos depois, vocês estão juntos: voz, vídeo, compartilhamento de tela e música para todo mundo. Sem servidores, cargos nem configuração.",
+      "ctaPrimary": "Criar uma sala",
+      "ctaDownload": "Baixar o app",
+      "stageLabel": "O gato Chato ouvindo música de fone",
+      "points": {
+        "free": "Grátis, sem anúncios e sem limite de duração das chamadas",
+        "everywhere": "No navegador, no Windows, macOS, Linux e Android"
+      },
+      "card": {
+        "room": "Papo da noite",
+        "live": "Ao vivo",
+        "track": "Lo-fi para a noite",
+        "source": "Rádio · adicionada por max"
+      }
+    },
+    "showcase": {
+      "heading": "Uma noite no Chatovo",
+      "subheading": "Voz, música e chat numa só janela. Nada para instalar — a sala abre direto no navegador.",
+      "alt": "Uma sala de voz do Chatovo: quatro pessoas, música compartilhada e chat",
+      "address": "app.chatovo.ru",
+      "chips": {
+        "music": "A música compartilhada toca em sincronia para todos",
+        "chat": "Chat e arquivos ao lado da voz",
+        "speaking": "Dá para ver quem está falando"
+      }
+    },
+    "spotlights": {
+      "music": {
+        "eyebrow": "Música",
+        "title": "Coloque música para a sala toda",
+        "description": "Cole um link e a faixa toca para todos ao mesmo tempo — ninguém fica para trás.",
+        "alt": "O player do Chatovo: vídeo, fila e rádio",
+        "points": {
+          "sources": "YouTube, SoundCloud, Vimeo, links diretos e rádio online",
+          "ducking": "A música abaixa enquanto alguém fala",
+          "share": "Todo o resto por uma aba do navegador compartilhada"
+        }
+      },
+      "voice": {
+        "eyebrow": "Voz",
+        "title": "Uma chamada que simplesmente funciona",
+        "description": "Nosso próprio servidor de mídia, e não a nuvem de outra empresa: som limpo e baixa latência.",
+        "alt": "A grade de participantes de uma sala de voz do Chatovo",
+        "points": {
+          "audio": "Supressão de ruído e de eco, ganho automático",
+          "screen": "Tela e câmera com um clique, até 4K",
+          "volume": "Um volume separado para cada pessoa"
+        }
+      }
+    },
+    "stats": {
+      "items": {
+        "free": {
+          "value": "R$ 0",
+          "label": "Grátis, sem anúncios e sem assinaturas"
+        },
+        "unlimited": {
+          "value": "∞",
+          "label": "Sem limite de duração das chamadas"
+        },
+        "platforms": {
+          "value": "5",
+          "label": "Navegador, Windows, macOS, Linux e Android"
+        }
+      }
+    },
+    "steps": {
+      "heading": "Como funciona",
+      "subheading": "Três passos de uma tela vazia até uma conversa ao vivo.",
+      "items": {
+        "create": {
+          "title": "Crie uma sala",
+          "description": "Dê um nome a ela e, se quiser, coloque uma senha.",
+          "fragment": "Criar uma sala"
+        },
+        "share": {
+          "title": "Compartilhe o link",
+          "description": "Copie o endereço da sala e mande onde vocês já conversam."
+        },
+        "talk": {
+          "title": "Comece a falar",
+          "description": "Seu microfone já entra ligado — fale, compartilhe a tela, escreva no chat.",
+          "fragment": "Microfone ligado"
+        }
+      }
+    },
+    "desktop": {
+      "eyebrow": "Apps",
+      "heading": "No seu computador e no seu celular",
+      "description": "Tudo funciona no navegador. Os apps acrescentam o que uma aba não consegue: atalhos globais, o modo Pressione para falar e notificações com o Chatovo minimizado.",
+      "cta": "Baixar o app",
+      "items": {
+        "shortcuts": {
+          "title": "Atalhos globais",
+          "description": "Silencie o microfone sem sair do jogo ou do editor."
+        },
+        "ptt": {
+          "title": "Pressione para falar",
+          "description": "O microfone só abre enquanto a tecla está pressionada — ótimo num ambiente barulhento."
+        },
+        "platforms": {
+          "title": "Três plataformas",
+          "description": "Um só código para Windows, macOS e Linux — e ainda um app para Android."
+        }
+      },
+      "desktopAlt": "O Chatovo num computador",
+      "mobileAlt": "O Chatovo num celular"
+    },
+    "faq": {
+      "heading": "Perguntas frequentes",
+      "subheading": "Respostas curtas para o que mais nos perguntam.",
+      "items": {
+        "free": {
+          "question": "O Chatovo é grátis?",
+          "answer": "Totalmente. Não há planos pagos, nem limite de duração das chamadas, nem recursos escondidos atrás de uma assinatura."
+        },
+        "discord": {
+          "question": "Qual a diferença entre o Chatovo e o Discord?",
+          "answer": "O Discord gira em torno de um servidor com cargos e canais que você precisa configurar antes. O Chatovo gira em torno da conversa: uma sala fica pronta em segundos e dura exatamente o tempo que você precisar."
+        },
+        "capacity": {
+          "question": "Quantas pessoas cabem numa sala?",
+          "answer": "De duas pessoas até algumas dezenas ao mesmo tempo — com voz, vídeo e compartilhamento de tela."
+        },
+        "account": {
+          "question": "Preciso de uma conta?",
+          "answer": "Sim — a conta guarda suas salas e sua lista de amigos. O cadastro com e-mail leva menos de um minuto."
+        },
+        "selfHost": {
+          "question": "Posso hospedar o Chatovo por conta própria?",
+          "answer": "Pode. O projeto é de código aberto: o servidor, o cliente e o servidor de mídia LiveKit podem rodar na sua própria infraestrutura."
+        }
+      }
+    },
+    "finalCta": {
+      "heading": "Sua sala está esperando",
+      "description": "Crie agora e compartilhe o link — o resto acontece sozinho.",
+      "action": "Criar uma sala",
+      "note": "Cadastro por e-mail · Menos de um minuto"
+    },
+    "footer": {
+      "tagline": "Salas de voz e vídeo que simplesmente funcionam.",
+      "privacy": "Privacidade",
+      "terms": "Termos",
+      "github": "GitHub",
+      "sections": {
+        "product": "Produto",
+        "company": "Projeto"
+      },
+      "pages": {
+        "features": "Recursos",
+        "download": "Baixar",
+        "changelog": "Novidades",
+        "about": "Sobre",
+        "support": "Suporte"
+      }
+    },
+    "meta": {
+      "title": "Chatovo — Salas de voz e vídeo em tempo real",
+      "description": "Salas de voz e vídeo grátis direto no navegador. Crie uma sala em segundos, compartilhe o link e converse — com compartilhamento de tela e chat. Sem instalar nada nem configurar servidores."
+    }
+  },
+  "changelog": {
+    "meta": {
+      "title": "Novidades",
+      "description": "Todas as versões do Chatovo: novos recursos das salas de voz, correções e melhorias na web, no computador e no Android."
+    },
+    "hero": {
+      "eyebrow": "Histórico de versões",
+      "title": "O que há de novo no Chatovo",
+      "description": "Todas as versões, da primeira sala de voz no navegador aos apps para computador e Android. Aqui está o que chegou, o que foi corrigido e quando."
+    },
+    "stats": {
+      "releases": "versões",
+      "months": "meses de desenvolvimento",
+      "current": "versão atual"
+    },
+    "kinds": {
+      "feature": "Novo",
+      "fix": "Correção",
+      "improvement": "Melhoria",
+      "security": "Segurança"
+    },
+    "tones": {
+      "major": "Grande atualização",
+      "minor": "Atualização regular"
+    },
+    "entries": {
+      "nineLanguages": {
+        "title": "Nove idiomas",
+        "description": "O Chatovo fala inglês, russo, ucraniano, espanhol, português, alemão, francês, turco e polonês. Ele usa o idioma do sistema, e dá para trocar nas Configurações."
+      },
+      "roomModeration": {
+        "title": "Moderação de salas",
+        "description": "O dono da sala pode silenciar alguém para todos, remover ou banir a pessoa e retirar o banimento depois."
+      },
+      "blockUsers": {
+        "title": "Bloqueio",
+        "description": "Quem foi bloqueado não consegue mandar mensagem, ligar ou adicionar você, e as mensagens dessa pessoa nas salas ficam recolhidas."
+      },
+      "chatFilter": {
+        "title": "Filtro no chat",
+        "description": "Palavrões no chat ficam ocultos com asteriscos. Dá para desligar o filtro nas Configurações."
+      },
+      "backgroundCalls": {
+        "title": "Chamadas em segundo plano no Android",
+        "description": "Com a tela apagada ou em outro app, a chamada mantém o microfone e mostra uma notificação."
+      },
+      "calmerIcon": {
+        "title": "Um ícone mais tranquilo",
+        "description": "O ícone ganhou um violeta suave que se destaca na tela escura."
+      },
+      "phoneLayout": {
+        "title": "Mais organizado no celular",
+        "description": "Salas e amigos têm abas próprias no lobby, e a grade da chamada se ajusta a qualquer tela."
+      },
+      "stopMusic": {
+        "title": "Parar a música",
+        "description": "Um botão desliga a música da sala, e a janela de música rola no celular."
+      },
+      "honestMute": {
+        "title": "Mudo de verdade",
+        "description": "Um microfone no mudo não deixa mais passar som nem acende o anel de quem fala."
+      },
+      "voiceSettingsMidCall": {
+        "title": "Ajustes de voz durante a chamada",
+        "description": "A supressão de ruído e de eco é aplicada na hora, e o Pressione para falar não fica aberto depois de trocar de microfone."
+      },
+      "googlePlay": {
+        "title": "App no Google Play",
+        "description": "A versão Android do Chatovo passou para o Google Play e se atualiza direto por lá."
+      },
+      "accountDeletion": {
+        "title": "Exclua sua conta pelo app",
+        "description": "Exclua a conta em Configurações → Conta, com confirmação por e-mail. Uma página pública com o passo a passo fica em chatovo.ru/account/delete."
+      },
+      "participantVolume": {
+        "title": "O volume de cada participante é lembrado",
+        "description": "O nível que você definiu e “Silenciar para mim” continuam valendo quando você volta à sala."
+      },
+      "screenAudioVolume": {
+        "title": "Volume separado para a tela compartilhada",
+        "description": "O áudio da tela compartilhada é ajustado independentemente do microfone do mesmo participante."
+      },
+      "pingIndicator": {
+        "title": "O ping não some mais",
+        "description": "A leitura da latência continua visível enquanto a rede renegocia a conexão."
+      },
+      "leaveRoom": {
+        "title": "Sair da sala funciona de primeira",
+        "description": "O botão de sair não joga mais você de volta na mesma sala, minimizada."
+      },
+      "chatReadability": {
+        "title": "Mensagens longas ficam mais fáceis de ler",
+        "description": "Parágrafos, títulos e listas no chat ganharam espaçamento de verdade, e o balão tem uma largura de linha confortável."
+      },
+      "sessionExpiry": {
+        "title": "Avisos de saída claros",
+        "description": "Uma sessão expirada ou uma conta bloqueada agora explicam o que aconteceu, em vez de deixar uma página travada."
+      },
+      "adminEditStability": {
+        "title": "Painel de administração mais estável",
+        "description": "Editar um usuário não o desconecta mais nem dispara um loop infinito de recarregamento."
+      },
+      "appHost": {
+        "title": "O app ganhou domínio próprio",
+        "description": "O app foi para app.chatovo.ru e chatovo.ru continua sendo o site público, então o lobby agora é a página inicial do app."
+      },
+      "lobbyButton": {
+        "title": "Um botão de lobby na barra lateral",
+        "description": "Volte ao lobby de qualquer tela sem sair da chamada."
+      },
+      "roomPasswordScreen": {
+        "title": "Nova tela de senha da sala",
+        "description": "O pedido de senha ganhou um design de verdade e um caminho de volta ao lobby."
+      },
+      "spinAnimations": {
+        "title": "Os indicadores de carregamento voltaram",
+        "description": "Os spinners e as transições das sobreposições nunca animavam porque os nomes dos estilos não batiam."
+      },
+      "blurryIcons": {
+        "title": "Ícones nítidos",
+        "description": "Os traços dos ícones não ficam mais borrados em tamanhos pequenos."
+      },
+      "trayUpdateSpinner": {
+        "title": "Busca de atualizações pela bandeja",
+        "description": "Iniciar a busca pelo menu do sistema agora mostra o indicador de carregamento, igual ao botão dentro do app."
+      },
+      "persistentRoom": {
+        "title": "A sala sobrevive à navegação",
+        "description": "Agora você pode abrir o lobby, as configurações ou o painel de administração sem derrubar a chamada — só o botão Sair ou recarregar a página desconecta você."
+      },
+      "gameActivity": {
+        "title": "Status “jogando X”",
+        "description": "O app para computador pode mostrar às pessoas na sala o nome do jogo ou do app que você está usando. Um botão nas configurações desliga isso."
+      },
+      "soundboard": {
+        "title": "Efeitos sonoros",
+        "description": "Admins podem tocar efeitos sonoros compartilhados, de uma sirene a uma buzina, que todos na sala ouvem."
+      },
+      "sitePages": {
+        "title": "Páginas do site",
+        "description": "O site público ganhou páginas próprias de Recursos, Baixar, Sobre, Suporte e Novidades."
+      },
+      "privateRoomPassword": {
+        "title": "Entrar numa sala privada",
+        "description": "Salas privadas pedem a senha de novo, em vez de dizer que a sala não foi encontrada."
+      },
+      "adminBadges": {
+        "title": "Selos de sala no painel de administração",
+        "description": "Os ícones dentro dos selos de sala não se esticam mais pelo cartão inteiro."
+      },
+      "seoPass": {
+        "title": "Busca e dados estruturados",
+        "description": "O sitemap, o robots e os dados estruturados foram refeitos, e o site ganhou um llms.txt para os rastreadores de IA."
+      },
+      "invisibleAdminMenu": {
+        "title": "Menu de admin",
+        "description": "O modo invisível foi para um menu de admin próprio na barra lateral."
+      },
+      "invisibleMutual": {
+        "title": "Admins se veem",
+        "description": "Admins no modo invisível agora veem os outros admins na sala."
+      },
+      "roomPasswordHashing": {
+        "title": "Senhas de sala com hash",
+        "description": "As senhas das salas são guardadas como hash e não vazam mais nas notificações."
+      },
+      "demoteRevoke": {
+        "title": "Revogação imediata de permissões",
+        "description": "Retirar os direitos de admin vale na hora, sem precisar entrar de novo."
+      },
+      "autoSensitivitySpeaker": {
+        "title": "Sensibilidade automática do microfone",
+        "description": "A sensibilidade automática não silencia mais as pessoas que você está ouvindo."
+      },
+      "adminValidation": {
+        "title": "Erros e abas do painel de administração",
+        "description": "O painel de administração mostra erros de validação traduzidos, e todas as abas voltaram a abrir."
+      },
+      "a11yConnection": {
+        "title": "Acessibilidade da sala",
+        "description": "O estado da conexão é anunciado aos leitores de tela, e o título da sala agora tem um nome."
+      },
+      "rustoreRelease": {
+        "title": "App na RuStore",
+        "description": "A versão Android do Chatovo está publicada na RuStore e se atualiza direto por lá."
+      },
+      "adminPanel": {
+        "title": "Painel de administração",
+        "description": "Chegou um painel de administração com visão geral, lista de usuários e lista de salas."
+      },
+      "moderation": {
+        "title": "Moderação",
+        "description": "Agora existem denúncias de abuso e ferramentas de moderação para analisá-las."
+      },
+      "invisibleMode": {
+        "title": "Modo invisível",
+        "description": "Admins podem entrar numa sala escondidos, fora da lista de participantes."
+      },
+      "prismaMigrations": {
+        "title": "Migrações automáticas",
+        "description": "As migrações do banco de dados são aplicadas automaticamente a cada deploy."
+      },
+      "contributors": {
+        "title": "Colaboradores no lobby",
+        "description": "O lobby mostra as pessoas que contribuem com o projeto no GitHub."
+      },
+      "testSetup": {
+        "title": "Testes",
+        "description": "O projeto é coberto por testes unitários com Vitest e por cenários com Playwright."
+      },
+      "nativeTray": {
+        "title": "Bandeja nativa",
+        "description": "O menu da bandeja do app para computador foi reescrito em Rust nativo."
+      },
+      "realErrorCodes": {
+        "title": "Erros que fazem sentido",
+        "description": "O motivo real de uma falha aparece no lugar de uma mensagem genérica."
+      },
+      "easterEggs": {
+        "title": "Easter eggs",
+        "description": "Conquistas escondidas, um jogo da cobrinha e um som ambiente tranquilo quando você está sozinho na sala."
+      },
+      "uiKitLayer": {
+        "title": "A camada ui-kit",
+        "description": "O design system foi para uma camada ui-kit própria, deixando a interface mais consistente."
+      },
+      "developerBadge": {
+        "title": "Selo de desenvolvedor",
+        "description": "Os desenvolvedores ganharam um selo, e o projeto ganhou uma aba da equipe."
+      },
+      "mobileUpdateBanner": {
+        "title": "Aviso de atualização no celular",
+        "description": "Um banner aparece no celular sempre que há uma nova versão do app disponível."
+      },
+      "a11yPass": {
+        "title": "Revisão de acessibilidade",
+        "description": "A interface passou por uma revisão de acessibilidade do foco, do contraste e dos rótulos para leitores de tela."
+      },
+      "activitySidebar": {
+        "title": "Atividade dos amigos",
+        "description": "O lobby ganhou uma barra lateral que mostra o que seus amigos estão fazendo agora."
+      },
+      "localizedErrors": {
+        "title": "Erros traduzidos",
+        "description": "Os erros da API têm códigos tipados e são traduzidos para o idioma da sua interface."
+      },
+      "pushDelivery": {
+        "title": "Entrega de push",
+        "description": "As notificações push voltaram a chegar ao seu dispositivo."
+      },
+      "publicLanding": {
+        "title": "Página inicial pública",
+        "description": "A raiz do site virou uma landing page, e o app foi para /lobby."
+      },
+      "nestjsMigration": {
+        "title": "Servidor em NestJS",
+        "description": "A API passou de Hono para NestJS no Bun, ficando mais rápida e mais previsível sob carga."
+      },
+      "scssModules": {
+        "title": "Módulos SCSS e Base UI",
+        "description": "A interface migrou para módulos SCSS e para os primitivos do Base UI."
+      },
+      "fcmPush": {
+        "title": "Notificações push",
+        "description": "Mensagens diretas e chamadas recebidas chegam como push mesmo com o app fechado."
+      },
+      "friendsAndCalls": {
+        "title": "Amigos e chamadas",
+        "description": "Chegaram os amigos, os pedidos de amizade e as chamadas de voz diretas."
+      },
+      "dmNotifications": {
+        "title": "Notificações de mensagens",
+        "description": "Você recebe uma notificação sempre que chega uma nova mensagem direta."
+      },
+      "websocketRealtime": {
+        "title": "Tempo real via WebSockets",
+        "description": "As atualizações ao vivo passaram para WebSockets, então as mudanças chegam na hora."
+      },
+      "androidApp": {
+        "title": "App para Android",
+        "description": "Chegou a versão para Android, com um pacote assinado anexado ao lançamento."
+      },
+      "seoBrand": {
+        "title": "Prévias com a marca",
+        "description": "Links compartilhados ganham uma imagem de prévia com a marca, além de favicons adequados e o idioma da página correto."
+      },
+      "telegramNotifications": {
+        "title": "Notificações no Telegram",
+        "description": "O Telegram avisa quando alguém entra num canal de voz."
+      },
+      "webPttNotice": {
+        "title": "Pressione para falar na web",
+        "description": "Na época, o modo Pressione para falar aparecia no navegador com um aviso de que só funcionava no computador; mais tarde a seção foi totalmente ocultada na web."
+      },
+      "chatRealtimeSync": {
+        "title": "O chat fica sincronizado",
+        "description": "Mensagens editadas e excluídas se atualizam para todos na hora."
+      },
+      "chatEditDelete": {
+        "title": "Editar e excluir mensagens",
+        "description": "As mensagens do chat podem ser editadas ou excluídas depois de enviadas."
+      },
+      "foxMascot": {
+        "title": "Mascote raposa",
+        "description": "O Chatovo ganhou um mascote, uma raposa, na web e no app para computador."
+      },
+      "voiceGate": {
+        "title": "Limite de sensibilidade do microfone",
+        "description": "O microfone só abre para a sua voz e corta o ruído de fundo."
+      },
+      "bugReports": {
+        "title": "Relatar um problema",
+        "description": "Você pode enviar um relato de bug de dentro do app, e ele cai direto na nossa caixa de entrada."
+      },
+      "videoQuality": {
+        "title": "Qualidade de vídeo",
+        "description": "Chegaram configurações de qualidade tanto para a câmera quanto para o compartilhamento de tela."
+      },
+      "passwordReset": {
+        "title": "Recuperação de senha",
+        "description": "Uma senha esquecida pode ser redefinida, e o acesso recuperado por e-mail."
+      },
+      "securityTab": {
+        "title": "Aba de segurança",
+        "description": "As configurações ganharam uma seção de segurança com troca de senha e sessões ativas."
+      },
+      "smtpEmail": {
+        "title": "E-mail via SMTP",
+        "description": "Os e-mails transacionais são enviados pelo nosso próprio SMTP, o que torna a entrega mais confiável."
+      },
+      "betterAuth": {
+        "title": "Nova autenticação",
+        "description": "O login e o cadastro passaram para o better-auth, deixando as sessões mais estáveis."
+      },
+      "selfHostedPostgres": {
+        "title": "Banco de dados próprio",
+        "description": "O banco de dados foi para uma instância Postgres hospedada por nós mesmos."
+      },
+      "chatPersistence": {
+        "title": "Histórico do chat",
+        "description": "As mensagens ficam salvas e voltam a carregar quando você retorna a uma sala."
+      },
+      "fileAttachments": {
+        "title": "Anexos de arquivos",
+        "description": "Dá para anexar arquivos às mensagens do chat."
+      },
+      "chatMarkdown": {
+        "title": "Markdown nas mensagens",
+        "description": "As mensagens renderizam markdown, incluindo listas, links e blocos de código."
+      },
+      "roomControlBar": {
+        "title": "Barra de controles da sala",
+        "description": "Chegou uma barra de controles com desativar áudio, reações e seleção de dispositivos."
+      },
+      "profileCard": {
+        "title": "Cartão de perfil",
+        "description": "Seu perfil pode ser personalizado com avatar, cor de banner e uma bio curta."
+      },
+      "reactions": {
+        "title": "Reações",
+        "description": "Dá para enviar reações com emojis flutuantes numa sala, para todos verem."
+      },
+      "lobbyHero": {
+        "title": "Lobby renovado",
+        "description": "O lobby ganhou um bloco de destaque com estatísticas ao vivo e as suas salas recentes."
+      },
+      "glassRedesign": {
+        "title": "Redesign de vidro",
+        "description": "A interface ganhou superfícies de vidro e detalhes em neon."
+      },
+      "globalShortcuts": {
+        "title": "Atalhos globais",
+        "description": "O microfone e o som podem ser controlados de qualquer app, com conflitos de teclas sinalizados enquanto você grava o atalho."
+      },
+      "pushToTalk": {
+        "title": "Pressione para falar",
+        "description": "O microfone só abre enquanto você segura a tecla escolhida."
+      },
+      "systemTray": {
+        "title": "Bandeja do sistema",
+        "description": "O app para computador minimiza para a bandeja e é controlado por um menu nativo."
+      },
+      "autoUpdate": {
+        "title": "Atualizações automáticas",
+        "description": "O app para computador se atualiza sozinho e mostra o progresso do download."
+      },
+      "i18n": {
+        "title": "Russo e inglês",
+        "description": "A interface está disponível em russo e em inglês."
+      },
+      "selfHostedLivekit": {
+        "title": "LiveKit próprio",
+        "description": "A voz passa pelo nosso próprio servidor LiveKit, reduzindo a latência e os limites externos."
+      },
+      "connectionQuality": {
+        "title": "Qualidade da conexão",
+        "description": "Chegou um indicador de qualidade da conexão, com o tempo de ida e volta até o servidor."
+      },
+      "voiceRooms": {
+        "title": "Salas de voz",
+        "description": "A primeira versão: salas de voz em tempo real direto no navegador."
+      },
+      "desktopApp": {
+        "title": "App para computador",
+        "description": "Um app para computador feito com Tauri, para Windows, macOS e Linux."
+      },
+      "chatPanel": {
+        "title": "Chat na sala",
+        "description": "Um painel de chat de texto fica ao lado da conversa."
+      },
+      "linkPreviews": {
+        "title": "Prévias de links no chat",
+        "description": "Uma mensagem com link agora mostra um cartão com o título, a descrição e a imagem da página."
+      },
+      "fastImages": {
+        "title": "Imagens mais rápidas",
+        "description": "Avatares e fotos do chat chegam no tamanho certo, em WebP, sem o layout pular enquanto carregam."
+      },
+      "liveRoomList": {
+        "title": "A lista de salas se atualiza ao vivo",
+        "description": "Salas criadas, alteradas ou excluídas aparecem e somem para todos sem recarregar a página."
+      },
+      "privateRoomOwner": {
+        "title": "Direto na sala que você acabou de criar",
+        "description": "Logo depois de criar uma sala privada, você entra sem digitar a senha; depois disso ela pede a senha, como para todo mundo."
+      },
+      "gamesOnly": {
+        "title": "Status “Jogando” só para jogos",
+        "description": "Só um jogo aberto da Steam, da Epic, da GOG ou da lista de jogos do Windows aparece sob o seu nome, e não qualquer programa aberto."
+      },
+      "desktopLockdown": {
+        "title": "Sem menu de navegador no app",
+        "description": "O app para Windows não mostra mais o menu e os atalhos do navegador: recarregar, imprimir e ferramentas de desenvolvedor."
+      },
+      "passwordRoomLogout": {
+        "title": "Sala privada não tira mais você da conta",
+        "description": "Abrir uma sala com senha à qual você ainda não tem acesso agora só mostra o formulário de senha."
+      },
+      "oldImagesOptimized": {
+        "title": "Imagens antigas também otimizadas",
+        "description": "Fotos enviadas no chat antes da 1.6.0 agora carregam no tamanho certo, igual às novas."
+      },
+      "renameKeepsAccess": {
+        "title": "Renomear mantém o acesso pela senha",
+        "description": "Depois que uma sala é renomeada, quem já digitou a senha não precisa digitá-la de novo."
+      },
+      "downloadButton": {
+        "title": "O botão Baixar baixa",
+        "description": "No visualizador de imagens, Baixar salva o arquivo com o nome original em vez de sair da página."
+      },
+      "fasterLinkPreviews": {
+        "title": "Prévias de links mais rápidas",
+        "description": "Links que já foram abertos antes mostram a prévia na hora, sem buscar a página de novo."
+      },
+      "pushReliable": {
+        "title": "As notificações no celular chegam sempre",
+        "description": "O push agora chega quando o app está em segundo plano ou aberto em outro dispositivo, e não só quando está fechado."
+      },
+      "pushOpensChat": {
+        "title": "A notificação abre o chat certo",
+        "description": "Tocar numa mensagem abre a conversa com aquele amigo; tocar numa chamada abre o lobby com a chamada recebida."
+      },
+      "smoothMobileMenu": {
+        "title": "O menu do celular abre sem travar",
+        "description": "O menu lateral não engasga mais na primeira vez que abre."
+      },
+      "androidDownload": {
+        "title": "Android na página de download",
+        "description": "O Google Play agora aparece ao lado de Windows, macOS e Linux."
+      },
+      "appIcon": {
+        "title": "Um ícone mais caprichado",
+        "description": "O ícone no celular e o logo dentro do app não encostam mais nas bordas."
+      },
+      "roomNamesClipped": {
+        "title": "Nomes de sala não ficam mais cortados",
+        "description": "Letras com descendente nos nomes das salas aparecem por inteiro."
+      },
+      "roomChatOpaque": {
+        "title": "O chat da sala não fica mais transparente no celular",
+        "description": "O cabeçalho da sala não aparece mais através do painel do chat."
+      },
+      "roomMusic": {
+        "title": "Música nas salas",
+        "description": "Cole um link do YouTube, SoundCloud ou Vimeo, um link direto para um arquivo de áudio, ou ligue uma rádio online — todos na sala ouvem em sincronia."
+      },
+      "shareMyMusic": {
+        "title": "Compartilhe a sua música",
+        "description": "Toque VK Music, Yandex Music ou qualquer outra coisa numa aba do navegador e compartilhe o som, ou toque arquivos do seu dispositivo."
+      },
+      "musicPlayer": {
+        "title": "Um miniplayer com visualização expandida",
+        "description": "Pausar, anterior e próxima logo abaixo do cabeçalho da sala ou no canto enquanto você navega; o player completo abre como uma janela."
+      },
+      "musicDucking": {
+        "title": "A música abre espaço para as vozes",
+        "description": "A música abaixa enquanto alguém fala e volta depois."
+      },
+      "newLook": {
+        "title": "Um visual novo e mais acolhedor",
+        "description": "Uma paleta calma de fim de tarde, contraste legível, formas mais nítidas e o gato Chato no site."
+      },
+      "screenShareEcho": {
+        "title": "Sem eco ao compartilhar a tela com som",
+        "description": "Quem assiste não ouve mais as vozes da própria sala de volta pela transmissão."
+      },
+      "speakingHighlight": {
+        "title": "Um destaque limpo para quem fala",
+        "description": "O anel em volta do avatar de quem está falando não fica mais cortado nem cobre o nome."
+      },
+      "android16kb": {
+        "title": "Pronto para celulares Android mais novos",
+        "description": "O app para Android agora é compatível com dispositivos com páginas de memória de 16 KB, como o Google Play exige."
+      },
+      "newSite": {
+        "title": "Um site novo",
+        "description": "O chatovo.ru mostra o próprio produto: capturas de tela reais de uma sala, da música e do chat, e carrega mais rápido."
+      },
+      "fasterApp": {
+        "title": "Um app mais rápido",
+        "description": "O app passou para um motor mais leve: abre mais rápido e as atualizações chegam antes."
+      },
+      "newIcon": {
+        "title": "Um ícone novo",
+        "description": "Um ícone coral e acolhedor com o Chato, em sintonia com o novo visual."
+      },
+      "chatFullHeight": {
+        "title": "O chat da sala abre na altura total",
+        "description": "O chat volta a cobrir a sala inteira, com o player de música recolhido."
+      },
+      "cyrillicRoomNames": {
+        "title": "Nomes de sala em qualquer idioma",
+        "description": "As salas podem ter nomes em russo e em qualquer outro alfabeto."
+      },
+      "speakingCorners": {
+        "title": "Um anel de fala caprichado",
+        "description": "O destaque em volta do cartão de quem fala não quebra mais nos cantos."
+      }
+    },
+    "highlights": {
+      "nineLanguages": "Nove idiomas",
+      "roomModeration": "Moderação de salas",
+      "googlePlay": "Agora no Google Play",
+      "accountDeletion": "Exclusão de conta",
+      "participantVolume": "Volume lembrado",
+      "sessionExpiry": "Avisos de sessão claros",
+      "adminEditStability": "Painel de admin mais estável",
+      "appHost": "Domínio próprio para o app",
+      "roomPasswordScreen": "Nova tela de senha",
+      "persistentRoom": "A sala continua conectada",
+      "privateRooms": "Salas privadas",
+      "siteRebuild": "Novas páginas do site",
+      "invisibleHardening": "Modo invisível reforçado",
+      "rustore": "Lançamento na RuStore",
+      "adminPanel": "Painel de administração",
+      "invisibleMode": "Modo invisível",
+      "tests": "Testes",
+      "migrations": "Migrações automáticas",
+      "easterEggs": "Easter eggs",
+      "developerBadge": "Selo de desenvolvedor",
+      "activitySidebar": "Atividade dos amigos",
+      "localizedErrors": "Erros traduzidos",
+      "landing": "Página inicial pública",
+      "nestjs": "Servidor em NestJS",
+      "pushNotifications": "Notificações push",
+      "friends": "Amigos e chamadas",
+      "android": "App para Android",
+      "telegramNotifications": "Notificações no Telegram",
+      "chatEditDelete": "Edição de mensagens",
+      "foxMascot": "Mascote raposa",
+      "voiceGate": "Filtro de ruído",
+      "videoQuality": "Configurações de qualidade de vídeo",
+      "passwordReset": "Recuperação de senha",
+      "selfHosted": "Infraestrutura própria",
+      "chatPersistence": "Histórico do chat",
+      "roomControls": "Controles da sala",
+      "glassRedesign": "Redesign de vidro",
+      "shortcuts": "Atalhos globais",
+      "autoUpdate": "Atualizações automáticas",
+      "selfHostedSfu": "LiveKit próprio",
+      "firstRelease": "Primeira versão",
+      "linkPreviews": "Prévias de links",
+      "fastImages": "Imagens mais rápidas",
+      "passwordRoomLogout": "Sem saídas inesperadas da conta",
+      "oldImagesOptimized": "Imagens antigas otimizadas",
+      "pushReliable": "Notificações confiáveis",
+      "smoothMobileMenu": "Menu mais fluido",
+      "roomMusic": "Música nas salas",
+      "newLook": "Visual novo",
+      "newSite": "Site novo",
+      "fasterApp": "App mais rápido"
+    }
+  },
+  "features": {
+    "meta": {
+      "title": "Recursos",
+      "description": "Voz, vídeo, compartilhamento de tela, chat com anexos, amigos e chamadas diretas, salas privadas e apps para computador e Android."
+    },
+    "hero": {
+      "eyebrow": "Recursos",
+      "title": "Tudo de que uma conversa precisa",
+      "description": "O Chatovo nasceu de uma ideia: abrir uma sala e conversar. Aqui está tudo o que cresceu em volta dela enquanto o projeto era construído."
+    },
+    "groups": {
+      "voice": {
+        "heading": "Voz e vídeo",
+        "subheading": "O coração do projeto: salas num SFU próprio, sem limite de duração das chamadas.",
+        "imageAlt": "Uma sala de voz do Chatovo: a grade de participantes e a música"
+      },
+      "music": {
+        "heading": "Música",
+        "subheading": "Ouçam juntos: a faixa toca para todos ao mesmo tempo e abaixa quando alguém fala.",
+        "imageAlt": "O player do Chatovo: vídeo, fila e rádio"
+      },
+      "chat": {
+        "heading": "Chat",
+        "subheading": "Texto ao lado da voz, na mesma janela, sem ficar alternando entre nada.",
+        "imageAlt": "Uma sala do Chatovo com o chat aberto ao lado da voz"
+      },
+      "friends": {
+        "heading": "Amigos e chamadas diretas",
+        "subheading": "Uma lista de amigos, quem está online e chamadas individuais."
+      },
+      "rooms": {
+        "heading": "Salas e acesso",
+        "subheading": "O dono decide quem entra numa sala e como."
+      },
+      "apps": {
+        "heading": "Apps",
+        "subheading": "Uma conta, um só código, quatro plataformas."
+      }
+    },
+    "items": {
+      "rooms": {
+        "title": "Salas de voz",
+        "description": "Uma sala é criada com um botão e fica viva enquanto houver alguém nela. A mídia passa por um SFU LiveKit próprio."
+      },
+      "background": {
+        "title": "A chamada continua",
+        "description": "Abra o lobby, as configurações ou o painel de administração e a chamada segue numa barra compacta embaixo. Só o botão de sair a encerra."
+      },
+      "video": {
+        "title": "Câmera",
+        "description": "A câmera liga direto pela barra de controles da sala, e a qualidade é definida nas configurações: 720p, 1080p, 1440p ou 4K."
+      },
+      "screen": {
+        "title": "Compartilhamento de tela",
+        "description": "Compartilhe uma janela, uma aba ou a tela inteira — todos assistem sem sair da sala."
+      },
+      "quality": {
+        "title": "Indicador de conexão",
+        "description": "O selo de qualidade mostra o tempo real de ida e volta, então uma conexão com problemas fica óbvia na hora."
+      },
+      "volume": {
+        "title": "Volume por participante",
+        "description": "Um controle separado para cada pessoa que fala. Um está baixo demais, outro alto demais — equilibre os dois só para você."
+      },
+      "gate": {
+        "title": "Sensibilidade do microfone",
+        "description": "Um limite de ativação por voz corta o fundo: teclado, ventilador, uma conversa no cômodo ao lado."
+      },
+      "ptt": {
+        "title": "Pressione para falar",
+        "description": "O microfone só abre enquanto a tecla está pressionada. Volta para a detecção de voz com um clique."
+      },
+      "shortcuts": {
+        "title": "Atalhos globais",
+        "description": "No app para computador, o microfone e o áudio continuam sob controle com o Chatovo minimizado — de dentro de um jogo ou de um editor."
+      },
+      "devices": {
+        "title": "Seleção de dispositivos",
+        "description": "Microfone, câmera e saída de áudio são escolhidos no menu da sala e lembrados entre as sessões."
+      },
+      "processing": {
+        "title": "Processamento de áudio",
+        "description": "Cancelamento de eco, supressão de ruído e controle automático de ganho são ativados nas configurações."
+      },
+      "activity": {
+        "title": "Mostre o que você está jogando",
+        "description": "O app para computador mostra às pessoas o nome do jogo que você está jogando. Um botão desliga isso."
+      },
+      "chatInRoom": {
+        "title": "Chat na sala",
+        "description": "Um canal de texto abre ao lado da grade de participantes e guarda o histórico da sala."
+      },
+      "markdown": {
+        "title": "Mensagens com Markdown",
+        "description": "Listas, links, blocos de código e citações aparecem formatados enquanto você digita — GFM e quebras de linha."
+      },
+      "attachments": {
+        "title": "Anexos",
+        "description": "Arraste arquivos e imagens para o chat; o próprio servidor os guarda, sem nenhuma nuvem de terceiros no meio."
+      },
+      "editing": {
+        "title": "Editar e excluir",
+        "description": "Edições e exclusões chegam na hora a todos os clientes abertos, sem recarregar."
+      },
+      "reactions": {
+        "title": "Reações na sala",
+        "description": "Emojis flutuam sobre a grade de participantes — uma reação rápida que não interrompe quem está falando."
+      },
+      "friendList": {
+        "title": "Lista de amigos",
+        "description": "Os amigos ficam numa lista que você abre pelo painel lateral, mostrando quem está online agora."
+      },
+      "requests": {
+        "title": "Pedidos de amizade",
+        "description": "Envie, aceite ou recuse um pedido; os recebidos ficam em destaque no painel."
+      },
+      "presence": {
+        "title": "Status online",
+        "description": "Você vê quem está online e quem saiu, sem precisar atualizar a página."
+      },
+      "directCalls": {
+        "title": "Chamadas diretas",
+        "description": "Uma chamada individual com toque, sem precisar criar uma sala separada."
+      },
+      "notifications": {
+        "title": "Push de mensagens",
+        "description": "Mensagens diretas e chamadas recebidas chegam ao seu celular como notificações push, mesmo com o app fechado."
+      },
+      "publicRooms": {
+        "title": "Salas abertas",
+        "description": "O lobby lista as salas públicas, mostrando onde tem conversa rolando e quantas pessoas estão nela."
+      },
+      "privateRooms": {
+        "title": "Salas privadas",
+        "description": "Senha na entrada: a sala continua na lista com um cadeado, mas só abre para quem sabe a senha."
+      },
+      "invites": {
+        "title": "Convite por link",
+        "description": "Um botão na sala copia um link que leva direto à conversa, sem passar pela lista."
+      },
+      "recent": {
+        "title": "Salas recentes",
+        "description": "As salas em que você esteve recentemente ficam à mão, então você nunca mais precisa procurá-las."
+      },
+      "ownership": {
+        "title": "Gerenciamento da sala",
+        "description": "O dono renomeia a sala, muda a senha e a privacidade, ou a exclui de vez."
+      },
+      "web": {
+        "title": "Web",
+        "description": "Roda no navegador sem instalar nada: abra um link e você já está na sala."
+      },
+      "desktop": {
+        "title": "Computador",
+        "description": "Versões feitas com Tauri para Windows, macOS e Linux — uma janela nativa em vez de uma aba do navegador."
+      },
+      "tray": {
+        "title": "Bandeja e atualização automática",
+        "description": "Um menu na bandeja do sistema deixa o microfone a um clique, e as atualizações se instalam sozinhas."
+      },
+      "android": {
+        "title": "Android",
+        "description": "A versão para celular é distribuída pelo Google Play e usa a mesma conta da web."
+      },
+      "safeArea": {
+        "title": "Áreas seguras",
+        "description": "No celular, a interface respeita o notch e a barra de gestos, então nada fica escondido sob os elementos do sistema."
+      },
+      "musicLinks": {
+        "title": "Links de faixas",
+        "description": "Links do YouTube, SoundCloud, Vimeo e links diretos de áudio entram numa única fila compartilhada."
+      },
+      "musicRadio": {
+        "title": "Rádio online",
+        "description": "Milhares de estações por gênero e clima — lo-fi, jazz, rock, ambient."
+      },
+      "musicSync": {
+        "title": "Em sincronia para todos",
+        "description": "Pausar, avançar e pular acontecem para todos na sala ao mesmo tempo."
+      },
+      "musicDucking": {
+        "title": "Mais baixa enquanto as pessoas falam",
+        "description": "A música abre espaço para as vozes e volta um segundo depois."
+      },
+      "musicShare": {
+        "title": "A sua música",
+        "description": "Qualquer serviço de streaming ou arquivos do seu dispositivo, por uma aba compartilhada."
+      }
+    },
+    "cta": {
+      "heading": "Veja com os próprios olhos",
+      "description": "O cadastro leva um minuto, e uma sala está a um clique de distância.",
+      "signIn": "Começar",
+      "download": "Baixar o app"
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "Sobre",
+      "description": "O Chatovo é um serviço de salas de voz de código aberto: por que ele existe, como é construído e como participar do desenvolvimento."
+    },
+    "hero": {
+      "eyebrow": "Sobre",
+      "title": "Salas de voz que você mesmo pode hospedar",
+      "description": "O Chatovo é um projeto aberto: o código, o servidor de mídia e o banco de dados ficam nas suas próprias máquinas, e não na nuvem de outra empresa."
+    },
+    "story": {
+      "heading": "Por que ele existe",
+      "subheading": "O projeto começou como uma tentativa de tirar a burocracia de conversar com as pessoas.",
+      "items": {
+        "problem": {
+          "title": "Uma conversa não deveria exigir configuração",
+          "description": "Reunir os amigos para uma chamada normalmente significa criar um servidor, organizar canais e distribuir cargos. Aqui você cria uma sala e manda um link."
+        },
+        "control": {
+          "title": "Os dados ficam com o dono",
+          "description": "O servidor de mídia, o banco de dados e os arquivos enviados: tudo isso é você quem implanta. Sem análises de terceiros, sem armazenamento externo para anexos."
+        },
+        "openness": {
+          "title": "Tudo às claras",
+          "description": "O código-fonte, o histórico de versões e as discussões ficam no GitHub. Você pode ler como qualquer parte funciona e montar a sua própria cópia."
+        }
+      }
+    },
+    "stack": {
+      "heading": "Como é construído",
+      "subheading": "Um monorepo com Bun workspaces: cliente, servidor, shell para computador e schemas compartilhados num só lugar.",
+      "items": {
+        "client": {
+          "title": "Cliente",
+          "description": "Next.js 16 e React 19, exportado de forma estática. Estruturado com Feature-Sliced Design e estilizado com módulos SCSS."
+        },
+        "desktop": {
+          "title": "Computador e celular",
+          "description": "Tauri 2: o mesmo app web dentro de um shell nativo em Rust para Windows, macOS, Linux e Android."
+        },
+        "server": {
+          "title": "Servidor",
+          "description": "NestJS 11 no Bun, com Prisma sobre um Postgres próprio. A autenticação roda com better-auth."
+        },
+        "media": {
+          "title": "Mídia",
+          "description": "Um SFU LiveKit próprio para WebRTC. O acesso à sala é concedido por um token assinado pelo servidor."
+        },
+        "schemas": {
+          "title": "Schemas compartilhados",
+          "description": "Os schemas Zod do pacote @chatovo/schemas são a fonte única de verdade para os tipos do cliente e do servidor."
+        },
+        "tooling": {
+          "title": "Ferramentas",
+          "description": "TypeScript em tudo, Vitest e Playwright para os testes, builds e lançamentos pelo GitHub Actions."
+        }
+      }
+    },
+    "contributors": {
+      "heading": "Quem participou",
+      "subheading": "Obrigado a todos cujo código entrou no projeto.",
+      "commits": "{count, plural, one {# contribuição} other {# contribuições}}"
+    },
+    "contribute": {
+      "heading": "Como contribuir",
+      "subheading": "O projeto está aberto a mudanças, de um erro de digitação num texto a uma seção de configurações inteira nova.",
+      "items": {
+        "code": {
+          "title": "Envie uma mudança",
+          "description": "Faça um fork do repositório, crie um branch a partir do master e abra um pull request. O estilo e a estrutura do código estão documentados no repositório."
+        },
+        "issues": {
+          "title": "Relate um problema",
+          "description": "Achou um bug ou tem uma ideia? Abra uma issue. Os passos para reproduzir e a versão do app agilizam muito o trabalho."
+        },
+        "selfHost": {
+          "title": "Rode o seu",
+          "description": "O repositório inclui a configuração do Caddy e do LiveKit para você subir uma instância completa só sua."
+        }
+      },
+      "repository": "Abrir no GitHub",
+      "releases": "Versões e builds"
+    }
+  },
+  "download": {
+    "meta": {
+      "title": "Baixar o Chatovo",
+      "description": "O Chatovo para Windows, macOS, Linux e Android. Instale o app ou abra uma sala direto no navegador."
+    },
+    "hero": {
+      "eyebrow": "Apps",
+      "title": "O Chatovo no seu dispositivo",
+      "description": "A versão web roda em qualquer navegador com WebRTC. O app para computador acrescenta atalhos globais, o modo Pressione para falar e um ícone na bandeja.",
+      "desktopAlt": "O Chatovo num computador",
+      "mobileAlt": "O Chatovo num celular"
+    },
+    "desktop": {
+      "heading": "Todas as plataformas",
+      "description": "Instaladores para computador e o app para Android no Google Play. As atualizações chegam sozinhas."
+    },
+    "web": {
+      "action": "Abrir no navegador"
+    },
+    "requirements": {
+      "heading": "Do que você precisa",
+      "description": "Os requisitos são os mesmos em todas as plataformas.",
+      "items": {
+        "browser": {
+          "title": "Um navegador atualizado",
+          "description": "Uma versão recente do Chrome, Edge, Firefox ou Safari com suporte a WebRTC."
+        },
+        "microphone": {
+          "title": "Um microfone",
+          "description": "A permissão é pedida assim que você entra numa sala."
+        },
+        "network": {
+          "title": "Uma conexão estável",
+          "description": "Uma conexão estável. Quanto mais banda você tiver, melhor ficam o vídeo e o compartilhamento de tela."
+        },
+        "account": {
+          "title": "Uma conta",
+          "description": "Basta um e-mail e uma senha. Uma só conta vale para todas as plataformas."
+        }
+      }
+    },
+    "fallback": {
+      "heading": "Precisa de outra versão",
+      "description": "Todos os arquivos, inclusive de versões antigas, ficam na página de versões.",
+      "action": "Abrir as versões no GitHub"
+    }
+  },
+  "support": {
+    "meta": {
+      "title": "Suporte",
+      "description": "Respostas para as dúvidas mais comuns sobre o Chatovo: microfone, salas privadas, atualizações, apps e como falar com a equipe."
+    },
+    "hero": {
+      "eyebrow": "Ajuda",
+      "title": "Algo deu errado",
+      "description": "Aqui estão as soluções para o que mais nos perguntam. Se a sua resposta não estiver aqui, escreva para a gente."
+    },
+    "groups": {
+      "start": {
+        "heading": "Primeiros passos",
+        "description": "Seus primeiros passos no Chatovo."
+      },
+      "audio": {
+        "heading": "Som e microfone",
+        "description": "De longe, a categoria mais comum."
+      },
+      "rooms": {
+        "heading": "Salas e acesso",
+        "description": "Convites, senhas e controles do dono."
+      },
+      "apps": {
+        "heading": "Apps",
+        "description": "As versões para computador e celular."
+      }
+    },
+    "items": {
+      "createRoom": {
+        "question": "Como criar uma sala",
+        "answer": "Entre na sua conta, aperte Criar sala no lobby e dê um nome a ela. Pronto — mande o link para quem você quer convidar."
+      },
+      "invite": {
+        "question": "Como convidar pessoas",
+        "answer": "Aperte o botão de copiar link dentro da sala e compartilhe como quiser. Quem abrir o link cai direto na conversa."
+      },
+      "account": {
+        "question": "Preciso de uma conta para entrar",
+        "answer": "Sim, entrar numa sala exige uma conta. O cadastro leva um minuto e pede só um e-mail e uma senha."
+      },
+      "micNotWorking": {
+        "question": "Ninguém me ouve",
+        "answer": "Confira se o seu microfone não está silenciado na barra da sala e se o navegador recebeu permissão de acesso. Se você tem vários dispositivos, escolha o certo no menu ao lado do botão do microfone."
+      },
+      "micSensitivity": {
+        "question": "O ruído de fundo está passando",
+        "answer": "Ative o limite de sensibilidade do microfone nas configurações de áudio, e os sons baixos deixam de ser transmitidos. O modo automático escolhe o limite por você."
+      },
+      "noSound": {
+        "question": "Não consigo ouvir ninguém",
+        "answer": "Confira se você não desativou o áudio e depois verifique o dispositivo de saída selecionado no menu ao lado do botão dos fones."
+      },
+      "pushToTalk": {
+        "question": "Como ativar o Pressione para falar",
+        "answer": "O Pressione para falar é um recurso do app para computador: nas configurações de áudio, mude a ativação do microfone para Pressione para falar e depois defina a tecla na aba Atalhos."
+      },
+      "privateRoom": {
+        "question": "Como deixar uma sala privada",
+        "answer": "Ative o modo privado ao criar a sala e defina uma senha. Quem abrir o link vai precisar dela para entrar."
+      },
+      "forgotRoomPassword": {
+        "question": "Esqueci a senha da sala",
+        "answer": "Só o dono da sala sabe a senha. Ele pode definir uma nova nas configurações da sala, e a senha antiga para de funcionar na hora."
+      },
+      "roomDisappeared": {
+        "question": "Minha sala sumiu",
+        "answer": "As salas não são excluídas quando a última pessoa sai. Se uma sala não abre, o dono a excluiu ou o link está desatualizado."
+      },
+      "leaveRoom": {
+        "question": "Como sair de uma sala",
+        "answer": "Aperte o botão de sair na barra da sala. Ir para o lobby, o painel de administração ou as configurações não desconecta você — a chamada continua numa barra compacta embaixo."
+      },
+      "updateApp": {
+        "question": "Como atualizar o app",
+        "answer": "A versão para computador busca atualizações sozinha e oferece para instalá-las. Você também pode buscar manualmente pela barra lateral."
+      },
+      "androidApp": {
+        "question": "Existe um app para Android",
+        "answer": "Sim, ele está publicado no Google Play. O link está na página de download."
+      },
+      "screenShare": {
+        "question": "O compartilhamento de tela não funciona",
+        "answer": "O compartilhamento de tela funciona em navegadores de computador e no app para computador. Os dispositivos móveis não têm suporte."
+      }
+    },
+    "contact": {
+      "heading": "Ainda com problemas",
+      "description": "Mande um e-mail ou abra uma issue no repositório — lemos os dois.",
+      "email": "Enviar um e-mail",
+      "issues": "Abrir uma issue"
+    }
+  },
+  "legal": {
+    "privacy": "Política de Privacidade",
+    "terms": "Termos de Serviço",
+    "privacyPage": {
+      "title": "Política de Privacidade",
+      "updated": "Última atualização: 2 de julho de 2026",
+      "sections": [
+        {
+          "heading": "Introdução",
+          "paragraphs": [
+            "O Chatovo (“nós”, “nosso”) opera o serviço de comunicação por voz e vídeo Chatovo em https://chatovo.ru e os aplicativos relacionados, incluindo o app para Android.",
+            "Esta Política de Privacidade explica quais informações coletamos, como as usamos e quais são as suas opções. Ao usar o Chatovo, você concorda com esta política."
+          ]
+        },
+        {
+          "heading": "Controlador dos dados",
+          "paragraphs": [
+            "Operador: Alexandr Artemev (Chatovo)",
+            "Contato: {contact}",
+            "Site: https://chatovo.ru"
+          ]
+        },
+        {
+          "heading": "Informações que coletamos",
+          "paragraphs": [
+            "Dados da conta: endereço de e-mail, nome de exibição, senha (armazenada como hash seguro) e campos de perfil opcionais (bio, avatar, cor do banner, URL de perfil externo).",
+            "Dados de sessão: tokens de sessão, endereço IP, user agent do navegador ou do app e datas de expiração das sessões.",
+            "Salas: nomes das salas, configurações de privacidade, senhas opcionais das salas e metadados de propriedade.",
+            "Mensagens do chat: o texto que você envia nas salas, metadados do histórico de edições e os anexos que você carrega (imagens e outros arquivos de até 25 MB por anexo).",
+            "Voz e vídeo: os fluxos de áudio e vídeo são transmitidos em tempo real pelo LiveKit (WebRTC). Não gravamos nem armazenamos permanentemente conteúdo de voz ou vídeo em nossos servidores.",
+            "Configurações do dispositivo e do app armazenadas localmente: token de autenticação, preferências de áudio/vídeo, idioma, salas recentes e níveis de volume por participante.",
+            "Pedidos de suporte: quando você relata um problema, podemos receber sua mensagem, uma captura de tela opcional e o identificador da sua conta."
+          ]
+        },
+        {
+          "heading": "Como usamos as informações",
+          "paragraphs": [
+            "Fornecer e manter o serviço: autenticação, salas, sessões de voz/vídeo, chat de texto e gerenciamento de perfil.",
+            "Segurança e prevenção de abusos: validação de sessões, controle de acesso e monitoramento operacional.",
+            "Comunicações: e-mails transacionais, como verificação de e-mail e redefinição de senha.",
+            "Melhorar o produto: diagnosticar erros e entender padrões de uso de forma agregada."
+          ]
+        },
+        {
+          "heading": "Bases legais (usuários do EEE/Reino Unido)",
+          "paragraphs": [
+            "Tratamos dados para cumprir nosso contrato com você (a prestação do serviço), com base em interesses legítimos (segurança e melhoria do produto) e, quando exigido, com o seu consentimento (por exemplo, para campos de perfil opcionais ou permissões do dispositivo)."
+          ]
+        },
+        {
+          "heading": "Serviços de terceiros",
+          "paragraphs": [
+            "LiveKit — canais de voz, vídeo e dados em tempo real.",
+            "Provedor de e-mail SMTP — envio dos e-mails de verificação e de redefinição de senha.",
+            "Provedores de hospedagem e infraestrutura que operam nossos servidores e bancos de dados.",
+            "Google Play — distribuição e atualizações do app no Android (aplicam-se as políticas do Google Play)."
+          ]
+        },
+        {
+          "heading": "Retenção de dados",
+          "paragraphs": [
+            "Os dados da conta e do perfil são mantidos enquanto a sua conta estiver ativa.",
+            "As mensagens do chat e os arquivos enviados são mantidos até que você os exclua ou até que sejam removidos como parte da exclusão da conta.",
+            "Os registros de sessão são mantidos pelo período limitado necessário para segurança e solução de problemas.",
+            "Você mesmo pode excluir a conta: Configurações → Conta → Excluir conta, ou em chatovo.ru/account/delete. A exclusão é confirmada por um link que enviamos para o seu e-mail."
+          ]
+        },
+        {
+          "heading": "Conteúdo gerado pelos usuários",
+          "paragraphs": [
+            "O Chatovo permite que os usuários publiquem textos, arquivos e informações de perfil. Você é responsável pelo conteúdo que compartilha.",
+            "Para denunciar conteúdo ou usuários abusivos, escreva para {contact} informando o nome da sala, os detalhes da mensagem e capturas de tela, se houver.",
+            "Podemos remover conteúdo ou suspender contas que violem nossos Termos de Serviço ou a legislação aplicável."
+          ]
+        },
+        {
+          "heading": "Crianças",
+          "paragraphs": [
+            "O Chatovo não é direcionado a crianças menores de 13 anos. Não coletamos intencionalmente informações pessoais de crianças menores de 13 anos. Se você acredita que uma criança nos forneceu dados, escreva para {contact}."
+          ]
+        },
+        {
+          "heading": "Segurança",
+          "paragraphs": [
+            "Usamos HTTPS para o tráfego da API e WSS para a mídia em tempo real. As senhas são armazenadas como hash. O acesso aos sistemas de produção é restrito.",
+            "Nenhum método de transmissão ou armazenamento é 100% seguro; não podemos garantir segurança absoluta."
+          ]
+        },
+        {
+          "heading": "Transferências internacionais",
+          "paragraphs": [
+            "Seus dados podem ser processados em servidores localizados fora do seu país. Tomamos medidas para proteger os dados de acordo com esta política."
+          ]
+        },
+        {
+          "heading": "Seus direitos",
+          "paragraphs": [
+            "Dependendo de onde você está, você pode ter o direito de acessar, corrigir, excluir ou exportar seus dados pessoais, bem como de se opor a determinados tratamentos ou de restringi-los.",
+            "Escreva para {contact} para exercer esses direitos. Você também pode apresentar uma reclamação à autoridade de proteção de dados do seu país."
+          ]
+        },
+        {
+          "heading": "Alterações",
+          "paragraphs": [
+            "Podemos atualizar esta política. Publicaremos a nova versão em https://chatovo.ru/privacy e atualizaremos a data de “Última atualização”."
+          ]
+        }
+      ]
+    },
+    "termsPage": {
+      "title": "Termos de Serviço",
+      "updated": "Última atualização: 2 de julho de 2026",
+      "sections": [
+        {
+          "heading": "Aceitação dos termos",
+          "paragraphs": [
+            "Estes Termos de Serviço (“Termos”) regem o uso dos sites, das APIs e dos aplicativos do Chatovo (o “Serviço”). Ao usar o Serviço, você concorda com estes Termos e com a nossa Política de Privacidade, disponível em https://chatovo.ru/privacy."
+          ]
+        },
+        {
+          "heading": "Elegibilidade",
+          "paragraphs": [
+            "Você precisa ter pelo menos 13 anos para usar o Chatovo. Se você ainda não atingiu a maioridade na sua jurisdição, só pode usar o Serviço com o consentimento de um dos pais ou de um responsável legal."
+          ]
+        },
+        {
+          "heading": "Contas",
+          "paragraphs": [
+            "Você é responsável por manter a confidencialidade das credenciais da sua conta e por toda a atividade realizada nela.",
+            "Você deve fornecer informações precisas e manter os dados do seu perfil atualizados.",
+            "Podemos suspender ou encerrar contas que violem estes Termos ou representem um risco à segurança."
+          ]
+        },
+        {
+          "heading": "Uso aceitável",
+          "paragraphs": [
+            "Você concorda em não usar o Chatovo para assediar, ameaçar, ofender ou prejudicar outras pessoas.",
+            "Você não pode enviar conteúdo ilegal, malware, spam ou conteúdo que viole direitos de propriedade intelectual ou de privacidade.",
+            "Você não pode tentar interromper o Serviço, burlar a segurança, extrair dados em grande escala nem se passar por outras pessoas.",
+            "Você não pode usar o Serviço para jogos de azar ilegais, serviços financeiros ou outras categorias proibidas pelas políticas das lojas de aplicativos."
+          ]
+        },
+        {
+          "heading": "Conteúdo gerado pelos usuários",
+          "paragraphs": [
+            "Você continua sendo o titular do conteúdo que envia. Você concede ao Chatovo uma licença não exclusiva para hospedar, exibir e transmitir o seu conteúdo exclusivamente para operar o Serviço.",
+            "Podemos remover conteúdo ou restringir o acesso a salas que violem estes Termos ou a legislação aplicável.",
+            "Denuncie violações para {contact}."
+          ]
+        },
+        {
+          "heading": "Regras da comunidade e moderação",
+          "paragraphs": [
+            "Conteúdo inaceitável inclui: pornografia ou representações sexualizadas de menores; discurso de ódio ou discriminação com base em raça, nacionalidade, religião, gênero, orientação ou deficiência; ameaças, bullying ou assédio; incitação à violência ou representações chocantes dela; romantização da automutilação, do suicídio ou de transtornos alimentares; promoção de drogas, armas, documentos falsificados ou outros produtos proibidos; jogos de azar com dinheiro real; spam, fraude ou phishing; violação de propriedade intelectual; divulgação de dados pessoais de outras pessoas sem consentimento; links para lojas de aplicativos de terceiros.",
+            "Você pode denunciar um usuário, uma mensagem ou uma sala de dentro do app: abra o menu do participante ou da mensagem e escolha “Denunciar”. As denúncias também podem ser enviadas para {contact}, com a sala, o horário e uma descrição da violação.",
+            "As denúncias são tratadas por pós-moderação. Dependendo do resultado, podemos remover o conteúdo, restringir o acesso a uma sala, suspender temporariamente ou bloquear permanentemente a conta infratora.",
+            "Uma conta bloqueada perde o acesso ao login, às salas e ao chat de voz. É possível contestar um bloqueio escrevendo para {contact}."
+          ]
+        },
+        {
+          "heading": "Salas e comunicações",
+          "paragraphs": [
+            "Voz, vídeo e chat nas salas são fornecidos em tempo real. Não garantimos disponibilidade ininterrupta nem recursos de gravação, a menos que sejam oferecidos explicitamente.",
+            "Salas privadas com senha não são garantia de privacidade absoluta; tenha cautela ao compartilhar informações sensíveis."
+          ]
+        },
+        {
+          "heading": "Propriedade intelectual",
+          "paragraphs": [
+            "O nome, a marca e o software Chatovo pertencem ao operador, salvo indicação em contrário. Os componentes de código aberto estão sujeitos às suas respectivas licenças."
+          ]
+        },
+        {
+          "heading": "Isenção de garantias",
+          "paragraphs": [
+            "O SERVIÇO É FORNECIDO “NO ESTADO EM QUE SE ENCONTRA”, SEM GARANTIAS DE QUALQUER TIPO. NA MÁXIMA EXTENSÃO PERMITIDA POR LEI, NOS ISENTAMOS DAS GARANTIAS IMPLÍCITAS DE COMERCIALIZAÇÃO, ADEQUAÇÃO A UMA FINALIDADE ESPECÍFICA E NÃO VIOLAÇÃO."
+          ]
+        },
+        {
+          "heading": "Limitação de responsabilidade",
+          "paragraphs": [
+            "NA MÁXIMA EXTENSÃO PERMITIDA POR LEI, O CHATOVO E O SEU OPERADOR NÃO SERÃO RESPONSÁVEIS POR DANOS INDIRETOS, INCIDENTAIS, ESPECIAIS, CONSEQUENCIAIS OU PUNITIVOS, NEM POR QUALQUER PERDA DE DADOS, LUCROS OU REPUTAÇÃO DECORRENTE DO SEU USO DO SERVIÇO."
+          ]
+        },
+        {
+          "heading": "Rescisão",
+          "paragraphs": [
+            "Você pode parar de usar o Serviço a qualquer momento. Podemos suspender ou encerrar o acesso se você violar estes Termos ou se a lei exigir.",
+            "As disposições que, por sua natureza, devam subsistir ao encerramento (incluindo as isenções de garantia e as limitações de responsabilidade) continuarão em vigor."
+          ]
+        },
+        {
+          "heading": "Alterações",
+          "paragraphs": [
+            "Podemos atualizar estes Termos. Continuar usando o Serviço após as alterações significa que você aceita os Termos atualizados. A versão atual está em https://chatovo.ru/terms."
+          ]
+        },
+        {
+          "heading": "Contato",
+          "paragraphs": ["Dúvidas sobre estes Termos: {contact}"]
+        }
+      ]
+    },
+    "privacyMeta": {
+      "title": "Política de Privacidade",
+      "description": "Política de privacidade do Chatovo: quais dados coletamos, como usamos e como protegemos."
+    },
+    "termsMeta": {
+      "title": "Termos de Serviço",
+      "description": "Termos de serviço e regras da comunidade do Chatovo."
+    }
+  },
+  "notFound": {
+    "title": "O Chato procurou em todo lugar",
+    "description": "Esta página foi movida, excluída ou nunca existiu. Aqui está o caminho de volta.",
+    "toHome": "Ir para a página inicial",
+    "openApp": "Abrir o app"
+  },
+  "downloadApp": {
+    "loadFailed": "Não foi possível carregar a versão mais recente.",
+    "openReleases": "Ver versões no GitHub",
+    "version": "Versão {version}",
+    "downloadAction": "Baixar",
+    "platforms": {
+      "windows": "Windows",
+      "macos": "macOS",
+      "linux": "Linux",
+      "android": "Android"
+    },
+    "storeAction": "Abrir",
+    "googlePlay": "Google Play",
+    "notAvailable": "Ainda não disponível"
+  }
+}

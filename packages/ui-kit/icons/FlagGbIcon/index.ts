@@ -1,1 +1,0 @@
-export { FlagGbIcon } from './FlagGbIcon';

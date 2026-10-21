@@ -1,5 +1,4 @@
 import { isTauri } from '@tauri-apps/api/core';
-import { getCurrentWindow } from '@tauri-apps/api/window';
 import { useEffect, useEffectEvent } from 'react';
 
 import { useAppSettings } from '@/entities/app/settings';
@@ -20,6 +19,8 @@ export const useCloseOnWindowEvent = () => {
 
     const subscribe = async () => {
       try {
+        const { getCurrentWindow } = await import('@tauri-apps/api/window');
+
         const off = await getCurrentWindow().onCloseRequested((event) => {
           if (!getCloseToTray()) {
             return;

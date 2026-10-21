@@ -16,7 +16,7 @@ export const StandaloneShell = ({ children, backHref, backLabel }: StandaloneShe
     <header className={s.header}>
       <Link className={s.brand} to={ROUTES.lobby}>
         <BrandMark glow size={28} />
-        <Text as='span' className={clsx(s.brandName, 'gradient-text')} tone='inherit'>
+        <Text as='span' className={s.brandName} tone='inherit'>
           {SITE.name}
         </Text>
       </Link>

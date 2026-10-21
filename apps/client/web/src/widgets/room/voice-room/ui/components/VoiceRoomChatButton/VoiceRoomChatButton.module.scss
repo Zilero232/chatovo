@@ -6,16 +6,16 @@
   flex-shrink: 0;
 }
 
-.button {
-  width: 2.25rem !important;
-  height: 2.25rem !important;
+.button[data-size] {
+  width: 2.25rem;
+  height: 2.25rem;
   flex-shrink: 0;
-  padding-top: 0.125rem !important;
+  padding-top: 0.125rem;
 
   @include bp(sm) {
-    width: 2.75rem !important;
-    height: 2.75rem !important;
-    padding-top: 0 !important;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding-top: 0;
   }
 }
 

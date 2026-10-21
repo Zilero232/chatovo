@@ -12,7 +12,7 @@ export const dynamic = 'force-dynamic';
 export const generateMetadata = async ({ params }: LocalePageProps): Promise<Metadata> =>
   createMarketingMetadata({
     locale: await readPageLocale(params),
-    namespace: 'about',
+    namespace: 'about.meta',
     path: ROUTES.about
   });
 

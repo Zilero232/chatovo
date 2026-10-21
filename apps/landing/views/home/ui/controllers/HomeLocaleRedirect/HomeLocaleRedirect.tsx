@@ -1,15 +1,28 @@
 'use client';
 
+import { localizeSitePath } from '@chatovo/config';
+import { match } from '@formatjs/intl-localematcher';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
 import { ROUTES, STORAGE_KEYS } from '@/shared/constants';
-import { localizeMarketingPath } from '@/shared/lib';
+import { DEFAULT_LOCALE, isLocale, LOCALES } from '@/shared/i18n';
 
 import type { HomeLocaleRedirectProps } from './HomeLocaleRedirect.types';
 
-const prefersRussian = () =>
-  navigator.languages.some((language) => language.toLowerCase().startsWith('ru'));
+const FALLBACK_LOCALE = 'en';
+
+const CRAWLER_PATTERN = /bot|crawl|spider|slurp|preview/i;
+
+const preferredLocale = () => {
+  try {
+    const best = match(navigator.languages, LOCALES, FALLBACK_LOCALE);
+
+    return isLocale(best) ? best : FALLBACK_LOCALE;
+  } catch {
+    return FALLBACK_LOCALE;
+  }
+};
 
 export const HomeLocaleRedirect = ({ locale }: HomeLocaleRedirectProps) => {
   const router = useRouter();
@@ -21,14 +34,14 @@ export const HomeLocaleRedirect = ({ locale }: HomeLocaleRedirectProps) => {
 
     sessionStorage.setItem(STORAGE_KEYS.homeLocaleRedirected, '1');
 
-    const target = localizeMarketingPath({
-      path: ROUTES.home,
-      locale: prefersRussian() ? 'ru' : 'en'
-    });
-    const current = localizeMarketingPath({ path: ROUTES.home, locale });
+    if (locale !== DEFAULT_LOCALE || CRAWLER_PATTERN.test(navigator.userAgent)) {
+      return;
+    }
 
-    if (target !== current) {
-      router.replace(target);
+    const preferred = preferredLocale();
+
+    if (preferred !== DEFAULT_LOCALE) {
+      router.replace(localizeSitePath({ path: ROUTES.home, locale: preferred }));
     }
   }, [locale, router]);
 

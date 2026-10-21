@@ -3,8 +3,6 @@ import { useTranslations } from 'use-intl';
 
 import type { SettingsSidebarProps } from './SettingsSidebar.types';
 
-import { LogoutButton } from '../LogoutButton/LogoutButton';
-
 import s from '../../AppSettingsButton.module.scss';
 
 export const SettingsSidebar = ({ needsEmailVerification, tabs }: SettingsSidebarProps) => {
@@ -23,8 +21,6 @@ export const SettingsSidebar = ({ needsEmailVerification, tabs }: SettingsSideba
           </TabsTrigger>
         ))}
       </TabsList>
-
-      <LogoutButton />
     </div>
   );
 };

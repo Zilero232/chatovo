@@ -1,5 +1,6 @@
 import { SITE } from '@/shared/config';
 import { ROUTES } from '@/shared/constants';
+import { LOCALES } from '@/shared/i18n';
 
 const url = (path: string) => new URL(path, SITE.url).toString();
 
@@ -35,7 +36,7 @@ export const siteJsonLd = {
       downloadUrl: url(ROUTES.download),
       releaseNotes: url(ROUTES.changelog),
       isAccessibleForFree: true,
-      inLanguage: [SITE.lang, SITE.en.lang],
+      inLanguage: [...LOCALES],
       author: { '@id': `${SITE.url}/#author` },
       creator: { '@id': `${SITE.url}/#author` },
       publisher: { '@id': `${SITE.url}/#author` },

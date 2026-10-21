@@ -1,10 +1,10 @@
+import { localizeSitePath } from '@chatovo/config';
 import { Text } from '@chatovo/ui-kit';
 import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 
 import { LEGAL } from '@/shared/config';
 import { EXTERNAL_LINKS, ROUTES } from '@/shared/constants';
-import { localizeMarketingPath } from '@/shared/lib';
 import { MarketingSection, MarketingShell } from '@/widgets/marketing/marketing-shell';
 
 import type { LegalDocumentPageProps } from './LegalDocumentPage.types';
@@ -55,10 +55,7 @@ export const LegalDocumentPage = async ({ locale, documentId }: LegalDocumentPag
             <span aria-hidden className={s.footerSep}>
               ·
             </span>
-            <Link
-              className={s.footerLink}
-              href={localizeMarketingPath({ path: alternatePath, locale })}
-            >
+            <Link className={s.footerLink} href={localizeSitePath({ path: alternatePath, locale })}>
               {isPrivacy ? t('terms') : t('privacy')}
             </Link>
           </footer>

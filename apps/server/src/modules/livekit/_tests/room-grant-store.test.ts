@@ -3,9 +3,36 @@ import { beforeEach, describe, expect, it } from 'vitest';
 import {
   grantRoomAccess,
   hasRoomGrant,
+  revokeRoomGrant,
   revokeRoomGrants,
   revokeUserGrants
 } from '../room-grant-store';
+
+describe('revokeRoomGrant', () => {
+  beforeEach(() => {
+    revokeRoomGrants('room-a');
+    revokeRoomGrants('room-b');
+  });
+
+  it('drops the grant one user holds for one room', () => {
+    grantRoomAccess('room-a', 'user-1');
+
+    revokeRoomGrant({ roomId: 'room-a', userId: 'user-1' });
+
+    expect(hasRoomGrant('room-a', 'user-1')).toBe(false);
+  });
+
+  it('keeps that user’s grants for other rooms and other users’ grants for that room', () => {
+    grantRoomAccess('room-a', 'user-1');
+    grantRoomAccess('room-b', 'user-1');
+    grantRoomAccess('room-a', 'user-2');
+
+    revokeRoomGrant({ roomId: 'room-a', userId: 'user-1' });
+
+    expect(hasRoomGrant('room-b', 'user-1')).toBe(true);
+    expect(hasRoomGrant('room-a', 'user-2')).toBe(true);
+  });
+});
 
 describe('revokeUserGrants', () => {
   beforeEach(() => {

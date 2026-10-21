@@ -1,6 +1,6 @@
 {
   "name": "chatovo",
-  "version": "1.9.0",
+  "version": "1.10.0",
   "private": true,
   "description": "Chatovo — real-time voice rooms for web and desktop. Bun-workspaces monorepo.",
   "keywords": [
@@ -31,6 +31,7 @@
     ],
     "catalog": {
       "@base-ui/react": "^1.8.0",
+      "@formatjs/intl-localematcher": "^0.9.0",
       "@siberiacancode/reactuse": "^1.0.17",
       "@testing-library/dom": "^10.4.1",
       "@testing-library/jest-dom": "^7.0.1",
@@ -71,6 +72,7 @@
     "build": "bun --filter @chatovo/client-web build && bun --filter @chatovo/landing build",
     "build:landing": "bun --filter @chatovo/landing build",
     "build:web": "bun --filter @chatovo/client-web build",
+    "commit": "jazzer",
     "dev": "bun --filter '@chatovo/server' --filter '@chatovo/client-web' --filter '@chatovo/landing' --parallel dev",
     "dev:full": "docker compose -f docker-compose.dev.yml up -d && bun dev",
     "dev:landing": "bun --filter @chatovo/landing dev",
@@ -130,6 +132,7 @@
     "@siberiacancode/tsconfig": "^1.2.0",
     "@vitest/coverage-v8": "^4.1.11",
     "babel-plugin-react-compiler": "catalog:",
+    "commit-jazzer": "^2.0.1",
     "eslint": "^10.10.0",
     "fkill-cli": "^9.0.0",
     "husky": "^9.1.7",

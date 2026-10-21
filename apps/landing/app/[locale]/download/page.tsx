@@ -12,7 +12,7 @@ export const dynamic = 'force-dynamic';
 export const generateMetadata = async ({ params }: LocalePageProps): Promise<Metadata> =>
   createMarketingMetadata({
     locale: await readPageLocale(params),
-    namespace: 'download',
+    namespace: 'download.meta',
     path: ROUTES.download
   });
 

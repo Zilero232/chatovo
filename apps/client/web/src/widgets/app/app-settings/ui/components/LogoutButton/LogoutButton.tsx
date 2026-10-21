@@ -5,7 +5,7 @@ import { useTranslations } from 'use-intl';
 
 import { useToastError } from '@/entities/app/locale';
 import { releasePushDevice } from '@/features/app/push-notifications';
-import { authClient, clearToken } from '@/shared/api';
+import { authClient, clearToken, queryClient } from '@/shared/api';
 
 import s from '../../AppSettingsButton.module.scss';
 
@@ -19,6 +19,7 @@ export const LogoutButton = () => {
     const { error } = await authClient.signOut();
 
     clearToken();
+    queryClient.clear();
 
     if (error) {
       toastError('sign-out')(error);

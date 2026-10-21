@@ -2,7 +2,7 @@ import type { FriendCallStreamSnapshot } from '@chatovo/schemas';
 
 import { friendCallStatusSchema } from '@chatovo/schemas';
 
-import type { PendingFriendCall } from './friends.types';
+import type { ClearCallsBetweenInput, PendingFriendCall } from './friends.types';
 
 import { DomainEvent } from '../../common/events/domain-events';
 import { emitDomainEvent } from '../../common/events/emit-domain-event';
@@ -193,4 +193,14 @@ export const clearPendingCallForCaller = (callerId: string): void => {
   byCaller.delete(callerId);
 
   emitUsers([callerId, call.calleeId]);
+};
+
+export const clearCallsBetween = ({ userId, otherUserId }: ClearCallsBetweenInput): void => {
+  if (byCaller.get(userId)?.calleeId === otherUserId) {
+    clearPendingCallForCaller(userId);
+  }
+
+  if (byCaller.get(otherUserId)?.calleeId === userId) {
+    clearPendingCallForCaller(otherUserId);
+  }
 };

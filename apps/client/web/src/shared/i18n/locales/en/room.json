@@ -35,6 +35,10 @@
       "ownerTooltip": "Room owner",
       "micMuted": "Microphone muted",
       "deafened": "Sound off"
+    },
+    "sections": {
+      "rooms": "Rooms",
+      "friends": "Friends"
     }
   },
   "room": {
@@ -53,7 +57,9 @@
     "invite": {
       "copyLink": "Copy invite link",
       "tooltip": "Copy a link to invite others",
-      "linkCopied": "Invite link copied"
+      "linkCopied": "Invite link copied",
+      "aloneTitle": "It's just you here",
+      "aloneDescription": "Send the link and friends join in one click."
     },
     "connection": {
       "measuring": "Measuring connection…",
@@ -208,7 +214,8 @@
       "speakerDevice": "Select speakers",
       "pttHint": "Push-to-talk",
       "leave": "Leave",
-      "invisibleMicBlocked": "You cannot speak in invisible mode"
+      "invisibleMicBlocked": "You cannot speak in invisible mode",
+      "mutedByOwner": "Muted by the room owner"
     },
     "dmWaiting": "Waiting for the other person to join…",
     "expandVideo": "Expand video",
@@ -218,6 +225,10 @@
     "badges": {
       "screen": "Screen",
       "music": "Music"
+    },
+    "callService": {
+      "text": "You're in a voice room. Tap to return.",
+      "channel": "Ongoing call"
     }
   },
   "chat": {
@@ -336,5 +347,48 @@
     "screenVolumeFor": "Screen audio volume for {name}",
     "copyName": "Copy name",
     "nameCopied": "Name copied"
+  },
+  "roomModeration": {
+    "label": "Room moderation",
+    "mute": "Mute for everyone",
+    "unmute": "Allow to speak",
+    "remove": "Remove from the room",
+    "ban": "Ban from the room",
+    "toasts": {
+      "mute": "{name} is muted for everyone",
+      "unmute": "{name} can speak again",
+      "remove": "{name} was removed from the room",
+      "ban": "{name} is banned from the room"
+    },
+    "confirm": {
+      "cancel": "Cancel",
+      "remove": {
+        "title": "Remove {name} from the room?",
+        "description": "{name} is disconnected right away and sent back to the lobby. They can join again.",
+        "confirm": "Remove"
+      },
+      "ban": {
+        "title": "Ban {name} from the room?",
+        "description": "{name} is disconnected right away and can't rejoin until you lift the ban in the room menu.",
+        "confirm": "Ban"
+      }
+    },
+    "notices": {
+      "removed": "You were removed from the room",
+      "banned": "You were banned from the room",
+      "muted": "The room owner muted your microphone",
+      "unmuted": "The room owner let you speak again",
+      "roomName": "“{name}”"
+    },
+    "bans": {
+      "menu": "Banned users",
+      "title": "Banned users",
+      "description": "People banned from \"{name}\" can't join it until you lift the ban.",
+      "empty": "Nobody is banned from this room.",
+      "bannedAt": "Banned on {date}",
+      "unban": "Unban",
+      "unbanUser": "Unban {name}",
+      "unbanned": "{name} can join the room again"
+    }
   }
 }

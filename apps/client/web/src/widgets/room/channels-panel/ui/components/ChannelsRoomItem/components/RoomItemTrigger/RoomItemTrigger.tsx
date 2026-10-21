@@ -1,6 +1,6 @@
 import { useNavigate } from '@tanstack/react-router';
 import { clsx } from 'clsx';
-import { Crown, Headphones, Lock } from 'lucide-react';
+import { Crown, Headphones, Lock, Volume2 } from 'lucide-react';
 import { useTranslations } from 'use-intl';
 
 import { ManageRoomMenu } from '@/features/room/manage';
@@ -31,6 +31,7 @@ export const RoomItemTrigger = ({ isActive, isOwner, room, onNavigate }: RoomIte
         onClick={handleClick}
       >
         <span className={s.triggerLabel}>
+          <Volume2 aria-hidden className={s.roomIcon} />
           <span className={s.triggerName}>{room.name}</span>
           {room.isPrivate && (
             <>

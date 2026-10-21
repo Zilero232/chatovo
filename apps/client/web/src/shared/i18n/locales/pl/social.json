@@ -1,0 +1,100 @@
+{
+  "friends": {
+    "title": "Znajomi",
+    "description": "Twoi znajomi i przychodzące zaproszenia.",
+    "online": "online",
+    "offline": "offline",
+    "requestsTab": "Zaproszenia",
+    "developersTab": "Zespół",
+    "onlineTab": "Online",
+    "allTab": "Wszyscy",
+    "onlineCount": "Online — {count}",
+    "allCount": "Wszyscy znajomi — {count}",
+    "pendingCount": "Oczekujące — {count}",
+    "searchPlaceholder": "Szukaj",
+    "nothingFound": "Nic nie znaleziono",
+    "nothingFoundHint": "Żaden znajomy nie pasuje do wyszukiwania. Wyczyść je, aby zobaczyć wszystkich.",
+    "emptyOnlineTitle": "Nikogo teraz nie ma online",
+    "addFriendHint": "Dodawaj znajomych po tagu. Cyfry po krzyżyku mają znaczenie.",
+    "yourTagTitle": "Twój tag",
+    "yourTagHint": "Udostępnij go, żeby inni mogli dodać cię do znajomych.",
+    "emptyFriendsTitle": "Nie masz jeszcze znajomych",
+    "emptyFriendsHint": "Kliknij czyjś awatar w pokoju głosowym i wyślij zaproszenie. Gdy je przyjmie, możesz pisać i dzwonić prosto stąd.",
+    "emptyRequestsTitle": "Brak oczekujących zaproszeń",
+    "emptyRequestsHint": "Gdy ktoś doda cię po tagu, jego zaproszenie pojawi się tutaj i poczeka na twoją odpowiedź.",
+    "emptyDevelopersTitle": "Brak członków zespołu",
+    "emptyDevelopersHint": "Lista twórców Chatovo jest na razie pusta. Zajrzyj później, żeby poznać ludzi, którzy tworzą aplikację.",
+    "addFriend": "Dodaj znajomego",
+    "cancelRequest": "Anuluj zaproszenie",
+    "accept": "Akceptuj",
+    "decline": "Odrzuć",
+    "messageFriend": "Napisz",
+    "backToFriends": "Wróć do znajomych",
+    "callFriend": "Zadzwoń",
+    "friendActions": "Akcje znajomego",
+    "unreadMessages": "{count, plural, one {# nieprzeczytana wiadomość} few {# nieprzeczytane wiadomości} many {# nieprzeczytanych wiadomości} other {# nieprzeczytanej wiadomości}}",
+    "removeFriend": "Usuń znajomego",
+    "removeFriendConfirm": {
+      "title": "Usunąć znajomego?",
+      "description": "{name} zniknie z twojej listy znajomych. Tego nie da się cofnąć.",
+      "confirm": "Usuń",
+      "cancel": "Anuluj",
+      "failed": "Nie udało się usunąć znajomego",
+      "consequences": "Historia czatu zostaje, ale nie zobaczycie się online ani nie zadzwonicie do siebie, dopóki znów nie zostaniecie znajomymi."
+    },
+    "tagPlaceholder": "Tag znajomego (np. alex#4821)",
+    "sendByTag": "Wyślij",
+    "requestSent": "Zaproszenie wysłane",
+    "copyTag": "Kopiuj tag",
+    "tagCopied": "Tag skopiowany",
+    "tagCopyFailed": "Nie udało się skopiować tagu",
+    "sendFailed": "Nie udało się wysłać zaproszenia",
+    "incomingCall": {
+      "title": "Połączenie przychodzące",
+      "description": "{name} dzwoni do ciebie",
+      "accept": "Odbierz",
+      "decline": "Odrzuć"
+    },
+    "outgoingCall": {
+      "title": "Dzwonienie…",
+      "description": "Czekamy, aż {name} odbierze",
+      "cancel": "Anuluj",
+      "declined": "{name} odrzuca połączenie"
+    }
+  },
+  "blocks": {
+    "block": "Zablokuj",
+    "unblock": "Odblokuj",
+    "unblockUser": "Odblokuj {name}",
+    "tab": "Zablokowani",
+    "count": "Zablokowani — {count}",
+    "notice": "Ten użytkownik jest przez ciebie zablokowany. Odblokuj go, aby wysłać zaproszenie do znajomych.",
+    "blockedToast": "Zablokowano użytkownika {name}",
+    "unblockedToast": "Odblokowano użytkownika {name}",
+    "emptyTitle": "Nikt nie jest zablokowany",
+    "emptyHint": "Tutaj pojawią się osoby, które zablokujesz. Odblokowanie nie przywraca znajomości.",
+    "hiddenMessage": "Wiadomość od zablokowanego użytkownika",
+    "showMessage": "Pokaż",
+    "confirm": {
+      "title": "Zablokować {name}?",
+      "description": "{name} nie dostanie powiadomienia. Wasza znajomość i oczekujące zaproszenia zostaną usunięte.",
+      "consequences": "Wiadomości tej osoby w pokojach zostaną zwinięte do jednej linii, jej głos zostanie dla ciebie wyciszony i żadne z was nie wyśle zaproszenia do znajomych, dopóki jej nie odblokujesz.",
+      "confirm": "Zablokuj",
+      "cancel": "Anuluj"
+    }
+  },
+  "user": {
+    "verified": "Zweryfikowane konto",
+    "developer": "Deweloper",
+    "developerHint": "Deweloper Chatovo"
+  },
+  "profileCard": {
+    "inVoice": "Na kanale głosowym",
+    "notInVoice": "Poza kanałem głosowym",
+    "join": "Dołącz",
+    "openSettingsHint": "Otwórz ustawienia, aby edytować profil.",
+    "avatarAlt": "Awatar użytkownika {name}",
+    "avatarZoomDescription": "Powiększone zdjęcie profilowe",
+    "zoomAvatar": "Otwórz awatar"
+  }
+}

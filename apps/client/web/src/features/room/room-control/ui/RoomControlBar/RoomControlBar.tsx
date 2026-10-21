@@ -42,6 +42,7 @@ export const RoomControlBar = ({ extraActions }: RoomControlBarProps) => {
       <ControlButton
         device={toDevice(MIC_DEVICE)}
         icon={mic.isMuted ? <MicOff /> : <Mic />}
+        isLocked={mic.isLocked}
         isPending={mic.isPending}
         label={micLabel}
         pressed={mic.isMuted}

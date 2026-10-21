@@ -2,6 +2,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 const findRoom = vi.fn();
 const assertNotBlocked = vi.fn();
+const assertNotRoomBanned = vi.fn();
 
 vi.mock('../../../core', () => ({
   basePrisma: {
@@ -11,6 +12,10 @@ vi.mock('../../../core', () => ({
 
 vi.mock('../../assert-not-blocked', () => ({
   assertNotBlocked: (userId: string) => assertNotBlocked(userId)
+}));
+
+vi.mock('../../assert-not-room-banned', () => ({
+  assertNotRoomBanned: (input: unknown) => assertNotRoomBanned(input)
 }));
 
 vi.mock('../../../modules/livekit', () => ({
@@ -35,6 +40,7 @@ describe('assertCanViewRoom', () => {
   beforeEach(() => {
     findRoom.mockReset();
     assertNotBlocked.mockReset().mockResolvedValue(undefined);
+    assertNotRoomBanned.mockReset().mockResolvedValue(undefined);
   });
 
   it('lets a stranger read a private room so the client can prompt for its password', async () => {
@@ -89,6 +95,20 @@ describe('assertCanViewRoom', () => {
     });
 
     await expect(assertCanViewRoom({ roomId: 'room-4', userId })).resolves.toBeUndefined();
+  });
+
+  it('keeps the metadata readable to a banned user, so only the contents are shut', async () => {
+    findRoom.mockResolvedValueOnce({
+      id: 'room-6',
+      kind: 'group',
+      isPrivate: false,
+      ownerId: 'owner-1',
+      dmUserAId: null,
+      dmUserBId: null
+    });
+
+    await expect(assertCanViewRoom({ roomId: 'room-6', userId })).resolves.toBeUndefined();
+    expect(assertNotRoomBanned).not.toHaveBeenCalled();
   });
 
   it('reports a missing room as not found', async () => {

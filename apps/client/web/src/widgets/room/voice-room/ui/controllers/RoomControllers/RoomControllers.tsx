@@ -1,6 +1,8 @@
 import { useGameActivitySync } from '@/features/app/game-activity';
 import { useDeafenSync } from '@/features/room/room-control';
 
+import type { RoomControllersProps } from './RoomControllers.types';
+
 import {
   useCurrentRoomId,
   useDeviceSync,
@@ -9,6 +11,7 @@ import {
   useShortcutActions,
   useVoiceRoomSounds
 } from '../../../model/hooks';
+import { AndroidCallController } from '../AndroidCallController/AndroidCallController';
 import { InvisibleNoticeController } from '../InvisibleNoticeController/InvisibleNoticeController';
 import { LocalSpeakingController } from '../LocalSpeakingController/LocalSpeakingController';
 import { MicStateController } from '../MicStateController/MicStateController';
@@ -16,7 +19,7 @@ import { RoomEasterEggsController } from '../RoomEasterEggsController/RoomEaster
 import { RoomRealtimeSubscribe } from '../RoomRealtimeSubscribe/RoomRealtimeSubscribe';
 import { RoomTrayController } from '../RoomTrayController/RoomTrayController';
 
-export const RoomControllers = () => {
+export const RoomControllers = ({ roomName }: RoomControllersProps) => {
   const roomId = useCurrentRoomId();
 
   useDeviceSync();
@@ -30,7 +33,8 @@ export const RoomControllers = () => {
   return (
     <>
       <RoomRealtimeSubscribe />
-      <RoomTrayController />
+      <RoomTrayController roomName={roomName} />
+      <AndroidCallController roomName={roomName} />
       <LocalSpeakingController />
       <MicStateController />
       <RoomEasterEggsController />

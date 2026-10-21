@@ -3,6 +3,8 @@ import { target, useEventListener } from '@siberiacancode/reactuse';
 import { clsx } from 'clsx';
 import { useTranslations } from 'use-intl';
 
+import { useCanModerateRoom } from '@/entities/room/room';
+
 import type { ChatPanelProps } from './ChatPanel.types';
 
 import { ChatConversation } from './ChatConversation/ChatConversation';
@@ -13,6 +15,8 @@ import s from './ChatPanel.module.scss';
 export const ChatPanel = ({ roomId, isOpen, onClose }: ChatPanelProps) => {
   const t = useTranslations('chat');
   const { localParticipant } = useLocalParticipant();
+
+  const { canModerate } = useCanModerateRoom(roomId);
 
   useEventListener(target(window), 'keydown', (event) => {
     if (!isOpen || event.key !== 'Escape' || event.defaultPrevented) {
@@ -47,6 +51,7 @@ export const ChatPanel = ({ roomId, isOpen, onClose }: ChatPanelProps) => {
       <aside className={clsx('glass-strong', 'pb-safe', s.root)} data-open={isOpen} inert={!isOpen}>
         <ChatHeader onClose={onClose} />
         <ChatConversation
+          canModerate={canModerate}
           currentUserId={localParticipant.identity}
           enabled={isOpen}
           roomId={roomId}

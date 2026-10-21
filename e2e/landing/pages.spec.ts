@@ -1,18 +1,35 @@
 import { expect, test } from '@playwright/test';
 
 test.describe('site pages', () => {
-  test('the home page renders in Russian at the bare path', async ({ page }) => {
-    const response = await page.goto('/');
+  test.describe('in a Russian browser', () => {
+    test.use({ locale: 'ru-RU' });
 
-    expect(response?.status()).toBe(200);
-    await expect(page).toHaveTitle(/chatovo/i);
-    await expect(page.locator('html')).toHaveAttribute('lang', 'ru-RU');
+    test('the home page renders in Russian at the bare path', async ({ page }) => {
+      const response = await page.goto('/');
+
+      expect(response?.status()).toBe(200);
+      await expect(page).toHaveTitle(/chatovo/i);
+      await expect(page.locator('html')).toHaveAttribute('lang', 'ru');
+    });
   });
 
-  test('the English home page lives under /en', async ({ page }) => {
-    await page.goto('/en');
+  for (const locale of ['en', 'uk', 'es', 'pt', 'de', 'fr', 'tr', 'pl']) {
+    test(`the ${locale} home page lives under /${locale}`, async ({ page }) => {
+      const response = await page.goto(`/${locale}`);
 
-    await expect(page.locator('html')).toHaveAttribute('lang', 'en-US');
+      expect(response?.status()).toBe(200);
+      await expect(page.locator('html')).toHaveAttribute('lang', locale);
+    });
+  }
+
+  test.describe('in a German browser', () => {
+    test.use({ locale: 'de-DE' });
+
+    test('the home page sends a first visit to the browser language', async ({ page }) => {
+      await page.goto('/');
+
+      await expect(page).toHaveURL(/\/de$/);
+    });
   });
 
   test('the /ru prefix collapses to the bare path', async ({ page }) => {

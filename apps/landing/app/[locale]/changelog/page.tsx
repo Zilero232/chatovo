@@ -10,7 +10,7 @@ import { ChangelogPage } from '@/views/changelog';
 export const generateMetadata = async ({ params }: LocalePageProps): Promise<Metadata> =>
   createMarketingMetadata({
     locale: await readPageLocale(params),
-    namespace: 'changelog',
+    namespace: 'changelog.meta',
     path: ROUTES.changelog
   });
 

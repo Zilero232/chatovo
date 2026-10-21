@@ -8,3 +8,8 @@ export type PendingFriendCall = {
   roomId: string;
   status: FriendCallStatus;
 };
+
+export type ClearCallsBetweenInput = {
+  userId: string;
+  otherUserId: string;
+};

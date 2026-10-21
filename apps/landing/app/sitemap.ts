@@ -1,8 +1,10 @@
 import type { MetadataRoute } from 'next';
 
+import { localizeSitePath } from '@chatovo/config';
+
 import { SITE } from '@/shared/config';
 import { ROUTES } from '@/shared/constants';
-import { localizeMarketingPath } from '@/shared/lib';
+import { DEFAULT_LOCALE, LOCALES } from '@/shared/i18n';
 
 export const dynamic = 'force-static';
 
@@ -20,45 +22,35 @@ const LOCALIZED_ENTRIES: LocalizedEntry[] = [
   { path: ROUTES.download, changeFrequency: 'weekly', priority: 0.8 },
   { path: ROUTES.changelog, changeFrequency: 'weekly', priority: 0.7 },
   { path: ROUTES.about, changeFrequency: 'monthly', priority: 0.5 },
-  { path: ROUTES.support, changeFrequency: 'monthly', priority: 0.5 }
+  { path: ROUTES.support, changeFrequency: 'monthly', priority: 0.5 },
+  { path: ROUTES.privacy, changeFrequency: 'yearly', priority: 0.3 },
+  { path: ROUTES.terms, changeFrequency: 'yearly', priority: 0.3 }
 ];
 
-const LEGAL_ENTRIES: MetadataRoute.Sitemap = [
-  { url: url(ROUTES.privacy), changeFrequency: 'yearly', priority: 0.3 },
-  { url: url(ROUTES.terms), changeFrequency: 'yearly', priority: 0.3 }
-];
+const TRANSLATION_PRIORITY_FACTOR = 0.9;
 
-const EN_PRIORITY_FACTOR = 0.9;
-
-const toLocalizedPair = ({
+const toLocalizedEntries = ({
   path,
   changeFrequency,
   priority
 }: LocalizedEntry): MetadataRoute.Sitemap => {
-  const enPath = localizeMarketingPath({ path, locale: 'en' });
+  const languages = Object.fromEntries(
+    LOCALES.map((locale) => [locale, url(localizeSitePath({ path, locale }))])
+  );
 
-  const alternates = {
-    languages: {
-      ru: url(path),
-      en: url(enPath),
-      'x-default': url(path)
-    }
-  };
+  const alternates = { languages: { ...languages, 'x-default': url(path) } };
 
-  return [
-    { url: url(path), changeFrequency, priority, alternates },
-    {
-      url: url(enPath),
-      changeFrequency,
-      priority: Number((priority * EN_PRIORITY_FACTOR).toFixed(2)),
-      alternates
-    }
-  ];
+  return LOCALES.map((locale) => ({
+    url: languages[locale],
+    changeFrequency,
+    priority:
+      locale === DEFAULT_LOCALE
+        ? priority
+        : Number((priority * TRANSLATION_PRIORITY_FACTOR).toFixed(2)),
+    alternates
+  }));
 };
 
-const sitemap = (): MetadataRoute.Sitemap => [
-  ...LOCALIZED_ENTRIES.flatMap(toLocalizedPair),
-  ...LEGAL_ENTRIES
-];
+const sitemap = (): MetadataRoute.Sitemap => LOCALIZED_ENTRIES.flatMap(toLocalizedEntries);
 
 export default sitemap;

@@ -10,15 +10,18 @@ import {
   IncomingFriendCallResponseDto,
   OutgoingFriendCallResponseDto,
   RoomDto,
-  SendFriendRequestDto
+  SendFriendRequestDto,
+  UserBlockEntryDto,
+  UserBlockListDto
 } from './dto/friends.dto';
-import { DmRoomService, FriendCallService, FriendshipService } from './services';
+import { BlockService, DmRoomService, FriendCallService, FriendshipService } from './services';
 
 @ApiTags('friends')
 @Controller('friends')
 export class FriendsController {
   constructor(
     private readonly friendship: FriendshipService,
+    private readonly blocks: BlockService,
     private readonly dmRoom: DmRoomService,
     private readonly calls: FriendCallService
   ) {}
@@ -38,6 +41,24 @@ export class FriendsController {
   @Get('relations/:userId')
   getRelation(@Param('userId') otherUserId: string, @CurrentUser() userId: string) {
     return this.friendship.getFriendshipRelation({ userId, otherUserId });
+  }
+
+  @Get('blocks')
+  @ZodResponse({ type: UserBlockListDto })
+  listBlockedUsers(@CurrentUser() userId: string) {
+    return this.blocks.listBlockedUsers(userId);
+  }
+
+  @Post('blocks/:userId')
+  @ZodResponse({ type: UserBlockEntryDto })
+  blockUser(@Param('userId') otherUserId: string, @CurrentUser() userId: string) {
+    return this.blocks.blockUser({ userId, otherUserId });
+  }
+
+  @Delete('blocks/:userId')
+  @HttpCode(204)
+  unblockUser(@Param('userId') otherUserId: string, @CurrentUser() userId: string) {
+    return this.blocks.unblockUser({ userId, otherUserId });
   }
 
   @Post('requests')

@@ -10,18 +10,13 @@
   justify-content: center;
 }
 
-.buttonSm {
-  width: 2rem !important;
-  height: 2rem !important;
-}
-
-.buttonLg {
-  width: 2.25rem !important;
-  height: 2.25rem !important;
+.buttonLg[data-size] {
+  width: 2.25rem;
+  height: 2.25rem;
 
   @include bp(sm) {
-    width: 2.75rem !important;
-    height: 2.75rem !important;
+    width: 2.75rem;
+    height: 2.75rem;
   }
 }
 

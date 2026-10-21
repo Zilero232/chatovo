@@ -2,6 +2,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 const findRoom = vi.fn();
 const assertNotBlocked = vi.fn();
+const assertNotRoomBanned = vi.fn();
 const hasRoomGrant = vi.fn();
 
 vi.mock('../../../core', () => ({
@@ -14,10 +15,15 @@ vi.mock('../../assert-not-blocked', () => ({
   assertNotBlocked: (userId: string) => assertNotBlocked(userId)
 }));
 
+vi.mock('../../assert-not-room-banned', () => ({
+  assertNotRoomBanned: (input: unknown) => assertNotRoomBanned(input)
+}));
+
 vi.mock('../../../modules/livekit', () => ({
   hasRoomGrant: (roomId: string, userId: string) => hasRoomGrant(roomId, userId)
 }));
 
+const { AppForbiddenException } = await import('../../../common/exceptions');
 const { assertCanAccessRoom } = await import('../assert-can-access-room');
 
 const codeOf = async (call: Promise<unknown>): Promise<string> => {
@@ -45,6 +51,7 @@ describe('assertCanAccessRoom', () => {
   beforeEach(() => {
     findRoom.mockReset();
     assertNotBlocked.mockReset().mockResolvedValue(undefined);
+    assertNotRoomBanned.mockReset().mockResolvedValue(undefined);
     hasRoomGrant.mockReset().mockReturnValue(false);
   });
 
@@ -92,6 +99,27 @@ describe('assertCanAccessRoom', () => {
     hasRoomGrant.mockReturnValue(true);
 
     await expect(assertCanAccessRoom({ roomId: 'room-1', userId })).resolves.toBeUndefined();
+  });
+
+  it('refuses a user the room owner banned, even from a public room', async () => {
+    findRoom.mockResolvedValueOnce(publicRoom);
+    assertNotRoomBanned.mockRejectedValueOnce(
+      new AppForbiddenException('ROOM_BANNED', 'Banned from this room')
+    );
+
+    await expect(codeOf(assertCanAccessRoom({ roomId: 'room-1', userId }))).resolves.toBe(
+      'ROOM_BANNED'
+    );
+    expect(assertNotRoomBanned).toHaveBeenCalledWith({ roomId: 'room-1', userId });
+  });
+
+  it('does not look up a ban for a room the user may not enter anyway', async () => {
+    findRoom.mockResolvedValueOnce({ ...publicRoom, isPrivate: true });
+
+    await expect(codeOf(assertCanAccessRoom({ roomId: 'room-1', userId }))).resolves.toBe(
+      'ROOM_ACCESS_DENIED'
+    );
+    expect(assertNotRoomBanned).not.toHaveBeenCalled();
   });
 
   it('reports a missing room as not found', async () => {

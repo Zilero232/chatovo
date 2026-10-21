@@ -1,0 +1,394 @@
+{
+  "lobby": {
+    "subtitle": "Bir ses odasına katıl ya da kendi odanı aç",
+    "appVersion": "Uygulama sürümü",
+    "stats": {
+      "rooms": "Odalar",
+      "live": "Şu an canlı",
+      "online": "Çevrimiçi"
+    },
+    "searchPlaceholder": "Oda ara...",
+    "filters": {
+      "all": "Tümü",
+      "live": "Canlı",
+      "mine": "Benim"
+    },
+    "view": {
+      "grid": "Izgara görünümü",
+      "list": "Liste görünümü"
+    },
+    "nothingFound": "\"{query}\" ile eşleşen oda yok",
+    "nothingFoundHint": "Daha kısa bir sorgu dene ya da bu adla kendin bir oda oluştur.",
+    "roomsError": {
+      "title": "Odalar yüklenemedi",
+      "description": "Bağlantını kontrol et ve tekrar dene.",
+      "retry": "Tekrar dene"
+    },
+    "empty": {
+      "title": "Henüz oda yok",
+      "text": "Biri oda oluşturduğu anda burada görünür. İlkini sen başlat ve bağlantıyı paylaş — açan herkes doğrudan görüşmeye katılır."
+    },
+    "card": {
+      "live": "Canlı",
+      "empty": "Boş",
+      "people": "{count, plural, one {# kişi} other {# kişi}}",
+      "ownerTooltip": "Oda sahibi",
+      "micMuted": "Mikrofon kapalı",
+      "deafened": "Ses kapalı"
+    },
+    "sections": {
+      "rooms": "Odalar",
+      "friends": "Arkadaşlar"
+    }
+  },
+  "room": {
+    "sections": {
+      "public": "Açık",
+      "private": "Özel"
+    },
+    "loading": "Oda yükleniyor...",
+    "authorizing": "Erişim yetkilendiriliyor...",
+    "connecting": "\"{name}\" odasına bağlanılıyor...",
+    "reconnecting": "\"{name}\" odasına yeniden bağlanılıyor...",
+    "notFound": "Oda bulunamadı",
+    "notFoundHint": "Sahibi bu odayı sildi ya da bağlantı güncel değil. Bağlantıyı kontrol et veya odayı lobide bul.",
+    "backToLobby": "Lobiye dön",
+    "joinFailed": "Odaya katılınamadı",
+    "invite": {
+      "copyLink": "Davet bağlantısını kopyala",
+      "tooltip": "Başkalarını davet etmek için bağlantıyı kopyala",
+      "linkCopied": "Davet bağlantısı kopyalandı",
+      "aloneTitle": "Burada sadece sen varsın",
+      "aloneDescription": "Bağlantıyı gönder, arkadaşların tek tıkla katılsın."
+    },
+    "connection": {
+      "measuring": "Bağlantı ölçülüyor…",
+      "ping": "Bağlantı: {ms} ms"
+    },
+    "mini": {
+      "label": "Aktif oda “{name}”",
+      "inRoom": "Odadasın",
+      "inCall": "Görüşmedesin",
+      "connecting": "Bağlanıyor…"
+    },
+    "soundboard": {
+      "label": "Yönetici ses paneli",
+      "sounds": {
+        "siren": "Siren",
+        "airhorn": "Korna",
+        "drumroll": "Trampet",
+        "sadTrombone": "Hüzünlü trombon",
+        "applause": "Alkış"
+      }
+    },
+    "music": {
+      "label": "Oda müziği",
+      "title": "Odada müzik",
+      "description": "Odadaki herkes için parça çal ya da kendi müziğini paylaş.",
+      "nowPlaying": {
+        "addedBy": "Ekleyen: {name}",
+        "live": "Canlı",
+        "play": "Oynat",
+        "pause": "Duraklat",
+        "previous": "Önceki parça",
+        "next": "Sonraki parça",
+        "stop": "Müziği durdur",
+        "open": "Kaynağı aç",
+        "expand": "Oynatıcıyı aç"
+      },
+      "progress": {
+        "seek": "Parça konumu",
+        "unknown": "–:––"
+      },
+      "empty": {
+        "title": "Burası sessiz",
+        "description": "Bir bağlantı yapıştır ya da radyoyu aç."
+      },
+      "search": {
+        "label": "Müzik ekle",
+        "placeholder": "Bağlantı yapıştır veya radyo ara",
+        "hint": "YouTube, SoundCloud ve Vimeo bağlantıları ya da bir ses dosyasının doğrudan bağlantısı sıraya eklenir; diğer her şey radyo istasyonlarında aranır.",
+        "clear": "Temizle"
+      },
+      "queue": {
+        "title": "Sıradaki",
+        "empty": "Sırada henüz bir şey yok.",
+        "remove": "Sıradan kaldır: {title}"
+      },
+      "add": {
+        "link": "{source} bağlantısı",
+        "submit": "Sıraya ekle",
+        "added": "Sıraya eklendi"
+      },
+      "radio": {
+        "label": "İstasyonlar",
+        "empty": "İstasyon bulunamadı.",
+        "error": "Radyo araması şu anda kullanılamıyor.",
+        "play": "Çal: {name}"
+      },
+      "genres": {
+        "title": "Ruh haline göre radyo",
+        "items": {
+          "lofi": "Lo-fi",
+          "jazz": "Caz",
+          "rock": "Rock",
+          "classical": "Klasik",
+          "ambient": "Ambiyans",
+          "chill": "Chill"
+        }
+      },
+      "share": {
+        "title": "Müziğim",
+        "hint": "Müzik kendi hesabından çalar — VK Music, Yandex Music ya da bir tarayıcı sekmesinde açık başka bir şey — ve odadaki herkes duyar.",
+        "tab": "Sekme sesini paylaş",
+        "tabHint": "Seçicide müziğin çaldığı sekmeyi seç ve “Sekme sesini de paylaş” seçeneğini aç.",
+        "tabUnsupported": "Sekme sesini paylaşmak için masaüstü tarayıcı gerekir.",
+        "files": "Bu cihazdaki dosyaları çal",
+        "sharingTab": "Bir sekmenin sesi paylaşılıyor",
+        "playingFile": "Çalınıyor: {name}",
+        "paused": "Duraklatıldı: {name}",
+        "pause": "Duraklat",
+        "resume": "Devam et",
+        "next": "Sonraki dosya",
+        "stop": "Paylaşımı durdur",
+        "noAudio": "Ses paylaşılmadı — seçicide “Sekme sesini de paylaş” seçeneğini aç.",
+        "fileFailed": "Çalınamadı: {name}.",
+        "publishFailed": "Bu odada paylaşım başlatılamadı."
+      },
+      "settings": {
+        "volume": "Müzik sesi",
+        "ducking": "Konuşulurken müziğin sesini kıs"
+      },
+      "player": {
+        "unplayable": "Bu parça burada çalınamıyor — atlanıyor.",
+        "unavailable": "Oynatıcı yüklenmedi — hizmet ağında engellenmiş olabilir.",
+        "tapToListen": "Dinlemek için dokun"
+      },
+      "sources": {
+        "youtube": "YouTube",
+        "soundcloud": "SoundCloud",
+        "radio": "Radyo",
+        "vimeo": "Vimeo",
+        "file": "Ses dosyası"
+      },
+      "playInRoom": "Odada çal",
+      "tabOnly": {
+        "title": "{service} gömülemiyor",
+        "hint": "Bir tarayıcı sekmesinde çal, sonra aşağıdaki Müziğim bölümünde “Sekme sesini paylaş” seçeneğini kullan — odadaki herkes duyacak.",
+        "services": {
+          "vk": "VK",
+          "yandex": "Yandex Music",
+          "spotify": "Spotify",
+          "apple": "Apple Music",
+          "zvuk": "Zvuk",
+          "deezer": "Deezer"
+        }
+      }
+    },
+    "password": {
+      "heading": "Bu oda kilitli",
+      "hint": "Şifreyi sana bağlantıyı gönderen kişiye sor — “{name}” şifresiz açılmaz.",
+      "label": "Şifre",
+      "wrong": "Yanlış şifre",
+      "join": "Katıl",
+      "validation": {
+        "passwordMin": "En az 4 karakter",
+        "passwordMax": "En fazla 128 karakter"
+      }
+    },
+    "shortcuts": {
+      "pttBlockedByMute": "Mikrofon kapalı — bas-konuş için susturmayı kaldır"
+    },
+    "controls": {
+      "mute": "Sustur",
+      "unmute": "Susturmayı kaldır",
+      "micDevice": "Mikrofon seç",
+      "camera": "Kamerayı aç",
+      "cameraOff": "Kamerayı kapat",
+      "camDevice": "Kamera seç",
+      "screenShare": "Ekran paylaş",
+      "stopShare": "Paylaşımı durdur",
+      "react": "Tepki gönder",
+      "deafen": "Sağırlaştır",
+      "undeafen": "Sağırlaştırmayı kaldır",
+      "speakerDevice": "Hoparlör seç",
+      "pttHint": "Bas-konuş",
+      "leave": "Ayrıl",
+      "invisibleMicBlocked": "Görünmez modda konuşamazsın",
+      "mutedByOwner": "Oda sahibi tarafından susturuldu"
+    },
+    "dmWaiting": "Karşı tarafın katılması bekleniyor…",
+    "expandVideo": "Videoyu genişlet",
+    "collapseVideo": "Videoyu daralt",
+    "invisibleBadge": "Görünmez",
+    "invisibleNotice": "Gizli katıldın: kimse seni görmüyor ya da duymuyor",
+    "badges": {
+      "screen": "Ekran",
+      "music": "Müzik"
+    },
+    "callService": {
+      "text": "Bir sesli odadasın. Geri dönmek için dokun.",
+      "channel": "Devam eden arama"
+    }
+  },
+  "chat": {
+    "title": "Sohbet",
+    "close": "Sohbeti kapat",
+    "open": "Sohbeti göster",
+    "hide": "Sohbeti gizle",
+    "messagePlaceholder": "Mesaj…",
+    "send": "Mesaj gönder",
+    "attach": "Dosya ekle",
+    "dropToSend": "Göndermek için bırak",
+    "uploading": "Yükleniyor…",
+    "fileTooLarge": "Dosya çok büyük (en fazla 25 MB)",
+    "sending": "Gönderiliyor…",
+    "sendFailed": "Gönderilemedi",
+    "retry": "Tekrar dene",
+    "discard": "Sil",
+    "edit": "Düzenle",
+    "delete": "Sil",
+    "edited": "düzenlendi",
+    "editHint": "Kaydetmek için Enter · Yeni satır için Shift+Enter · İptal için Esc",
+    "editTitle": "Mesajı düzenle",
+    "save": "Kaydet",
+    "deletedPlaceholder": "Mesaj silindi",
+    "deleteTitle": "Mesaj silinsin mi?",
+    "deleteDescription": "Bu mesaj herkes için kalıcı olarak silinecek. Bu işlem geri alınamaz.",
+    "cancel": "İptal",
+    "editFailed": "Mesaj düzenlenemedi",
+    "deleteFailed": "Mesaj silinemedi",
+    "today": "Bugün",
+    "yesterday": "Dün",
+    "empty": {
+      "title": "Burası sessiz",
+      "description": "Bu odada gönderilen mesajlar burada görünür ve sonradan katılan herkes için kalır. Bir bağlantı ya da dosya bırak veya sadece merhaba de."
+    },
+    "openInBrowser": "Tarayıcıda aç",
+    "download": "İndir"
+  },
+  "channels": {
+    "searchPlaceholder": "Oda ara...",
+    "noRoomsYet": "Henüz oda yok",
+    "nothingFound": "Hiçbir şey bulunamadı",
+    "nothingFoundHint": "Bu adla eşleşen oda yok. Hepsini yeniden görmek için aramayı temizle.",
+    "online": "çevrimiçi",
+    "createRoom": "Oda oluştur",
+    "emptyHint": "Sayfadan bir oda seç ya da yenisini başlat.",
+    "privateRoom": "Özel oda",
+    "friends": {
+      "heading": "Arkadaşlar",
+      "online": "Çevrimiçi — {count}",
+      "offline": "Çevrimdışı — {count}"
+    },
+    "activity": {
+      "heading": "Arkadaş etkinliği",
+      "inRooms": "Şu an odalarda",
+      "available": "{count, plural, one {# kişi konuşmaya müsait} other {# kişi konuşmaya müsait}}",
+      "join": "Katıl",
+      "others": "{count, plural, one {+# kişi daha} other {+# kişi daha}}",
+      "emptyTitle": "Şu an ortalık sessiz",
+      "emptyHint": "Arkadaşlarından kimse ortalıkta yok. Bir oda başlat ve ilk giren sen ol."
+    }
+  },
+  "createRoom": {
+    "trigger": "Oda oluştur",
+    "title": "Oda oluştur",
+    "description": "Bir ad belirle, kimlerin katılabileceğini seç; seni doğrudan görüşmeye alalım.",
+    "nameLabel": "Yeni oda adı",
+    "namePlaceholder": "ekip toplantısı",
+    "passwordLabel": "Şifre",
+    "passwordPlaceholder": "En az 4 karakter",
+    "privateLabel": "Özel (katılmak için şifre gerekir)",
+    "submit": "Oda oluştur",
+    "created": "Oda oluşturuldu",
+    "nameCounter": "{count}/{max}",
+    "passwordHint": "En az 4 karakter. Yalnızca içeride görmek istediğin kişilerle paylaş.",
+    "privateExplainer": "Oda listede kilitli olarak görünür. Yalnızca şifreyi bilenler girebilir.",
+    "publicExplainer": "Herkes odayı lobide görür ve şifresiz katılabilir.",
+    "hint": "Odayı daha sonra oda menüsünden yeniden adlandırabilir veya şifresini değiştirebilirsin."
+  },
+  "manageRoom": {
+    "menu": {
+      "open": "Odayı yönet",
+      "edit": "Odayı düzenle",
+      "delete": "Odayı sil"
+    },
+    "edit": {
+      "title": "Odayı düzenle",
+      "description": "Odayı yeniden adlandır ya da herkese açık ve özel arasında geçiş yap.",
+      "nameLabel": "Ad",
+      "passwordLabel": "Yeni şifre",
+      "passwordHint": "Mevcut şifreyi korumak için boş bırak.",
+      "privateLabel": "Özel (katılmak için şifre gerekir)",
+      "submit": "Değişiklikleri kaydet",
+      "saved": "Oda güncellendi",
+      "nameCounter": "{count}/{max}",
+      "privateExplainer": "Oda listede kilitli olarak görünür. Yalnızca şifreyi bilenler girebilir.",
+      "publicExplainer": "Herkes odayı lobide görür ve şifresiz katılabilir.",
+      "hint": "Şifreyi değiştirmek kimseyi dışarı atmaz — yalnızca yeni katılımları etkiler."
+    },
+    "delete": {
+      "title": "\"{name}\" silinsin mi?",
+      "description": "Şu anda içeride olan herkesin bağlantısı kesilecek. Bu işlem geri alınamaz.",
+      "cancel": "İptal",
+      "confirm": "Sil",
+      "deleted": "Oda silindi",
+      "consequences": "Oda, sohbet geçmişi ve içindeki tüm kanallar kalıcı olarak silinir.",
+      "hint": "Şu anda görüşmede olan herkesin bağlantısı hemen kesilecek."
+    }
+  },
+  "participant": {
+    "muteForMe": "Benim için sustur",
+    "unmuteForMe": "Benim için susturmayı kaldır",
+    "volume": "Ses düzeyi",
+    "volumeFor": "Ses düzeyi: {name}",
+    "screenVolume": "Ekran sesi",
+    "screenVolumeFor": "Ekran sesi düzeyi: {name}",
+    "copyName": "Adı kopyala",
+    "nameCopied": "Ad kopyalandı"
+  },
+  "roomModeration": {
+    "label": "Oda moderasyonu",
+    "mute": "Herkes için sustur",
+    "unmute": "Konuşmaya izin ver",
+    "remove": "Odadan çıkar",
+    "ban": "Odadan yasakla",
+    "toasts": {
+      "mute": "{name} herkes için susturuldu",
+      "unmute": "{name} yeniden konuşabilir",
+      "remove": "{name} odadan çıkarıldı",
+      "ban": "{name} odadan yasaklandı"
+    },
+    "confirm": {
+      "cancel": "İptal",
+      "remove": {
+        "title": "{name} odadan çıkarılsın mı?",
+        "description": "{name} hemen bağlantıdan düşer ve lobiye döner. Yeniden katılabilir.",
+        "confirm": "Çıkar"
+      },
+      "ban": {
+        "title": "{name} odadan yasaklansın mı?",
+        "description": "{name} hemen bağlantıdan düşer ve sen oda menüsünden yasağı kaldırana kadar geri dönemez.",
+        "confirm": "Yasakla"
+      }
+    },
+    "notices": {
+      "removed": "Odadan çıkarıldın",
+      "banned": "Odadan yasaklandın",
+      "muted": "Oda sahibi mikrofonunu kapattı",
+      "unmuted": "Oda sahibi yeniden konuşmana izin verdi",
+      "roomName": "“{name}”"
+    },
+    "bans": {
+      "menu": "Yasaklı kullanıcılar",
+      "title": "Yasaklı kullanıcılar",
+      "description": "\"{name}\" odasından yasaklananlar, sen yasağı kaldırana kadar katılamaz.",
+      "empty": "Bu odada yasaklı kimse yok.",
+      "bannedAt": "Yasaklanma: {date}",
+      "unban": "Yasağı kaldır",
+      "unbanUser": "{name} için yasağı kaldır",
+      "unbanned": "{name} odaya yeniden katılabilir"
+    }
+  }
+}

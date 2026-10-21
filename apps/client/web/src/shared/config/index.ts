@@ -8,4 +8,4 @@ export {
   LIST_ITEM_INITIAL,
   LIST_ITEM_TRANSITION
 } from './motion';
-export { LEGAL, SITE } from '@chatovo/config';
+export { LEGAL, SITE, SITE_PATHS, siteUrl } from '@chatovo/config';

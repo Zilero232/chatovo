@@ -82,28 +82,7 @@
 }
 
 .localeSwitch {
-  display: inline-flex;
-  min-width: rem(38);
-  height: rem(32);
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  color: var(--muted-foreground);
-  font-size: rem(12);
-  font-weight: 600;
-  padding-inline: rem(9);
-  text-decoration: none;
-  transition:
-    color var(--duration-default) var(--timing-function-standard),
-    border-color var(--duration-default) var(--timing-function-standard),
-    background-color var(--duration-default) var(--timing-function-standard);
-
-  &:hover {
-    border-color: var(--border-strong);
-    background-color: var(--surface-1);
-    color: var(--foreground);
-  }
+  width: rem(140);
 }
 
 .brand {
@@ -208,7 +187,6 @@
 
 .mobileNavLocaleSwitch {
   width: 100%;
-  height: rem(40);
 }
 
 .section {

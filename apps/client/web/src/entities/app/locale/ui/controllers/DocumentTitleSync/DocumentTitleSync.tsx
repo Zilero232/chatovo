@@ -37,7 +37,7 @@ export const DocumentTitleSync = () => {
       return;
     }
 
-    const site = locale === 'en' ? SITE.en : SITE;
+    const site = locale === 'ru' ? SITE : SITE.en;
 
     document.title = `${t(titleKey)} · ${SITE.name}`;
     document.querySelector('meta[name="description"]')?.setAttribute('content', site.description);

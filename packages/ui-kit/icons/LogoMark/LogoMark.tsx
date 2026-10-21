@@ -8,8 +8,8 @@ type LogoMarkProps = Omit<SVGProps<SVGSVGElement>, 'height' | 'width'> & {
   withPlaque?: boolean;
 };
 
-const PLAQUE = { from: '#ff8f6b', mid: '#ff7a59', to: '#f2643f' } as const;
-const PLAQUE_COLORS = { body: '#fff6ea', ear: '#ff9f86', ink: '#2c1a33' } as const;
+const PLAQUE = { from: '#7a68ff', mid: '#6654f5', to: '#5442dd' } as const;
+const PLAQUE_COLORS = { body: '#fff6ea', ear: '#ff8a6a', ink: '#2a1d40' } as const;
 const BARE_COLORS = {
   body: 'currentColor',
   ear: 'var(--brand-coral)',

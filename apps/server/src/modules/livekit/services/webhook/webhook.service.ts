@@ -10,13 +10,16 @@ import { DomainEvent } from '../../../../common/events/domain-events';
 import { AppUnauthorizedException } from '../../../../common/exceptions';
 import { AppConfigService } from '../../../../config/config.module';
 import { getRoomName } from '../../../../lib';
-import { isInvisibleParticipant } from '../../lib';
+import { isBarredFromRoom, isInvisibleParticipant } from '../../lib';
 import { toRoomParticipant } from '../../mappers';
+import { clearRoomMicLocks, isMicLocked } from '../../mic-lock-store';
 import {
   addParticipant,
   clearRoom,
   patchParticipant,
   removeParticipant,
+  removeRoomParticipant,
+  setParticipantMicLock,
   syncRoom
 } from '../../presence';
 
@@ -76,6 +79,7 @@ export class WebhookService {
       })
       .with('room_finished', async () => {
         clearRoom(roomId);
+        clearRoomMicLocks(roomId);
 
         const roomName = await getRoomName(roomId);
 
@@ -86,9 +90,21 @@ export class WebhookService {
   }
 
   private async onParticipantJoined({ roomId, participant }: ParticipantJoinedInput) {
+    const { identity } = participant;
+
+    if (await isBarredFromRoom({ roomId, userId: identity })) {
+      await removeRoomParticipant({ roomId, identity });
+
+      return;
+    }
+
     const invisible = isInvisibleParticipant(participant.metadata);
 
     addParticipant(roomId, toRoomParticipant({ participant, invisible }));
+
+    if (isMicLocked({ roomId, userId: identity })) {
+      await setParticipantMicLock({ roomId, identity, locked: true });
+    }
 
     if (invisible) {
       return;
@@ -99,7 +115,7 @@ export class WebhookService {
     this.events.emit(DomainEvent.VoiceJoined, {
       roomId,
       roomName,
-      participantName: participant.name || participant.identity
+      participantName: participant.name || identity
     } satisfies VoiceJoinedEvent);
   }
 }

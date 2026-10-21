@@ -1,5 +1,4 @@
 import { invoke } from '@tauri-apps/api/core';
-import { listen } from '@tauri-apps/api/event';
 
 export type TrayAction = 'checkUpdates' | 'leaveRoom' | 'toggleDeafen' | 'toggleMute';
 
@@ -43,5 +42,8 @@ export const pushTrayState = async (state: TrayState) => {
   }
 };
 
-export const subscribeTrayAction = (onAction: (action: TrayAction) => void) =>
-  listen<TrayAction>('tray:action', ({ payload }) => onAction(payload));
+export const subscribeTrayAction = async (onAction: (action: TrayAction) => void) => {
+  const { listen } = await import('@tauri-apps/api/event');
+
+  return listen<TrayAction>('tray:action', ({ payload }) => onAction(payload));
+};

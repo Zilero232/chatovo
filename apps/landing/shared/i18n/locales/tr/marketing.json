@@ -1,0 +1,1430 @@
+{
+  "home": {
+    "nav": {
+      "ariaLabel": "Sayfa bölümleri",
+      "language": "Dil",
+      "menuLabel": "Menüyü aç",
+      "menuTitle": "Gezinme menüsü",
+      "menuDescription": "Site bölümleri, dil seçimi ve uygulamaya giriş.",
+      "pages": {
+        "features": "Özellikler",
+        "download": "İndir",
+        "changelog": "Yenilikler",
+        "about": "Hakkında",
+        "support": "Destek"
+      },
+      "signIn": "Giriş yap"
+    },
+    "hero": {
+      "eyebrow": "Arkadaşların için ses odaları",
+      "title": "Arkadaşların için bir oda.",
+      "titleAccent": "Gir ve konuş.",
+      "description": "Bir oda oluştur, bağlantıyı gönder ve on beş saniye sonra hep birliktesiniz: ses, görüntü, ekran paylaşımı ve herkes için müzik. Sunucu, rol ya da kurulum yok.",
+      "ctaPrimary": "Oda oluştur",
+      "ctaDownload": "Uygulamayı indir",
+      "stageLabel": "Kulaklıkla müzik dinleyen kedi Chato",
+      "points": {
+        "free": "Ücretsiz, reklamsız ve görüşme süresi sınırı yok",
+        "everywhere": "Tarayıcıda, Windows, macOS, Linux ve Android'de"
+      },
+      "card": {
+        "room": "Akşam sohbeti",
+        "live": "Canlı",
+        "track": "Akşama lo-fi",
+        "source": "Radyo · ekleyen: max"
+      }
+    },
+    "showcase": {
+      "heading": "Chatovo'da bir akşam",
+      "subheading": "Ses, müzik ve sohbet tek pencerede. Kurulacak bir şey yok — oda doğrudan tarayıcıda açılır.",
+      "alt": "Bir Chatovo ses odası: dört kişi, ortak müzik ve sohbet",
+      "address": "app.chatovo.ru",
+      "chips": {
+        "music": "Ortak müzik herkes için senkron çalar",
+        "chat": "Sesin hemen yanında sohbet ve dosyalar",
+        "speaking": "Kimin konuştuğunu görürsün"
+      }
+    },
+    "spotlights": {
+      "music": {
+        "eyebrow": "Müzik",
+        "title": "Tüm odaya müzik aç",
+        "description": "Bir bağlantı yapıştır, parça herkes için aynı anda çalsın — kimse geride kalmaz.",
+        "alt": "Chatovo oynatıcısı: video, sıra ve radyo",
+        "points": {
+          "sources": "YouTube, SoundCloud, Vimeo, doğrudan bağlantılar ve internet radyosu",
+          "ducking": "Biri konuşurken müziğin sesi kısılır",
+          "share": "Geri kalan her şey paylaşılan bir tarayıcı sekmesiyle"
+        }
+      },
+      "voice": {
+        "eyebrow": "Ses",
+        "title": "Sorunsuz çalışan bir görüşme",
+        "description": "Başkasının bulutunda değil, kendi medya sunucumuzda: temiz ses ve düşük gecikme.",
+        "alt": "Bir Chatovo ses odasının katılımcı ızgarası",
+        "points": {
+          "audio": "Gürültü ve yankı bastırma, otomatik kazanç",
+          "screen": "Tek tıkla ekran ve kamera, 4K'ya kadar",
+          "volume": "Herkes için ayrı ses düzeyi"
+        }
+      }
+    },
+    "stats": {
+      "items": {
+        "free": {
+          "value": "0 ₺",
+          "label": "Ücretsiz, reklam ve abonelik yok"
+        },
+        "unlimited": {
+          "value": "∞",
+          "label": "Görüşme süresi sınırı yok"
+        },
+        "platforms": {
+          "value": "5",
+          "label": "Tarayıcı, Windows, macOS, Linux ve Android"
+        }
+      }
+    },
+    "steps": {
+      "heading": "Nasıl çalışır",
+      "subheading": "Boş bir ekrandan canlı bir sohbete üç adım.",
+      "items": {
+        "create": {
+          "title": "Oda oluştur",
+          "description": "Bir ad ver, istersen şifre de ekle.",
+          "fragment": "Oda oluştur"
+        },
+        "share": {
+          "title": "Bağlantıyı paylaş",
+          "description": "Oda adresini kopyala ve zaten yazıştığınız yere bırak."
+        },
+        "talk": {
+          "title": "Konuşmaya başla",
+          "description": "Mikrofonun hemen açılır — konuş, ekranını paylaş, bir yandan yazış.",
+          "fragment": "Mikrofon açık"
+        }
+      }
+    },
+    "desktop": {
+      "eyebrow": "Uygulamalar",
+      "heading": "Bilgisayarında ve telefonunda",
+      "description": "Her şey tarayıcıda çalışır. Uygulamalar ise bir sekmenin yapamadıklarını ekler: genel kısayollar, bas-konuş ve Chatovo küçültülmüşken bildirimler.",
+      "cta": "Uygulamayı indir",
+      "items": {
+        "shortcuts": {
+          "title": "Genel kısayollar",
+          "description": "Oyundan ya da editörden çıkmadan kendini sustur."
+        },
+        "ptt": {
+          "title": "Bas-konuş",
+          "description": "Mikrofonun yalnızca tuş basılıyken açılır — gürültülü bir ortamda çok işe yarar."
+        },
+        "platforms": {
+          "title": "Üç platform",
+          "description": "Windows, macOS ve Linux için tek kod tabanı — üstüne bir de Android uygulaması."
+        }
+      },
+      "desktopAlt": "Bilgisayarda Chatovo",
+      "mobileAlt": "Telefonda Chatovo"
+    },
+    "faq": {
+      "heading": "Sıkça sorulan sorular",
+      "subheading": "En çok sorulanlara kısa yanıtlar.",
+      "items": {
+        "free": {
+          "question": "Chatovo ücretsiz mi?",
+          "answer": "Tamamen. Ücretli paket yok, görüşme süresi sınırı yok ve aboneliğin arkasına saklanmış hiçbir özellik yok."
+        },
+        "discord": {
+          "question": "Chatovo'nun Discord'dan farkı ne?",
+          "answer": "Discord, önce rollerini ve kanallarını ayarlaman gereken bir sunucu etrafında kurulu. Chatovo ise sohbetin etrafında kurulu: bir oda saniyeler içinde açılır ve tam ihtiyacın olduğu kadar yaşar."
+        },
+        "capacity": {
+          "question": "Bir odaya kaç kişi sığar?",
+          "answer": "İki kişiden birkaç düzine kişiye kadar, aynı anda — sesli, görüntülü ve ekran paylaşımıyla."
+        },
+        "account": {
+          "question": "Hesap gerekiyor mu?",
+          "answer": "Evet — hesap, odalarını ve arkadaş listeni saklar. E-postayla kaydolmak bir dakikadan kısa sürer."
+        },
+        "selfHost": {
+          "question": "Chatovo'yu kendim barındırabilir miyim?",
+          "answer": "Evet. Proje açık kaynak: sunucu, istemci ve LiveKit medya sunucusu tamamen kendi altyapında çalışabilir."
+        }
+      }
+    },
+    "finalCta": {
+      "heading": "Odan seni bekliyor",
+      "description": "Hemen oluştur ve bağlantıyı paylaş — gerisi kendiliğinden gelir.",
+      "action": "Oda oluştur",
+      "note": "E-postayla kayıt · Bir dakikadan kısa"
+    },
+    "footer": {
+      "tagline": "Sorunsuz çalışan sesli ve görüntülü odalar.",
+      "privacy": "Gizlilik",
+      "terms": "Koşullar",
+      "github": "GitHub",
+      "sections": {
+        "product": "Ürün",
+        "company": "Proje"
+      },
+      "pages": {
+        "features": "Özellikler",
+        "download": "İndir",
+        "changelog": "Yenilikler",
+        "about": "Hakkında",
+        "support": "Destek"
+      }
+    },
+    "meta": {
+      "title": "Chatovo — Gerçek zamanlı sesli ve görüntülü odalar",
+      "description": "Tarayıcında çalışan ücretsiz sesli ve görüntülü odalar. Saniyeler içinde bir oda oluştur, bağlantıyı paylaş ve konuş: ekran paylaşımı ve sohbetle. Kurulum ya da sunucu ayarı gerekmez."
+    }
+  },
+  "changelog": {
+    "meta": {
+      "title": "Yenilikler",
+      "description": "Chatovo'nun tüm sürümleri: web, masaüstü ve Android'de yeni ses odası özellikleri, düzeltmeler ve iyileştirmeler."
+    },
+    "hero": {
+      "eyebrow": "Sürüm geçmişi",
+      "title": "Chatovo'da neler yeni",
+      "description": "Tarayıcıdaki ilk ses odasından masaüstü ve Android uygulamalarına kadar her sürüm. Neyin geldiği, neyin düzeltildiği ve ne zaman olduğu burada."
+    },
+    "stats": {
+      "releases": "sürüm",
+      "months": "aylık geliştirme",
+      "current": "güncel sürüm"
+    },
+    "kinds": {
+      "feature": "Yeni",
+      "fix": "Düzeltme",
+      "improvement": "İyileştirme",
+      "security": "Güvenlik"
+    },
+    "tones": {
+      "major": "Büyük sürüm",
+      "minor": "Normal sürüm"
+    },
+    "entries": {
+      "nineLanguages": {
+        "title": "Dokuz dil",
+        "description": "Chatovo artık İngilizce, Rusça, Ukraynaca, İspanyolca, Portekizce, Almanca, Fransızca, Türkçe ve Lehçe konuşuyor. Dil sistemden alınır ve Ayarlar’dan değiştirilebilir."
+      },
+      "roomModeration": {
+        "title": "Oda moderasyonu",
+        "description": "Oda sahibi birini herkes için susturabilir, odadan çıkarabilir ya da yasaklayabilir ve yasağı sonra kaldırabilir."
+      },
+      "blockUsers": {
+        "title": "Engelleme",
+        "description": "Engellenen kişi sana yazamaz, seni arayamaz ya da ekleyemez, odalardaki mesajları da daraltılır."
+      },
+      "chatFilter": {
+        "title": "Sohbet filtresi",
+        "description": "Sohbetteki küfürler yıldızlarla gizlenir. Filtre Ayarlar’dan kapatılabilir."
+      },
+      "backgroundCalls": {
+        "title": "Android’de arka planda aramalar",
+        "description": "Ekran kapalıyken ya da başka bir uygulamadayken arama mikrofonu korur ve bir bildirim gösterir."
+      },
+      "calmerIcon": {
+        "title": "Daha sakin bir simge",
+        "description": "Simge, koyu ekranda öne çıkan yumuşak bir mora geçti."
+      },
+      "phoneLayout": {
+        "title": "Telefonda daha derli toplu",
+        "description": "Lobide odalar ve arkadaşlar kendi sekmelerinde, arama ızgarası da her ekrana uyuyor."
+      },
+      "stopMusic": {
+        "title": "Müziği durdur",
+        "description": "Tek bir düğme odadaki müziği kapatır, müzik penceresi de telefonda kaydırılabilir."
+      },
+      "honestMute": {
+        "title": "Sessiz gerçekten sessiz",
+        "description": "Sessize alınan mikrofon artık ses geçirmiyor ve konuşma halkasını yakmıyor."
+      },
+      "voiceSettingsMidCall": {
+        "title": "Arama sırasında ses ayarları",
+        "description": "Gürültü ve yankı engelleme anında uygulanır, Bas-konuş da mikrofon değişince açık kalmaz."
+      },
+      "googlePlay": {
+        "title": "Uygulama Google Play'de",
+        "description": "Chatovo'nun Android sürümü Google Play'e taşındı ve güncellemeleri doğrudan oradan alıyor."
+      },
+      "accountDeletion": {
+        "title": "Hesabını uygulamadan sil",
+        "description": "Hesabını Ayarlar → Hesap bölümünden sil ve e-postayla onayla. Adımları anlatan herkese açık sayfa chatovo.ru/account/delete adresinde."
+      },
+      "participantVolume": {
+        "title": "Katılımcı ses düzeyi hatırlanıyor",
+        "description": "Ayarladığın düzey ve \"Benim için sustur\" seçeneği odaya yeniden katıldığında da korunuyor."
+      },
+      "screenAudioVolume": {
+        "title": "Ekran paylaşımı için ayrı ses düzeyi",
+        "description": "Paylaşılan ekranın sesi, aynı katılımcının mikrofonundan bağımsız olarak ayarlanıyor."
+      },
+      "pingIndicator": {
+        "title": "Ping artık kaybolmuyor",
+        "description": "Ağ bağlantısı yeniden kurulurken gecikme değeri görünür kalıyor."
+      },
+      "leaveRoom": {
+        "title": "Odadan ilk seferde çıkılıyor",
+        "description": "Ayrıl düğmesi artık seni aynı odaya, küçültülmüş hâlde geri atmıyor."
+      },
+      "chatReadability": {
+        "title": "Uzun mesajlar daha rahat okunuyor",
+        "description": "Sohbetteki paragraflar, başlıklar ve listeler gerçek boşluklara kavuştu; mesaj balonu rahat bir satır uzunluğunda sınırlanıyor."
+      },
+      "sessionExpiry": {
+        "title": "Anlaşılır oturum kapanma mesajları",
+        "description": "Süresi dolmuş bir oturum ya da engellenmiş bir hesap artık boş bir sayfa bırakmak yerine ne olduğunu açıklıyor."
+      },
+      "adminEditStability": {
+        "title": "Daha kararlı yönetim paneli",
+        "description": "Bir kullanıcıyı düzenlemek artık onun oturumunu kapatmıyor ya da sonsuz bir yeniden yükleme döngüsüne yol açmıyor."
+      },
+      "appHost": {
+        "title": "Uygulamanın kendi alan adı var",
+        "description": "Uygulama app.chatovo.ru adresine taşındı, chatovo.ru ise herkese açık site olarak kaldı; böylece lobi artık uygulamanın ana sayfası."
+      },
+      "lobbyButton": {
+        "title": "Kenar çubuğunda lobi düğmesi",
+        "description": "Görüşmeden ayrılmadan herhangi bir ekrandan lobiye dön."
+      },
+      "roomPasswordScreen": {
+        "title": "Yeni oda şifresi ekranı",
+        "description": "Şifre ekranı düzgün bir tasarıma ve lobiye dönüş yoluna kavuştu."
+      },
+      "spinAnimations": {
+        "title": "Yükleme göstergeleri yeniden çalışıyor",
+        "description": "Yükleme simgeleri ve katman geçişleri, stil adları eşleşmediği için hiç canlanmıyordu."
+      },
+      "blurryIcons": {
+        "title": "Net simgeler",
+        "description": "Simge çizgileri küçük boyutlarda artık bulanıklaşmıyor."
+      },
+      "trayUpdateSpinner": {
+        "title": "Tepsiden güncelleme denetimi",
+        "description": "Sistem menüsünden başlatılan denetim artık uygulama içindeki düğmede olduğu gibi yükleme göstergesini gösteriyor."
+      },
+      "persistentRoom": {
+        "title": "Sayfa değiştirince oda kopmuyor",
+        "description": "Artık görüşmeyi bırakmadan lobiyi, ayarları ya da yönetim panelini açabilirsin — bağlantını yalnızca Ayrıl düğmesi ya da sayfayı yenilemek keser."
+      },
+      "gameActivity": {
+        "title": "\"X oynuyor\" durumu",
+        "description": "Masaüstü uygulaması odadakilere çalışan oyunun ya da uygulamanın adını gösterebilir. Ayarlardaki tek bir anahtarla kapatılır."
+      },
+      "soundboard": {
+        "title": "Ses paneli",
+        "description": "Yöneticiler, odadaki herkesin duyduğu ortak ses efektlerini — sirenden kornaya — çalabiliyor."
+      },
+      "sitePages": {
+        "title": "Site sayfaları",
+        "description": "Herkese açık siteye ayrı Özellikler, İndir, Hakkında, Destek ve Yenilikler sayfaları eklendi."
+      },
+      "privateRoomPassword": {
+        "title": "Özel odaya katılma",
+        "description": "Özel odalar artık oda bulunamadı demek yerine şifreyi yeniden soruyor."
+      },
+      "adminBadges": {
+        "title": "Yönetim panelinde oda rozetleri",
+        "description": "Oda rozetlerindeki simgeler artık tüm karta yayılacak şekilde gerilmiyor."
+      },
+      "seoPass": {
+        "title": "Arama ve yapılandırılmış veriler",
+        "description": "Site haritası, robots ve yapılandırılmış veriler yeniden oluşturuldu; ayrıca yapay zekâ tarayıcıları için bir llms.txt eklendi."
+      },
+      "invisibleAdminMenu": {
+        "title": "Yönetici menüsü",
+        "description": "Görünmez mod, kenar çubuğundaki ayrı bir yönetici menüsüne taşındı."
+      },
+      "invisibleMutual": {
+        "title": "Yöneticiler birbirini görüyor",
+        "description": "Görünmez moddaki yöneticiler artık odadaki diğer yöneticileri görebiliyor."
+      },
+      "roomPasswordHashing": {
+        "title": "Karma olarak saklanan oda şifreleri",
+        "description": "Oda şifreleri karma (hash) olarak saklanıyor ve artık bildirimlere sızmıyor."
+      },
+      "demoteRevoke": {
+        "title": "Yetkiler anında geri alınıyor",
+        "description": "Yönetici yetkilerini geri almak, yeniden katılmaya gerek kalmadan hemen etkili oluyor."
+      },
+      "autoSensitivitySpeaker": {
+        "title": "Otomatik mikrofon hassasiyeti",
+        "description": "Otomatik hassasiyet artık dinlediğin kişilerin sesini kesmiyor."
+      },
+      "adminValidation": {
+        "title": "Yönetim paneli hataları ve sekmeleri",
+        "description": "Yönetim paneli doğrulama hatalarını çevrilmiş olarak gösteriyor ve tüm sekmeler yeniden açılıyor."
+      },
+      "a11yConnection": {
+        "title": "Odada erişilebilirlik",
+        "description": "Bağlantı durumu ekran okuyuculara bildiriliyor ve oda başlığının artık bir adı var."
+      },
+      "rustoreRelease": {
+        "title": "Uygulama RuStore'da",
+        "description": "Chatovo'nun Android sürümü RuStore'da yayında ve güncellemeleri doğrudan oradan alıyor."
+      },
+      "adminPanel": {
+        "title": "Yönetim paneli",
+        "description": "Genel bakış, kullanıcı listesi ve oda listesi içeren bir yönetim paneli geldi."
+      },
+      "moderation": {
+        "title": "Moderasyon",
+        "description": "Kötüye kullanım bildirimleri ve bunları incelemek için moderasyon araçları artık kullanılabiliyor."
+      },
+      "invisibleMode": {
+        "title": "Görünmez mod",
+        "description": "Yöneticiler bir odaya gizlice, katılımcı listesinde görünmeden katılabiliyor."
+      },
+      "prismaMigrations": {
+        "title": "Otomatik geçişler",
+        "description": "Veritabanı geçişleri (migration) her dağıtımda otomatik olarak uygulanıyor."
+      },
+      "contributors": {
+        "title": "Lobide katkıda bulunanlar",
+        "description": "Lobi, GitHub'da projeye katkıda bulunan kişileri gösteriyor."
+      },
+      "testSetup": {
+        "title": "Testler",
+        "description": "Proje Vitest birim testleri ve Playwright senaryolarıyla kapsanıyor."
+      },
+      "nativeTray": {
+        "title": "Yerel tepsi",
+        "description": "Masaüstündeki tepsi menüsü yerel Rust ile yeniden yazıldı."
+      },
+      "realErrorCodes": {
+        "title": "Anlamlı hatalar",
+        "description": "Genel bir mesaj yerine hatanın gerçek nedeni gösteriliyor."
+      },
+      "easterEggs": {
+        "title": "Gizli sürprizler",
+        "description": "Gizli başarımlar, bir yılan oyunu ve odada yalnızken sakin bir ortam sesi."
+      },
+      "uiKitLayer": {
+        "title": "ui-kit katmanı",
+        "description": "Tasarım sistemi kendi ui-kit katmanına taşındı ve arayüz daha tutarlı hâle geldi."
+      },
+      "developerBadge": {
+        "title": "Geliştirici rozeti",
+        "description": "Geliştiriciler bir rozet, proje ise bir ekip sekmesi kazandı."
+      },
+      "mobileUpdateBanner": {
+        "title": "Mobilde güncelleme uyarısı",
+        "description": "Uygulamanın yeni bir sürümü çıktığında telefonda bir uyarı bandı beliriyor."
+      },
+      "a11yPass": {
+        "title": "Erişilebilirlik incelemesi",
+        "description": "Arayüz; odak, kontrast ve ekran okuyucu etiketleri açısından bir erişilebilirlik incelemesinden geçti."
+      },
+      "activitySidebar": {
+        "title": "Arkadaş etkinliği",
+        "description": "Lobiye, arkadaşlarının şu anda ne yaptığını gösteren bir kenar çubuğu eklendi."
+      },
+      "localizedErrors": {
+        "title": "Yerelleştirilmiş hatalar",
+        "description": "API hataları tipli kodlar taşıyor ve arayüzünün diline çevriliyor."
+      },
+      "pushDelivery": {
+        "title": "Anlık bildirim teslimi",
+        "description": "Anlık bildirimler cihazına yeniden ulaşıyor."
+      },
+      "publicLanding": {
+        "title": "Herkese açık tanıtım sayfası",
+        "description": "Sitenin kök adresi bir tanıtım sayfasına dönüştü, uygulama ise /lobby adresine taşındı."
+      },
+      "nestjsMigration": {
+        "title": "NestJS sunucusu",
+        "description": "API, Hono'dan Bun üzerinde çalışan NestJS'e taşındı; yük altında daha hızlı ve daha öngörülebilir oldu."
+      },
+      "scssModules": {
+        "title": "SCSS modülleri ve Base UI",
+        "description": "Arayüz SCSS modüllerine ve Base UI temel bileşenlerine geçti."
+      },
+      "fcmPush": {
+        "title": "Anlık bildirimler",
+        "description": "Doğrudan mesajlar ve gelen aramalar, uygulama kapalıyken bile anlık bildirim olarak geliyor."
+      },
+      "friendsAndCalls": {
+        "title": "Arkadaşlar ve aramalar",
+        "description": "Arkadaşlar, arkadaşlık istekleri ve doğrudan sesli aramalar geldi."
+      },
+      "dmNotifications": {
+        "title": "Mesaj bildirimleri",
+        "description": "Yeni bir doğrudan mesaj geldiğinde bildirim alıyorsun."
+      },
+      "websocketRealtime": {
+        "title": "WebSocket ile gerçek zamanlı",
+        "description": "Canlı güncellemeler WebSocket'e taşındı, böylece değişiklikler anında görünüyor."
+      },
+      "androidApp": {
+        "title": "Android uygulaması",
+        "description": "Bir Android derlemesi geldi; imzalı paket sürüme ekleniyor."
+      },
+      "seoBrand": {
+        "title": "Markalı önizlemeler",
+        "description": "Paylaşılan bağlantılar markalı bir önizleme görseli alıyor; buna düzgün favicon'lar ve doğru sayfa dili de eşlik ediyor."
+      },
+      "telegramNotifications": {
+        "title": "Telegram bildirimleri",
+        "description": "Biri bir ses kanalına katıldığında Telegram haber veriyor."
+      },
+      "webPttNotice": {
+        "title": "Web'de bas-konuş",
+        "description": "O dönemde bas-konuş tarayıcıda, yalnızca masaüstünde çalıştığını belirten bir notla gösteriliyordu; bölüm daha sonra web'de tamamen gizlendi."
+      },
+      "chatRealtimeSync": {
+        "title": "Sohbet senkron kalıyor",
+        "description": "Düzenlenen ve silinen mesajlar herkes için anında güncelleniyor."
+      },
+      "chatEditDelete": {
+        "title": "Mesaj düzenleme ve silme",
+        "description": "Sohbet mesajları gönderildikten sonra düzenlenebiliyor veya silinebiliyor."
+      },
+      "foxMascot": {
+        "title": "Tilki maskot",
+        "description": "Chatovo, web'de ve masaüstü uygulamasında tilki maskotuna kavuştu."
+      },
+      "voiceGate": {
+        "title": "Mikrofon hassasiyet eşiği",
+        "description": "Mikrofon yalnızca senin sesinle açılıyor ve arka plan gürültüsünü kesiyor."
+      },
+      "bugReports": {
+        "title": "Sorun bildir",
+        "description": "Uygulamanın içinden hata bildirimi gönderebilirsin; doğrudan gelen kutumuza düşer."
+      },
+      "videoQuality": {
+        "title": "Video kalitesi",
+        "description": "Hem kamera hem ekran paylaşımı için kalite ayarları geldi."
+      },
+      "passwordReset": {
+        "title": "Şifre kurtarma",
+        "description": "Unutulan şifre sıfırlanabiliyor ve erişim e-postayla geri kazanılabiliyor."
+      },
+      "securityTab": {
+        "title": "Güvenlik sekmesi",
+        "description": "Ayarlara şifre değiştirme ve aktif oturumları içeren bir güvenlik bölümü eklendi."
+      },
+      "smtpEmail": {
+        "title": "SMTP ile e-posta",
+        "description": "İşlem e-postaları kendi SMTP sunucumuz üzerinden gönderiliyor, böylece teslimat daha güvenilir."
+      },
+      "betterAuth": {
+        "title": "Yeni kimlik doğrulama",
+        "description": "Giriş ve kayıt better-auth'a taşındı, oturumlar daha kararlı hâle geldi."
+      },
+      "selfHostedPostgres": {
+        "title": "Kendi sunucumuzda veritabanı",
+        "description": "Veritabanı kendi sunucumuzda çalışan bir Postgres'e taşındı."
+      },
+      "chatPersistence": {
+        "title": "Sohbet geçmişi",
+        "description": "Mesajlar saklanıyor ve odaya döndüğünde yeniden yükleniyor."
+      },
+      "fileAttachments": {
+        "title": "Dosya ekleri",
+        "description": "Sohbet mesajlarına dosya eklenebiliyor."
+      },
+      "chatMarkdown": {
+        "title": "Mesajlarda Markdown",
+        "description": "Mesajlar listeler, bağlantılar ve kod blokları dahil Markdown'ı işliyor."
+      },
+      "roomControlBar": {
+        "title": "Oda kontrol çubuğu",
+        "description": "Sağırlaştırma, tepkiler ve cihaz seçicileri içeren bir kontrol çubuğu geldi."
+      },
+      "profileCard": {
+        "title": "Profil kartı",
+        "description": "Profilini bir avatar, afiş rengi ve kısa bir biyografiyle kişiselleştirebilirsin."
+      },
+      "reactions": {
+        "title": "Tepkiler",
+        "description": "Odada herkesin göreceği, ekranda süzülen emoji tepkileri gönderilebiliyor."
+      },
+      "lobbyHero": {
+        "title": "Yenilenen lobi",
+        "description": "Lobiye canlı istatistikleri ve son odalarını gösteren bir giriş bloğu eklendi."
+      },
+      "glassRedesign": {
+        "title": "Cam tasarım",
+        "description": "Arayüz cam yüzeyler ve neon vurgular kazandı."
+      },
+      "globalShortcuts": {
+        "title": "Genel kısayollar",
+        "description": "Mikrofon ve ses herhangi bir uygulamadan kontrol edilebiliyor; tuş çakışmaları kayıt sırasında işaretleniyor."
+      },
+      "pushToTalk": {
+        "title": "Bas-konuş",
+        "description": "Mikrofon yalnızca seçtiğin tuşu basılı tuttuğunda açılıyor."
+      },
+      "systemTray": {
+        "title": "Sistem tepsisi",
+        "description": "Masaüstü uygulaması tepsiye küçülüyor ve yerel bir menüden kontrol ediliyor."
+      },
+      "autoUpdate": {
+        "title": "Otomatik güncellemeler",
+        "description": "Masaüstü uygulaması kendini güncelliyor ve indirme ilerlemesini gösteriyor."
+      },
+      "i18n": {
+        "title": "Rusça ve İngilizce",
+        "description": "Arayüz Rusça ve İngilizce olarak kullanılabiliyor."
+      },
+      "selfHostedLivekit": {
+        "title": "Kendi LiveKit sunucumuz",
+        "description": "Ses kendi LiveKit sunucumuz üzerinden akıyor; gecikme ve dış kaynaklı sınırlamalar azaldı."
+      },
+      "connectionQuality": {
+        "title": "Bağlantı kalitesi",
+        "description": "Sunucuya gidiş-dönüş süresini de gösteren bir bağlantı kalitesi göstergesi geldi."
+      },
+      "voiceRooms": {
+        "title": "Ses odaları",
+        "description": "İlk sürüm: doğrudan tarayıcıda gerçek zamanlı ses odaları."
+      },
+      "desktopApp": {
+        "title": "Masaüstü uygulaması",
+        "description": "Windows, macOS ve Linux için Tauri tabanlı bir masaüstü uygulaması."
+      },
+      "chatPanel": {
+        "title": "Oda içi sohbet",
+        "description": "Konuşmanın hemen yanında bir yazılı sohbet paneli."
+      },
+      "linkPreviews": {
+        "title": "Sohbette bağlantı önizlemeleri",
+        "description": "Bağlantı içeren bir mesaj artık sayfanın başlığını, açıklamasını ve görselini içeren bir kart gösteriyor."
+      },
+      "fastImages": {
+        "title": "Daha hızlı görseller",
+        "description": "Avatarlar ve sohbet fotoğrafları gereken boyutta, WebP olarak ve yüklenirken sayfa düzeni kaymadan geliyor."
+      },
+      "liveRoomList": {
+        "title": "Oda listesi canlı güncelleniyor",
+        "description": "Oluşturulan, değiştirilen veya silinen odalar sayfayı yenilemeden herkes için beliriyor ve kayboluyor."
+      },
+      "privateRoomOwner": {
+        "title": "Yeni oluşturduğun odaya doğrudan gir",
+        "description": "Özel bir oda oluşturduktan hemen sonra şifre yazmadan katılırsın; sonrasında herkes gibi senden de şifre istenir."
+      },
+      "gamesOnly": {
+        "title": "“Oynuyor” durumu yalnızca oyunlar için",
+        "description": "Adının altında her açık program değil, yalnızca Steam, Epic, GOG ya da Windows oyun listesinden çalışan bir oyun görünür."
+      },
+      "desktopLockdown": {
+        "title": "Uygulamada tarayıcı menüsü yok",
+        "description": "Windows uygulaması artık tarayıcı menüsünü ve kısayollarını göstermiyor: yeniden yükleme, yazdırma ve geliştirici araçları."
+      },
+      "passwordRoomLogout": {
+        "title": "Özel oda artık oturumunu kapatmıyor",
+        "description": "Henüz erişimin olmayan şifreli bir odayı açtığında artık yalnızca şifre formu görünüyor."
+      },
+      "oldImagesOptimized": {
+        "title": "Eski görseller de optimize edildi",
+        "description": "1.6.0 öncesinde sohbete gönderilen fotoğraflar da artık yenileri gibi gereken boyutta yükleniyor."
+      },
+      "renameKeepsAccess": {
+        "title": "Yeniden adlandırma şifre erişimini koruyor",
+        "description": "Bir oda yeniden adlandırıldıktan sonra şifreyi zaten girmiş kişilerden tekrar istenmiyor."
+      },
+      "downloadButton": {
+        "title": "İndir düğmesi gerçekten indiriyor",
+        "description": "Görsel görüntüleyicide İndir, sayfadan çıkmak yerine dosyayı orijinal adıyla kaydediyor."
+      },
+      "fasterLinkPreviews": {
+        "title": "Daha hızlı bağlantı önizlemeleri",
+        "description": "Daha önce açılmış bağlantıların önizlemesi, sayfa yeniden çekilmeden anında beliriyor."
+      },
+      "pushReliable": {
+        "title": "Telefon bildirimleri sorunsuz geliyor",
+        "description": "Anlık bildirim artık yalnızca uygulama kapalıyken değil, arka plandayken ya da başka bir cihazda açıkken de geliyor."
+      },
+      "pushOpensChat": {
+        "title": "Bildirim doğru sohbeti açıyor",
+        "description": "Bir mesaja dokunmak o arkadaşınla olan sohbeti, bir aramaya dokunmak ise gelen aramayla birlikte lobiyi açıyor."
+      },
+      "smoothMobileMenu": {
+        "title": "Telefon menüsü akıcı açılıyor",
+        "description": "Yan menü ilk açılışta artık takılmıyor."
+      },
+      "androidDownload": {
+        "title": "İndirme sayfasında Android",
+        "description": "Google Play artık Windows, macOS ve Linux'un yanında."
+      },
+      "appIcon": {
+        "title": "Daha düzenli bir simge",
+        "description": "Telefon simgesi ve uygulama içi logo artık kenarlara değmiyor."
+      },
+      "roomNamesClipped": {
+        "title": "Oda adları artık kesilmiyor",
+        "description": "Oda adlarında satır altına sarkan harfler tam olarak görünüyor."
+      },
+      "roomChatOpaque": {
+        "title": "Telefonda oda sohbeti artık saydam değil",
+        "description": "Oda başlığı artık sohbet panelinin arkasından görünmüyor."
+      },
+      "roomMusic": {
+        "title": "Odalarda müzik",
+        "description": "Bir YouTube, SoundCloud veya Vimeo bağlantısı ya da bir ses dosyasının doğrudan bağlantısını yapıştır veya internet radyosunu aç — odadaki herkes senkron dinler."
+      },
+      "shareMyMusic": {
+        "title": "Kendi müziğini paylaş",
+        "description": "VK Music, Yandex Music ya da başka bir şeyi bir tarayıcı sekmesinde çalıp sesini paylaş veya cihazındaki dosyaları çal."
+      },
+      "musicPlayer": {
+        "title": "Genişletilebilen mini oynatıcı",
+        "description": "Duraklat, önceki ve sonraki düğmeleri oda başlığının hemen altında ya da gezinirken köşede; tam oynatıcı bir pencere gibi açılıyor."
+      },
+      "musicDucking": {
+        "title": "Müzik seslere yer açıyor",
+        "description": "Biri konuşurken müziğin sesi kısılıyor, ardından geri açılıyor."
+      },
+      "newLook": {
+        "title": "Daha sıcak yeni bir görünüm",
+        "description": "Sakin bir akşam paleti, okunaklı kontrast, daha net şekiller ve sitede kedi Chato."
+      },
+      "screenShareEcho": {
+        "title": "Sesli ekran paylaşımında yankı yok",
+        "description": "İzleyenler artık odadaki seslerin yayından geri geldiğini duymuyor."
+      },
+      "speakingHighlight": {
+        "title": "Temiz bir konuşma vurgusu",
+        "description": "Konuşan kişinin avatarının etrafındaki halka artık kesilmiyor ve adın üstünü kapatmıyor."
+      },
+      "android16kb": {
+        "title": "Yeni Android telefonlara hazır",
+        "description": "Android uygulaması artık Google Play'in istediği gibi 16 KB bellek sayfalı cihazları destekliyor."
+      },
+      "newSite": {
+        "title": "Yeni bir web sitesi",
+        "description": "chatovo.ru artık ürünün kendisini gösteriyor: oda, müzik ve sohbetin gerçek ekran görüntüleri; üstelik daha hızlı yükleniyor."
+      },
+      "fasterApp": {
+        "title": "Daha hızlı bir uygulama",
+        "description": "Uygulama daha hafif bir altyapıya geçti: daha çabuk açılıyor, güncellemeler daha erken geliyor."
+      },
+      "newIcon": {
+        "title": "Yeni bir simge",
+        "description": "Yeni görünüme uygun, Chato'lu sıcak mercan rengi bir simge."
+      },
+      "chatFullHeight": {
+        "title": "Oda sohbeti tam yükseklikte açılıyor",
+        "description": "Sohbet yine tüm odayı kaplıyor, müzik oynatıcı ise kenara çekiliyor."
+      },
+      "cyrillicRoomNames": {
+        "title": "Her dilde oda adları",
+        "description": "Odalara Rusça ya da başka herhangi bir alfabeyle ad verilebiliyor."
+      },
+      "speakingCorners": {
+        "title": "Düzgün bir konuşma halkası",
+        "description": "Konuşan kişinin kartının etrafındaki vurgu artık köşelerde kırılmıyor."
+      }
+    },
+    "highlights": {
+      "nineLanguages": "Dokuz dil",
+      "roomModeration": "Oda moderasyonu",
+      "googlePlay": "Google Play'e taşındı",
+      "accountDeletion": "Hesap silme",
+      "participantVolume": "Ses düzeyi hatırlanıyor",
+      "sessionExpiry": "Anlaşılır oturum mesajları",
+      "adminEditStability": "Daha kararlı yönetim paneli",
+      "appHost": "Uygulamaya ayrı alan adı",
+      "roomPasswordScreen": "Yeni şifre ekranı",
+      "persistentRoom": "Oda bağlı kalıyor",
+      "privateRooms": "Özel odalar",
+      "siteRebuild": "Yeni site sayfaları",
+      "invisibleHardening": "Daha sağlam görünmez mod",
+      "rustore": "RuStore sürümü",
+      "adminPanel": "Yönetim paneli",
+      "invisibleMode": "Görünmez mod",
+      "tests": "Testler",
+      "migrations": "Otomatik geçişler",
+      "easterEggs": "Gizli sürprizler",
+      "developerBadge": "Geliştirici rozeti",
+      "activitySidebar": "Arkadaş etkinliği",
+      "localizedErrors": "Yerelleştirilmiş hatalar",
+      "landing": "Herkese açık tanıtım sayfası",
+      "nestjs": "NestJS sunucusu",
+      "pushNotifications": "Anlık bildirimler",
+      "friends": "Arkadaşlar ve aramalar",
+      "android": "Android uygulaması",
+      "telegramNotifications": "Telegram bildirimleri",
+      "chatEditDelete": "Mesaj düzenleme",
+      "foxMascot": "Tilki maskot",
+      "voiceGate": "Gürültü eşiği",
+      "videoQuality": "Video kalitesi ayarları",
+      "passwordReset": "Şifre kurtarma",
+      "selfHosted": "Kendi sunucumuzda altyapı",
+      "chatPersistence": "Sohbet geçmişi",
+      "roomControls": "Oda kontrolleri",
+      "glassRedesign": "Cam tasarım",
+      "shortcuts": "Genel kısayollar",
+      "autoUpdate": "Otomatik güncellemeler",
+      "selfHostedSfu": "Kendi LiveKit sunucumuz",
+      "firstRelease": "İlk sürüm",
+      "linkPreviews": "Bağlantı önizlemeleri",
+      "fastImages": "Daha hızlı görseller",
+      "passwordRoomLogout": "Beklenmedik çıkışlar bitti",
+      "oldImagesOptimized": "Eski görseller optimize edildi",
+      "pushReliable": "Güvenilir bildirimler",
+      "smoothMobileMenu": "Akıcı menü",
+      "roomMusic": "Odalarda müzik",
+      "newLook": "Yeni görünüm",
+      "newSite": "Yeni web sitesi",
+      "fasterApp": "Daha hızlı uygulama"
+    }
+  },
+  "features": {
+    "meta": {
+      "title": "Özellikler",
+      "description": "Sesli ve görüntülü görüşme, ekran paylaşımı, dosya ekli sohbet, arkadaşlar ve doğrudan aramalar, özel odalar, masaüstü ve Android uygulamaları."
+    },
+    "hero": {
+      "eyebrow": "Özellikler",
+      "title": "Bir sohbetin ihtiyaç duyduğu her şey",
+      "description": "Chatovo tek bir fikirle başladı: bir oda aç ve konuş. Proje geliştikçe bunun etrafında büyüyen her şey burada."
+    },
+    "groups": {
+      "voice": {
+        "heading": "Ses ve görüntü",
+        "subheading": "Projenin özü: kendi SFU'muz üzerinde çalışan, görüşme süresi sınırı olmayan odalar.",
+        "imageAlt": "Bir Chatovo ses odası: katılımcı ızgarası ve müzik"
+      },
+      "music": {
+        "heading": "Müzik",
+        "subheading": "Birlikte dinleyin: parça herkes için aynı anda çalar, biri konuşunca sesi kısılır.",
+        "imageAlt": "Chatovo oynatıcısı: video, sıra ve radyo"
+      },
+      "chat": {
+        "heading": "Sohbet",
+        "subheading": "Sesin yanında yazı, aynı pencerede; arada geçiş yapmaya gerek yok.",
+        "imageAlt": "Sohbeti sesin yanında açık olan bir Chatovo odası"
+      },
+      "friends": {
+        "heading": "Arkadaşlar ve doğrudan aramalar",
+        "subheading": "Arkadaş listesi, kimin çevrimiçi olduğu ve bire bir aramalar."
+      },
+      "rooms": {
+        "heading": "Odalar ve erişim",
+        "subheading": "Odaya kimin ve nasıl gireceğine oda sahibi karar verir."
+      },
+      "apps": {
+        "heading": "Uygulamalar",
+        "subheading": "Tek hesap, tek kod tabanı, dört platform."
+      }
+    },
+    "items": {
+      "rooms": {
+        "title": "Ses odaları",
+        "description": "Oda tek düğmeyle oluşturulur ve içinde biri olduğu sürece yaşar. Medya, kendi sunucumuzda çalışan bir LiveKit SFU üzerinden akar."
+      },
+      "background": {
+        "title": "Görüşme devam ediyor",
+        "description": "Lobiyi, ayarları ya da yönetim panelini aç; görüşme alttaki küçük bir çubukta sürer. Onu yalnızca ayrıl düğmesi bitirir."
+      },
+      "video": {
+        "title": "Kamera",
+        "description": "Kamera doğrudan oda kontrol çubuğundan açılır, kalitesi ise ayarlardan seçilir: 720p, 1080p, 1440p veya 4K."
+      },
+      "screen": {
+        "title": "Ekran paylaşımı",
+        "description": "Bir pencereyi, sekmeyi ya da tüm ekranı paylaş — herkes odadan çıkmadan izler."
+      },
+      "quality": {
+        "title": "Bağlantı göstergesi",
+        "description": "Kalite rozeti gerçek gidiş-dönüş süresini gösterir, böylece zorlanan bir bağlantı hemen fark edilir."
+      },
+      "volume": {
+        "title": "Katılımcı başına ses düzeyi",
+        "description": "Her konuşan için ayrı bir kaydırıcı. Biri çok kısık, öteki çok yüksek mi? Sesleri kendi tarafında dengele."
+      },
+      "gate": {
+        "title": "Mikrofon hassasiyeti",
+        "description": "Ses etkinleştirme eşiği arka planı keser: klavye, fan, yan odadaki konuşma."
+      },
+      "ptt": {
+        "title": "Bas-konuş",
+        "description": "Mikrofon yalnızca tuş basılıyken açılır. Tek tıkla ses etkinliği moduna geçilir."
+      },
+      "shortcuts": {
+        "title": "Genel kısayollar",
+        "description": "Masaüstü uygulamasında mikrofonu ve sesi, Chatovo küçültülmüşken bile — oyundan ya da editörden — kontrol edebilirsin."
+      },
+      "devices": {
+        "title": "Cihaz seçicileri",
+        "description": "Mikrofon, kamera ve ses çıkışı oda menüsünden seçilir ve oturumlar arasında hatırlanır."
+      },
+      "processing": {
+        "title": "Ses işleme",
+        "description": "Yankı engelleme, gürültü bastırma ve otomatik kazanç kontrolü ayarlardan açılıp kapatılır."
+      },
+      "activity": {
+        "title": "Ne oynadığını göster",
+        "description": "Masaüstü uygulaması oynadığın oyunun adını başkalarına gösterir. Tek bir anahtarla kapatılır."
+      },
+      "chatInRoom": {
+        "title": "Oda içi sohbet",
+        "description": "Katılımcı ızgarasının yanında bir yazı kanalı açılır ve odanın geçmişini saklar."
+      },
+      "markdown": {
+        "title": "Markdown mesajlar",
+        "description": "Listeler, bağlantılar, kod blokları ve alıntılar yazdığın gibi işlenir — GFM ve satır sonu desteğiyle."
+      },
+      "attachments": {
+        "title": "Ekler",
+        "description": "Dosyaları ve görselleri sohbete bırak; sunucu bunları üçüncü taraf bir buluta ihtiyaç duymadan kendisi saklar."
+      },
+      "editing": {
+        "title": "Düzenleme ve silme",
+        "description": "Düzenlemeler ve silmeler, sayfayı yenilemeye gerek kalmadan açık olan her istemciye anında ulaşır."
+      },
+      "reactions": {
+        "title": "Oda tepkileri",
+        "description": "Emojiler katılımcı ızgarasının üzerinde süzülür — konuşanın sözünü kesmeyen hızlı bir tepki."
+      },
+      "friendList": {
+        "title": "Arkadaş listesi",
+        "description": "Arkadaşların yan panelden açtığın bir listede durur ve şu anda kimin çevrimiçi olduğunu gösterir."
+      },
+      "requests": {
+        "title": "Arkadaşlık istekleri",
+        "description": "İstek gönder, kabul et ya da reddet; gelen istekler panelde vurgulanır."
+      },
+      "presence": {
+        "title": "Çevrimiçi durumu",
+        "description": "Kimin çevrimiçi olduğunu ve kimin uzaklaştığını sayfayı yenilemeden görürsün."
+      },
+      "directCalls": {
+        "title": "Doğrudan aramalar",
+        "description": "Ayrı bir oda açmadan, zil sesiyle gelen bire bir arama."
+      },
+      "notifications": {
+        "title": "Mesaj bildirimleri",
+        "description": "Doğrudan mesajlar ve gelen aramalar, uygulama kapalıyken bile telefonuna anlık bildirim olarak ulaşır."
+      },
+      "publicRooms": {
+        "title": "Açık odalar",
+        "description": "Lobi herkese açık odaları listeler; nerede sohbet döndüğünü ve içinde kaç kişi olduğunu gösterir."
+      },
+      "privateRooms": {
+        "title": "Özel odalar",
+        "description": "Girişte şifre: oda listede kilit simgesiyle görünür ama yalnızca şifreyi bilenlere açılır."
+      },
+      "invites": {
+        "title": "Bağlantıyla davet",
+        "description": "Odadaki bir düğme, listeyi tamamen atlayıp doğrudan sohbete götüren bir bağlantı kopyalar."
+      },
+      "recent": {
+        "title": "Son odalar",
+        "description": "Yakın zamanda bulunduğun odalar el altında kalır, bir daha onları aramak zorunda kalmazsın."
+      },
+      "ownership": {
+        "title": "Oda yönetimi",
+        "description": "Oda sahibi odanın adını, şifresini ve gizliliğini değiştirir ya da odayı tamamen siler."
+      },
+      "web": {
+        "title": "Web",
+        "description": "Kurulum gerektirmeden tarayıcıda çalışır: bir bağlantıyı aç ve odaya gir."
+      },
+      "desktop": {
+        "title": "Masaüstü",
+        "description": "Windows, macOS ve Linux için Tauri derlemeleri — tarayıcı sekmesi yerine yerel bir pencere."
+      },
+      "tray": {
+        "title": "Tepsi ve otomatik güncelleme",
+        "description": "Sistem tepsisi menüsü mikrofonu bir tık uzağında tutar, güncellemeler ise kendiliğinden yüklenir."
+      },
+      "android": {
+        "title": "Android",
+        "description": "Mobil sürüm Google Play üzerinden dağıtılır ve web ile aynı hesabı kullanır."
+      },
+      "safeArea": {
+        "title": "Güvenli alanlar",
+        "description": "Telefonda arayüz çentiğe ve hareket çubuğuna uyum sağlar, böylece hiçbir şey sistem öğelerinin altında kalmaz."
+      },
+      "musicLinks": {
+        "title": "Parça bağlantıları",
+        "description": "YouTube, SoundCloud, Vimeo ve doğrudan ses bağlantıları tek bir ortak sıraya eklenir."
+      },
+      "musicRadio": {
+        "title": "İnternet radyosu",
+        "description": "Türe ve ruh haline göre binlerce istasyon — lo-fi, caz, rock, ambiyans."
+      },
+      "musicSync": {
+        "title": "Herkes için senkron",
+        "description": "Duraklatma, ileri-geri sarma ve atlama odadaki herkes için aynı anda olur."
+      },
+      "musicDucking": {
+        "title": "Konuşurken daha kısık",
+        "description": "Müzik seslere yer açar ve bir saniye sonra geri gelir."
+      },
+      "musicShare": {
+        "title": "Kendi müziğin",
+        "description": "Herhangi bir müzik servisi ya da cihazındaki dosyalar, paylaşılan bir sekme üzerinden."
+      }
+    },
+    "cta": {
+      "heading": "Kendin gör",
+      "description": "Kaydolmak bir dakika sürer, oda ise bir tık uzağında.",
+      "signIn": "Başla",
+      "download": "Uygulamayı indir"
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "Hakkında",
+      "description": "Chatovo açık kaynaklı bir ses odası hizmeti: neden var olduğu, neyle geliştirildiği ve geliştirilmesine nasıl katılabileceğin."
+    },
+    "hero": {
+      "eyebrow": "Hakkında",
+      "title": "Kendin çalıştırabileceğin ses odaları",
+      "description": "Chatovo açık bir proje: kod, medya sunucusu ve veritabanı başkasının bulutunda değil, senin makinelerinde yaşar."
+    },
+    "story": {
+      "heading": "Neden var",
+      "subheading": "Proje, insanlarla konuşmayı tüm o formalitelerden kurtarma denemesi olarak başladı.",
+      "items": {
+        "problem": {
+          "title": "Sohbet kurulum gerektirmemeli",
+          "description": "Arkadaşları bir görüşme için toplamak genellikle bir sunucu oluşturmak, kanalları düzenlemek ve roller dağıtmak demek. Burada bir oda oluşturur ve bağlantıyı gönderirsin."
+        },
+        "control": {
+          "title": "Veriler sahibinde kalır",
+          "description": "Medya sunucusu, veritabanı ve yüklenen dosyalar — hepsini kendin kurarsın. Üçüncü taraf analiz yok, ekler için harici depolama yok."
+        },
+        "openness": {
+          "title": "Her şey açıkta",
+          "description": "Kaynak kod, sürüm geçmişi ve tartışmalar GitHub'da. Herhangi bir parçanın nasıl çalıştığını okuyabilir ve kendi kopyanı kurabilirsin."
+        }
+      }
+    },
+    "stack": {
+      "heading": "Nasıl geliştirildi",
+      "subheading": "Bir Bun workspaces monoreposu: istemci, sunucu, masaüstü kabuğu ve ortak şemalar tek bir yerde.",
+      "items": {
+        "client": {
+          "title": "İstemci",
+          "description": "Statik olarak dışa aktarılan Next.js 16 ve React 19. Feature-Sliced Design ile yapılandırılmış, SCSS modülleriyle biçimlendirilmiş."
+        },
+        "desktop": {
+          "title": "Masaüstü ve mobil",
+          "description": "Tauri 2: aynı web uygulaması, Windows, macOS, Linux ve Android için yerel bir Rust kabuğunun içinde."
+        },
+        "server": {
+          "title": "Sunucu",
+          "description": "Bun üzerinde NestJS 11, kendi sunucumuzdaki Postgres üzerinde Prisma. Kimlik doğrulama better-auth ile çalışır."
+        },
+        "media": {
+          "title": "Medya",
+          "description": "WebRTC için kendi sunucumuzda çalışan bir LiveKit SFU. Odaya erişim, sunucunun imzaladığı bir token ile verilir."
+        },
+        "schemas": {
+          "title": "Ortak şemalar",
+          "description": "@chatovo/schemas paketindeki Zod şemaları, istemci ve sunucu tipleri için tek doğruluk kaynağıdır."
+        },
+        "tooling": {
+          "title": "Araçlar",
+          "description": "Baştan sona TypeScript, testler için Vitest ve Playwright, derlemeler ve sürümler GitHub Actions üzerinden."
+        }
+      }
+    },
+    "contributors": {
+      "heading": "Kimler katıldı",
+      "subheading": "Kodu projeye giren herkese teşekkürler.",
+      "commits": "{count, plural, one {# commit} other {# commit}}"
+    },
+    "contribute": {
+      "heading": "Nasıl katkıda bulunabilirsin",
+      "subheading": "Proje, bir metindeki yazım hatasından koca bir ayar bölümüne kadar her değişikliğe açık.",
+      "items": {
+        "code": {
+          "title": "Değişiklik gönder",
+          "description": "Depoyu fork'la, master'dan bir dal aç ve bir pull request gönder. Kod stili ve yapı depoda belgelenmiştir."
+        },
+        "issues": {
+          "title": "Sorun bildir",
+          "description": "Bir hata mı buldun ya da bir fikrin mi var? Bir issue aç. Sorunu yeniden üretme adımları ve uygulama sürümü, çözümü çok hızlandırır."
+        },
+        "selfHost": {
+          "title": "Kendininkini çalıştır",
+          "description": "Depoda Caddy ve LiveKit yapılandırması da var; böylece eksiksiz bir kopyayı kendin ayağa kaldırabilirsin."
+        }
+      },
+      "repository": "GitHub'da aç",
+      "releases": "Sürümler ve derlemeler"
+    }
+  },
+  "download": {
+    "meta": {
+      "title": "Chatovo'yu indir",
+      "description": "Windows, macOS, Linux ve Android için Chatovo. Uygulamayı yükle ya da bir odayı doğrudan tarayıcında aç."
+    },
+    "hero": {
+      "eyebrow": "Uygulamalar",
+      "title": "Cihazında Chatovo",
+      "description": "Web sürümü WebRTC destekleyen her tarayıcıda çalışır. Masaüstü uygulaması ise genel kısayollar, bas-konuş ve bir tepsi simgesi ekler.",
+      "desktopAlt": "Bilgisayarda Chatovo",
+      "mobileAlt": "Telefonda Chatovo"
+    },
+    "desktop": {
+      "heading": "Tüm platformlar",
+      "description": "Masaüstü yükleyicileri ve Google Play'deki Android uygulaması. Güncellemeler kendiliğinden gelir."
+    },
+    "web": {
+      "action": "Tarayıcıda aç"
+    },
+    "requirements": {
+      "heading": "Neye ihtiyacın var",
+      "description": "Gereksinimler her platformda aynı.",
+      "items": {
+        "browser": {
+          "title": "Güncel bir tarayıcı",
+          "description": "WebRTC destekli güncel bir Chrome, Edge, Firefox veya Safari."
+        },
+        "microphone": {
+          "title": "Bir mikrofon",
+          "description": "İzin, bir odaya girdiğin anda istenir."
+        },
+        "network": {
+          "title": "Kararlı bir bağlantı",
+          "description": "Kararlı bir bağlantı. Bant genişliğin ne kadar yüksekse video ve ekran paylaşımı o kadar iyi çalışır."
+        },
+        "account": {
+          "title": "Bir hesap",
+          "description": "Bir e-posta ve bir şifre yeterli. Tek hesap tüm platformlarda geçerli."
+        }
+      }
+    },
+    "fallback": {
+      "heading": "Başka bir derlemeye mi ihtiyacın var",
+      "description": "Eski sürümler dahil tüm dosyalar sürümler sayfasında.",
+      "action": "GitHub'daki sürümleri aç"
+    }
+  },
+  "support": {
+    "meta": {
+      "title": "Destek",
+      "description": "Chatovo hakkında sık sorulan sorulara yanıtlar: mikrofon, özel odalar, güncellemeler, uygulamalar ve ekibe nasıl ulaşılacağı."
+    },
+    "hero": {
+      "eyebrow": "Yardım",
+      "title": "Bir şeyler ters gitti",
+      "description": "En çok sorulan konuların çözümleri burada. Yanıtını bulamazsan bize yaz."
+    },
+    "groups": {
+      "start": {
+        "heading": "Başlarken",
+        "description": "Chatovo'daki ilk adımların."
+      },
+      "audio": {
+        "heading": "Ses ve mikrofon",
+        "description": "Açık ara en sık sorulan konu."
+      },
+      "rooms": {
+        "heading": "Odalar ve erişim",
+        "description": "Davetler, şifreler ve oda sahibinin ayarları."
+      },
+      "apps": {
+        "heading": "Uygulamalar",
+        "description": "Masaüstü ve mobil sürümler."
+      }
+    },
+    "items": {
+      "createRoom": {
+        "question": "Nasıl oda oluştururum",
+        "answer": "Giriş yap, lobide Oda oluştur düğmesine bas ve bir ad ver. Hepsi bu — bağlantıyı davet ettiğin kişilere gönder."
+      },
+      "invite": {
+        "question": "İnsanları nasıl davet ederim",
+        "answer": "Odadaki bağlantıyı kopyala düğmesine bas ve dilediğin yerde paylaş. Bağlantıyı açan kişi doğrudan sohbete katılır."
+      },
+      "account": {
+        "question": "Katılmak için hesap gerekiyor mu",
+        "answer": "Evet, bir odaya katılmak için hesap gerekir. Kaydolmak bir dakika sürer ve yalnızca bir e-posta ile bir şifre ister."
+      },
+      "micNotWorking": {
+        "question": "Kimse beni duymuyor",
+        "answer": "Oda çubuğunda mikrofonunun susturulmadığından ve tarayıcıya erişim izni verildiğinden emin ol. Birden fazla cihazın varsa, mikrofon düğmesinin yanındaki menüden doğru olanı seç."
+      },
+      "micSensitivity": {
+        "question": "Arka plan gürültüsü karşıya geçiyor",
+        "answer": "Ses ayarlarında mikrofon hassasiyet eşiğini aç; böylece sessiz sesler artık iletilmez. Otomatik mod eşiği senin yerine seçer."
+      },
+      "noSound": {
+        "question": "Kimseyi duyamıyorum",
+        "answer": "Sağırlaştırma modunun kapalı olduğundan emin ol, ardından kulaklık düğmesinin yanındaki menüden seçili çıkış cihazını kontrol et."
+      },
+      "pushToTalk": {
+        "question": "Bas-konuş nasıl açılır",
+        "answer": "Bas-konuş bir masaüstü özelliğidir: ses ayarlarında etkinleştirme modunu bas-konuş olarak ayarla, ardından Kısayollar sekmesinde tuşu ata."
+      },
+      "privateRoom": {
+        "question": "Odayı nasıl özel yaparım",
+        "answer": "Odayı oluştururken özel modu aç ve bir şifre belirle. Bağlantıyı açan herkesten katılmadan önce bu şifre istenir."
+      },
+      "forgotRoomPassword": {
+        "question": "Oda şifresini unuttum",
+        "answer": "Şifreyi yalnızca oda sahibi bilir. Oda sahibi, oda ayarlarından yeni bir şifre belirleyebilir; eski şifre hemen geçersiz olur."
+      },
+      "roomDisappeared": {
+        "question": "Odam kayboldu",
+        "answer": "Son kişi ayrıldığında odalar silinmez. Bir odaya ulaşılamıyorsa, sahibi onu silmiştir ya da bağlantı güncel değildir."
+      },
+      "leaveRoom": {
+        "question": "Odadan nasıl ayrılırım",
+        "answer": "Oda çubuğundaki ayrıl düğmesine bas. Lobiye, yönetim paneline ya da ayarlara geçmek bağlantını kesmez — görüşme alttaki küçük bir çubukta devam eder."
+      },
+      "updateApp": {
+        "question": "Uygulamayı nasıl güncellerim",
+        "answer": "Masaüstü sürümü güncellemeleri kendisi denetler ve yüklemeyi önerir. Kenar çubuğundan elle de denetleyebilirsin."
+      },
+      "androidApp": {
+        "question": "Android uygulaması var mı",
+        "answer": "Evet, Google Play'de yayında. Bağlantısı indirme sayfasında."
+      },
+      "screenShare": {
+        "question": "Ekran paylaşımı çalışmıyor",
+        "answer": "Ekran paylaşımı masaüstü tarayıcılarda ve masaüstü uygulamasında çalışır. Mobil cihazlar bunu desteklemez."
+      }
+    },
+    "contact": {
+      "heading": "Hâlâ çözemedin mi",
+      "description": "Bize e-posta gönder ya da depoda bir issue aç — ikisini de okuyoruz.",
+      "email": "E-posta gönder",
+      "issues": "Issue aç"
+    }
+  },
+  "legal": {
+    "privacy": "Gizlilik Politikası",
+    "terms": "Hizmet Koşulları",
+    "privacyPage": {
+      "title": "Gizlilik Politikası",
+      "updated": "Son güncelleme: 2 Temmuz 2026",
+      "sections": [
+        {
+          "heading": "Giriş",
+          "paragraphs": [
+            "Chatovo (\"biz\", \"bize\", \"bizim\"), https://chatovo.ru adresindeki Chatovo sesli ve görüntülü iletişim hizmetini ve Android uygulaması dahil ilgili uygulamaları işletir.",
+            "Bu Gizlilik Politikası hangi bilgileri topladığımızı, bunları nasıl kullandığımızı ve sahip olduğunuz seçenekleri açıklar. Chatovo'yu kullanarak bu politikayı kabul etmiş olursunuz."
+          ]
+        },
+        {
+          "heading": "Veri sorumlusu",
+          "paragraphs": [
+            "Operatör: Alexandr Artemev (Chatovo)",
+            "İletişim: {contact}",
+            "Web sitesi: https://chatovo.ru"
+          ]
+        },
+        {
+          "heading": "Topladığımız bilgiler",
+          "paragraphs": [
+            "Hesap verileri: e-posta adresi, görünen ad, şifre (güvenli bir karma değer olarak saklanır) ve isteğe bağlı profil alanları (biyografi, avatar, afiş rengi, harici profil URL'si).",
+            "Oturum verileri: oturum token'ları, IP adresi, tarayıcının veya uygulamanın kullanıcı aracısı (user agent) ve oturumların sona erme zaman damgaları.",
+            "Odalar: oda adları, gizlilik ayarları, isteğe bağlı oda şifreleri ve sahiplik meta verileri.",
+            "Sohbet mesajları: odalarda gönderdiğiniz metinler, düzenleme geçmişi meta verileri ve yüklediğiniz dosya ekleri (ek başına 25 MB'a kadar görseller ve diğer dosyalar).",
+            "Ses ve görüntü: ses ve video akışları LiveKit (WebRTC) üzerinden gerçek zamanlı olarak iletilir. Ses veya görüntü içeriğini sunucularımızda kaydetmeyiz ya da kalıcı olarak saklamayız.",
+            "Cihazda yerel olarak saklanan cihaz ve uygulama ayarları: kimlik doğrulama token'ı, ses/görüntü tercihleri, dil ayarı, son odalar ve katılımcı başına ses düzeyleri.",
+            "Destek talepleri: bir sorun bildirdiğinizde mesajınızı, isteğe bağlı ekran görüntünüzü ve hesap tanımlayıcınızı alabiliriz."
+          ]
+        },
+        {
+          "heading": "Bilgileri nasıl kullanıyoruz",
+          "paragraphs": [
+            "Hizmeti sağlamak ve sürdürmek: kimlik doğrulama, odalar, sesli/görüntülü oturumlar, yazılı sohbet ve profil yönetimi.",
+            "Güvenlik ve kötüye kullanımın önlenmesi: oturum doğrulama, erişim kontrolü ve operasyonel izleme.",
+            "İletişim: e-posta doğrulama ve şifre sıfırlama gibi işlemlere ilişkin e-postalar.",
+            "Ürünü geliştirmek: hataları teşhis etmek ve kullanım örüntülerini toplu düzeyde anlamak."
+          ]
+        },
+        {
+          "heading": "Hukuki dayanaklar (AEA/Birleşik Krallık kullanıcıları)",
+          "paragraphs": [
+            "Verileri sizinle yaptığımız sözleşmeyi ifa etmek (hizmeti sağlamak) amacıyla, meşru menfaatlerimize (güvenlik ve ürün geliştirme) dayanarak ve gerektiğinde rızanıza (örneğin isteğe bağlı profil alanları veya cihaz izinleri için) dayanarak işleriz."
+          ]
+        },
+        {
+          "heading": "Üçüncü taraf hizmetler",
+          "paragraphs": [
+            "LiveKit — gerçek zamanlı ses, görüntü ve veri kanalları.",
+            "SMTP e-posta sağlayıcısı — doğrulama ve şifre sıfırlama e-postalarının iletilmesi.",
+            "Sunucularımızı ve veritabanlarımızı işleten barındırma ve altyapı sağlayıcıları.",
+            "Google Play — Android'de uygulamanın dağıtımı ve güncellemeleri (Google Play politikaları geçerlidir)."
+          ]
+        },
+        {
+          "heading": "Verilerin saklanması",
+          "paragraphs": [
+            "Hesap ve profil verileri, hesabınız etkin olduğu sürece saklanır.",
+            "Sohbet mesajları ve yüklenen dosyalar, siz silene veya hesap silme işleminin bir parçası olarak kaldırılana kadar saklanır.",
+            "Oturum kayıtları, güvenlik ve sorun giderme için gereken sınırlı bir süre boyunca saklanır.",
+            "Hesabınızı kendiniz silebilirsiniz: Ayarlar → Hesap → Hesabı sil yolunu izleyerek ya da chatovo.ru/account/delete adresinden. Silme işlemi, size e-postayla gönderdiğimiz bir bağlantı aracılığıyla onaylanır."
+          ]
+        },
+        {
+          "heading": "Kullanıcı tarafından oluşturulan içerik",
+          "paragraphs": [
+            "Chatovo, kullanıcıların metin, dosya ve profil bilgisi yayımlamasına olanak tanır. Paylaştığınız içerikten siz sorumlusunuz.",
+            "Kötüye kullanım içeren içerikleri veya kullanıcıları bildirmek için oda adı, mesaj ayrıntıları ve varsa ekran görüntüleriyle birlikte şu adrese başvurun: {contact}.",
+            "Hizmet Koşullarımızı veya yürürlükteki mevzuatı ihlal eden içerikleri kaldırabilir veya hesapları askıya alabiliriz."
+          ]
+        },
+        {
+          "heading": "Çocuklar",
+          "paragraphs": [
+            "Chatovo, 13 yaşın altındaki çocuklara yönelik değildir. 13 yaşın altındaki çocuklardan bilerek kişisel bilgi toplamayız. Bir çocuğun bize veri sağladığını düşünüyorsanız bizimle iletişime geçin: {contact}."
+          ]
+        },
+        {
+          "heading": "Güvenlik",
+          "paragraphs": [
+            "API trafiği için HTTPS, gerçek zamanlı medya için WSS kullanırız. Şifreler karma değer olarak saklanır. Üretim sistemlerine erişim kısıtlıdır.",
+            "Hiçbir iletim veya depolama yöntemi %100 güvenli değildir; mutlak güvenliği garanti edemeyiz."
+          ]
+        },
+        {
+          "heading": "Uluslararası aktarımlar",
+          "paragraphs": [
+            "Verileriniz, ülkeniz dışında bulunan sunucularda işlenebilir. Verileri bu politikaya uygun şekilde korumak için gerekli adımları atarız."
+          ]
+        },
+        {
+          "heading": "Haklarınız",
+          "paragraphs": [
+            "Bulunduğunuz yere bağlı olarak kişisel verilerinize erişme, bunları düzeltme, silme veya dışa aktarma ve belirli işleme faaliyetlerine itiraz etme ya da bunların kısıtlanmasını talep etme haklarına sahip olabilirsiniz.",
+            "Bu hakları kullanmak için bizimle iletişime geçin: {contact}. Ayrıca bulunduğunuz yerdeki veri koruma otoritesine şikâyette bulunabilirsiniz."
+          ]
+        },
+        {
+          "heading": "Değişiklikler",
+          "paragraphs": [
+            "Bu politikayı güncelleyebiliriz. Yeni sürümü https://chatovo.ru/privacy adresinde yayımlayacak ve \"Son güncelleme\" tarihini güncelleyeceğiz."
+          ]
+        }
+      ]
+    },
+    "termsPage": {
+      "title": "Hizmet Koşulları",
+      "updated": "Son güncelleme: 2 Temmuz 2026",
+      "sections": [
+        {
+          "heading": "Sözleşme",
+          "paragraphs": [
+            "Bu Hizmet Koşulları (\"Koşullar\"), Chatovo web sitelerini, API'lerini ve uygulamalarını (\"Hizmet\") kullanımınızı düzenler. Hizmeti kullanarak bu Koşulları ve https://chatovo.ru/privacy adresindeki Gizlilik Politikamızı kabul etmiş olursunuz."
+          ]
+        },
+        {
+          "heading": "Kullanım uygunluğu",
+          "paragraphs": [
+            "Chatovo'yu kullanmak için en az 13 yaşında olmalısınız. Bulunduğunuz yargı bölgesinde reşit olma yaşının altındaysanız, Hizmeti yalnızca bir ebeveynin veya yasal vasinin onayıyla kullanabilirsiniz."
+          ]
+        },
+        {
+          "heading": "Hesaplar",
+          "paragraphs": [
+            "Hesap kimlik bilgilerinizin gizliliğini korumaktan ve hesabınız altında gerçekleşen tüm etkinliklerden siz sorumlusunuz.",
+            "Doğru bilgi sağlamalı ve profil verilerinizi güncel tutmalısınız.",
+            "Bu Koşulları ihlal eden veya güvenlik riski oluşturan hesapları askıya alabilir ya da kapatabiliriz."
+          ]
+        },
+        {
+          "heading": "Kabul edilebilir kullanım",
+          "paragraphs": [
+            "Chatovo'yu başkalarını taciz etmek, tehdit etmek, istismar etmek veya onlara zarar vermek için kullanmamayı kabul edersiniz.",
+            "Yasa dışı içerik, kötü amaçlı yazılım, spam ya da fikri mülkiyet veya gizlilik haklarını ihlal eden içerik yükleyemezsiniz.",
+            "Hizmeti aksatmaya, güvenlik önlemlerini aşmaya, büyük ölçekte veri kazımaya veya başkalarının kimliğine bürünmeye çalışamazsınız.",
+            "Hizmeti yasa dışı kumar, finansal hizmetler veya uygulama mağazası politikaları kapsamında yasaklanan diğer kategoriler için kullanamazsınız."
+          ]
+        },
+        {
+          "heading": "Kullanıcı tarafından oluşturulan içerik",
+          "paragraphs": [
+            "Gönderdiğiniz içeriğin mülkiyeti sizde kalır. Chatovo'ya, içeriğinizi yalnızca Hizmeti işletmek amacıyla barındırmak, görüntülemek ve iletmek için münhasır olmayan bir lisans verirsiniz.",
+            "Bu Koşulları veya yürürlükteki mevzuatı ihlal eden içerikleri kaldırabilir ya da bu tür odalara erişimi kısıtlayabiliriz.",
+            "İhlalleri şu adrese bildirin: {contact}."
+          ]
+        },
+        {
+          "heading": "Topluluk kuralları ve moderasyon",
+          "paragraphs": [
+            "Kabul edilemez içerikler şunlardır: pornografi veya küçüklerin cinselleştirilmiş tasvirleri; ırk, milliyet, din, cinsiyet, cinsel yönelim veya engellilik temelinde nefret söylemi ya da ayrımcılık; tehdit, zorbalık veya taciz; şiddete kışkırtma ya da şiddetin şok edici tasvirleri; kendine zarar verme, intihar veya yeme bozukluklarının romantikleştirilmesi; uyuşturucu, silah, sahte belge veya diğer yasaklı ürünlerin tanıtımı; gerçek parayla kumar; spam, dolandırıcılık veya kimlik avı; fikri mülkiyet ihlali; başkalarının kişisel verilerinin rızaları olmadan ifşa edilmesi; üçüncü taraf uygulama mağazalarına bağlantılar.",
+            "Bir kullanıcıyı, mesajı veya odayı uygulamanın içinden bildirebilirsiniz: katılımcı veya mesaj menüsünü açın ve \"Bildir\" seçeneğini seçin. Bildirimler; oda, zaman ve ihlalin açıklamasıyla birlikte şu adrese de gönderilebilir: {contact}.",
+            "Bildirimler sonradan moderasyon (post-moderasyon) yöntemiyle ele alınır. Sonuca bağlı olarak içeriği kaldırabilir, bir odaya erişimi kısıtlayabilir, ihlalde bulunan hesabı geçici olarak askıya alabilir veya kalıcı olarak engelleyebiliriz.",
+            "Engellenen bir hesap; giriş yapma, odalara ve sesli sohbete erişim imkânını kaybeder. Engellemelere şu adrese yazarak itiraz edilebilir: {contact}."
+          ]
+        },
+        {
+          "heading": "Odalar ve iletişim",
+          "paragraphs": [
+            "Odalardaki ses, görüntü ve sohbet gerçek zamanlı olarak sağlanır. Açıkça sunulmadıkça kesintisiz erişilebilirliği veya kayıt özelliklerini garanti etmeyiz.",
+            "Şifreli özel odalar mutlak gizliliğin garantisi değildir; hassas bilgileri paylaşırken dikkatli olun."
+          ]
+        },
+        {
+          "heading": "Fikri mülkiyet",
+          "paragraphs": [
+            "Aksi belirtilmedikçe Chatovo adı, markası ve yazılımı operatöre aittir. Açık kaynaklı bileşenler kendi lisanslarına tabidir."
+          ]
+        },
+        {
+          "heading": "Sorumluluk reddi",
+          "paragraphs": [
+            "HİZMET, HİÇBİR TÜRDE GARANTİ VERİLMEKSİZİN \"OLDUĞU GİBİ\" SUNULMAKTADIR. YASALARIN İZİN VERDİĞİ AZAMİ ÖLÇÜDE, TİCARİ ELVERİŞLİLİK, BELİRLİ BİR AMACA UYGUNLUK VE HAK İHLALİ OLMAMASINA İLİŞKİN ZIMNİ GARANTİLERİ REDDEDERİZ."
+          ]
+        },
+        {
+          "heading": "Sorumluluğun sınırlandırılması",
+          "paragraphs": [
+            "YASALARIN İZİN VERDİĞİ AZAMİ ÖLÇÜDE, CHATOVO VE OPERATÖRÜ; HİZMETİ KULLANIMINIZDAN KAYNAKLANAN DOLAYLI, ARIZİ, ÖZEL, SONUÇSAL VEYA CEZAİ ZARARLARDAN YA DA HERHANGİ BİR VERİ, KÂR VEYA İTİBAR KAYBINDAN SORUMLU OLMAYACAKTIR."
+          ]
+        },
+        {
+          "heading": "Fesih",
+          "paragraphs": [
+            "Hizmeti dilediğiniz zaman kullanmayı bırakabilirsiniz. Bu Koşulları ihlal etmeniz veya yasaların gerektirmesi durumunda erişiminizi askıya alabilir ya da sonlandırabiliriz.",
+            "Nitelikleri gereği fesihten sonra da geçerli kalması gereken hükümler (sorumluluk reddi ve sorumluluk sınırlamaları dahil) fesihten sonra da geçerliliğini korur."
+          ]
+        },
+        {
+          "heading": "Değişiklikler",
+          "paragraphs": [
+            "Bu Koşulları güncelleyebiliriz. Değişikliklerden sonra Hizmeti kullanmaya devam etmeniz, güncellenmiş Koşulları kabul ettiğiniz anlamına gelir. Güncel sürüm https://chatovo.ru/terms adresindedir."
+          ]
+        },
+        {
+          "heading": "İletişim",
+          "paragraphs": ["Bu Koşullarla ilgili sorular için: {contact}"]
+        }
+      ]
+    },
+    "privacyMeta": {
+      "title": "Gizlilik Politikası",
+      "description": "Chatovo gizlilik politikası: hangi verileri topladığımız, nasıl kullandığımız ve nasıl koruduğumuz."
+    },
+    "termsMeta": {
+      "title": "Hizmet Koşulları",
+      "description": "Chatovo hizmet şartları ve topluluk kuralları."
+    }
+  },
+  "notFound": {
+    "title": "Chato her yere baktı",
+    "description": "Bu sayfa taşınmış, silinmiş ya da hiç var olmamış. İşte geri dönüş yolu.",
+    "toHome": "Ana sayfaya git",
+    "openApp": "Uygulamayı aç"
+  },
+  "downloadApp": {
+    "loadFailed": "Son sürüm yüklenemedi.",
+    "openReleases": "GitHub'daki sürümleri aç",
+    "version": "Sürüm {version}",
+    "downloadAction": "İndir",
+    "platforms": {
+      "windows": "Windows",
+      "macos": "macOS",
+      "linux": "Linux",
+      "android": "Android"
+    },
+    "storeAction": "Aç",
+    "googlePlay": "Google Play",
+    "notAvailable": "Henüz mevcut değil"
+  }
+}

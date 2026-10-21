@@ -31,6 +31,8 @@ export const usePlayerPlacement = () => {
           host.style.transform = `translate(${box.left}px, ${box.top}px)`;
           host.style.width = `${box.width}px`;
           host.style.height = `${box.height}px`;
+          host.style.clipPath = `inset(${box.clipTop}px 0 ${box.clipBottom}px 0)`;
+          host.style.pointerEvents = box.isPassive ? 'none' : '';
         }
       }
 

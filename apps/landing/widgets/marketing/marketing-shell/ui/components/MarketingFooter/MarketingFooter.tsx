@@ -1,3 +1,4 @@
+import { localizeSitePath } from '@chatovo/config';
 import { BrandMark, GithubIcon, Text } from '@chatovo/ui-kit';
 import { clsx } from 'clsx';
 import { getTranslations } from 'next-intl/server';
@@ -5,7 +6,6 @@ import Link from 'next/link';
 
 import { SITE } from '@/shared/config';
 import { EXTERNAL_LINKS, ROUTES } from '@/shared/constants';
-import { localizeMarketingPath } from '@/shared/lib';
 
 import type { MarketingFooterProps } from './MarketingFooter.types';
 
@@ -53,17 +53,11 @@ export const MarketingFooter = async ({ locale }: MarketingFooterProps) => {
         </Text>
 
         <nav className={s.footerLinks}>
-          <Link
-            className={s.footerLink}
-            href={localizeMarketingPath({ path: ROUTES.privacy, locale })}
-          >
+          <Link className={s.footerLink} href={localizeSitePath({ path: ROUTES.privacy, locale })}>
             {t('privacy')}
           </Link>
 
-          <Link
-            className={s.footerLink}
-            href={localizeMarketingPath({ path: ROUTES.terms, locale })}
-          >
+          <Link className={s.footerLink} href={localizeSitePath({ path: ROUTES.terms, locale })}>
             {t('terms')}
           </Link>
         </nav>

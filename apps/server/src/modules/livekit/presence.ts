@@ -5,6 +5,9 @@ import { participantMetadataSchema, safeJsonParse } from '@chatovo/schemas';
 import { Logger } from '@nestjs/common';
 import { RoomServiceClient, TrackSource } from 'livekit-server-sdk';
 
+import type { RemoveRoomParticipantInput, SetParticipantMicLockInput } from './livekit.types';
+
+import { MIC_LOCKED_PUBLISH_SOURCES } from '../../config/livekit';
 import { isInvisibleParticipant } from './lib';
 import { toRoomParticipant } from './mappers';
 import { replaceRoom } from './presence-store';
@@ -119,5 +122,43 @@ export const ejectParticipantEverywhere = async (identity: string): Promise<void
     const reason = error instanceof Error ? error.message : 'unknown error';
 
     logger.warn(`Failed to eject ${identity}: ${reason}`);
+  }
+};
+
+export const removeRoomParticipant = async ({
+  roomId,
+  identity
+}: RemoveRoomParticipantInput): Promise<void> => {
+  try {
+    await roomServiceClient().removeParticipant(roomId, identity);
+  } catch (error) {
+    if (!isRoomNotFound(error)) {
+      throw error;
+    }
+  }
+};
+
+export const setParticipantMicLock = async ({
+  roomId,
+  identity,
+  locked
+}: SetParticipantMicLockInput): Promise<void> => {
+  const service = roomServiceClient();
+
+  try {
+    const { permission, tracks } = await service.getParticipant(roomId, identity);
+    const mic = tracks.find((track) => track.source === TrackSource.MICROPHONE);
+
+    if (locked && mic && !mic.muted) {
+      await service.mutePublishedTrack(roomId, identity, mic.sid, true);
+    }
+
+    await service.updateParticipant(roomId, identity, {
+      permission: { ...permission, canPublishSources: locked ? MIC_LOCKED_PUBLISH_SOURCES : [] }
+    });
+  } catch (error) {
+    if (!isRoomNotFound(error)) {
+      throw error;
+    }
   }
 };

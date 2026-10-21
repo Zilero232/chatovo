@@ -5,6 +5,7 @@ export { useCurrentRoomId } from './use-current-room-id';
 export { useDeviceSync } from './use-device-sync';
 export { useMicActivationMode } from './use-mic-activation-mode';
 export { useParticipantAudioLevel } from './use-participant-audio-level';
+export { useParticipantCardMenu } from './use-participant-card-menu';
 export { useParticipantIsSpeaking } from './use-participant-is-speaking';
 export { useParticipantMedia } from './use-participant-media';
 export { type ParticipantVolume, useParticipantVolume } from './use-participant-volume';

@@ -16,6 +16,7 @@ Only libraries **declared** in a `package.json` count — a transitive one is a 
 
 - `useBoolean`'s toggle is new every render → plain `useState` when the setter goes into an effect, a callback or a ref.
 - `useDropZone` captures `onDrop` once → the `cbRef.current = cb` pattern is correct there (`useEffectEvent` is forbidden in a library callback).
+- `useKeyboard(ref, …)` listens on `window` while the ref is empty (a closed dialog) → an element's own `onKeyDown`.
 - `useAudio` can't loop → a manual `new Audio()` for the ringtone.
 - `node:https` + custom `lookup` drops SNI under Bun → SSRF pinning uses Bun `fetch` with `tls.serverName` (`safeFetch`).
 - `html-encoding-sniffer` defaults to windows-1252 → pass `defaultEncoding: 'UTF-8'`.

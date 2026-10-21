@@ -24,9 +24,6 @@
   padding: 0 0.75rem;
   border-bottom: 1px solid rgb(8 4 10 / 22%);
   gap: 0.5rem;
-  overflow-x: auto;
-
-  @include hide-scrollbar;
 
   @include bp(sm) {
     gap: 0.75rem;
@@ -67,12 +64,22 @@
 }
 
 .tabsList.tabsList {
+  width: auto;
+  min-width: 0;
   height: auto;
-  flex-shrink: 0;
+  flex: 0 1 auto;
+  justify-content: flex-start;
   padding: 0;
   border: none;
   background: transparent;
   gap: 0.25rem;
+  overflow-x: auto;
+
+  @include hide-scrollbar;
+
+  > * {
+    flex: 0 0 auto;
+  }
 
   [data-active] {
     background: color-mix(in srgb, var(--brand-violet) 22%, transparent);

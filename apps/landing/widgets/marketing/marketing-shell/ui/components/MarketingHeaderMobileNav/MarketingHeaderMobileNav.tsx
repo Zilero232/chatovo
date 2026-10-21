@@ -10,15 +10,16 @@ import { useId, useState } from 'react';
 import type { MarketingHeaderMobileNavProps } from './MarketingHeaderMobileNav.types';
 
 import { MarketingAppCta } from '../MarketingAppCta/MarketingAppCta';
+import { MarketingLanguageSelect } from '../MarketingLanguageSelect/MarketingLanguageSelect';
 
 import s from '../../MarketingShell.module.scss';
 
 export const MarketingHeaderMobileNav = ({
   appLabel,
   items,
-  localeSwitchHref,
-  localeSwitchHrefLang,
-  localeSwitchLabel,
+  languageHrefs,
+  languageLabel,
+  locale,
   menuDescription,
   menuLabel,
   menuTitle
@@ -73,14 +74,13 @@ export const MarketingHeaderMobileNav = ({
 
         <div className={s.mobileNavActions}>
           <MarketingAppCta className={s.mobileNavCta} label={appLabel} size='lg' onClick={close} />
-          <Link
+          <MarketingLanguageSelect
             className={clsx(s.localeSwitch, s.mobileNavLocaleSwitch)}
-            href={localeSwitchHref}
-            hrefLang={localeSwitchHrefLang}
-            onClick={close}
-          >
-            {localeSwitchLabel}
-          </Link>
+            hrefs={languageHrefs}
+            label={languageLabel}
+            locale={locale}
+            onNavigate={close}
+          />
         </div>
       </SheetContent>
     </Sheet>

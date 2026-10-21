@@ -1,11 +1,11 @@
-import confetti from 'canvas-confetti';
-
 const BRAND_COLORS = ['#a855f7', '#22d3ee', '#f472b6', '#fbbf24', '#4ade80'];
 
-export const fireConfetti = () => {
+export const fireConfetti = async () => {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     return;
   }
+
+  const { default: confetti } = await import('canvas-confetti');
 
   const shared = {
     colors: BRAND_COLORS,

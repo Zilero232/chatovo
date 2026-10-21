@@ -11,7 +11,8 @@ import type {
   FindFriendshipInput,
   GetFriendshipRelationInput,
   RemoveFriendshipInput,
-  SendFriendRequestInput
+  SendFriendRequestInput,
+  UserBlockState
 } from './friendship.service.types';
 
 import { FriendshipStatus, Prisma } from '../../../../../generated';
@@ -47,6 +48,24 @@ export class FriendshipService {
       },
       include: friendshipInclude
     });
+  }
+
+  private async findUserBlocks({
+    userId,
+    otherUserId
+  }: FindFriendshipInput): Promise<UserBlockState> {
+    const [mine, theirs] = await Promise.all([
+      this.prisma.userBlock.findUnique({
+        where: { blockerId_blockedId: { blockerId: userId, blockedId: otherUserId } },
+        select: { blockerId: true }
+      }),
+      this.prisma.userBlock.findUnique({
+        where: { blockerId_blockedId: { blockerId: otherUserId, blockedId: userId } },
+        select: { blockerId: true }
+      })
+    ]);
+
+    return { blockedByMe: !isNullish(mine), blockedByThem: !isNullish(theirs) };
   }
 
   async listFriends(userId: string): Promise<FriendEntry[]> {
@@ -104,7 +123,17 @@ export class FriendshipService {
       return { status: 'none' };
     }
 
-    const row = await this.findFriendship({ userId, otherUserId });
+    const [block, row] = await Promise.all([
+      this.prisma.userBlock.findUnique({
+        where: { blockerId_blockedId: { blockerId: userId, blockedId: otherUserId } },
+        select: { blockerId: true }
+      }),
+      this.findFriendship({ userId, otherUserId })
+    ]);
+
+    if (!isNullish(block)) {
+      return { status: 'blocked' };
+    }
 
     if (isNullish(row)) {
       return { status: 'none' };
@@ -122,6 +151,19 @@ export class FriendshipService {
     }
 
     await getUserWithProfileOrThrow(addresseeId);
+
+    const { blockedByMe, blockedByThem } = await this.findUserBlocks({
+      userId: requesterId,
+      otherUserId: addresseeId
+    });
+
+    if (blockedByMe) {
+      throw new AppForbiddenException('FRIEND_REQUEST_BLOCKED', 'Friend request blocked');
+    }
+
+    if (blockedByThem) {
+      throw new AppNotFoundException('USER_NOT_FOUND', 'User not found');
+    }
 
     const existing = await this.findFriendship({ userId: requesterId, otherUserId: addresseeId });
 
@@ -178,6 +220,28 @@ export class FriendshipService {
     userId,
     friendshipId
   }: AcceptFriendRequestInput): Promise<FriendshipRelation> {
+    const request = await this.prisma.friendship.findFirst({
+      where: { id: friendshipId, addresseeId: userId, status: FriendshipStatus.pending },
+      select: { requesterId: true }
+    });
+
+    if (isNullish(request)) {
+      throw new AppNotFoundException('FRIEND_REQUEST_NOT_FOUND', 'Request not found');
+    }
+
+    const { blockedByMe, blockedByThem } = await this.findUserBlocks({
+      userId,
+      otherUserId: request.requesterId
+    });
+
+    if (blockedByMe) {
+      throw new AppForbiddenException('FRIEND_REQUEST_BLOCKED', 'Friend request blocked');
+    }
+
+    if (blockedByThem) {
+      throw new AppNotFoundException('FRIEND_REQUEST_NOT_FOUND', 'Request not found');
+    }
+
     const { count } = await this.prisma.friendship.updateMany({
       where: {
         id: friendshipId,

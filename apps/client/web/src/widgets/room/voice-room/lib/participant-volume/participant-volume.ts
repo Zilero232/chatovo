@@ -1,7 +1,12 @@
 import { Track } from 'livekit-client';
 import { clamp, pick, takeLast } from 'remeda';
 
-import type { MuteMap, VolumeMap, VolumeSource } from './participant-volume.types';
+import type {
+  MuteMap,
+  ResolveParticipantVolumeInput,
+  VolumeMap,
+  VolumeSource
+} from './participant-volume.types';
 
 import { MAX_STORED_VOLUMES, MAX_VOLUME } from '../../config';
 
@@ -29,3 +34,15 @@ export const buildVolumeStorageKey = (identity: string, source: VolumeSource) =>
   source === Track.Source.Microphone ? identity : `${identity}:${source}`;
 
 export const clampVolume = (value: number) => clamp(value, { min: 0, max: MAX_VOLUME });
+
+export const resolveParticipantVolume = ({
+  volume,
+  isMuted,
+  isBlocked
+}: ResolveParticipantVolumeInput) => {
+  if (isMuted || isBlocked) {
+    return 0;
+  }
+
+  return clampVolume(volume);
+};

@@ -1,5 +1,6 @@
 import { z } from 'zod';
 
+import { userProfileSchema } from '../users/outputs';
 import { ROOM_NAME_MAX_LENGTH } from './limits';
 
 export const roomKindSchema = z.enum(['group', 'dm']);
@@ -16,3 +17,12 @@ export const roomSchema = z.object({
   isPrivate: z.boolean(),
   ownerId: z.string().min(1)
 });
+
+export const roomModerationActionSchema = z.enum(['removed', 'banned', 'muted', 'unmuted']);
+
+export const roomBanSchema = z.object({
+  user: userProfileSchema.pick({ id: true, name: true, avatarUrl: true }),
+  bannedAt: z.string()
+});
+
+export const roomBanListSchema = z.array(roomBanSchema);

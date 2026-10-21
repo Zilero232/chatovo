@@ -6,7 +6,6 @@ import { setRequestLocale } from 'next-intl/server';
 import { JetBrains_Mono, Lora, Manrope } from 'next/font/google';
 import { notFound } from 'next/navigation';
 
-import { SITE } from '@/shared/config';
 import { isLocale, LOCALES, messages } from '@/shared/i18n';
 import { SiteJsonLd } from '@/shared/seo';
 
@@ -52,10 +51,7 @@ const LocaleLayout = async ({ children, params }: LocaleLayoutProps) => {
   setRequestLocale(locale);
 
   return (
-    <html
-      className={clsx('dark', sans.variable, serif.variable, mono.variable)}
-      lang={locale === 'en' ? SITE.en.lang : SITE.lang}
-    >
+    <html className={clsx('dark', sans.variable, serif.variable, mono.variable)} lang={locale}>
       <head>
         <SiteJsonLd />
       </head>

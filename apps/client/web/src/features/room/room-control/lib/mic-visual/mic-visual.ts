@@ -4,9 +4,14 @@ import type { MicVisual, ResolveMicVisualInput } from './mic-visual.types';
 
 export const resolveMicVisual = ({
   pttState,
-  isMicrophoneEnabled
+  isMicrophoneEnabled,
+  isLocked = false
 }: ResolveMicVisualInput): MicVisual =>
-  match({ pttState, isMicrophoneEnabled })
+  match({ pttState, isMicrophoneEnabled, isLocked })
+    .with(
+      { isLocked: true },
+      () => ({ tone: 'danger', labelKey: 'mutedByOwner', isMuted: true }) as const
+    )
     .with(
       { isMicrophoneEnabled: false },
       () => ({ tone: 'danger', labelKey: 'unmute', isMuted: true }) as const

@@ -6,6 +6,7 @@ import { useCurrentUser } from '@/entities/auth/user';
 import { useRoomParticipants } from '@/entities/room/room';
 
 import { ROSTER_EVENTS } from '../../../config';
+import { getStageGridStyle } from '../../../lib';
 
 export const useParticipantsView = () => {
   const room = useRoomContext();
@@ -18,13 +19,17 @@ export const useParticipantsView = () => {
 
   const presenceByIdentity = indexBy(presence, (entry) => entry.identity);
   const liveIdentities = new Set(participants.map((entry) => entry.identity));
+  const invisibleParticipants = presence.filter(
+    (entry) => entry.invisible && !liveIdentities.has(entry.identity)
+  );
+  const tileCount = participants.length + invisibleParticipants.length;
 
   return {
     participants,
     presenceByIdentity,
-    invisibleParticipants: presence.filter(
-      (entry) => entry.invisible && !liveIdentities.has(entry.identity)
-    ),
+    invisibleParticipants,
+    isAlone: tileCount <= 1,
+    gridStyle: getStageGridStyle(tileCount),
     isSelfInvisible: isAdmin && settings.system.invisibleMode,
     localParticipant: participants.find((entry) => entry.isLocal),
     peerParticipant: participants.find((entry) => !entry.isLocal)

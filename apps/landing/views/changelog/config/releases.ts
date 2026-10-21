@@ -23,6 +23,24 @@ export type ChangelogRelease = {
 
 export const CHANGELOG_RELEASES: ChangelogRelease[] = [
   {
+    version: '1.10.0',
+    date: '2026-10-21',
+    tone: 'major',
+    highlights: ['nineLanguages', 'roomModeration'],
+    entries: [
+      { kind: 'feature', key: 'nineLanguages' },
+      { kind: 'feature', key: 'roomModeration' },
+      { kind: 'feature', key: 'blockUsers' },
+      { kind: 'feature', key: 'chatFilter' },
+      { kind: 'feature', key: 'backgroundCalls' },
+      { kind: 'improvement', key: 'calmerIcon' },
+      { kind: 'improvement', key: 'phoneLayout' },
+      { kind: 'improvement', key: 'stopMusic' },
+      { kind: 'fix', key: 'honestMute' },
+      { kind: 'fix', key: 'voiceSettingsMidCall' }
+    ]
+  },
+  {
     version: '1.9.0',
     date: '2026-10-21',
     tone: 'major',

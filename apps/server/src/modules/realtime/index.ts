@@ -6,7 +6,8 @@ export {
   initRealtimeBroadcast,
   listConnections,
   listOnlineUserIds,
-  sendToUser
+  sendToUser,
+  unsubscribeUserFromRoom
 } from './connection-store';
 export {
   bindRealtimeBroadcast,

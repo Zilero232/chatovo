@@ -1,0 +1,100 @@
+{
+  "friends": {
+    "title": "Freunde",
+    "description": "Deine Freunde und eingehende Anfragen.",
+    "online": "online",
+    "offline": "offline",
+    "requestsTab": "Anfragen",
+    "developersTab": "Team",
+    "onlineTab": "Online",
+    "allTab": "Alle",
+    "onlineCount": "Online – {count}",
+    "allCount": "Alle Freunde – {count}",
+    "pendingCount": "Ausstehend – {count}",
+    "searchPlaceholder": "Suchen",
+    "nothingFound": "Nichts gefunden",
+    "nothingFoundHint": "Kein Freund passt zur Suche. Leere sie, um alle zu sehen.",
+    "emptyOnlineTitle": "Gerade ist niemand online",
+    "addFriendHint": "Füge Freunde über ihren Tag hinzu. Die Ziffern nach der Raute gehören dazu.",
+    "yourTagTitle": "Dein Tag",
+    "yourTagHint": "Teile ihn, damit andere dich als Freund hinzufügen können.",
+    "emptyFriendsTitle": "Noch keine Freunde",
+    "emptyFriendsHint": "Klick in einem Sprachraum auf den Avatar einer Person und schick ihr eine Anfrage. Sobald sie annimmt, kannst du ihr direkt von hier schreiben oder sie anrufen.",
+    "emptyRequestsTitle": "Keine offenen Anfragen",
+    "emptyRequestsHint": "Wenn dich jemand über deinen Tag hinzufügt, landet die Anfrage hier und wartet auf deine Antwort.",
+    "emptyDevelopersTitle": "Noch keine Teammitglieder",
+    "emptyDevelopersHint": "Die Liste der Chatovo-Entwickler ist gerade leer. Schau später wieder vorbei, um die Leute hinter der App kennenzulernen.",
+    "addFriend": "Freund hinzufügen",
+    "cancelRequest": "Anfrage zurückziehen",
+    "accept": "Annehmen",
+    "decline": "Ablehnen",
+    "messageFriend": "Nachricht",
+    "backToFriends": "Zurück zu Freunden",
+    "callFriend": "Anrufen",
+    "friendActions": "Freundesaktionen",
+    "unreadMessages": "{count, plural, one {# ungelesene Nachricht} other {# ungelesene Nachrichten}}",
+    "removeFriend": "Freund entfernen",
+    "removeFriendConfirm": {
+      "title": "Freund entfernen?",
+      "description": "{name} wird aus deiner Freundesliste entfernt. Das kann nicht rückgängig gemacht werden.",
+      "confirm": "Entfernen",
+      "cancel": "Abbrechen",
+      "failed": "Freund konnte nicht entfernt werden",
+      "consequences": "Euer Chatverlauf bleibt, aber ihr seht euch nicht mehr online und könnt euch nicht anrufen, bis ihr wieder befreundet seid."
+    },
+    "tagPlaceholder": "friendTag (Beispiel: alex#4821)",
+    "sendByTag": "Senden",
+    "requestSent": "Freundschaftsanfrage gesendet",
+    "copyTag": "Tag kopieren",
+    "tagCopied": "Tag kopiert",
+    "tagCopyFailed": "Tag konnte nicht kopiert werden",
+    "sendFailed": "Freundschaftsanfrage konnte nicht gesendet werden",
+    "incomingCall": {
+      "title": "Eingehender Anruf",
+      "description": "{name} ruft dich an",
+      "accept": "Annehmen",
+      "decline": "Ablehnen"
+    },
+    "outgoingCall": {
+      "title": "Wird angerufen…",
+      "description": "Warte, bis {name} abnimmt",
+      "cancel": "Abbrechen",
+      "declined": "{name} hat den Anruf abgelehnt"
+    }
+  },
+  "blocks": {
+    "block": "Blockieren",
+    "unblock": "Blockierung aufheben",
+    "unblockUser": "Blockierung von {name} aufheben",
+    "tab": "Blockiert",
+    "count": "Blockiert – {count}",
+    "notice": "Du hast diese Person blockiert. Hebe die Blockierung auf, um eine Freundschaftsanfrage zu senden.",
+    "blockedToast": "{name} wurde blockiert",
+    "unblockedToast": "Blockierung von {name} aufgehoben",
+    "emptyTitle": "Niemand blockiert",
+    "emptyHint": "Hier landen Personen, die du blockierst. Das Aufheben einer Blockierung macht euch nicht wieder zu Freunden.",
+    "hiddenMessage": "Nachricht von einer blockierten Person",
+    "showMessage": "Anzeigen",
+    "confirm": {
+      "title": "{name} blockieren?",
+      "description": "{name} wird nicht benachrichtigt. Eure Freundschaft und offene Anfragen zwischen euch werden entfernt.",
+      "consequences": "Nachrichten dieser Person in Räumen werden auf eine Zeile eingeklappt, ihre Stimme ist für dich stummgeschaltet und keiner von euch kann eine Freundschaftsanfrage senden, bis du die Blockierung aufhebst.",
+      "confirm": "Blockieren",
+      "cancel": "Abbrechen"
+    }
+  },
+  "user": {
+    "verified": "Verifiziertes Konto",
+    "developer": "Entwickler",
+    "developerHint": "Chatovo-Entwickler"
+  },
+  "profileCard": {
+    "inVoice": "Im Sprachkanal",
+    "notInVoice": "Nicht in einem Sprachkanal",
+    "join": "Beitreten",
+    "openSettingsHint": "Öffne die Einstellungen, um dein Profil zu bearbeiten.",
+    "avatarAlt": "Avatar von {name}",
+    "avatarZoomDescription": "Vergrößertes Profilbild",
+    "zoomAvatar": "Avatar öffnen"
+  }
+}

@@ -27,6 +27,16 @@ describe('resolveMicVisual', () => {
     });
   });
 
+  it('reports a mic the room owner muted as muted by the owner, even while push-to-talk is held', () => {
+    expect(
+      resolveMicVisual({ pttState: 'active', isMicrophoneEnabled: true, isLocked: true })
+    ).toEqual({
+      tone: 'danger',
+      labelKey: 'mutedByOwner',
+      isMuted: true
+    });
+  });
+
   it('shows a plain live mic when push-to-talk is disabled', () => {
     expect(resolveMicVisual({ pttState: 'disabled', isMicrophoneEnabled: true })).toEqual({
       tone: 'on',

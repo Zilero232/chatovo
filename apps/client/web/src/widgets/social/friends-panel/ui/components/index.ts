@@ -1,4 +1,5 @@
 export { AddFriendTab } from './AddFriendTab/AddFriendTab';
+export { BlockedTab } from './BlockedTab/BlockedTab';
 export { DevelopersTab } from './DevelopersTab/DevelopersTab';
 export { FriendListItem } from './FriendListItem/FriendListItem';
 export { FriendsList } from './FriendsList/FriendsList';

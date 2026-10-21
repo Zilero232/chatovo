@@ -1,0 +1,394 @@
+{
+  "lobby": {
+    "subtitle": "Spring in einen Sprachraum oder starte deinen eigenen",
+    "appVersion": "App-Version",
+    "stats": {
+      "rooms": "Räume",
+      "live": "Gerade live",
+      "online": "Online"
+    },
+    "searchPlaceholder": "Räume suchen...",
+    "filters": {
+      "all": "Alle",
+      "live": "Live",
+      "mine": "Meine"
+    },
+    "view": {
+      "grid": "Rasteransicht",
+      "list": "Listenansicht"
+    },
+    "nothingFound": "Keine Räume zu „{query}“",
+    "nothingFoundHint": "Versuch eine kürzere Suche oder erstelle selbst einen Raum mit diesem Namen.",
+    "roomsError": {
+      "title": "Räume konnten nicht geladen werden",
+      "description": "Prüfe deine Verbindung und versuch es noch mal.",
+      "retry": "Erneut versuchen"
+    },
+    "empty": {
+      "title": "Noch keine Räume",
+      "text": "Räume erscheinen hier, sobald jemand einen erstellt. Starte den ersten und teile den Link – wer ihn öffnet, landet direkt im Call."
+    },
+    "card": {
+      "live": "Live",
+      "empty": "Leer",
+      "people": "{count, plural, one {# Person} other {# Personen}}",
+      "ownerTooltip": "Raumbesitzer",
+      "micMuted": "Mikrofon stumm",
+      "deafened": "Ton aus"
+    },
+    "sections": {
+      "rooms": "Räume",
+      "friends": "Freunde"
+    }
+  },
+  "room": {
+    "sections": {
+      "public": "Offen",
+      "private": "Privat"
+    },
+    "loading": "Raum wird geladen...",
+    "authorizing": "Zugriff wird geprüft...",
+    "connecting": "Verbinde mit „{name}“...",
+    "reconnecting": "Verbinde erneut mit „{name}“...",
+    "notFound": "Raum nicht gefunden",
+    "notFoundHint": "Der Besitzer hat diesen Raum gelöscht oder der Link ist veraltet. Prüfe den Link oder such den Raum in der Lobby.",
+    "backToLobby": "Zurück zur Lobby",
+    "joinFailed": "Beitritt zum Raum fehlgeschlagen",
+    "invite": {
+      "copyLink": "Einladungslink kopieren",
+      "tooltip": "Link kopieren, um andere einzuladen",
+      "linkCopied": "Einladungslink kopiert",
+      "aloneTitle": "Du bist allein hier",
+      "aloneDescription": "Schick den Link, und deine Freunde sind mit einem Klick dabei."
+    },
+    "connection": {
+      "measuring": "Verbindung wird gemessen…",
+      "ping": "Verbindung: {ms} ms"
+    },
+    "mini": {
+      "label": "Aktiver Raum „{name}“",
+      "inRoom": "Du bist im Raum",
+      "inCall": "Du bist in einem Anruf",
+      "connecting": "Verbinde…"
+    },
+    "soundboard": {
+      "label": "Admin-Soundboard",
+      "sounds": {
+        "siren": "Sirene",
+        "airhorn": "Drucklufthorn",
+        "drumroll": "Trommelwirbel",
+        "sadTrombone": "Traurige Posaune",
+        "applause": "Applaus"
+      }
+    },
+    "music": {
+      "label": "Raummusik",
+      "title": "Musik im Raum",
+      "description": "Spiel Tracks für alle im Raum ab oder teile deine eigene Musik.",
+      "nowPlaying": {
+        "addedBy": "Hinzugefügt von {name}",
+        "live": "Live",
+        "play": "Abspielen",
+        "pause": "Pause",
+        "previous": "Vorheriger Track",
+        "next": "Nächster Track",
+        "stop": "Musik stoppen",
+        "open": "Quelle öffnen",
+        "expand": "Player öffnen"
+      },
+      "progress": {
+        "seek": "Position im Track",
+        "unknown": "–:––"
+      },
+      "empty": {
+        "title": "Hier ist es still",
+        "description": "Füge einen Link ein oder schalte das Radio an."
+      },
+      "search": {
+        "label": "Musik hinzufügen",
+        "placeholder": "Link einfügen oder Radio suchen",
+        "hint": "Links von YouTube, SoundCloud und Vimeo oder ein direkter Link zu einer Audiodatei kommen in die Warteschlange; alles andere sucht nach Radiosendern.",
+        "clear": "Leeren"
+      },
+      "queue": {
+        "title": "Als Nächstes",
+        "empty": "Noch nichts in der Warteschlange.",
+        "remove": "{title} aus der Warteschlange entfernen"
+      },
+      "add": {
+        "link": "{source}-Link",
+        "submit": "Zur Warteschlange",
+        "added": "Zur Warteschlange hinzugefügt"
+      },
+      "radio": {
+        "label": "Sender",
+        "empty": "Keine Sender gefunden.",
+        "error": "Die Radiosuche ist gerade nicht verfügbar.",
+        "play": "{name} abspielen"
+      },
+      "genres": {
+        "title": "Radio nach Stimmung",
+        "items": {
+          "lofi": "Lo-fi",
+          "jazz": "Jazz",
+          "rock": "Rock",
+          "classical": "Klassik",
+          "ambient": "Ambient",
+          "chill": "Chill"
+        }
+      },
+      "share": {
+        "title": "Meine Musik",
+        "hint": "Die Musik läuft über dein Konto – VK Music, Yandex Music oder alles andere in einem Browser-Tab – und alle im Raum hören sie.",
+        "tab": "Tab-Audio teilen",
+        "tabHint": "Wähle im Dialog den Tab mit der Musik und aktiviere „Tab-Audio teilen“.",
+        "tabUnsupported": "Zum Teilen von Tab-Audio brauchst du einen Desktop-Browser.",
+        "files": "Dateien von diesem Gerät abspielen",
+        "sharingTab": "Audio aus einem Tab wird geteilt",
+        "playingFile": "Spielt {name}",
+        "paused": "Pausiert: {name}",
+        "pause": "Pause",
+        "resume": "Fortsetzen",
+        "next": "Nächste Datei",
+        "stop": "Teilen beenden",
+        "noAudio": "Es wurde kein Audio geteilt – aktiviere „Tab-Audio teilen“ im Dialog.",
+        "fileFailed": "{name} konnte nicht abgespielt werden.",
+        "publishFailed": "Teilen in diesem Raum konnte nicht gestartet werden."
+      },
+      "settings": {
+        "volume": "Musiklautstärke",
+        "ducking": "Musik leiser, wenn jemand spricht"
+      },
+      "player": {
+        "unplayable": "Dieser Track kann hier nicht abgespielt werden – wird übersprungen.",
+        "unavailable": "Der Player wurde nicht geladen – der Dienst ist in deinem Netzwerk evtl. blockiert.",
+        "tapToListen": "Tippen zum Anhören"
+      },
+      "sources": {
+        "youtube": "YouTube",
+        "soundcloud": "SoundCloud",
+        "radio": "Radio",
+        "vimeo": "Vimeo",
+        "file": "Audiodatei"
+      },
+      "playInRoom": "Im Raum abspielen",
+      "tabOnly": {
+        "title": "{service} lässt sich nicht einbetten",
+        "hint": "Spiel es in einem Browser-Tab ab und nutze dann unten unter „Meine Musik“ die Option „Tab-Audio teilen“ – alle im Raum hören es.",
+        "services": {
+          "vk": "VK",
+          "yandex": "Yandex Music",
+          "spotify": "Spotify",
+          "apple": "Apple Music",
+          "zvuk": "Zvuk",
+          "deezer": "Deezer"
+        }
+      }
+    },
+    "password": {
+      "heading": "Dieser Raum ist passwortgeschützt",
+      "hint": "Frag die Person, die dir den Link geschickt hat, nach dem Passwort – ohne öffnet sich „{name}“ nicht.",
+      "label": "Passwort",
+      "wrong": "Falsches Passwort",
+      "join": "Beitreten",
+      "validation": {
+        "passwordMin": "Mind. 4 Zeichen",
+        "passwordMax": "Max. 128 Zeichen"
+      }
+    },
+    "shortcuts": {
+      "pttBlockedByMute": "Dein Mikrofon ist stumm – heb die Stummschaltung auf, um Push-to-Talk zu nutzen"
+    },
+    "controls": {
+      "mute": "Stummschalten",
+      "unmute": "Stummschaltung aufheben",
+      "micDevice": "Mikrofon wählen",
+      "camera": "Kamera an",
+      "cameraOff": "Kamera aus",
+      "camDevice": "Kamera wählen",
+      "screenShare": "Bildschirm teilen",
+      "stopShare": "Teilen beenden",
+      "react": "Reaktion senden",
+      "deafen": "Ton aus",
+      "undeafen": "Ton an",
+      "speakerDevice": "Lautsprecher wählen",
+      "pttHint": "Push-to-Talk",
+      "leave": "Verlassen",
+      "invisibleMicBlocked": "Im unsichtbaren Modus kannst du nicht sprechen",
+      "mutedByOwner": "Vom Raumbesitzer stummgeschaltet"
+    },
+    "dmWaiting": "Warte, bis die andere Person beitritt…",
+    "expandVideo": "Video vergrößern",
+    "collapseVideo": "Video verkleinern",
+    "invisibleBadge": "Unsichtbar",
+    "invisibleNotice": "Du bist versteckt beigetreten: Niemand sieht oder hört dich",
+    "badges": {
+      "screen": "Bildschirm",
+      "music": "Musik"
+    },
+    "callService": {
+      "text": "Du bist in einem Sprachraum. Tippe, um zurückzukehren.",
+      "channel": "Laufender Anruf"
+    }
+  },
+  "chat": {
+    "title": "Chat",
+    "close": "Chat schließen",
+    "open": "Chat anzeigen",
+    "hide": "Chat ausblenden",
+    "messagePlaceholder": "Nachricht…",
+    "send": "Nachricht senden",
+    "attach": "Datei anhängen",
+    "dropToSend": "Zum Senden loslassen",
+    "uploading": "Wird hochgeladen…",
+    "fileTooLarge": "Datei ist zu groß (max. 25 MB)",
+    "sending": "Wird gesendet…",
+    "sendFailed": "Nicht gesendet",
+    "retry": "Wiederholen",
+    "discard": "Löschen",
+    "edit": "Bearbeiten",
+    "delete": "Löschen",
+    "edited": "bearbeitet",
+    "editHint": "Enter zum Speichern · Shift+Enter für neue Zeile · Esc zum Abbrechen",
+    "editTitle": "Nachricht bearbeiten",
+    "save": "Speichern",
+    "deletedPlaceholder": "Nachricht gelöscht",
+    "deleteTitle": "Nachricht löschen?",
+    "deleteDescription": "Diese Nachricht wird für alle endgültig gelöscht. Das kann nicht rückgängig gemacht werden.",
+    "cancel": "Abbrechen",
+    "editFailed": "Nachricht konnte nicht bearbeitet werden",
+    "deleteFailed": "Nachricht konnte nicht gelöscht werden",
+    "today": "Heute",
+    "yesterday": "Gestern",
+    "empty": {
+      "title": "Hier ist es still",
+      "description": "Nachrichten in diesem Raum erscheinen hier und bleiben für alle sichtbar, die später beitreten. Teile einen Link, eine Datei oder sag einfach Hallo."
+    },
+    "openInBrowser": "Im Browser öffnen",
+    "download": "Herunterladen"
+  },
+  "channels": {
+    "searchPlaceholder": "Räume suchen...",
+    "noRoomsYet": "Noch keine Räume",
+    "nothingFound": "Nichts gefunden",
+    "nothingFoundHint": "Kein Raum passt zu diesem Namen. Leere die Suche, um wieder alle zu sehen.",
+    "online": "online",
+    "createRoom": "Raum erstellen",
+    "emptyHint": "Wähl einen Raum auf der Seite oder starte einen neuen.",
+    "privateRoom": "Privater Raum",
+    "friends": {
+      "heading": "Freunde",
+      "online": "Online – {count}",
+      "offline": "Offline – {count}"
+    },
+    "activity": {
+      "heading": "Aktivität deiner Freunde",
+      "inRooms": "Gerade in Räumen",
+      "available": "{count, plural, one {# hat Zeit zum Reden} other {# haben Zeit zum Reden}}",
+      "join": "Beitreten",
+      "others": "{count, plural, one {+# weitere Person} other {+# weitere Personen}}",
+      "emptyTitle": "Gerade ist es still",
+      "emptyHint": "Keiner deiner Freunde ist da. Starte einen Raum und mach den Anfang."
+    }
+  },
+  "createRoom": {
+    "trigger": "Raum erstellen",
+    "title": "Raum erstellen",
+    "description": "Gib einen Namen ein, wähle, wer beitreten darf, und wir bringen dich direkt in den Call.",
+    "nameLabel": "Name des neuen Raums",
+    "namePlaceholder": "Team-Standup",
+    "passwordLabel": "Passwort",
+    "passwordPlaceholder": "Mind. 4 Zeichen",
+    "privateLabel": "Privat (Beitritt nur mit Passwort)",
+    "submit": "Raum erstellen",
+    "created": "Raum erstellt",
+    "nameCounter": "{count}/{max}",
+    "passwordHint": "Mindestens 4 Zeichen. Teile es nur mit Leuten, die du dabeihaben willst.",
+    "privateExplainer": "Der Raum bleibt mit Schloss gelistet. Nur wer das Passwort hat, kommt rein.",
+    "publicExplainer": "Alle sehen den Raum in der Lobby und können ohne Passwort beitreten.",
+    "hint": "Du kannst den Raum später über das Raummenü umbenennen oder das Passwort ändern."
+  },
+  "manageRoom": {
+    "menu": {
+      "open": "Raum verwalten",
+      "edit": "Raum bearbeiten",
+      "delete": "Raum löschen"
+    },
+    "edit": {
+      "title": "Raum bearbeiten",
+      "description": "Benenne den Raum um oder mach ihn öffentlich bzw. privat.",
+      "nameLabel": "Name",
+      "passwordLabel": "Neues Passwort",
+      "passwordHint": "Leer lassen, um das aktuelle Passwort zu behalten.",
+      "privateLabel": "Privat (Beitritt nur mit Passwort)",
+      "submit": "Änderungen speichern",
+      "saved": "Raum aktualisiert",
+      "nameCounter": "{count}/{max}",
+      "privateExplainer": "Der Raum bleibt mit Schloss gelistet. Nur wer das Passwort hat, kommt rein.",
+      "publicExplainer": "Alle sehen den Raum in der Lobby und können ohne Passwort beitreten.",
+      "hint": "Eine Passwortänderung wirft niemanden raus – sie gilt nur für neue Beitritte."
+    },
+    "delete": {
+      "title": "„{name}“ löschen?",
+      "description": "Alle, die gerade drin sind, werden getrennt. Das kann nicht rückgängig gemacht werden.",
+      "cancel": "Abbrechen",
+      "confirm": "Löschen",
+      "deleted": "Raum gelöscht",
+      "consequences": "Der Raum, sein Chatverlauf und alle Kanäle darin sind endgültig weg.",
+      "hint": "Alle im Call werden sofort getrennt."
+    }
+  },
+  "participant": {
+    "muteForMe": "Für mich stummschalten",
+    "unmuteForMe": "Für mich laut schalten",
+    "volume": "Lautstärke",
+    "volumeFor": "Lautstärke für {name}",
+    "screenVolume": "Bildschirmton",
+    "screenVolumeFor": "Lautstärke des Bildschirmtons von {name}",
+    "copyName": "Name kopieren",
+    "nameCopied": "Name kopiert"
+  },
+  "roomModeration": {
+    "label": "Raummoderation",
+    "mute": "Für alle stummschalten",
+    "unmute": "Sprechen erlauben",
+    "remove": "Aus dem Raum entfernen",
+    "ban": "Aus dem Raum verbannen",
+    "toasts": {
+      "mute": "{name} ist für alle stummgeschaltet",
+      "unmute": "{name} darf wieder sprechen",
+      "remove": "{name} wurde aus dem Raum entfernt",
+      "ban": "{name} wurde aus dem Raum verbannt"
+    },
+    "confirm": {
+      "cancel": "Abbrechen",
+      "remove": {
+        "title": "{name} aus dem Raum entfernen?",
+        "description": "{name} wird sofort getrennt und landet wieder in der Lobby. Ein erneuter Beitritt ist möglich.",
+        "confirm": "Entfernen"
+      },
+      "ban": {
+        "title": "{name} aus dem Raum verbannen?",
+        "description": "{name} wird sofort getrennt und kann nicht zurück, bis du die Verbannung im Raummenü aufhebst.",
+        "confirm": "Verbannen"
+      }
+    },
+    "notices": {
+      "removed": "Du wurdest aus dem Raum entfernt",
+      "banned": "Du wurdest aus dem Raum verbannt",
+      "muted": "Der Raumbesitzer hat dein Mikrofon stummgeschaltet",
+      "unmuted": "Der Raumbesitzer lässt dich wieder sprechen",
+      "roomName": "„{name}“"
+    },
+    "bans": {
+      "menu": "Verbannte Nutzer",
+      "title": "Verbannte Nutzer",
+      "description": "Wer aus „{name}“ verbannt ist, kann nicht beitreten, bis du die Verbannung aufhebst.",
+      "empty": "Niemand ist aus diesem Raum verbannt.",
+      "bannedAt": "Verbannt am {date}",
+      "unban": "Verbannung aufheben",
+      "unbanUser": "Verbannung von {name} aufheben",
+      "unbanned": "{name} kann dem Raum wieder beitreten"
+    }
+  }
+}

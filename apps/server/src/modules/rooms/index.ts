@@ -1,2 +1,2 @@
 export { RoomsModule } from './rooms.module';
-export { RoomsService } from './services';
+export { RoomModerationService, RoomsService } from './services';

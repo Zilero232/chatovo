@@ -6,12 +6,13 @@ import { RoomKind } from '../../../generated';
 import { AppForbiddenException, AppNotFoundException } from '../../common/exceptions';
 import { basePrisma as prisma } from '../../core';
 import { assertNotBlocked } from '../assert-not-blocked';
+import { assertNotRoomBanned } from '../assert-not-room-banned';
 import { canAccessRoom } from '../can-access-room';
 import { roomAccessSelect } from '../selectors';
 
 /**
- * Loads the room and enforces one access tier, throwing `ROOM_NOT_FOUND` when it is gone.
- * A denied DM reports plain `FORBIDDEN` so a non-member cannot tell the room apart from any other.
+ * Loads the room and enforces one access tier, throwing `ROOM_NOT_FOUND` when it is gone and
+ * `ROOM_BANNED` on `access` for a banned user. A denied DM reports plain `FORBIDDEN`.
  */
 export const assertRoomTier = async ({
   roomId,
@@ -30,6 +31,10 @@ export const assertRoomTier = async ({
   }
 
   if (canAccessRoom({ room, userId, tier })) {
+    if (tier === 'access') {
+      await assertNotRoomBanned({ roomId, userId });
+    }
+
     return;
   }
 

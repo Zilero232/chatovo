@@ -5,7 +5,9 @@ import {
   incomingFriendCallResponseSchema,
   outgoingFriendCallResponseSchema,
   roomSchema,
-  sendFriendRequestInputSchema
+  sendFriendRequestInputSchema,
+  userBlockEntrySchema,
+  userBlockListSchema
 } from '@chatovo/schemas';
 import { createZodDto } from 'nestjs-zod';
 
@@ -22,3 +24,7 @@ export class RoomDto extends createZodDto(roomSchema) {}
 export class IncomingFriendCallResponseDto extends createZodDto(incomingFriendCallResponseSchema) {}
 
 export class OutgoingFriendCallResponseDto extends createZodDto(outgoingFriendCallResponseSchema) {}
+
+export class UserBlockEntryDto extends createZodDto(userBlockEntrySchema) {}
+
+export class UserBlockListDto extends createZodDto(userBlockListSchema) {}

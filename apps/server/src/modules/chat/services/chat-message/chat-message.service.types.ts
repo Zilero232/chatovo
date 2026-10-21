@@ -21,7 +21,17 @@ export type EditChatMessageInput = {
   senderId: string;
 };
 
+export type AssertCanDeleteMessageInput = {
+  messageId: string;
+  userId: string;
+};
+
+export type AssertSenderNotProtectedInput = {
+  senderId: string | null;
+  userId: string;
+};
+
 export type DeleteChatMessageInput = {
   messageId: string;
-  senderId: string;
+  userId: string;
 };

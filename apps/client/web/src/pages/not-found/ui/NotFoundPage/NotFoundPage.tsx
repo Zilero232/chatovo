@@ -1,4 +1,4 @@
-import { Button, Chato, Text } from '@chatovo/ui-kit';
+import { Button, Chato, StatusScreen } from '@chatovo/ui-kit';
 import { useNavigate, useRouter } from '@tanstack/react-router';
 import { ArrowLeft, House } from 'lucide-react';
 import { useTranslations } from 'use-intl';
@@ -15,26 +15,25 @@ export const NotFoundPage = () => {
 
   return (
     <main className={s.root}>
-      <Chato className={s.chato} pose='peek' />
+      <StatusScreen
+        actions={
+          <>
+            <Button onClick={() => navigate({ to: ROUTES.lobby })}>
+              <House />
+              {t('toLobby')}
+            </Button>
 
-      <p className={s.code}>404</p>
-
-      <h1 className={s.title}>{t('title')}</h1>
-      <Text className={s.description} tone='muted'>
-        {t('description')}
-      </Text>
-
-      <div className={s.actions}>
-        <Button onClick={() => navigate({ to: ROUTES.lobby })}>
-          <House />
-          {t('toLobby')}
-        </Button>
-
-        <Button variant='ghost' onClick={() => router.history.back()}>
-          <ArrowLeft />
-          {t('back')}
-        </Button>
-      </div>
+            <Button variant='ghost' onClick={() => router.history.back()}>
+              <ArrowLeft />
+              {t('back')}
+            </Button>
+          </>
+        }
+        code='404'
+        description={t('description')}
+        illustration={<Chato className={s.chato} pose='peek' />}
+        title={t('title')}
+      />
     </main>
   );
 };

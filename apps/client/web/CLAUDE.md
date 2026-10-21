@@ -44,7 +44,7 @@ The app layer has no folder of its own: `main.tsx`, `router/`, `providers/` and 
 - **Settings state** (`useAppSettings`, the settings types) lives in `entities/app/settings`, not the `widgets/app/app-settings` widget, which is UI only.
 - **Shared Zod schemas** come from `@chatovo/schemas`, never inline.
 - **Query keys** all live in `shared/constants/query-keys.ts`.
-- **i18n**: `useTranslations` from `use-intl`; keys in `shared/i18n/locales/{en,ru}/<namespace>.json`, plus the kit's `ui` namespace spread in from `uiMessages`. Don't edit the generated `messages.d.ts`.
+- **i18n**: `useTranslations` from `use-intl`; keys in `shared/i18n/locales/<locale>/<namespace>.json` for all nine locales, plus the kit's `ui` namespace spread in from `uiMessages`. Locales load lazily (`loadMessages` + `use()` in `I18nProvider`); the language is a setting (Settings → General), detected from the system on first launch.
 - **Public pages live on the site.** Privacy and terms are absolute `https://chatovo.ru/...` links (`EXTERNAL_LINKS`, built on `@chatovo/config`) opened through `handleExternalLinkClick`, so Tauri hands them to the system browser; Caddy 301s site paths off app.chatovo.ru. Don't add marketing pages here.
 - **Tauri**: every call behind `isTauri()` ([Tauri on the client](../../../docs/guides/client/tauri.md)).
 - Alias `@/*` → `apps/client/web/src/*`.

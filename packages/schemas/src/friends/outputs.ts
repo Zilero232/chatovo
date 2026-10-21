@@ -38,8 +38,16 @@ export const friendshipRelationSchema = z.discriminatedUnion('status', [
   z.object({
     status: z.literal('incoming_pending'),
     friendshipId: z.string()
-  })
+  }),
+  z.object({ status: z.literal('blocked') })
 ]);
+
+export const userBlockEntrySchema = z.object({
+  user: friendUserSchema,
+  blockedAt: z.string()
+});
+
+export const userBlockListSchema = z.array(userBlockEntrySchema);
 
 export const incomingFriendCallSchema = z.object({
   roomId: z.uuid(),

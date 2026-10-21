@@ -17,11 +17,17 @@ import {
   AppNotFoundException
 } from '../../../../common/exceptions';
 import { AppConfigService } from '../../../../config/config.module';
-import { TOKEN_TTL_SECONDS } from '../../../../config/livekit';
+import { MIC_LOCKED_PUBLISH_SOURCES, TOKEN_TTL_SECONDS } from '../../../../config/livekit';
 import { PrismaService } from '../../../../core';
-import { assertNotBlocked, canAccessRoom } from '../../../../lib';
+import {
+  assertDmWithoutUserBlock,
+  assertNotBlocked,
+  assertNotRoomBanned,
+  canAccessRoom
+} from '../../../../lib';
 import { toUserProfile } from '../../../users';
 import { assertRoomAccess, resolveInvisible } from '../../lib';
+import { isMicLocked } from '../../mic-lock-store';
 import { grantRoomAccess } from '../../room-grant-store';
 
 @Injectable()
@@ -45,6 +51,12 @@ export class LivekitService {
     const isInvisible = resolveInvisible({ requested: invisible, isAdmin });
 
     const room = await this.loadAccessibleRoomOrThrow({ roomId, userId });
+
+    await assertDmWithoutUserBlock({ roomId: room.id, userId });
+
+    if (!isAdmin) {
+      await assertNotRoomBanned({ roomId: room.id, userId });
+    }
 
     if (!isInvisible) {
       await assertRoomAccess({ room, userId, password });
@@ -86,6 +98,7 @@ export class LivekitService {
 
   private async buildAccessToken({ user, roomId, isAdmin, isInvisible }: BuildAccessTokenInput) {
     const { name, verified, developer, profileUrl, avatarUrl, bannerColor } = toUserProfile(user);
+    const isMicLockedByModerator = !isInvisible && isMicLocked({ roomId, userId: user.id });
 
     const participantMetadata = {
       verified,
@@ -111,6 +124,7 @@ export class LivekitService {
       room: roomId,
       roomJoin: true,
       canPublish: !isInvisible,
+      ...(isMicLockedByModerator ? { canPublishSources: MIC_LOCKED_PUBLISH_SOURCES } : {}),
       canSubscribe: true,
       canPublishData: !isInvisible,
       canUpdateOwnMetadata: true,

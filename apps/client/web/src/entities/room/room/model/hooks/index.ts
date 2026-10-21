@@ -1,3 +1,4 @@
+export { useCanModerateRoom } from './use-can-moderate-room';
 export { useCreateRoom } from './use-create-room';
 export { useDeleteRoom } from './use-delete-room';
 export { useEnterRoom } from './use-enter-room';

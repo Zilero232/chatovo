@@ -2,6 +2,7 @@ import { decodeChatAttachment } from '@chatovo/schemas';
 import { useState } from 'react';
 
 import { readParticipantMeta } from '@/entities/room/room';
+import { useBlockedUserIds } from '@/entities/social/friend';
 
 import type { ChatLine } from '../types';
 
@@ -20,9 +21,12 @@ export const useChatMessageItem = ({
   isGrouped,
   canManage
 }: UseChatMessageItemArgs) => {
+  const blockedIds = useBlockedUserIds();
+
   const [isEditing, setIsEditing] = useState(false);
   const [isConfirmingDelete, setIsConfirmingDelete] = useState(false);
   const [isReportingAbuse, setIsReportingAbuse] = useState(false);
+  const [isRevealed, setIsRevealed] = useState(false);
 
   const author = message.from?.name || message.from?.identity || 'Guest';
   const identity = message.from?.identity ?? author;
@@ -38,6 +42,7 @@ export const useChatMessageItem = ({
   const isEdited = Boolean(message.editedAt) && !isDeleted;
   const canEdit = canManage && isOwn && !isDeleted && !attachment && !isUnsent;
   const canReport = !isOwn && !isDeleted && !isUnsent;
+  const isFromBlocked = !isOwn && blockedIds.has(identity);
 
   return {
     isEditing,
@@ -56,9 +61,11 @@ export const useChatMessageItem = ({
     isEdited,
     canEdit,
     canReport,
+    isCollapsed: isFromBlocked && !isRevealed,
     showHeader: !isGrouped,
-    showActions: canManage && isOwn && !isDeleted && !isEditing && !isUnsent,
+    showActions: canManage && !isDeleted && !isEditing && !isUnsent,
     startEdit: () => setIsEditing(true),
-    reportAbuse: () => setIsReportingAbuse(true)
+    reportAbuse: () => setIsReportingAbuse(true),
+    reveal: () => setIsRevealed(true)
   };
 };

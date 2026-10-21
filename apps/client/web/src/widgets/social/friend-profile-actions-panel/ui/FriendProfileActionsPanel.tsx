@@ -1,5 +1,6 @@
 import type { FriendChatPeer } from '@/features/social/friend-chat';
 
+import { BlockUserToggle } from '@/features/social/block-user';
 import { useFriendChat } from '@/features/social/friend-chat';
 import { FriendProfileActions } from '@/features/social/friend-profile-actions';
 import { RemoveFriendConfirmDialog } from '@/features/social/remove-friend';
@@ -20,6 +21,9 @@ export const FriendProfileActionsPanel = ({
 
   return (
     <FriendProfileActions
+      renderBlockAction={({ isBlocked }) => (
+        <BlockUserToggle isBlocked={isBlocked} userId={userId} userName={displayName} />
+      )}
       renderRemoveConfirm={({ open, onOpenChange }) => (
         <RemoveFriendConfirmDialog
           friendName={displayName}

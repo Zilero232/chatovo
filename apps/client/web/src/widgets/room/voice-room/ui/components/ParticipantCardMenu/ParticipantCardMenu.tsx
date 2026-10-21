@@ -7,39 +7,36 @@ import {
   ContextMenuSeparator,
   ContextMenuTrigger
 } from '@chatovo/ui-kit';
-import { useCopy } from '@siberiacancode/reactuse';
-import { Copy, ShieldAlert } from 'lucide-react';
-import { useState } from 'react';
-import { toast } from 'sonner';
+import { Ban, Copy, ShieldAlert, ShieldCheck } from 'lucide-react';
 import { useTranslations } from 'use-intl';
 
-import { useCurrentUser } from '@/entities/auth/user';
-import { ReportAbuseDialog } from '@/features/social/report-abuse';
+import { ParticipantModerationItems } from '@/features/room/moderate-participant';
 
 import type { ParticipantCardMenuProps } from './ParticipantCardMenu.types';
 
+import { useParticipantCardMenu } from '../../../model/hooks';
 import { ParticipantVolumeControls } from '../ParticipantVolumeControls/ParticipantVolumeControls';
+import { ParticipantCardDialogs } from './components';
 
 import s from './ParticipantCardMenu.module.scss';
 
 export const ParticipantCardMenu = ({ participant, children }: ParticipantCardMenuProps) => {
   const t = useTranslations('participant');
+  const tBlocks = useTranslations('blocks');
   const tModeration = useTranslations('moderation');
 
-  const { user } = useCurrentUser();
-
-  const { copy } = useCopy();
-
-  const [isReportOpen, setIsReportOpen] = useState(false);
-
-  const displayName = participant.name || participant.identity;
-  const isSelf = participant.identity === user?.id;
-
-  const handleCopyName = async () => {
-    await copy(displayName);
-
-    toast.success(t('nameCopied'), { id: 'participant-name-copied' });
-  };
+  const {
+    displayName,
+    roomId,
+    isSelf,
+    isBlocked,
+    canModerate,
+    dialogs,
+    copyName,
+    toggleBlock,
+    openReport,
+    requestModeration
+  } = useParticipantCardMenu(participant);
 
   return (
     <ContextMenu>
@@ -52,7 +49,7 @@ export const ParticipantCardMenu = ({ participant, children }: ParticipantCardMe
 
         <ContextMenuSeparator />
 
-        <ContextMenuItem onSelect={handleCopyName}>
+        <ContextMenuItem onSelect={copyName}>
           <Copy />
           {t('copyName')}
         </ContextMenuItem>
@@ -63,20 +60,32 @@ export const ParticipantCardMenu = ({ participant, children }: ParticipantCardMe
           <>
             <ContextMenuSeparator />
 
-            <ContextMenuItem variant='destructive' onSelect={() => setIsReportOpen(true)}>
+            <ContextMenuItem variant={isBlocked ? 'default' : 'destructive'} onSelect={toggleBlock}>
+              {isBlocked ? <ShieldCheck /> : <Ban />}
+              {tBlocks(isBlocked ? 'unblock' : 'block')}
+            </ContextMenuItem>
+
+            <ContextMenuItem variant='destructive' onSelect={openReport}>
               <ShieldAlert />
               {tModeration('reportUser')}
             </ContextMenuItem>
           </>
         )}
+
+        {canModerate && (
+          <ParticipantModerationItems
+            participant={participant}
+            roomId={roomId}
+            onRequestConfirm={requestModeration}
+          />
+        )}
       </ContextMenuContent>
 
-      <ReportAbuseDialog
-        open={isReportOpen}
-        target='user'
-        targetId={participant.identity}
-        targetName={displayName}
-        onOpenChange={setIsReportOpen}
+      <ParticipantCardDialogs
+        dialogs={dialogs}
+        displayName={displayName}
+        participant={participant}
+        roomId={roomId}
       />
     </ContextMenu>
   );

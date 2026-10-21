@@ -14,6 +14,7 @@ export type ControlButtonProps = {
   device?: ControlDevice;
   disabled?: boolean;
   icon: ReactNode;
+  isLocked?: boolean;
   isPending?: boolean;
   label: string;
   pressed?: boolean;

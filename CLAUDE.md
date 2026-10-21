@@ -9,7 +9,7 @@ Real-time voice rooms — web, desktop and Android. LiveKit SFU (WebRTC) carries
 - Things that have already bitten us: [docs/architecture/pitfalls.md](docs/architecture/pitfalls.md)
 - Deploying the VPS: [docs/ops/deploy.md](docs/ops/deploy.md); releasing the apps: [docs/ops/release.md](docs/ops/release.md); migrations: [docs/ops/migrations.md](docs/ops/migrations.md)
 
-Respond to the user in Russian. Code, identifiers, comments, docs and commit messages are in English. UI text is in Russian and English via use-intl (web) and next-intl (site).
+Respond to the user in Russian. Code, identifiers, comments, docs and commit messages are in English. UI text is in nine languages — en, ru, uk, es, pt, de, fr, tr, pl — via use-intl (web) and next-intl (site).
 
 ## Layout
 
@@ -20,7 +20,7 @@ Respond to the user in Russian. Code, identifiers, comments, docs and commit mes
 | `apps/server`        | NestJS 11 on Bun + Prisma 7 + self-hosted Postgres, auth via better-auth, the realtime gateway, LiveKit tokens — [CLAUDE.md](apps/server/CLAUDE.md)                                                                   |
 | `apps/client/native` | Tauri 2 (Rust) shell for desktop and Android around `apps/client/web` — [CLAUDE.md](apps/client/native/CLAUDE.md)                                                                                                     |
 | `packages/ui-kit`    | `@chatovo/ui-kit`: the design system shared by web and site — primitives, components, icons, SCSS tokens/mixins/base, the `ui` messages ([fsd.md §5.1](docs/architecture/fsd.md#51-the-design-system--chatovoui-kit)) |
-| `packages/config`    | `@chatovo/config`: brand and URL constants shared by web and site — `SITE`, `LEGAL`, `EXTERNAL_LINKS`, `SITE_PATHS`, `SITE_EN_PREFIX`                                                                                 |
+| `packages/config`    | `@chatovo/config`: brand, URL and locale constants shared by web and site — `SITE`, `LEGAL`, `EXTERNAL_LINKS`, `SITE_PATHS`, `LOCALES`, `LOCALE_NAMES`, `OPEN_GRAPH_LOCALES`                                          |
 | `packages/schemas`   | `@chatovo/schemas`: Zod contracts shared by the apps and the server, grouped by domain                                                                                                                                |
 | `packages/tsconfig`  | the shared TypeScript presets                                                                                                                                                                                         |
 | `infra/`             | Caddy (chatovo.ru → site, app.chatovo.ru → web, cross-host 301s) and LiveKit configs                                                                                                                                  |
@@ -39,6 +39,7 @@ bun dev                    # web + site + server only (dev:web, dev:landing, dev
 bun --filter @chatovo/server db:push   # local schema iteration; shipped changes need a migration
 bun run verify             # typecheck + ESLint + Prettier + Stylelint — before every commit
 bun run fix                # every autofixer, in the same order
+bun run commit             # commit-jazzer: type, scope, title → `feat(web): ✨ …`
 bun run test               # Vitest, every workspace (never bare `bun test`)
 bun run test:e2e           # Playwright: app-* projects on :3000, site-* on :3001 (E2E_APP_URL / E2E_LANDING_URL)
 bun run build              # web Vite build + site standalone build; build:web / build:landing for one
@@ -69,10 +70,10 @@ The full style guide is [docs/guides/](docs/guides/README.md) (split into `clien
 - **Tauri.** Every Tauri call is behind `isTauri()` so the web build keeps working ([Tauri on the client](docs/guides/client/tauri.md)).
 - **Let the code breathe and keep the order.** Blank lines between logical steps, hook order, component body order — held by hand, `bun run fix` doesn't do them ([blank lines](docs/guides/shared/blank-lines.md), [React](docs/guides/client/react.md)).
 - **Tests** live in `_tests/` beside the source and cover logic, not markup ([tests](docs/guides/shared/testing.md)).
-- **i18n.** Every user-visible string goes through use-intl / next-intl, in both `en` and `ru` ([i18n](docs/guides/client/i18n.md)).
+- **i18n.** Every user-visible string goes through use-intl / next-intl, in every locale — a new key lands in all nine files, translated ([i18n](docs/guides/client/i18n.md)).
 - **Verify before claiming anything works** — `bun run verify`, `bun run test`, and `bun run build` for anything that could break the web export or the site build ([checklist](docs/guides/shared/checklist.md)).
 - **Measure before swapping for perf.** A symptom that survives two library swaps is not the library: repeat the action, try a production build, or read a profile first.
 - **No emojis in code** unless asked.
-- **Git.** Never commit, branch or push unless the user asks in that message — stage (`git add`) at most. Conventional Commits (commitlint, subject ≤ 120 chars); feature branches off `master`.
+- **Git.** Never commit, branch or push unless the user asks in that message — stage (`git add`) at most. Conventional Commits with the type's emoji, written by [commit-jazzer](https://github.com/Zilero232/commit-jazzer) (`jazzer.config.ts`) and checked by commitlint (subject ≤ 120 chars): `bun run commit` asks the questions, and so does a plain `git commit` through the `prepare-commit-msg` hook; without a terminal pass the answers as flags — `bunx jazzer -t fix -s web -m "keep a muted mic silent" -b "…" -y` gives `fix(web): 🐛 keep a muted mic silent`. Feature branches off `master`.
 
 Every `.md` is in English, except `docs/ops/google-play/listing.md` and the quoted store text in `docs/ops/google-play/moderation.md`, which are submitted to the store verbatim. A new design decision goes into the topical file under `docs/architecture/`, and [docs/README.md](docs/README.md) gets a line for any new doc.

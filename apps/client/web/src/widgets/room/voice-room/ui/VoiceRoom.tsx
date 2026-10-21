@@ -35,6 +35,7 @@ export const VoiceRoom = ({
 
   const { audioCapture, publishDefaults, handleConnected, handleDisconnected } = useRoomConnection({
     roomId,
+    token,
     onConnectFailure,
     onLeave
   });
@@ -80,7 +81,7 @@ export const VoiceRoom = ({
                   )}
 
                   <RoomAudio />
-                  <RoomControllers />
+                  <RoomControllers roomName={roomName} />
                 </ReactionsProvider>
               </RoomMusicScope>
             </DeafenProvider>

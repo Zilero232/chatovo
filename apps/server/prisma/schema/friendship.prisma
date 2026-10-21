@@ -22,3 +22,17 @@ model Friendship {
   @@index([requesterId, status])
   @@map("friendship")
 }
+
+model UserBlock {
+  blockerId String
+  blockedId String
+
+  blocker User @relation("UserBlocker", fields: [blockerId], references: [id], onDelete: Cascade)
+  blocked User @relation("UserBlocked", fields: [blockedId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+
+  @@id([blockerId, blockedId])
+  @@index([blockedId])
+  @@map("user_block")
+}

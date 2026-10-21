@@ -44,6 +44,10 @@ export type MusicSettings = {
   ducking: boolean;
 };
 
+type ChatSettings = {
+  filterProfanity: boolean;
+};
+
 type TraySettings = {
   closeToTray: boolean;
 };
@@ -58,6 +62,7 @@ export type { ShortcutActionId, ShortcutBinding, ShortcutSettings } from '@/enti
 
 export type AppSettings = {
   audio: AudioSettings;
+  chat: ChatSettings;
   devices: DeviceSettings;
   music: MusicSettings;
   shortcuts: ShortcutSettings;

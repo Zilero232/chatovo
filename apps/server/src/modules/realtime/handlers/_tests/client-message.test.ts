@@ -101,6 +101,39 @@ describe('handleClientMessage', () => {
     });
   });
 
+  it('subscribes only to the rooms the access filter keeps, so a banned room is left out', async () => {
+    const OTHER_ROOM_ID = '22222222-2222-4222-8222-222222222222';
+
+    filterAccessibleRooms.mockResolvedValueOnce([OTHER_ROOM_ID]);
+
+    await handleClientMessage(
+      connectionOf(false, []),
+      JSON.stringify({ op: 'subscribe', rooms: [ROOM_ID, OTHER_ROOM_ID] })
+    );
+
+    expect(filterAccessibleRooms).toHaveBeenCalledWith({
+      roomIds: [ROOM_ID, OTHER_ROOM_ID],
+      userId: 'user-1'
+    });
+    expect(setConnectionRooms).toHaveBeenCalledWith('connection-1', [OTHER_ROOM_ID]);
+  });
+
+  it('drops presence and reactions for a room the connection is not subscribed to', async () => {
+    const connection = connectionOf(false, []);
+
+    await handleClientMessage(
+      connection,
+      JSON.stringify({ op: 'presence.patch', roomId: ROOM_ID, micMuted: true })
+    );
+    await handleClientMessage(
+      connection,
+      JSON.stringify({ op: 'room.reaction', roomId: ROOM_ID, emoji: '🔥' })
+    );
+
+    expect(patchParticipant).not.toHaveBeenCalled();
+    expect(emitRoomEvent).not.toHaveBeenCalled();
+  });
+
   it('ignores malformed payloads', async () => {
     await handleClientMessage(connectionOf(true, [ROOM_ID]), 'not json');
 

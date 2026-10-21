@@ -55,6 +55,16 @@ export default eslint(
     }
   },
 
+  // Translations keep the typography of their language: French puts a no-break
+  // space before : ; ! ? and inside « ».
+  {
+    name: 'chatovo/translations',
+    files: ['**/locales/**/*.json'],
+    rules: {
+      'no-irregular-whitespace': 'off'
+    }
+  },
+
   // Sorting manifest keys is pure churn and fights the conventional field order.
   {
     name: 'chatovo/manifests',

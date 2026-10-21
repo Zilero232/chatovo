@@ -1,5 +1,7 @@
+import type { KeyboardEvent } from 'react';
+
 import { ConfirmDialog, Text } from '@chatovo/ui-kit';
-import { useKeyboard, useMount, useTextareaAutosize } from '@siberiacancode/reactuse';
+import { useMount, useTextareaAutosize } from '@siberiacancode/reactuse';
 import { clsx } from 'clsx';
 import { useTranslations } from 'use-intl';
 
@@ -41,12 +43,12 @@ export const EditMessageDialog = ({
     onOpenChange(false);
   };
 
-  useKeyboard(ref, (event) => {
+  const handleKeyDown = (event: KeyboardEvent<HTMLTextAreaElement>) => {
     if (event.key === 'Enter' && !event.shiftKey) {
       event.preventDefault();
       save();
     }
-  });
+  };
 
   return (
     <ConfirmDialog
@@ -65,6 +67,7 @@ export const EditMessageDialog = ({
           rows={1}
           value={value}
           onChange={(event) => set(event.target.value)}
+          onKeyDown={handleKeyDown}
         />
         <Text className={s.hint} tone='muted'>
           {t('editHint')}

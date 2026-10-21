@@ -5,6 +5,7 @@ import type { FriendsTabValue } from '@/features/social/friend-chat';
 
 import { useFriendsTabs } from '../../../model/hooks';
 import { AddFriendTab } from '../AddFriendTab/AddFriendTab';
+import { BlockedTab } from '../BlockedTab/BlockedTab';
 import { DevelopersTab } from '../DevelopersTab/DevelopersTab';
 import { FriendsTab } from '../FriendsTab/FriendsTab';
 import { FriendsTabsBar } from '../FriendsTabsBar/FriendsTabsBar';
@@ -58,6 +59,10 @@ export const FriendsTabs = () => {
 
         <TabsContent className={s.tabContent} value='pending'>
           <RequestsTab />
+        </TabsContent>
+
+        <TabsContent className={s.tabContent} value='blocked'>
+          <BlockedTab />
         </TabsContent>
 
         <TabsContent className={s.tabContent} value='developers'>

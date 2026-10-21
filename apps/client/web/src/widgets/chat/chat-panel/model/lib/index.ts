@@ -1,3 +1,4 @@
+export { censorProfanity, remarkCensorProfanity } from './censor-profanity';
 export {
   appendChatDto,
   appendChatMessage,

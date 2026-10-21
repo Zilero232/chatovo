@@ -24,6 +24,7 @@ export {
   acceptFriendRequest,
   acceptIncomingFriendCall,
   ackOutgoingFriendCall,
+  blockUser,
   cancelOutgoingFriendCall,
   declineFriendRequest,
   declineIncomingFriendCall,
@@ -31,11 +32,13 @@ export {
   getIncomingFriendCall,
   getOrCreateFriendDmRoom,
   getOutgoingFriendCall,
+  listBlockedUsers,
   listFriends,
   listIncomingFriendRequests,
   removeFriendship,
   ringFriendCall,
-  sendFriendRequest
+  sendFriendRequest,
+  unblockUser
 } from './friends';
 export { getAppDownloads } from './github';
 export { ApiError, apiErrorCode, isUnauthorizedError } from './http';
@@ -53,5 +56,19 @@ export type { ControlRoomMusicInput, DequeueRoomMusicInput, EnqueueRoomMusicInpu
 export { registerPushDevice, unregisterPushDevice } from './push';
 export { queryClient } from './query-client';
 export { buildRealtimeUrl } from './realtime';
-export { createRoom, deleteRoom, getRoom, listRooms, updateRoom } from './rooms';
+export {
+  createRoom,
+  deleteRoom,
+  getRoom,
+  listRoomBans,
+  listRooms,
+  moderateRoomParticipant,
+  unbanRoomUser,
+  updateRoom
+} from './rooms';
+export type {
+  ModerateRoomParticipantInput,
+  RoomParticipantAction,
+  UnbanRoomUserInput
+} from './rooms';
 export { getUserProfile, listDevelopers, updateUserProfile } from './users';

@@ -88,6 +88,11 @@
   }
 }
 
+.locked {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
 .off {
   background: color-mix(in srgb, var(--destructive) 15%, transparent);
   color: var(--destructive);

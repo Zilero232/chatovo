@@ -25,6 +25,7 @@ export const ControlButton = ({
   tone,
   pressed,
   disabled,
+  isLocked,
   isPending,
   device,
   onClick
@@ -49,9 +50,10 @@ export const ControlButton = ({
     return (
       <Tooltip>
         <button
+          aria-disabled={isLocked}
           aria-label={label}
           aria-pressed={pressed}
-          className={clsx(s.controlButton, controlButtonToneClass[tone])}
+          className={clsx(s.controlButton, controlButtonToneClass[tone], isLocked && s.locked)}
           disabled={isDisabled}
           type='button'
           onClick={onClick}
@@ -67,9 +69,10 @@ export const ControlButton = ({
     <div className={clsx(s.controlShell, controlShellToneClass[tone])}>
       <Tooltip>
         <button
+          aria-disabled={isLocked}
           aria-label={label}
           aria-pressed={pressed}
-          className={clsx(s.controlMain, controlMainToneClass[tone])}
+          className={clsx(s.controlMain, controlMainToneClass[tone], isLocked && s.locked)}
           disabled={isDisabled}
           type='button'
           onClick={onClick}

@@ -62,7 +62,9 @@ export {
   incomingFriendCallSchema,
   outgoingFriendCallResponseSchema,
   outgoingFriendCallSchema,
-  sendFriendRequestInputSchema
+  sendFriendRequestInputSchema,
+  userBlockEntrySchema,
+  userBlockListSchema
 } from './friends';
 export type {
   FriendCallStatus,
@@ -75,7 +77,8 @@ export type {
   IncomingFriendCallResponse,
   OutgoingFriendCall,
   OutgoingFriendCallResponse,
-  SendFriendRequestInput
+  SendFriendRequestInput,
+  UserBlockEntry
 } from './friends';
 export {
   appDownloadsSchema,
@@ -245,6 +248,7 @@ export {
   realtimeFriendsSnapshotEventSchema,
   realtimePresencePatchSchema,
   realtimePresenceSnapshotEventSchema,
+  realtimeRoomModerationEventSchema,
   realtimeRoomMusicEventSchema,
   realtimeRoomReactionEventSchema,
   realtimeRoomReactionSchema,
@@ -262,12 +266,22 @@ export type { RealtimeClientMessage, RealtimeServerMessage, SoundboardSound } fr
 export {
   createRoomInputSchema,
   ROOM_NAME_MAX_LENGTH,
+  roomBanListSchema,
+  roomBanSchema,
   roomKindSchema,
+  roomModerationActionSchema,
   roomPasswordSchema,
   roomSchema,
   updateRoomInputSchema
 } from './rooms';
-export type { CreateRoomRequest, Room, RoomKind, UpdateRoomRequest } from './rooms';
+export type {
+  CreateRoomRequest,
+  Room,
+  RoomBan,
+  RoomKind,
+  RoomModerationAction,
+  UpdateRoomRequest
+} from './rooms';
 export {
   AVATAR_MAX_BYTES,
   AVATAR_MAX_DIMENSION,

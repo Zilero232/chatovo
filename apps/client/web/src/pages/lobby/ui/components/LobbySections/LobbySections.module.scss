@@ -1,0 +1,28 @@
+.root {
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  flex-direction: column;
+}
+
+.list {
+  width: auto;
+  flex-shrink: 0;
+  margin: 0.75rem 0.75rem 0;
+}
+
+.trigger {
+  gap: 0.5rem;
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+.panel {
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  flex-direction: column;
+}

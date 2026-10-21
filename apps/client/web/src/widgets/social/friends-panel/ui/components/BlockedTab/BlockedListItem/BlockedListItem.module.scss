@@ -1,0 +1,30 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  padding: 0.75rem;
+  border: 1px solid rgb(var(--tint) / 10%);
+  border-radius: var(--radius-xl);
+  background: rgb(var(--tint) / 5%);
+  gap: 0.75rem;
+}
+
+.avatar {
+  flex-shrink: 0;
+}
+
+.name {
+  min-width: 0;
+  flex: 1;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.25;
+
+  @include text-ellipsis;
+}
+
+.unblock {
+  flex-shrink: 0;
+}

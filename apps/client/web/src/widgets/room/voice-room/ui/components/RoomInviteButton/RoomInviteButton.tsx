@@ -24,12 +24,8 @@ export const RoomInviteButton = ({ size = 'lg' }: RoomInviteButtonProps) => {
   return (
     <Tooltip>
       <Button
-        className={clsx(
-          s.button,
-          size === 'sm' ? s.buttonSm : s.buttonLg,
-          copied && s.buttonCopied
-        )}
         aria-label={copied ? t('linkCopied') : t('copyLink')}
+        className={clsx(s.button, size === 'lg' && s.buttonLg, copied && s.buttonCopied)}
         disabled={!canCopy}
         size={size === 'sm' ? 'icon-sm' : 'icon-lg'}
         type='button'

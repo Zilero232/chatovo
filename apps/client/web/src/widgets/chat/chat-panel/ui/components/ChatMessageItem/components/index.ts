@@ -1,4 +1,5 @@
 export { AttachmentImage } from './AttachmentImage/AttachmentImage';
+export { BlockedMessageRow } from './BlockedMessageRow/BlockedMessageRow';
 export { DeleteMessageDialog } from './DeleteMessageDialog/DeleteMessageDialog';
 export { EditMessageDialog } from './EditMessageDialog/EditMessageDialog';
 export { ImageLightbox } from './ImageLightbox/ImageLightbox';

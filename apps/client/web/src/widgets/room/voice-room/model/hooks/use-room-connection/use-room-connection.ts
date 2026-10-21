@@ -4,7 +4,7 @@ import { useRef } from 'react';
 
 import { getPublishDefaults, useAppSettings } from '@/entities/app/settings';
 import { useCurrentUser } from '@/entities/auth/user';
-import { useRecentRooms } from '@/entities/room/room';
+import { isTokenMicLocked, useRecentRooms } from '@/entities/room/room';
 
 import type { UseRoomConnectionInput } from './use-room-connection.types';
 
@@ -12,6 +12,7 @@ import { FAILURE_REASONS } from '../../../config';
 
 export const useRoomConnection = ({
   roomId,
+  token,
   onConnectFailure,
   onLeave
 }: UseRoomConnectionInput) => {
@@ -20,6 +21,7 @@ export const useRoomConnection = ({
   const { push: pushRecent } = useRecentRooms();
 
   const isInvisible = isAdmin && settings.system.invisibleMode;
+  const isJoiningMuted = isInvisible || isTokenMicLocked(token);
 
   const hasConnectedRef = useRef(false);
 
@@ -51,7 +53,7 @@ export const useRoomConnection = ({
 
   return {
     isInvisible,
-    audioCapture: isInvisible ? false : audioCaptureRef.current,
+    audioCapture: isJoiningMuted ? false : audioCaptureRef.current,
     publishDefaults: publishDefaultsRef.current,
     handleConnected,
     handleDisconnected

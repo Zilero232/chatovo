@@ -1,46 +1,18 @@
 import type { Metadata } from 'next';
 
+import { localizeSitePath } from '@chatovo/config';
 import { getTranslations } from 'next-intl/server';
 
 import type { Locale } from '@/shared/i18n';
 
 import { SITE } from '@/shared/config';
-import { localizeMarketingPath } from '@/shared/lib';
+import { LOCALES, OPEN_GRAPH_LOCALES } from '@/shared/i18n';
 
-import type {
-  MarketingMetadataInput,
-  TranslatedMarketingNamespace
-} from './marketing-metadata.types';
+import type { MarketingMetadataInput } from './marketing-metadata.types';
 
-type Copy = {
-  title: string;
-  description: string;
-  keywords?: string[];
-};
-
-const homeCopy = (locale: Locale): Copy => {
-  const site = locale === 'en' ? SITE.en : SITE;
-
-  return {
-    title: site.title,
-    description: site.description,
-    keywords: [...site.keywords]
-  };
-};
-
-const translatedCopy = async ({
-  locale,
-  namespace
-}: {
-  locale: Locale;
-  namespace: TranslatedMarketingNamespace;
-}): Promise<Copy> => {
-  const t = await getTranslations({ locale, namespace: `${namespace}.meta` });
-
-  return {
-    title: t('title'),
-    description: t('description')
-  };
+const KEYWORDS: Partial<Record<Locale, readonly string[]>> = {
+  ru: SITE.keywords,
+  en: SITE.en.keywords
 };
 
 export const createMarketingMetadata = async ({
@@ -48,22 +20,25 @@ export const createMarketingMetadata = async ({
   namespace,
   path
 }: MarketingMetadataInput): Promise<Metadata> => {
-  const { title, description, keywords } =
-    namespace === 'home' ? homeCopy(locale) : await translatedCopy({ locale, namespace });
+  const t = await getTranslations({ locale, namespace });
 
-  const ogTitle = namespace === 'home' ? title : `${title} · ${SITE.name}`;
-
-  const canonical = localizeMarketingPath({ path, locale });
+  const title = t('title');
+  const description = t('description');
+  const isHome = namespace === 'home.meta';
+  const ogTitle = isHome ? title : `${title} · ${SITE.name}`;
+  const canonical = localizeSitePath({ path, locale });
+  const keywords = KEYWORDS[locale];
 
   return {
-    title: namespace === 'home' ? { absolute: title } : title,
+    title: isHome ? { absolute: title } : title,
     description,
-    keywords,
+    keywords: keywords ? [...keywords] : undefined,
     alternates: {
       canonical,
       languages: {
-        ru: path,
-        en: localizeMarketingPath({ path, locale: 'en' }),
+        ...Object.fromEntries(
+          LOCALES.map((code) => [code, localizeSitePath({ path, locale: code })])
+        ),
         'x-default': path
       }
     },
@@ -74,8 +49,10 @@ export const createMarketingMetadata = async ({
       url: canonical,
       type: 'website',
       siteName: SITE.name,
-      locale: locale === 'en' ? SITE.en.locale : SITE.locale,
-      alternateLocale: [locale === 'en' ? SITE.locale : SITE.en.locale]
+      locale: OPEN_GRAPH_LOCALES[locale],
+      alternateLocale: LOCALES.filter((code) => code !== locale).map(
+        (code) => OPEN_GRAPH_LOCALES[code]
+      )
     },
     twitter: {
       card: 'summary_large_image',

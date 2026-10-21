@@ -1,0 +1,100 @@
+{
+  "friends": {
+    "title": "Arkadaşlar",
+    "description": "Arkadaşların ve gelen istekler.",
+    "online": "çevrimiçi",
+    "offline": "çevrimdışı",
+    "requestsTab": "İstekler",
+    "developersTab": "Ekip",
+    "onlineTab": "Çevrimiçi",
+    "allTab": "Tümü",
+    "onlineCount": "Çevrimiçi — {count}",
+    "allCount": "Tüm arkadaşlar — {count}",
+    "pendingCount": "Bekleyen — {count}",
+    "searchPlaceholder": "Ara",
+    "nothingFound": "Hiçbir şey bulunamadı",
+    "nothingFoundHint": "Aramayla eşleşen arkadaş yok. Herkesi görmek için aramayı temizle.",
+    "emptyOnlineTitle": "Şu anda kimse çevrimiçi değil",
+    "addFriendHint": "Arkadaşlarını etiketleriyle ekle. Diyez işaretinden sonraki rakamlar önemli.",
+    "yourTagTitle": "Etiketin",
+    "yourTagHint": "Başkalarının seni arkadaş olarak ekleyebilmesi için paylaş.",
+    "emptyFriendsTitle": "Henüz arkadaşın yok",
+    "emptyFriendsHint": "Bir ses odasında birinin avatarına tıkla ve ona istek gönder. Kabul ettiğinde ona buradan doğrudan mesaj atabilir veya onu arayabilirsin.",
+    "emptyRequestsTitle": "Bekleyen istek yok",
+    "emptyRequestsHint": "Biri seni etiketinle eklediğinde isteği burada yanıtını bekler.",
+    "emptyDevelopersTitle": "Henüz ekip üyesi yok",
+    "emptyDevelopersHint": "Chatovo geliştirici listesi şu anda boş. Uygulamayı geliştiren kişilerle tanışmak için daha sonra tekrar bak.",
+    "addFriend": "Arkadaş ekle",
+    "cancelRequest": "İsteği iptal et",
+    "accept": "Kabul et",
+    "decline": "Reddet",
+    "messageFriend": "Mesaj gönder",
+    "backToFriends": "Arkadaşlara dön",
+    "callFriend": "Ara",
+    "friendActions": "Arkadaş işlemleri",
+    "unreadMessages": "{count, plural, one {# okunmamış mesaj} other {# okunmamış mesaj}}",
+    "removeFriend": "Arkadaşı çıkar",
+    "removeFriendConfirm": {
+      "title": "Arkadaş çıkarılsın mı?",
+      "description": "{name} arkadaş listenden çıkarılacak. Bu işlem geri alınamaz.",
+      "confirm": "Çıkar",
+      "cancel": "İptal",
+      "failed": "Arkadaş çıkarılamadı",
+      "consequences": "Sohbet geçmişiniz kalır, ancak yeniden arkadaş olana kadar birbirinizi çevrimiçi göremez ve arayamazsınız."
+    },
+    "tagPlaceholder": "etiket (örnek: alex#4821)",
+    "sendByTag": "Gönder",
+    "requestSent": "Arkadaşlık isteği gönderildi",
+    "copyTag": "Etiketi kopyala",
+    "tagCopied": "Etiket kopyalandı",
+    "tagCopyFailed": "Etiket kopyalanamadı",
+    "sendFailed": "Arkadaşlık isteği gönderilemedi",
+    "incomingCall": {
+      "title": "Gelen arama",
+      "description": "{name} seni arıyor",
+      "accept": "Yanıtla",
+      "decline": "Reddet"
+    },
+    "outgoingCall": {
+      "title": "Aranıyor…",
+      "description": "Yanıt bekleniyor: {name}",
+      "cancel": "İptal",
+      "declined": "{name} aramayı reddetti"
+    }
+  },
+  "blocks": {
+    "block": "Engelle",
+    "unblock": "Engeli kaldır",
+    "unblockUser": "{name} için engeli kaldır",
+    "tab": "Engellenenler",
+    "count": "Engellenenler — {count}",
+    "notice": "Bu kullanıcıyı engelledin. Arkadaşlık isteği göndermek için engeli kaldır.",
+    "blockedToast": "{name} engellendi",
+    "unblockedToast": "{name} için engel kaldırıldı",
+    "emptyTitle": "Engellenen kimse yok",
+    "emptyHint": "Engellediğin kişiler burada görünür. Engeli kaldırmak sizi yeniden arkadaş yapmaz.",
+    "hiddenMessage": "Engellenen bir kullanıcının mesajı",
+    "showMessage": "Göster",
+    "confirm": {
+      "title": "{name} engellensin mi?",
+      "description": "{name} bundan haberdar edilmez. Aranızdaki arkadaşlık ve bekleyen istekler kaldırılır.",
+      "consequences": "Bu kişinin odalardaki mesajları tek satıra daraltılır, sesi senin için kısılır ve sen engeli kaldırana kadar ikiniz de arkadaşlık isteği gönderemezsiniz.",
+      "confirm": "Engelle",
+      "cancel": "İptal"
+    }
+  },
+  "user": {
+    "verified": "Doğrulanmış hesap",
+    "developer": "Geliştirici",
+    "developerHint": "Chatovo geliştiricisi"
+  },
+  "profileCard": {
+    "inVoice": "Ses kanalında",
+    "notInVoice": "Ses kanalında değil",
+    "join": "Katıl",
+    "openSettingsHint": "Profilini düzenlemek için ayarları aç.",
+    "avatarAlt": "Avatar: {name}",
+    "avatarZoomDescription": "Büyütülmüş profil resmi",
+    "zoomAvatar": "Avatarı aç"
+  }
+}

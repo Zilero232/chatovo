@@ -19,7 +19,7 @@ export const ParticipantVolumeControls = ({
 }: ParticipantVolumeControlsProps) => {
   const t = useTranslations('participant');
 
-  const { isMuted, volume, isControllable, setVolume, toggleMute } =
+  const { isMuted, volume, isBlocked, isControllable, setVolume, toggleMute } =
     useParticipantVolume(participant);
 
   const screenAudio = useParticipantVolume(participant, Track.Source.ScreenShareAudio);
@@ -31,7 +31,7 @@ export const ParticipantVolumeControls = ({
 
   const hasScreenAudio = isNonNullish(screenAudioTrack);
 
-  if (!isControllable) {
+  if (!isControllable || isBlocked) {
     return null;
   }
 

@@ -3,13 +3,16 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 const findRoom = vi.fn();
 const findUser = vi.fn();
 const assertNotBlocked = vi.fn();
+const assertNotRoomBanned = vi.fn();
 const assertRoomAccess = vi.fn();
 const hasRoomGrant = vi.fn();
 const grantRoomAccess = vi.fn();
 
 vi.mock('../../../../../lib', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
-  assertNotBlocked: (userId: string) => assertNotBlocked(userId)
+  assertNotBlocked: (userId: string) => assertNotBlocked(userId),
+  assertNotRoomBanned: (input: unknown) => assertNotRoomBanned(input),
+  assertDmWithoutUserBlock: async () => {}
 }));
 
 vi.mock('../../../lib', () => ({
@@ -37,7 +40,15 @@ vi.mock('../../../../users', () => ({
   })
 }));
 
+const { AppForbiddenException } = await import('../../../../../common/exceptions');
+const { lockMic, unlockMic } = await import('../../../mic-lock-store');
 const { LivekitService } = await import('../livekit.service');
+
+const videoGrantOf = (token: string): Record<string, unknown> => {
+  const [, payload = ''] = token.split('.');
+
+  return JSON.parse(Buffer.from(payload, 'base64url').toString('utf8')).video;
+};
 
 const codeOf = async (call: Promise<unknown>): Promise<string> => {
   try {
@@ -76,6 +87,7 @@ describe('LivekitService.issueRoomToken', () => {
     findRoom.mockReset();
     findUser.mockReset().mockResolvedValue({ id: userId, role: 'user', profile: null });
     assertNotBlocked.mockReset().mockResolvedValue(undefined);
+    assertNotRoomBanned.mockReset().mockResolvedValue(undefined);
     assertRoomAccess.mockReset().mockResolvedValue(undefined);
     hasRoomGrant.mockReset().mockReturnValue(false);
     grantRoomAccess.mockReset();
@@ -150,6 +162,80 @@ describe('LivekitService.issueRoomToken', () => {
     });
 
     expect(assertRoomAccess).not.toHaveBeenCalled();
+  });
+
+  it('refuses a user the room owner banned, before the password check and without a grant', async () => {
+    findRoom.mockResolvedValueOnce(room({ isPrivate: true, password: 'hashed' }));
+    assertNotRoomBanned.mockRejectedValueOnce(
+      new AppForbiddenException('ROOM_BANNED', 'Banned from this room')
+    );
+
+    await expect(
+      codeOf(
+        serviceUnderTest().issueRoomToken({
+          roomId: 'room-1',
+          userId,
+          password: 'secret',
+          isAdmin: false
+        })
+      )
+    ).resolves.toBe('ROOM_BANNED');
+    expect(assertRoomAccess).not.toHaveBeenCalled();
+    expect(grantRoomAccess).not.toHaveBeenCalled();
+  });
+
+  it('never applies a room ban to an app admin', async () => {
+    findUser.mockResolvedValueOnce({ id: userId, role: 'admin', profile: null });
+    findRoom.mockResolvedValueOnce(room({}));
+
+    await serviceUnderTest().issueRoomToken({ roomId: 'room-1', userId, isAdmin: true });
+
+    expect(assertNotRoomBanned).not.toHaveBeenCalled();
+  });
+
+  it('keeps the microphone off the publish grant while the owner’s mic lock is set', async () => {
+    findRoom.mockResolvedValueOnce(room({}));
+    lockMic({ roomId: 'room-1', userId });
+
+    const { token } = await serviceUnderTest().issueRoomToken({
+      roomId: 'room-1',
+      userId,
+      isAdmin: false
+    });
+
+    unlockMic({ roomId: 'room-1', userId });
+
+    expect(videoGrantOf(token)).toMatchObject({
+      canPublish: true,
+      canPublishSources: ['camera', 'screen_share', 'screen_share_audio']
+    });
+  });
+
+  it('leaves the publish sources unrestricted without a mic lock', async () => {
+    findRoom.mockResolvedValueOnce(room({}));
+
+    const { token } = await serviceUnderTest().issueRoomToken({
+      roomId: 'room-1',
+      userId,
+      isAdmin: false
+    });
+
+    expect(videoGrantOf(token)).not.toHaveProperty('canPublishSources');
+  });
+
+  it('applies a mic lock only to the room it was set in', async () => {
+    findRoom.mockResolvedValueOnce(room({}));
+    lockMic({ roomId: 'room-2', userId });
+
+    const { token } = await serviceUnderTest().issueRoomToken({
+      roomId: 'room-1',
+      userId,
+      isAdmin: false
+    });
+
+    unlockMic({ roomId: 'room-2', userId });
+
+    expect(videoGrantOf(token)).not.toHaveProperty('canPublishSources');
   });
 
   it('refuses a blocked account before any lookup', async () => {

@@ -5,8 +5,10 @@ export {
   type RoomsFilter,
   type RoomsFilterCounts
 } from './lib/group-rooms';
+export { isMicLocked, isTokenMicLocked } from './lib/is-mic-locked';
 export { readParticipantMeta } from './lib/participant-meta';
 export {
+  useCanModerateRoom,
   useCreateRoom,
   useDeleteRoom,
   useEnterRoom,

@@ -1,6 +1,9 @@
 import { CatchBoundary, RouterProvider } from '@tanstack/react-router';
 import { createRoot } from 'react-dom/client';
 
+import { readInitialLocale } from '@/entities/app/locale';
+import { loadMessages } from '@/shared/i18n';
+
 import { router } from './router';
 import { GlobalError } from './router/global-error';
 
@@ -17,6 +20,8 @@ const container = document.getElementById('root');
 if (!container) {
   throw new Error('The #root element is missing from index.html.');
 }
+
+loadMessages(readInitialLocale()).catch(() => undefined);
 
 // Strict mode stays off: its double effect mount tears down the LiveKit room connection.
 createRoot(container).render(
