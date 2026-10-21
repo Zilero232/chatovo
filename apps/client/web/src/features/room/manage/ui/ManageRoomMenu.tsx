@@ -10,7 +10,6 @@ import { useState } from 'react';
 import { useTranslations } from 'use-intl';
 
 import { useCurrentUser } from '@/entities/auth/user';
-import { useCanModerateRoom } from '@/entities/room/room';
 
 import type { ManageRoomMenuProps } from './ManageRoomMenu.types';
 
@@ -23,15 +22,12 @@ export const ManageRoomMenu = ({ room, className }: ManageRoomMenuProps) => {
   const tModeration = useTranslations('roomModeration.bans');
 
   const { user } = useCurrentUser();
-  const { canModerate } = useCanModerateRoom(room.id);
 
   const [editOpen, setEditOpen] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
   const [bansOpen, setBansOpen] = useState(false);
 
-  const isOwner = user?.id === room.ownerId;
-
-  if (!isOwner && !canModerate) {
+  if (user?.id !== room.ownerId) {
     return null;
   }
 
@@ -48,22 +44,18 @@ export const ManageRoomMenu = ({ room, className }: ManageRoomMenuProps) => {
           <MoreHorizontal />
         </DropdownMenuTrigger>
         <DropdownMenuContent align='end' onClick={(event) => event.stopPropagation()}>
-          {isOwner && (
-            <DropdownMenuItem onSelect={() => setEditOpen(true)}>
-              <Pencil />
-              {t('edit')}
-            </DropdownMenuItem>
-          )}
+          <DropdownMenuItem onSelect={() => setEditOpen(true)}>
+            <Pencil />
+            {t('edit')}
+          </DropdownMenuItem>
           <DropdownMenuItem onSelect={() => setBansOpen(true)}>
             <Gavel />
             {tModeration('menu')}
           </DropdownMenuItem>
-          {isOwner && (
-            <DropdownMenuItem variant='destructive' onSelect={() => setDeleteOpen(true)}>
-              <Trash2 />
-              {t('delete')}
-            </DropdownMenuItem>
-          )}
+          <DropdownMenuItem variant='destructive' onSelect={() => setDeleteOpen(true)}>
+            <Trash2 />
+            {t('delete')}
+          </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
 
