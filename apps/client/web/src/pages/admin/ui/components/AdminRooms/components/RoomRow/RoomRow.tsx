@@ -1,11 +1,12 @@
 import { Badge, ConfirmDialog, IconButtonWithTooltip, Row, Stack, Text } from '@chatovo/ui-kit';
-import { KeyRound, Lock, Trash2 } from 'lucide-react';
+import { Gavel, KeyRound, Lock, Trash2 } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
 import { useTranslations } from 'use-intl';
 
 import { useDeleteRoomAsAdmin } from '@/entities/app/admin';
 import { useToastError } from '@/entities/app/locale';
+import { RoomBansDialog } from '@/features/room/manage';
 import { formatDateTime } from '@/shared/lib';
 
 import type { RoomRowProps } from './RoomRow.types';
@@ -14,10 +15,14 @@ import s from './RoomRow.module.scss';
 
 export const RoomRow = ({ room }: RoomRowProps) => {
   const t = useTranslations('admin');
+  const tBans = useTranslations('roomModeration.bans');
   const toastError = useToastError();
   const { isPending, mutate } = useDeleteRoomAsAdmin();
 
   const [isConfirmOpen, setIsConfirmOpen] = useState(false);
+  const [isBansOpen, setIsBansOpen] = useState(false);
+
+  const isGroup = room.kind === 'group';
 
   const remove = () =>
     mutate(room.id, {
@@ -60,6 +65,17 @@ export const RoomRow = ({ room }: RoomRowProps) => {
         </Text>
       </Stack>
 
+      {isGroup && (
+        <IconButtonWithTooltip
+          className={s.action}
+          icon={<Gavel />}
+          label={tBans('menu')}
+          size='icon-sm'
+          tooltipSide='top'
+          onClick={() => setIsBansOpen(true)}
+        />
+      )}
+
       <IconButtonWithTooltip
         className={s.action}
         icon={<Trash2 />}
@@ -81,6 +97,8 @@ export const RoomRow = ({ room }: RoomRowProps) => {
         onConfirm={remove}
         onOpenChange={setIsConfirmOpen}
       />
+
+      {isGroup && <RoomBansDialog open={isBansOpen} room={room} onOpenChange={setIsBansOpen} />}
     </Row>
   );
 };

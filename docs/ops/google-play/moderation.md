@@ -143,7 +143,9 @@ banned also close their session. Remove, mute and unmute need the target to be i
 the room's voice presence — otherwise they answer `USER_NOT_FOUND` and notify
 nobody. A ban of someone who is not in the room is still stored, silently. The
 owner sees the banned list and lifts a ban from the room's "…" menu in the
-channels list.
+channels list; that menu is the owner's alone. An app admin, who can moderate
+any room, opens the same list from Admin → Rooms (the gavel on a group room's
+row) instead, so the channels list stays as clean as everyone else's.
 
 The mute is not in the database: it is an in-memory lock (`livekit/mic-lock-store.ts`,
 keyed by room and user) applied to the LiveKit participant. It survives leaving
