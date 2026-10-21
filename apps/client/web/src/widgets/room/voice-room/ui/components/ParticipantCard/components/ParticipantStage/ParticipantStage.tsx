@@ -6,6 +6,7 @@ import type { ParticipantStageProps } from './ParticipantStage.types';
 
 import { useParticipantAudioLevel, useParticipantMedia } from '../../../../../model/hooks';
 import { CardVideo } from '../../../CardVideo/CardVideo';
+import { LocalScreenNotice } from '../../../LocalScreenNotice/LocalScreenNotice';
 import { VoiceLevelRing } from '../../../VoiceLevelRing/VoiceLevelRing';
 import { getCardTint } from '../../lib';
 
@@ -32,7 +33,9 @@ export const ParticipantStage = ({ participant }: ParticipantStageProps) => {
       <div className={s.stage}>
         <div className={s.videoGrid}>
           {hasCamera && cameraTrack && <CardVideo trackRef={cameraTrack} />}
-          {hasScreen && screenTrack && <CardVideo trackRef={screenTrack} />}
+          {hasScreen &&
+            screenTrack &&
+            (isLocal ? <LocalScreenNotice /> : <CardVideo trackRef={screenTrack} />)}
         </div>
       </div>
     );

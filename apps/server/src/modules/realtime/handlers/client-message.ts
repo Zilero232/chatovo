@@ -49,18 +49,6 @@ export const handleClientMessage = async (
         senderId: connection.userId
       });
     })
-    .with({ op: 'room.soundboard' }, ({ roomId, sound }) => {
-      if (!connection.isAdmin || !connection.rooms.has(roomId)) {
-        return;
-      }
-
-      emitRoomEvent(roomId, {
-        type: 'room.soundboard',
-        roomId,
-        sound,
-        senderId: connection.userId
-      });
-    })
     .with({ op: 'client.activity' }, ({ active }) => {
       connection.isActive = active;
     })

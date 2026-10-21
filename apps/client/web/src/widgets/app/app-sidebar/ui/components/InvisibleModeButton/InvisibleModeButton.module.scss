@@ -1,0 +1,67 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.rail {
+  border: 1px solid color-mix(in srgb, var(--brand-fuchsia) 24%, transparent);
+  background: color-mix(in srgb, var(--brand-fuchsia) 8%, transparent);
+  color: color-mix(in srgb, var(--brand-fuchsia) 55%, var(--muted-foreground));
+
+  @include hover {
+    border-color: color-mix(in srgb, var(--brand-fuchsia) 40%, transparent);
+    background: color-mix(in srgb, var(--brand-fuchsia) 16%, transparent);
+    color: var(--brand-fuchsia);
+  }
+
+  &[aria-pressed='true'] {
+    border-color: var(--brand-fuchsia);
+    background: color-mix(in srgb, var(--brand-fuchsia) 24%, transparent);
+    color: var(--brand-fuchsia);
+
+    @include hover {
+      background: color-mix(in srgb, var(--brand-fuchsia) 32%, transparent);
+    }
+  }
+}
+
+.menu {
+  svg {
+    color: color-mix(in srgb, var(--brand-fuchsia) 55%, var(--muted-foreground));
+  }
+
+  &[aria-pressed='true'] svg {
+    color: var(--brand-fuchsia);
+  }
+}
+
+.switch {
+  position: relative;
+  display: inline-flex;
+  width: 2.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  border: 1px solid rgb(var(--tint) / 14%);
+  border-radius: 9999px;
+  background: rgb(var(--tint) / 11%);
+  transition: background var(--duration-fast) var(--timing-function-standard);
+
+  &:after {
+    position: absolute;
+    top: 50%;
+    left: 0.125rem;
+    width: 0.875rem;
+    height: 0.875rem;
+    border-radius: 9999px;
+    background: var(--foreground);
+    content: '';
+    transition: translate var(--duration-fast) var(--timing-function-standard);
+    translate: 0 -50%;
+  }
+
+  [aria-pressed='true'] > & {
+    border-color: transparent;
+    background: var(--brand-fuchsia);
+
+    &:after {
+      translate: 1rem -50%;
+    }
+  }
+}

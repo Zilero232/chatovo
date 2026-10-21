@@ -1,6 +1,6 @@
 import { useRoomMusicActions } from '@/entities/room/music';
 
-import { useRoomMusicContext } from '../contexts/room-music-context';
+import { useRoomMusicContext } from '../contexts';
 
 export const useCurrentRoomMusic = () => {
   const { roomId, music } = useRoomMusicContext();

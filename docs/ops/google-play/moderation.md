@@ -193,8 +193,8 @@ means.
 ## The admin panel
 
 `/admin` is a route inside the web app, visible only to an account with
-`role = 'admin'` — the shield button appears in the sidebar for them. It has four
-tabs:
+`role = 'admin'` — the admin panel button and the invisible-mode toggle appear in
+the sidebar for them. It has four tabs:
 
 | Tab | What it does |
 |-----|--------------|

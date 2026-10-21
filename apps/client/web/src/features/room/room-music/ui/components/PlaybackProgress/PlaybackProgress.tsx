@@ -3,7 +3,7 @@ import { useTranslations } from 'use-intl';
 
 import type { MusicTrackPlayback } from '../../../model/types';
 
-import { formatPlaybackTime } from '../../../lib';
+import { formatPlaybackTime } from '../../../lib/index';
 import { usePlaybackProgress } from '../../../model/hooks';
 
 import s from './PlaybackProgress.module.scss';

@@ -21,22 +21,24 @@ export const MusicStage = ({ music, track, className }: MusicStageProps) => {
 
   return (
     <section className={clsx(s.root, className)}>
-      <div ref={setSlot} className={clsx(s.screen, track.source === 'radio' && s.radio)}>
-        <TrackArtwork size='fill' track={track} />
-      </div>
+      <div className={s.head}>
+        <div ref={setSlot} className={clsx(s.screen, track.source === 'radio' && s.radio)}>
+          <TrackArtwork size='fill' track={track} />
+        </div>
 
-      <div className={s.meta}>
-        <a
-          className={s.title}
-          href={url}
-          rel='noopener noreferrer'
-          target='_blank'
-          title={t('open')}
-          onClick={(event) => handleExternalLinkClick({ event, url })}
-        >
-          {title}
-        </a>
-        <span className={s.subtitle}>{subtitle}</span>
+        <div className={s.meta}>
+          <a
+            className={s.title}
+            href={url}
+            rel='noopener noreferrer'
+            target='_blank'
+            title={t('open')}
+            onClick={(event) => handleExternalLinkClick({ event, url })}
+          >
+            {title}
+          </a>
+          <span className={s.subtitle}>{subtitle}</span>
+        </div>
       </div>
 
       <PlaybackProgress music={music} track={track} />

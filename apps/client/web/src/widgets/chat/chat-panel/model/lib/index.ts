@@ -1,4 +1,3 @@
-export { censorProfanity, remarkCensorProfanity } from './censor-profanity';
 export {
   appendChatDto,
   appendChatMessage,
@@ -13,4 +12,5 @@ export {
 export { findPreviewUrl } from './find-preview-url';
 export { groupChatLines, type GroupedChatLine } from './group-chat-lines';
 export { normalizeMessage } from './normalize-message';
+export { remarkCensorProfanity } from './remark-censor-profanity';
 export { chatMessageToChatLine } from './to-chat-line';

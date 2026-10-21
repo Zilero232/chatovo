@@ -1,20 +1,26 @@
-import { Plus, Radio } from 'lucide-react';
+import { Play, Radio } from 'lucide-react';
 import { useTranslations } from 'use-intl';
 
 import type { StationResultsProps } from './StationResults.types';
 
-import { describeStation } from '../../../lib';
+import { describeStation } from '../../../lib/index';
 
 import s from './StationResults.module.scss';
 
-export const StationResults = ({ isError, isSearching, stations, onPlay }: StationResultsProps) => {
+export const StationResults = ({
+  isError,
+  isPopular = false,
+  isSearching,
+  stations,
+  onPlay
+}: StationResultsProps) => {
   const t = useTranslations('room.music.radio');
 
   const isEmpty = !isSearching && !isError && stations.length === 0;
 
   return (
     <section aria-busy={isSearching} className={s.root}>
-      <h3 className={s.heading}>{t('label')}</h3>
+      <h3 className={s.heading}>{t(isPopular ? 'popular' : 'label')}</h3>
 
       {isError && <p className={s.error}>{t('error')}</p>}
       {isEmpty && <p className={s.note}>{t('empty')}</p>}
@@ -35,7 +41,7 @@ export const StationResults = ({ isError, isSearching, stations, onPlay }: Stati
                 <span className={s.name}>{station.name}</span>
                 <span className={s.details}>{describeStation(station)}</span>
               </span>
-              <Plus aria-hidden className={s.add} />
+              <Play aria-hidden className={s.play} />
             </button>
           </li>
         ))}

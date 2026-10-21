@@ -207,6 +207,34 @@
       "minor": "Atualização regular"
     },
     "entries": {
+      "musicLibrary": {
+        "title": "Música em abas",
+        "description": "Fila, Rádio e Minha música têm cada uma sua aba, e o volume fica no botão de som."
+      },
+      "popularRadio": {
+        "title": "Rádio sem procurar",
+        "description": "A aba Rádio abre com as estações mais populares — um toque e a sala já está ouvindo."
+      },
+      "chatOverRoom": {
+        "title": "Chat sobre a sala",
+        "description": "O chat volta a deslizar sobre a sala escurecida em vez de espremê-la."
+      },
+      "lighterTheme": {
+        "title": "Um tema mais claro",
+        "description": "O tema escuro ficou um pouco mais claro, e as linhas entre os painéis aparecem melhor."
+      },
+      "shareStaysHere": {
+        "title": "Compartilhar não tira você daqui",
+        "description": "Escolher uma aba ou janela para compartilhar não leva mais você até ela."
+      },
+      "noScreenInScreen": {
+        "title": "Sem tela dentro da tela",
+        "description": "Sua própria tela compartilhada mostra um aviso em vez de se repetir sem fim; os outros continuam vendo."
+      },
+      "smarterFilter": {
+        "title": "Um filtro mais esperto",
+        "description": "Palavrões são pegos em mais formas e nos nove idiomas, e palavras comuns não são mais escondidas."
+      },
       "chatBesideRoom": {
         "title": "Chat ao lado da sala",
         "description": "Em uma tela larga a sala abre espaço para o chat, e todos os participantes e botões continuam à vista."
@@ -741,6 +769,8 @@
       }
     },
     "highlights": {
+      "musicLibrary": "Música em abas",
+      "lighterTheme": "Um tema mais claro",
       "chatBesideRoom": "Chat ao lado da sala",
       "tidierMenu": "Um menu mais limpo no celular",
       "nineLanguages": "Nove idiomas",

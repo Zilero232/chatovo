@@ -26,6 +26,7 @@ export { raceWithTimeout } from './race-with-timeout';
 export { AUDIO_LEVEL_ANALYSER, readAudioLevel, type ReadAudioLevelInput } from './read-audio-level';
 export { readStoredJson, writeStoredJson } from './read-stored-json';
 export {
+  createCaptureController,
   DISPLAY_AUDIO_CAPTURE,
   isScreenShareSupported,
   SHARED_AUDIO_PUBLISH

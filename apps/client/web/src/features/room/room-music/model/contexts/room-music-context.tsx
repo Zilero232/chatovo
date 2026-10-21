@@ -9,10 +9,7 @@ import type { TrackDuration } from '../types';
 import type { RoomMusicProviderProps, RoomMusicStateInput } from './room-music-context.types';
 
 import { DUCKING } from '../../config/music';
-import { useHasRemoteMusic } from '../hooks/use-has-remote-music';
-import { useMusicShare } from '../hooks/use-music-share';
-import { useSpeechDucking } from '../hooks/use-speech-ducking';
-import { useVolumeRamp } from '../hooks/use-volume-ramp';
+import { useHasRemoteMusic, useMusicShare, useSpeechDucking, useVolumeRamp } from '../hooks';
 
 const useRoomMusicState = ({ roomId, isDeafened }: RoomMusicStateInput) => {
   const { settings } = useAppSettings();

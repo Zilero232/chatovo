@@ -11,7 +11,7 @@ export const GLOBAL_ERROR_STYLES = {
     padding: '1.5rem',
     textAlign: 'center',
     color: '#f5ecdf',
-    background: '#16111b'
+    background: '#1e1724'
   },
   title: {
     margin: 0,

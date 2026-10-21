@@ -5,6 +5,7 @@ interface ImportMetaEnv {
   readonly NEXT_PUBLIC_APP_URL?: string;
   readonly NEXT_PUBLIC_APP_VERSION?: string;
   readonly NEXT_PUBLIC_LIVEKIT_URL?: string;
+  readonly NEXT_PUBLIC_QUERY_DEVTOOLS?: string;
 }
 
 interface ImportMeta {

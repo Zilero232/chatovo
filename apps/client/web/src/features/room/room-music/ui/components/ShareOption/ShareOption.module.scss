@@ -1,0 +1,57 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  background: var(--surface-2);
+  color: var(--foreground);
+  gap: var(--space-2);
+  text-align: start;
+  transition:
+    background-color var(--duration-fast) var(--timing-function-standard),
+    border-color var(--duration-fast) var(--timing-function-standard);
+
+  @include interactive-cursor;
+  @include button-focus-ring;
+
+  @include hover {
+    border-color: var(--border-strong);
+    background: var(--surface-3);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+}
+
+.icon {
+  display: grid;
+  width: var(--control-lg);
+  height: var(--control-lg);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-1);
+  background: color-mix(in oklch, var(--brand-violet) 16%, transparent);
+  color: var(--brand-violet);
+  place-items: center;
+
+  svg {
+    width: var(--icon-md);
+    height: var(--icon-md);
+  }
+}
+
+.title {
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.description {
+  color: var(--muted-foreground);
+  font-size: var(--text-xs);
+  line-height: 1.45;
+}

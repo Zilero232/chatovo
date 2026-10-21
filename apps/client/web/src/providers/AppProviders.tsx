@@ -7,6 +7,7 @@ import { MotionConfig } from 'motion/react';
 import { Suspense } from 'react';
 
 import { queryClient } from '@/shared/api';
+import { env } from '@/shared/config';
 import { isTauriDesktop } from '@/shared/lib';
 import { IMAGE_CONFIG } from '@/shared/lib/image-loader';
 import { TitleBar } from '@/widgets/app/title-bar';
@@ -48,7 +49,7 @@ export const AppProviders = ({ children }: { children: ReactNode }) => (
           <Toaster />
           <EasterEggsProvider />
 
-          {import.meta.env.MODE === 'development' && (
+          {import.meta.env.MODE === 'development' && env.NEXT_PUBLIC_QUERY_DEVTOOLS && (
             <ReactQueryDevtools buttonPosition='bottom-right' />
           )}
         </I18nProvider>

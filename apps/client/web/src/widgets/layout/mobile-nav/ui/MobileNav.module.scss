@@ -8,7 +8,7 @@
   flex-direction: column;
   flex-shrink: 0;
   padding-top: var(--safe-area-top);
-  border-bottom: 1px solid rgb(8 4 10 / 22%);
+  border-bottom: 1px solid var(--border);
   background-color: var(--column-rail);
 
   @include bp(md) {
@@ -86,7 +86,7 @@
   height: 3.5rem;
   flex-shrink: 0;
   align-items: center;
-  border-bottom: 1px solid rgb(var(--tint) / 11%);
+  border-bottom: 1px solid var(--border);
   gap: 0.5rem;
   padding-inline: 1rem 0.5rem;
 }

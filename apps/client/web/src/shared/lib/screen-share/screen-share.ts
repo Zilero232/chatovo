@@ -2,6 +2,8 @@ import type { AudioCaptureOptions, TrackPublishOptions } from 'livekit-client';
 
 import { AudioPresets } from 'livekit-client';
 
+import type { CaptureControllerHost, FocusCaptureController } from './screen-share.types';
+
 import { isTauriMobile } from '../tauri-platform';
 
 export const isScreenShareSupported = (): boolean => {
@@ -14,6 +16,21 @@ export const isScreenShareSupported = (): boolean => {
   }
 
   return typeof navigator.mediaDevices?.getDisplayMedia === 'function';
+};
+
+/** A fresh controller that keeps Chatovo focused after the user picks a tab or window to share; `undefined` where unsupported. */
+export const createCaptureController = (): FocusCaptureController | undefined => {
+  const { CaptureController } = globalThis as CaptureControllerHost;
+
+  if (!CaptureController) {
+    return undefined;
+  }
+
+  const controller = new CaptureController();
+
+  controller.setFocusBehavior('no-focus-change');
+
+  return controller;
 };
 
 /** Shared-audio capture: no voice processing, stereo, and the page's own playback excluded (no echo). */

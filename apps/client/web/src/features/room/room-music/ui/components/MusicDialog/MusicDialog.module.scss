@@ -16,7 +16,7 @@
   overflow-y: hidden;
 
   @include bp(sm) {
-    max-width: rem(480);
+    max-width: rem(560);
   }
 }
 
@@ -28,8 +28,16 @@
 
 .header {
   display: flex;
+  align-items: flex-start;
+  padding: var(--space-5) calc(var(--space-4) + var(--control-md) + var(--space-2)) 0 var(--space-5);
+  gap: var(--space-3);
+}
+
+.heading {
+  display: flex;
+  min-width: 0;
+  flex: 1;
   flex-direction: column;
-  padding: var(--space-5) var(--space-12) 0 var(--space-5);
   gap: var(--space-1);
 }
 
@@ -42,12 +50,10 @@
 .description {
   color: var(--muted-foreground);
   font-size: var(--text-sm);
-}
 
-.stage {
-  min-height: 0;
-  padding: 0 var(--space-5) var(--space-5);
-  overflow-y: auto;
+  @include bp(sm, down) {
+    @include visually-hidden;
+  }
 }
 
 .body {
@@ -55,11 +61,24 @@
   min-height: 0;
   flex: 1;
   flex-direction: column;
+  gap: var(--space-4);
 
   .staged & {
     @include bp(lg) {
       display: grid;
+      padding-bottom: var(--space-5);
+      gap: 0;
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
     }
+  }
+}
+
+.stage {
+  flex-shrink: 0;
+  padding: 0 var(--space-5);
+
+  @include bp(lg) {
+    min-height: 0;
+    overflow-y: auto;
   }
 }

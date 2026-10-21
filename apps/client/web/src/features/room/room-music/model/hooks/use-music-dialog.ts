@@ -1,4 +1,4 @@
-import { useRoomMusicContext } from '../contexts/room-music-context';
+import { useRoomMusicContext } from '../contexts';
 
 export const useMusicDialog = () => {
   const { isExpanded, setIsExpanded } = useRoomMusicContext();

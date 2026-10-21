@@ -21,6 +21,8 @@ export type TrackDuration = {
 
 export type RadioGenre = (typeof RADIO_GENRES)[number];
 
+export type MusicLibraryTab = 'mine' | 'queue' | 'radio';
+
 export type SeekInput = {
   positionMs: number;
   reason: string;

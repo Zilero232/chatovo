@@ -3,8 +3,8 @@ import { AnimatePresence } from 'motion/react';
 import type { RoomMusicLayerProps } from './RoomMusicLayer.types';
 
 import { useCurrentRoomMusic } from '../../model/hooks';
-import { MusicDialog, MusicMiniBar, MusicPlayerHost } from '../components';
-import { RemoteMusicVolumeController } from '../controllers';
+import { MusicDialog, MusicMiniBar, MusicPlayerHost } from '../components/index';
+import { RemoteMusicVolumeController } from '../controllers/index';
 
 export const RoomMusicLayer = ({ isMinimized }: RoomMusicLayerProps) => {
   const { music } = useCurrentRoomMusic();

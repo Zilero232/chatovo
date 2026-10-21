@@ -1,14 +1,16 @@
-import { CenteredState, IconButtonWithTooltip } from '@chatovo/ui-kit';
-import { X } from 'lucide-react';
+import { Button, CenteredState, IconButtonWithTooltip } from '@chatovo/ui-kit';
+import { Radio, X } from 'lucide-react';
 import { AnimatePresence } from 'motion/react';
 import { useTranslations } from 'use-intl';
+
+import type { MusicQueueProps } from './MusicQueue.types';
 
 import { useMusicQueue } from '../../../model/hooks';
 import { QueueItem } from '../QueueItem/QueueItem';
 
 import s from './MusicQueue.module.scss';
 
-export const MusicQueue = () => {
+export const MusicQueue = ({ onOpenRadio }: MusicQueueProps) => {
   const t = useTranslations('room.music');
 
   const { queue, isEmpty, remove } = useMusicQueue();
@@ -16,6 +18,12 @@ export const MusicQueue = () => {
   if (isEmpty) {
     return (
       <CenteredState
+        action={
+          <Button size='sm' variant='secondary' onClick={onOpenRadio}>
+            <Radio aria-hidden />
+            {t('empty.openRadio')}
+          </Button>
+        }
         chato='listen'
         description={t('empty.description')}
         size='sm'

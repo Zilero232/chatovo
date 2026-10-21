@@ -1,42 +1,20 @@
+@use '@chatovo/ui-kit/styles/functions' as *;
+
 .root {
   display: flex;
   flex-direction: column;
-  padding: var(--space-4);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
-  background: var(--surface-2);
-  gap: var(--space-3);
+  gap: var(--space-4);
 }
 
-.text {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-}
-
-.title {
+.lead {
   margin: 0;
-  font-size: var(--text-base);
-  font-weight: 600;
-}
-
-.hint,
-.note {
-  margin: 0;
-  font-size: var(--text-sm);
-}
-
-.hint {
   color: var(--muted-foreground);
+  font-size: var(--text-sm);
+  line-height: 1.5;
 }
 
-.note {
-  color: var(--subtle-foreground);
-  font-size: var(--text-xs);
-}
-
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
+.options {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(#{rem(200)}, 1fr));
 }

@@ -56,7 +56,6 @@
     "joinFailed": "Não foi possível entrar na sala",
     "invite": {
       "copyLink": "Copiar link de convite",
-      "tooltip": "Copie um link para convidar outras pessoas",
       "linkCopied": "Link de convite copiado",
       "aloneTitle": "Só tem você aqui",
       "aloneDescription": "Mande o link e os amigos entram com um clique."
@@ -71,20 +70,24 @@
       "inCall": "Você está numa chamada",
       "connecting": "Conectando…"
     },
-    "soundboard": {
-      "label": "Efeitos sonoros do admin",
-      "sounds": {
-        "siren": "Sirene",
-        "airhorn": "Buzina",
-        "drumroll": "Rufar de tambores",
-        "sadTrombone": "Trombone triste",
-        "applause": "Aplausos"
-      }
-    },
     "music": {
       "label": "Música da sala",
       "title": "Música na sala",
       "description": "Toque faixas para todos na sala ou compartilhe sua própria música.",
+      "tabs": {
+        "queue": "Fila",
+        "radio": "Rádio"
+      },
+      "fields": {
+        "link": {
+          "label": "Adicionar um link",
+          "placeholder": "Link do YouTube, SoundCloud, Vimeo ou de um arquivo de áudio"
+        },
+        "radio": {
+          "label": "Buscar rádio",
+          "placeholder": "Busque estações"
+        }
+      },
       "nowPlaying": {
         "addedBy": "Adicionada por {name}",
         "live": "Ao vivo",
@@ -102,12 +105,10 @@
       },
       "empty": {
         "title": "Está quieto por aqui",
-        "description": "Cole um link ou ligue o rádio."
+        "description": "Cole um link ou ligue o rádio.",
+        "openRadio": "Ligar o rádio"
       },
       "search": {
-        "label": "Adicionar música",
-        "placeholder": "Cole um link ou busque rádios",
-        "hint": "Links do YouTube, SoundCloud e Vimeo ou um link direto para um arquivo de áudio vão para a fila; qualquer outra coisa busca estações de rádio.",
         "clear": "Limpar"
       },
       "queue": {
@@ -120,8 +121,12 @@
         "submit": "Adicionar à fila",
         "added": "Adicionada à fila"
       },
+      "link": {
+        "searchRadio": "Buscar “{query}” nas estações"
+      },
       "radio": {
         "label": "Estações",
+        "popular": "Estações populares",
         "empty": "Nenhuma estação encontrada.",
         "error": "A busca de rádios está indisponível no momento.",
         "play": "Tocar {name}"
@@ -144,6 +149,7 @@
         "tabHint": "No seletor, escolha a aba com a música e ative “Compartilhar áudio da aba”.",
         "tabUnsupported": "Compartilhar o áudio de uma aba exige um navegador de computador.",
         "files": "Tocar arquivos deste dispositivo",
+        "filesHint": "Escolha arquivos de áudio — eles tocam para todos na sala direto do seu dispositivo.",
         "sharingTab": "Compartilhando o áudio de uma aba",
         "playingFile": "Tocando {name}",
         "paused": "Pausado: {name}",
@@ -156,6 +162,7 @@
         "publishFailed": "Não foi possível começar a compartilhar nesta sala."
       },
       "settings": {
+        "label": "Som da música",
         "volume": "Volume da música",
         "ducking": "Abaixar a música quando alguém fala"
       },
@@ -174,7 +181,8 @@
       "playInRoom": "Tocar na sala",
       "tabOnly": {
         "title": "{service} não pode ser incorporado",
-        "hint": "Reproduza numa aba do navegador e use “Compartilhar o áudio de uma aba” em Minha música, abaixo — todos na sala vão ouvir.",
+        "hint": "Reproduza numa aba do navegador e compartilhe o áudio dessa aba em Minha música — todos na sala vão ouvir.",
+        "open": "Abrir Minha música",
         "services": {
           "vk": "VK",
           "yandex": "Yandex Music",
@@ -216,6 +224,10 @@
       "leave": "Sair",
       "invisibleMicBlocked": "Você não pode falar no modo invisível",
       "mutedByOwner": "Silenciado pelo dono da sala"
+    },
+    "screen": {
+      "sharingTitle": "Você está compartilhando a tela",
+      "sharingHint": "Sua prévia fica oculta para a tela não se repetir dentro de si mesma. Os outros a veem."
     },
     "dmWaiting": "Esperando a outra pessoa entrar…",
     "expandVideo": "Expandir vídeo",

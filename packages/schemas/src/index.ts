@@ -253,16 +253,12 @@ export {
   realtimeRoomReactionEventSchema,
   realtimeRoomReactionSchema,
   realtimeRoomRemovedEventSchema,
-  realtimeRoomSoundboardEventSchema,
-  realtimeRoomSoundboardSchema,
   realtimeRoomUpsertedEventSchema,
   realtimeServerMessageSchema,
   realtimeSubscribeSchema,
-  SOUNDBOARD_SOUNDS,
-  soundboardSoundSchema,
   WS_CLOSE_CODE
 } from './realtime';
-export type { RealtimeClientMessage, RealtimeServerMessage, SoundboardSound } from './realtime';
+export type { RealtimeClientMessage, RealtimeServerMessage } from './realtime';
 export {
   createRoomInputSchema,
   ROOM_NAME_MAX_LENGTH,
