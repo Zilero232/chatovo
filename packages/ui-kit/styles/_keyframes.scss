@@ -116,3 +116,35 @@
     rotate: 360deg;
   }
 }
+
+@property --scroll-fade-start {
+  inherits: false;
+  initial-value: 0;
+  syntax: '<length>';
+}
+
+@property --scroll-fade-end {
+  inherits: false;
+  initial-value: 0;
+  syntax: '<length>';
+}
+
+@keyframes scroll-fade-x {
+  0% {
+    --scroll-fade-start: 0px;
+    --scroll-fade-end: var(--scroll-fade-size);
+  }
+
+  8% {
+    --scroll-fade-start: var(--scroll-fade-size);
+  }
+
+  92% {
+    --scroll-fade-end: var(--scroll-fade-size);
+  }
+
+  100% {
+    --scroll-fade-start: var(--scroll-fade-size);
+    --scroll-fade-end: 0px;
+  }
+}

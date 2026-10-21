@@ -9,6 +9,7 @@
   },
   "appSidebar": {
     "lobby": "Друзі",
+    "home": "Головна",
     "downloadApp": "Завантажити застосунок",
     "downloadAppLabel": "Завантажити застосунок",
     "checkUpdate": "Перевірити оновлення",
@@ -19,7 +20,7 @@
     "hideChannels": "Сховати канали",
     "toggleChannels": "Перемкнути канали",
     "menu": "Меню",
-    "menuDescription": "Навігація та список кімнат",
+    "menuDescription": "Навігація та акаунт",
     "openMenu": "Відкрити меню",
     "closeMenu": "Закрити меню"
   },

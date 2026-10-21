@@ -1,9 +1,8 @@
-export type AppSidebarOrientation = 'horizontal' | 'vertical';
+export type AppSidebarVariant = 'menu' | 'rail';
 
 export type AppSidebarProps = {
-  channelsOpened: boolean;
-  orientation?: AppSidebarOrientation;
-  showToggleChannels?: boolean;
+  channelsOpened?: boolean;
+  variant?: AppSidebarVariant;
   onNavigate?: () => void;
-  onToggleChannels: () => void;
+  onToggleChannels?: () => void;
 };

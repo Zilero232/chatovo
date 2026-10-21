@@ -4,11 +4,10 @@ import { AudioLines } from 'lucide-react';
 import type { RoomHeaderProps } from './RoomHeader.types';
 
 import { ConnectionIndicator } from '../ConnectionIndicator/ConnectionIndicator';
-import { RoomInviteButton } from '../RoomInviteButton/RoomInviteButton';
 
 import s from './RoomHeader.module.scss';
 
-export const RoomHeader = ({ name, isDm = false }: RoomHeaderProps) => (
+export const RoomHeader = ({ name }: RoomHeaderProps) => (
   <div className={clsx(s.root, 'surface-bar')}>
     <span aria-hidden className='accent-top-line' />
     <span aria-hidden className={s.icon}>
@@ -16,14 +15,7 @@ export const RoomHeader = ({ name, isDm = false }: RoomHeaderProps) => (
     </span>
 
     <div className={s.info}>
-      <div className={s.titleRow}>
-        <h1 className={s.title}>{name}</h1>
-        {!isDm && (
-          <div className={s.mobileInvite}>
-            <RoomInviteButton size='sm' />
-          </div>
-        )}
-      </div>
+      <h1 className={s.title}>{name}</h1>
     </div>
 
     <ConnectionIndicator />

@@ -18,7 +18,7 @@
     slide-in-from-left var(--duration-slow) var(--timing-function-out);
   animation-fill-mode: both;
 
-  [data-variant='drawer'] & {
+  [data-variant='embedded'] & {
     animation: none;
   }
 

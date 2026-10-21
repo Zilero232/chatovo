@@ -207,6 +207,26 @@
       "minor": "Regular release"
     },
     "entries": {
+      "chatBesideRoom": {
+        "title": "Chat beside the room",
+        "description": "On a wide screen the room makes way for the chat, so everyone and every button stay in view."
+      },
+      "tidierMenu": {
+        "title": "A cleaner phone menu",
+        "description": "The menu holds navigation and your profile, and rooms live on the lobby’s Rooms tab."
+      },
+      "inviteTile": {
+        "title": "An invite card when you’re alone",
+        "description": "A card next to yours copies the room link in one tap."
+      },
+      "languageSelect": {
+        "title": "A compact language picker",
+        "description": "The language is a dropdown in Settings → General."
+      },
+      "fullScreenSettings": {
+        "title": "Settings fit the phone",
+        "description": "On a phone settings open full screen, and long tab rows show that they scroll."
+      },
       "nineLanguages": {
         "title": "Nine languages",
         "description": "Chatovo now speaks English, Russian, Ukrainian, Spanish, Portuguese, German, French, Turkish and Polish. It follows the system language and can be changed in Settings."
@@ -721,6 +741,8 @@
       }
     },
     "highlights": {
+      "chatBesideRoom": "Chat beside the room",
+      "tidierMenu": "A cleaner phone menu",
       "nineLanguages": "Nine languages",
       "roomModeration": "Room moderation",
       "googlePlay": "Moved to Google Play",

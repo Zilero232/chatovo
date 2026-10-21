@@ -9,6 +9,7 @@
   },
   "appSidebar": {
     "lobby": "Друзья",
+    "home": "Главная",
     "downloadApp": "Скачать приложение",
     "downloadAppLabel": "Скачать приложение",
     "checkUpdate": "Проверить обновления",
@@ -19,7 +20,7 @@
     "hideChannels": "Скрыть каналы",
     "toggleChannels": "Переключить каналы",
     "menu": "Меню",
-    "menuDescription": "Навигация и список комнат",
+    "menuDescription": "Навигация и аккаунт",
     "openMenu": "Открыть меню",
     "closeMenu": "Закрыть меню"
   },

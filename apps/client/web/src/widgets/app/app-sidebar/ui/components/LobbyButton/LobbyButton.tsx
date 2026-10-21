@@ -1,5 +1,5 @@
-import { Button, Tooltip, TooltipContent } from '@chatovo/ui-kit';
 import { useLocation, useNavigate } from '@tanstack/react-router';
+import { clsx } from 'clsx';
 import { Users } from 'lucide-react';
 import { useTranslations } from 'use-intl';
 
@@ -10,9 +10,11 @@ import { formatBadgeCount } from '@/shared/lib';
 
 import type { LobbyButtonProps } from './LobbyButton.types';
 
+import { SidebarItem } from '../SidebarItem/SidebarItem';
+
 import s from './LobbyButton.module.scss';
 
-export const LobbyButton = ({ side = 'right', onNavigate }: LobbyButtonProps) => {
+export const LobbyButton = ({ variant, onNavigate }: LobbyButtonProps) => {
   const t = useTranslations('appSidebar');
   const navigate = useNavigate();
   const pathname = useLocation({ select: (location) => location.pathname });
@@ -22,25 +24,26 @@ export const LobbyButton = ({ side = 'right', onNavigate }: LobbyButtonProps) =>
 
   const isLobby = pathname === ROUTES.lobby;
   const badgeCount = dmUnread + (requests?.length ?? 0);
+  const title = variant === 'menu' ? t('home') : t('lobby');
 
   return (
-    <Tooltip>
-      <span className={s.root}>
-        <Button
-          aria-current={isLobby ? 'page' : undefined}
-          aria-label={t('lobby')}
-          size='icon'
-          variant='ghost'
-          onClick={() => {
-            navigate({ to: ROUTES.lobby });
-            onNavigate?.();
-          }}
-        >
-          <Users />
-        </Button>
-        {badgeCount > 0 && <span className={s.badge}>{formatBadgeCount(badgeCount)}</span>}
-      </span>
-      <TooltipContent side={side}>{t('lobby')}</TooltipContent>
-    </Tooltip>
+    <SidebarItem
+      badge={
+        badgeCount > 0 && (
+          <span className={clsx(s.badge, variant === 'rail' && s.badgeFloating)}>
+            {formatBadgeCount(badgeCount)}
+          </span>
+        )
+      }
+      aria-current={isLobby ? 'page' : undefined}
+      icon={<Users />}
+      label={title}
+      title={title}
+      variant={variant}
+      onClick={() => {
+        navigate({ to: ROUTES.lobby });
+        onNavigate?.();
+      }}
+    />
   );
 };

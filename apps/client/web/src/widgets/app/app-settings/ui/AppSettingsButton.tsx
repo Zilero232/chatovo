@@ -56,7 +56,7 @@ export const AppSettingsButton = () => {
       </Tooltip>
 
       <Dialog open={isOpen} onOpenChange={toggleOpen}>
-        <DialogContent className={s.content}>
+        <DialogContent className={s.content} popupClassName={s.popup}>
           <DialogHeader>
             <DialogTitle>{t('title')}</DialogTitle>
             <DialogDescription>{t('description')}</DialogDescription>

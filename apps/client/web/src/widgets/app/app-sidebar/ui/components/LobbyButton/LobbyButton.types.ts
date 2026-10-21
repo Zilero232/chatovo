@@ -1,7 +1,6 @@
-import type { TooltipContent } from '@chatovo/ui-kit';
-import type { ComponentProps } from 'react';
+import type { AppSidebarVariant } from '../../AppSidebar.types';
 
 export type LobbyButtonProps = {
-  side?: ComponentProps<typeof TooltipContent>['side'];
+  variant: AppSidebarVariant;
   onNavigate?: () => void;
 };

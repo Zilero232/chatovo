@@ -20,7 +20,7 @@ const { AdminMenuButton } = await import('../AdminMenuButton');
 const renderMenu = () =>
   render(
     <IntlProvider locale='en' messages={messages} timeZone='UTC'>
-      <AdminMenuButton />
+      <AdminMenuButton variant='rail' />
     </IntlProvider>
   );
 

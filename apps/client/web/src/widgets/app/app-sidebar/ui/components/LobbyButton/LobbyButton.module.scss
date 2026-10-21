@@ -1,14 +1,6 @@
 @use '@chatovo/ui-kit/styles/mixins' as *;
 
-.root {
-  position: relative;
-  display: inline-flex;
-}
-
 .badge {
-  position: absolute;
-  top: -0.125rem;
-  right: -0.125rem;
   display: flex;
   min-width: 1rem;
   min-height: 1rem;
@@ -22,4 +14,10 @@
   line-height: 1;
   padding-inline: 0.25rem;
   pointer-events: none;
+}
+
+.badgeFloating {
+  position: absolute;
+  top: -0.125rem;
+  right: -0.125rem;
 }

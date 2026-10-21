@@ -9,8 +9,6 @@ import { useTranslations } from 'use-intl';
 
 import { groupRooms, RoomsListError, useRooms, useRoomsPresence } from '@/entities/room/room';
 
-import type { ChannelsListProps } from './ChannelsList.types';
-
 import { ChannelsCreateCta } from '../ChannelsCreateCta/ChannelsCreateCta';
 import { ChannelsRoomItem } from '../ChannelsRoomItem/ChannelsRoomItem';
 
@@ -30,7 +28,7 @@ const ChannelsListSkeleton = () => (
   </div>
 );
 
-export const ChannelsList = ({ onNavigate }: ChannelsListProps = {}) => {
+export const ChannelsList = () => {
   const t = useTranslations('channels');
   const tSections = useTranslations('room.sections');
 
@@ -79,7 +77,7 @@ export const ChannelsList = ({ onNavigate }: ChannelsListProps = {}) => {
                       className={s.itemAnim}
                       style={{ animationDelay: `${Math.min(roomIndex, 10) * 30}ms` }}
                     >
-                      <ChannelsRoomItem room={room} onNavigate={onNavigate} />
+                      <ChannelsRoomItem room={room} />
                     </div>
                   ))}
                 </div>

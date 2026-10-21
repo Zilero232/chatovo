@@ -4,7 +4,7 @@
 |---|---|---|
 | Slices | kebab-case | `voice-room`, `channels-panel` |
 | Segments | kebab-case | `ui`, `model`, `lib`, `api`, `config` |
-| Component folder | PascalCase | `VoiceRoom/`, `ChannelsFooter/` |
+| Component folder | PascalCase | `VoiceRoom/`, `UserBar/` |
 | Component file | PascalCase + `.tsx` | `VoiceRoom.tsx` |
 | Types file | `<Name>.types.ts` | `VoiceRoom.types.ts` |
 | Styles file | `<Name>.module.scss` | `Button.module.scss` |

@@ -9,6 +9,7 @@
   },
   "appSidebar": {
     "lobby": "Znajomi",
+    "home": "Strona główna",
     "downloadApp": "Pobierz aplikację",
     "downloadAppLabel": "Pobierz aplikację",
     "checkUpdate": "Sprawdź aktualizacje",
@@ -19,7 +20,7 @@
     "hideChannels": "Ukryj kanały",
     "toggleChannels": "Przełącz kanały",
     "menu": "Menu",
-    "menuDescription": "Nawigacja i lista pokoi",
+    "menuDescription": "Nawigacja i konto",
     "openMenu": "Otwórz menu",
     "closeMenu": "Zamknij menu"
   },

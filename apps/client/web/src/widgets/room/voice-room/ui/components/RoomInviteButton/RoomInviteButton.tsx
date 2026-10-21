@@ -4,8 +4,6 @@ import { Check, Link2 } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useTranslations } from 'use-intl';
 
-import type { RoomInviteButtonProps } from './RoomInviteButton.types';
-
 import { useCopyInviteLink, useCurrentRoomId } from '../../../model/hooks';
 import {
   INVITE_ICON_ANIMATE,
@@ -16,7 +14,7 @@ import {
 
 import s from './RoomInviteButton.module.scss';
 
-export const RoomInviteButton = ({ size = 'lg' }: RoomInviteButtonProps) => {
+export const RoomInviteButton = () => {
   const t = useTranslations('room.invite');
   const roomId = useCurrentRoomId();
   const { canCopy, copied, copyInviteLink } = useCopyInviteLink(roomId);
@@ -25,9 +23,9 @@ export const RoomInviteButton = ({ size = 'lg' }: RoomInviteButtonProps) => {
     <Tooltip>
       <Button
         aria-label={copied ? t('linkCopied') : t('copyLink')}
-        className={clsx(s.button, size === 'lg' && s.buttonLg, copied && s.buttonCopied)}
+        className={clsx(s.button, copied && s.buttonCopied)}
         disabled={!canCopy}
-        size={size === 'sm' ? 'icon-sm' : 'icon-lg'}
+        size='icon-lg'
         type='button'
         variant='ghost'
         onClick={copyInviteLink}

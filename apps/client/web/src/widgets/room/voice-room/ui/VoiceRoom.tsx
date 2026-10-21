@@ -46,7 +46,7 @@ export const VoiceRoom = ({
         <LiveKitRoom
           connect
           audio={audioCapture}
-          className={clsx(s.room, isMinimized && s.roomMinimized)}
+          className={clsx(s.room, isMinimized ? s.roomMinimized : isChatOpen && s.roomChatOpen)}
           options={{ webAudioMix: true, publishDefaults }}
           serverUrl={serverUrl}
           token={token}
@@ -58,7 +58,7 @@ export const VoiceRoom = ({
             <DeafenProvider>
               <RoomMusicScope roomId={roomId}>
                 <ReactionsProvider roomId={roomId}>
-                  {!isMinimized && <RoomHeader isDm={isDm} name={roomName} />}
+                  {!isMinimized && <RoomHeader name={roomName} />}
 
                   <RoomMusicLayer isMinimized={isMinimized} />
 

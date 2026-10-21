@@ -207,6 +207,26 @@
       "minor": "Atualização regular"
     },
     "entries": {
+      "chatBesideRoom": {
+        "title": "Chat ao lado da sala",
+        "description": "Em uma tela larga a sala abre espaço para o chat, e todos os participantes e botões continuam à vista."
+      },
+      "tidierMenu": {
+        "title": "Um menu mais limpo no celular",
+        "description": "O menu traz a navegação e o seu perfil, e as salas ficam na aba Salas do lobby."
+      },
+      "inviteTile": {
+        "title": "Um cartão de convite quando você está sozinho",
+        "description": "Um cartão ao lado do seu copia o link da sala com um toque."
+      },
+      "languageSelect": {
+        "title": "Um seletor de idioma compacto",
+        "description": "O idioma é escolhido em uma lista em Configurações → Geral."
+      },
+      "fullScreenSettings": {
+        "title": "Configurações do tamanho do celular",
+        "description": "No celular as configurações abrem em tela cheia, e as fileiras longas de abas mostram que dá para rolar."
+      },
       "nineLanguages": {
         "title": "Nove idiomas",
         "description": "O Chatovo fala inglês, russo, ucraniano, espanhol, português, alemão, francês, turco e polonês. Ele usa o idioma do sistema, e dá para trocar nas Configurações."
@@ -721,6 +741,8 @@
       }
     },
     "highlights": {
+      "chatBesideRoom": "Chat ao lado da sala",
+      "tidierMenu": "Um menu mais limpo no celular",
       "nineLanguages": "Nove idiomas",
       "roomModeration": "Moderação de salas",
       "googlePlay": "Agora no Google Play",

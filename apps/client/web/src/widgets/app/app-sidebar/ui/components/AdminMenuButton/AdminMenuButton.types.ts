@@ -1,4 +1,6 @@
+import type { AppSidebarVariant } from '../../AppSidebar.types';
+
 export type AdminMenuButtonProps = {
-  side?: 'right' | 'top';
+  variant: AppSidebarVariant;
   onNavigate?: () => void;
 };

@@ -200,6 +200,26 @@
   }
 }
 
+/// Fades whichever edge of a horizontal scroller hides content, following the scroll
+/// position; nothing fades while it all fits. Needs `styles/keyframes` in the same module.
+@mixin scroll-fade-x($size: rem(24)) {
+  @supports (animation-timeline: scroll()) {
+    --scroll-fade-size: #{$size};
+
+    animation-fill-mode: both;
+    animation-name: scroll-fade-x;
+    animation-timeline: scroll(self inline);
+    animation-timing-function: linear;
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 var(--scroll-fade-start),
+      #000 calc(100% - var(--scroll-fade-end)),
+      transparent
+    );
+  }
+}
+
 /// Enlarges the hit area of a small control via a transparent `::after`,
 /// leaving its visual size untouched. Sets `position: relative` on the target.
 @mixin tap-target($size: rem(44)) {

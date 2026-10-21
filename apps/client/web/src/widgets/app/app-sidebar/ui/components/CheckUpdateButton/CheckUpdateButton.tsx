@@ -1,22 +1,25 @@
-import { IconButtonWithTooltip } from '@chatovo/ui-kit';
 import { RefreshCw } from 'lucide-react';
 import { useTranslations } from 'use-intl';
 
+import type { CheckUpdateButtonProps } from './CheckUpdateButton.types';
+
 import { useUpdateCheckState } from '../../../model/hooks';
+import { SidebarItem } from '../SidebarItem/SidebarItem';
 
 import s from './CheckUpdateButton.module.scss';
 
-export const CheckUpdateButton = () => {
+export const CheckUpdateButton = ({ variant }: CheckUpdateButtonProps) => {
   const t = useTranslations('appSidebar');
 
   const { isChecking, requestCheck } = useUpdateCheckState();
 
   return (
-    <IconButtonWithTooltip
+    <SidebarItem
       disabled={isChecking}
       icon={<RefreshCw className={isChecking ? s.spinning : undefined} />}
       label={t('checkUpdateLabel')}
-      tooltip={t('checkUpdate')}
+      title={t('checkUpdate')}
+      variant={variant}
       onClick={requestCheck}
     />
   );

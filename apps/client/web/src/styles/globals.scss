@@ -7,6 +7,7 @@
   --font-sans: 'Manrope Variable';
   --font-serif: 'Lora Variable';
   --font-mono: 'JetBrains Mono Variable';
+  --room-chat-width: clamp(28rem, 40vw, 46rem);
 }
 
 html.tauri-desktop {

@@ -23,13 +23,14 @@ export const useParticipantsView = () => {
     (entry) => entry.invisible && !liveIdentities.has(entry.identity)
   );
   const tileCount = participants.length + invisibleParticipants.length;
+  const isAlone = tileCount <= 1;
 
   return {
     participants,
     presenceByIdentity,
     invisibleParticipants,
-    isAlone: tileCount <= 1,
-    gridStyle: getStageGridStyle(tileCount),
+    isAlone,
+    gridStyle: getStageGridStyle(isAlone ? 2 : tileCount),
     isSelfInvisible: isAdmin && settings.system.invisibleMode,
     localParticipant: participants.find((entry) => entry.isLocal),
     peerParticipant: participants.find((entry) => !entry.isLocal)

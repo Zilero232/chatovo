@@ -33,7 +33,7 @@ export const LobbySections = () => {
       </TabsList>
 
       <TabsContent className={s.panel} value='rooms'>
-        <ChannelsPanel variant='drawer' />
+        <ChannelsPanel variant='embedded' />
       </TabsContent>
 
       <TabsContent className={s.panel} value='friends'>

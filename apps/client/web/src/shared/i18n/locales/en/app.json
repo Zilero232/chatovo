@@ -9,6 +9,7 @@
   },
   "appSidebar": {
     "lobby": "Friends",
+    "home": "Home",
     "downloadApp": "Download app",
     "downloadAppLabel": "Download app",
     "checkUpdate": "Check for updates",
@@ -19,7 +20,7 @@
     "hideChannels": "Hide channels",
     "toggleChannels": "Toggle channels",
     "menu": "Menu",
-    "menuDescription": "Navigation and room list",
+    "menuDescription": "Navigation and account",
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
   },
