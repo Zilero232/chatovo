@@ -3,9 +3,9 @@ import { Link } from '@tanstack/react-router';
 import { clsx } from 'clsx';
 import { ArrowLeft } from 'lucide-react';
 
+import { LocaleSelect } from '@/entities/app/locale';
 import { SITE } from '@/shared/config';
 import { ROUTES } from '@/shared/constants';
-import { LanguageSwitcher } from '@/widgets/app/language-switcher';
 
 import type { StandaloneShellProps } from './StandaloneShell.types';
 
@@ -29,7 +29,7 @@ export const StandaloneShell = ({ children, backHref, backLabel }: StandaloneShe
           </Link>
         )}
 
-        <LanguageSwitcher />
+        <LocaleSelect />
       </div>
     </header>
 

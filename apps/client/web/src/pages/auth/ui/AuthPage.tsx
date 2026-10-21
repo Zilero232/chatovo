@@ -2,8 +2,8 @@ import { clsx } from 'clsx';
 import { motion } from 'motion/react';
 import { useState } from 'react';
 
+import { LocaleSelect } from '@/entities/app/locale';
 import { useEnterMotion } from '@/shared/hooks';
-import { LanguageSwitcher } from '@/widgets/app/language-switcher';
 
 import type { AuthMode } from '../model/types';
 
@@ -19,7 +19,7 @@ export const AuthPage = () => {
   return (
     <div className={clsx(s.root, 'inset-page-x', 'inset-page-y')}>
       <header className={s.topBar}>
-        <LanguageSwitcher />
+        <LocaleSelect />
       </header>
 
       <div className={s.shell}>

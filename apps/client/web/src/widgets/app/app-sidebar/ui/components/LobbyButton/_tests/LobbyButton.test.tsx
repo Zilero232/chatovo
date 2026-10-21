@@ -41,7 +41,7 @@ const renderButton = (onNavigate?: () => void) => {
     </QueryClientProvider>
   );
 
-  return render(<LobbyButton onNavigate={onNavigate} />, { wrapper: Wrapper });
+  return render(<LobbyButton variant='rail' onNavigate={onNavigate} />, { wrapper: Wrapper });
 };
 
 describe('LobbyButton', () => {

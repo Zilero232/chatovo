@@ -23,6 +23,19 @@ export type ChangelogRelease = {
 
 export const CHANGELOG_RELEASES: ChangelogRelease[] = [
   {
+    version: '1.10.1',
+    date: '2026-10-21',
+    tone: 'minor',
+    highlights: ['chatBesideRoom', 'tidierMenu'],
+    entries: [
+      { kind: 'improvement', key: 'chatBesideRoom' },
+      { kind: 'improvement', key: 'tidierMenu' },
+      { kind: 'improvement', key: 'inviteTile' },
+      { kind: 'improvement', key: 'languageSelect' },
+      { kind: 'fix', key: 'fullScreenSettings' }
+    ]
+  },
+  {
     version: '1.10.0',
     date: '2026-10-21',
     tone: 'major',

@@ -1,4 +1,11 @@
 @use '@chatovo/ui-kit/styles/mixins' as *;
+@use '@chatovo/ui-kit/styles/keyframes';
+
+.popup {
+  @include bp(sm, down) {
+    padding: 0;
+  }
+}
 
 .content {
   display: flex;
@@ -13,6 +20,18 @@
   @include bp(sm) {
     max-width: 48rem;
     padding: 1.5rem;
+  }
+
+  @include bp(sm, down) {
+    &.content {
+      height: 100%;
+      max-height: none;
+      padding-top: calc(1rem + var(--safe-area-top));
+      padding-bottom: calc(1rem + var(--safe-area-bottom));
+      border: 0;
+      border-radius: 0;
+      background: var(--shell-surface);
+    }
   }
 }
 
@@ -58,6 +77,10 @@
   overflow-x: auto;
 
   @include hide-scrollbar;
+
+  @include bp(sm, down) {
+    @include scroll-fade-x;
+  }
 
   @include bp(sm) {
     height: auto;
@@ -311,36 +334,6 @@
 
   &:has([data-checked]) {
     color: var(--foreground);
-  }
-}
-
-.languageList {
-  display: flex;
-  flex-direction: column;
-  margin-top: 0.75rem;
-  gap: 0.25rem;
-}
-
-.languageOption {
-  display: flex;
-  align-items: center;
-  padding: 0.625rem 0.75rem;
-  border: 1px solid transparent;
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  font-size: 0.875rem;
-  gap: 0.75rem;
-  transition:
-    background-color var(--duration-fast) var(--timing-function-standard),
-    border-color var(--duration-fast) var(--timing-function-standard);
-
-  &:hover {
-    background: var(--surface-1);
-  }
-
-  &:has([data-checked]) {
-    border-color: rgb(var(--tint) / 16%);
-    background: rgb(var(--tint) / 8%);
   }
 }
 

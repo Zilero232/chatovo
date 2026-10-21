@@ -207,6 +207,26 @@
       "minor": "Normal sürüm"
     },
     "entries": {
+      "chatBesideRoom": {
+        "title": "Odanın yanında sohbet",
+        "description": "Geniş ekranda oda sohbete yer açar, böylece tüm katılımcılar ve düğmeler görünür kalır."
+      },
+      "tidierMenu": {
+        "title": "Telefonda daha düzenli menü",
+        "description": "Menüde gezinme ve profilin var, odalar ise lobideki Odalar sekmesinde."
+      },
+      "inviteTile": {
+        "title": "Yalnızken bir davet kartı",
+        "description": "Kartının yanındaki kart oda bağlantısını tek dokunuşla kopyalar."
+      },
+      "languageSelect": {
+        "title": "Kompakt dil seçici",
+        "description": "Dil, Ayarlar → Genel’deki listeden seçilir."
+      },
+      "fullScreenSettings": {
+        "title": "Telefona uyan ayarlar",
+        "description": "Telefonda ayarlar tam ekran açılır, uzun sekme sıraları da kaydırılabildiğini gösterir."
+      },
       "nineLanguages": {
         "title": "Dokuz dil",
         "description": "Chatovo artık İngilizce, Rusça, Ukraynaca, İspanyolca, Portekizce, Almanca, Fransızca, Türkçe ve Lehçe konuşuyor. Dil sistemden alınır ve Ayarlar’dan değiştirilebilir."
@@ -721,6 +741,8 @@
       }
     },
     "highlights": {
+      "chatBesideRoom": "Odanın yanında sohbet",
+      "tidierMenu": "Telefonda daha düzenli menü",
       "nineLanguages": "Dokuz dil",
       "roomModeration": "Oda moderasyonu",
       "googlePlay": "Google Play'e taşındı",

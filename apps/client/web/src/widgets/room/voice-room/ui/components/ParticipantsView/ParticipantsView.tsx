@@ -1,5 +1,3 @@
-import { clsx } from 'clsx';
-
 import type { ParticipantsViewProps } from './ParticipantsView.types';
 
 import { useParticipantsView } from '../../../model/hooks';
@@ -35,7 +33,7 @@ export const ParticipantsView = ({ isDm = false }: ParticipantsViewProps) => {
 
   return (
     <div className={s.root}>
-      <div className={clsx(s.grid, isAlone && s.gridSolo)} style={gridStyle}>
+      <div className={s.grid} style={gridStyle}>
         {participants.map((participant) => (
           <ParticipantCard
             key={participant.identity}
@@ -49,9 +47,9 @@ export const ParticipantsView = ({ isDm = false }: ParticipantsViewProps) => {
         {invisibleParticipants.map((participant) => (
           <InvisibleParticipantCard key={participant.identity} participant={participant} />
         ))}
-      </div>
 
-      {isAlone && <AloneInvite />}
+        {isAlone && <AloneInvite />}
+      </div>
     </div>
   );
 };

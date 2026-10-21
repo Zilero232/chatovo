@@ -34,18 +34,11 @@
   justify-content: center;
   gap: var(--gap);
   grid-template-columns: repeat(var(--c), var(--tile));
-  margin-block: auto;
 
   @container stage (min-width: 40rem) {
     --c: var(--cols);
     --r: var(--rows);
   }
-}
-
-.gridSolo {
-  --tile: min(100cqw, 36rem, max((100cqh - 8rem) * 16 / 9, 11rem));
-
-  margin-bottom: 0;
 }
 
 .rootDm {

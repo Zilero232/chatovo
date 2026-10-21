@@ -1,23 +1,20 @@
 @use '@chatovo/ui-kit/styles/breakpoints' as *;
 
-.button {
+.button[data-size] {
+  width: 2.25rem;
+  height: 2.25rem;
   flex-shrink: 0;
+
+  @include bp(sm) {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
 }
 
 .iconSlot {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-}
-
-.buttonLg[data-size] {
-  width: 2.25rem;
-  height: 2.25rem;
-
-  @include bp(sm) {
-    width: 2.75rem;
-    height: 2.75rem;
-  }
 }
 
 .buttonCopied {

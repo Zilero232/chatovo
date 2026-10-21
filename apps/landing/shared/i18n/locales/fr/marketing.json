@@ -207,6 +207,26 @@
       "minor": "Version régulière"
     },
     "entries": {
+      "chatBesideRoom": {
+        "title": "Le chat à côté du salon",
+        "description": "Sur un grand écran, le salon fait de la place au chat et tous les participants et boutons restent visibles."
+      },
+      "tidierMenu": {
+        "title": "Un menu plus clair sur téléphone",
+        "description": "Le menu regroupe la navigation et ton profil, et les salons sont dans l’onglet Salons du lobby."
+      },
+      "inviteTile": {
+        "title": "Une carte d’invitation quand tu es seul",
+        "description": "Une carte à côté de la tienne copie le lien du salon en un geste."
+      },
+      "languageSelect": {
+        "title": "Un choix de langue compact",
+        "description": "La langue se choisit dans une liste dans Réglages → Général."
+      },
+      "fullScreenSettings": {
+        "title": "Des réglages à la taille du téléphone",
+        "description": "Sur téléphone, les réglages s’ouvrent en plein écran et les longues rangées d’onglets montrent qu’elles défilent."
+      },
       "nineLanguages": {
         "title": "Neuf langues",
         "description": "Chatovo parle anglais, russe, ukrainien, espagnol, portugais, allemand, français, turc et polonais. La langue suit celle du système et se change dans les Réglages."
@@ -721,6 +741,8 @@
       }
     },
     "highlights": {
+      "chatBesideRoom": "Le chat à côté du salon",
+      "tidierMenu": "Un menu plus clair sur téléphone",
       "nineLanguages": "Neuf langues",
       "roomModeration": "Modération des salons",
       "googlePlay": "Passage à Google Play",

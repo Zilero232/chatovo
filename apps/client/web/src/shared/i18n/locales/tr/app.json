@@ -9,6 +9,7 @@
   },
   "appSidebar": {
     "lobby": "Arkadaşlar",
+    "home": "Ana sayfa",
     "downloadApp": "Uygulamayı indir",
     "downloadAppLabel": "Uygulamayı indir",
     "checkUpdate": "Güncellemeleri denetle",
@@ -19,7 +20,7 @@
     "hideChannels": "Kanalları gizle",
     "toggleChannels": "Kanalları aç/kapat",
     "menu": "Menü",
-    "menuDescription": "Gezinme ve oda listesi",
+    "menuDescription": "Gezinme ve hesap",
     "openMenu": "Menüyü aç",
     "closeMenu": "Menüyü kapat"
   },

@@ -9,6 +9,7 @@
   },
   "appSidebar": {
     "lobby": "Amigos",
+    "home": "Início",
     "downloadApp": "Baixar o app",
     "downloadAppLabel": "Baixar o app",
     "checkUpdate": "Buscar atualizações",
@@ -19,7 +20,7 @@
     "hideChannels": "Ocultar canais",
     "toggleChannels": "Alternar canais",
     "menu": "Menu",
-    "menuDescription": "Navegação e lista de salas",
+    "menuDescription": "Navegação e conta",
     "openMenu": "Abrir menu",
     "closeMenu": "Fechar menu"
   },

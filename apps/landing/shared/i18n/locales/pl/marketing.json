@@ -207,6 +207,26 @@
       "minor": "Zwykłe wydanie"
     },
     "entries": {
+      "chatBesideRoom": {
+        "title": "Czat obok pokoju",
+        "description": "Na szerokim ekranie pokój robi miejsce dla czatu, więc wszyscy uczestnicy i przyciski zostają na widoku."
+      },
+      "tidierMenu": {
+        "title": "Porządniejsze menu na telefonie",
+        "description": "W menu jest nawigacja i twój profil, a pokoje są na karcie Pokoje w lobby."
+      },
+      "inviteTile": {
+        "title": "Karta zaproszenia, gdy jesteś sam",
+        "description": "Karta obok twojej kopiuje link do pokoju jednym dotknięciem."
+      },
+      "languageSelect": {
+        "title": "Kompaktowy wybór języka",
+        "description": "Język wybierasz z listy w Ustawieniach → Ogólne."
+      },
+      "fullScreenSettings": {
+        "title": "Ustawienia na miarę telefonu",
+        "description": "Na telefonie ustawienia otwierają się na pełnym ekranie, a długie rzędy kart pokazują, że można je przewijać."
+      },
       "nineLanguages": {
         "title": "Dziewięć języków",
         "description": "Chatovo mówi po angielsku, rosyjsku, ukraińsku, hiszpańsku, portugalsku, niemiecku, francusku, turecku i polsku. Język pochodzi z systemu, a zmienić go można w Ustawieniach."
@@ -721,6 +741,8 @@
       }
     },
     "highlights": {
+      "chatBesideRoom": "Czat obok pokoju",
+      "tidierMenu": "Porządniejsze menu na telefonie",
       "nineLanguages": "Dziewięć języków",
       "roomModeration": "Moderacja pokojów",
       "googlePlay": "Przejście do Google Play",

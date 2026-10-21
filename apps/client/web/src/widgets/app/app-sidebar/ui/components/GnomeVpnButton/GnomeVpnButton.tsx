@@ -1,28 +1,27 @@
-import { Button, Tooltip, TooltipContent } from '@chatovo/ui-kit';
 import { ShieldCheck } from 'lucide-react';
 import { useTranslations } from 'use-intl';
 
 import { EXTERNAL_LINKS } from '@/shared/constants';
 
+import type { GnomeVpnButtonProps } from './GnomeVpnButton.types';
+
+import { SidebarItem } from '../SidebarItem/SidebarItem';
+
 import s from './GnomeVpnButton.module.scss';
 
-export const GnomeVpnButton = () => {
+export const GnomeVpnButton = ({ variant }: GnomeVpnButtonProps) => {
   const t = useTranslations('appSidebar');
 
   return (
-    <Tooltip>
-      <Button
-        aria-label={t('gnomeVpnLabel')}
-        className={s.root}
-        href={EXTERNAL_LINKS.gnomeVpn}
-        rel='noopener noreferrer'
-        size='icon'
-        target='_blank'
-        variant='ghost'
-      >
-        <ShieldCheck />
-      </Button>
-      <TooltipContent side='right'>{t('gnomeVpn')}</TooltipContent>
-    </Tooltip>
+    <SidebarItem
+      className={s.root}
+      href={EXTERNAL_LINKS.gnomeVpn}
+      icon={<ShieldCheck />}
+      label={t('gnomeVpnLabel')}
+      rel='noopener noreferrer'
+      target='_blank'
+      title={t('gnomeVpn')}
+      variant={variant}
+    />
   );
 };

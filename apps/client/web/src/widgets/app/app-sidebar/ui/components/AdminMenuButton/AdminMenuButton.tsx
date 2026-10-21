@@ -18,7 +18,7 @@ import type { AdminMenuButtonProps } from './AdminMenuButton.types';
 
 import s from './AdminMenuButton.module.scss';
 
-export const AdminMenuButton = ({ side = 'right', onNavigate }: AdminMenuButtonProps) => {
+export const AdminMenuButton = ({ variant, onNavigate }: AdminMenuButtonProps) => {
   const navigate = useNavigate();
   const pathname = useLocation({ select: (location) => location.pathname });
 
@@ -32,23 +32,30 @@ export const AdminMenuButton = ({ side = 'right', onNavigate }: AdminMenuButtonP
 
   const isInAdmin = pathname.startsWith(ROUTES.admin);
   const isInvisible = settings.system.invisibleMode;
+  const isMenu = variant === 'menu';
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
         className={clsx(s.trigger, {
+          [s.triggerMenu]: isMenu,
           [s.triggerActive]: isInAdmin,
           [s.triggerInvisible]: isInvisible
         })}
         aria-current={isInAdmin ? 'page' : undefined}
         aria-label={t('menuLabel')}
-        size='icon'
+        size={isMenu ? 'default' : 'icon'}
         variant='ghost'
       >
         <Wrench />
+        {isMenu && <span className={s.triggerTitle}>{t('menuLabel')}</span>}
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent align={side === 'top' ? 'start' : 'end'} className={s.menu} side={side}>
+      <DropdownMenuContent
+        align={isMenu ? 'start' : 'end'}
+        className={s.menu}
+        side={isMenu ? 'bottom' : 'right'}
+      >
         {!isInAdmin && (
           <DropdownMenuItem
             onSelect={() => {

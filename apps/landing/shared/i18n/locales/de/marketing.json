@@ -207,6 +207,26 @@
       "minor": "Reguläres Release"
     },
     "entries": {
+      "chatBesideRoom": {
+        "title": "Chat neben dem Raum",
+        "description": "Auf einem breiten Bildschirm macht der Raum dem Chat Platz, sodass alle Teilnehmenden und Knöpfe sichtbar bleiben."
+      },
+      "tidierMenu": {
+        "title": "Ein aufgeräumtes Menü auf dem Handy",
+        "description": "Das Menü enthält die Navigation und dein Profil, die Räume liegen im Tab „Räume“ der Lobby."
+      },
+      "inviteTile": {
+        "title": "Eine Einladungskarte, wenn du allein bist",
+        "description": "Eine Karte neben deiner kopiert den Raumlink mit einem Tippen."
+      },
+      "languageSelect": {
+        "title": "Eine kompakte Sprachauswahl",
+        "description": "Die Sprache wählst du aus einer Liste unter Einstellungen → Allgemein."
+      },
+      "fullScreenSettings": {
+        "title": "Einstellungen passend fürs Handy",
+        "description": "Auf dem Handy öffnen sich die Einstellungen im Vollbild, und lange Tab-Reihen zeigen, dass sie sich scrollen lassen."
+      },
       "nineLanguages": {
         "title": "Neun Sprachen",
         "description": "Chatovo spricht Englisch, Russisch, Ukrainisch, Spanisch, Portugiesisch, Deutsch, Französisch, Türkisch und Polnisch. Die Sprache kommt vom System und lässt sich in den Einstellungen ändern."
@@ -721,6 +741,8 @@
       }
     },
     "highlights": {
+      "chatBesideRoom": "Chat neben dem Raum",
+      "tidierMenu": "Ein aufgeräumtes Menü auf dem Handy",
       "nineLanguages": "Neun Sprachen",
       "roomModeration": "Raum-Moderation",
       "googlePlay": "Umzug zu Google Play",

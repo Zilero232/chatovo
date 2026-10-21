@@ -36,6 +36,13 @@
   display: flex;
   height: 100%;
   flex-direction: column;
+  transition: padding-right var(--duration-slow) var(--timing-function-out);
+}
+
+.roomChatOpen {
+  @include bp(xl) {
+    padding-right: var(--room-chat-width);
+  }
 }
 
 .body {

@@ -11,7 +11,7 @@ import { useTranslations } from 'use-intl';
 
 import { SecretClickArea } from '@/features/app/secret-games';
 import { AppSidebar } from '@/widgets/app/app-sidebar';
-import { ChannelsPanel } from '@/widgets/room/channels-panel';
+import { UserBar } from '@/widgets/app/user-bar';
 
 import type { MobileNavProps } from './MobileNav.types';
 
@@ -49,31 +49,25 @@ export const MobileNav = ({ open, onOpenChange }: MobileNavProps) => {
             <SheetTitle className={s.sheetTitleSr}>{t('menu')}</SheetTitle>
             <SheetDescription className={s.sheetTitleSr}>{t('menuDescription')}</SheetDescription>
 
-            <div className={s.sheetBody}>
-              <div className={s.sheetRail}>
-                <Button
-                  aria-label={t('closeMenu')}
-                  className={s.sheetClose}
-                  size='icon'
-                  type='button'
-                  variant='ghost'
-                  onClick={close}
-                >
-                  <X />
-                </Button>
+            <header className={s.sheetHeader}>
+              <BrandMark size={24} />
+              <span className={s.sheetBrand}>Chatovo</span>
+              <Button
+                aria-label={t('closeMenu')}
+                size='icon'
+                type='button'
+                variant='ghost'
+                onClick={close}
+              >
+                <X />
+              </Button>
+            </header>
 
-                <AppSidebar
-                  channelsOpened={false}
-                  showToggleChannels={false}
-                  onNavigate={close}
-                  onToggleChannels={() => undefined}
-                />
-              </div>
+            <nav className={s.sheetNav}>
+              <AppSidebar variant='menu' onNavigate={close} />
+            </nav>
 
-              <div className={s.sheetChannels}>
-                <ChannelsPanel variant='drawer' onNavigate={close} />
-              </div>
-            </div>
+            <UserBar />
           </SheetContent>
         </Sheet>
 

@@ -11,13 +11,12 @@ import type { RoomItemTriggerProps } from './RoomItemTrigger.types';
 
 import s from '../../ChannelsRoomItem.module.scss';
 
-export const RoomItemTrigger = ({ isActive, isOwner, room, onNavigate }: RoomItemTriggerProps) => {
+export const RoomItemTrigger = ({ isActive, isOwner, room }: RoomItemTriggerProps) => {
   const t = useTranslations('channels');
   const navigate = useNavigate();
 
   const handleClick = () => {
     navigate({ to: ROUTES.room, search: buildRoomSearch(room.id) });
-    onNavigate?.();
   };
 
   return (

@@ -4,9 +4,9 @@ import { useCurrentUser, UserAvatar, UserName } from '@/entities/auth/user';
 import { ReportProblemButton } from '@/features/app/report-problem';
 import { AppSettingsButton } from '@/widgets/app/app-settings';
 
-import s from './ChannelsFooter.module.scss';
+import s from './UserBar.module.scss';
 
-export const ChannelsFooter = () => {
+export const UserBar = () => {
   const t = useTranslations('channels');
   const { avatarUrl, developer, displayName, verified } = useCurrentUser();
 
@@ -30,7 +30,6 @@ export const ChannelsFooter = () => {
       </div>
 
       <div className={s.actions}>
-        {' '}
         <ReportProblemButton />
         <AppSettingsButton />
       </div>

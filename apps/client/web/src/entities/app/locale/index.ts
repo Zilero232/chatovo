@@ -8,3 +8,4 @@ export {
   useToastError
 } from './model/hooks';
 export { DocumentTitleSync } from './ui/controllers/DocumentTitleSync/DocumentTitleSync';
+export { LocaleSelect } from './ui/LocaleSelect/LocaleSelect';

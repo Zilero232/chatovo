@@ -7,7 +7,7 @@ import type { ChannelsRoomItemProps } from './ChannelsRoomItem.types';
 
 import { RoomItemTrigger, RoomParticipantList } from './components';
 
-export const ChannelsRoomItem = ({ room, onNavigate }: ChannelsRoomItemProps) => {
+export const ChannelsRoomItem = ({ room }: ChannelsRoomItemProps) => {
   const search = useSearch({ strict: false });
 
   const { user } = useCurrentUser();
@@ -19,7 +19,7 @@ export const ChannelsRoomItem = ({ room, onNavigate }: ChannelsRoomItemProps) =>
 
   return (
     <div>
-      <RoomItemTrigger isActive={isActive} isOwner={isOwner} room={room} onNavigate={onNavigate} />
+      <RoomItemTrigger isActive={isActive} isOwner={isOwner} room={room} />
 
       <RoomParticipantList ownerId={room.ownerId} participants={participants} />
     </div>
