@@ -11,7 +11,8 @@ import type {
   incomingFriendCallResponseSchema,
   incomingFriendCallSchema,
   outgoingFriendCallResponseSchema,
-  outgoingFriendCallSchema
+  outgoingFriendCallSchema,
+  userBlockEntrySchema
 } from './outputs';
 
 export type FriendCallStatus = z.infer<typeof friendCallStatusSchema>;
@@ -25,3 +26,4 @@ export type IncomingFriendCallResponse = z.infer<typeof incomingFriendCallRespon
 export type OutgoingFriendCall = z.infer<typeof outgoingFriendCallSchema>;
 export type OutgoingFriendCallResponse = z.infer<typeof outgoingFriendCallResponseSchema>;
 export type SendFriendRequestInput = z.infer<typeof sendFriendRequestInputSchema>;
+export type UserBlockEntry = z.infer<typeof userBlockEntrySchema>;

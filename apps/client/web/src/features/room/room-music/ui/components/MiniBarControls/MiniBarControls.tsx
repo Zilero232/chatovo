@@ -1,43 +1,37 @@
 import { IconButtonWithTooltip } from '@chatovo/ui-kit';
-import { Maximize2, Pause, Play, SkipBack, SkipForward } from 'lucide-react';
+import { Maximize2, Square } from 'lucide-react';
 import { useTranslations } from 'use-intl';
 
 import type { MiniBarControlsProps } from './MiniBarControls.types';
+
+import { MusicTransport } from '../MusicTransport/MusicTransport';
 
 import s from './MiniBarControls.module.scss';
 
 export const MiniBarControls = ({ bar }: MiniBarControlsProps) => {
   const t = useTranslations('room.music.nowPlaying');
 
-  const { isPlaying, isPending, togglePlay, previous, next, expand } = bar;
+  const { isPlaying, isPending, togglePlay, previous, next, stop, expand } = bar;
 
   return (
     <div className={s.root}>
-      <IconButtonWithTooltip
-        disabled={isPending}
-        icon={<SkipBack />}
-        label={t('previous')}
-        size='icon-sm'
+      <MusicTransport
+        className={s.transport}
+        isPending={isPending}
+        isPlaying={isPlaying}
+        size='compact'
         tooltipSide='top'
-        onClick={previous}
-      />
-      <IconButtonWithTooltip
-        className={s.play}
-        disabled={isPending}
-        icon={isPlaying ? <Pause /> : <Play />}
-        label={isPlaying ? t('pause') : t('play')}
-        size='icon-sm'
-        tooltipSide='top'
-        variant='default'
-        onClick={togglePlay}
+        onNext={next}
+        onPrevious={previous}
+        onTogglePlay={togglePlay}
       />
       <IconButtonWithTooltip
         disabled={isPending}
-        icon={<SkipForward />}
-        label={t('next')}
+        icon={<Square />}
+        label={t('stop')}
         size='icon-sm'
         tooltipSide='top'
-        onClick={next}
+        onClick={stop}
       />
       <IconButtonWithTooltip
         className={s.expand}

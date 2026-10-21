@@ -1,4 +1,6 @@
-import type { CreateRoomRequest, Room, UpdateRoomRequest } from '@chatovo/schemas';
+import type { CreateRoomRequest, Room, RoomBan, UpdateRoomRequest } from '@chatovo/schemas';
+
+import type { ModerateRoomParticipantInput, UnbanRoomUserInput } from './rooms.types';
 
 import { api } from '../http';
 
@@ -28,4 +30,22 @@ export const updateRoom = async (id: string, input: UpdateRoomRequest): Promise<
 
 export const deleteRoom = async (id: string): Promise<void> => {
   await api.delete(`/rooms/${id}`);
+};
+
+export const listRoomBans = async (roomId: string): Promise<RoomBan[]> => {
+  const { data } = await api.get(`/rooms/${roomId}/bans`);
+
+  return data;
+};
+
+export const unbanRoomUser = async ({ roomId, userId }: UnbanRoomUserInput): Promise<void> => {
+  await api.delete(`/rooms/${roomId}/bans/${userId}`);
+};
+
+export const moderateRoomParticipant = async ({
+  roomId,
+  userId,
+  action
+}: ModerateRoomParticipantInput): Promise<void> => {
+  await api.post(`/rooms/${roomId}/participants/${userId}/${action}`);
 };

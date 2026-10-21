@@ -3,10 +3,13 @@ import { match } from 'ts-pattern';
 
 import { useRealtimeMessage } from '@/entities/app/realtime';
 
+import { useBlockedUsers } from '../../../model/hooks';
 import { applyFriendPresence, applyFriendsSnapshot } from '../../../model/lib';
 
 export const FriendsRealtimeSync = () => {
   const queryClient = useQueryClient();
+
+  useBlockedUsers();
 
   useRealtimeMessage((message) => {
     match(message)

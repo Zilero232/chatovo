@@ -1,9 +1,12 @@
 import { useLocalStorage } from '@siberiacancode/reactuse';
+import { startTransition } from 'react';
 
 import type { Locale } from '@/shared/i18n';
 
 import { STORAGE_KEYS } from '@/shared/constants';
-import { DEFAULT_LOCALE, resolveLocale } from '@/shared/i18n';
+import { loadMessages, resolveLocale } from '@/shared/i18n';
+
+import { SYSTEM_LOCALE } from '../../lib';
 
 type UseLocale = {
   locale: Locale;
@@ -11,7 +14,14 @@ type UseLocale = {
 };
 
 export const useLocale = (): UseLocale => {
-  const { value, set } = useLocalStorage<Locale>(STORAGE_KEYS.locale, DEFAULT_LOCALE);
+  const { value, set } = useLocalStorage<Locale>(STORAGE_KEYS.locale, SYSTEM_LOCALE);
 
-  return { locale: resolveLocale(value), setLocale: set };
+  const setLocale = (locale: Locale) => {
+    loadMessages(locale).then(
+      () => startTransition(() => set(locale)),
+      (error: unknown) => console.error('Failed to load the language', error)
+    );
+  };
+
+  return { locale: resolveLocale(value), setLocale };
 };

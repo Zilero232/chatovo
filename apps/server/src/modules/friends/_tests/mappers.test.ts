@@ -1,6 +1,32 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
-import { normalizeFriendTag } from '../mappers';
+vi.mock('../../realtime', () => ({
+  hasUserConnection: () => true
+}));
+
+const { toFriendUser, toUserBlockEntry, normalizeFriendTag } = await import('../mappers');
+
+const USER = {
+  id: 'user-them',
+  name: 'Sam',
+  image: null,
+  verified: false,
+  role: 'user',
+  friendTag: 'sam#0001',
+  profile: null
+} as never;
+
+describe('toUserBlockEntry', () => {
+  it('never reports whether a blocked user is online, even while they are connected', () => {
+    expect(toFriendUser(USER).isOnline).toBe(true);
+    expect(
+      toUserBlockEntry({ blocked: USER, createdAt: new Date('2026-10-21T10:00:00.000Z') })
+    ).toEqual({
+      user: expect.objectContaining({ id: 'user-them', isOnline: false }),
+      blockedAt: '2026-10-21T10:00:00.000Z'
+    });
+  });
+});
 
 describe('normalizeFriendTag', () => {
   it('lowercases the tag so lookups are case-insensitive', () => {

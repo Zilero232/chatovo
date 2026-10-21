@@ -1,3 +1,5 @@
+import type { RevokeRoomGrantInput } from './livekit.types';
+
 import { ROOM_GRANT_TTL_MS } from '../../config/livekit';
 
 const grants = new Map<string, number>();
@@ -42,6 +44,10 @@ export const revokeRoomGrants = (roomId: string) => {
       grants.delete(grantKey);
     }
   }
+};
+
+export const revokeRoomGrant = ({ roomId, userId }: RevokeRoomGrantInput) => {
+  grants.delete(key(roomId, userId));
 };
 
 export const revokeUserGrants = (userId: string) => {

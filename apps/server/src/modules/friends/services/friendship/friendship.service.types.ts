@@ -33,6 +33,11 @@ export type RemoveFriendshipInput = {
   otherUserId: string;
 };
 
+export type UserBlockState = {
+  blockedByMe: boolean;
+  blockedByThem: boolean;
+};
+
 export type BroadcastFriendPresenceInput = {
   userId: string;
   isOnline: boolean;

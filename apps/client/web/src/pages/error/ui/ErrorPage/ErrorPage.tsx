@@ -1,4 +1,4 @@
-import { Button, Chato, Text } from '@chatovo/ui-kit';
+import { Button, Chato, StatusScreen } from '@chatovo/ui-kit';
 import { useNavigate } from '@tanstack/react-router';
 import { House, RotateCw } from 'lucide-react';
 import { useTranslations } from 'use-intl';
@@ -16,24 +16,24 @@ export const ErrorPage = ({ reset }: ErrorPageProps) => {
 
   return (
     <main className={s.root}>
-      <Chato className={s.chato} pose='sleep' />
+      <StatusScreen
+        actions={
+          <>
+            <Button onClick={reset}>
+              <RotateCw />
+              {t('retry')}
+            </Button>
 
-      <h1 className={s.title}>{t('title')}</h1>
-      <Text className={s.description} tone='muted'>
-        {t('description')}
-      </Text>
-
-      <div className={s.actions}>
-        <Button onClick={reset}>
-          <RotateCw />
-          {t('retry')}
-        </Button>
-
-        <Button variant='ghost' onClick={() => navigate({ to: ROUTES.lobby })}>
-          <House />
-          {t('toLobby')}
-        </Button>
-      </div>
+            <Button variant='ghost' onClick={() => navigate({ to: ROUTES.lobby })}>
+              <House />
+              {t('toLobby')}
+            </Button>
+          </>
+        }
+        description={t('description')}
+        illustration={<Chato className={s.chato} pose='sleep' />}
+        title={t('title')}
+      />
     </main>
   );
 };

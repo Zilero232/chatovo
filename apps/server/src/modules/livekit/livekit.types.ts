@@ -21,6 +21,27 @@ export type FindRoomParticipantInput = {
   identity: string;
 };
 
+export type RemoveRoomParticipantInput = {
+  roomId: string;
+  identity: string;
+};
+
+export type SetParticipantMicLockInput = {
+  roomId: string;
+  identity: string;
+  locked: boolean;
+};
+
+export type RevokeRoomGrantInput = {
+  roomId: string;
+  userId: string;
+};
+
+export type MicLockInput = {
+  roomId: string;
+  userId: string;
+};
+
 export type ParticipantPatch = Partial<Pick<RoomParticipant, 'activity' | 'deafened' | 'micMuted'>>;
 
 export type LoadAccessibleRoomInput = {

@@ -2,20 +2,26 @@ import { useParticipants } from '@livekit/components-react';
 import { RemoteParticipant, Track } from 'livekit-client';
 import { useEffect } from 'react';
 
+import { useBlockedUserIds } from '@/entities/social/friend';
 import { STORAGE_KEYS } from '@/shared/constants';
 import { readStoredJson } from '@/shared/lib';
 
 import type { MuteMap, VolumeMap } from '../../../lib';
 
-import { ROSTER_EVENTS } from '../../../config';
-import { buildVolumeStorageKey, clampVolume } from '../../../lib';
+import { DEFAULT_VOLUME, ROSTER_EVENTS } from '../../../config';
+import { buildVolumeStorageKey, resolveParticipantVolume } from '../../../lib';
 
 const VOLUME_SOURCES = [Track.Source.Microphone, Track.Source.ScreenShareAudio] as const;
 
 export const useRestoreParticipantVolumes = () => {
   const participants = useParticipants({ updateOnlyOn: ROSTER_EVENTS });
 
-  const identities = participants.map((participant) => participant.identity).join();
+  const blockedIds = useBlockedUserIds();
+
+  const roster = participants
+    .map((participant) => `${participant.identity}:${participant.sid}`)
+    .join();
+  const blockedKey = [...blockedIds].join();
 
   useEffect(() => {
     const volumes = readStoredJson<VolumeMap>(STORAGE_KEYS.participantVolumes, {});
@@ -26,21 +32,21 @@ export const useRestoreParticipantVolumes = () => {
         continue;
       }
 
+      const isBlocked = blockedIds.has(participant.identity);
+
       for (const source of VOLUME_SOURCES) {
         const key = buildVolumeStorageKey(participant.identity, source);
-        const stored = volumes[key];
 
-        if (mutes[key]) {
-          participant.setVolume(0, source);
-
-          continue;
-        }
-
-        if (stored !== undefined) {
-          participant.setVolume(clampVolume(stored), source);
-        }
+        participant.setVolume(
+          resolveParticipantVolume({
+            volume: volumes[key] ?? DEFAULT_VOLUME,
+            isMuted: mutes[key] === true,
+            isBlocked
+          }),
+          source
+        );
       }
     }
-    // eslint-disable-next-line react/exhaustive-deps -- volumes are re-applied when the roster changes; participants is a fresh array every render
-  }, [identities]);
+    // eslint-disable-next-line react/exhaustive-deps -- volumes are re-applied when the roster or the block list changes; participants and blockedIds are fresh every render
+  }, [roster, blockedKey]);
 };

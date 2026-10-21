@@ -26,6 +26,8 @@ A blocked account (`user.blockedAt`) is refused by the global `BlockedUserGuard`
 
 Blocking tears down what already exists: sessions, room grants, the live LiveKit participant and the open WebSocket.
 
+A room ban (`room_bans`) is narrower — one room — but complete inside it: `assertCanAccessRoom` (the `access` tier of `assertRoomTier`) refuses a banned user with `ROOM_BANNED`, so history, sending, edits, attachments and music are shut, `filterAccessibleRooms` keeps the room out of their realtime subscription, the LiveKit token checks `assertNotRoomBanned`, and the `participant_joined` webhook removes them if they join with an older token. Bans are read through `findBannedRoomIds`, which exempts app admins. Room metadata (`view`) stays readable. Who may ban, mute or remove — the owner of a group room or an admin — is `canModerateRoom`, asserted by `assertCanModerateRoom` ([moderation](../../ops/google-play/moderation.md#room-moderation)).
+
 ## Room visibility vs room access
 
 `assertCanViewRoom` lets a user see a private room exists (and get its password prompt); `assertCanAccessRoom` gates entering it. Reading a room must not require a LiveKit grant, or the password prompt becomes unreachable ([pitfalls](../../architecture/pitfalls.md)).

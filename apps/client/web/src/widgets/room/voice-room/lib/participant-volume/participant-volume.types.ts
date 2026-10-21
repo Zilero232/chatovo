@@ -5,3 +5,9 @@ export type VolumeSource = Track.Source.Microphone | Track.Source.ScreenShareAud
 export type VolumeMap = Record<string, number>;
 
 export type MuteMap = Record<string, true>;
+
+export type ResolveParticipantVolumeInput = {
+  isBlocked: boolean;
+  isMuted: boolean;
+  volume: number;
+};

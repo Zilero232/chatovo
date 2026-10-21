@@ -18,6 +18,7 @@ export const MiniRoomBar = ({ isDm, roomName, variant = 'docked', onExpand }: Mi
   const { mic, deafen, leave } = useRoomControls();
 
   const isConnected = connectionState === ConnectionState.Connected;
+  const micLabelKey = mic.labelKey === 'pttHint' ? 'mute' : mic.labelKey;
 
   return (
     <section
@@ -42,10 +43,11 @@ export const MiniRoomBar = ({ isDm, roomName, variant = 'docked', onExpand }: Mi
 
       <div className={s.actions}>
         <IconButtonWithTooltip
-          className={clsx(s.action, mic.isMuted && s.off)}
+          aria-disabled={mic.isLocked}
+          className={clsx(s.action, mic.isMuted && s.off, mic.isLocked && s.locked)}
           disabled={mic.isPending}
           icon={mic.isMuted ? <MicOff /> : <Mic />}
-          label={mic.isMuted ? t('controls.unmute') : t('controls.mute')}
+          label={t(`controls.${micLabelKey}`)}
           size='icon-sm'
           tooltipSide='top'
           onClick={mic.toggle}

@@ -9,7 +9,7 @@ export const useMusicMiniBar = (track: MusicTrack) => {
   const t = useTranslations('room.music');
 
   const { canControl, setBarSlot, setIsExpanded } = useRoomMusicContext();
-  const { isPlaying, isPending, togglePlay, previous, next } = usePlaybackControls();
+  const { isPlaying, isPending, togglePlay, previous, next, stop } = usePlaybackControls();
 
   return {
     subtitle: track.artist ?? t('nowPlaying.addedBy', { name: track.addedBy.name }),
@@ -21,6 +21,7 @@ export const useMusicMiniBar = (track: MusicTrack) => {
     togglePlay,
     previous,
     next,
+    stop,
     expand: () => setIsExpanded(true)
   };
 };

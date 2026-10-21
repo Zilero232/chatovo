@@ -1,1 +1,1 @@
-export { armPttStream, readMicStreamEnabled, toggleMicStream } from './toggle-mic-stream';
+export { armPttStream, toggleMicStream } from './toggle-mic-stream';

@@ -11,6 +11,11 @@ export type RealtimeConnection = {
   ws: WebSocket;
 };
 
+export type UnsubscribeUserFromRoomInput = {
+  roomId: string;
+  userId: string;
+};
+
 export type PresenceSnapshots = {
   admin: RoomsParticipantsSnapshot;
   public: RoomsParticipantsSnapshot;

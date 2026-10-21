@@ -1,10 +1,15 @@
 import type { LocalParticipant } from 'livekit-client';
 
-import { useLocalParticipant, useRoomContext } from '@livekit/components-react';
+import {
+  useLocalParticipant,
+  useLocalParticipantPermissions,
+  useRoomContext
+} from '@livekit/components-react';
 import { isNullish } from 'remeda';
 
 import { useRealtime } from '@/entities/app/realtime';
 import { useAppSettings } from '@/entities/app/settings';
+import { isMicLocked } from '@/entities/room/room';
 import { armPttStream } from '@/shared/lib';
 
 import { useDeafenContext } from '../contexts/deafen-context';
@@ -12,6 +17,7 @@ import { useDeafenContext } from '../contexts/deafen-context';
 export const useDeafen = () => {
   const room = useRoomContext();
   const { localParticipant } = useLocalParticipant();
+  const permissions = useLocalParticipantPermissions();
   const { settings } = useAppSettings();
   const { send } = useRealtime();
 
@@ -29,7 +35,7 @@ export const useDeafen = () => {
   };
 
   const disableDeafen = async (p: LocalParticipant) => {
-    if (!micBeforeDeafenRef.current) {
+    if (!micBeforeDeafenRef.current || isMicLocked(permissions)) {
       return;
     }
 

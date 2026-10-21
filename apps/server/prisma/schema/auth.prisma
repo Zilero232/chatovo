@@ -30,6 +30,12 @@ model User {
   friendshipsRequested Friendship[] @relation("FriendshipRequester")
   friendshipsReceived  Friendship[] @relation("FriendshipAddressee")
 
+  blocksIssued   UserBlock[] @relation("UserBlocker")
+  blocksReceived UserBlock[] @relation("UserBlocked")
+
+  roomBans       RoomBan[] @relation("RoomBanned")
+  roomBansIssued RoomBan[] @relation("RoomBanIssuer")
+
   abuseReportsFiled   AbuseReport[] @relation("AbuseReporter")
   abuseReportsHandled AbuseReport[] @relation("AbuseHandler")
 

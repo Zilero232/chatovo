@@ -1,5 +1,8 @@
 export { useAcceptFriendRequest } from './use-accept-friend-request';
 export { useAcceptIncomingFriendCall } from './use-accept-incoming-friend-call';
+export { useBlockUserMutation } from './use-block-user-mutation';
+export { useBlockedUserIds } from './use-blocked-user-ids';
+export { useBlockedUsers } from './use-blocked-users';
 export { useCallFriend } from './use-call-friend';
 export type { CallFriendInput } from './use-call-friend';
 export { useCancelOutgoingFriendCall } from './use-cancel-outgoing-friend-call';
@@ -11,7 +14,8 @@ export { useFriends } from './use-friends';
 export { useFriendshipRelation } from './use-friendship-relation';
 export { useIncomingFriendCall } from './use-incoming-friend-call';
 export { useIncomingFriendRequests } from './use-incoming-friend-requests';
+export { useIsUserBlocked } from './use-is-user-blocked';
 export { useOutgoingFriendCall } from './use-outgoing-friend-call';
 export { useRemoveFriendship } from './use-remove-friendship';
-
 export { useSendFriendRequest } from './use-send-friend-request';
+export { useUnblockUserMutation } from './use-unblock-user-mutation';

@@ -1,10 +1,12 @@
+import { clsx } from 'clsx';
+
 import type { ParticipantsViewProps } from './ParticipantsView.types';
 
 import { useParticipantsView } from '../../../model/hooks';
+import { AloneInvite } from '../AloneInvite/AloneInvite';
 import { InvisibleParticipantCard } from '../InvisibleParticipantCard/InvisibleParticipantCard';
 import { ParticipantCard } from '../ParticipantCard/ParticipantCard';
 import { DmStage } from './DmStage/DmStage';
-import { EmptyRoomScene } from './EmptyRoomScene';
 
 import s from './ParticipantsView.module.scss';
 
@@ -14,6 +16,8 @@ export const ParticipantsView = ({ isDm = false }: ParticipantsViewProps) => {
     presenceByIdentity,
     invisibleParticipants,
     isSelfInvisible,
+    isAlone,
+    gridStyle,
     localParticipant,
     peerParticipant
   } = useParticipantsView();
@@ -31,9 +35,7 @@ export const ParticipantsView = ({ isDm = false }: ParticipantsViewProps) => {
 
   return (
     <div className={s.root}>
-      {participants.length <= 1 && invisibleParticipants.length === 0 && <EmptyRoomScene />}
-
-      <div className={s.grid}>
+      <div className={clsx(s.grid, isAlone && s.gridSolo)} style={gridStyle}>
         {participants.map((participant) => (
           <ParticipantCard
             key={participant.identity}
@@ -48,6 +50,8 @@ export const ParticipantsView = ({ isDm = false }: ParticipantsViewProps) => {
           <InvisibleParticipantCard key={participant.identity} participant={participant} />
         ))}
       </div>
+
+      {isAlone && <AloneInvite />}
     </div>
   );
 };

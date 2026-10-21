@@ -62,6 +62,27 @@
       "declined": "{name} declined the call"
     }
   },
+  "blocks": {
+    "block": "Block",
+    "unblock": "Unblock",
+    "unblockUser": "Unblock {name}",
+    "tab": "Blocked",
+    "count": "Blocked — {count}",
+    "notice": "You blocked this user. Unblock them to send a friend request.",
+    "blockedToast": "You blocked {name}",
+    "unblockedToast": "You unblocked {name}",
+    "emptyTitle": "Nobody is blocked",
+    "emptyHint": "People you block show up here. Unblocking someone doesn't make you friends again.",
+    "hiddenMessage": "Message from a blocked user",
+    "showMessage": "Show",
+    "confirm": {
+      "title": "Block {name}?",
+      "description": "{name} won't be notified. Your friendship and any pending request between you are removed.",
+      "consequences": "Their messages in rooms collapse to a single line, their voice is muted for you, and neither of you can send a friend request until you unblock them.",
+      "confirm": "Block",
+      "cancel": "Cancel"
+    }
+  },
   "user": {
     "verified": "Verified account",
     "developer": "Developer",

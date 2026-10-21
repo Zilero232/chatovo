@@ -24,6 +24,8 @@
     "ROOM_PASSWORD_REQUIRED": "This room requires a password.",
     "ROOM_PASSWORD_INVALID": "Wrong password.",
     "ROOM_ACCESS_DENIED": "Join the room with its password to access the chat.",
+    "ROOM_BANNED": "You are banned from this room.",
+    "ROOM_MODERATION_TARGET_PROTECTED": "The room owner and administrators can't be moderated.",
     "USER_NOT_FOUND": "User not found.",
     "DISPLAY_NAME_INVALID": "Name must be at least 2 characters.",
     "MESSAGE_NOT_FOUND": "Message not found.",
@@ -35,6 +37,7 @@
     "FRIEND_REQUEST_NOT_CANCELABLE": "This request can't be canceled.",
     "FRIEND_ALREADY": "You are already friends.",
     "FRIEND_SELF": "You can't add yourself as a friend.",
+    "FRIEND_REQUEST_BLOCKED": "You blocked this user. Unblock them to add them as a friend.",
     "DM_SELF": "You can't start a chat with yourself.",
     "DM_NOT_FRIENDS": "Direct messages are only available between friends.",
     "CALL_ALREADY_RINGING": "This user is already receiving a call.",
@@ -87,9 +90,7 @@
     "BLOCK_ADMIN": "An administrator cannot be blocked"
   },
   "language": {
-    "label": "Language",
-    "en": "English",
-    "ru": "Russian"
+    "label": "Language"
   },
   "splash": {
     "signingIn": "Signing you in…"

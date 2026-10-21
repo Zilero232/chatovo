@@ -21,19 +21,35 @@ export const useWindowControls = () => {
       return;
     }
 
+    let isActive = true;
     let unlisten: (() => void) | undefined;
 
-    const setup = async () => {
-      setIsMaximized(await isMainWindowMaximized());
+    const syncMaximized = async () => {
+      const maximized = await isMainWindowMaximized();
 
-      unlisten = await onMainWindowResized(async () => {
-        setIsMaximized(await isMainWindowMaximized());
-      });
+      if (isActive) {
+        setIsMaximized(maximized);
+      }
+    };
+
+    const setup = async () => {
+      await syncMaximized();
+
+      const stop = await onMainWindowResized(syncMaximized);
+
+      if (!isActive) {
+        stop();
+
+        return;
+      }
+
+      unlisten = stop;
     };
 
     setup();
 
     return () => {
+      isActive = false;
       unlisten?.();
     };
   }, []);

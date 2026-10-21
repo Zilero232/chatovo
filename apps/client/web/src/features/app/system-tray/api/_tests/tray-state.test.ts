@@ -38,8 +38,8 @@ describe('tray api', () => {
     expect(invoke).toHaveBeenCalledWith('update_tray_state', { state: INITIAL_TRAY_STATE });
   });
 
-  it('listens on the action channel', () => {
-    subscribeTrayAction(() => {});
+  it('listens on the action channel', async () => {
+    await subscribeTrayAction(() => {});
 
     expect(listen).toHaveBeenCalledWith('tray:action', expect.any(Function));
   });

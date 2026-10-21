@@ -2,7 +2,7 @@ import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   test: {
-    name: 'tauri',
+    name: 'native',
     environment: 'node',
     globals: true,
     include: ['scripts/**/*.test.ts'],

@@ -14,7 +14,7 @@ export const useParticipantMedia = (participant: Participant) => {
   const [screenTrack] = useParticipantTracks([Track.Source.ScreenShare], participant.identity);
   const [micTrack] = useParticipantTracks([Track.Source.Microphone], participant.identity);
 
-  const isSpeaking = useParticipantIsSpeaking(participant);
+  const speaking = useParticipantIsSpeaking(participant);
   const hasMusic = useIsSharingMusic(participant);
   const micMuted = useIsMuted(micTrack ?? { participant, source: Track.Source.Microphone });
   const cameraMuted = useIsMuted(cameraTrack ?? { participant, source: Track.Source.Camera });
@@ -23,6 +23,7 @@ export const useParticipantMedia = (participant: Participant) => {
   const { name, metadata } = useParticipantInfo({ participant });
   const { verified, developer, avatarUrl, bannerColor } = readParticipantMeta(metadata);
 
+  const isSpeaking = speaking && !micMuted;
   const hasCamera = isNonNullish(cameraTrack) && !cameraMuted;
   const hasScreen = isNonNullish(screenTrack) && !screenMuted;
 

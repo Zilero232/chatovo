@@ -37,7 +37,7 @@ export const useAchievements = () => {
     });
 
     playEggSound('achievement');
-    fireConfetti();
+    void fireConfetti();
   };
 
   return { unlock };

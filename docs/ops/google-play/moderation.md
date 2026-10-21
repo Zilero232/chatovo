@@ -24,6 +24,8 @@ app, and the developer contact to be live.
 | Criteria of unacceptable content | Done — the "Community rules and moderation" section in `/terms` |
 | Reporting mechanism | Done — "Report" in the participant and message menus |
 | Blocking offenders | Done — `POST /moderation/blocks/:userId` for an admin |
+| In-app user blocking | Done — "Block" in the participant menu, the profile card and the friends panel |
+| Room-owner moderation | Done — remove, ban and mute in the participant menu, delete in the message menu |
 | Post-moderation on reports | Done — reports reach the support mailbox and Telegram |
 | Support contact | Done — `zilero@chatovo.ru` in the app and in the listing |
 | Consent to the rules on signup | Done — checkbox linking `/terms` and `/privacy` |
@@ -80,6 +82,101 @@ outlived by an existing session or connection:
   covered, including ones added later
 - `LivekitService.issueRoomToken` — voice and video
 - `RealtimeGateway.handleConnection` — a new WebSocket
+
+### User-to-user blocking
+
+Play requires one-on-one features to offer in-app blocking, separate from the
+moderator ban above. Any user can block anyone they can see — from the voice
+room participant menu, from the profile card (room tiles, chat authors, the
+channels list) and unblock from the "Blocked" tab of the friends panel. Blocking
+asks for confirmation; the blocked person is not notified.
+
+The rows live in `user_block` (`blockerId`, `blockedId`, one per pair), served by
+`BlockService` in `modules/friends`:
+
+| Method | Path | Action |
+|--------|------|--------|
+| `GET` | `/friends/blocks` | Users you blocked |
+| `POST` | `/friends/blocks/:userId` | Block (idempotent, never yourself) |
+| `DELETE` | `/friends/blocks/:userId` | Unblock — restores nothing, not even the friendship |
+
+What a block does:
+
+- removes any friendship or pending request between the two, drops a call
+  still ringing between them and ends a DM call already in progress — both
+  identities are removed from the DM's LiveKit room
+- refuses a friend request or its acceptance in either direction. The blocker
+  gets `FRIEND_REQUEST_BLOCKED`; the blocked side gets exactly what an unknown
+  tag (`USER_NOT_FOUND`) or a missing request (`FRIEND_REQUEST_NOT_FOUND`)
+  would return. `GET /friends/relations/:userId` reports `blocked` only to the
+  blocker, so the blocked side sees a stranger
+- refuses DM messages and the DM voice token in either direction
+  (`assertDmWithoutUserBlock`, reported as `DM_NOT_FRIENDS`), and the LiveKit
+  `participant_joined` webhook removes a member who joins the DM with a token
+  minted before the block — an existing DM room stays readable but no longer
+  carries new messages or calls
+- `GET /friends/blocks` never reports whether a blocked user is online
+- on the blocker's client only: room chat messages from the blocked user collapse
+  to one line with a "Show" link, and their voice is muted through the per-participant
+  volume, without overwriting the user's own saved "Mute for me" choice
+
+### Room moderation
+
+Public rooms share one lobby, so the person who created a room has to be able to
+deal with a troll in it, the way a Discord or TeamSpeak channel owner can. The
+owner of a group room — and any app admin, in any group room — gets a "Room
+moderation" group in the participant menu
+([ParticipantModerationItems](../../../apps/client/web/src/features/room/moderate-participant/ui/ParticipantModerationItems/ParticipantModerationItems.tsx)).
+It is never offered on yourself, on the room owner or on an admin (the server
+refuses those with `ROOM_MODERATION_TARGET_PROTECTED`), and a DM has no moderator.
+
+| Action | What happens |
+|--------|--------------|
+| Mute for everyone | The mic track is muted and `canPublishSources` loses `MICROPHONE` (camera and screen stay), so the client cannot publish it again; their mic button is locked with "Muted by the room owner". "Allow to speak" restores every source |
+| Remove from the room | LiveKit `removeParticipant` — they drop back to the lobby and can come back, unmuted |
+| Ban from the room | A `room_bans` row, then the same removal; the room is shut to them until the ban is lifted (below) |
+| Delete a message | Any message in the room chat, not only your own — except that an owner who is not an app admin cannot delete an admin's message (`ROOM_MODERATION_TARGET_PROTECTED`) |
+
+Remove and ban ask for confirmation. The affected person gets a `room.moderation`
+realtime event (`removed`, `banned`, `muted`, `unmuted`) and a toast; removed and
+banned also close their session. Remove, mute and unmute need the target to be in
+the room's voice presence — otherwise they answer `USER_NOT_FOUND` and notify
+nobody. A ban of someone who is not in the room is still stored, silently. The
+owner sees the banned list and lifts a ban from the room's "…" menu in the
+channels list.
+
+The mute is not in the database: it is an in-memory lock (`livekit/mic-lock-store.ts`,
+keyed by room and user) applied to the LiveKit participant. It survives leaving
+and rejoining — the token endpoint mints the locked `canPublishSources` while the
+lock is set, and the `participant_joined` webhook re-applies it to a token minted
+before the mute. "Allow to speak", a removal or a ban lifts it, and it is
+forgotten when the LiveKit room empties (`room_finished`) or the server restarts.
+A ban is the tool for someone who keeps coming back.
+
+A ban shuts everything in that room (app admins are exempt): the token endpoint
+refuses it with `ROOM_BANNED`, and so does `assertCanAccessRoom` for chat history, sending, editing and deleting their
+own messages, attachments and the room music with `ROOM_BANNED`;
+`filterAccessibleRooms` leaves the room out of their realtime subscription, so
+room broadcasts, reactions and presence patches stop. On the ban itself the room
+is dropped from their live WebSocket subscriptions and their private-room
+password grant for it is revoked, and the `participant_joined` webhook removes
+them if they join with a LiveKit token minted before the ban. Room metadata
+(`GET /rooms/:id`) stays readable, so the room page loads, its token request
+fails with `ROOM_BANNED` and the client sends them back to the lobby.
+
+| Method | Path | Action |
+|--------|------|--------|
+| `POST` | `/rooms/:roomId/participants/:userId/mute` | Lock their microphone |
+| `POST` | `/rooms/:roomId/participants/:userId/unmute` | Allow them to speak |
+| `POST` | `/rooms/:roomId/participants/:userId/remove` | Disconnect them |
+| `POST` | `/rooms/:roomId/participants/:userId/ban` | Ban and disconnect |
+| `GET` | `/rooms/:roomId/bans` | The banned list |
+| `DELETE` | `/rooms/:roomId/bans/:userId` | Lift a ban |
+
+Every route checks `assertCanModerateRoom` (owner or admin, group rooms only)
+in `RoomModerationService`; the LiveKit calls go through `livekit/presence.ts`.
+Bans are read through `findBannedRoomIds` (`src/lib/`), which exempts app admins
+everywhere the ban is enforced.
 
 ### Community rules
 

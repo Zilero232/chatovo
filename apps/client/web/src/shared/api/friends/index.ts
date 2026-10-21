@@ -2,6 +2,7 @@ export {
   acceptFriendRequest,
   acceptIncomingFriendCall,
   ackOutgoingFriendCall,
+  blockUser,
   cancelOutgoingFriendCall,
   declineFriendRequest,
   declineIncomingFriendCall,
@@ -9,9 +10,11 @@ export {
   getIncomingFriendCall,
   getOrCreateFriendDmRoom,
   getOutgoingFriendCall,
+  listBlockedUsers,
   listFriends,
   listIncomingFriendRequests,
   removeFriendship,
   ringFriendCall,
-  sendFriendRequest
+  sendFriendRequest,
+  unblockUser
 } from './friends';

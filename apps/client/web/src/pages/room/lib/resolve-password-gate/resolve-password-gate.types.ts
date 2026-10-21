@@ -6,6 +6,7 @@ export type ResolvePasswordGateInput = {
 };
 
 export type PasswordGate = {
+  isRefused: boolean;
   showPasswordForm: boolean;
   passwordError: unknown;
 };

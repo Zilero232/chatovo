@@ -162,7 +162,7 @@ The design system is a workspace package, `packages/ui-kit`, shared by `apps/cli
 
 - Segments: `primitives/` (base), `components/` (composed), `icons/`, `styles/`, `messages/`. **Every component gets its own PascalCase folder** (`primitives/Button/`, `components/FormField/`, …) with `Component.tsx`, `Component.module.scss`, optionally `Component.types.ts` and a mandatory `index.ts` barrel. The segment barrels and the root `index.ts` re-export everything.
 - From outside, only `import { Button } from '@chatovo/ui-kit'`, never a path into it; the package's other exports are `@chatovo/ui-kit/messages` and `@chatovo/ui-kit/styles/*`. SCSS: `@use '@chatovo/ui-kit/styles/mixins' as *` (each app's Sass load paths include the repo `node_modules`; the package ships sources, so the site lists it in `transpilePackages` and Vite compiles it as part of the web app).
-- Headless primitives come from **`@base-ui/react`**; styles are **SCSS modules**. Tokens live in `styles/_tokens.scss`; `styles/_base.scss` is the shared global CSS. Each app's `globals.scss` (`apps/client/web/src/app/`, `apps/landing/app/`) `@use`s tokens, keyframes and base, then adds its own page-level rules.
+- Headless primitives come from **`@base-ui/react`**; styles are **SCSS modules**. Tokens live in `styles/_tokens.scss`; `styles/_base.scss` is the shared global CSS. Each app's `globals.scss` (`apps/client/web/src/styles/`, `apps/landing/app/`) `@use`s tokens, keyframes and base, then adds its own page-level rules.
 - `messages/` exports `uiMessages` (namespace `ui`: the kit's own strings — close, loading, show password, …). Each app spreads `uiMessages.<locale>` into its messages. Kit components import `useTranslations` from `use-intl`, which works under the web app's `IntlProvider` and the site's `NextIntlClientProvider` alike. The kit imports no framework: images go through its own `Image` primitive, fed by an optional `ImageConfigProvider` loader.
 - Shared non-UI constants (site URLs, legal, external links, site paths) live in `@chatovo/config`, not in the kit.
 
@@ -172,7 +172,7 @@ More in [guides/client/slice-ui.md](../guides/client/slice-ui.md) §2.1.
 
 ## 6. Routing integration
 
-`app/` (`apps/client/web/src/app/`, `apps/landing/app/`) holds only routing, providers and global styles. All UI and logic lives in the pages layer — `pages/<name>/` in the web app, `views/<name>/` in the site; a route only points at a page.
+The app layer — in the web app `src/main.tsx`, `src/router/`, `src/providers/` and `src/styles/`; on the site `apps/landing/app/` — holds only routing, providers and global styles. All UI and logic lives in the pages layer — `pages/<name>/` in the web app, `views/<name>/` in the site; a route only points at a page.
 
 **Web app (TanStack Router, code-based).** The route tree is one file, `src/router/router.ts`; each route names its page and, if it has search params, a zod schema:
 

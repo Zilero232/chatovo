@@ -60,7 +60,7 @@
 
 .popup {
   min-width: var(--anchor-width);
-  max-height: min(#{rem(256)}, var(--available-height));
+  max-height: min(#{rem(320)}, var(--available-height));
   padding: var(--space-1);
   border-radius: var(--radius-xl);
   color: var(--popover-foreground);

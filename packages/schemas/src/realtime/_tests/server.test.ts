@@ -26,4 +26,26 @@ describe('realtimeServerMessageSchema', () => {
   it('rejects a removed room without an id', () => {
     expect(realtimeServerMessageSchema.safeParse({ type: 'room.removed' }).success).toBe(false);
   });
+
+  it('accepts a moderation notice addressed to the affected participant', () => {
+    const parsed = realtimeServerMessageSchema.safeParse({
+      type: 'room.moderation',
+      roomId: ROOM.id,
+      roomName: ROOM.name,
+      action: 'banned'
+    });
+
+    expect(parsed.success).toBe(true);
+  });
+
+  it('rejects a moderation notice with an action the client cannot handle', () => {
+    const parsed = realtimeServerMessageSchema.safeParse({
+      type: 'room.moderation',
+      roomId: ROOM.id,
+      roomName: ROOM.name,
+      action: 'kicked'
+    });
+
+    expect(parsed.success).toBe(false);
+  });
 });

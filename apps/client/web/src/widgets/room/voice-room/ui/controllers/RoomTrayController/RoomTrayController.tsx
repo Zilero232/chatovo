@@ -1,6 +1,7 @@
 import { useConnectionState, useLocalParticipant, useRoomContext } from '@livekit/components-react';
 import { ConnectionState } from 'livekit-client';
 import { isNullish } from 'remeda';
+import { toast } from 'sonner';
 import { match } from 'ts-pattern';
 import { useTranslations } from 'use-intl';
 
@@ -11,10 +12,13 @@ import { useTrayBridge } from '@/features/app/system-tray';
 import { useDeafen } from '@/features/room/room-control';
 import { isTauriDesktop } from '@/shared/lib';
 
+import type { RoomTrayControllerProps } from './RoomTrayController.types';
+
 import { toggleMicrophone } from '../../../lib';
 
-export const RoomTrayController = () => {
+export const RoomTrayController = ({ roomName }: RoomTrayControllerProps) => {
   const t = useTranslations('tray');
+  const tControls = useTranslations('room.controls');
 
   const room = useRoomContext();
   const connectionState = useConnectionState();
@@ -32,13 +36,18 @@ export const RoomTrayController = () => {
     .with({ connectionState: ConnectionState.SignalReconnecting }, () => t('status.reconnecting'))
     .with({ isInRoom: false }, () => t('status.online'))
     .with({ isMuted: true }, () => t('status.muted'))
-    .otherwise(() => t('status.inRoom', { room: room.name }));
+    .otherwise(() => t('status.inRoom', { room: roomName }));
 
   const handleAction = (action: TrayAction) => {
     void match(action)
       .with('toggleMute', async () => {
         if (isInRoom) {
-          await toggleMicrophone({ localParticipant, isPtt, source: 'tray' });
+          await toggleMicrophone({
+            localParticipant,
+            isPtt,
+            source: 'tray',
+            onLocked: () => toast.info(tControls('mutedByOwner'), { id: 'mic-muted-by-owner' })
+          });
         }
       })
       .with('toggleDeafen', async () => {

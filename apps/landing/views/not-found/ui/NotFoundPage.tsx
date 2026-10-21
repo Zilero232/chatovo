@@ -1,8 +1,9 @@
-import { Button, Text } from '@chatovo/ui-kit';
+import { localizeSitePath } from '@chatovo/config';
+import { Button, StatusScreen } from '@chatovo/ui-kit';
 import { getTranslations } from 'next-intl/server';
 
 import { APP_ROUTES, ROUTES } from '@/shared/constants';
-import { buildAppHref, localizeMarketingPath } from '@/shared/lib';
+import { buildAppHref } from '@/shared/lib';
 import { MarketingScene, MarketingShell } from '@/widgets/marketing/marketing-shell';
 
 import type { NotFoundPageProps } from './NotFoundPage.types';
@@ -14,24 +15,23 @@ export const NotFoundPage = async ({ locale }: NotFoundPageProps) => {
 
   return (
     <MarketingShell locale={locale} path={ROUTES.home}>
-      <section className={s.root}>
-        <MarketingScene pose='peek' />
-
-        <p className={s.code}>404</p>
-        <h1 className={s.title}>{t('title')}</h1>
-        <Text className={s.description} size='lg' tone='muted'>
-          {t('description')}
-        </Text>
-
-        <div className={s.actions}>
-          <Button href={localizeMarketingPath({ path: ROUTES.home, locale })} size='lg'>
-            {t('toHome')}
-          </Button>
-          <Button href={buildAppHref(APP_ROUTES.lobby)} size='lg' variant='outline'>
-            {t('openApp')}
-          </Button>
-        </div>
-      </section>
+      <StatusScreen
+        actions={
+          <>
+            <Button href={localizeSitePath({ path: ROUTES.home, locale })} size='lg'>
+              {t('toHome')}
+            </Button>
+            <Button href={buildAppHref(APP_ROUTES.lobby)} size='lg' variant='outline'>
+              {t('openApp')}
+            </Button>
+          </>
+        }
+        className={s.root}
+        code='404'
+        description={t('description')}
+        illustration={<MarketingScene pose='peek' />}
+        title={t('title')}
+      />
     </MarketingShell>
   );
 };

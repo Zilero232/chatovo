@@ -3,7 +3,7 @@ import { useTranslations } from 'use-intl';
 
 import { handleExternalLinkClick } from '@/shared/lib';
 
-import type { MusicTrackPlayback } from '../../../model/types';
+import type { MusicStageProps } from './MusicStage.types';
 
 import { useMusicStage } from '../../../model/hooks';
 import { PlaybackProgress } from '../PlaybackProgress/PlaybackProgress';
@@ -12,7 +12,7 @@ import { TrackArtwork } from '../TrackArtwork/TrackArtwork';
 
 import s from './MusicStage.module.scss';
 
-export const MusicStage = ({ music, track }: MusicTrackPlayback) => {
+export const MusicStage = ({ music, track, className }: MusicStageProps) => {
   const t = useTranslations('room.music.nowPlaying');
 
   const { subtitle, setSlot } = useMusicStage(track);
@@ -20,7 +20,7 @@ export const MusicStage = ({ music, track }: MusicTrackPlayback) => {
   const { title, url } = track;
 
   return (
-    <section className={s.root}>
+    <section className={clsx(s.root, className)}>
       <div ref={setSlot} className={clsx(s.screen, track.source === 'radio' && s.radio)}>
         <TrackArtwork size='fill' track={track} />
       </div>

@@ -1,7 +1,8 @@
+import { localizeSitePath } from '@chatovo/config';
+
 import type { Locale } from '@/shared/i18n';
 
 import { ROUTES } from '@/shared/constants';
-import { localizeMarketingPath } from '@/shared/lib';
 
 export const MARKETING_PAGE_KEYS = [
   'features',
@@ -22,4 +23,4 @@ const MARKETING_PAGE_PATHS: Record<MarketingPageKey, string> = {
 };
 
 export const marketingPageHref = (key: MarketingPageKey, locale: Locale) =>
-  localizeMarketingPath({ path: MARKETING_PAGE_PATHS[key], locale });
+  localizeSitePath({ path: MARKETING_PAGE_PATHS[key], locale });

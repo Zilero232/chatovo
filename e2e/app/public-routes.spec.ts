@@ -26,4 +26,15 @@ test.describe('app public routes', () => {
     await page.waitForURL(/\/auth/, { timeout: 15_000 });
     expect(page.url()).toContain('/auth');
   });
+
+  test.describe('in a German browser', () => {
+    test.use({ locale: 'de-DE' });
+
+    test('the first launch speaks the system language', async ({ page }) => {
+      await page.goto('/auth');
+
+      await expect(page.locator('html')).toHaveAttribute('lang', 'de');
+      await expect(page.getByRole('heading', { name: 'Anmelden' })).toBeVisible();
+    });
+  });
 });

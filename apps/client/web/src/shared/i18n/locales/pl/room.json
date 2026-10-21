@@ -1,0 +1,394 @@
+{
+  "lobby": {
+    "subtitle": "Wskocz do pokoju głosowego albo załóż własny",
+    "appVersion": "Wersja aplikacji",
+    "stats": {
+      "rooms": "Pokoje",
+      "live": "Teraz aktywne",
+      "online": "Online"
+    },
+    "searchPlaceholder": "Szukaj pokoi...",
+    "filters": {
+      "all": "Wszystkie",
+      "live": "Aktywne",
+      "mine": "Moje"
+    },
+    "view": {
+      "grid": "Widok siatki",
+      "list": "Widok listy"
+    },
+    "nothingFound": "Brak pokoi pasujących do „{query}”",
+    "nothingFoundHint": "Spróbuj krótszego zapytania albo załóż pokój o tej nazwie.",
+    "roomsError": {
+      "title": "Nie udało się wczytać pokoi",
+      "description": "Sprawdź połączenie i spróbuj ponownie.",
+      "retry": "Spróbuj ponownie"
+    },
+    "empty": {
+      "title": "Nie ma jeszcze pokoi",
+      "text": "Pokoje pojawiają się tu, gdy tylko ktoś je utworzy. Załóż pierwszy i udostępnij link — kto go otworzy, od razu trafi do rozmowy."
+    },
+    "card": {
+      "live": "Na żywo",
+      "empty": "Pusty",
+      "people": "{count, plural, one {# osoba} few {# osoby} many {# osób} other {# osoby}}",
+      "ownerTooltip": "Właściciel pokoju",
+      "micMuted": "Mikrofon wyciszony",
+      "deafened": "Dźwięk wyłączony"
+    },
+    "sections": {
+      "rooms": "Pokoje",
+      "friends": "Znajomi"
+    }
+  },
+  "room": {
+    "sections": {
+      "public": "Otwarte",
+      "private": "Prywatne"
+    },
+    "loading": "Ładowanie pokoju...",
+    "authorizing": "Autoryzacja dostępu...",
+    "connecting": "Łączenie z „{name}”...",
+    "reconnecting": "Ponowne łączenie z „{name}”...",
+    "notFound": "Nie znaleziono pokoju",
+    "notFoundHint": "Właściciel usunął ten pokój albo link jest nieaktualny. Sprawdź link lub znajdź pokój w lobby.",
+    "backToLobby": "Wróć do lobby",
+    "joinFailed": "Nie udało się dołączyć do pokoju",
+    "invite": {
+      "copyLink": "Kopiuj link z zaproszeniem",
+      "tooltip": "Skopiuj link, aby zaprosić innych",
+      "linkCopied": "Link z zaproszeniem skopiowany",
+      "aloneTitle": "Na razie jesteś tu tylko ty",
+      "aloneDescription": "Wyślij link — znajomi dołączą jednym kliknięciem."
+    },
+    "connection": {
+      "measuring": "Mierzenie połączenia…",
+      "ping": "Połączenie: {ms} ms"
+    },
+    "mini": {
+      "label": "Aktywny pokój „{name}”",
+      "inRoom": "Jesteś w pokoju",
+      "inCall": "Jesteś w rozmowie",
+      "connecting": "Łączenie…"
+    },
+    "soundboard": {
+      "label": "Panel dźwięków admina",
+      "sounds": {
+        "siren": "Syrena",
+        "airhorn": "Trąbka",
+        "drumroll": "Werble",
+        "sadTrombone": "Smutny puzon",
+        "applause": "Brawa"
+      }
+    },
+    "music": {
+      "label": "Muzyka w pokoju",
+      "title": "Muzyka w pokoju",
+      "description": "Puszczaj utwory dla wszystkich w pokoju albo udostępnij własną muzykę.",
+      "nowPlaying": {
+        "addedBy": "Dodane przez: {name}",
+        "live": "Na żywo",
+        "play": "Odtwórz",
+        "pause": "Pauza",
+        "previous": "Poprzedni utwór",
+        "next": "Następny utwór",
+        "stop": "Wyłącz muzykę",
+        "open": "Otwórz źródło",
+        "expand": "Otwórz odtwarzacz"
+      },
+      "progress": {
+        "seek": "Pozycja utworu",
+        "unknown": "–:––"
+      },
+      "empty": {
+        "title": "Cicho tu",
+        "description": "Wklej link albo włącz radio."
+      },
+      "search": {
+        "label": "Dodaj muzykę",
+        "placeholder": "Wklej link lub szukaj radia",
+        "hint": "Linki z YouTube, SoundCloud i Vimeo albo bezpośredni link do pliku audio trafiają do kolejki; wszystko inne wyszukuje stacje radiowe.",
+        "clear": "Wyczyść"
+      },
+      "queue": {
+        "title": "Następne",
+        "empty": "Kolejka jest pusta.",
+        "remove": "Usuń {title} z kolejki"
+      },
+      "add": {
+        "link": "Link {source}",
+        "submit": "Dodaj do kolejki",
+        "added": "Dodano do kolejki"
+      },
+      "radio": {
+        "label": "Stacje",
+        "empty": "Nie znaleziono stacji.",
+        "error": "Wyszukiwanie radia jest teraz niedostępne.",
+        "play": "Włącz {name}"
+      },
+      "genres": {
+        "title": "Radio na nastrój",
+        "items": {
+          "lofi": "Lo-fi",
+          "jazz": "Jazz",
+          "rock": "Rock",
+          "classical": "Klasyczna",
+          "ambient": "Ambient",
+          "chill": "Chill"
+        }
+      },
+      "share": {
+        "title": "Moja muzyka",
+        "hint": "Muzyka gra z twojego konta — VK Music, Yandex Music albo czegokolwiek otwartego w karcie przeglądarki — i słyszą ją wszyscy w pokoju.",
+        "tab": "Udostępnij dźwięk z karty",
+        "tabHint": "W oknie wyboru wskaż kartę z muzyką i włącz „Udostępnij dźwięk karty”.",
+        "tabUnsupported": "Udostępnianie dźwięku z karty wymaga przeglądarki na komputerze.",
+        "files": "Odtwórz pliki z tego urządzenia",
+        "sharingTab": "Udostępniasz dźwięk z karty",
+        "playingFile": "Gra: {name}",
+        "paused": "Pauza: {name}",
+        "pause": "Pauza",
+        "resume": "Wznów",
+        "next": "Następny plik",
+        "stop": "Zakończ udostępnianie",
+        "noAudio": "Nie udostępniono dźwięku — włącz „Udostępnij dźwięk karty” w oknie wyboru.",
+        "fileFailed": "Nie udało się odtworzyć {name}.",
+        "publishFailed": "Nie udało się rozpocząć udostępniania w tym pokoju."
+      },
+      "settings": {
+        "volume": "Głośność muzyki",
+        "ducking": "Ściszaj muzykę, gdy ktoś mówi"
+      },
+      "player": {
+        "unplayable": "Tego utworu nie da się tu odtworzyć — pomijamy go.",
+        "unavailable": "Odtwarzacz się nie załadował — usługa może być zablokowana w twojej sieci.",
+        "tapToListen": "Dotknij, aby słuchać"
+      },
+      "sources": {
+        "youtube": "YouTube",
+        "soundcloud": "SoundCloud",
+        "radio": "Radio",
+        "vimeo": "Vimeo",
+        "file": "Plik audio"
+      },
+      "playInRoom": "Odtwórz w pokoju",
+      "tabOnly": {
+        "title": "{service} nie obsługuje osadzania",
+        "hint": "Włącz muzykę w karcie przeglądarki, a potem użyj „Udostępnij dźwięk z karty” w sekcji Moja muzyka poniżej — usłyszą ją wszyscy w pokoju.",
+        "services": {
+          "vk": "VK",
+          "yandex": "Yandex Music",
+          "spotify": "Spotify",
+          "apple": "Apple Music",
+          "zvuk": "Zvuk",
+          "deezer": "Deezer"
+        }
+      }
+    },
+    "password": {
+      "heading": "Ten pokój jest zamknięty",
+      "hint": "Poproś o hasło osobę, która wysłała ci link — bez niego „{name}” się nie otworzy.",
+      "label": "Hasło",
+      "wrong": "Nieprawidłowe hasło",
+      "join": "Dołącz",
+      "validation": {
+        "passwordMin": "Min. 4 znaki",
+        "passwordMax": "Maks. 128 znaków"
+      }
+    },
+    "shortcuts": {
+      "pttBlockedByMute": "Mikrofon jest wyciszony — włącz go, aby używać trybu „Naciśnij, aby mówić”"
+    },
+    "controls": {
+      "mute": "Wycisz",
+      "unmute": "Wyłącz wyciszenie",
+      "micDevice": "Wybierz mikrofon",
+      "camera": "Włącz kamerę",
+      "cameraOff": "Wyłącz kamerę",
+      "camDevice": "Wybierz kamerę",
+      "screenShare": "Udostępnij ekran",
+      "stopShare": "Zakończ udostępnianie",
+      "react": "Wyślij reakcję",
+      "deafen": "Wyłącz dźwięk",
+      "undeafen": "Włącz dźwięk",
+      "speakerDevice": "Wybierz głośniki",
+      "pttHint": "Naciśnij, aby mówić",
+      "leave": "Wyjdź",
+      "invisibleMicBlocked": "W trybie niewidzialnym nie możesz mówić",
+      "mutedByOwner": "Wyciszono przez właściciela pokoju"
+    },
+    "dmWaiting": "Czekamy, aż druga osoba dołączy…",
+    "expandVideo": "Powiększ wideo",
+    "collapseVideo": "Zmniejsz wideo",
+    "invisibleBadge": "Niewidzialny",
+    "invisibleNotice": "Jesteś w ukryciu: nikt cię nie widzi ani nie słyszy",
+    "badges": {
+      "screen": "Ekran",
+      "music": "Muzyka"
+    },
+    "callService": {
+      "text": "Jesteś w pokoju głosowym. Dotknij, aby wrócić.",
+      "channel": "Trwające połączenie"
+    }
+  },
+  "chat": {
+    "title": "Czat",
+    "close": "Zamknij czat",
+    "open": "Pokaż czat",
+    "hide": "Ukryj czat",
+    "messagePlaceholder": "Wiadomość…",
+    "send": "Wyślij wiadomość",
+    "attach": "Załącz plik",
+    "dropToSend": "Upuść, aby wysłać",
+    "uploading": "Przesyłanie…",
+    "fileTooLarge": "Plik jest za duży (maks. 25 MB)",
+    "sending": "Wysyłanie…",
+    "sendFailed": "Nie wysłano",
+    "retry": "Ponów",
+    "discard": "Usuń",
+    "edit": "Edytuj",
+    "delete": "Usuń",
+    "edited": "edytowano",
+    "editHint": "Enter — zapisz · Shift+Enter — nowa linia · Esc — anuluj",
+    "editTitle": "Edytuj wiadomość",
+    "save": "Zapisz",
+    "deletedPlaceholder": "Wiadomość usunięta",
+    "deleteTitle": "Usunąć wiadomość?",
+    "deleteDescription": "Ta wiadomość zostanie trwale usunięta dla wszystkich. Tego nie da się cofnąć.",
+    "cancel": "Anuluj",
+    "editFailed": "Nie udało się edytować wiadomości",
+    "deleteFailed": "Nie udało się usunąć wiadomości",
+    "today": "Dziś",
+    "yesterday": "Wczoraj",
+    "empty": {
+      "title": "Cicho tu",
+      "description": "Wiadomości wysłane w tym pokoju pojawią się tutaj i zostaną dla każdego, kto dołączy później. Wrzuć link, plik albo po prostu się przywitaj."
+    },
+    "openInBrowser": "Otwórz w przeglądarce",
+    "download": "Pobierz"
+  },
+  "channels": {
+    "searchPlaceholder": "Szukaj pokoi...",
+    "noRoomsYet": "Nie ma jeszcze pokoi",
+    "nothingFound": "Nic nie znaleziono",
+    "nothingFoundHint": "Żaden pokój nie pasuje do tej nazwy. Wyczyść wyszukiwanie, aby znów zobaczyć wszystkie.",
+    "online": "online",
+    "createRoom": "Utwórz pokój",
+    "emptyHint": "Wybierz pokój ze strony albo załóż nowy.",
+    "privateRoom": "Pokój prywatny",
+    "friends": {
+      "heading": "Znajomi",
+      "online": "Online — {count}",
+      "offline": "Offline — {count}"
+    },
+    "activity": {
+      "heading": "Aktywność znajomych",
+      "inRooms": "Teraz w pokojach",
+      "available": "{count, plural, one {# osoba może pogadać} few {# osoby mogą pogadać} many {# osób może pogadać} other {# osoby może pogadać}}",
+      "join": "Dołącz",
+      "others": "{count, plural, one {+# osoba} few {+# osoby} many {+# osób} other {+# osoby}}",
+      "emptyTitle": "Teraz jest cicho",
+      "emptyHint": "Nikogo ze znajomych nie ma w pobliżu. Załóż pokój i zrób pierwszy krok."
+    }
+  },
+  "createRoom": {
+    "trigger": "Utwórz pokój",
+    "title": "Utwórz pokój",
+    "description": "Nadaj nazwę, wybierz, kto może wejść, a od razu przeniesiemy cię do rozmowy.",
+    "nameLabel": "Nazwa nowego pokoju",
+    "namePlaceholder": "spotkanie zespołu",
+    "passwordLabel": "Hasło",
+    "passwordPlaceholder": "Min. 4 znaki",
+    "privateLabel": "Prywatny (wejście na hasło)",
+    "submit": "Utwórz pokój",
+    "created": "Pokój utworzony",
+    "nameCounter": "{count}/{max}",
+    "passwordHint": "Co najmniej 4 znaki. Podaj je tylko osobom, które chcesz zaprosić.",
+    "privateExplainer": "Pokój jest widoczny na liście z kłódką. Wejdą tylko osoby z hasłem.",
+    "publicExplainer": "Każdy widzi pokój w lobby i może wejść bez hasła.",
+    "hint": "Nazwę i hasło możesz później zmienić w menu pokoju."
+  },
+  "manageRoom": {
+    "menu": {
+      "open": "Zarządzaj pokojem",
+      "edit": "Edytuj pokój",
+      "delete": "Usuń pokój"
+    },
+    "edit": {
+      "title": "Edytuj pokój",
+      "description": "Zmień nazwę pokoju albo przełącz go między publicznym a prywatnym.",
+      "nameLabel": "Nazwa",
+      "passwordLabel": "Nowe hasło",
+      "passwordHint": "Zostaw puste, aby zachować obecne hasło.",
+      "privateLabel": "Prywatny (wejście na hasło)",
+      "submit": "Zapisz zmiany",
+      "saved": "Pokój zaktualizowany",
+      "nameCounter": "{count}/{max}",
+      "privateExplainer": "Pokój jest widoczny na liście z kłódką. Wejdą tylko osoby z hasłem.",
+      "publicExplainer": "Każdy widzi pokój w lobby i może wejść bez hasła.",
+      "hint": "Zmiana hasła nikogo nie wyrzuca — dotyczy tylko nowych wejść."
+    },
+    "delete": {
+      "title": "Usunąć „{name}”?",
+      "description": "Wszyscy, którzy są teraz w środku, zostaną rozłączeni. Tego nie da się cofnąć.",
+      "cancel": "Anuluj",
+      "confirm": "Usuń",
+      "deleted": "Pokój usunięty",
+      "consequences": "Pokój, historia czatu i wszystkie kanały w środku znikną na zawsze.",
+      "hint": "Wszyscy obecni w rozmowie zostaną od razu rozłączeni."
+    }
+  },
+  "participant": {
+    "muteForMe": "Wycisz dla mnie",
+    "unmuteForMe": "Wyłącz wyciszenie dla mnie",
+    "volume": "Głośność",
+    "volumeFor": "Głośność: {name}",
+    "screenVolume": "Dźwięk ekranu",
+    "screenVolumeFor": "Głośność ekranu: {name}",
+    "copyName": "Kopiuj nazwę",
+    "nameCopied": "Nazwa skopiowana"
+  },
+  "roomModeration": {
+    "label": "Moderacja pokoju",
+    "mute": "Wycisz dla wszystkich",
+    "unmute": "Pozwól mówić",
+    "remove": "Wyrzuć z pokoju",
+    "ban": "Zakaż wstępu do pokoju",
+    "toasts": {
+      "mute": "Użytkownik {name} jest wyciszony dla wszystkich",
+      "unmute": "Użytkownik {name} znów może mówić",
+      "remove": "Użytkownik {name} został wyrzucony z pokoju",
+      "ban": "Użytkownik {name} ma zakaz wstępu do pokoju"
+    },
+    "confirm": {
+      "cancel": "Anuluj",
+      "remove": {
+        "title": "Wyrzucić {name} z pokoju?",
+        "description": "{name} zostanie od razu rozłączony i wróci do lobby. Może dołączyć ponownie.",
+        "confirm": "Wyrzuć"
+      },
+      "ban": {
+        "title": "Zakazać {name} wstępu do pokoju?",
+        "description": "{name} zostanie od razu rozłączony i nie wróci, dopóki nie zdejmiesz zakazu w menu pokoju.",
+        "confirm": "Zakaż wstępu"
+      }
+    },
+    "notices": {
+      "removed": "Wyrzucono cię z pokoju",
+      "banned": "Masz zakaz wstępu do pokoju",
+      "muted": "Właściciel pokoju wyłączył ci mikrofon",
+      "unmuted": "Właściciel pokoju znów pozwala ci mówić",
+      "roomName": "„{name}”"
+    },
+    "bans": {
+      "menu": "Zakazy wstępu",
+      "title": "Zakazy wstępu",
+      "description": "Osoby z zakazem wstępu do „{name}” nie dołączą, dopóki nie zdejmiesz zakazu.",
+      "empty": "Nikt nie ma zakazu wstępu do tego pokoju.",
+      "bannedAt": "Zakaz od {date}",
+      "unban": "Zdejmij zakaz",
+      "unbanUser": "Zdejmij zakaz dla {name}",
+      "unbanned": "Użytkownik {name} znów może dołączyć do pokoju"
+    }
+  }
+}

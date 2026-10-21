@@ -20,6 +20,7 @@ model Room {
   dmUserB   User?   @relation("DmUserB", fields: [dmUserBId], references: [id], onDelete: Cascade)
 
   messages Message[]
+  bans     RoomBan[]
 
   createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
   updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(3)
@@ -28,4 +29,20 @@ model Room {
   @@index([ownerId])
   @@index([kind])
   @@map("rooms")
+}
+
+model RoomBan {
+  roomId     String  @map("room_id")
+  userId     String  @map("user_id")
+  bannedById String? @map("banned_by_id")
+
+  room     Room  @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  user     User  @relation("RoomBanned", fields: [userId], references: [id], onDelete: Cascade)
+  bannedBy User? @relation("RoomBanIssuer", fields: [bannedById], references: [id], onDelete: SetNull)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+
+  @@id([roomId, userId])
+  @@index([userId])
+  @@map("room_bans")
 }

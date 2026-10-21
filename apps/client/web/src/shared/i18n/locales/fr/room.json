@@ -1,0 +1,394 @@
+{
+  "lobby": {
+    "subtitle": "Rejoins un salon vocal ou crée le tien",
+    "appVersion": "Version de l'app",
+    "stats": {
+      "rooms": "Salons",
+      "live": "En direct",
+      "online": "En ligne"
+    },
+    "searchPlaceholder": "Rechercher des salons…",
+    "filters": {
+      "all": "Tous",
+      "live": "En direct",
+      "mine": "Les miens"
+    },
+    "view": {
+      "grid": "Vue en grille",
+      "list": "Vue en liste"
+    },
+    "nothingFound": "Aucun salon ne correspond à « {query} »",
+    "nothingFoundHint": "Essaie une recherche plus courte, ou crée toi-même un salon avec ce nom.",
+    "roomsError": {
+      "title": "Impossible de charger les salons",
+      "description": "Vérifie ta connexion et réessaie.",
+      "retry": "Réessayer"
+    },
+    "empty": {
+      "title": "Aucun salon pour l'instant",
+      "text": "Les salons apparaissent ici dès que quelqu'un en crée un. Lance le premier et partage le lien — quiconque l'ouvre arrive directement dans l'appel."
+    },
+    "card": {
+      "live": "En direct",
+      "empty": "Vide",
+      "people": "{count, plural, one {# personne} other {# personnes}}",
+      "ownerTooltip": "Propriétaire du salon",
+      "micMuted": "Micro coupé",
+      "deafened": "Son coupé"
+    },
+    "sections": {
+      "rooms": "Salons",
+      "friends": "Amis"
+    }
+  },
+  "room": {
+    "sections": {
+      "public": "Ouverts",
+      "private": "Privés"
+    },
+    "loading": "Chargement du salon…",
+    "authorizing": "Vérification de l'accès…",
+    "connecting": "Connexion à « {name} »…",
+    "reconnecting": "Reconnexion à « {name} »…",
+    "notFound": "Salon introuvable",
+    "notFoundHint": "Le propriétaire a supprimé ce salon, ou le lien n'est plus valide. Vérifie le lien ou trouve le salon dans l'accueil.",
+    "backToLobby": "Retour à l'accueil",
+    "joinFailed": "Impossible de rejoindre le salon",
+    "invite": {
+      "copyLink": "Copier le lien d'invitation",
+      "tooltip": "Copier un lien pour inviter d'autres personnes",
+      "linkCopied": "Lien d'invitation copié",
+      "aloneTitle": "Tu es seul ici",
+      "aloneDescription": "Envoie le lien et tes amis te rejoignent en un clic."
+    },
+    "connection": {
+      "measuring": "Mesure de la connexion…",
+      "ping": "Connexion : {ms} ms"
+    },
+    "mini": {
+      "label": "Salon actif « {name} »",
+      "inRoom": "Tu es dans le salon",
+      "inCall": "Tu es en appel",
+      "connecting": "Connexion…"
+    },
+    "soundboard": {
+      "label": "Boîte à sons admin",
+      "sounds": {
+        "siren": "Sirène",
+        "airhorn": "Klaxon",
+        "drumroll": "Roulement de tambour",
+        "sadTrombone": "Trombone triste",
+        "applause": "Applaudissements"
+      }
+    },
+    "music": {
+      "label": "Musique du salon",
+      "title": "Musique dans le salon",
+      "description": "Diffuse des titres pour tout le salon, ou partage ta propre musique.",
+      "nowPlaying": {
+        "addedBy": "Ajouté par {name}",
+        "live": "En direct",
+        "play": "Lecture",
+        "pause": "Pause",
+        "previous": "Titre précédent",
+        "next": "Titre suivant",
+        "stop": "Arrêter la musique",
+        "open": "Ouvrir la source",
+        "expand": "Ouvrir le lecteur"
+      },
+      "progress": {
+        "seek": "Position dans le titre",
+        "unknown": "–:––"
+      },
+      "empty": {
+        "title": "C'est calme ici",
+        "description": "Colle un lien ou allume la radio."
+      },
+      "search": {
+        "label": "Ajouter de la musique",
+        "placeholder": "Colle un lien ou cherche une radio",
+        "hint": "Les liens YouTube, SoundCloud et Vimeo ou un lien direct vers un fichier audio vont dans la file ; le reste lance une recherche de stations de radio.",
+        "clear": "Effacer"
+      },
+      "queue": {
+        "title": "À suivre",
+        "empty": "Rien dans la file pour l'instant.",
+        "remove": "Retirer {title} de la file"
+      },
+      "add": {
+        "link": "Lien {source}",
+        "submit": "Ajouter à la file",
+        "added": "Ajouté à la file"
+      },
+      "radio": {
+        "label": "Stations",
+        "empty": "Aucune station trouvée.",
+        "error": "La recherche de radios est indisponible pour le moment.",
+        "play": "Écouter {name}"
+      },
+      "genres": {
+        "title": "Radio selon l'humeur",
+        "items": {
+          "lofi": "Lo-fi",
+          "jazz": "Jazz",
+          "rock": "Rock",
+          "classical": "Classique",
+          "ambient": "Ambient",
+          "chill": "Chill"
+        }
+      },
+      "share": {
+        "title": "Ma musique",
+        "hint": "La musique est lue depuis ton compte — VK Music, Yandex Music ou tout autre service ouvert dans un onglet du navigateur — et tout le salon l'entend.",
+        "tab": "Partager le son d'un onglet",
+        "tabHint": "Dans le sélecteur, choisis l'onglet avec la musique et active « Partager l'audio de l'onglet ».",
+        "tabUnsupported": "Partager le son d'un onglet nécessite un navigateur de bureau.",
+        "files": "Lire des fichiers de cet appareil",
+        "sharingTab": "Partage du son d'un onglet",
+        "playingFile": "Lecture de {name}",
+        "paused": "En pause : {name}",
+        "pause": "Pause",
+        "resume": "Reprendre",
+        "next": "Fichier suivant",
+        "stop": "Arrêter le partage",
+        "noAudio": "Aucun son partagé — active « Partager l'audio de l'onglet » dans le sélecteur.",
+        "fileFailed": "Impossible de lire {name}.",
+        "publishFailed": "Impossible de lancer le partage dans ce salon."
+      },
+      "settings": {
+        "volume": "Volume de la musique",
+        "ducking": "Baisser la musique quand on parle"
+      },
+      "player": {
+        "unplayable": "Ce titre ne peut pas être lu ici — on passe au suivant.",
+        "unavailable": "Le lecteur ne s'est pas chargé — le service est peut-être bloqué sur ton réseau.",
+        "tapToListen": "Touche pour écouter"
+      },
+      "sources": {
+        "youtube": "YouTube",
+        "soundcloud": "SoundCloud",
+        "radio": "Radio",
+        "vimeo": "Vimeo",
+        "file": "Fichier audio"
+      },
+      "playInRoom": "Lire dans le salon",
+      "tabOnly": {
+        "title": "{service} ne peut pas être intégré",
+        "hint": "Lance-le dans un onglet du navigateur, puis utilise « Partager le son d'un onglet » dans Ma musique ci-dessous — tout le salon l'entendra.",
+        "services": {
+          "vk": "VK",
+          "yandex": "Yandex Music",
+          "spotify": "Spotify",
+          "apple": "Apple Music",
+          "zvuk": "Zvuk",
+          "deezer": "Deezer"
+        }
+      }
+    },
+    "password": {
+      "heading": "Ce salon est verrouillé",
+      "hint": "Demande le mot de passe à la personne qui t'a envoyé le lien — « {name} » ne s'ouvrira pas sans lui.",
+      "label": "Mot de passe",
+      "wrong": "Mot de passe incorrect",
+      "join": "Rejoindre",
+      "validation": {
+        "passwordMin": "4 caractères minimum",
+        "passwordMax": "128 caractères maximum"
+      }
+    },
+    "shortcuts": {
+      "pttBlockedByMute": "Ton micro est coupé — réactive-le pour utiliser Appuyer pour parler"
+    },
+    "controls": {
+      "mute": "Couper le micro",
+      "unmute": "Réactiver le micro",
+      "micDevice": "Choisir le micro",
+      "camera": "Activer la caméra",
+      "cameraOff": "Désactiver la caméra",
+      "camDevice": "Choisir la caméra",
+      "screenShare": "Partager l'écran",
+      "stopShare": "Arrêter le partage",
+      "react": "Envoyer une réaction",
+      "deafen": "Couper le son",
+      "undeafen": "Réactiver le son",
+      "speakerDevice": "Choisir les haut-parleurs",
+      "pttHint": "Appuyer pour parler",
+      "leave": "Quitter",
+      "invisibleMicBlocked": "Tu ne peux pas parler en mode invisible",
+      "mutedByOwner": "Micro coupé par le propriétaire du salon"
+    },
+    "dmWaiting": "En attente de l'autre personne…",
+    "expandVideo": "Agrandir la vidéo",
+    "collapseVideo": "Réduire la vidéo",
+    "invisibleBadge": "Invisible",
+    "invisibleNotice": "Tu es entré en mode caché : personne ne te voit ni ne t'entend",
+    "badges": {
+      "screen": "Écran",
+      "music": "Musique"
+    },
+    "callService": {
+      "text": "Tu es dans un salon vocal. Touche pour revenir.",
+      "channel": "Appel en cours"
+    }
+  },
+  "chat": {
+    "title": "Chat",
+    "close": "Fermer le chat",
+    "open": "Afficher le chat",
+    "hide": "Masquer le chat",
+    "messagePlaceholder": "Message…",
+    "send": "Envoyer le message",
+    "attach": "Joindre un fichier",
+    "dropToSend": "Dépose pour envoyer",
+    "uploading": "Envoi du fichier…",
+    "fileTooLarge": "Fichier trop volumineux (25 Mo max.)",
+    "sending": "Envoi…",
+    "sendFailed": "Non envoyé",
+    "retry": "Réessayer",
+    "discard": "Supprimer",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "edited": "modifié",
+    "editHint": "Entrée pour enregistrer · Shift+Entrée pour aller à la ligne · Esc pour annuler",
+    "editTitle": "Modifier le message",
+    "save": "Enregistrer",
+    "deletedPlaceholder": "Message supprimé",
+    "deleteTitle": "Supprimer le message ?",
+    "deleteDescription": "Ce message sera définitivement supprimé pour tout le monde. Cette action est irréversible.",
+    "cancel": "Annuler",
+    "editFailed": "Impossible de modifier le message",
+    "deleteFailed": "Impossible de supprimer le message",
+    "today": "Aujourd'hui",
+    "yesterday": "Hier",
+    "empty": {
+      "title": "C'est calme ici",
+      "description": "Les messages envoyés dans ce salon s'affichent ici et restent visibles pour ceux qui arrivent plus tard. Partage un lien, un fichier ou dis simplement bonjour."
+    },
+    "openInBrowser": "Ouvrir dans le navigateur",
+    "download": "Télécharger"
+  },
+  "channels": {
+    "searchPlaceholder": "Rechercher des salons…",
+    "noRoomsYet": "Aucun salon pour l'instant",
+    "nothingFound": "Aucun résultat",
+    "nothingFoundHint": "Aucun salon ne porte ce nom. Efface la recherche pour tous les revoir.",
+    "online": "en ligne",
+    "createRoom": "Créer un salon",
+    "emptyHint": "Choisis un salon sur la page, ou crées-en un nouveau.",
+    "privateRoom": "Salon privé",
+    "friends": {
+      "heading": "Amis",
+      "online": "En ligne — {count}",
+      "offline": "Hors ligne — {count}"
+    },
+    "activity": {
+      "heading": "Activité des amis",
+      "inRooms": "Dans des salons",
+      "available": "{count, plural, one {# disponible pour parler} other {# disponibles pour parler}}",
+      "join": "Rejoindre",
+      "others": "{count, plural, one {+# autre personne} other {+# autres personnes}}",
+      "emptyTitle": "C'est calme pour le moment",
+      "emptyHint": "Aucun de tes amis n'est là. Lance un salon et sois le premier à y entrer."
+    }
+  },
+  "createRoom": {
+    "trigger": "Créer un salon",
+    "title": "Créer un salon",
+    "description": "Choisis un nom et qui peut entrer, et on t'envoie directement dans l'appel.",
+    "nameLabel": "Nom du nouveau salon",
+    "namePlaceholder": "point d'équipe",
+    "passwordLabel": "Mot de passe",
+    "passwordPlaceholder": "4 caractères min.",
+    "privateLabel": "Privé (mot de passe requis pour entrer)",
+    "submit": "Créer le salon",
+    "created": "Salon créé",
+    "nameCounter": "{count}/{max}",
+    "passwordHint": "Au moins 4 caractères. Ne le partage qu'avec les personnes que tu veux faire entrer.",
+    "privateExplainer": "Le salon reste visible dans la liste, avec un cadenas. Seules les personnes qui ont le mot de passe peuvent entrer.",
+    "publicExplainer": "Tout le monde voit le salon dans l'accueil et peut le rejoindre sans mot de passe.",
+    "hint": "Tu pourras renommer le salon ou changer son mot de passe plus tard depuis le menu du salon."
+  },
+  "manageRoom": {
+    "menu": {
+      "open": "Gérer le salon",
+      "edit": "Modifier le salon",
+      "delete": "Supprimer le salon"
+    },
+    "edit": {
+      "title": "Modifier le salon",
+      "description": "Renomme le salon, ou passe-le de public à privé et inversement.",
+      "nameLabel": "Nom",
+      "passwordLabel": "Nouveau mot de passe",
+      "passwordHint": "Laisse vide pour garder le mot de passe actuel.",
+      "privateLabel": "Privé (mot de passe requis pour entrer)",
+      "submit": "Enregistrer",
+      "saved": "Salon mis à jour",
+      "nameCounter": "{count}/{max}",
+      "privateExplainer": "Le salon reste visible dans la liste, avec un cadenas. Seules les personnes qui ont le mot de passe peuvent entrer.",
+      "publicExplainer": "Tout le monde voit le salon dans l'accueil et peut le rejoindre sans mot de passe.",
+      "hint": "Changer le mot de passe n'expulse personne — cela ne concerne que les nouvelles arrivées."
+    },
+    "delete": {
+      "title": "Supprimer « {name} » ?",
+      "description": "Toutes les personnes présentes seront déconnectées. Cette action est irréversible.",
+      "cancel": "Annuler",
+      "confirm": "Supprimer",
+      "deleted": "Salon supprimé",
+      "consequences": "Le salon, son historique de chat et tous ses canaux sont supprimés définitivement.",
+      "hint": "Toutes les personnes dans l'appel seront déconnectées immédiatement."
+    }
+  },
+  "participant": {
+    "muteForMe": "Rendre muet pour moi",
+    "unmuteForMe": "Rétablir le son pour moi",
+    "volume": "Volume",
+    "volumeFor": "Volume de {name}",
+    "screenVolume": "Son de l'écran",
+    "screenVolumeFor": "Volume du son de l'écran de {name}",
+    "copyName": "Copier le nom",
+    "nameCopied": "Nom copié"
+  },
+  "roomModeration": {
+    "label": "Modération du salon",
+    "mute": "Couper le micro pour tous",
+    "unmute": "Autoriser à parler",
+    "remove": "Expulser du salon",
+    "ban": "Bannir du salon",
+    "toasts": {
+      "mute": "Le micro de {name} est coupé pour tous",
+      "unmute": "{name} peut de nouveau parler",
+      "remove": "{name} a été expulsé du salon",
+      "ban": "{name} a été banni du salon"
+    },
+    "confirm": {
+      "cancel": "Annuler",
+      "remove": {
+        "title": "Expulser {name} du salon ?",
+        "description": "{name} est déconnecté immédiatement et renvoyé à l'accueil. Il pourra revenir.",
+        "confirm": "Expulser"
+      },
+      "ban": {
+        "title": "Bannir {name} du salon ?",
+        "description": "{name} est déconnecté immédiatement et ne pourra pas revenir tant que tu n'auras pas levé le bannissement dans le menu du salon.",
+        "confirm": "Bannir"
+      }
+    },
+    "notices": {
+      "removed": "Tu as été expulsé du salon",
+      "banned": "Tu as été banni du salon",
+      "muted": "Le propriétaire du salon a coupé ton micro",
+      "unmuted": "Le propriétaire du salon t'autorise de nouveau à parler",
+      "roomName": "« {name} »"
+    },
+    "bans": {
+      "menu": "Utilisateurs bannis",
+      "title": "Utilisateurs bannis",
+      "description": "Les personnes bannies de « {name} » ne peuvent pas y entrer tant que tu n'as pas levé le bannissement.",
+      "empty": "Personne n'est banni de ce salon.",
+      "bannedAt": "Banni le {date}",
+      "unban": "Débannir",
+      "unbanUser": "Débannir {name}",
+      "unbanned": "{name} peut de nouveau rejoindre le salon"
+    }
+  }
+}

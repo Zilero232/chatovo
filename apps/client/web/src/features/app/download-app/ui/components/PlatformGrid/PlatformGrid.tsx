@@ -1,3 +1,4 @@
+import { PlatformCard } from '@chatovo/ui-kit';
 import { Download, ExternalLink, Smartphone } from 'lucide-react';
 import prettyBytes from 'pretty-bytes';
 import { useTranslations } from 'use-intl';
@@ -6,8 +7,6 @@ import { DOWNLOAD_PLATFORMS } from '@/entities/app/release';
 import { EXTERNAL_LINKS } from '@/shared/constants';
 
 import type { PlatformGridProps } from './PlatformGrid.types';
-
-import { PlatformCard } from '../PlatformCard/PlatformCard';
 
 import s from './PlatformGrid.module.scss';
 
@@ -33,6 +32,7 @@ export const PlatformGrid = ({ release }: PlatformGridProps) => {
             }
             Icon={Icon}
             label={t(`platforms.${labelKey}`)}
+            unavailableLabel={t('notAvailable')}
           />
         );
       })}

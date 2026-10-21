@@ -6,8 +6,13 @@ export type FriendProfileRemoveConfirmState = {
   onOpenChange: (open: boolean) => void;
 };
 
+export type FriendProfileBlockActionState = {
+  isBlocked: boolean;
+};
+
 export type FriendProfileActionsBodyProps = {
   friendTag: string;
+  renderBlockAction: (state: FriendProfileBlockActionState) => ReactNode;
   renderRemoveConfirm: (state: FriendProfileRemoveConfirmState) => ReactNode;
   state: FriendshipRelation;
   userId: string;

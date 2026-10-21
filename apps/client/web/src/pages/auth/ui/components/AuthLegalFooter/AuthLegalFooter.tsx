@@ -1,22 +1,23 @@
 import { Text } from '@chatovo/ui-kit';
 import { useTranslations } from 'use-intl';
 
-import { EXTERNAL_LINKS } from '@/shared/constants';
+import { useLegalLinks } from '@/entities/app/locale';
 import { handleExternalLinkClick } from '@/shared/lib';
 
 import s from './AuthLegalFooter.module.scss';
 
 export const AuthLegalFooter = () => {
   const t = useTranslations('legal');
+  const links = useLegalLinks();
 
   return (
     <Text align='center' className={s.root} size='xs' tone='inherit'>
       <a
         className={s.link}
-        href={EXTERNAL_LINKS.privacy}
+        href={links.privacy}
         rel='noopener noreferrer'
         target='_blank'
-        onClick={(event) => handleExternalLinkClick({ event, url: EXTERNAL_LINKS.privacy })}
+        onClick={(event) => handleExternalLinkClick({ event, url: links.privacy })}
       >
         {t('privacy')}
       </a>
@@ -25,10 +26,10 @@ export const AuthLegalFooter = () => {
       </span>
       <a
         className={s.link}
-        href={EXTERNAL_LINKS.terms}
+        href={links.terms}
         rel='noopener noreferrer'
         target='_blank'
-        onClick={(event) => handleExternalLinkClick({ event, url: EXTERNAL_LINKS.terms })}
+        onClick={(event) => handleExternalLinkClick({ event, url: links.terms })}
       >
         {t('terms')}
       </a>

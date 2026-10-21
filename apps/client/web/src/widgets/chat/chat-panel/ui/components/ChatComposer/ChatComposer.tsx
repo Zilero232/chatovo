@@ -1,5 +1,7 @@
+import type { KeyboardEvent } from 'react';
+
 import { Button, Spinner } from '@chatovo/ui-kit';
-import { useKeyboard, useTextareaAutosize } from '@siberiacancode/reactuse';
+import { useTextareaAutosize } from '@siberiacancode/reactuse';
 import { clsx } from 'clsx';
 import { Paperclip, SendHorizontal } from 'lucide-react';
 import { useTranslations } from 'use-intl';
@@ -13,6 +15,7 @@ export const ChatComposer = ({ isUploading, onSend, onAttach, onPaste }: ChatCom
   const { ref, value: draft, set, clear } = useTextareaAutosize<HTMLTextAreaElement>('');
 
   const busy = isUploading;
+  const canSend = draft.trim().length > 0 && !busy;
 
   const submit = async () => {
     const value = draft.trim();
@@ -27,16 +30,14 @@ export const ChatComposer = ({ isUploading, onSend, onAttach, onPaste }: ChatCom
     await onSend(value);
   };
 
-  useKeyboard(ref, (event) => {
+  const handleKeyDown = (event: KeyboardEvent<HTMLTextAreaElement>) => {
     if (event.key !== 'Enter' || event.shiftKey) {
       return;
     }
 
     event.preventDefault();
     submit();
-  });
-
-  const canSend = draft.trim().length > 0 && !busy;
+  };
 
   return (
     <form
@@ -66,6 +67,7 @@ export const ChatComposer = ({ isUploading, onSend, onAttach, onPaste }: ChatCom
         rows={1}
         value={draft}
         onChange={(event) => set(event.target.value)}
+        onKeyDown={handleKeyDown}
         onPaste={onPaste}
       />
 

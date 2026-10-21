@@ -2,11 +2,12 @@ import type { LocalParticipant } from 'livekit-client';
 
 import { Track } from 'livekit-client';
 
+/** Opens or closes the published mic stream; never reopens a muted mic, which would leak audio. */
 export const toggleMicStream = (participant: LocalParticipant, enabled: boolean): boolean => {
   const publication = participant.getTrackPublication(Track.Source.Microphone);
   const stream = publication?.track?.mediaStreamTrack;
 
-  if (!stream) {
+  if (!stream || (enabled && publication.isMuted)) {
     return false;
   }
 
@@ -16,10 +17,3 @@ export const toggleMicStream = (participant: LocalParticipant, enabled: boolean)
 };
 
 export const armPttStream = (participant: LocalParticipant) => toggleMicStream(participant, false);
-
-/** Current `enabled` flag of the published mic track, or null when unpublished. */
-export const readMicStreamEnabled = (participant: LocalParticipant): boolean | null => {
-  const publication = participant.getTrackPublication(Track.Source.Microphone);
-
-  return publication?.track?.mediaStreamTrack?.enabled ?? null;
-};

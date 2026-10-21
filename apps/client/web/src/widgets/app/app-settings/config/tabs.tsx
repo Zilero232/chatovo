@@ -1,9 +1,19 @@
 import type { ReactNode } from 'react';
 
-import { Keyboard, Mic, Settings2, ShieldCheck, User, Video, Volume2 } from 'lucide-react';
+import {
+  Keyboard,
+  Mic,
+  Settings2,
+  ShieldCheck,
+  SlidersHorizontal,
+  User,
+  Video,
+  Volume2
+} from 'lucide-react';
 
 import {
   AudioTab,
+  GeneralTab,
   ProfileTab,
   SecurityTab,
   ShortcutsTab,
@@ -13,7 +23,7 @@ import {
 } from '../ui/sections';
 
 export type SettingsTabId =
-  'audio' | 'profile' | 'security' | 'shortcuts' | 'sounds' | 'system' | 'video';
+  'audio' | 'general' | 'profile' | 'security' | 'shortcuts' | 'sounds' | 'system' | 'video';
 
 type SettingsTabControls = {
   jumpTo: (id: SettingsTabId) => void;
@@ -35,6 +45,7 @@ export const SETTINGS_TABS: SettingsTabConfig[] = [
   },
   { id: 'video', icon: <Video />, render: () => <VideoTab /> },
   { id: 'sounds', icon: <Volume2 />, render: () => <SoundsTab /> },
+  { id: 'general', icon: <SlidersHorizontal />, render: () => <GeneralTab /> },
   { id: 'system', icon: <Settings2 />, tauriDesktopOnly: true, render: () => <SystemTab /> },
   { id: 'shortcuts', icon: <Keyboard />, tauriDesktopOnly: true, render: () => <ShortcutsTab /> },
   { id: 'security', icon: <ShieldCheck />, render: () => <SecurityTab /> }

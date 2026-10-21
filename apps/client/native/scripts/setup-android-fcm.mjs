@@ -1,10 +1,17 @@
-import { copyFileSync, existsSync, readFileSync, writeFileSync } from 'node:fs';
+import {
+  copyFileSync,
+  cpSync,
+  existsSync,
+  readdirSync,
+  readFileSync,
+  writeFileSync
+} from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const tauriRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 const googleServicesSrc = join(tauriRoot, 'android/google-services.json');
-const mainActivitySrc = join(tauriRoot, 'android/MainActivity.kt');
+const androidSrc = join(tauriRoot, 'android');
 const genRoot = join(tauriRoot, 'gen/android');
 const genApp = join(genRoot, 'app');
 const appGradlePath = join(genApp, 'build.gradle.kts');
@@ -15,16 +22,21 @@ if (!existsSync(appGradlePath)) {
   process.exit(0);
 }
 
+// MainActivity (routes a tapped push, bridges the call service), the call
+// service and its notification icon: `android init` writes a bare MainActivity,
+// so the overlay replaces it and adds the rest on every run.
+for (const file of readdirSync(androidSrc).filter((name) => name.endsWith('.kt'))) {
+  copyFileSync(join(androidSrc, file), join(genApp, 'src/main/java/chatovo/app', file));
+}
+
+cpSync(join(androidSrc, 'res'), join(genApp, 'src/main/res'), { recursive: true });
+
 if (!existsSync(googleServicesSrc)) {
   console.warn('[fcm] android/google-services.json missing — push disabled on Android');
   process.exit(0);
 }
 
 copyFileSync(googleServicesSrc, join(genApp, 'google-services.json'));
-
-// Routes a tapped push to the screen it is about; `android init` writes a
-// bare MainActivity, so the overlay replaces it on every run.
-copyFileSync(mainActivitySrc, join(genApp, 'src/main/java/chatovo/app/MainActivity.kt'));
 
 // `[package.metadata.cargo-android]` only reaches the template on the very first
 // `android init`; `tauri android build` re-renders the build files without it,
@@ -72,4 +84,4 @@ const addPlugin = () => {
 addClasspath();
 addPlugin();
 
-console.info('[fcm] google-services.json and MainActivity copied, Gradle plugin applied');
+console.info('[fcm] google-services.json and the Kotlin overlay copied, Gradle plugin applied');

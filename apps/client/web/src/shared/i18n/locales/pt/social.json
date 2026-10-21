@@ -1,0 +1,100 @@
+{
+  "friends": {
+    "title": "Amigos",
+    "description": "Seus amigos e pedidos recebidos.",
+    "online": "online",
+    "offline": "offline",
+    "requestsTab": "Pedidos",
+    "developersTab": "Equipe",
+    "onlineTab": "Online",
+    "allTab": "Todos",
+    "onlineCount": "Online — {count}",
+    "allCount": "Todos os amigos — {count}",
+    "pendingCount": "Pendentes — {count}",
+    "searchPlaceholder": "Buscar",
+    "nothingFound": "Nada encontrado",
+    "nothingFoundHint": "Nenhum amigo corresponde à busca. Limpe-a para ver todos.",
+    "emptyOnlineTitle": "Ninguém está online agora",
+    "addFriendHint": "Adicione amigos pela tag. Os números depois do # fazem diferença.",
+    "yourTagTitle": "Sua tag",
+    "yourTagHint": "Compartilhe para que outras pessoas possam adicionar você.",
+    "emptyFriendsTitle": "Nenhum amigo ainda",
+    "emptyFriendsHint": "Clique no avatar de alguém numa sala de voz e envie um pedido. Quando a pessoa aceitar, você pode mandar mensagem ou ligar direto daqui.",
+    "emptyRequestsTitle": "Nenhum pedido pendente",
+    "emptyRequestsHint": "Quando alguém adicionar você pela sua tag, o pedido aparece aqui esperando sua resposta.",
+    "emptyDevelopersTitle": "Ninguém na equipe ainda",
+    "emptyDevelopersHint": "A lista de desenvolvedores do Chatovo está vazia no momento. Volte mais tarde para conhecer quem está criando o app.",
+    "addFriend": "Adicionar amigo",
+    "cancelRequest": "Cancelar pedido",
+    "accept": "Aceitar",
+    "decline": "Recusar",
+    "messageFriend": "Mensagem",
+    "backToFriends": "Voltar aos amigos",
+    "callFriend": "Ligar",
+    "friendActions": "Ações do amigo",
+    "unreadMessages": "{count, plural, one {# mensagem não lida} other {# mensagens não lidas}}",
+    "removeFriend": "Remover amigo",
+    "removeFriendConfirm": {
+      "title": "Remover amigo?",
+      "description": "{name} será removido da sua lista de amigos. Isso não pode ser desfeito.",
+      "confirm": "Remover",
+      "cancel": "Cancelar",
+      "failed": "Não foi possível remover o amigo",
+      "consequences": "O histórico do chat continua, mas vocês não vão ver um ao outro online nem poder ligar até serem amigos de novo."
+    },
+    "tagPlaceholder": "friendTag (exemplo: alex#4821)",
+    "sendByTag": "Enviar",
+    "requestSent": "Pedido de amizade enviado",
+    "copyTag": "Copiar tag",
+    "tagCopied": "Tag copiada",
+    "tagCopyFailed": "Não foi possível copiar a tag",
+    "sendFailed": "Não foi possível enviar o pedido de amizade",
+    "incomingCall": {
+      "title": "Chamada recebida",
+      "description": "{name} está ligando para você",
+      "accept": "Atender",
+      "decline": "Recusar"
+    },
+    "outgoingCall": {
+      "title": "Ligando…",
+      "description": "Esperando {name} atender",
+      "cancel": "Cancelar",
+      "declined": "{name} recusou a chamada"
+    }
+  },
+  "blocks": {
+    "block": "Bloquear",
+    "unblock": "Desbloquear",
+    "unblockUser": "Desbloquear {name}",
+    "tab": "Bloqueados",
+    "count": "Bloqueados — {count}",
+    "notice": "Você bloqueou este usuário. Desbloqueie para enviar um pedido de amizade.",
+    "blockedToast": "Você bloqueou {name}",
+    "unblockedToast": "Você desbloqueou {name}",
+    "emptyTitle": "Ninguém bloqueado",
+    "emptyHint": "As pessoas que você bloquear aparecem aqui. Desbloquear alguém não refaz a amizade.",
+    "hiddenMessage": "Mensagem de um usuário bloqueado",
+    "showMessage": "Mostrar",
+    "confirm": {
+      "title": "Bloquear {name}?",
+      "description": "{name} não será avisado. A amizade e qualquer pedido pendente entre vocês serão removidos.",
+      "consequences": "As mensagens dessa pessoa nas salas ficam recolhidas em uma linha, a voz dela fica silenciada para você e ninguém pode enviar pedido de amizade até você desbloquear.",
+      "confirm": "Bloquear",
+      "cancel": "Cancelar"
+    }
+  },
+  "user": {
+    "verified": "Conta verificada",
+    "developer": "Desenvolvedor",
+    "developerHint": "Desenvolvedor do Chatovo"
+  },
+  "profileCard": {
+    "inVoice": "No canal de voz",
+    "notInVoice": "Fora de canais de voz",
+    "join": "Entrar",
+    "openSettingsHint": "Abra as configurações para editar seu perfil.",
+    "avatarAlt": "Avatar de {name}",
+    "avatarZoomDescription": "Foto de perfil ampliada",
+    "zoomAvatar": "Abrir avatar"
+  }
+}

@@ -4,7 +4,7 @@ import { isNullish } from 'remeda';
 
 import { env } from '@/shared/config';
 
-import { useInvisibleModeSync, useRoomSessionHost } from '../model/hooks';
+import { useInvisibleModeSync, useRoomModerationNotices, useRoomSessionHost } from '../model/hooks';
 import { MiniRoomFloatingSlot } from './components';
 
 import s from './RoomSessionHost.module.scss';
@@ -17,6 +17,7 @@ export const RoomSessionHost = () => {
   const { session, isExpanded, expand, failConnection, leave } = useRoomSessionHost();
 
   useInvisibleModeSync();
+  useRoomModerationNotices(leave);
 
   if (isNullish(session)) {
     return null;

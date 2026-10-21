@@ -219,3 +219,8 @@
   align-items: center;
   justify-content: center;
 }
+
+.locked {
+  cursor: not-allowed;
+  opacity: 0.4;
+}

@@ -1,9 +1,10 @@
-import { useLocalParticipant } from '@livekit/components-react';
+import { useLocalParticipant, useLocalParticipantPermissions } from '@livekit/components-react';
 import { toast } from 'sonner';
 import { useTranslations } from 'use-intl';
 
 import { useAppSettings } from '@/entities/app/settings';
 import { useCurrentUser } from '@/entities/auth/user';
+import { isMicLocked } from '@/entities/room/room';
 import { armPttStream, isTauriDesktop, prettyHotkey } from '@/shared/lib';
 
 import { resolveMicVisual } from '../../lib/mic-visual';
@@ -15,6 +16,7 @@ export const useMicControl = () => {
   const t = useTranslations('room.controls');
 
   const { localParticipant, isMicrophoneEnabled } = useLocalParticipant();
+  const permissions = useLocalParticipantPermissions();
   const { settings } = useAppSettings();
   const { isAdmin } = useCurrentUser();
 
@@ -26,13 +28,20 @@ export const useMicControl = () => {
   const isPtt = settings.audio.activationMode === 'pushToTalk';
   const pttBinding = settings.shortcuts.pttHold;
 
-  const visual = resolveMicVisual({ pttState, isMicrophoneEnabled });
+  const isLocked = isMicLocked(permissions);
+  const visual = resolveMicVisual({ pttState, isMicrophoneEnabled, isLocked });
 
   const { run, isPending } = useParticipantAction({
     participant: localParticipant,
     action: async (participant) => {
       if (isInvisible) {
         toast.error(t('invisibleMicBlocked'), { id: 'invisible-mic' });
+
+        return;
+      }
+
+      if (isLocked) {
+        toast.error(t('mutedByOwner'), { id: 'mic-muted-by-owner' });
 
         return;
       }
@@ -58,6 +67,7 @@ export const useMicControl = () => {
   return {
     ...visual,
     isDisabled: isInvisible,
+    isLocked,
     pttKey: isPtt && isTauriDesktop() && pttBinding ? prettyHotkey(pttBinding) : undefined,
     isPending,
     toggle: run

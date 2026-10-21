@@ -4,8 +4,7 @@ import { Checkbox, Label, Text } from '@chatovo/ui-kit';
 import { Controller, useFormContext } from 'react-hook-form';
 import { useTranslations } from 'use-intl';
 
-import { useFieldError } from '@/entities/app/locale';
-import { EXTERNAL_LINKS } from '@/shared/constants';
+import { useFieldError, useLegalLinks } from '@/entities/app/locale';
 import { handleExternalLinkClick } from '@/shared/lib';
 
 import s from './SignUpConsentField.module.scss';
@@ -13,6 +12,7 @@ import s from './SignUpConsentField.module.scss';
 export const SignUpConsentField = () => {
   const t = useTranslations('auth');
   const fieldError = useFieldError('auth');
+  const links = useLegalLinks();
 
   const { control } = useFormContext<SignUpFormValues>();
 
@@ -34,12 +34,10 @@ export const SignUpConsentField = () => {
                 terms: (chunks) => (
                   <a
                     className={s.link}
-                    href={EXTERNAL_LINKS.terms}
+                    href={links.terms}
                     rel='noopener noreferrer'
                     target='_blank'
-                    onClick={(event) =>
-                      handleExternalLinkClick({ event, url: EXTERNAL_LINKS.terms })
-                    }
+                    onClick={(event) => handleExternalLinkClick({ event, url: links.terms })}
                   >
                     {chunks}
                   </a>
@@ -47,12 +45,10 @@ export const SignUpConsentField = () => {
                 privacy: (chunks) => (
                   <a
                     className={s.link}
-                    href={EXTERNAL_LINKS.privacy}
+                    href={links.privacy}
                     rel='noopener noreferrer'
                     target='_blank'
-                    onClick={(event) =>
-                      handleExternalLinkClick({ event, url: EXTERNAL_LINKS.privacy })
-                    }
+                    onClick={(event) => handleExternalLinkClick({ event, url: links.privacy })}
                   >
                     {chunks}
                   </a>

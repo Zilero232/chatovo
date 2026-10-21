@@ -10,7 +10,7 @@ import { HomePage } from '@/views/home';
 export const generateMetadata = async ({ params }: LocalePageProps): Promise<Metadata> =>
   createMarketingMetadata({
     locale: await readPageLocale(params),
-    namespace: 'home',
+    namespace: 'home.meta',
     path: ROUTES.home
   });
 

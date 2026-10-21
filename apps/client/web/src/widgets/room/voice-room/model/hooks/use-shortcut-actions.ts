@@ -1,9 +1,11 @@
 import { useLocalParticipant } from '@livekit/components-react';
+import { useRef } from 'react';
 import { isNullish } from 'remeda';
 import { toast } from 'sonner';
 import { useTranslations } from 'use-intl';
 
 import { useAppSettings } from '@/entities/app/settings';
+import { isMicLocked } from '@/entities/room/room';
 import { appEvents, isTauriDesktop, toggleMicStream } from '@/shared/lib';
 
 import { toggleMicrophone } from '../../lib';
@@ -12,6 +14,9 @@ export const useShortcutActions = () => {
   const { localParticipant } = useLocalParticipant();
   const { settings } = useAppSettings();
   const t = useTranslations('room.shortcuts');
+  const tControls = useTranslations('room.controls');
+
+  const isHeldRef = useRef(false);
 
   const mode = settings.audio.activationMode;
   const enabled = isTauriDesktop() && !isNullish(localParticipant);
@@ -24,7 +29,8 @@ export const useShortcutActions = () => {
     await toggleMicrophone({
       localParticipant,
       isPtt: mode === 'pushToTalk',
-      source: 'shortcut'
+      source: 'shortcut',
+      onLocked: () => toast.info(tControls('mutedByOwner'), { id: 'mic-muted-by-owner' })
     });
   });
 
@@ -33,15 +39,32 @@ export const useShortcutActions = () => {
       return;
     }
 
-    if (!localParticipant.isMicrophoneEnabled) {
-      if (payload.phase === 'pressed') {
-        toast.info(t('pttBlockedByMute'), { id: 'ptt-blocked-by-mute' });
+    if (payload.phase === 'released') {
+      if (!isHeldRef.current) {
+        return;
       }
+
+      isHeldRef.current = false;
+      appEvents.emit.pttHold(payload);
+      toggleMicStream(localParticipant, false);
+
       return;
     }
 
-    appEvents.emit.pttHold(payload);
+    if (isMicLocked(localParticipant.permissions)) {
+      toast.info(tControls('mutedByOwner'), { id: 'mic-muted-by-owner' });
 
-    toggleMicStream(localParticipant, payload.phase === 'pressed');
+      return;
+    }
+
+    if (!localParticipant.isMicrophoneEnabled) {
+      toast.info(t('pttBlockedByMute'), { id: 'ptt-blocked-by-mute' });
+
+      return;
+    }
+
+    isHeldRef.current = true;
+    appEvents.emit.pttHold(payload);
+    toggleMicStream(localParticipant, true);
   });
 };

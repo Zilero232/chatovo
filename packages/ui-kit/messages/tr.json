@@ -1,0 +1,10 @@
+{
+  "ui": {
+    "chooseFile": "Dosya seç",
+    "close": "Kapat",
+    "loading": "Yükleniyor...",
+    "remove": "Kaldır",
+    "showPassword": "Şifreyi göster",
+    "hidePassword": "Şifreyi gizle"
+  }
+}

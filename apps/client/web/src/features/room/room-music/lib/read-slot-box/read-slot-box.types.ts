@@ -3,6 +3,9 @@ export type SlotBox = {
   top: number;
   width: number;
   height: number;
+  clipTop: number;
+  clipBottom: number;
+  isPassive: boolean;
 };
 
 export type ReadSlotBoxInput = {
@@ -11,5 +14,6 @@ export type ReadSlotBoxInput = {
 };
 
 export type IsUncoveredInput = ReadSlotBoxInput & {
-  rect: DOMRect;
+  x: number;
+  y: number;
 };

@@ -304,7 +304,9 @@ bun run test       # vitest across all workspaces
 ```
 
 Commit messages follow [Conventional Commits](https://www.conventionalcommits.org)
-and are checked by commitlint on commit. Tests live in `_tests/` next to the
+with an emoji: `bun run commit` (or a plain `git commit`) asks for the type, scope
+and title through [commit-jazzer](https://github.com/Zilero232/commit-jazzer), and
+commitlint checks every message. Tests live in `_tests/` next to the
 code they cover; conventions are in [docs/guides/shared/testing.md](docs/guides/shared/testing.md).
 
 <br/>

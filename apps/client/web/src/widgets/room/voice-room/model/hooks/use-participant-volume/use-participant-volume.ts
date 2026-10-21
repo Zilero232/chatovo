@@ -5,6 +5,7 @@ import { RemoteParticipant, Track } from 'livekit-client';
 import { useEffect, useState } from 'react';
 import { omit } from 'remeda';
 
+import { useIsUserBlocked } from '@/entities/social/friend';
 import { STORAGE_KEYS } from '@/shared/constants';
 import { readStoredJson, writeStoredJson } from '@/shared/lib';
 
@@ -12,7 +13,13 @@ import type { MuteMap, VolumeMap, VolumeSource } from '../../../lib';
 import type { ParticipantVolume } from './use-participant-volume.types';
 
 import { DEFAULT_VOLUME, VOLUME_PERSIST_DELAY_MS } from '../../../config';
-import { buildVolumeStorageKey, capMutes, capVolumes, clampVolume } from '../../../lib';
+import {
+  buildVolumeStorageKey,
+  capMutes,
+  capVolumes,
+  clampVolume,
+  resolveParticipantVolume
+} from '../../../lib';
 
 const readVolumes = (): VolumeMap => readStoredJson<VolumeMap>(STORAGE_KEYS.participantVolumes, {});
 
@@ -22,6 +29,8 @@ export const useParticipantVolume = (
   participant: Participant,
   source: VolumeSource = Track.Source.Microphone
 ): ParticipantVolume => {
+  const isBlocked = useIsUserBlocked(participant.identity);
+
   const storageKey = buildVolumeStorageKey(participant.identity, source);
   const isControllable = participant instanceof RemoteParticipant;
 
@@ -62,12 +71,13 @@ export const useParticipantVolume = (
 
   useEffect(() => {
     if (participant instanceof RemoteParticipant) {
-      participant.setVolume(isMuted ? 0 : clampVolume(volume), source);
+      participant.setVolume(resolveParticipantVolume({ volume, isMuted, isBlocked }), source);
     }
-  }, [participant, source, volume, isMuted]);
+  }, [participant, source, volume, isMuted, isBlocked]);
 
   return {
     volume,
+    isBlocked,
     isControllable,
     isMuted,
     setVolume: changeVolume,

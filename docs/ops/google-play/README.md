@@ -27,11 +27,11 @@ Releases are unrelated to it.
 | Consent checkbox on signup | Done (sign-up form) |
 | Admin panel | Done (`/admin`, four tabs — see [moderation.md](moderation.md)) |
 | Store listing | See [listing.md](listing.md) |
-| Icon + feature graphic | Done (`assets/`, regenerated for the coral brand plaque) |
+| Icon + feature graphic | Done (`assets/`, regenerated for the violet brand plaque) |
 | Phone screenshots | Done (`assets/screenshots/`, five 1080×1920 shots) |
 | Data safety form | See [data-safety.md](data-safety.md) |
 | Moderation and UGC | See [moderation.md](moderation.md) |
-| Foreground service for calls | **Missing** — a backgrounded call loses the microphone on API 30+ |
+| Foreground service for calls | Done — see [Backgrounded calls](#backgrounded-calls); declare it in the Console before the first upload |
 | 16 KB memory pages | Done — 64-bit only, see [ABIs](#abis) |
 | Automated Play upload | Done — `release.yml` uploads the aab once `PLAY_SERVICE_ACCOUNT_JSON` is set, see [release.md](../release.md#google-play-upload) |
 
@@ -112,28 +112,43 @@ rustup target add aarch64-linux-android armv7-linux-androideabi i686-linux-andro
 
 ## Backgrounded calls
 
-There is no foreground service, so a call goes silent once the app is
-backgrounded: since Android 11 the system revokes microphone access from a
-process with no `FOREGROUND_SERVICE_MICROPHONE` service. Verified against the
-merged manifests — no dependency contributes one either, not `tauri-plugin-fcm`,
-not the WebRTC path.
+Since Android 11 a backgrounded process without a `microphone` foreground service
+records silence, so a call needs one to survive switching apps or locking the
+screen. The pieces:
 
-Play does not reject over it, but it breaks the app's main flow, so it is worth
-fixing before a wide release.
+- `apps/client/native/android/CallService.kt` — the foreground service
+  (`foregroundServiceType="microphone"`) with an ongoing-call notification; tapping
+  it brings the app back. It refuses quietly (Android 14 without `RECORD_AUDIO`, or a
+  start from the background) and the call simply keeps working in the foreground.
+  A stop is an `ACTION_STOP` intent through the same `startForegroundService`, not
+  `stopService`: a service stopped before it reaches `startForeground` crashes the
+  app, and a leave right after a join does exactly that.
+- `android/res/drawable/ic_call_notification.xml` — the status bar icon, the brand
+  mark as a white silhouette; the launcher icon would show as a white blob there.
+- `CallBridge.kt` + `MainActivity.onWebViewCreate` — `window.chatovoCall.postMessage`
+  from the web app, through `WebViewCompat.addWebMessageListener`. The object is
+  injected only on the app's origin (`http(s)://tauri.localhost`, which
+  `android:dev` uses too), only the main frame is heard, and a non-string message
+  is dropped.
+- `build.rs` — `FOREGROUND_SERVICE`, `FOREGROUND_SERVICE_MICROPHONE` and the
+  `<service>` entry, injected like the other manifest blocks.
+- `scripts/setup-android-fcm.mjs` copies every `android/*.kt` and `android/res/`
+  into `gen/android` after `tauri android init`, the same overlay MainActivity
+  already used.
+- The web app starts the service once a room connects, keeps it through
+  reconnects (a network switch must not drop the microphone) and stops it on
+  disconnect or leave (`widgets/room/voice-room/ui/controllers/AndroidCallController`);
+  the notification text is translated.
 
-Fixing it needs all three, together:
+**Play Console: declare the foreground service type before uploading a build that
+contains it.** App content → Foreground service permissions → `FOREGROUND_SERVICE_MICROPHONE`:
+"Voice calls in rooms continue while the app is in the background; the service runs
+only while the user is in a call and shows an ongoing notification." Play asks for a
+short video of the flow (join a room, switch to another app, keep talking, the
+notification, leave). Without the declaration the release is held in review.
 
-1. A Kotlin foreground service with `foregroundServiceType="microphone"`, plus a
-   persistent notification, started when a room is joined and stopped on leave.
-2. `FOREGROUND_SERVICE` and `FOREGROUND_SERVICE_MICROPHONE` in the manifest —
-   `build.rs` already injects permissions this way. Do **not** add them ahead of
-   the service: Play asks for a declaration justifying every foreground service
-   permission, and one that nothing uses invites a rejection.
-3. A Play Console declaration for the `microphone` foreground service type.
-
-Tauri has no API for this — `gen/android/` is regenerated on every build, so the
-service has to come from a Tauri plugin (Rust wrapper, Kotlin service, JS
-bridge) rather than a hand-edited file or an overlay script.
+Not verified on a device from this repo's CI — check on a phone after the first
+build: join, background the app, talk, look for the notification, leave.
 
 ## In-app updates
 

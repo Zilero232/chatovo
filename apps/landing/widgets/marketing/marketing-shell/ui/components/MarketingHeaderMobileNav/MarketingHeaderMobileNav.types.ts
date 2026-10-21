@@ -1,11 +1,13 @@
+import type { Locale } from '@/shared/i18n';
+
 import type { MarketingNavItem } from '../MarketingHeaderNav/MarketingHeaderNav.types';
 
 export type MarketingHeaderMobileNavProps = {
   appLabel: string;
   items: MarketingNavItem[];
-  localeSwitchHref: string;
-  localeSwitchHrefLang: string;
-  localeSwitchLabel: string;
+  languageHrefs: Record<Locale, string>;
+  languageLabel: string;
+  locale: Locale;
   menuDescription: string;
   menuLabel: string;
   menuTitle: string;

@@ -18,6 +18,7 @@ const admin = {
 const rooms = {
   room: (id: string | null) => ['room', id] as const,
   rooms: () => ['rooms'] as const,
+  roomBans: (roomId: string) => ['room-bans', roomId] as const,
   livekitToken: (roomName: string | null, password?: string, invisible?: boolean) =>
     ['livekit-token', roomName, password ?? null, invisible ?? false] as const
 };
@@ -42,7 +43,8 @@ const friends = {
   friendsEpoch: () => ['friends-epoch'] as const,
   friendshipRelations: () => ['friendship-relation'] as const,
   friendshipRelation: (userId: string) => ['friendship-relation', userId] as const,
-  friendDmRoom: (userId: string) => ['friend-dm-room', userId] as const
+  friendDmRoom: (userId: string) => ['friend-dm-room', userId] as const,
+  blockedUsers: () => ['blocked-users'] as const
 };
 
 const users = {
@@ -50,6 +52,7 @@ const users = {
 };
 
 const meta = {
+  dateLocale: (locale: string) => ['date-locale', locale] as const,
   developers: () => ['developers'] as const,
   release: () => ['release'] as const,
   runningGame: () => ['running-game'] as const

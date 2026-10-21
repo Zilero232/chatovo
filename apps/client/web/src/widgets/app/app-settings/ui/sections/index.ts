@@ -1,4 +1,5 @@
 export { AudioTab } from './AudioTab/AudioTab';
+export { GeneralTab } from './GeneralTab';
 export { ProfileTab } from './ProfileTab';
 export { SecurityTab } from './SecurityTab';
 export { ShortcutsTab } from './ShortcutsTab';

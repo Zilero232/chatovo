@@ -39,6 +39,9 @@ export const DEFAULT_APP_SETTINGS: AppSettings = {
       ambience: true
     }
   },
+  chat: {
+    filterProfanity: true
+  },
   music: {
     volume: 0.5,
     ducking: true

@@ -1,7 +1,8 @@
 import { useNavigate, useSearch } from '@tanstack/react-router';
-import { useEffect, useState } from 'react';
+import { useEffect, useEffectEvent, useState } from 'react';
 import { isNonNullish } from 'remeda';
 
+import { useToastError } from '@/entities/app/locale';
 import { useAppSettings } from '@/entities/app/settings';
 import { useCurrentUser } from '@/entities/auth/user';
 import { useRoomById, useRoomToken } from '@/entities/room/room';
@@ -13,6 +14,8 @@ import { resolvePasswordGate } from '../../lib';
 export const useRoomPage = () => {
   const navigate = useNavigate();
   const { id, title: titleOverride, view } = useSearch({ strict: false });
+
+  const toastError = useToastError();
 
   const { settings } = useAppSettings();
   const { isAdmin } = useCurrentUser();
@@ -37,11 +40,16 @@ export const useRoomPage = () => {
 
   const isInvisible = isAdmin && settings.system.invisibleMode;
   const roomTitle = titleOverride ?? displayName;
-  const { showPasswordForm, passwordError } = resolvePasswordGate({
+  const { isRefused, showPasswordForm, passwordError } = resolvePasswordGate({
     isPrivate,
     tokenFailed,
     tokenError,
     password
+  });
+
+  const leaveRefusedRoom = useEffectEvent(() => {
+    toastError(`room-access-${roomId}`)(tokenError);
+    navigate({ to: ROUTES.lobby, replace: true });
   });
 
   useEffect(() => {
@@ -52,11 +60,10 @@ export const useRoomPage = () => {
   }, [roomId]);
 
   useEffect(() => {
-    if (!isPrivate && tokenFailed) {
-      navigate({ to: ROUTES.lobby, replace: true });
+    if (tokenFailed && (!isPrivate || isRefused)) {
+      leaveRefusedRoom();
     }
-    // eslint-disable-next-line react/exhaustive-deps -- redirect must fire only when a public-room token fetch fails; navigate is a stable ref
-  }, [isPrivate, tokenFailed]);
+  }, [isPrivate, isRefused, tokenFailed]);
 
   useEffect(
     () => () => {

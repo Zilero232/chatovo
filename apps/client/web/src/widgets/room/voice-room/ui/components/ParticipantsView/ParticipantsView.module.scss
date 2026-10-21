@@ -4,9 +4,13 @@
 .root {
   position: relative;
   z-index: var(--z-base);
+  display: flex;
   min-height: 0;
   flex: 1;
+  flex-direction: column;
   padding: 0.625rem;
+  container: stage / size;
+  gap: 1.25rem;
   overflow-y: auto;
 
   @include bp(sm) {
@@ -15,15 +19,33 @@
 }
 
 .grid {
+  --gap: 0.625rem;
+  --c: var(--cols-narrow);
+  --r: var(--rows-narrow);
+  --tile: min(
+    (100cqw - (var(--c) - 1) * var(--gap)) / var(--c),
+    max((100cqh - (var(--r) - 1) * var(--gap)) / var(--r) * 16 / 9, 11rem)
+  );
+
   position: relative;
   z-index: 1;
   display: grid;
-  gap: 0.625rem;
-  grid-template-columns: 1fr;
+  flex-shrink: 0;
+  justify-content: center;
+  gap: var(--gap);
+  grid-template-columns: repeat(var(--c), var(--tile));
+  margin-block: auto;
 
-  @include bp(md) {
-    grid-template-columns: repeat(2, 1fr);
+  @container stage (min-width: 40rem) {
+    --c: var(--cols);
+    --r: var(--rows);
   }
+}
+
+.gridSolo {
+  --tile: min(100cqw, 36rem, max((100cqh - 8rem) * 16 / 9, 11rem));
+
+  margin-bottom: 0;
 }
 
 .rootDm {

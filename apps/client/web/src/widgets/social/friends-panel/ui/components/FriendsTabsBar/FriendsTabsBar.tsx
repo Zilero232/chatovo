@@ -13,6 +13,7 @@ export const FriendsTabsBar = ({
   onAddFriend
 }: FriendsTabsBarProps) => {
   const t = useTranslations('friends');
+  const tBlocks = useTranslations('blocks');
 
   return (
     <div className={s.bar}>
@@ -33,6 +34,7 @@ export const FriendsTabsBar = ({
           {t('requestsTab')}
           {incomingCount > 0 && <span className={s.badge}>{incomingCount}</span>}
         </TabsTrigger>
+        <TabsTrigger value='blocked'>{tBlocks('tab')}</TabsTrigger>
         <TabsTrigger value='developers'>{t('developersTab')}</TabsTrigger>
       </TabsList>
 

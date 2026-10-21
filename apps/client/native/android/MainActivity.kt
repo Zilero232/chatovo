@@ -3,6 +3,7 @@ package chatovo.app
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.webkit.WebView
 import androidx.activity.enableEdgeToEdge
 
 class MainActivity : TauriActivity() {
@@ -10,6 +11,10 @@ class MainActivity : TauriActivity() {
     enableEdgeToEdge()
     intent?.let(::routePushTap)
     super.onCreate(savedInstanceState)
+  }
+
+  override fun onWebViewCreate(webView: WebView) {
+    CallBridge.attach(this, webView)
   }
 
   override fun onNewIntent(intent: Intent) {

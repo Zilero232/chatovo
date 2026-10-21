@@ -10,4 +10,4 @@ export type FriendChatSession = {
   roomId: string;
 };
 
-export type FriendsTabValue = 'add' | 'all' | 'developers' | 'online' | 'pending';
+export type FriendsTabValue = 'add' | 'all' | 'blocked' | 'developers' | 'online' | 'pending';

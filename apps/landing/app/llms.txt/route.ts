@@ -1,3 +1,5 @@
+import { localizeSitePath } from '@chatovo/config';
+
 import { LEGAL, SITE } from '@/shared/config';
 import { EXTERNAL_LINKS, ROUTES } from '@/shared/constants';
 
@@ -17,7 +19,7 @@ app. The project is source-available and developed in the open.
 ## Pages
 
 - [Home](${url(ROUTES.home)}): what ${SITE.name} is, how a room works, and how to start one.
-- [Home (English)](${url(ROUTES.homeEn)}): the English version of the home page.
+- [Home (English)](${url(localizeSitePath({ path: ROUTES.home, locale: 'en' }))}): the English version of the home page.
 - [Features](${url(ROUTES.features)}): voice and video rooms, screen sharing, chat, friends and direct calls, private rooms, desktop and mobile apps.
 - [Download](${url(ROUTES.download)}): desktop builds for Windows, macOS and Linux, plus the Android app.
 - [Changelog](${url(ROUTES.changelog)}): every release since the first public version, with what changed in each.

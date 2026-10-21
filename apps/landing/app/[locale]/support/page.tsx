@@ -10,7 +10,7 @@ import { SupportPage } from '@/views/support';
 export const generateMetadata = async ({ params }: LocalePageProps): Promise<Metadata> =>
   createMarketingMetadata({
     locale: await readPageLocale(params),
-    namespace: 'support',
+    namespace: 'support.meta',
     path: ROUTES.support
   });
 

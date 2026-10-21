@@ -61,6 +61,6 @@ export class ChatController {
 
   @Delete('messages/:id')
   deleteMessage(@Param('id') messageId: string, @CurrentUser() userId: string) {
-    return this.messages.deleteMessage({ messageId, senderId: userId });
+    return this.messages.deleteMessage({ messageId, userId });
   }
 }

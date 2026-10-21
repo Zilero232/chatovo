@@ -28,15 +28,16 @@
     "signedOut": "Выход выполнен",
     "title": "Настройки",
     "open": "Открыть настройки",
-    "description": "Устройства и звуковые предпочтения. Сохраняются на этом устройстве.",
+    "description": "Ваш профиль, устройства, звуки и аккаунт.",
     "tabs": {
       "profile": "Профиль",
-      "security": "Безопасность",
+      "security": "Аккаунт",
       "audio": "Аудио",
       "video": "Видео",
       "sounds": "Звуки",
+      "general": "Общие",
       "system": "Система",
-      "shortcuts": "Hotkeys"
+      "shortcuts": "Горячие клавиши"
     },
     "profile": {
       "displayNameLabel": "Отображаемое имя",
@@ -157,6 +158,12 @@
       "ambience": "Музыка одиночества",
       "ambienceHint": "Спокойный эмбиент, когда вы остались в комнате одни."
     },
+    "general": {
+      "languageDescription": "Язык приложения. При первом запуске он берётся из системы.",
+      "chat": "Чат",
+      "filterProfanity": "Скрывать мат",
+      "filterProfanityHint": "Мат в сообщениях заменяется на ***. Это видите только вы."
+    },
     "system": {
       "closeToTray": "Сворачивать в трей при закрытии",
       "closeToTrayHint": "Кнопка закрытия скрывает приложение в системный трей. Выключите, чтобы выходить при закрытии. Пункт «Выйти» в меню трея всегда завершает работу.",
@@ -228,7 +235,6 @@
     "loadFailed": "Не удалось загрузить последний релиз.",
     "openReleases": "Открыть релизы на GitHub",
     "version": "Версия {version}",
-    "notAvailable": "Пока недоступно",
     "downloadAction": "Загрузить",
     "platforms": {
       "windows": "Windows",
@@ -237,7 +243,8 @@
       "android": "Android"
     },
     "storeAction": "Открыть",
-    "googlePlay": "Google Play"
+    "googlePlay": "Google Play",
+    "notAvailable": "Пока недоступно"
   },
   "feedback": {
     "title": "Сообщить о проблеме",

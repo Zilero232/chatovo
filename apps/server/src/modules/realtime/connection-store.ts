@@ -1,7 +1,11 @@
 import type { RealtimeServerMessage } from '@chatovo/schemas';
 import type { WebSocket } from 'ws';
 
-import type { PresenceSnapshots, RealtimeConnection } from './realtime.types';
+import type {
+  PresenceSnapshots,
+  RealtimeConnection,
+  UnsubscribeUserFromRoomInput
+} from './realtime.types';
 
 import { bindRealtimeBroadcast as bindEmit } from './emit';
 
@@ -115,6 +119,20 @@ export const setConnectionRooms = (connectionId: string, roomIds: string[]): voi
   for (const roomId of roomIds) {
     connection.rooms.add(roomId);
     linkRoom(connectionId, roomId);
+  }
+};
+
+export const unsubscribeUserFromRoom = ({ userId, roomId }: UnsubscribeUserFromRoomInput): void => {
+  const userConnections = byUser.get(userId);
+
+  if (!userConnections) {
+    return;
+  }
+
+  for (const connectionId of userConnections) {
+    if (connections.get(connectionId)?.rooms.delete(roomId)) {
+      unlinkRoom(connectionId, roomId);
+    }
   }
 };
 

@@ -22,6 +22,7 @@ import s from './ChatConversation.module.scss';
 export const ChatConversation = ({
   roomId,
   currentUserId,
+  canModerate = false,
   enabled = true
 }: ChatConversationProps) => {
   const t = useTranslations('chat');
@@ -65,7 +66,7 @@ export const ChatConversation = ({
                 <Fragment key={line.id}>
                   {showDivider && <DateDivider timestamp={line.timestamp} />}
                   <ChatMessageItem
-                    canManage={isOwn}
+                    canManage={isOwn || canModerate}
                     isGrouped={isGrouped}
                     isOwn={isOwn}
                     isTail={isTail}

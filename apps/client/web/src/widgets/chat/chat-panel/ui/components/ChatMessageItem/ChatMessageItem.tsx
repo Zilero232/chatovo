@@ -1,12 +1,16 @@
 import type { ChatMessageItemProps } from './ChatMessageItem.types';
 
 import { ChatMessageProvider, useChatMessage } from '../../../model/contexts';
-import { MessageColumn, MessageDialogs } from './components';
+import { BlockedMessageRow, MessageColumn, MessageDialogs } from './components';
 
 import s from './ChatMessageItem.module.scss';
 
 const ChatMessageItemBody = () => {
-  const { message, isOwn } = useChatMessage();
+  const { message, isOwn, isCollapsed } = useChatMessage();
+
+  if (isCollapsed) {
+    return <BlockedMessageRow />;
+  }
 
   return (
     <div

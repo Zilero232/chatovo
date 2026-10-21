@@ -12,6 +12,7 @@ export const FriendProfileActions = ({
   userId,
   friendTag,
   onOpenChat,
+  renderBlockAction,
   renderRemoveConfirm
 }: FriendProfileActionsProps) => {
   const { data: relation, isPending: isRelationPending } = useFriendshipRelation(userId);
@@ -28,6 +29,7 @@ export const FriendProfileActions = ({
     <div className={s.root}>
       <FriendProfileActionsBody
         friendTag={friendTag}
+        renderBlockAction={renderBlockAction}
         renderRemoveConfirm={renderRemoveConfirm}
         state={relation ?? { status: 'none' }}
         userId={userId}

@@ -28,13 +28,14 @@
     "signedOut": "Signed out",
     "title": "Settings",
     "open": "Open settings",
-    "description": "Devices and sound preferences. Saved on this device.",
+    "description": "Your profile, devices, sounds and account.",
     "tabs": {
       "profile": "Profile",
-      "security": "Security",
+      "security": "Account",
       "audio": "Audio",
       "video": "Video",
       "sounds": "Sounds",
+      "general": "General",
       "system": "System",
       "shortcuts": "Hotkeys"
     },
@@ -157,6 +158,12 @@
       "ambience": "Alone ambience",
       "ambienceHint": "A calm loop that fades in when you are the only one left in a room."
     },
+    "general": {
+      "languageDescription": "The language of the app. The first launch follows your system.",
+      "chat": "Chat",
+      "filterProfanity": "Hide swear words",
+      "filterProfanityHint": "Swear words in messages turn into ***. Only you see the change."
+    },
     "system": {
       "closeToTray": "Minimize to tray on close",
       "closeToTrayHint": "Close button hides the app to the system tray. Turn off to quit on close. The tray's Quit menu always exits.",
@@ -228,7 +235,6 @@
     "loadFailed": "Couldn't load the latest release.",
     "openReleases": "Open releases on GitHub",
     "version": "Version {version}",
-    "notAvailable": "Not available yet",
     "downloadAction": "Download",
     "platforms": {
       "windows": "Windows",
@@ -237,7 +243,8 @@
       "android": "Android"
     },
     "storeAction": "Open",
-    "googlePlay": "Google Play"
+    "googlePlay": "Google Play",
+    "notAvailable": "Not available yet"
   },
   "feedback": {
     "title": "Report a problem",

@@ -1,0 +1,10 @@
+{
+  "ui": {
+    "chooseFile": "Elegir archivo",
+    "close": "Cerrar",
+    "loading": "Cargando...",
+    "remove": "Quitar",
+    "showPassword": "Mostrar contraseña",
+    "hidePassword": "Ocultar contraseña"
+  }
+}

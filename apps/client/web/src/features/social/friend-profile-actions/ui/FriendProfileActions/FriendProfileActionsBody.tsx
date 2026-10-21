@@ -6,6 +6,7 @@ import type { FriendProfileActionsBodyProps } from './FriendProfileActionsBody.t
 import { useFriendProfileActions } from '../../model/hooks';
 import {
   AddFriendAction,
+  BlockedNotice,
   CancelRequestAction,
   FriendActions,
   IncomingRequestActions
@@ -16,6 +17,7 @@ export const FriendProfileActionsBody = ({
   userId,
   friendTag,
   onOpenChat,
+  renderBlockAction,
   renderRemoveConfirm
 }: FriendProfileActionsBodyProps) => {
   const [removeOpen, setRemoveOpen] = useState(false);
@@ -47,7 +49,10 @@ export const FriendProfileActionsBody = ({
             onRemove={() => setRemoveOpen(true)}
           />
         ))
+        .with({ status: 'blocked' }, () => <BlockedNotice />)
         .exhaustive()}
+
+      {renderBlockAction({ isBlocked: state.status === 'blocked' })}
 
       {renderRemoveConfirm({ open: removeOpen, onOpenChange: setRemoveOpen })}
     </>

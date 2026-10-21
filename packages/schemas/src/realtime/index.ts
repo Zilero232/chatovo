@@ -17,6 +17,7 @@ export {
   realtimeChatMessageEventSchema,
   realtimeFriendsSnapshotEventSchema,
   realtimePresenceSnapshotEventSchema,
+  realtimeRoomModerationEventSchema,
   realtimeRoomMusicEventSchema,
   realtimeRoomReactionEventSchema,
   realtimeRoomRemovedEventSchema,

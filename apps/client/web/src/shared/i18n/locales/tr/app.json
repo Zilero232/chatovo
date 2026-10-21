@@ -1,0 +1,318 @@
+{
+  "pageMeta": {
+    "lobby": "Arkadaşlar",
+    "room": "Ses odası",
+    "admin": "Yönetim",
+    "auth": "Giriş yap",
+    "resetPassword": "Şifreyi sıfırla",
+    "accountDelete": "Hesabı sil"
+  },
+  "appSidebar": {
+    "lobby": "Arkadaşlar",
+    "downloadApp": "Uygulamayı indir",
+    "downloadAppLabel": "Uygulamayı indir",
+    "checkUpdate": "Güncellemeleri denetle",
+    "checkUpdateLabel": "Uygulama güncellemelerini denetle",
+    "gnomeVpn": "GnomeVPN",
+    "gnomeVpnLabel": "GnomeVPN web sitesini aç",
+    "showChannels": "Kanalları göster",
+    "hideChannels": "Kanalları gizle",
+    "toggleChannels": "Kanalları aç/kapat",
+    "menu": "Menü",
+    "menuDescription": "Gezinme ve oda listesi",
+    "openMenu": "Menüyü aç",
+    "closeMenu": "Menüyü kapat"
+  },
+  "settings": {
+    "logout": "Çıkış yap",
+    "signedOut": "Çıkış yapıldı",
+    "title": "Ayarlar",
+    "open": "Ayarları aç",
+    "description": "Profilin, cihazların, seslerin ve hesabın.",
+    "tabs": {
+      "profile": "Profil",
+      "security": "Hesap",
+      "audio": "Ses",
+      "video": "Görüntü",
+      "sounds": "Efektler",
+      "general": "Genel",
+      "system": "Sistem",
+      "shortcuts": "Kısayollar"
+    },
+    "profile": {
+      "displayNameLabel": "Görünen ad",
+      "displayNameHint": "Ses odalarında diğerlerinin gördüğü ad.",
+      "avatarLabel": "Avatar",
+      "avatarHint": "PNG, JPG, WebP veya GIF, en fazla 10 MB.",
+      "avatarRemove": "Avatarı kaldır",
+      "avatarInvalidType": "Bu dosya bir görsel değil.",
+      "bannerLabel": "Afiş rengi",
+      "bannerHint": "Profil kartının arka plan rengi.",
+      "bannerCustom": "Özel renk",
+      "bannerReset": "Afiş rengini sıfırla",
+      "save": "Kaydet",
+      "saved": "Profil güncellendi",
+      "profileUrlLabel": "Profil bağlantısı",
+      "profileUrlPlaceholder": "https://...",
+      "profileUrlHint": "Ayarlanırsa adın tıklanabilir bir bağlantıya dönüşür. Kaldırmak için boş bırak.",
+      "bioLabel": "Hakkımda",
+      "bioPlaceholder": "Kendinden biraz bahset...",
+      "bioHint": "Profil kartında gösterilir. En fazla 280 karakter."
+    },
+    "security": {
+      "emailTitle": "E-posta",
+      "currentEmailLabel": "Mevcut e-posta",
+      "newEmailLabel": "Yeni e-posta",
+      "newEmailPlaceholder": "ad@ornek.com",
+      "emailChangeHint": "Değişikliği onaylaman için mevcut e-posta adresine bir onay bağlantısı göndereceğiz.",
+      "emailChangeRequested": "Değişikliği onaylamak için mevcut e-postanı kontrol et",
+      "changeEmail": "E-postayı değiştir",
+      "passwordTitle": "Şifre",
+      "currentPasswordLabel": "Mevcut şifre",
+      "newPasswordLabel": "Yeni şifre",
+      "confirmPasswordLabel": "Yeni şifreyi onayla",
+      "changePassword": "Şifreyi değiştir",
+      "passwordChanged": "Şifre güncellendi",
+      "emailNotVerifiedTitle": "E-posta doğrulanmadı",
+      "emailNotVerifiedDescription": "Hesabını korumak ve tüm özellikleri açmak için {email} adresini doğrula.",
+      "emailVerificationSend": "Doğrulama e-postası gönder",
+      "emailVerificationResend": "E-postayı yeniden gönder",
+      "emailVerificationSent": "Doğrulama e-postası gönderildi",
+      "emailVerificationSentHint": "Gelen kutunu ve spam klasörünü kontrol et.",
+      "deleteTitle": "Hesabı sil"
+    },
+    "devices": {
+      "systemDefault": "Sistem varsayılanı",
+      "noDevices": "Cihaz bulunamadı",
+      "unknownDevice": "Bilinmeyen cihaz",
+      "errorDenied": "\"{device}\" cihazına erişim yok. Tarayıcı ayarlarından erişime izin ver.",
+      "errorNotFound": "\"{device}\" cihazı bulunamadı. Bağlı olduğundan emin ol.",
+      "errorBusy": "\"{device}\" cihazı başka bir uygulama tarafından kullanılıyor.",
+      "errorUnknown": "\"{device}\" cihazına geçilemedi."
+    },
+    "audio": {
+      "activation": "Mikrofon etkinleştirme",
+      "activationHint": "Sesinin ne zaman iletileceği.",
+      "activationVoice": "Ses etkinliği",
+      "activationPtt": "Bas-konuş",
+      "activationPttNoBinding": "Bu modu kullanmak için <link>Kısayollar sekmesinden</link> bir tuş ata.",
+      "autoSensitivity": "Giriş hassasiyetini otomatik belirle",
+      "autoSensitivityHint": "Eşiği arka plan gürültüne göre ayarlar. Elle ayarlamak için kapat.",
+      "sensitivity": "Giriş hassasiyeti",
+      "sensitivityHint": "Tutamacı sürükle: çubuk onu geçtiğinde ses gönderilir. Yeşil, sesinin duyulduğu anlamına gelir.",
+      "microphone": "Mikrofon",
+      "microphoneHint": "Sesini almak için kullanılan mikrofon.",
+      "speakers": "Hoparlörler",
+      "speakersHint": "Oda sesinin çalınacağı yer.",
+      "testMic": "Mikrofonu test et",
+      "testMicHint": "Seviyeyi görmek için konuş; kendini duymak için bas.",
+      "stopTestMic": "Mikrofon testini durdur",
+      "noiseSuppression": "Gürültü bastırma",
+      "noiseSuppressionHint": "Sabit arka plan gürültüsünü filtreler.",
+      "echoCancellation": "Yankı engelleme",
+      "echoCancellationHint": "Hoparlörlerinden gelen yankıyı giderir.",
+      "autoGainControl": "Otomatik kazanç kontrolü",
+      "autoGainControlHint": "Mikrofonunun ses düzeyini dengeler. Müzik için kapat.",
+      "voiceIsolation": "Ses izolasyonu",
+      "voiceIsolationHint": "Deneysel — daha güçlü ses izolasyonu. Tarayıcı desteği değişebilir."
+    },
+    "video": {
+      "camera": "Kamera",
+      "cameraHint": "Görüntüyü açtığında kullanılan kamera.",
+      "cameraQuality": "Kamera kalitesi",
+      "cameraQualityHint": "Kamera görüntünün çözünürlüğü. Yüksek kalite daha fazla ağ ve işlemci kullanır.",
+      "cameraQualityOptions": {
+        "720p": "720p",
+        "1080p": "1080p (Full HD)",
+        "1440p": "1440p (2K)",
+        "4k": "4K (Ultra HD)"
+      },
+      "screenQuality": "Ekran paylaşımı kalitesi",
+      "screenQualityHint": "Ekranını paylaşırken çözünürlük ve kare hızı. Hızlı hareket eden içerik için 30 fps uygundur.",
+      "screenQualityOptions": {
+        "1080p15": "1080p · 15 fps",
+        "1080p30": "1080p · 30 fps",
+        "1440p30": "1440p · 30 fps",
+        "4k30": "4K · 30 fps"
+      },
+      "mirror": "Görüntümü aynala",
+      "mirrorHint": "Kendi önizlemeni ters çevirir. Diğer katılımcılar seni her zaman aynalanmamış görür."
+    },
+    "sounds": {
+      "volumeLabel": "Ses efektleri düzeyi",
+      "volumeHint": "Tüm oda ses efektlerinin yüksekliği.",
+      "join": "Katılma",
+      "joinHint": "Biri odaya katıldığında.",
+      "leave": "Ayrılma",
+      "leaveHint": "Biri odadan ayrıldığında.",
+      "mute": "Sustur / susturmayı kaldır",
+      "muteHint": "Mikrofonunu açıp kapattığında.",
+      "reconnect": "Yeniden bağlanma",
+      "reconnectHint": "Bağlantın kopup geri geldiğinde.",
+      "message": "Sohbet mesajı",
+      "messageHint": "Sohbet kapalıyken gelen yeni mesaj.",
+      "reaction": "Tepki",
+      "reactionHint": "Biri emoji tepkisi gönderdiğinde.",
+      "call": "Arama",
+      "callHint": "Gelen ve giden arkadaş aramaları.",
+      "ambience": "Yalnızlık ambiyansı",
+      "ambienceHint": "Odada tek kaldığında yavaşça açılan sakin bir döngü."
+    },
+    "general": {
+      "languageDescription": "Uygulamanın dili. İlk açılışta sistem dilin kullanılır.",
+      "chat": "Sohbet",
+      "filterProfanity": "Küfürleri gizle",
+      "filterProfanityHint": "Mesajlardaki küfürler *** olarak görünür. Bu değişikliği yalnızca sen görürsün."
+    },
+    "system": {
+      "closeToTray": "Kapatınca sistem tepsisine küçült",
+      "closeToTrayHint": "Kapat düğmesi uygulamayı sistem tepsisine gizler. Kapatınca çıkmak için bunu kapat. Tepsideki Çık menüsü her zaman uygulamadan çıkar.",
+      "invisibleMode": "Görünmez mod",
+      "invisibleModeHint": "Herhangi bir odaya gizlice katıl: şifre gerekmez, kimse seni görmez ya da duymaz.",
+      "shareActivity": "Ne oynadığımı göster",
+      "shareActivityHint": "Odadakiler oynadığın oyunun adını görür. Yalnızca masaüstü uygulamasında."
+    },
+    "shortcuts": {
+      "webNotice": "Özel kısayollar tarayıcıda henüz desteklenmiyor. Özel kısayolları kullanmak için masaüstü uygulamasını <link>indir</link>.",
+      "actions": {
+        "muteToggle": "Mikrofonu aç/kapat",
+        "deafenToggle": "Sağırlaştırmayı aç/kapat",
+        "pttHold": "Bas-konuş (basılı tut)",
+        "chatToggle": "Sohbeti aç/kapat"
+      },
+      "unassigned": "Atanmadı",
+      "recording": "Bir tuş kombinasyonuna bas… (iptal için Esc)",
+      "clear": "Temizle",
+      "errors": {
+        "needsModifier": "Ctrl, Shift veya Alt içeren bir kombinasyon kullan",
+        "systemTaken": "Bu kombinasyon başka bir uygulama tarafından ayrılmış"
+      }
+    },
+    "deleteAccount": {
+      "description": "Hesabın; profilin, odaların ve arkadaş listenle birlikte kalıcı olarak silinir. Sana e-postayla bir onay bağlantısı göndereceğiz.",
+      "action": "Hesabı sil",
+      "requested": "Onay e-postası gönderildi",
+      "dialogTitle": "Hesabın silinsin mi?",
+      "dialogDescription": "Bu işlem geri alınamaz.",
+      "hint": "Onaylamak için e-postadaki bağlantıya tıkla.",
+      "consequences": "Profilin, odaların, arkadaşların ve bildirim cihazların silinir. Mesajların adın olmadan kalır.",
+      "confirm": "Onay gönder",
+      "cancel": "İptal"
+    }
+  },
+  "tray": {
+    "status": {
+      "online": "Çevrimiçi",
+      "connecting": "Bağlanıyor…",
+      "reconnecting": "Yeniden bağlanıyor…",
+      "inRoom": "Odada: {room}",
+      "muted": "Mikrofon kapalı"
+    },
+    "mute": "Mikrofonu sustur",
+    "deafen": "Sağırlaştır",
+    "leaveRoom": "Odadan ayrıl",
+    "openApp": "Chatovo'yu aç",
+    "checkUpdates": "Güncellemeleri denetle",
+    "quit": "Chatovo'dan çık"
+  },
+  "update": {
+    "title": "Güncelleme mevcut",
+    "description": "{version} sürümü kurulmaya hazır",
+    "releasedOn": "Yayın tarihi: {date}",
+    "later": "Sonra",
+    "install": "Güncelle",
+    "checking": "Güncellemeler denetleniyor…",
+    "downloading": "İndiriliyor… %{percent}",
+    "installing": "Kuruluyor…",
+    "failed": "Güncelleme başarısız oldu. Daha sonra tekrar dene.",
+    "upToDate": "En son sürümü kullanıyorsun",
+    "checkFailed": "Güncellemeler denetlenemedi",
+    "checkTimedOut": "Güncelleme denetimi zaman aşımına uğradı. Daha sonra tekrar dene."
+  },
+  "downloadApp": {
+    "title": "Chatovo'yu indir",
+    "description": "Windows, macOS, Linux ve Android için yerel uygulama.",
+    "loadFailed": "Son sürüm yüklenemedi.",
+    "openReleases": "GitHub'daki sürümleri aç",
+    "version": "Sürüm {version}",
+    "downloadAction": "İndir",
+    "platforms": {
+      "windows": "Windows",
+      "macos": "macOS",
+      "linux": "Linux",
+      "android": "Android"
+    },
+    "storeAction": "Aç",
+    "googlePlay": "Google Play",
+    "notAvailable": "Henüz mevcut değil"
+  },
+  "feedback": {
+    "title": "Sorun bildir",
+    "description": "Neyin bozulduğunu anlat. Ekran görüntüsü sorunu çok daha hızlı bulmamıza yardımcı olur.",
+    "descriptionLabel": "Sorun açıklaması",
+    "descriptionPlaceholder": "Ne oldu ve ne yapıyordun…",
+    "screenshotLabel": "Ekran görüntüsü",
+    "screenshotHint": "İsteğe bağlı. En fazla 5 MB görsel.",
+    "submit": "Gönder",
+    "sent": "Teşekkürler! Bildirimin gönderildi.",
+    "validation": {
+      "feedbackMin": "En az 10 karakter",
+      "feedbackMax": "En fazla 2000 karakter"
+    },
+    "hint": "Sorundan hemen önce ne yaptığını da yaz — genellikle eksik parça odur."
+  },
+  "easterEggs": {
+    "achievements": {
+      "konami": {
+        "title": "Da Vinci Şifresi",
+        "description": "Konami kodunu hâlâ hatırlıyorsun. Saygılar."
+      },
+      "nightOwl": {
+        "title": "Gece kuşu",
+        "description": "Gece 3'ten sonra sesli sohbete katılmak bir teşhistir."
+      },
+      "quietOne": {
+        "title": "Suskun",
+        "description": "Odada bir saat, tek ses yok. Her şeyi duyduk. Daha doğrusu — hiçbir şeyi."
+      },
+      "soloConcert": {
+        "title": "Solo konser",
+        "description": "Odada yarım saat yalnız. Akustik harika, seyirci mütevazı."
+      },
+      "muteMaster": {
+        "title": "Susturma ustası",
+        "description": "Mikrofon 25 kez açılıp kapandı. Artık bir karar ver."
+      },
+      "snake": {
+        "title": "Yılanı buldun",
+        "description": "Bir logoya yedi kez kim tıklar ki?"
+      }
+    },
+    "console": {
+      "hint": "Bir hata mı buldun ya da yardım etmek mi istiyorsun?"
+    },
+    "snake": {
+      "title": "Yılan",
+      "score": "Skor: {score}",
+      "best": "En iyi: {best}",
+      "gameOver": "Oyun bitti",
+      "restart": "Bir daha",
+      "hint": "Ok tuşlarını veya WASD'yi kullan",
+      "hintTouch": "Tahtada kaydır"
+    },
+    "ambience": {
+      "started": "Burası çok sessiz — müziği açıyorum",
+      "description": "Odada yalnızsın"
+    }
+  },
+  "pushChannels": {
+    "messages": "Mesajlar",
+    "calls": "Aramalar"
+  },
+  "googlePlayPromo": {
+    "title": "Chatovo artık Google Play'de",
+    "description": "Uygulama arka plandayken bile mesaj ve arama bildirimleri.",
+    "action": "Google Play'de aç",
+    "dismiss": "Gizle"
+  }
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The ongoing-call status bar icon: the brand mark as a white silhouette. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+  <group
+      android:pivotX="50"
+      android:pivotY="49"
+      android:scaleX="1.18"
+      android:scaleY="1.18"
+      android:translateY="1">
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M21,41 Q18,16 35,23 Q43,27 45,40 Z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M79,41 Q82,16 65,23 Q57,27 55,40 Z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:fillType="evenOdd"
+        android:pathData="M50,30 Q79,30 79,56 Q79,76 64,82 Q57,80 50,82 Q43,80 36,82 Q21,76 21,56 Q21,30 50,30 Z M33.4,54 A6.6,6.6 0 1,0 46.6,54 A6.6,6.6 0 1,0 33.4,54 Z M54,52 Q60,47 66,52 L66,56 Q60,51 54,56 Z M50,61 L45.5,67 L54.5,67 Z M42,68 Q50,76 58,68 L58,72 Q50,80 42,72 Z" />
+  </group>
+</vector>

@@ -48,9 +48,9 @@
   }
 }
 
-.avatar {
-  width: var(--space-16) !important;
-  height: var(--space-16) !important;
+.avatar[data-slot] {
+  width: var(--space-16);
+  height: var(--space-16);
 }
 
 .avatarOverlay {

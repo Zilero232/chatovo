@@ -21,8 +21,9 @@
 }
 
 .brandName {
-  font-size: rem(18);
-  font-weight: 650;
+  font-family: var(--font-display);
+  font-size: rem(20);
+  font-weight: 600;
 }
 
 .actions {

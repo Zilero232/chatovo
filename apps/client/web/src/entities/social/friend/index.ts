@@ -1,6 +1,9 @@
 export {
   useAcceptFriendRequest,
   useAcceptIncomingFriendCall,
+  useBlockedUserIds,
+  useBlockedUsers,
+  useBlockUserMutation,
   useCallFriend,
   useCancelOutgoingFriendCall,
   useCloseWhenCallAccepted,
@@ -11,9 +14,11 @@ export {
   useFriendshipRelation,
   useIncomingFriendCall,
   useIncomingFriendRequests,
+  useIsUserBlocked,
   useOutgoingFriendCall,
   useRemoveFriendship,
-  useSendFriendRequest
+  useSendFriendRequest,
+  useUnblockUserMutation
 } from './model/hooks';
 export type { CallFriendInput } from './model/hooks/use-call-friend';
 export { FriendsRealtimeSync } from './ui/controllers/FriendsRealtimeSync/FriendsRealtimeSync';

@@ -11,7 +11,6 @@ import { useTranslations } from 'use-intl';
 
 import { SecretClickArea } from '@/features/app/secret-games';
 import { AppSidebar } from '@/widgets/app/app-sidebar';
-import { LanguageSwitcher } from '@/widgets/app/language-switcher';
 import { ChannelsPanel } from '@/widgets/room/channels-panel';
 
 import type { MobileNavProps } from './MobileNav.types';
@@ -84,8 +83,6 @@ export const MobileNav = ({ open, onOpenChange }: MobileNavProps) => {
           </SecretClickArea>
           <span className={s.brandTitle}>Chatovo</span>
         </div>
-
-        <LanguageSwitcher />
       </div>
     </div>
   );

@@ -1,0 +1,318 @@
+{
+  "pageMeta": {
+    "lobby": "Amigos",
+    "room": "Sala de voz",
+    "admin": "Administração",
+    "auth": "Entrar",
+    "resetPassword": "Redefinir senha",
+    "accountDelete": "Excluir conta"
+  },
+  "appSidebar": {
+    "lobby": "Amigos",
+    "downloadApp": "Baixar o app",
+    "downloadAppLabel": "Baixar o app",
+    "checkUpdate": "Buscar atualizações",
+    "checkUpdateLabel": "Buscar atualizações do app",
+    "gnomeVpn": "GnomeVPN",
+    "gnomeVpnLabel": "Abrir o site do GnomeVPN",
+    "showChannels": "Mostrar canais",
+    "hideChannels": "Ocultar canais",
+    "toggleChannels": "Alternar canais",
+    "menu": "Menu",
+    "menuDescription": "Navegação e lista de salas",
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu"
+  },
+  "settings": {
+    "logout": "Sair",
+    "signedOut": "Você saiu",
+    "title": "Configurações",
+    "open": "Abrir configurações",
+    "description": "Seu perfil, dispositivos, sons e conta.",
+    "tabs": {
+      "profile": "Perfil",
+      "security": "Conta",
+      "audio": "Áudio",
+      "video": "Vídeo",
+      "sounds": "Sons",
+      "general": "Geral",
+      "system": "Sistema",
+      "shortcuts": "Atalhos"
+    },
+    "profile": {
+      "displayNameLabel": "Nome de exibição",
+      "displayNameHint": "O nome que as outras pessoas veem nas salas de voz.",
+      "avatarLabel": "Avatar",
+      "avatarHint": "PNG, JPG, WebP ou GIF, até 10 MB.",
+      "avatarRemove": "Remover avatar",
+      "avatarInvalidType": "Esse arquivo não é uma imagem.",
+      "bannerLabel": "Cor do banner",
+      "bannerHint": "A cor de fundo do seu cartão de perfil.",
+      "bannerCustom": "Cor personalizada",
+      "bannerReset": "Redefinir cor do banner",
+      "save": "Salvar",
+      "saved": "Perfil atualizado",
+      "profileUrlLabel": "Link do perfil",
+      "profileUrlPlaceholder": "https://...",
+      "profileUrlHint": "Se preenchido, seu nome vira um link clicável. Deixe vazio para remover.",
+      "bioLabel": "Sobre mim",
+      "bioPlaceholder": "Conte um pouco sobre você...",
+      "bioHint": "Aparece no seu cartão de perfil. Até 280 caracteres."
+    },
+    "security": {
+      "emailTitle": "E-mail",
+      "currentEmailLabel": "E-mail atual",
+      "newEmailLabel": "Novo e-mail",
+      "newEmailPlaceholder": "voce@exemplo.com",
+      "emailChangeHint": "Vamos enviar um link de confirmação para o seu e-mail atual para aprovar a alteração.",
+      "emailChangeRequested": "Confira seu e-mail atual para aprovar a alteração",
+      "changeEmail": "Alterar e-mail",
+      "passwordTitle": "Senha",
+      "currentPasswordLabel": "Senha atual",
+      "newPasswordLabel": "Nova senha",
+      "confirmPasswordLabel": "Confirmar nova senha",
+      "changePassword": "Alterar senha",
+      "passwordChanged": "Senha atualizada",
+      "emailNotVerifiedTitle": "E-mail não verificado",
+      "emailNotVerifiedDescription": "Confirme {email} para proteger sua conta e liberar todos os recursos.",
+      "emailVerificationSend": "Enviar e-mail de verificação",
+      "emailVerificationResend": "Reenviar e-mail",
+      "emailVerificationSent": "E-mail de verificação enviado",
+      "emailVerificationSentHint": "Confira sua caixa de entrada e a pasta de spam.",
+      "deleteTitle": "Excluir conta"
+    },
+    "devices": {
+      "systemDefault": "Padrão do sistema",
+      "noDevices": "Nenhum dispositivo encontrado",
+      "unknownDevice": "Dispositivo desconhecido",
+      "errorDenied": "Sem acesso a \"{device}\". Permita o acesso nas configurações do navegador.",
+      "errorNotFound": "Dispositivo \"{device}\" não encontrado. Verifique se ele está conectado.",
+      "errorBusy": "O dispositivo \"{device}\" está sendo usado por outro aplicativo.",
+      "errorUnknown": "Não foi possível mudar para \"{device}\"."
+    },
+    "audio": {
+      "activation": "Ativação do microfone",
+      "activationHint": "Quando transmitir sua voz.",
+      "activationVoice": "Detecção de voz",
+      "activationPtt": "Pressione para falar",
+      "activationPttNoBinding": "Defina uma tecla na <link>aba Atalhos</link> para usar este modo.",
+      "autoSensitivity": "Ajustar a sensibilidade de entrada automaticamente",
+      "autoSensitivityHint": "Adapta o limite ao seu ruído de fundo. Desative para definir manualmente.",
+      "sensitivity": "Sensibilidade de entrada",
+      "sensitivityHint": "Arraste o marcador: o áudio é enviado quando a barra passa dele. Verde significa que estão ouvindo você.",
+      "microphone": "Microfone",
+      "microphoneHint": "O microfone usado para captar sua voz.",
+      "speakers": "Alto-falantes",
+      "speakersHint": "Onde o áudio da sala é reproduzido.",
+      "testMic": "Testar microfone",
+      "testMicHint": "Fale para ver o nível; clique para ouvir a si mesmo.",
+      "stopTestMic": "Parar teste do microfone",
+      "noiseSuppression": "Supressão de ruído",
+      "noiseSuppressionHint": "Filtra ruídos de fundo constantes.",
+      "echoCancellation": "Cancelamento de eco",
+      "echoCancellationHint": "Remove o eco dos seus alto-falantes.",
+      "autoGainControl": "Controle automático de ganho",
+      "autoGainControlHint": "Equilibra o volume do seu microfone. Desative para música.",
+      "voiceIsolation": "Isolamento de voz",
+      "voiceIsolationHint": "Experimental — isolamento de voz mais forte. O suporte varia conforme o navegador."
+    },
+    "video": {
+      "camera": "Câmera",
+      "cameraHint": "A câmera usada quando você liga o vídeo.",
+      "cameraQuality": "Qualidade da câmera",
+      "cameraQualityHint": "Resolução do vídeo da câmera. Mais qualidade consome mais rede e CPU.",
+      "cameraQualityOptions": {
+        "720p": "720p",
+        "1080p": "1080p (Full HD)",
+        "1440p": "1440p (2K)",
+        "4k": "4K (Ultra HD)"
+      },
+      "screenQuality": "Qualidade da tela compartilhada",
+      "screenQualityHint": "Resolução e taxa de quadros ao compartilhar a tela. 30 fps é melhor para conteúdo com muito movimento.",
+      "screenQualityOptions": {
+        "1080p15": "1080p · 15 fps",
+        "1080p30": "1080p · 30 fps",
+        "1440p30": "1440p · 30 fps",
+        "4k30": "4K · 30 fps"
+      },
+      "mirror": "Espelhar meu vídeo",
+      "mirrorHint": "Inverte só a sua prévia. Os outros participantes sempre veem você sem espelhamento."
+    },
+    "sounds": {
+      "volumeLabel": "Volume dos efeitos sonoros",
+      "volumeHint": "Volume de todos os efeitos sonoros da sala.",
+      "join": "Entrada",
+      "joinHint": "Quando alguém entra na sala.",
+      "leave": "Saída",
+      "leaveHint": "Quando alguém sai da sala.",
+      "mute": "Silenciar / reativar",
+      "muteHint": "Quando você liga ou desliga o microfone.",
+      "reconnect": "Reconexão",
+      "reconnectHint": "Quando sua conexão cai e volta.",
+      "message": "Mensagem no chat",
+      "messageHint": "Uma nova mensagem enquanto o chat está fechado.",
+      "reaction": "Reação",
+      "reactionHint": "Quando alguém envia uma reação com emoji.",
+      "call": "Chamada",
+      "callHint": "Chamadas recebidas e feitas com amigos.",
+      "ambience": "Som de solidão",
+      "ambienceHint": "Um loop tranquilo que começa aos poucos quando só sobrou você na sala."
+    },
+    "general": {
+      "languageDescription": "O idioma do app. Na primeira abertura, ele segue o do sistema.",
+      "chat": "Chat",
+      "filterProfanity": "Ocultar palavrões",
+      "filterProfanityHint": "Palavrões nas mensagens aparecem como ***. Só você vê a mudança."
+    },
+    "system": {
+      "closeToTray": "Minimizar para a bandeja ao fechar",
+      "closeToTrayHint": "O botão de fechar esconde o app na bandeja do sistema. Desative para sair ao fechar. O item Sair do menu da bandeja sempre encerra o app.",
+      "invisibleMode": "Modo invisível",
+      "invisibleModeHint": "Entre em qualquer sala escondido: sem senha, e ninguém vê nem ouve você.",
+      "shareActivity": "Mostrar o que estou jogando",
+      "shareActivityHint": "As pessoas na sala veem o nome do jogo que você está jogando. Só no app para computador."
+    },
+    "shortcuts": {
+      "webNotice": "Atalhos personalizados ainda não funcionam no navegador. Para usá-los, <link>baixe</link> o app para computador.",
+      "actions": {
+        "muteToggle": "Ativar/desativar microfone",
+        "deafenToggle": "Ativar/desativar áudio",
+        "pttHold": "Pressione para falar (segurar)",
+        "chatToggle": "Abrir/fechar chat"
+      },
+      "unassigned": "Não definido",
+      "recording": "Pressione uma combinação… (Esc para cancelar)",
+      "clear": "Limpar",
+      "errors": {
+        "needsModifier": "Use uma combinação com Ctrl, Shift ou Alt",
+        "systemTaken": "Esta combinação está reservada por outro aplicativo"
+      }
+    },
+    "deleteAccount": {
+      "description": "Sua conta é excluída para sempre, junto com seu perfil, suas salas e sua lista de amigos. Vamos enviar um link de confirmação por e-mail.",
+      "action": "Excluir conta",
+      "requested": "E-mail de confirmação enviado",
+      "dialogTitle": "Excluir sua conta?",
+      "dialogDescription": "Isso não pode ser desfeito.",
+      "hint": "Siga o link do e-mail para confirmar.",
+      "consequences": "Seu perfil, salas, amigos e dispositivos de notificação são removidos. Suas mensagens ficam, sem o seu nome.",
+      "confirm": "Enviar confirmação",
+      "cancel": "Cancelar"
+    }
+  },
+  "tray": {
+    "status": {
+      "online": "Online",
+      "connecting": "Conectando…",
+      "reconnecting": "Reconectando…",
+      "inRoom": "Na sala: {room}",
+      "muted": "Microfone silenciado"
+    },
+    "mute": "Silenciar microfone",
+    "deafen": "Desativar áudio",
+    "leaveRoom": "Sair da sala",
+    "openApp": "Abrir o Chatovo",
+    "checkUpdates": "Buscar atualizações",
+    "quit": "Sair do Chatovo"
+  },
+  "update": {
+    "title": "Atualização disponível",
+    "description": "A versão {version} está pronta para instalar",
+    "releasedOn": "Lançada em {date}",
+    "later": "Depois",
+    "install": "Atualizar",
+    "checking": "Buscando atualizações…",
+    "downloading": "Baixando… {percent}%",
+    "installing": "Instalando…",
+    "failed": "Falha na atualização. Tente novamente mais tarde.",
+    "upToDate": "Você está na versão mais recente",
+    "checkFailed": "Não foi possível buscar atualizações",
+    "checkTimedOut": "A busca por atualizações demorou demais. Tente novamente mais tarde."
+  },
+  "downloadApp": {
+    "title": "Baixar o Chatovo",
+    "description": "App nativo para Windows, macOS, Linux e Android.",
+    "loadFailed": "Não foi possível carregar a versão mais recente.",
+    "openReleases": "Ver versões no GitHub",
+    "version": "Versão {version}",
+    "downloadAction": "Baixar",
+    "platforms": {
+      "windows": "Windows",
+      "macos": "macOS",
+      "linux": "Linux",
+      "android": "Android"
+    },
+    "storeAction": "Abrir",
+    "googlePlay": "Google Play",
+    "notAvailable": "Ainda não disponível"
+  },
+  "feedback": {
+    "title": "Relatar um problema",
+    "description": "Conte o que quebrou. Uma captura de tela ajuda a gente a achar o problema bem mais rápido.",
+    "descriptionLabel": "Descrição do problema",
+    "descriptionPlaceholder": "O que aconteceu e o que você estava fazendo…",
+    "screenshotLabel": "Captura de tela",
+    "screenshotHint": "Opcional. Imagem de até 5 MB.",
+    "submit": "Enviar",
+    "sent": "Valeu! Seu relato foi enviado.",
+    "validation": {
+      "feedbackMin": "Pelo menos 10 caracteres",
+      "feedbackMax": "No máximo 2000 caracteres"
+    },
+    "hint": "Conte o que você estava fazendo logo antes de acontecer — geralmente é essa a peça que falta."
+  },
+  "easterEggs": {
+    "achievements": {
+      "konami": {
+        "title": "O Código Da Vinci",
+        "description": "Você ainda lembra do código Konami. Respeito."
+      },
+      "nightOwl": {
+        "title": "Coruja da madrugada",
+        "description": "Entrar num chat de voz depois das 3 da manhã já é diagnóstico."
+      },
+      "quietOne": {
+        "title": "O caladão",
+        "description": "Uma hora na sala e nem um pio. A gente ouviu tudo. Ou melhor — nada."
+      },
+      "soloConcert": {
+        "title": "Show solo",
+        "description": "Meia hora sozinho numa sala. Acústica ótima, público modesto."
+      },
+      "muteMaster": {
+        "title": "Mestre do mute",
+        "description": "25 vezes ligando e desligando o microfone. Decide logo."
+      },
+      "snake": {
+        "title": "Achou a cobrinha",
+        "description": "Quem é que clica sete vezes num logo, afinal?"
+      }
+    },
+    "console": {
+      "hint": "Achou um bug ou quer ajudar?"
+    },
+    "snake": {
+      "title": "Cobrinha",
+      "score": "Pontos: {score}",
+      "best": "Recorde: {best}",
+      "gameOver": "Fim de jogo",
+      "restart": "Mais uma",
+      "hint": "Use as setas ou WASD",
+      "hintTouch": "Deslize no tabuleiro"
+    },
+    "ambience": {
+      "started": "Que silêncio — bora colocar uma música",
+      "description": "Você está sozinho na sala"
+    }
+  },
+  "pushChannels": {
+    "messages": "Mensagens",
+    "calls": "Chamadas"
+  },
+  "googlePlayPromo": {
+    "title": "O Chatovo chegou ao Google Play",
+    "description": "Notificações de mensagens e chamadas, mesmo com o app em segundo plano.",
+    "action": "Abrir no Google Play",
+    "dismiss": "Ocultar"
+  }
+}

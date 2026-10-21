@@ -3,6 +3,7 @@ import type { Room } from 'livekit-client';
 import { useRoomContext } from '@livekit/components-react';
 import { LocalVideoTrack, RoomEvent, Track } from 'livekit-client';
 import { useEffect, useEffectEvent, useRef } from 'react';
+import { isDeepEqual } from 'remeda';
 
 import type { DeviceSettings } from '@/entities/app/settings';
 
@@ -13,7 +14,7 @@ import {
   useAppSettings
 } from '@/entities/app/settings';
 
-import { applyDevices } from '../../lib';
+import { applyDevices, getLocalMicTrack } from '../../lib';
 
 const useApplyDevices = (room: Room, devices: DeviceSettings) => {
   const { audioInput, audioOutput, videoInput } = devices;
@@ -59,6 +60,13 @@ const useApplyAudioFlags = (room: Room) => {
   const { settings } = useAppSettings();
   const { noiseSuppression, echoCancellation, autoGainControl, voiceIsolation } = settings.audio;
 
+  const appliedCaptureRef = useRef({
+    noiseSuppression,
+    echoCancellation,
+    autoGainControl,
+    voiceIsolation
+  });
+
   useEffect(() => {
     const capture = { noiseSuppression, echoCancellation, autoGainControl, voiceIsolation };
 
@@ -67,11 +75,22 @@ const useApplyAudioFlags = (room: Room) => {
       ...capture
     };
 
-    if (room.localParticipant.isMicrophoneEnabled) {
-      room.localParticipant.setMicrophoneEnabled(true, capture).catch((err) => {
+    if (isDeepEqual(appliedCaptureRef.current, capture)) {
+      return;
+    }
+
+    appliedCaptureRef.current = capture;
+
+    const micTrack = getLocalMicTrack(room.localParticipant);
+
+    micTrack
+      ?.restartTrack({
+        ...room.options.audioCaptureDefaults,
+        deviceId: room.getActiveDevice('audioinput')
+      })
+      .catch((err) => {
         console.error('failed to apply audio capture flags', err);
       });
-    }
   }, [room, noiseSuppression, echoCancellation, autoGainControl, voiceIsolation]);
 };
 
