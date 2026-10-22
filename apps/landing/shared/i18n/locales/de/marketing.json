@@ -207,6 +207,26 @@
       "minor": "Reguläres Release"
     },
     "entries": {
+      "signUpErrors": {
+        "title": "Registrierung zeigt Fehler an",
+        "description": "Ein zu kurzes Passwort, eine vertippte E-Mail oder ein leerer Name bekommen jetzt einen Hinweis unter dem Feld, statt dass das Formular stumm bleibt."
+      },
+      "calmerColors": {
+        "title": "Ruhigere Farben",
+        "description": "Orange, Gelb und die anderen Akzente sind angenehmer für die Augen, und Text bleibt genauso gut lesbar."
+      },
+      "authHeader": {
+        "title": "Eine Kopfzeile bei der Anmeldung",
+        "description": "Anmeldung, Passwort-Reset und Kontolöschung teilen eine Kopfzeile mit Logo und Sprachwahl, und Chato steht in seinem Bogen."
+      },
+      "siteHeader": {
+        "title": "Aufgeräumtere Kopfzeile",
+        "description": "Die Sprachwahl ist ein kompakter Button neben „Anmelden“, und die Kopfzeile sitzt bündig über der Seite."
+      },
+      "cardsFromLeft": {
+        "title": "Karten beginnen links",
+        "description": "Im Raum beginnen die Teilnehmerkarten am linken Rand, statt in der Mitte eines breiten Fensters zu schweben."
+      },
       "musicLibrary": {
         "title": "Musik in Tabs",
         "description": "Warteschlange, Radio und Meine Musik haben je einen Tab, die Lautstärke steckt hinter dem Ton-Button."
@@ -769,6 +789,8 @@
       }
     },
     "highlights": {
+      "signUpErrors": "Registrierung zeigt Fehler an",
+      "calmerColors": "Ruhigere Farben",
       "musicLibrary": "Musik in Tabs",
       "lighterTheme": "Ein helleres Theme",
       "chatBesideRoom": "Chat neben dem Raum",

@@ -1,10 +1,10 @@
 @use '@chatovo/ui-kit/styles/functions' as *;
 
 :root {
-  --brand-coral: #ff7a59;
-  --brand-sun: #ffcf5c;
-  --brand-violet: #a48bff;
-  --brand-mint: #7ee0b5;
+  --brand-coral: #e38f6f;
+  --brand-sun: #f3d289;
+  --brand-violet: #a294e4;
+  --brand-mint: #91dcb9;
   --brand-cyan: var(--brand-mint);
   --brand-fuchsia: var(--brand-coral);
   --brand-lime: var(--brand-sun);
@@ -26,7 +26,7 @@
   --popover: var(--surface-2);
   --popover-foreground: var(--foreground);
   --primary: var(--brand-coral);
-  --primary-hover: #ff8f72;
+  --primary-hover: #ec9c7d;
   --primary-foreground: #2a1015;
   --secondary: var(--surface-2);
   --secondary-foreground: var(--foreground);
@@ -35,7 +35,7 @@
   --subtle-foreground: #a092aa;
   --accent: var(--surface-3);
   --accent-foreground: var(--foreground);
-  --destructive: #ff6b78;
+  --destructive: #e97d8d;
   --destructive-foreground: #2a0d12;
   --border: rgb(245 236 223 / 14%);
   --border-strong: rgb(245 236 223 / 26%);

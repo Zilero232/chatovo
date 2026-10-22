@@ -8,6 +8,10 @@
   aspect-ratio: 4 / 5;
 }
 
+.sm {
+  --scene-width: #{rem(220)};
+}
+
 .md {
   --scene-width: #{rem(240)};
 

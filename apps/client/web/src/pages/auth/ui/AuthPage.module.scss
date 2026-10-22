@@ -1,21 +1,6 @@
 @use '@chatovo/ui-kit/styles/mixins' as *;
 
 .root {
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-}
-
-.topBar {
-  display: flex;
-  flex-shrink: 0;
-  justify-content: flex-end;
-  padding-bottom: var(--space-4);
-}
-
-.shell {
   display: grid;
   width: 100%;
   max-width: rem(960);

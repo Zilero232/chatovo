@@ -44,7 +44,7 @@ export const EditUserDialog = ({ user, open, onOpenChange }: EditUserDialogProps
           <DialogDescription>{t('editUser.description')}</DialogDescription>
         </DialogHeader>
 
-        <Stack as='form' gap='4' onSubmit={onSubmit}>
+        <Stack noValidate as='form' gap='4' onSubmit={onSubmit}>
           <FormField
             error={errors.displayName && fieldError(errors.displayName)}
             htmlFor='admin-display-name'

@@ -207,6 +207,26 @@
       "minor": "Version régulière"
     },
     "entries": {
+      "signUpErrors": {
+        "title": "L’inscription affiche ses erreurs",
+        "description": "Un mot de passe trop court, un e-mail mal saisi ou un nom vide affichent désormais un message sous le champ, au lieu d’un formulaire qui ne fait rien."
+      },
+      "calmerColors": {
+        "title": "Des couleurs plus douces",
+        "description": "L’orange, le jaune et les autres accents fatiguent moins les yeux, et le texte reste aussi lisible."
+      },
+      "authHeader": {
+        "title": "Un en-tête pour la connexion",
+        "description": "La connexion, la réinitialisation du mot de passe et la suppression du compte partagent un en-tête avec le logo et la langue, et Chato se tient dans son arche."
+      },
+      "siteHeader": {
+        "title": "Un en-tête du site plus net",
+        "description": "Le choix de la langue est un bouton compact à côté de « Se connecter », et l’en-tête est aligné sur la page."
+      },
+      "cardsFromLeft": {
+        "title": "Les cartes partent de la gauche",
+        "description": "Dans un salon, les cartes des participants commencent au bord gauche au lieu de flotter au milieu d’une fenêtre large."
+      },
       "musicLibrary": {
         "title": "La musique en onglets",
         "description": "File d'attente, Radio et Ma musique ont chacun leur onglet, et le volume se règle via le bouton son."
@@ -769,6 +789,8 @@
       }
     },
     "highlights": {
+      "signUpErrors": "L’inscription affiche ses erreurs",
+      "calmerColors": "Des couleurs plus douces",
       "musicLibrary": "La musique en onglets",
       "lighterTheme": "Un thème plus clair",
       "chatBesideRoom": "Le chat à côté du salon",

@@ -1,9 +1,13 @@
 import { Outlet } from '@tanstack/react-router';
 
+import { StandaloneShell } from '@/widgets/layout/standalone-shell';
+
 import { AppProviders } from '../../providers';
 
 export const StandaloneLayout = () => (
   <AppProviders>
-    <Outlet />
+    <StandaloneShell>
+      <Outlet />
+    </StandaloneShell>
   </AppProviders>
 );

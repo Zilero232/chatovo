@@ -16,7 +16,7 @@ paths:
 
 ## Forms
 
-`react-hook-form` + `zodResolver` with the schema from `@chatovo/schemas`, a module-level `DEFAULT_VALUES`, server errors through `setError`. No `useState` per field.
+`react-hook-form` + `zodResolver` with the schema from `@chatovo/schemas`, a module-level `DEFAULT_VALUES`, server errors through `setError`. No `useState` per field. Under a `FormProvider`, a field component reads errors via `useFormState({ control })`, never `formState` from `useFormContext()` — the React Compiler leaves it stale. Every `<form>` / `as='form'` carries `noValidate`, or the browser's own `type='email'` check blocks the submit and no schema error shows.
 
 ## Drill cleanup
 

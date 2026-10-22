@@ -26,7 +26,7 @@ export const GLOBAL_ERROR_STYLES = {
     border: 'none',
     borderRadius: '9999px',
     color: '#2a1015',
-    background: '#ff7a59',
+    background: '#e38f6f',
     fontWeight: 600,
     cursor: 'pointer'
   }

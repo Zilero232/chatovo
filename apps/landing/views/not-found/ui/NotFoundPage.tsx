@@ -1,10 +1,10 @@
 import { localizeSitePath } from '@chatovo/config';
-import { Button, StatusScreen } from '@chatovo/ui-kit';
+import { Button, ChatoScene, StatusScreen } from '@chatovo/ui-kit';
 import { getTranslations } from 'next-intl/server';
 
 import { APP_ROUTES, ROUTES } from '@/shared/constants';
 import { buildAppHref } from '@/shared/lib';
-import { MarketingScene, MarketingShell } from '@/widgets/marketing/marketing-shell';
+import { MarketingShell } from '@/widgets/marketing/marketing-shell';
 
 import type { NotFoundPageProps } from './NotFoundPage.types';
 
@@ -29,7 +29,7 @@ export const NotFoundPage = async ({ locale }: NotFoundPageProps) => {
         className={s.root}
         code='404'
         description={t('description')}
-        illustration={<MarketingScene pose='peek' />}
+        illustration={<ChatoScene pose='peek' />}
         title={t('title')}
       />
     </MarketingShell>

@@ -39,7 +39,7 @@ export const ChangePasswordForm = () => {
   });
 
   return (
-    <form className={s.form} onSubmit={onSubmit}>
+    <form noValidate className={s.form} onSubmit={onSubmit}>
       <FormField
         error={errors.currentPassword && fieldError(errors.currentPassword)}
         htmlFor='current-password'

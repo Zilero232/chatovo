@@ -207,6 +207,26 @@
       "minor": "Normal sürüm"
     },
     "entries": {
+      "signUpErrors": {
+        "title": "Kayıt hataları gösteriyor",
+        "description": "Kısa bir şifre, yanlış yazılmış bir e-posta ya da boş bir ad artık alanın altında uyarı gösteriyor; form sessizce bekleyip kalmıyor."
+      },
+      "calmerColors": {
+        "title": "Daha sakin renkler",
+        "description": "Turuncu, sarı ve diğer vurgular gözü daha az yoruyor, metin ise aynı kolaylıkla okunuyor."
+      },
+      "authHeader": {
+        "title": "Girişte ortak üst bar",
+        "description": "Giriş, şifre sıfırlama ve hesap silme sayfaları logo ve dil seçimiyle tek bir üst barı paylaşıyor, Chato da kemerinde duruyor."
+      },
+      "siteHeader": {
+        "title": "Daha düzenli site üst barı",
+        "description": "Dil seçimi “Giriş yap” düğmesinin yanında kompakt bir düğme, üst bar da sayfayla hizalı."
+      },
+      "cardsFromLeft": {
+        "title": "Kartlar soldan başlıyor",
+        "description": "Odada katılımcı kartları geniş bir pencerenin ortasında durmak yerine sol kenardan başlıyor."
+      },
       "musicLibrary": {
         "title": "Sekmelerde müzik",
         "description": "Sıra, Radyo ve Müziğim ayrı sekmelerde, ses ayarı ise ses düğmesinin arkasında."
@@ -769,6 +789,8 @@
       }
     },
     "highlights": {
+      "signUpErrors": "Kayıt hataları gösteriyor",
+      "calmerColors": "Daha sakin renkler",
       "musicLibrary": "Sekmelerde müzik",
       "lighterTheme": "Daha açık bir tema",
       "chatBesideRoom": "Odanın yanında sohbet",

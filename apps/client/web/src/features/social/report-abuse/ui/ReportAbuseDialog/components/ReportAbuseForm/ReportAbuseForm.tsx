@@ -44,7 +44,7 @@ export const ReportAbuseForm = ({ target, targetId, onSent }: ReportAbuseFormPro
   });
 
   return (
-    <Stack as='form' gap='4' onSubmit={onSubmit}>
+    <Stack noValidate as='form' gap='4' onSubmit={onSubmit}>
       <AbuseReasonField control={control} error={errors.reason && fieldError(errors.reason)} />
 
       <FormField

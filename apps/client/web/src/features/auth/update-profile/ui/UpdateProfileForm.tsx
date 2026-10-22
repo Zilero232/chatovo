@@ -54,7 +54,7 @@ export const UpdateProfileForm = () => {
   });
 
   return (
-    <form className={s.form} onSubmit={onSubmit}>
+    <form noValidate className={s.form} onSubmit={onSubmit}>
       <AvatarField
         name={displayName}
         src={avatar.shownSrc}

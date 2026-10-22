@@ -1,5 +1,4 @@
 import { Chato, Text } from '@chatovo/ui-kit';
-import { clsx } from 'clsx';
 import { motion } from 'motion/react';
 import { useTranslations } from 'use-intl';
 
@@ -24,23 +23,21 @@ export const ResetPasswordPage = () => {
   const { token, isDone, markDone } = resetToken;
 
   return (
-    <div className={clsx(s.root, 'inset-page-x', 'inset-page-y')}>
-      <motion.section className={s.card} {...enterMotion}>
-        <div className={s.header}>
-          <Chato className={s.chato} pose={isDone ? 'wink' : 'peek'} />
+    <motion.section className={s.card} {...enterMotion}>
+      <div className={s.header}>
+        <Chato className={s.chato} pose={isDone ? 'wink' : 'peek'} />
 
-          <h1 className={s.title}>{isDone ? t('resetDoneTitle') : t('resetPasswordTitle')}</h1>
-          <Text size='sm' tone='muted'>
-            {isDone ? t('resetDoneSubtitle') : t('resetPasswordSubtitle')}
-          </Text>
-        </div>
+        <h1 className={s.title}>{isDone ? t('resetDoneTitle') : t('resetPasswordTitle')}</h1>
+        <Text size='sm' tone='muted'>
+          {isDone ? t('resetDoneSubtitle') : t('resetPasswordSubtitle')}
+        </Text>
+      </div>
 
-        {isDone ? (
-          <ResetPasswordDoneActions />
-        ) : (
-          <ResetPasswordForm token={token} onSuccess={markDone} />
-        )}
-      </motion.section>
-    </div>
+      {isDone ? (
+        <ResetPasswordDoneActions />
+      ) : (
+        <ResetPasswordForm token={token} onSuccess={markDone} />
+      )}
+    </motion.section>
   );
 };

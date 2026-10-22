@@ -1,4 +1,4 @@
-import { BrandMark, Chato, Text } from '@chatovo/ui-kit';
+import { ChatoScene, Text } from '@chatovo/ui-kit';
 import { motion } from 'motion/react';
 import { useTranslations } from 'use-intl';
 
@@ -16,12 +16,7 @@ export const AuthScene = ({ mode }: AuthSceneProps) => {
 
   return (
     <motion.aside className={s.root} {...enterMotion}>
-      <div className={s.brand}>
-        <BrandMark size={32} />
-        <span className={s.wordmark}>{t('appName')}</span>
-      </div>
-
-      <Chato className={s.chato} pose={AUTH_CHATO_POSE[mode]} />
+      <ChatoScene pose={AUTH_CHATO_POSE[mode]} size='sm' />
 
       <h2 className={s.title}>
         {t.rich('scene.title', {

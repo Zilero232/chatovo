@@ -42,7 +42,7 @@ export const ChangeEmailForm = () => {
   });
 
   return (
-    <form className={s.form} onSubmit={onSubmit}>
+    <form noValidate className={s.form} onSubmit={onSubmit}>
       <FormField htmlFor='current-email' label={t('currentEmailLabel')}>
         <Input disabled id='current-email' type='email' value={currentEmail} />
       </FormField>

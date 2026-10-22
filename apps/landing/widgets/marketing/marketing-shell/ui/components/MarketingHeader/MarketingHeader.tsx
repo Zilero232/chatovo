@@ -45,14 +45,14 @@ export const MarketingHeader = async ({ locale, path }: MarketingHeaderProps) =>
       <div className={s.headerActions}>
         <div className={s.headerLocaleSwitch}>
           <MarketingLanguageSelect
-            className={s.localeSwitch}
             hrefs={languageHrefs}
             label={t('language')}
             locale={locale}
+            variant='ghost'
           />
         </div>
 
-        <MarketingAppCta className={s.headerCta} label={t('signIn')} />
+        <MarketingAppCta className={s.headerCta} label={t('signIn')} size='default' />
 
         <MarketingHeaderMobileNav
           appLabel={t('signIn')}

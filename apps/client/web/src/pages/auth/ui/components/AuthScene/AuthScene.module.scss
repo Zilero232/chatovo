@@ -11,23 +11,6 @@
   }
 }
 
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-3);
-}
-
-.wordmark {
-  font-family: var(--font-display);
-  font-size: rem(20);
-  font-weight: 600;
-}
-
-.chato {
-  width: rem(200);
-  height: rem(200);
-}
-
 .title {
   max-width: rem(400);
   margin: 0;

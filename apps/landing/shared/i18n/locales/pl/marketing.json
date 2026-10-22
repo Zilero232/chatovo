@@ -207,6 +207,26 @@
       "minor": "Zwykłe wydanie"
     },
     "entries": {
+      "signUpErrors": {
+        "title": "Rejestracja pokazuje błędy",
+        "description": "Za krótkie hasło, literówka w e-mailu czy puste imię dają teraz podpowiedź pod polem, zamiast formularza, który nic nie robi."
+      },
+      "calmerColors": {
+        "title": "Spokojniejsze kolory",
+        "description": "Pomarańczowy, żółty i inne akcenty mniej męczą oczy, a tekst czyta się równie łatwo."
+      },
+      "authHeader": {
+        "title": "Wspólny nagłówek logowania",
+        "description": "Logowanie, reset hasła i usuwanie konta mają jeden nagłówek z logo i wyborem języka, a Chato stoi w swoim łuku."
+      },
+      "siteHeader": {
+        "title": "Schludniejszy nagłówek strony",
+        "description": "Wybór języka to kompaktowy przycisk obok „Zaloguj się”, a nagłówek równo stoi nad stroną."
+      },
+      "cardsFromLeft": {
+        "title": "Karty od lewej",
+        "description": "W pokoju karty uczestników zaczynają się od lewej krawędzi, zamiast wisieć na środku szerokiego okna."
+      },
       "musicLibrary": {
         "title": "Muzyka w kartach",
         "description": "Kolejka, Radio i Moja muzyka mają osobne karty, a głośność kryje się pod przyciskiem dźwięku."
@@ -769,6 +789,8 @@
       }
     },
     "highlights": {
+      "signUpErrors": "Rejestracja pokazuje błędy",
+      "calmerColors": "Spokojniejsze kolory",
       "musicLibrary": "Muzyka w kartach",
       "lighterTheme": "Jaśniejszy motyw",
       "chatBesideRoom": "Czat obok pokoju",

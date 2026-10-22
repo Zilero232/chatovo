@@ -31,7 +31,6 @@
   z-index: 1;
   display: grid;
   flex-shrink: 0;
-  justify-content: center;
   gap: var(--gap);
   grid-template-columns: repeat(var(--c), var(--tile));
 

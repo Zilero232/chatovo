@@ -46,6 +46,7 @@ export const RoomPasswordForm = ({
       <EmptyStatePattern className={s.pattern} variant='waves' />
 
       <Stack
+        noValidate
         as='form'
         className={clsx(s.card, 'glass', 'shadow-glow-violet')}
         gap='4'

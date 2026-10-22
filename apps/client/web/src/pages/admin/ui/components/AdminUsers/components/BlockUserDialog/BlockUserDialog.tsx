@@ -63,7 +63,7 @@ export const BlockUserDialog = ({ user, open, onOpenChange }: BlockUserDialogPro
           <DialogDescription>{t('blockUser.description')}</DialogDescription>
         </DialogHeader>
 
-        <Stack as='form' gap='4' onSubmit={onSubmit}>
+        <Stack noValidate as='form' gap='4' onSubmit={onSubmit}>
           <FormField
             error={errors.reason && fieldError(errors.reason)}
             htmlFor='block-reason'

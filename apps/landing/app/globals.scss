@@ -4,9 +4,16 @@
 
 html,
 body {
-  overflow: clip auto;
   min-height: 100%;
+}
+
+html {
+  overflow: clip auto;
   scrollbar-gutter: stable;
+}
+
+body {
+  overflow-x: clip;
 }
 
 @media (prefers-reduced-motion: no-preference) {

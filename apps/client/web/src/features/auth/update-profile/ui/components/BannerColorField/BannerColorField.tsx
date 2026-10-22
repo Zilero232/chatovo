@@ -8,7 +8,7 @@ import type { BannerColorFieldProps } from './BannerColorField.types';
 
 import s from '../../UpdateProfileForm.module.scss';
 
-const PRESETS = ['#ff7a59', '#ffcf5c', '#a48bff', '#7ee0b5', '#ff6b78', '#6b5a78'];
+const PRESETS = ['#e38f6f', '#f3d289', '#a294e4', '#91dcb9', '#e97d8d', '#6b5a78'];
 
 export const BannerColorField = ({ value, onChange }: BannerColorFieldProps) => {
   const t = useTranslations('settings.profile');

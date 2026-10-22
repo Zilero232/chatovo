@@ -1,8 +1,6 @@
-import { clsx } from 'clsx';
 import { motion } from 'motion/react';
 import { useState } from 'react';
 
-import { LocaleSelect } from '@/entities/app/locale';
 import { useEnterMotion } from '@/shared/hooks';
 
 import type { AuthMode } from '../model/types';
@@ -17,24 +15,18 @@ export const AuthPage = () => {
   const [mode, setMode] = useState<AuthMode>('signin');
 
   return (
-    <div className={clsx(s.root, 'inset-page-x', 'inset-page-y')}>
-      <header className={s.topBar}>
-        <LocaleSelect />
-      </header>
+    <div className={s.root}>
+      <AuthScene mode={mode} />
 
-      <div className={s.shell}>
-        <AuthScene mode={mode} />
+      <motion.section className={s.card} {...enterMotion}>
+        <AuthHeading mode={mode} />
 
-        <motion.section className={s.card} {...enterMotion}>
-          <AuthHeading mode={mode} />
+        <AuthForm mode={mode} onModeChange={setMode} />
 
-          <AuthForm mode={mode} onModeChange={setMode} />
+        {mode !== 'forgot' && <AuthModeSwitch mode={mode} onModeChange={setMode} />}
 
-          {mode !== 'forgot' && <AuthModeSwitch mode={mode} onModeChange={setMode} />}
-
-          <AuthLegalFooter />
-        </motion.section>
-      </div>
+        <AuthLegalFooter />
+      </motion.section>
     </div>
   );
 };

@@ -1,11 +1,12 @@
-import { Chato } from '@chatovo/ui-kit';
 import { clsx } from 'clsx';
 
-import type { MarketingSceneProps } from './MarketingScene.types';
+import type { ChatoSceneProps } from './ChatoScene.types';
 
-import s from './MarketingScene.module.scss';
+import { Chato } from '../Chato';
 
-export const MarketingScene = ({ children, pose, size = 'md', className }: MarketingSceneProps) => (
+import s from './ChatoScene.module.scss';
+
+export const ChatoScene = ({ children, pose, size = 'md', className }: ChatoSceneProps) => (
   <div className={clsx(s.root, s[size], className)}>
     <div aria-hidden className={s.arch}>
       <span className={s.moon} />

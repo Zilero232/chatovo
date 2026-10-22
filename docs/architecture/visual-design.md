@@ -23,12 +23,14 @@ All text pairs are AA on their background; the ratios were computed, not eyeball
 | `--foreground` | `#f5ecdf` | text | 14.9 on bg |
 | `--muted-foreground` | `#b8acbf` | secondary text | 8.1 on bg, 6.2 on surface-2 |
 | `--subtle-foreground` | `#a092aa` | captions, meta | 6.0 on bg, 4.6 on surface-2; below AA on surface-3 (3.8), so not for text there |
-| `--brand-coral` (`--primary`) | `#ff7a59` | the action colour: buttons, live, links | 6.8 on bg |
-| `--primary-foreground` | `#2a1015` | text on coral | 6.9 |
-| `--brand-sun` | `#ffcf5c` | warm highlight: badges, "new", the marker under a word | 11.9 on bg |
-| `--brand-violet` | `#a48bff` | secondary accent, focus ring | 6.4 on bg |
-| `--brand-mint` | `#7ee0b5` | speaking, success, online | 11.0 on bg |
-| `--destructive` | `#ff6b78` | errors, leave | 6.3 on bg |
+| `--brand-coral` (`--primary`) | `#e38f6f` | the action colour: buttons, live, links | 7.0 on bg |
+| `--primary-foreground` | `#2a1015` | text on coral | 7.1 |
+| `--brand-sun` | `#f3d289` | warm highlight: badges, "new", the marker under a word | 12.0 on bg |
+| `--brand-violet` | `#a294e4` | secondary accent, focus ring | 6.6 on bg |
+| `--brand-mint` | `#91dcb9` | speaking, success, online | 10.9 on bg |
+| `--destructive` | `#e97d8d` | errors, leave | 6.5 on bg |
+
+The accents were then softened. At full saturation (OKLCH chroma 0.14–0.18 against a background of 0.03) coral, sun, violet and the error red glowed like neon on the plum and tired the eye. Each kept its OKLCH lightness — so every ratio above stayed where it was — and lost about a third of its chroma: coral to 0.11, nudged 6° towards orange so it reads as terracotta rather than salmon; sun and violet to 0.10 and 0.12; mint, already the calmest, to 0.09. The error red kept a little more (0.13) and moved 6° towards rose, so `--destructive` never reads as a primary button. The same values are copied where CSS variables can't reach: the hero's 3D scene (`hero-scene.ts`, its cushion included), the OG card, the global error screen and the banner presets. A banner colour a user already saved stays as it is and shows as a custom colour. The logo keeps its own palette (below).
 
 The legacy names (`--brand-cyan`, `--brand-fuchsia`, `--brand-lime`) are remapped onto this palette so untouched components follow; new code uses the names above.
 
@@ -54,7 +56,7 @@ The legacy names (`--brand-cyan`, `--brand-fuchsia`, `--brand-lime`) are remappe
 
 ## Logo
 
-The app icon and the logo mark share one palette: the plaque is a blurple gradient `#7a68ff` → `#6654f5` → `#5442dd`, the cat is cream `#fff6ea` with coral inner ears `#ff8a6a`, and the ink (eyes, nose, mouth) is a deep indigo `#2a1d40`. The coral plaque of 1.8–1.9 glared beside the UI and a plum one sank into the dark background, so the plaque went back to the violet of the earlier icon, with the warm palette kept in the cat. Favicons, Tauri and Android icons, the Play icon and feature graphic are all rendered from the SVGs in `apps/client/web/assets/icons/` and `public/`.
+The app icon and the logo mark share one palette: the plaque is a blurple gradient `#7a68ff` → `#6654f5` → `#5442dd`, the cat is cream `#fff6ea` with coral inner ears `#ff8a6a`, and the ink (eyes, nose, mouth) is a deep indigo `#2a1d40`. The coral plaque of 1.8–1.9 glared beside the UI and a plum one sank into the dark background, so the plaque went back to the violet of the earlier icon, with the warm palette kept in the cat. Favicons, Tauri and Android icons, the Play icon and feature graphic are all rendered from the SVGs in `apps/client/web/assets/icons/` and `public/`. Both apps also ship a `favicon.ico` (16, 32 and 48 px, from the full-bleed `icon.png`: `apps/client/web/public/` and `apps/landing/app/`) for what asks for `/favicon.ico` without reading the page's links — bookmarks, search results, Yandex; without it the app answered that path with the SPA's HTML and the site with a 404.
 
 On the home page Chato is also a real-time 3D scene (`three` + `@react-three/fiber`): he sits on a cushion with headphones, blinks, follows the pointer and bobs to a soft sound wave. It is progressive enhancement over the SVG pose, loaded lazily by device tier exactly like the rules in [the WebGL section](#webgl-hero).
 
@@ -78,7 +80,7 @@ Inside the product — the lobby, the room, the chat, the room list, friends, di
 
 The speaking highlight on a participant card turns the card's own 1px border mint and adds an inner ring: an absolutely positioned `::after` with a 1px border and radius `calc(var(--radius-2xl) - 1px)`, so the two read as one 2px edge that follows the corner exactly. An inset `outline` was tried first and dropped: on a rounded `overflow: hidden` card the outline doesn't follow the radius, so the corners showed square ([pitfalls](pitfalls.md)). The voice ring around the avatar draws outside its SVG box (`overflow: visible`) and is sized so its loudest state stays clear of the name.
 
-The participant grid fills the stage instead of stacking from the top-left corner. `getStageGridShape` (`widgets/room/voice-room/lib/grid-shape`) picks columns and rows for the tile count — a near-square grid on a wide stage, one column for two people and two for more on a narrow one — and hands both shapes to CSS as custom properties. The stage is a size container: each tile is as large as the stage allows at 16:9 (`min(100cqw / cols, 100cqh / rows × 16/9)`), never narrower than 11rem (past that the stage scrolls). The grid starts at the top of the stage and is centred only horizontally: centring it vertically left a band of empty stage above two cards. Alone in a room you see your tile and, beside it, an invite tile of the same size (a dashed card with the copy-link button), laid out as a two-tile grid; a line of text under a lone card read as a glitch. Neither the room header nor the control bar carries an invite button: the copy-link button lives only on the alone tile.
+The participant grid sizes its tiles to the stage. `getStageGridShape` (`widgets/room/voice-room/lib/grid-shape`) picks columns and rows for the tile count — a near-square grid on a wide stage, one column for two people and two for more on a narrow one — and hands both shapes to CSS as custom properties. The stage is a size container: each tile is as large as the stage allows at 16:9 (`min(100cqw / cols, 100cqh / rows × 16/9)`), never narrower than 11rem (past that the stage scrolls). The grid starts at the top-left corner of the stage and is not centred on either axis: centred vertically it left a band of empty stage above two cards, centred horizontally the cards floated in the middle of a wide stage, where the height decides the tile size, instead of lining up from the left edge. Alone in a room you see your tile and, beside it, an invite tile of the same size (a dashed card with the copy-link button), laid out as a two-tile grid; a line of text under a lone card read as a glitch. Neither the room header nor the control bar carries an invite button: the copy-link button lives only on the alone tile.
 
 The room chat opens at full height and slides over the room; the room never moves to make space for it. Docking it beside the room (padding on the room from `xl`) was tried in 1.10.1 and dropped: opening the chat reflowed the participant grid and shifted the control bar. The room behind it is dimmed on every screen size (the scrim covers the room, not the window, so the title bar and the sidebar stay live), and a click on the dimmed room closes the chat.
 
@@ -86,14 +88,16 @@ On a phone the lobby opens on a Rooms / Friends switch (`pages/lobby/ui/componen
 
 The illustrated, re-composed treatment — Chato, serif heroes, new sections — belongs to the public site, auth, and the 404 and error screens.
 
+The standalone pages — sign-in and sign-up, the password reset, account deletion — share one header, `StandaloneShell`, which `StandaloneLayout` puts around every standalone route: the brand on the left, the ghost language select on the right, in the same 960 px column as the content, the way the site's header sits over its pages. Each page used to bring its own top bar, and on auth the select hung alone in the corner of the window while the brand sat inside the scene. On a wide screen the auth scene is `ChatoScene` at its `sm` size, so Chato stands in the arch like on the site instead of floating on the page background; on a phone the scene is hidden and a small Chato heads the card.
+
 ## The public site
 
 The site is its own server-rendered app, `apps/landing` ([CLAUDE.md](../../apps/landing/CLAUDE.md)); everything below lives there.
 
 - **Show the product.** The home hero puts Chato in the arch scene and lays a real-looking room card over it — people with the speaker ringed in mint, the room's music bar — so the first screen says what Chatovo is, not just who the mascot is. The "how it works" steps each end with the piece of UI that step uses (the create button, the invite link, the mic toggle).
-- **The arch scene** (`MarketingScene`) is the one frame for Chato on every page hero: a plum arch with a sun-coloured moon and a floor line, the pose standing on the floor. Chato never floats on the page background.
+- **The arch scene** (`ChatoScene` in `@chatovo/ui-kit`, shared with the auth page) is the one frame for Chato on every page hero: a plum arch with a sun-coloured moon and a floor line, the pose standing on the floor. Chato never floats on the page background.
 - **Lists, not card grids.** Feature lists, support answers and the FAQ are rows divided by a hairline, with a small coral icon tile — not walls of identical bordered boxes. Boxes are kept for things that are objects: the bento mocks, the steps, release entries, the final call to action.
-- **One action in the header.** Every public page has "Sign in" / "Open the app" next to the language switch (inside the menu on phones).
+- **One action in the header.** Every public page has "Sign in" / "Open the app" next to the language switch (inside the menu on phones). In a header the switch is the kit's `Select` with `variant='ghost'` — a globe, the language name and a chevron on no fill, like the nav links — and the button beside it is the default 36 px size, the same height. The bordered field variant looked like a form input dropped into the header and stood taller than a small button next to it; it stays for settings and the phone menu.
 - **Rhythm.** Sections are 48 px apart on phones and 72 px on desktop; a section that has nothing to show (no contributors yet) does not render at all.
 
 ## Forbidden
