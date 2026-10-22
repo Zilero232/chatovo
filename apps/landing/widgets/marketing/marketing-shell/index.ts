@@ -6,7 +6,6 @@ export {
   MarketingEyebrow,
   MarketingHero,
   MarketingIconGrid,
-  MarketingScene,
   MarketingSection,
   MarketingSectionHead
 } from './ui/components';
@@ -21,7 +20,6 @@ export type {
   MarketingIconGridItem,
   MarketingIconGridProps
 } from './ui/components/MarketingIconGrid/MarketingIconGrid.types';
-export type { MarketingSceneProps } from './ui/components/MarketingScene/MarketingScene.types';
 export type { MarketingSectionProps } from './ui/components/MarketingSection/MarketingSection.types';
 export type { MarketingSectionHeadProps } from './ui/components/MarketingSectionHead/MarketingSectionHead.types';
 export { MarketingShell } from './ui/MarketingShell';

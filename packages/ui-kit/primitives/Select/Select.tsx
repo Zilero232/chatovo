@@ -13,6 +13,8 @@ export const Select = <T extends string>({
   value,
   options,
   placeholder,
+  icon,
+  variant = 'field',
   isDisabled,
   className,
   menuClassName,
@@ -31,10 +33,15 @@ export const Select = <T extends string>({
     <BaseSelect.Root disabled={isDisabled} value={value ?? ''} onValueChange={handleChange}>
       <BaseSelect.Trigger
         aria-label={ariaLabel}
-        className={clsx(s.trigger, className)}
+        className={clsx(s.trigger, s[variant], className)}
         data-placeholder={isNullish(value) ? '' : undefined}
         data-slot='select-trigger'
       >
+        {icon && (
+          <span aria-hidden className={s.icon}>
+            {icon}
+          </span>
+        )}
         <BaseSelect.Value className={s.value}>
           {(selected: T | null) =>
             options.find((option) => option.value === selected)?.label ?? placeholder

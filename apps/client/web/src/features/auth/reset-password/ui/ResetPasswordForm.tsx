@@ -43,7 +43,7 @@ export const ResetPasswordForm = ({ token, onSuccess }: ResetPasswordFormProps) 
   });
 
   return (
-    <Stack as='form' gap='4' onSubmit={onSubmit}>
+    <Stack noValidate as='form' gap='4' onSubmit={onSubmit}>
       <FormField
         error={errors.newPassword && fieldError(errors.newPassword)}
         htmlFor='reset-new-password'

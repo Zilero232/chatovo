@@ -207,6 +207,26 @@
       "minor": "Atualização regular"
     },
     "entries": {
+      "signUpErrors": {
+        "title": "O cadastro mostra os erros",
+        "description": "Uma senha curta, um e-mail digitado errado ou um nome vazio agora mostram um aviso abaixo do campo, em vez de o formulário não fazer nada."
+      },
+      "calmerColors": {
+        "title": "Cores mais suaves",
+        "description": "O laranja, o amarelo e os outros destaques cansam menos os olhos, e o texto continua fácil de ler."
+      },
+      "authHeader": {
+        "title": "Um cabeçalho no acesso",
+        "description": "Entrar, redefinir a senha e excluir a conta compartilham um cabeçalho com o logo e o idioma, e o Chato fica no seu arco."
+      },
+      "siteHeader": {
+        "title": "Cabeçalho do site mais arrumado",
+        "description": "O seletor de idioma é um botão compacto ao lado de “Entrar”, e o cabeçalho fica alinhado com a página."
+      },
+      "cardsFromLeft": {
+        "title": "Cartões a partir da esquerda",
+        "description": "Na sala, os cartões dos participantes começam na borda esquerda em vez de flutuar no meio de uma janela larga."
+      },
       "musicLibrary": {
         "title": "Música em abas",
         "description": "Fila, Rádio e Minha música têm cada uma sua aba, e o volume fica no botão de som."
@@ -769,6 +789,8 @@
       }
     },
     "highlights": {
+      "signUpErrors": "O cadastro mostra os erros",
+      "calmerColors": "Cores mais suaves",
       "musicLibrary": "Música em abas",
       "lighterTheme": "Um tema mais claro",
       "chatBesideRoom": "Chat ao lado da sala",

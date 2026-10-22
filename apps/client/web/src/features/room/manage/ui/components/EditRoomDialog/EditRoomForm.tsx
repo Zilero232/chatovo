@@ -55,7 +55,7 @@ export const EditRoomForm = ({ room, onUpdated }: EditRoomFormProps) => {
   });
 
   return (
-    <Stack as='form' gap='3' onSubmit={onSubmit}>
+    <Stack noValidate as='form' gap='3' onSubmit={onSubmit}>
       <EditRoomNameField error={errors.name?.message} register={register} value={name ?? ''} />
 
       <EditRoomPrivacyField control={control} isPrivate={isPrivate ?? false} />

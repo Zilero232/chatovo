@@ -1,12 +1,8 @@
-import { Text } from '@chatovo/ui-kit';
+import { ChatoScene, Text } from '@chatovo/ui-kit';
 import { Check } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
 
-import {
-  MarketingAppCta,
-  MarketingEyebrow,
-  MarketingScene
-} from '@/widgets/marketing/marketing-shell';
+import { MarketingAppCta, MarketingEyebrow } from '@/widgets/marketing/marketing-shell';
 
 import type { HomePageProps } from '../../HomePage.types';
 
@@ -48,7 +44,7 @@ export const HomeHero = async ({ locale }: HomePageProps) => {
         </ul>
       </div>
 
-      <MarketingScene className={s.heroScene} size='lg'>
+      <ChatoScene className={s.heroScene} size='lg'>
         <HomeHeroStage label={t('stageLabel')} />
         <HomeHeroCard
           live={t('card.live')}
@@ -56,7 +52,7 @@ export const HomeHero = async ({ locale }: HomePageProps) => {
           source={t('card.source')}
           track={t('card.track')}
         />
-      </MarketingScene>
+      </ChatoScene>
     </section>
   );
 };

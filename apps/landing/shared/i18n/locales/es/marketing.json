@@ -207,6 +207,26 @@
       "minor": "Versión regular"
     },
     "entries": {
+      "signUpErrors": {
+        "title": "El registro muestra sus errores",
+        "description": "Una contraseña corta, un correo mal escrito o un nombre vacío ahora muestran un aviso bajo el campo, en lugar de que el formulario no haga nada."
+      },
+      "calmerColors": {
+        "title": "Colores más suaves",
+        "description": "El naranja, el amarillo y los demás acentos cansan menos la vista, y el texto se lee igual de bien."
+      },
+      "authHeader": {
+        "title": "Una cabecera para el acceso",
+        "description": "El inicio de sesión, el restablecimiento de contraseña y la eliminación de la cuenta comparten una cabecera con el logo y el idioma, y Chato está en su arco."
+      },
+      "siteHeader": {
+        "title": "Una cabecera más ordenada",
+        "description": "El selector de idioma es un botón compacto junto a “Iniciar sesión”, y la cabecera queda alineada con la página."
+      },
+      "cardsFromLeft": {
+        "title": "Las tarjetas empiezan a la izquierda",
+        "description": "En una sala, las tarjetas de los participantes empiezan en el borde izquierdo en vez de flotar en el centro de una ventana ancha."
+      },
       "musicLibrary": {
         "title": "Música por pestañas",
         "description": "Cola, Radio y Mi música tienen su pestaña, y el volumen está tras el botón de sonido."
@@ -769,6 +789,8 @@
       }
     },
     "highlights": {
+      "signUpErrors": "El registro muestra sus errores",
+      "calmerColors": "Colores más suaves",
       "musicLibrary": "Música por pestañas",
       "lighterTheme": "Un tema más claro",
       "chatBesideRoom": "Chat junto a la sala",

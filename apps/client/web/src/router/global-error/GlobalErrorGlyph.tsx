@@ -1,7 +1,7 @@
 const LEFT_BARS = [16, 30, 22, 44];
 const RIGHT_BARS = [40, 20, 32, 14];
 
-const CORAL = '#ff7a59';
+const CORAL = '#e38f6f';
 const SUBTLE = '#a092aa';
 
 const Bars = ({ bars, startX, fadeIn }: { bars: number[]; fadeIn: boolean; startX: number }) => (

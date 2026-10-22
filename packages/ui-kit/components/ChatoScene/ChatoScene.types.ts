@@ -1,9 +1,10 @@
-import type { ChatoPose } from '@chatovo/ui-kit';
 import type { ReactNode } from 'react';
 
-export type MarketingSceneProps = {
+import type { ChatoPose } from '../Chato';
+
+export type ChatoSceneProps = {
   children?: ReactNode;
   pose?: ChatoPose;
-  size?: 'lg' | 'md';
+  size?: 'lg' | 'md' | 'sm';
   className?: string;
 };

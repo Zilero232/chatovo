@@ -8,13 +8,13 @@ export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
 const COLORS = {
-  background: '#16111b',
+  background: '#1e1724',
   cream: '#f5ecdf',
   muted: '#b8acbf',
-  coral: '#ff7a59',
-  sun: '#ffcf5c',
+  coral: '#e38f6f',
+  sun: '#f3d289',
   ink: '#3a2850',
-  ear: '#ff9f86'
+  ear: '#f2a78d'
 };
 
 const ChatoListening = () => (
@@ -71,7 +71,7 @@ const Image = () =>
         padding: '80px 96px',
         background: COLORS.background,
         backgroundImage:
-          'radial-gradient(900px 420px at 50% -10%, rgba(255,122,89,0.16), transparent 70%)'
+          'radial-gradient(900px 420px at 50% -10%, rgba(227,143,111,0.16), transparent 70%)'
       }}
     >
       <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '640px' }}>

@@ -10,6 +10,5 @@ export { MarketingHeaderNav } from './MarketingHeaderNav/MarketingHeaderNav';
 export { MarketingHeaderShell } from './MarketingHeaderShell/MarketingHeaderShell';
 export { MarketingHero } from './MarketingHero/MarketingHero';
 export { MarketingIconGrid } from './MarketingIconGrid/MarketingIconGrid';
-export { MarketingScene } from './MarketingScene/MarketingScene';
 export { MarketingSection } from './MarketingSection/MarketingSection';
 export { MarketingSectionHead } from './MarketingSectionHead/MarketingSectionHead';

@@ -49,7 +49,7 @@ export const AddFriendTab = () => {
         <p className={s.addHint}>{t('addFriendHint')}</p>
       </div>
 
-      <form className={s.addForm} onSubmit={send}>
+      <form noValidate className={s.addForm} onSubmit={send}>
         <div className={s.addField}>
           <input
             className={s.addInput}

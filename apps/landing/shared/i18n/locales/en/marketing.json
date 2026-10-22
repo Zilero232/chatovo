@@ -207,6 +207,26 @@
       "minor": "Regular release"
     },
     "entries": {
+      "signUpErrors": {
+        "title": "Sign-up shows its errors",
+        "description": "A short password, a mistyped email or an empty name now gets a hint under the field instead of the form silently doing nothing."
+      },
+      "calmerColors": {
+        "title": "Calmer colours",
+        "description": "The orange, the yellow and the other accents are softer on the eyes, and text stays just as easy to read."
+      },
+      "authHeader": {
+        "title": "One header on the sign-in pages",
+        "description": "Sign-in, password reset and account deletion share a header with the logo and the language switch, and Chato stands in his arch."
+      },
+      "siteHeader": {
+        "title": "A tidier site header",
+        "description": "The language switch is a compact button beside Sign in, and the header lines up with the page."
+      },
+      "cardsFromLeft": {
+        "title": "Cards line up from the left",
+        "description": "In a room, participant cards start at the left edge instead of floating in the middle of a wide window."
+      },
       "musicLibrary": {
         "title": "Music player in tabs",
         "description": "Queue, Radio and My music each have a tab, and volume sits behind the sound button."
@@ -769,6 +789,8 @@
       }
     },
     "highlights": {
+      "signUpErrors": "Sign-up shows its errors",
+      "calmerColors": "Calmer colours",
       "musicLibrary": "Music player in tabs",
       "lighterTheme": "A lighter theme",
       "chatBesideRoom": "Chat beside the room",

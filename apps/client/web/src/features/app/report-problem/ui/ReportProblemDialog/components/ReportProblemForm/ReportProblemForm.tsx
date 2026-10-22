@@ -52,7 +52,7 @@ export const ReportProblemForm = ({ onSent }: ReportProblemFormProps) => {
   });
 
   return (
-    <Stack as='form' gap='4' onSubmit={onSubmit}>
+    <Stack noValidate as='form' gap='4' onSubmit={onSubmit}>
       <FormField
         error={errors.description && fieldError(errors.description)}
         htmlFor='report-description'

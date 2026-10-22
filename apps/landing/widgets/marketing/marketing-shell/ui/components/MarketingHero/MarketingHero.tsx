@@ -1,10 +1,9 @@
-import { RevealOnScroll, Text } from '@chatovo/ui-kit';
+import { ChatoScene, RevealOnScroll, Text } from '@chatovo/ui-kit';
 import { clsx } from 'clsx';
 
 import type { MarketingHeroProps } from './MarketingHero.types';
 
 import { MarketingEyebrow } from '../MarketingEyebrow/MarketingEyebrow';
-import { MarketingScene } from '../MarketingScene/MarketingScene';
 
 import s from '../../MarketingShell.module.scss';
 
@@ -35,6 +34,6 @@ export const MarketingHero = ({
 
     {visual && <div className={s.heroVisual}>{visual}</div>}
 
-    {chato && !visual && <MarketingScene className={s.heroScene} pose={chato} />}
+    {chato && !visual && <ChatoScene className={s.heroScene} pose={chato} />}
   </section>
 );

@@ -1,6 +1,7 @@
 'use client';
 
 import { Select } from '@chatovo/ui-kit';
+import { Globe } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 import { STORAGE_KEYS } from '@/shared/constants';
@@ -14,6 +15,7 @@ export const MarketingLanguageSelect = ({
   locale,
   hrefs,
   label,
+  variant = 'field',
   className,
   onNavigate
 }: MarketingLanguageSelectProps) => {
@@ -23,8 +25,10 @@ export const MarketingLanguageSelect = ({
     <Select
       aria-label={label}
       className={className}
+      icon={variant === 'ghost' && <Globe />}
       options={LANGUAGE_OPTIONS}
       value={locale}
+      variant={variant}
       onChange={(next) => {
         sessionStorage.setItem(STORAGE_KEYS.homeLocaleRedirected, '1');
         onNavigate?.();

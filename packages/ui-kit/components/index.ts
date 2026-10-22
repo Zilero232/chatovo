@@ -6,6 +6,8 @@ export { CenteredState } from './CenteredState';
 export type { CenteredStateProps, CenteredStateSize } from './CenteredState';
 export { Chato } from './Chato';
 export type { ChatoPose, ChatoProps } from './Chato';
+export { ChatoScene } from './ChatoScene';
+export type { ChatoSceneProps } from './ChatoScene';
 export { ConfirmDialog } from './ConfirmDialog';
 export type { ConfirmDialogProps } from './ConfirmDialog';
 export { FilePicker } from './FilePicker';

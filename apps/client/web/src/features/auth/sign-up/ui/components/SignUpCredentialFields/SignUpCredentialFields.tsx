@@ -1,7 +1,7 @@
 import type { SignUpFormValues } from '@chatovo/schemas';
 
 import { FormField, Input, PasswordInput } from '@chatovo/ui-kit';
-import { useFormContext } from 'react-hook-form';
+import { useFormContext, useFormState } from 'react-hook-form';
 import { useTranslations } from 'use-intl';
 
 import { useFieldError } from '@/entities/app/locale';
@@ -10,10 +10,8 @@ export const SignUpCredentialFields = () => {
   const t = useTranslations('auth');
   const fieldError = useFieldError('auth');
 
-  const {
-    formState: { errors },
-    register
-  } = useFormContext<SignUpFormValues>();
+  const { control, register } = useFormContext<SignUpFormValues>();
+  const { errors } = useFormState({ control });
 
   return (
     <>

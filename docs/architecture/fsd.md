@@ -186,7 +186,7 @@ const roomRoute = createRoute({
 });
 ```
 
-Layouts are components in `src/router/routes/` (`AuthedLayout`, `StandaloneLayout`) that wrap an `<Outlet />` in their providers. No file carries `'use client'` — there are no server components. The why and the full tree: [web-app.md](web-app.md).
+Layouts are components in `src/router/routes/` (`AuthedLayout`, `StandaloneLayout`) that wrap an `<Outlet />` in their providers and their shell widget (`AuthedShell`, `StandaloneShell`). No file carries `'use client'` — there are no server components. The why and the full tree: [web-app.md](web-app.md).
 
 **Site (Next.js App Router).** Route files are thin server wrappers, without `'use client'`, that delegate into `views/`:
 

@@ -23,6 +23,19 @@ export type ChangelogRelease = {
 
 export const CHANGELOG_RELEASES: ChangelogRelease[] = [
   {
+    version: '1.11.1',
+    date: '2026-10-23',
+    tone: 'minor',
+    highlights: ['signUpErrors', 'calmerColors'],
+    entries: [
+      { kind: 'fix', key: 'signUpErrors' },
+      { kind: 'improvement', key: 'calmerColors' },
+      { kind: 'improvement', key: 'authHeader' },
+      { kind: 'improvement', key: 'siteHeader' },
+      { kind: 'fix', key: 'cardsFromLeft' }
+    ]
+  },
+  {
     version: '1.11.0',
     date: '2026-10-22',
     tone: 'minor',

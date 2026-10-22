@@ -20,7 +20,7 @@ export const CreateRoomForm = ({ hint, onCreated }: CreateRoomFormProps) => {
   } = form;
 
   return (
-    <Stack as='form' gap='3' onSubmit={onSubmit}>
+    <Stack noValidate as='form' gap='3' onSubmit={onSubmit}>
       <CreateRoomNameField error={errors.name?.message} register={register} value={name ?? ''} />
 
       <CreateRoomPrivacyField control={control} isPrivate={isPrivate ?? false} />

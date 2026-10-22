@@ -42,7 +42,7 @@ export const SignUpForm = () => {
 
   return (
     <FormProvider {...form}>
-      <Stack as='form' gap='4' onSubmit={onSubmit}>
+      <Stack noValidate as='form' gap='4' onSubmit={onSubmit}>
         <SignUpCredentialFields />
 
         <SignUpConsentField />
