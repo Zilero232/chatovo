@@ -9,6 +9,12 @@ export const DUCKING = {
   pollMs: 100
 } as const;
 
+export const PARTICIPANT_MUSIC_VOLUME = {
+  default: 1,
+  max: 1,
+  maxStored: 100
+} as const;
+
 export const VOLUME_RAMP = {
   durationMs: 250,
   stepMs: 25

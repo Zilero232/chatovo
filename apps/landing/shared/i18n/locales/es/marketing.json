@@ -207,6 +207,38 @@
       "minor": "Versión regular"
     },
     "entries": {
+      "musicPerPerson": {
+        "title": "Volumen de música para cada persona",
+        "description": "Haz clic derecho en quien esté poniendo música para subir o bajar solo su música; el resto de sonidos no cambia."
+      },
+      "whoPlaysMusic": {
+        "title": "Se ve quién pone la música",
+        "description": "Cuando alguien comparte música desde una pestaña del navegador, una barra en la parte inferior de la sala muestra quién es."
+      },
+      "participantMenu": {
+        "title": "Un menú de participante más ordenado",
+        "description": "El volumen de voz, pantalla y música está en un bloque compacto con su botón de silencio, funciona con el teclado y las acciones están agrupadas."
+      },
+      "musicInSettings": {
+        "title": "El sonido de la música, en Ajustes",
+        "description": "El volumen general de la música y bajarla mientras se habla están ahora en Ajustes → Sonidos."
+      },
+      "signOutPlace": {
+        "title": "Cerrar sesión desde cualquier pestaña",
+        "description": "El botón para cerrar sesión está al final del menú de ajustes en lugar de al final de la pestaña Seguridad."
+      },
+      "banNotice": {
+        "title": "Te avisamos cuando te expulsan",
+        "description": "Si el dueño de la sala te expulsa o te prohíbe la entrada, ves un aviso con el nombre de la sala en lugar de volver al lobby sin más."
+      },
+      "updateAtLaunch": {
+        "title": "Las actualizaciones llegan al abrir",
+        "description": "La app de escritorio busca una versión nueva en cuanto se abre, incluso antes de iniciar sesión."
+      },
+      "visibleRadios": {
+        "title": "Botones de opción visibles",
+        "description": "La opción no elegida, como en la activación del micrófono, ya no se confunde con el fondo."
+      },
       "signUpErrors": {
         "title": "El registro muestra sus errores",
         "description": "Una contraseña corta, un correo mal escrito o un nombre vacío ahora muestran un aviso bajo el campo, en lugar de que el formulario no haga nada."
@@ -789,6 +821,8 @@
       }
     },
     "highlights": {
+      "musicPerPerson": "Volumen de música para cada persona",
+      "banNotice": "Te avisamos cuando te expulsan",
       "signUpErrors": "El registro muestra sus errores",
       "calmerColors": "Colores más suaves",
       "musicLibrary": "Música por pestañas",

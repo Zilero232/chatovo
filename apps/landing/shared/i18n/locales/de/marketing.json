@@ -207,6 +207,38 @@
       "minor": "Reguläres Release"
     },
     "entries": {
+      "musicPerPerson": {
+        "title": "Musiklautstärke für jede Person",
+        "description": "Rechtsklick auf jemanden, der Musik abspielt, und nur dessen Musik wird lauter oder leiser; alles andere bleibt, wie es ist."
+      },
+      "whoPlaysMusic": {
+        "title": "Sichtbar, wer Musik abspielt",
+        "description": "Teilt jemand Musik aus einem Browser-Tab, zeigt eine Leiste unten im Raum, wer es ist."
+      },
+      "participantMenu": {
+        "title": "Ein aufgeräumteres Teilnehmermenü",
+        "description": "Stimm-, Bildschirm- und Musiklautstärke stehen kompakt in einem Block mit eigener Stummtaste, alles geht per Tastatur, und die Aktionen sind gruppiert."
+      },
+      "musicInSettings": {
+        "title": "Musikton in den Einstellungen",
+        "description": "Die allgemeine Musiklautstärke und das Leiserstellen beim Sprechen findest du jetzt unter Einstellungen → Töne."
+      },
+      "signOutPlace": {
+        "title": "Abmelden aus jedem Einstellungs-Tab",
+        "description": "Die Abmelden-Taste steht unten im Einstellungsmenü statt am Ende des Tabs Sicherheit."
+      },
+      "banNotice": {
+        "title": "Du erfährst, wenn du entfernt wirst",
+        "description": "Entfernt oder sperrt dich der Raumbesitzer, siehst du eine Meldung mit dem Raumnamen, statt kommentarlos in der Lobby zu landen."
+      },
+      "updateAtLaunch": {
+        "title": "Updates direkt beim Start",
+        "description": "Die Desktop-App sucht gleich beim Start nach einer neuen Version, noch bevor du dich anmeldest."
+      },
+      "visibleRadios": {
+        "title": "Sichtbare Auswahlknöpfe",
+        "description": "Die nicht gewählte Option, etwa bei der Mikrofonaktivierung, verschwimmt nicht mehr mit dem Hintergrund."
+      },
       "signUpErrors": {
         "title": "Registrierung zeigt Fehler an",
         "description": "Ein zu kurzes Passwort, eine vertippte E-Mail oder ein leerer Name bekommen jetzt einen Hinweis unter dem Feld, statt dass das Formular stumm bleibt."
@@ -789,6 +821,8 @@
       }
     },
     "highlights": {
+      "musicPerPerson": "Musiklautstärke für jede Person",
+      "banNotice": "Du erfährst, wenn du entfernt wirst",
       "signUpErrors": "Registrierung zeigt Fehler an",
       "calmerColors": "Ruhigere Farben",
       "musicLibrary": "Musik in Tabs",

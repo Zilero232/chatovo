@@ -31,9 +31,16 @@ export const LogoutButton = () => {
   };
 
   return (
-    <Button className={s.logoutButton} size='sm' variant='ghost' onClick={handleLogout}>
+    <Button
+      aria-label={t('logout')}
+      className={s.logoutButton}
+      size='sm'
+      title={t('logout')}
+      variant='ghost'
+      onClick={handleLogout}
+    >
       <LogOut aria-hidden />
-      {t('logout')}
+      <span className={s.logoutLabel}>{t('logout')}</span>
     </Button>
   );
 };

@@ -23,6 +23,22 @@ export type ChangelogRelease = {
 
 export const CHANGELOG_RELEASES: ChangelogRelease[] = [
   {
+    version: '1.12.0',
+    date: '2026-10-25',
+    tone: 'minor',
+    highlights: ['musicPerPerson', 'banNotice'],
+    entries: [
+      { kind: 'feature', key: 'musicPerPerson' },
+      { kind: 'feature', key: 'whoPlaysMusic' },
+      { kind: 'improvement', key: 'participantMenu' },
+      { kind: 'improvement', key: 'musicInSettings' },
+      { kind: 'improvement', key: 'signOutPlace' },
+      { kind: 'fix', key: 'banNotice' },
+      { kind: 'fix', key: 'updateAtLaunch' },
+      { kind: 'fix', key: 'visibleRadios' }
+    ]
+  },
+  {
     version: '1.11.1',
     date: '2026-10-23',
     tone: 'minor',

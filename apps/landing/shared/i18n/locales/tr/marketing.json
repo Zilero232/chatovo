@@ -207,6 +207,38 @@
       "minor": "Normal sürüm"
     },
     "entries": {
+      "musicPerPerson": {
+        "title": "Herkes için ayrı müzik ses düzeyi",
+        "description": "Müzik çalan kişiye sağ tıklayın ve yalnızca onun müziğini açın ya da kısın; diğer sesler olduğu gibi kalır."
+      },
+      "whoPlaysMusic": {
+        "title": "Müziği kimin çaldığı görünüyor",
+        "description": "Biri tarayıcı sekmesinden müzik paylaştığında odanın altındaki çubuk bunun kim olduğunu gösterir."
+      },
+      "participantMenu": {
+        "title": "Daha düzenli katılımcı menüsü",
+        "description": "Ses, ekran ve müzik düzeyi her biri kendi sessiz düğmesiyle tek bir kompakt blokta; klavyeyle çalışır ve işlemler gruplara ayrıldı."
+      },
+      "musicInSettings": {
+        "title": "Müzik sesi Ayarlar’da",
+        "description": "Genel müzik ses düzeyi ve konuşulurken müziği kısma artık Ayarlar → Sesler bölümünde."
+      },
+      "signOutPlace": {
+        "title": "Her ayar sekmesinden çıkış",
+        "description": "Çıkış düğmesi artık Güvenlik sekmesinin sonunda değil, ayarlar menüsünün altında."
+      },
+      "banNotice": {
+        "title": "Çıkarıldığınızda haber veriliyor",
+        "description": "Oda sahibi sizi çıkarır ya da yasaklarsa, sessizce lobiye dönmek yerine odanın adını içeren bir mesaj görürsünüz."
+      },
+      "updateAtLaunch": {
+        "title": "Güncellemeler açılışta",
+        "description": "Masaüstü uygulaması, siz giriş yapmadan önce bile açılır açılmaz yeni sürümü arar."
+      },
+      "visibleRadios": {
+        "title": "Görünen seçim düğmeleri",
+        "description": "Mikrofon etkinleştirme gibi seçeneklerde seçilmeyen düğme artık arka planla karışmıyor."
+      },
       "signUpErrors": {
         "title": "Kayıt hataları gösteriyor",
         "description": "Kısa bir şifre, yanlış yazılmış bir e-posta ya da boş bir ad artık alanın altında uyarı gösteriyor; form sessizce bekleyip kalmıyor."
@@ -789,6 +821,8 @@
       }
     },
     "highlights": {
+      "musicPerPerson": "Herkes için ayrı müzik ses düzeyi",
+      "banNotice": "Çıkarıldığınızda haber veriliyor",
       "signUpErrors": "Kayıt hataları gösteriyor",
       "calmerColors": "Daha sakin renkler",
       "musicLibrary": "Sekmelerde müzik",

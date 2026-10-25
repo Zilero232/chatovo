@@ -159,12 +159,9 @@
         "stop": "Paylaşımı durdur",
         "noAudio": "Ses paylaşılmadı — seçicide “Sekme sesini de paylaş” seçeneğini aç.",
         "fileFailed": "Çalınamadı: {name}.",
-        "publishFailed": "Bu odada paylaşım başlatılamadı."
-      },
-      "settings": {
-        "label": "Müzik sesi",
-        "volume": "Müzik sesi",
-        "ducking": "Konuşulurken müziğin sesini kıs"
+        "publishFailed": "Bu odada paylaşım başlatılamadı.",
+        "remoteTitle": "{name} müzik çalıyor",
+        "remoteSubtitle": "Ses düzeyi katılımcı kartının menüsünde"
       },
       "player": {
         "unplayable": "Bu parça burada çalınamıyor — atlanıyor.",
@@ -353,12 +350,15 @@
   "participant": {
     "muteForMe": "Benim için sustur",
     "unmuteForMe": "Benim için susturmayı kaldır",
-    "volume": "Ses düzeyi",
+    "voice": "Ses",
     "volumeFor": "Ses düzeyi: {name}",
     "screenVolume": "Ekran sesi",
     "screenVolumeFor": "Ekran sesi düzeyi: {name}",
+    "music": "Müzik",
+    "musicVolumeFor": "{name} müziğinin ses düzeyi",
     "copyName": "Adı kopyala",
-    "nameCopied": "Ad kopyalandı"
+    "nameCopied": "Ad kopyalandı",
+    "safety": "Güvenlik"
   },
   "roomModeration": {
     "label": "Oda moderasyonu",

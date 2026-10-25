@@ -70,13 +70,13 @@ services:
       - '7880:7880' # WebSocket signalling
       - '7881:7881' # TCP fallback for WebRTC media
       # UDP media range. Must match port_range_start/end in infra/livekit/livekit.dev.yaml.
-      # 51200-51300 sits below the Windows dynamic port range (49152-65535),
+      # 40100-40200 sits below the Windows dynamic port range (49152-65535),
       # where Hyper-V/WinNAT carves out reserved blocks that shift on reboot
       # and make a bind fail with "socket ... forbidden by its access
       # permissions". Check yours with:
       #   netsh interface ipv4 show excludedportrange protocol=udp
       # and pick a window no reserved block overlaps.
-      - '51200-51300:51200-51300/udp'
+      - '40100-40200:40100-40200/udp'
     volumes:
       - ./infra/livekit/livekit.dev.yaml:/etc/livekit.yaml:ro
     # Lets the container reach the API running on the host (bun dev, :4000)

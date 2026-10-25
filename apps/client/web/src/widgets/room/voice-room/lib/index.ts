@@ -14,6 +14,7 @@ export {
   type VolumeSource
 } from './participant-volume';
 export { readConnectionRtt } from './read-connection-rtt';
+export { resolveVolumeKey } from './resolve-volume-key';
 export { createSoundPlayer } from './sound-player';
 
 export { toggleMicrophone } from './toggle-microphone';

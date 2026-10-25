@@ -142,6 +142,10 @@
     "sounds": {
       "volumeLabel": "Lautstärke der Soundeffekte",
       "volumeHint": "Lautstärke aller Soundeffekte im Raum.",
+      "musicVolume": "Musiklautstärke",
+      "musicVolumeHint": "Die Lautstärke aller Musik in Räumen: Titel für alle und was andere streamen.",
+      "musicDucking": "Musik leiser, wenn gesprochen wird",
+      "musicDuckingHint": "Die Musik wird leiser, solange jemand im Raum spricht.",
       "join": "Beitreten",
       "joinHint": "Wenn jemand den Raum betritt.",
       "leave": "Verlassen",

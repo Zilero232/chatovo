@@ -159,12 +159,9 @@
         "stop": "Parar de compartilhar",
         "noAudio": "Nenhum áudio foi compartilhado — ative “Compartilhar áudio da aba” no seletor.",
         "fileFailed": "Não foi possível tocar {name}.",
-        "publishFailed": "Não foi possível começar a compartilhar nesta sala."
-      },
-      "settings": {
-        "label": "Som da música",
-        "volume": "Volume da música",
-        "ducking": "Abaixar a música quando alguém fala"
+        "publishFailed": "Não foi possível começar a compartilhar nesta sala.",
+        "remoteTitle": "{name} está tocando música",
+        "remoteSubtitle": "O volume fica no menu do cartão do participante"
       },
       "player": {
         "unplayable": "Esta faixa não pode ser tocada aqui — pulando.",
@@ -353,12 +350,15 @@
   "participant": {
     "muteForMe": "Silenciar para mim",
     "unmuteForMe": "Reativar para mim",
-    "volume": "Volume",
+    "voice": "Voz",
     "volumeFor": "Volume de {name}",
     "screenVolume": "Áudio da tela",
     "screenVolumeFor": "Volume do áudio da tela de {name}",
+    "music": "Música",
+    "musicVolumeFor": "Volume da música de {name}",
     "copyName": "Copiar nome",
-    "nameCopied": "Nome copiado"
+    "nameCopied": "Nome copiado",
+    "safety": "Segurança"
   },
   "roomModeration": {
     "label": "Moderação da sala",

@@ -22,8 +22,8 @@
 port: 7880
 
 rtc:
-  port_range_start: 51200
-  port_range_end: 51300
+  port_range_start: 40100
+  port_range_end: 40200
   tcp_port: 7881
   # Local-only: advertise 127.0.0.1, do not probe the host's LAN address.
   use_external_ip: false

@@ -142,6 +142,10 @@
     "sounds": {
       "volumeLabel": "Głośność efektów dźwiękowych",
       "volumeHint": "Głośność wszystkich efektów dźwiękowych w pokoju.",
+      "musicVolume": "Głośność muzyki",
+      "musicVolumeHint": "Głośność całej muzyki w pokojach: utwory dla wszystkich i to, co nadają inni.",
+      "musicDucking": "Ściszaj muzykę, gdy ktoś mówi",
+      "musicDuckingHint": "Muzyka cichnie, gdy ktoś w pokoju mówi.",
       "join": "Dołączenie",
       "joinHint": "Gdy ktoś dołącza do pokoju.",
       "leave": "Wyjście",

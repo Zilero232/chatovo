@@ -207,6 +207,38 @@
       "minor": "Zwykłe wydanie"
     },
     "entries": {
+      "musicPerPerson": {
+        "title": "Głośność muzyki dla każdego",
+        "description": "Kliknij prawym przyciskiem osobę, która puszcza muzykę, i zgłośnij lub przycisz tylko jej muzykę — reszta się nie zmienia."
+      },
+      "whoPlaysMusic": {
+        "title": "Widać, kto puszcza muzykę",
+        "description": "Gdy ktoś udostępnia muzykę z karty przeglądarki, pasek na dole pokoju pokazuje, kto to jest."
+      },
+      "participantMenu": {
+        "title": "Uporządkowane menu uczestnika",
+        "description": "Głośność głosu, ekranu i muzyki jest w jednym zwartym bloku z przyciskiem wyciszenia w każdym wierszu, działa z klawiatury, a akcje są pogrupowane."
+      },
+      "musicInSettings": {
+        "title": "Dźwięk muzyki w Ustawieniach",
+        "description": "Ogólna głośność muzyki i ściszanie jej, gdy ktoś mówi, są teraz w Ustawienia → Dźwięki."
+      },
+      "signOutPlace": {
+        "title": "Wylogowanie z każdej karty ustawień",
+        "description": "Przycisk wylogowania jest na dole menu ustawień, a nie na końcu karty Bezpieczeństwo."
+      },
+      "banNotice": {
+        "title": "Wiesz, kiedy cię usunięto",
+        "description": "Gdy właściciel pokoju cię usunie lub zbanuje, zobaczysz komunikat z nazwą pokoju zamiast cichego powrotu do lobby."
+      },
+      "updateAtLaunch": {
+        "title": "Aktualizacje od razu przy starcie",
+        "description": "Aplikacja na komputer szuka nowej wersji zaraz po uruchomieniu, jeszcze przed zalogowaniem."
+      },
+      "visibleRadios": {
+        "title": "Widoczne przyciski wyboru",
+        "description": "Niewybrana opcja, np. przy aktywacji mikrofonu, nie zlewa się już z tłem."
+      },
       "signUpErrors": {
         "title": "Rejestracja pokazuje błędy",
         "description": "Za krótkie hasło, literówka w e-mailu czy puste imię dają teraz podpowiedź pod polem, zamiast formularza, który nic nie robi."
@@ -789,6 +821,8 @@
       }
     },
     "highlights": {
+      "musicPerPerson": "Głośność muzyki dla każdego",
+      "banNotice": "Wiesz, kiedy cię usunięto",
       "signUpErrors": "Rejestracja pokazuje błędy",
       "calmerColors": "Spokojniejsze kolory",
       "musicLibrary": "Muzyka w kartach",

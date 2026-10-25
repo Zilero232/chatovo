@@ -159,12 +159,9 @@
         "stop": "Stop sharing",
         "noAudio": "No audio was shared — turn on “Share tab audio” in the picker.",
         "fileFailed": "Couldn't play {name}.",
-        "publishFailed": "Couldn't start sharing in this room."
-      },
-      "settings": {
-        "label": "Music sound",
-        "volume": "Music volume",
-        "ducking": "Lower the music while people talk"
+        "publishFailed": "Couldn't start sharing in this room.",
+        "remoteTitle": "{name} is playing music",
+        "remoteSubtitle": "Volume is in their card's menu"
       },
       "player": {
         "unplayable": "This track can't be played here — skipping it.",
@@ -353,12 +350,15 @@
   "participant": {
     "muteForMe": "Mute for me",
     "unmuteForMe": "Unmute for me",
-    "volume": "Volume",
+    "voice": "Voice",
     "volumeFor": "Volume for {name}",
     "screenVolume": "Screen audio",
     "screenVolumeFor": "Screen audio volume for {name}",
+    "music": "Music",
+    "musicVolumeFor": "Music volume for {name}",
     "copyName": "Copy name",
-    "nameCopied": "Name copied"
+    "nameCopied": "Name copied",
+    "safety": "Safety"
   },
   "roomModeration": {
     "label": "Room moderation",

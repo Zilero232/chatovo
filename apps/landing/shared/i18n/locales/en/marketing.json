@@ -207,6 +207,38 @@
       "minor": "Regular release"
     },
     "entries": {
+      "musicPerPerson": {
+        "title": "Music volume for each person",
+        "description": "Right-click someone who is playing music to make just their music louder or quieter; the other sounds stay as they are."
+      },
+      "whoPlaysMusic": {
+        "title": "See who is playing music",
+        "description": "When someone shares music from a browser tab, a bar at the bottom of the room shows who it is."
+      },
+      "participantMenu": {
+        "title": "A tidier participant menu",
+        "description": "Voice, screen and music volume sit in one compact block with a mute button each, work from the keyboard, and the actions are grouped."
+      },
+      "musicInSettings": {
+        "title": "Music sound in Settings",
+        "description": "The overall music volume and lowering the music while people talk now live in Settings → Sounds."
+      },
+      "signOutPlace": {
+        "title": "Sign out from any settings tab",
+        "description": "The sign-out button sits at the bottom of the settings menu instead of the end of the Security tab."
+      },
+      "banNotice": {
+        "title": "You’re told when you’re removed",
+        "description": "If the room owner removes or bans you, you see a message with the room’s name instead of silently landing in the lobby."
+      },
+      "updateAtLaunch": {
+        "title": "Updates arrive at launch",
+        "description": "The desktop app checks for a new version as soon as it starts, even before you sign in."
+      },
+      "visibleRadios": {
+        "title": "Radio buttons you can see",
+        "description": "The unselected choice in options like microphone activation no longer blends into the background."
+      },
       "signUpErrors": {
         "title": "Sign-up shows its errors",
         "description": "A short password, a mistyped email or an empty name now gets a hint under the field instead of the form silently doing nothing."
@@ -789,6 +821,8 @@
       }
     },
     "highlights": {
+      "musicPerPerson": "Music volume for each person",
+      "banNotice": "You’re told when you’re removed",
       "signUpErrors": "Sign-up shows its errors",
       "calmerColors": "Calmer colours",
       "musicLibrary": "Music player in tabs",

@@ -15,6 +15,7 @@ export const CheckUpdateButton = ({ variant }: CheckUpdateButtonProps) => {
 
   return (
     <SidebarItem
+      className={s[variant]}
       disabled={isChecking}
       icon={<RefreshCw className={isChecking ? s.spinning : undefined} />}
       label={t('checkUpdateLabel')}

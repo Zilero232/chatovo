@@ -115,6 +115,8 @@ export const useMusicShare = () => {
     if (started) {
       setState({ mode: 'tab' });
     }
+
+    return started;
   };
 
   const shareFiles = async (files: File[]) => {

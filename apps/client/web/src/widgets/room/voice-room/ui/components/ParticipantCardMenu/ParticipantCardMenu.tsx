@@ -7,7 +7,7 @@ import {
   ContextMenuSeparator,
   ContextMenuTrigger
 } from '@chatovo/ui-kit';
-import { Ban, Copy, ShieldAlert, ShieldCheck } from 'lucide-react';
+import { Copy } from 'lucide-react';
 import { useTranslations } from 'use-intl';
 
 import { ParticipantModerationItems } from '@/features/room/moderate-participant';
@@ -16,14 +16,12 @@ import type { ParticipantCardMenuProps } from './ParticipantCardMenu.types';
 
 import { useParticipantCardMenu } from '../../../model/hooks';
 import { ParticipantVolumeControls } from '../ParticipantVolumeControls/ParticipantVolumeControls';
-import { ParticipantCardDialogs } from './components';
+import { ParticipantCardDialogs, ParticipantSafetyItems } from './components';
 
 import s from './ParticipantCardMenu.module.scss';
 
 export const ParticipantCardMenu = ({ participant, children }: ParticipantCardMenuProps) => {
   const t = useTranslations('participant');
-  const tBlocks = useTranslations('blocks');
-  const tModeration = useTranslations('moderation');
 
   const {
     displayName,
@@ -44,8 +42,10 @@ export const ParticipantCardMenu = ({ participant, children }: ParticipantCardMe
 
       <ContextMenuContent className={s.content}>
         <ContextMenuGroup>
-          <ContextMenuLabel>{displayName}</ContextMenuLabel>
+          <ContextMenuLabel className={s.header}>{displayName}</ContextMenuLabel>
         </ContextMenuGroup>
+
+        <ParticipantVolumeControls displayName={displayName} participant={participant} />
 
         <ContextMenuSeparator />
 
@@ -54,22 +54,12 @@ export const ParticipantCardMenu = ({ participant, children }: ParticipantCardMe
           {t('copyName')}
         </ContextMenuItem>
 
-        <ParticipantVolumeControls displayName={displayName} participant={participant} />
-
         {!isSelf && (
-          <>
-            <ContextMenuSeparator />
-
-            <ContextMenuItem variant={isBlocked ? 'default' : 'destructive'} onSelect={toggleBlock}>
-              {isBlocked ? <ShieldCheck /> : <Ban />}
-              {tBlocks(isBlocked ? 'unblock' : 'block')}
-            </ContextMenuItem>
-
-            <ContextMenuItem variant='destructive' onSelect={openReport}>
-              <ShieldAlert />
-              {tModeration('reportUser')}
-            </ContextMenuItem>
-          </>
+          <ParticipantSafetyItems
+            isBlocked={isBlocked}
+            onReport={openReport}
+            onToggleBlock={toggleBlock}
+          />
         )}
 
         {canModerate && (

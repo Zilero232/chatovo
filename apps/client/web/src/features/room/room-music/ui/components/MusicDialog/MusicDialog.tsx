@@ -4,7 +4,6 @@ import { useTranslations } from 'use-intl';
 
 import { useCurrentRoomMusic, useMusicDialog } from '../../../model/hooks';
 import { MusicLibrary } from '../MusicLibrary/MusicLibrary';
-import { MusicSettingsButton } from '../MusicSettingsButton/MusicSettingsButton';
 import { MusicStage } from '../MusicStage/MusicStage';
 
 import s from './MusicDialog.module.scss';
@@ -26,7 +25,6 @@ export const MusicDialog = () => {
             <DialogTitle className={s.title}>{t('title')}</DialogTitle>
             <DialogDescription className={s.description}>{t('description')}</DialogDescription>
           </div>
-          <MusicSettingsButton />
         </header>
 
         <div className={s.body} data-music-viewport='clip'>

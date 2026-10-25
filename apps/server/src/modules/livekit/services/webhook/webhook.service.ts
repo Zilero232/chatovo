@@ -10,6 +10,7 @@ import { DomainEvent } from '../../../../common/events/domain-events';
 import { AppUnauthorizedException } from '../../../../common/exceptions';
 import { AppConfigService } from '../../../../config/config.module';
 import { getRoomName } from '../../../../lib';
+import { WEBHOOK_CLOCK_TOLERANCE_SECONDS } from '../../config';
 import { isBarredFromRoom, isInvisibleParticipant } from '../../lib';
 import { toRoomParticipant } from '../../mappers';
 import { clearRoomMicLocks, isMicLocked } from '../../mic-lock-store';
@@ -41,7 +42,7 @@ export class WebhookService {
     let event: Awaited<ReturnType<typeof this.receiver.receive>>;
 
     try {
-      event = await this.receiver.receive(body, authHeader);
+      event = await this.receiver.receive(body, authHeader, false, WEBHOOK_CLOCK_TOLERANCE_SECONDS);
     } catch {
       throw new AppUnauthorizedException('WEBHOOK_SIGNATURE_INVALID', 'Invalid webhook signature');
     }

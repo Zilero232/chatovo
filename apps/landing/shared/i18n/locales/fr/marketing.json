@@ -207,6 +207,38 @@
       "minor": "Version régulière"
     },
     "entries": {
+      "musicPerPerson": {
+        "title": "Volume de la musique pour chacun",
+        "description": "Faites un clic droit sur la personne qui diffuse de la musique pour monter ou baisser seulement sa musique ; le reste ne change pas."
+      },
+      "whoPlaysMusic": {
+        "title": "On voit qui diffuse la musique",
+        "description": "Quand quelqu’un partage la musique d’un onglet du navigateur, une barre en bas du salon indique qui c’est."
+      },
+      "participantMenu": {
+        "title": "Un menu de participant plus net",
+        "description": "Les volumes de la voix, de l’écran et de la musique tiennent dans un bloc compact avec un bouton muet chacun, tout marche au clavier et les actions sont regroupées."
+      },
+      "musicInSettings": {
+        "title": "Le son de la musique dans les Réglages",
+        "description": "Le volume général de la musique et sa baisse pendant qu’on parle se trouvent désormais dans Réglages → Sons."
+      },
+      "signOutPlace": {
+        "title": "Se déconnecter depuis n’importe quel onglet",
+        "description": "Le bouton de déconnexion est en bas du menu des réglages, et non plus à la fin de l’onglet Sécurité."
+      },
+      "banNotice": {
+        "title": "Vous êtes prévenu quand on vous retire",
+        "description": "Si le propriétaire du salon vous retire ou vous bannit, un message avec le nom du salon s’affiche au lieu d’un retour silencieux au hall."
+      },
+      "updateAtLaunch": {
+        "title": "Les mises à jour dès le lancement",
+        "description": "L’application de bureau cherche une nouvelle version dès son ouverture, avant même la connexion."
+      },
+      "visibleRadios": {
+        "title": "Des boutons radio visibles",
+        "description": "L’option non choisie, comme pour l’activation du micro, ne se fond plus dans le fond."
+      },
       "signUpErrors": {
         "title": "L’inscription affiche ses erreurs",
         "description": "Un mot de passe trop court, un e-mail mal saisi ou un nom vide affichent désormais un message sous le champ, au lieu d’un formulaire qui ne fait rien."
@@ -789,6 +821,8 @@
       }
     },
     "highlights": {
+      "musicPerPerson": "Volume de la musique pour chacun",
+      "banNotice": "Vous êtes prévenu quand on vous retire",
       "signUpErrors": "L’inscription affiche ses erreurs",
       "calmerColors": "Des couleurs plus douces",
       "musicLibrary": "La musique en onglets",

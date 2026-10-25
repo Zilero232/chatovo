@@ -6,8 +6,6 @@ import { ChangePasswordForm } from '@/features/auth/change-password';
 import { DeleteAccountSection } from '@/features/auth/delete-account';
 import { EmailVerificationNotice } from '@/features/auth/verify-email';
 
-import { LogoutButton } from '../components/LogoutButton/LogoutButton';
-
 import s from '../AppSettingsButton.module.scss';
 
 export const SecurityTab = () => {
@@ -35,10 +33,6 @@ export const SecurityTab = () => {
         <h3 className={s.profileSectionTitle}>{t('deleteTitle')}</h3>
         <DeleteAccountSection />
       </section>
-
-      <Separator />
-
-      <LogoutButton />
     </div>
   );
 };

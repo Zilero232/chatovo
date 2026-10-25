@@ -1,5 +1,5 @@
-@use 'breakpoints' as *;
-@use 'mixins' as *;
+@use '@chatovo/ui-kit/styles/breakpoints' as *;
+@use '@chatovo/ui-kit/styles/mixins' as *;
 
 .dark {
   color-scheme: dark;

@@ -21,6 +21,7 @@ import { TauriDesktopDocumentClass } from './TauriDesktopDocumentClass';
 import { TauriMobileInsets } from './TauriMobileInsets';
 import { TauriNativeMenuGuard } from './TauriNativeMenuGuard';
 import { TrayMenuProvider } from './TrayMenuProvider';
+import { UpdateProvider } from './UpdateProvider';
 
 export const AppProviders = ({ children }: { children: ReactNode }) => (
   <QueryClientProvider client={queryClient}>
@@ -39,7 +40,9 @@ export const AppProviders = ({ children }: { children: ReactNode }) => (
 
                 <div style={{ minHeight: 0, flex: 1 }}>
                   <TrayMenuProvider>
-                    <AuthProvider>{children}</AuthProvider>
+                    <UpdateProvider>
+                      <AuthProvider>{children}</AuthProvider>
+                    </UpdateProvider>
                   </TrayMenuProvider>
                 </div>
               </div>

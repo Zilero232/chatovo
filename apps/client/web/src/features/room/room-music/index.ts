@@ -1,5 +1,5 @@
 export { RoomMusicProvider } from './model/contexts';
-export { useIsSharingMusic } from './model/hooks';
+export { useIsSharingMusic, useParticipantMusicVolume } from './model/hooks';
 export { MusicButton } from './ui/MusicButton/MusicButton';
 export { PlayInRoomButton } from './ui/PlayInRoomButton/PlayInRoomButton';
 export type { PlayInRoomButtonProps } from './ui/PlayInRoomButton/PlayInRoomButton.types';

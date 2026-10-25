@@ -207,6 +207,38 @@
       "minor": "Atualização regular"
     },
     "entries": {
+      "musicPerPerson": {
+        "title": "Volume da música para cada pessoa",
+        "description": "Clique com o botão direito em quem está tocando música para aumentar ou diminuir só a música dessa pessoa; o resto continua igual."
+      },
+      "whoPlaysMusic": {
+        "title": "Dá para ver quem está tocando música",
+        "description": "Quando alguém compartilha música de uma aba do navegador, uma barra na parte de baixo da sala mostra quem é."
+      },
+      "participantMenu": {
+        "title": "Um menu de participante mais organizado",
+        "description": "O volume de voz, tela e música fica num bloco compacto com botão de silenciar em cada linha, funciona pelo teclado e as ações estão agrupadas."
+      },
+      "musicInSettings": {
+        "title": "O som da música nas Configurações",
+        "description": "O volume geral da música e o abaixar enquanto as pessoas falam agora ficam em Configurações → Sons."
+      },
+      "signOutPlace": {
+        "title": "Sair de qualquer aba das configurações",
+        "description": "O botão de sair fica no fim do menu de configurações, e não mais no final da aba Segurança."
+      },
+      "banNotice": {
+        "title": "Você fica sabendo quando é removido",
+        "description": "Se o dono da sala remover ou banir você, aparece um aviso com o nome da sala em vez de voltar ao lobby sem explicação."
+      },
+      "updateAtLaunch": {
+        "title": "Atualizações já na abertura",
+        "description": "O app para computador procura uma nova versão assim que abre, mesmo antes de você entrar na conta."
+      },
+      "visibleRadios": {
+        "title": "Botões de opção visíveis",
+        "description": "A opção não escolhida, como na ativação do microfone, não se confunde mais com o fundo."
+      },
       "signUpErrors": {
         "title": "O cadastro mostra os erros",
         "description": "Uma senha curta, um e-mail digitado errado ou um nome vazio agora mostram um aviso abaixo do campo, em vez de o formulário não fazer nada."
@@ -789,6 +821,8 @@
       }
     },
     "highlights": {
+      "musicPerPerson": "Volume da música para cada pessoa",
+      "banNotice": "Você fica sabendo quando é removido",
       "signUpErrors": "O cadastro mostra os erros",
       "calmerColors": "Cores mais suaves",
       "musicLibrary": "Música em abas",

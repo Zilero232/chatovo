@@ -25,7 +25,7 @@ export const SoundsTab = () => {
   const t = useTranslations('settings.sounds');
   const { settings, setGroup, toggleSound } = useAppSettings();
 
-  const sounds = settings.sounds;
+  const { sounds, music } = settings;
 
   return (
     <div className={s.tabPanel}>
@@ -46,6 +46,36 @@ export const SoundsTab = () => {
         }
         hint={t('volumeHint')}
         label={t('volumeLabel')}
+      />
+
+      <SettingRow
+        stacked
+        control={
+          <div className={s.sliderRow}>
+            <Slider
+              aria-label={t('musicVolume')}
+              max={1}
+              min={0}
+              step={0.05}
+              value={music.volume}
+              onValueChange={(value) => setGroup('music', { volume: value as number })}
+            />
+            <span className={s.sliderValue}>{formatPercent(music.volume)}</span>
+          </div>
+        }
+        hint={t('musicVolumeHint')}
+        label={t('musicVolume')}
+      />
+
+      <SettingRow
+        control={
+          <Switch
+            checked={music.ducking}
+            onCheckedChange={(value) => setGroup('music', { ducking: value })}
+          />
+        }
+        hint={t('musicDuckingHint')}
+        label={t('musicDucking')}
       />
 
       {SOUND_CATEGORIES.map((category) => (
