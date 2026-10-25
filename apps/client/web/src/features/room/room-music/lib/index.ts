@@ -9,6 +9,11 @@ export { formatPlaybackTime } from './format-playback-time';
 export { interpolateVolume } from './interpolate-volume';
 export { isMusicPublication } from './is-music-publication';
 export {
+  type MusicVolumeMap,
+  readParticipantMusicVolume,
+  writeParticipantMusicVolume
+} from './participant-music-volume';
+export {
   toLiveAudioAdapter,
   toMediaElementAdapter,
   toSoundcloudAdapter,

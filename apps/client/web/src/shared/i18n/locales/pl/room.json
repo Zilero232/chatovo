@@ -159,12 +159,9 @@
         "stop": "Zakończ udostępnianie",
         "noAudio": "Nie udostępniono dźwięku — włącz „Udostępnij dźwięk karty” w oknie wyboru.",
         "fileFailed": "Nie udało się odtworzyć {name}.",
-        "publishFailed": "Nie udało się rozpocząć udostępniania w tym pokoju."
-      },
-      "settings": {
-        "label": "Dźwięk muzyki",
-        "volume": "Głośność muzyki",
-        "ducking": "Ściszaj muzykę, gdy ktoś mówi"
+        "publishFailed": "Nie udało się rozpocząć udostępniania w tym pokoju.",
+        "remoteTitle": "{name} puszcza muzykę",
+        "remoteSubtitle": "Głośność jest w menu karty uczestnika"
       },
       "player": {
         "unplayable": "Tego utworu nie da się tu odtworzyć — pomijamy go.",
@@ -353,12 +350,15 @@
   "participant": {
     "muteForMe": "Wycisz dla mnie",
     "unmuteForMe": "Wyłącz wyciszenie dla mnie",
-    "volume": "Głośność",
+    "voice": "Głos",
     "volumeFor": "Głośność: {name}",
     "screenVolume": "Dźwięk ekranu",
     "screenVolumeFor": "Głośność ekranu: {name}",
+    "music": "Muzyka",
+    "musicVolumeFor": "Głośność muzyki {name}",
     "copyName": "Kopiuj nazwę",
-    "nameCopied": "Nazwa skopiowana"
+    "nameCopied": "Nazwa skopiowana",
+    "safety": "Bezpieczeństwo"
   },
   "roomModeration": {
     "label": "Moderacja pokoju",

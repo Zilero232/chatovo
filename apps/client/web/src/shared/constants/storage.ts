@@ -2,6 +2,7 @@ export const STORAGE_KEYS = {
   authToken: 'chatovo.auth-token',
   participantVolumes: 'chatovo.participant-volumes',
   participantMutes: 'chatovo.participant-mutes',
+  participantMusicVolumes: 'chatovo.participant-music-volumes',
   appSettings: 'chatovo.app-settings',
   locale: 'chatovo.locale',
   recentRooms: 'chatovo.recent-rooms',

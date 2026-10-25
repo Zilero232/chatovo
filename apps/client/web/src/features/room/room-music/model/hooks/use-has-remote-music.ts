@@ -1,12 +1,7 @@
-import { useTracks } from '@livekit/components-react';
-import { Track } from 'livekit-client';
-
-import { isMusicPublication } from '../../lib/index';
+import { useRemoteMusicTracks } from './share/use-remote-music-tracks';
 
 export const useHasRemoteMusic = () => {
-  const tracks = useTracks([Track.Source.Unknown], { onlySubscribed: true });
+  const tracks = useRemoteMusicTracks();
 
-  return tracks.some(
-    ({ participant, publication }) => !participant.isLocal && isMusicPublication(publication)
-  );
+  return tracks.length > 0;
 };

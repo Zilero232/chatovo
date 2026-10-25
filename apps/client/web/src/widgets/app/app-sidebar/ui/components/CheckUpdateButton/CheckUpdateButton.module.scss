@@ -1,5 +1,33 @@
 @use '@chatovo/ui-kit/styles/keyframes';
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.rail {
+  border: 1px solid color-mix(in srgb, var(--brand-sun) 28%, transparent);
+  background: color-mix(in srgb, var(--brand-sun) 9%, transparent);
+  color: var(--brand-sun);
+
+  @include hover {
+    &:not(:disabled) {
+      border-color: color-mix(in srgb, var(--brand-sun) 48%, transparent);
+      background: color-mix(in srgb, var(--brand-sun) 18%, transparent);
+      color: var(--brand-sun);
+    }
+  }
+}
+
+.rail.rail:disabled {
+  border-color: color-mix(in srgb, var(--brand-sun) 48%, transparent);
+  opacity: 1;
+}
+
+.menu svg {
+  color: var(--brand-sun);
+}
 
 .spinning {
   animation: spin 1s linear infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation-duration: 3s;
+  }
 }

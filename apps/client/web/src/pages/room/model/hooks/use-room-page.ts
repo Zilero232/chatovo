@@ -27,6 +27,7 @@ export const useRoomPage = () => {
   const isChatOpen = view === 'chat';
   const password = roomId ? passwordByRoom[roomId] : undefined;
   const isSessionOpen = session?.roomId === roomId;
+  const hasLeftRoom = isNonNullish(roomId) && isRecentlyLeft(roomId);
 
   const { room, isLoading, displayName, isPrivate, isDm } = useRoomById(roomId);
 
@@ -36,7 +37,9 @@ export const useRoomPage = () => {
     isFetching: tokenFetching,
     error: tokenError,
     refetch: refetchToken
-  } = useRoomToken(isNonNullish(room) && !isSessionOpen ? roomId : null, { password });
+  } = useRoomToken(isNonNullish(room) && !isSessionOpen && !hasLeftRoom ? roomId : null, {
+    password
+  });
 
   const isInvisible = isAdmin && settings.system.invisibleMode;
   const roomTitle = titleOverride ?? displayName;
@@ -74,7 +77,7 @@ export const useRoomPage = () => {
   );
 
   useEffect(() => {
-    if (isNonNullish(roomId) && isNonNullish(token) && !isRecentlyLeft(roomId)) {
+    if (isNonNullish(roomId) && isNonNullish(token) && !hasLeftRoom) {
       open({
         roomId,
         roomName: roomTitle,
@@ -87,7 +90,7 @@ export const useRoomPage = () => {
       });
     }
     // eslint-disable-next-line react/exhaustive-deps -- opening is driven by a fresh token; open is stable and roomTitle must not reopen the session
-  }, [roomId, token, isChatOpen, isDm, isPrivate, isInvisible, password]);
+  }, [roomId, token, hasLeftRoom, isChatOpen, isDm, isPrivate, isInvisible, password]);
 
   const submitPassword = (value: string) => {
     if (!roomId) {

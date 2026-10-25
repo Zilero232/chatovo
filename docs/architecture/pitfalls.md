@@ -28,6 +28,7 @@ Things that have already bitten us. Each one looked like a bug in our code, or a
 - **A page that fetches the API must be `force-dynamic`.** Otherwise `next build` prerenders it, fetching the API at build time — in CI there is none, and the page ships with empty data until revalidation.
 - **`next build` next to a running `next dev` can corrupt the dev manifests.** Both wrote `.next/dev/prerender-manifest.json` at once; every page then answered a bare 500, and `.next/dev/logs/next-development.log` showed `SyntaxError: Unexpected non-whitespace character after JSON`. Build with the dev server stopped, or trim the file back to valid JSON (or delete it and restart `bun dev`).
 - **The site can't know who is signed in.** The session token lives in the app origin's localStorage; the header CTA is a static link into the app.
+- **A relative `@use` inside `packages/ui-kit/styles` breaks the site build.** Under Turbopack the sass loader resolves the kit's partials through the package, so `@use 'breakpoints'` in `_base.scss` failed with "Can't find stylesheet to import" while Vite was fine. Kit partials reference each other as `@chatovo/ui-kit/styles/<name>`, like the rest of the kit.
 
 ## Server and production
 
@@ -41,6 +42,7 @@ Things that have already bitten us. Each one looked like a bug in our code, or a
 - **The window icon is linked into the executable.** Swapping the icon files and restarting `bun tauri:dev` changes nothing; the binary has to be rebuilt (touch `build.rs` or clean the target).
 - **An old icon in the taskbar jump list after an update is Windows' icon cache**, not the build. The binary and the AUMID are already right; clearing `iconcache_*.db` fixes the machine.
 - **The start URL is `/lobby`.** `tauri.conf.json` opens it directly; `/` in the web app only redirects there.
+- **The update check waited for sign-in.** `UpdateProvider` sat in `AuthedProviders`, so a signed-out desktop app never checked. It now wraps `AuthProvider` inside `AppProviders`; since each route layout mounts its own `AppProviders`, the silent startup check is remembered at module scope in `useCheckAppUpdate` and runs once per launch, not again after signing in.
 
 ## Android
 
@@ -54,3 +56,4 @@ Things that have already bitten us. Each one looked like a bug in our code, or a
 - **A script that truncates a file and then writes it can leave Vite serving an empty module.** The dev server's watcher reads the file in between and caches the empty transform; the page then fails with "does not provide an export named …". Write through a temp file and rename, or `touch` the file to make Vite re-read it.
 - **`tsc --noEmit` can report errors that are already fixed** when `tsconfig.tsbuildinfo` predates a change to an ambient `.d.ts` (the site's `messages.d.ts` locale union). Delete the `.tsbuildinfo` before believing it.
 - **A host firewall silently stops the room presence in dev.** The LiveKit container posts its webhooks to the API on the host (`host.docker.internal:4000`, `infra/livekit/livekit.dev.yaml`); with `ufw` active the packets from the compose bridge are dropped, LiveKit logs `dial tcp 172.17.0.1:4000: i/o timeout` and then `dropped webhook`, and the channels panel keeps people who left and misses people who joined. Allow the docker ranges to reach the dev API: `sudo ufw allow from 172.16.0.0/12 to any port 4000 proto tcp`.
+- **LiveKit's dev UDP range must sit below 49152.** Hyper-V/WinNAT reserves blocks inside the Windows dynamic range (49152–65535) and moves them on reboot, so `51200-51300` failed to bind with "forbidden by its access permissions". The range is now `40100-40200` in both `docker-compose.dev.yml` and `infra/livekit/livekit.dev.yaml`.

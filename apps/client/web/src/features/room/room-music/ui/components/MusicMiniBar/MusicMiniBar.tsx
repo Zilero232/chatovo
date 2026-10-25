@@ -1,14 +1,12 @@
 import { clsx } from 'clsx';
-import { motion } from 'motion/react';
 import { useTranslations } from 'use-intl';
-
-import { ENTER_ANIMATE, ENTER_INITIAL, ENTER_TRANSITION } from '@/shared/config';
 
 import type { MusicMiniBarProps } from './MusicMiniBar.types';
 
-import { useFloatingBarSpace, useMusicMiniBar } from '../../../model/hooks';
+import { useMusicMiniBar } from '../../../model/hooks';
 import { MiniBarControls } from '../MiniBarControls/MiniBarControls';
 import { MiniProgress } from '../MiniProgress/MiniProgress';
+import { MusicBarFrame } from '../MusicBarFrame/MusicBarFrame';
 import { RadioAudio } from '../RadioAudio/RadioAudio';
 import { TrackArtwork } from '../TrackArtwork/TrackArtwork';
 
@@ -18,18 +16,9 @@ export const MusicMiniBar = ({ music, track, isMinimized }: MusicMiniBarProps) =
   const t = useTranslations('room.music');
 
   const bar = useMusicMiniBar(track);
-  const setBarNode = useFloatingBarSpace(isMinimized);
 
   return (
-    <motion.section
-      ref={setBarNode}
-      animate={ENTER_ANIMATE}
-      aria-label={t('label')}
-      className={clsx(s.root, isMinimized ? s.floating : s.docked)}
-      exit={ENTER_INITIAL}
-      initial={ENTER_INITIAL}
-      transition={ENTER_TRANSITION}
-    >
+    <MusicBarFrame isMinimized={isMinimized} label={t('label')}>
       <button
         aria-label={t('nowPlaying.expand')}
         className={s.identity}
@@ -52,6 +41,6 @@ export const MusicMiniBar = ({ music, track, isMinimized }: MusicMiniBarProps) =
       {bar.canControl && <MiniBarControls bar={bar} />}
 
       <MiniProgress music={music} track={track} />
-    </motion.section>
+    </MusicBarFrame>
   );
 };

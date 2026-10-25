@@ -134,3 +134,17 @@ describe('WebhookService room_finished', () => {
     expect(clearRoomMicLocks).toHaveBeenCalledWith(ROOM_ID);
   });
 });
+
+describe('WebhookService signature check', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
+  it('tolerates a small clock skew between LiveKit and the API', async () => {
+    const { WEBHOOK_CLOCK_TOLERANCE_SECONDS } = await import('../../../config');
+
+    await deliver({ event: 'room_started' });
+
+    expect(receive).toHaveBeenCalledWith('{}', 'signed', false, WEBHOOK_CLOCK_TOLERANCE_SECONDS);
+  });
+});

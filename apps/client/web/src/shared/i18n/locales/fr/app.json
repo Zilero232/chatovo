@@ -142,6 +142,10 @@
     "sounds": {
       "volumeLabel": "Volume des effets sonores",
       "volumeHint": "Volume de tous les effets sonores du salon.",
+      "musicVolume": "Volume de la musique",
+      "musicVolumeHint": "Le volume de toute la musique dans les salons : pistes pour tous et ce que les autres diffusent.",
+      "musicDucking": "Baisser la musique quand on parle",
+      "musicDuckingHint": "La musique baisse pendant que quelqu’un parle dans le salon.",
       "join": "Arrivée",
       "joinHint": "Quand quelqu'un rejoint le salon.",
       "leave": "Départ",

@@ -1,28 +1,46 @@
-import { useTracks } from '@livekit/components-react';
-import { RemoteAudioTrack, Track, TrackEvent } from 'livekit-client';
+import { RemoteAudioTrack, TrackEvent } from 'livekit-client';
 
-import { isMusicPublication } from '../../../lib/index';
+import { useBlockedUserIds } from '@/entities/social/friend';
+
+import { readParticipantMusicVolume } from '../../../lib/index';
 import { useRoomMusicContext } from '../../contexts';
 import { useVolumeRamp } from '../use-volume-ramp';
+import { useMusicVolumes } from './use-music-volumes';
+import { useRemoteMusicTracks } from './use-remote-music-tracks';
 
 export const useRemoteMusicVolume = () => {
   const { outputVolume } = useRoomMusicContext();
 
-  const musicTracks = useTracks([Track.Source.Unknown], { onlySubscribed: true })
-    .filter(
-      ({ participant, publication }) => !participant.isLocal && isMusicPublication(publication)
-    )
-    .map(({ publication }) => publication.track)
-    .filter((track) => track instanceof RemoteAudioTrack);
+  const { volumes } = useMusicVolumes();
+  const blockedIds = useBlockedUserIds();
+  const remoteTracks = useRemoteMusicTracks();
+
+  const musicTracks = remoteTracks.flatMap(({ participant, publication }) => {
+    const { track } = publication;
+
+    if (!(track instanceof RemoteAudioTrack)) {
+      return [];
+    }
+
+    const { identity } = participant;
+    const factor = readParticipantMusicVolume({
+      identity,
+      isBlocked: blockedIds.has(identity),
+      volumes
+    });
+
+    return [{ track, factor }];
+  });
 
   useVolumeRamp({
     target: outputVolume,
-    resetKey: musicTracks.map((track) => track.sid).join(','),
-    apply: (volume) => musicTracks.forEach((track) => track.setVolume(volume)),
+    resetKey: musicTracks.map(({ track, factor }) => `${track.sid}:${factor}`).join(','),
+    apply: (volume) => musicTracks.forEach(({ track, factor }) => track.setVolume(volume * factor)),
     subscribeReapply: (reapply) => {
-      musicTracks.forEach((track) => track.on(TrackEvent.ElementAttached, reapply));
+      musicTracks.forEach(({ track }) => track.on(TrackEvent.ElementAttached, reapply));
 
-      return () => musicTracks.forEach((track) => track.off(TrackEvent.ElementAttached, reapply));
+      return () =>
+        musicTracks.forEach(({ track }) => track.off(TrackEvent.ElementAttached, reapply));
     }
   });
 };

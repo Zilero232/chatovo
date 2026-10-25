@@ -159,12 +159,9 @@
         "stop": "Teilen beenden",
         "noAudio": "Es wurde kein Audio geteilt – aktiviere „Tab-Audio teilen“ im Dialog.",
         "fileFailed": "{name} konnte nicht abgespielt werden.",
-        "publishFailed": "Teilen in diesem Raum konnte nicht gestartet werden."
-      },
-      "settings": {
-        "label": "Ton der Musik",
-        "volume": "Musiklautstärke",
-        "ducking": "Musik leiser, wenn jemand spricht"
+        "publishFailed": "Teilen in diesem Raum konnte nicht gestartet werden.",
+        "remoteTitle": "{name} spielt Musik",
+        "remoteSubtitle": "Lautstärke im Menü der Teilnehmerkarte"
       },
       "player": {
         "unplayable": "Dieser Track kann hier nicht abgespielt werden – wird übersprungen.",
@@ -353,12 +350,15 @@
   "participant": {
     "muteForMe": "Für mich stummschalten",
     "unmuteForMe": "Für mich laut schalten",
-    "volume": "Lautstärke",
+    "voice": "Stimme",
     "volumeFor": "Lautstärke für {name}",
     "screenVolume": "Bildschirmton",
     "screenVolumeFor": "Lautstärke des Bildschirmtons von {name}",
+    "music": "Musik",
+    "musicVolumeFor": "Musiklautstärke für {name}",
     "copyName": "Name kopieren",
-    "nameCopied": "Name kopiert"
+    "nameCopied": "Name kopiert",
+    "safety": "Sicherheit"
   },
   "roomModeration": {
     "label": "Raummoderation",

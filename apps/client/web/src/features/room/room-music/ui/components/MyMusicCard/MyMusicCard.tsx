@@ -10,7 +10,7 @@ import s from './MyMusicCard.module.scss';
 export const MyMusicCard = () => {
   const t = useTranslations('room.music.share');
 
-  const { share, canShareTab, pickFiles } = useShareMusicPanel();
+  const { share, canShareTab, shareTab, pickFiles } = useShareMusicPanel();
 
   if (share.state.mode !== 'idle') {
     return <ShareStatus />;
@@ -26,7 +26,7 @@ export const MyMusicCard = () => {
           icon={<AppWindow />}
           isDisabled={!canShareTab}
           title={t('tab')}
-          onSelect={() => void share.shareTab()}
+          onSelect={() => void shareTab()}
         />
         <ShareOption
           description={t('filesHint')}

@@ -15,18 +15,19 @@ import type { UpdateInfo } from '../types';
 
 import { APP_UPDATE_CONFIG } from '../../config/config';
 
+let hasStartupCheckRun = false;
+
 export const useCheckAppUpdate = () => {
   const t = useTranslations('update');
 
   const [update, setUpdate] = useState<Update | null>(null);
   const [status, setStatus] = useState<UpdateInfo['status']>(() =>
-    isTauriDesktop() ? 'checking' : 'idle'
+    isTauriDesktop() && !hasStartupCheckRun ? 'checking' : 'idle'
   );
   const [progress, setProgress] = useState(0);
   const [silent, setSilent] = useState(true);
 
   const recheckTick = useCounter(0);
-  const hasCheckedOnceRef = useRef(false);
   const isManualRef = useRef(false);
 
   const runInstall = async (target: Update) => {
@@ -68,6 +69,10 @@ export const useCheckAppUpdate = () => {
       return;
     }
 
+    if (hasStartupCheckRun && !isManualRef.current) {
+      return;
+    }
+
     let cancelled = false;
 
     const run = async () => {
@@ -75,7 +80,7 @@ export const useCheckAppUpdate = () => {
 
       setSilent(!isManual);
 
-      if (!hasCheckedOnceRef.current) {
+      if (!hasStartupCheckRun) {
         setStatus('checking');
       }
 
@@ -89,7 +94,7 @@ export const useCheckAppUpdate = () => {
           return;
         }
 
-        hasCheckedOnceRef.current = true;
+        hasStartupCheckRun = true;
 
         if (!result.ok) {
           if (isManual) {
@@ -118,7 +123,7 @@ export const useCheckAppUpdate = () => {
         console.error('Update check failed', err);
 
         if (!cancelled) {
-          hasCheckedOnceRef.current = true;
+          hasStartupCheckRun = true;
           setStatus('unavailable');
 
           if (isManualRef.current) {

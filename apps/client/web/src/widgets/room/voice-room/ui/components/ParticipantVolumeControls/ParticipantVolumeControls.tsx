@@ -1,17 +1,11 @@
-import { ContextMenuItem, ContextMenuSeparator, Slider } from '@chatovo/ui-kit';
-import { useParticipantTracks } from '@livekit/components-react';
-import { Track } from 'livekit-client';
-import { MonitorSpeaker, Volume1, Volume2, VolumeX } from 'lucide-react';
-import { isNonNullish } from 'remeda';
+import { ContextMenuGroup, ContextMenuSeparator } from '@chatovo/ui-kit';
+import { MonitorSpeaker, Music, Volume2 } from 'lucide-react';
 import { useTranslations } from 'use-intl';
-
-import { formatPercent } from '@/shared/lib';
 
 import type { ParticipantVolumeControlsProps } from './ParticipantVolumeControls.types';
 
-import { useParticipantVolume } from '../../../model/hooks';
-
-import s from './ParticipantVolumeControls.module.scss';
+import { useParticipantAudioControls } from '../../../model/hooks';
+import { VolumeRow } from './components';
 
 export const ParticipantVolumeControls = ({
   participant,
@@ -19,19 +13,10 @@ export const ParticipantVolumeControls = ({
 }: ParticipantVolumeControlsProps) => {
   const t = useTranslations('participant');
 
-  const { isMuted, volume, isBlocked, isControllable, setVolume, toggleMute } =
-    useParticipantVolume(participant);
+  const { voice, screen, music, isVisible, hasScreenAudio, hasMusic } =
+    useParticipantAudioControls(participant);
 
-  const screenAudio = useParticipantVolume(participant, Track.Source.ScreenShareAudio);
-
-  const [screenAudioTrack] = useParticipantTracks(
-    [Track.Source.ScreenShareAudio],
-    participant.identity
-  );
-
-  const hasScreenAudio = isNonNullish(screenAudioTrack);
-
-  if (!isControllable || isBlocked) {
+  if (!isVisible) {
     return null;
   }
 
@@ -39,50 +24,41 @@ export const ParticipantVolumeControls = ({
     <>
       <ContextMenuSeparator />
 
-      <ContextMenuItem closeOnClick={false} onSelect={toggleMute}>
-        {isMuted ? <Volume2 /> : <VolumeX />}
-        {isMuted ? t('unmuteForMe') : t('muteForMe')}
-      </ContextMenuItem>
-
-      <ContextMenuItem className={s.volumeItem} closeOnClick={false}>
-        <div className={s.volumeRow}>
-          <span className={s.volumeLabel}>
-            <Volume1 />
-            {t('volume')}
-          </span>
-          <span className={s.volumeValue}>{formatPercent(volume)}</span>
-        </div>
-
-        <Slider
-          aria-label={t('volumeFor', { name: displayName })}
-          max={1}
-          min={0}
-          step={0.01}
-          value={volume}
-          onValueChange={(next) => setVolume(next as number)}
+      <ContextMenuGroup>
+        <VolumeRow
+          icon={<Volume2 />}
+          isMuted={voice.isMuted}
+          label={t('voice')}
+          muteLabel={voice.isMuted ? t('unmuteForMe') : t('muteForMe')}
+          sliderLabel={t('volumeFor', { name: displayName })}
+          volume={voice.volume}
+          onToggleMute={voice.toggleMute}
+          onVolumeChange={voice.setVolume}
         />
-      </ContextMenuItem>
 
-      {hasScreenAudio && (
-        <ContextMenuItem className={s.volumeItem} closeOnClick={false}>
-          <div className={s.volumeRow}>
-            <span className={s.volumeLabel}>
-              <MonitorSpeaker />
-              {t('screenVolume')}
-            </span>
-            <span className={s.volumeValue}>{formatPercent(screenAudio.volume)}</span>
-          </div>
-
-          <Slider
-            aria-label={t('screenVolumeFor', { name: displayName })}
-            max={1}
-            min={0}
-            step={0.01}
-            value={screenAudio.volume}
-            onValueChange={(next) => screenAudio.setVolume(next as number)}
+        {hasScreenAudio && (
+          <VolumeRow
+            icon={<MonitorSpeaker />}
+            isMuted={screen.isMuted}
+            label={t('screenVolume')}
+            muteLabel={screen.isMuted ? t('unmuteForMe') : t('muteForMe')}
+            sliderLabel={t('screenVolumeFor', { name: displayName })}
+            volume={screen.volume}
+            onToggleMute={screen.toggleMute}
+            onVolumeChange={screen.setVolume}
           />
-        </ContextMenuItem>
-      )}
+        )}
+
+        {hasMusic && (
+          <VolumeRow
+            icon={<Music />}
+            label={t('music')}
+            sliderLabel={t('musicVolumeFor', { name: displayName })}
+            volume={music.volume}
+            onVolumeChange={music.setVolume}
+          />
+        )}
+      </ContextMenuGroup>
     </>
   );
 };

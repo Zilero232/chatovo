@@ -11,27 +11,24 @@ import { ChatRealtimeSync } from '@/widgets/chat/chat-panel';
 
 import { DeepLinkProvider } from './DeepLinkProvider';
 import { ShortcutsProvider } from './ShortcutsProvider';
-import { UpdateProvider } from './UpdateProvider';
 
 export const AuthedProviders = ({ children }: { children: ReactNode }) => (
   <ShortcutsProvider>
-    <UpdateProvider>
-      <DeepLinkProvider>
-        <RealtimeProvider>
-          <RoomSessionProvider>
-            <MiniRoomSlotProvider>
-              <FriendChatProvider>
-                <PushRegistration />
-                <FriendsRealtimeSync />
-                <RoomsRealtimeSync />
-                <RoomMusicRealtimeSync />
-                <ChatRealtimeSync />
-                <LeaveSoundProvider>{children}</LeaveSoundProvider>
-              </FriendChatProvider>
-            </MiniRoomSlotProvider>
-          </RoomSessionProvider>
-        </RealtimeProvider>
-      </DeepLinkProvider>
-    </UpdateProvider>
+    <DeepLinkProvider>
+      <RealtimeProvider>
+        <RoomSessionProvider>
+          <MiniRoomSlotProvider>
+            <FriendChatProvider>
+              <PushRegistration />
+              <FriendsRealtimeSync />
+              <RoomsRealtimeSync />
+              <RoomMusicRealtimeSync />
+              <ChatRealtimeSync />
+              <LeaveSoundProvider>{children}</LeaveSoundProvider>
+            </FriendChatProvider>
+          </MiniRoomSlotProvider>
+        </RoomSessionProvider>
+      </RealtimeProvider>
+    </DeepLinkProvider>
   </ShortcutsProvider>
 );

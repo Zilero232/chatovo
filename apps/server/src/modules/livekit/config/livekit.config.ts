@@ -1,0 +1,1 @@
+export const WEBHOOK_CLOCK_TOLERANCE_SECONDS = 30;

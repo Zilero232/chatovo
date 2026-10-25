@@ -9,4 +9,11 @@ export { FAILURE_REASONS } from './disconnect-reasons';
 export { ROSTER_EVENTS } from './roster';
 export { SOUND_CATEGORY, SOUND_SRC, type SoundKey } from './sounds';
 export { PTT_SPEAKING_LEVEL } from './speaking';
-export { DEFAULT_VOLUME, MAX_STORED_VOLUMES, MAX_VOLUME, VOLUME_PERSIST_DELAY_MS } from './volume';
+export {
+  DEFAULT_VOLUME,
+  MAX_STORED_VOLUMES,
+  MAX_VOLUME,
+  VOLUME_KEY_STEP,
+  VOLUME_PERSIST_DELAY_MS,
+  VOLUME_SLIDER_STEP
+} from './volume';
