@@ -23,7 +23,24 @@ describe('censorProfanity', () => {
     ['du Arschloch', 'du ***'],
     ['quel connard', 'quel ***'],
     ['siktir git', '*** git'],
-    ['first line\nну блядь', 'first line\nну ***']
+    ['first line\nну блядь', 'first line\nну ***'],
+    ['тупоголовый выбл9док, мать твою 9бал', 'тупоголовый ***, мать твою ***'],
+    ['бл9ть', '***'],
+    ['6лять', '***'],
+    ['3аe6ал', '***'],
+    ['пиzда', '***'],
+    ['пиdор', '***'],
+    ['пиииидор', '***'],
+    ['piddaras', '***'],
+    ['хууууй', '***'],
+    ['fuuuck this', '*** this'],
+    ['черножопый', '***'],
+    ['ну ты и мудак.', 'ну ты и ***.'],
+    ['блядь, привет!', '***, привет!'],
+    ['ну х у й', 'ну ***'],
+    ['п.и.д.о.р', '***'],
+    ['бл​ядь', '***'],
+    ['бля́дь', '***']
   ])('masks %s', (text, expected) => {
     expect(censorProfanity(text)).toBe(expected);
   });
@@ -41,7 +58,16 @@ describe('censorProfanity', () => {
     'não sei, mais tarde, pão e bolo',
     'no sé, con el dedo',
     'merhaba, ama bugün götürmek zor',
-    'dzień dobry, jak się masz'
+    'dzień dobry, jak się masz',
+    'встретимся 9 мая в 9 утра',
+    'отправь ссылку, класс, Аллла',
+    'тупоголовый план',
+    'that movie sucks',
+    'мудрый совет',
+    'я и ты, а и б',
+    'a dozen puzzles, pizza and dinner',
+    'the duck sat down, Dad said no',
+    'ссылка: a.b.c'
   ])('leaves %s alone', (text) => {
     expect(censorProfanity(text)).toBe(text);
   });

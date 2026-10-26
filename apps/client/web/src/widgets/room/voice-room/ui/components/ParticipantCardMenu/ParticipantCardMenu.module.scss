@@ -1,8 +1,15 @@
 @use '@chatovo/ui-kit/styles/mixins' as *;
 
 .content {
-  width: 16rem;
+  width: max-content;
+  min-width: 15rem;
+  max-width: min(22rem, calc(100vw - 2rem));
   padding: 0.375rem;
+
+  [data-slot='context-menu-item'] {
+    font-size: 0.8125rem;
+    white-space: nowrap;
+  }
 
   [data-slot='context-menu-separator'] {
     margin: 0.375rem 0.25rem;

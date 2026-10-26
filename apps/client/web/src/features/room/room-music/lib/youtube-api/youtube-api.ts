@@ -44,6 +44,10 @@ const injectApi = () =>
     document.head.append(script);
   });
 
+export const forgetYoutubeApi = () => {
+  pending = null;
+};
+
 export const loadYoutubeApi = (): Promise<YoutubeApi> => {
   pending ??= injectApi().catch((error: unknown) => {
     pending = null;

@@ -4,6 +4,7 @@ import { match } from 'ts-pattern';
 import { useTranslations } from 'use-intl';
 
 import { useRoomMusicShare } from '../../../model/hooks';
+import { MusicVolumeSlider } from '../MusicVolumeSlider/MusicVolumeSlider';
 
 import s from './ShareStatus.module.scss';
 
@@ -26,6 +27,8 @@ export const ShareStatus = () => {
           {label}
         </Text>
       </div>
+
+      {state.mode === 'files' && <MusicVolumeSlider className={s.volume} />}
 
       <div className={s.actions}>
         {state.mode === 'files' && (

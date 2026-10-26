@@ -95,9 +95,12 @@
         "pause": "Pause",
         "previous": "Titre précédent",
         "next": "Titre suivant",
-        "stop": "Arrêter la musique",
+        "stop": "Couper la musique pour tout le monde",
         "open": "Ouvrir la source",
-        "expand": "Ouvrir le lecteur"
+        "expand": "Ouvrir le lecteur",
+        "more": "Plus",
+        "openIn": "Ouvrir dans {service}",
+        "openStation": "Ouvrir le site de la station"
       },
       "progress": {
         "seek": "Position dans le titre",
@@ -161,12 +164,24 @@
         "fileFailed": "Impossible de lire {name}.",
         "publishFailed": "Impossible de lancer le partage dans ce salon.",
         "remoteTitle": "{name} diffuse de la musique",
-        "remoteSubtitle": "Le volume est dans le menu de sa carte"
+        "remoteSubtitle": "En direct d’un participant"
       },
       "player": {
-        "unplayable": "Ce titre ne peut pas être lu ici — on passe au suivant.",
-        "unavailable": "Le lecteur ne s'est pas chargé — le service est peut-être bloqué sur ton réseau.",
-        "tapToListen": "Touche pour écouter"
+        "tapToListen": "Touche pour écouter",
+        "connecting": "Connexion à {service}…",
+        "retry": "Réessayer",
+        "notPlayingHere": "Ne joue pas chez vous",
+        "networkTitle": "{service} ne s’ouvre pas sur votre réseau",
+        "networkHint": "Les autres continuent d’écouter. Activez un VPN et réessayez, ou choisissez la radio ou SoundCloud.",
+        "restrictedTitle": "Cette vidéo ne se lit pas chez vous",
+        "restrictedHint": "Son propriétaire a limité l’intégration, ou elle n’est pas disponible dans votre région. Les autres continuent d’écouter.",
+        "failedTitle": "Ce titre ne se lit pas chez vous",
+        "failedHint": "Les autres continuent d’écouter. Réessayez ou passez au titre suivant.",
+        "skip": "Titre suivant",
+        "removed": "Cette vidéo a été supprimée ou rendue privée — on passe à la suivante.",
+        "blockedTitle": "Le navigateur a bloqué le son",
+        "blockedHint": "Appuyez sur Écouter et la musique reprend là où en est le salon.",
+        "listen": "Écouter"
       },
       "sources": {
         "youtube": "YouTube",
@@ -188,6 +203,10 @@
           "zvuk": "Zvuk",
           "deezer": "Deezer"
         }
+      },
+      "volume": {
+        "label": "Volume de la musique",
+        "hint": "Pour vous seulement : chacun garde son propre niveau."
       }
     },
     "password": {
@@ -354,8 +373,6 @@
     "volumeFor": "Volume de {name}",
     "screenVolume": "Son de l'écran",
     "screenVolumeFor": "Volume du son de l'écran de {name}",
-    "music": "Musique",
-    "musicVolumeFor": "Volume de la musique de {name}",
     "copyName": "Copier le nom",
     "nameCopied": "Nom copié",
     "safety": "Sécurité"

@@ -9,11 +9,6 @@ export { formatPlaybackTime } from './format-playback-time';
 export { interpolateVolume } from './interpolate-volume';
 export { isMusicPublication } from './is-music-publication';
 export {
-  type MusicVolumeMap,
-  readParticipantMusicVolume,
-  writeParticipantMusicVolume
-} from './participant-music-volume';
-export {
   toLiveAudioAdapter,
   toMediaElementAdapter,
   toSoundcloudAdapter,
@@ -24,8 +19,6 @@ export type { MusicPlayerAdapter } from './player-adapters';
 export { readSlotBox } from './read-slot-box';
 
 export type { SoundcloudWidget, SoundcloudWindow } from './soundcloud-widget.types';
-export { createSpeechProbe, isProbeSpeaking, readLiveMicTrack } from './speech-probe';
-export type { SpeechProbe } from './speech-probe';
 export { toVimeoUrl } from './to-vimeo-url';
 export { mountYoutubePlayer } from './youtube-api';
 export type { YoutubePlayer } from './youtube-api';

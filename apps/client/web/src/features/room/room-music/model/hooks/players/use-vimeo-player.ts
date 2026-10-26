@@ -11,14 +11,15 @@ import { useTrackAdvance } from '../playback/use-track-advance';
 import { useMusicPlayer } from './use-music-player';
 
 export const useVimeoPlayer = ({ music, track }: MusicTrackPlayback) => {
-  const { advance, skipUnplayable, reportUnavailable } = useTrackAdvance(track.id);
+  const { advance, reportUnavailable } = useTrackAdvance(track.id);
 
   const [container, setContainer] = useState<HTMLDivElement | null>(null);
   const [adapter, setAdapter] = useState<MusicPlayerAdapter | null>(null);
 
   const onEnded = useEffectEvent(() => advance());
-  const onUnplayable = useEffectEvent(() => skipUnplayable());
-  const onUnavailable = useEffectEvent(() => reportUnavailable());
+  const onFailed = useEffectEvent(() => reportUnavailable('failed'));
+  const onUnavailable = useEffectEvent(() => reportUnavailable('network'));
+  const onBlocked = useEffectEvent(() => reportUnavailable('blocked'));
 
   useEffect(() => {
     const url = toVimeoUrl(track.ref);
@@ -42,8 +43,12 @@ export const useVimeoPlayer = ({ music, track }: MusicTrackPlayback) => {
         mounted.on('ended', () => onEnded());
         mounted
           .ready()
-          .then(() => isActive && setAdapter(toVimeoAdapter(mounted)))
-          .catch(() => isActive && onUnplayable());
+          .then(
+            () =>
+              isActive &&
+              setAdapter(toVimeoAdapter({ player: mounted, onBlocked: () => onBlocked() }))
+          )
+          .catch(() => isActive && onFailed());
       })
       .catch(() => isActive && onUnavailable());
 

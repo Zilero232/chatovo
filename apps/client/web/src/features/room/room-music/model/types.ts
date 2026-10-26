@@ -27,3 +27,11 @@ export type SeekInput = {
   positionMs: number;
   reason: string;
 };
+
+export type PlayerStatus = 'loading' | 'ready' | 'unavailable';
+
+export type PlayerFailure = 'blocked' | 'failed' | 'network' | 'restricted';
+
+export type PlayerReport =
+  | { failure: PlayerFailure; status: 'unavailable'; trackId: string }
+  | { status: 'ready'; trackId: string };

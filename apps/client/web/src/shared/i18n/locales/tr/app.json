@@ -142,10 +142,6 @@
     "sounds": {
       "volumeLabel": "Ses efektleri düzeyi",
       "volumeHint": "Tüm oda ses efektlerinin yüksekliği.",
-      "musicVolume": "Müzik ses düzeyi",
-      "musicVolumeHint": "Odalardaki tüm müziğin ses düzeyi: herkes için parçalar ve başkalarının yayınladıkları.",
-      "musicDucking": "Konuşulurken müziği kıs",
-      "musicDuckingHint": "Odada biri konuşurken müzik kısılır.",
       "join": "Katılma",
       "joinHint": "Biri odaya katıldığında.",
       "leave": "Ayrılma",

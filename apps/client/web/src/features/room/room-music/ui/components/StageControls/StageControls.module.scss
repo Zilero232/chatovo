@@ -1,16 +1,40 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
 .root {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-3);
+  flex-direction: column;
+  gap: var(--space-2);
 }
 
-.transport {
+.bar {
   display: flex;
+  min-width: 0;
   align-items: center;
   gap: var(--space-2);
 }
 
-.spacer {
-  width: var(--control-sm);
+.transport {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.volume {
+  width: rem(120);
+  margin-inline-start: var(--space-2);
+
+  @include bp(sm, down) {
+    display: none;
+  }
+}
+
+.volumeButton {
+  @include bp(sm) {
+    display: none;
+  }
+}
+
+.time {
+  margin-inline-start: auto;
 }

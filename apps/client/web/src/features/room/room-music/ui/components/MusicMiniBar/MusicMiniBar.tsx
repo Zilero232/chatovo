@@ -32,11 +32,11 @@ export const MusicMiniBar = ({ music, track, isMinimized }: MusicMiniBarProps) =
 
         <span className={s.meta}>
           <span className={s.title}>{track.title}</span>
-          <span className={s.subtitle}>{bar.subtitle}</span>
+          <span className={clsx(s.subtitle, bar.isUnavailable && s.warning)}>{bar.subtitle}</span>
         </span>
       </button>
 
-      {bar.isRadio && <RadioAudio key={track.id} music={music} track={track} />}
+      {bar.isRadio && <RadioAudio key={bar.playerKey} music={music} track={track} />}
 
       {bar.canControl && <MiniBarControls bar={bar} />}
 

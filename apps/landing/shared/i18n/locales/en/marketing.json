@@ -53,7 +53,6 @@
         "alt": "The Chatovo player: video, queue and radio",
         "points": {
           "sources": "YouTube, SoundCloud, Vimeo, direct links and internet radio",
-          "ducking": "The music steps down while someone talks",
           "share": "Anything else through a shared browser tab"
         }
       },
@@ -207,6 +206,34 @@
       "minor": "Regular release"
     },
     "entries": {
+      "playerVolume": {
+        "title": "Your music volume, right in the player",
+        "description": "The volume control sits in the player’s control bar and on the music bar. It changes the sound only for you, and one slider replaces the per-person ones."
+      },
+      "noSkipForAll": {
+        "title": "One listener’s problem no longer skips the track",
+        "description": "If a video won’t play for someone — an age or region restriction, a blocked network — it keeps playing for everyone else instead of being skipped."
+      },
+      "playerProblems": {
+        "title": "Clear reasons when music doesn’t play",
+        "description": "The player says what happened — the service is blocked on your network, the video is restricted, or the browser held back the sound — and offers to try again or move on."
+      },
+      "playerLayout": {
+        "title": "A tidier player",
+        "description": "Playback, your volume, the time and more actions share one bar under the seek bar, and the music bar now slides in and out smoothly."
+      },
+      "steadyMusic": {
+        "title": "Music keeps its volume",
+        "description": "The music no longer drops on its own while people talk; you decide how loud it is."
+      },
+      "smarterChatFilter": {
+        "title": "A sharper chat filter",
+        "description": "Swear words spelled with digits, stretched letters, spaces or hidden characters are masked too, and the punctuation around them stays."
+      },
+      "livelierSplash": {
+        "title": "A livelier loading screen",
+        "description": "Soft brand colours and a moving progress line while the app starts."
+      },
       "musicPerPerson": {
         "title": "Music volume for each person",
         "description": "Right-click someone who is playing music to make just their music louder or quieter; the other sounds stay as they are."
@@ -821,6 +848,8 @@
       }
     },
     "highlights": {
+      "playerVolume": "Your music volume, right in the player",
+      "noSkipForAll": "One listener’s problem no longer skips the track",
       "musicPerPerson": "Music volume for each person",
       "banNotice": "You’re told when you’re removed",
       "signUpErrors": "Sign-up shows its errors",
@@ -1061,10 +1090,6 @@
       "musicSync": {
         "title": "In sync for everyone",
         "description": "Pause, seek and skip happen for everyone in the room at once."
-      },
-      "musicDucking": {
-        "title": "Quieter while people talk",
-        "description": "The music makes room for voices and comes back a second after."
       },
       "musicShare": {
         "title": "Your own music",

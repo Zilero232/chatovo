@@ -28,7 +28,7 @@ export const FEATURES_GROUP_ITEMS: Record<FeaturesGroupKey, readonly FeaturesIte
     'processing',
     'activity'
   ],
-  music: ['musicLinks', 'musicRadio', 'musicSync', 'musicDucking', 'musicShare'],
+  music: ['musicLinks', 'musicRadio', 'musicSync', 'musicShare'],
   chat: ['chatInRoom', 'markdown', 'attachments', 'editing', 'reactions'],
   friends: ['friendList', 'requests', 'presence', 'directCalls', 'notifications'],
   rooms: ['publicRooms', 'privateRooms', 'invites', 'recent', 'ownership'],

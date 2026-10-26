@@ -142,10 +142,6 @@
     "sounds": {
       "volumeLabel": "Sound effects volume",
       "volumeHint": "Loudness of all room sound effects.",
-      "musicVolume": "Music volume",
-      "musicVolumeHint": "Everything music plays at in rooms: tracks for the room and what others stream.",
-      "musicDucking": "Lower the music while people talk",
-      "musicDuckingHint": "Turns the music down while someone in the room is speaking.",
       "join": "Join",
       "joinHint": "When someone joins the room.",
       "leave": "Leave",

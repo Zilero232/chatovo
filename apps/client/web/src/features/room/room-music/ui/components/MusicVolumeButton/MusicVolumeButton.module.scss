@@ -1,0 +1,8 @@
+@use '@chatovo/ui-kit/styles/functions' as *;
+
+.popover {
+  display: flex;
+  width: min(#{rem(280)}, calc(100vw - 2 * var(--space-4)));
+  flex-direction: column;
+  gap: var(--space-3);
+}

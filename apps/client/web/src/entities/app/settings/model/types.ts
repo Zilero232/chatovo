@@ -41,7 +41,6 @@ type SoundSettings = {
 
 export type MusicSettings = {
   volume: number;
-  ducking: boolean;
 };
 
 type ChatSettings = {

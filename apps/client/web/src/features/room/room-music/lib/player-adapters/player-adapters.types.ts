@@ -1,3 +1,5 @@
+import type VimeoPlayer from '@vimeo/player';
+
 export type MusicPlayerAdapter = {
   play: () => void;
   pause: () => void;
@@ -9,5 +11,15 @@ export type MusicPlayerAdapter = {
 
 export type AudioElementAdapterInput = {
   audio: HTMLAudioElement;
+  onBlocked: () => void;
+};
+
+export type MediaElementAdapterInput = {
+  media: HTMLMediaElement;
+  onBlocked: () => void;
+};
+
+export type VimeoAdapterInput = {
+  player: VimeoPlayer;
   onBlocked: () => void;
 };

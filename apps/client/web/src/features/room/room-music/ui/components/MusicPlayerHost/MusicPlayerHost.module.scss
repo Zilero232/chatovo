@@ -14,3 +14,8 @@
   border-radius: var(--radius-md);
   pointer-events: auto;
 }
+
+.pending {
+  opacity: 0;
+  pointer-events: none;
+}

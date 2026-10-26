@@ -1,10 +1,11 @@
 import { IconButtonWithTooltip } from '@chatovo/ui-kit';
-import { Maximize2, Square } from 'lucide-react';
+import { CircleStop, Maximize2 } from 'lucide-react';
 import { useTranslations } from 'use-intl';
 
 import type { MiniBarControlsProps } from './MiniBarControls.types';
 
 import { MusicTransport } from '../MusicTransport/MusicTransport';
+import { MusicVolumeButton } from '../MusicVolumeButton/MusicVolumeButton';
 
 import s from './MiniBarControls.module.scss';
 
@@ -25,9 +26,10 @@ export const MiniBarControls = ({ bar }: MiniBarControlsProps) => {
         onPrevious={previous}
         onTogglePlay={togglePlay}
       />
+      <MusicVolumeButton />
       <IconButtonWithTooltip
         disabled={isPending}
-        icon={<Square />}
+        icon={<CircleStop />}
         label={t('stop')}
         size='icon-sm'
         tooltipSide='top'

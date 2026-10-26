@@ -5,16 +5,15 @@ import { useAppSettings } from '@/entities/app/settings';
 import { useCurrentUser } from '@/entities/auth/user';
 import { useRoomMusic } from '@/entities/room/music';
 
-import type { TrackDuration } from '../types';
+import type { PlayerReport, TrackDuration } from '../types';
 import type { RoomMusicProviderProps, RoomMusicStateInput } from './room-music-context.types';
 
-import { DUCKING } from '../../config/music';
-import { useHasRemoteMusic, useMusicShare, useSpeechDucking, useVolumeRamp } from '../hooks';
+import { useHasRemoteMusic, useMusicShare, useVolumeRamp } from '../hooks';
 
 const useRoomMusicState = ({ roomId, isDeafened }: RoomMusicStateInput) => {
   const { settings } = useAppSettings();
   const { isAdmin } = useCurrentUser();
-  const { volume, ducking } = settings.music;
+  const { volume } = settings.music;
 
   const music = useRoomMusic(roomId);
   const hasRemoteMusic = useHasRemoteMusic();
@@ -24,19 +23,24 @@ const useRoomMusicState = ({ roomId, isDeafened }: RoomMusicStateInput) => {
   const [barSlot, setBarSlot] = useState<HTMLElement | null>(null);
   const [stageSlot, setStageSlot] = useState<HTMLElement | null>(null);
   const [trackDuration, setTrackDuration] = useState<TrackDuration | null>(null);
+  const [playerReport, setPlayerReport] = useState<PlayerReport | null>(null);
+  const [playerAttempt, setPlayerAttempt] = useState(0);
 
   const canControl = !(isAdmin && settings.system.invisibleMode);
   const isMusicActive = Boolean(music?.current) || hasRemoteMusic || share.state.mode !== 'idle';
 
-  const isDucked = useSpeechDucking(ducking && isMusicActive && !isDeafened);
-
-  const outputVolume = isDeafened ? 0 : volume * (isDucked ? DUCKING.level : 1);
+  const outputVolume = isDeafened ? 0 : volume;
 
   useVolumeRamp({
     target: outputVolume,
     resetKey: share.state.mode,
     apply: share.setMonitorVolume
   });
+
+  const retryPlayer = () => {
+    setPlayerReport(null);
+    setPlayerAttempt((attempt) => attempt + 1);
+  };
 
   return {
     roomId,
@@ -52,7 +56,11 @@ const useRoomMusicState = ({ roomId, isDeafened }: RoomMusicStateInput) => {
     stageSlot,
     setStageSlot,
     trackDuration,
-    setTrackDuration
+    setTrackDuration,
+    playerReport,
+    setPlayerReport,
+    playerAttempt,
+    retryPlayer
   };
 };
 

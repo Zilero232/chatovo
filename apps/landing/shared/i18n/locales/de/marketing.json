@@ -53,7 +53,6 @@
         "alt": "Der Chatovo-Player: Video, Warteschlange und Radio",
         "points": {
           "sources": "YouTube, SoundCloud, Vimeo, direkte Links und Internetradio",
-          "ducking": "Die Musik wird leiser, sobald jemand spricht",
           "share": "Alles andere über einen geteilten Browser-Tab"
         }
       },
@@ -207,6 +206,34 @@
       "minor": "Reguläres Release"
     },
     "entries": {
+      "playerVolume": {
+        "title": "Musiklautstärke direkt im Player",
+        "description": "Der Lautstärkeregler sitzt in der Leiste des Players und in der Musikleiste. Er ändert den Ton nur für dich, und ein Regler ersetzt die pro Person."
+      },
+      "noSkipForAll": {
+        "title": "Das Problem einer Person überspringt keinen Track mehr",
+        "description": "Spielt ein Video bei jemandem nicht – Alters- oder Regionssperre, blockiertes Netz –, läuft es für alle anderen weiter, statt übersprungen zu werden."
+      },
+      "playerProblems": {
+        "title": "Klare Gründe, wenn Musik nicht spielt",
+        "description": "Der Player sagt, was los ist – der Dienst ist in deinem Netz gesperrt, das Video eingeschränkt oder der Browser hat den Ton zurückgehalten – und bietet an, es erneut zu versuchen oder weiterzugehen."
+      },
+      "playerLayout": {
+        "title": "Ein aufgeräumterer Player",
+        "description": "Wiedergabe, deine Lautstärke, die Zeit und weitere Aktionen teilen sich eine Leiste unter der Fortschrittsleiste, und die Musikleiste blendet sanft ein und aus."
+      },
+      "steadyMusic": {
+        "title": "Die Musik behält ihre Lautstärke",
+        "description": "Die Musik wird nicht mehr von selbst leiser, wenn jemand spricht – du bestimmst die Lautstärke."
+      },
+      "smarterChatFilter": {
+        "title": "Ein schärferer Chatfilter",
+        "description": "Schimpfwörter mit Ziffern, gedehnten Buchstaben, Leerzeichen oder unsichtbaren Zeichen werden ebenfalls verdeckt, und die Satzzeichen daneben bleiben."
+      },
+      "livelierSplash": {
+        "title": "Ein lebendigerer Ladebildschirm",
+        "description": "Sanfte Markenfarben und eine laufende Fortschrittslinie, während die App startet."
+      },
       "musicPerPerson": {
         "title": "Musiklautstärke für jede Person",
         "description": "Rechtsklick auf jemanden, der Musik abspielt, und nur dessen Musik wird lauter oder leiser; alles andere bleibt, wie es ist."
@@ -821,6 +848,8 @@
       }
     },
     "highlights": {
+      "playerVolume": "Musiklautstärke direkt im Player",
+      "noSkipForAll": "Das Problem einer Person überspringt keinen Track mehr",
       "musicPerPerson": "Musiklautstärke für jede Person",
       "banNotice": "Du erfährst, wenn du entfernt wirst",
       "signUpErrors": "Registrierung zeigt Fehler an",
@@ -1061,10 +1090,6 @@
       "musicSync": {
         "title": "Synchron für alle",
         "description": "Pause, Spulen und Überspringen passieren für alle im Raum gleichzeitig."
-      },
-      "musicDucking": {
-        "title": "Leiser, wenn geredet wird",
-        "description": "Die Musik macht Platz für Stimmen und kommt eine Sekunde später zurück."
       },
       "musicShare": {
         "title": "Deine eigene Musik",

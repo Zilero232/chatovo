@@ -142,10 +142,6 @@
     "sounds": {
       "volumeLabel": "Volume dos efeitos sonoros",
       "volumeHint": "Volume de todos os efeitos sonoros da sala.",
-      "musicVolume": "Volume da música",
-      "musicVolumeHint": "O volume de toda a música nas salas: faixas para todos e o que outros transmitem.",
-      "musicDucking": "Abaixar a música quando falam",
-      "musicDuckingHint": "A música fica mais baixa enquanto alguém na sala fala.",
       "join": "Entrada",
       "joinHint": "Quando alguém entra na sala.",
       "leave": "Saída",

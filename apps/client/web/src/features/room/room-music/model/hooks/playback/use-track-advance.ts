@@ -2,12 +2,16 @@ import { useRef } from 'react';
 import { toast } from 'sonner';
 import { useTranslations } from 'use-intl';
 
+import type { PlayerFailure } from '../../types';
+
+import { useRoomMusicContext } from '../../contexts';
 import { useCurrentRoomMusic } from '../use-current-room-music';
 
 export const useTrackAdvance = (trackId: string) => {
   const t = useTranslations('room.music.player');
 
   const { actions } = useCurrentRoomMusic();
+  const { setPlayerReport } = useRoomMusicContext();
 
   const hasAdvancedRef = useRef(false);
 
@@ -27,14 +31,14 @@ export const useTrackAdvance = (trackId: string) => {
     );
   };
 
-  const skipUnplayable = () => {
-    toast.error(t('unplayable'), { id: `music-unplayable-${trackId}` });
+  const skipRemovedTrack = () => {
+    toast.error(t('removed'), { id: `music-removed-${trackId}` });
     advance();
   };
 
-  const reportUnavailable = () => {
-    toast.error(t('unavailable'), { id: `music-unavailable-${trackId}` });
+  const reportUnavailable = (failure: PlayerFailure) => {
+    setPlayerReport({ trackId, status: 'unavailable', failure });
   };
 
-  return { advance, skipUnplayable, reportUnavailable };
+  return { advance, skipRemovedTrack, reportUnavailable };
 };

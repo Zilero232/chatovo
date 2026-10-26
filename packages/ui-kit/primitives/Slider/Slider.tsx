@@ -12,6 +12,7 @@ const Slider = ({
   max,
   min,
   thumbLabel,
+  tone = 'accent',
   getAriaValueText,
   onValueChange,
   ...props
@@ -19,6 +20,7 @@ const Slider = ({
   <BaseSlider.Root
     className={clsx(s.root, className)}
     data-slot='slider'
+    data-tone={tone}
     max={max}
     min={min}
     onValueChange={onValueChange}

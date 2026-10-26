@@ -1,0 +1,42 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.time {
+  color: var(--muted-foreground);
+  font-size: var(--text-xs);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.separator {
+  color: var(--subtle-foreground);
+}
+
+.live {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem var(--space-2);
+  border-radius: var(--radius-md);
+  background: color-mix(in oklch, var(--brand-coral) 14%, transparent);
+  color: var(--brand-coral);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  gap: 0.375rem;
+}
+
+.liveDot {
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: 9999px;
+  animation: live-pulse 2s var(--timing-function-in-out) infinite;
+  background: currentcolor;
+
+  @include reduced-motion {
+    animation: none;
+  }
+}
+
+@keyframes live-pulse {
+  50% {
+    opacity: 0.35;
+  }
+}

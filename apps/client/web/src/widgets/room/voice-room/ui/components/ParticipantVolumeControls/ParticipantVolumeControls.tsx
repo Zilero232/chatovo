@@ -1,5 +1,5 @@
 import { ContextMenuGroup, ContextMenuSeparator } from '@chatovo/ui-kit';
-import { MonitorSpeaker, Music, Volume2 } from 'lucide-react';
+import { MonitorSpeaker, Volume2 } from 'lucide-react';
 import { useTranslations } from 'use-intl';
 
 import type { ParticipantVolumeControlsProps } from './ParticipantVolumeControls.types';
@@ -13,8 +13,7 @@ export const ParticipantVolumeControls = ({
 }: ParticipantVolumeControlsProps) => {
   const t = useTranslations('participant');
 
-  const { voice, screen, music, isVisible, hasScreenAudio, hasMusic } =
-    useParticipantAudioControls(participant);
+  const { voice, screen, isVisible, hasScreenAudio } = useParticipantAudioControls(participant);
 
   if (!isVisible) {
     return null;
@@ -46,16 +45,6 @@ export const ParticipantVolumeControls = ({
             volume={screen.volume}
             onToggleMute={screen.toggleMute}
             onVolumeChange={screen.setVolume}
-          />
-        )}
-
-        {hasMusic && (
-          <VolumeRow
-            icon={<Music />}
-            label={t('music')}
-            sliderLabel={t('musicVolumeFor', { name: displayName })}
-            volume={music.volume}
-            onVolumeChange={music.setVolume}
           />
         )}
       </ContextMenuGroup>

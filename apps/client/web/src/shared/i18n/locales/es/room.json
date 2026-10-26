@@ -95,9 +95,12 @@
         "pause": "Pausar",
         "previous": "Pista anterior",
         "next": "Siguiente pista",
-        "stop": "Detener la música",
+        "stop": "Apagar la música para todos",
         "open": "Abrir la fuente",
-        "expand": "Abrir el reproductor"
+        "expand": "Abrir el reproductor",
+        "more": "Más",
+        "openIn": "Abrir en {service}",
+        "openStation": "Abrir la web de la emisora"
       },
       "progress": {
         "seek": "Posición de la pista",
@@ -161,12 +164,24 @@
         "fileFailed": "No se pudo reproducir {name}.",
         "publishFailed": "No se pudo empezar a compartir en esta sala.",
         "remoteTitle": "{name} está poniendo música",
-        "remoteSubtitle": "El volumen está en el menú de su tarjeta"
+        "remoteSubtitle": "En directo desde un participante"
       },
       "player": {
-        "unplayable": "Esta pista no se puede reproducir aquí; la saltamos.",
-        "unavailable": "El reproductor no cargó; puede que el servicio esté bloqueado en tu red.",
-        "tapToListen": "Toca para escuchar"
+        "tapToListen": "Toca para escuchar",
+        "connecting": "Conectando con {service}…",
+        "retry": "Reintentar",
+        "notPlayingHere": "No suena para ti",
+        "networkTitle": "{service} no abre en tu red",
+        "networkHint": "Los demás siguen escuchando. Activa una VPN y vuelve a intentarlo, o elige la radio o SoundCloud.",
+        "restrictedTitle": "Este vídeo no se reproduce para ti",
+        "restrictedHint": "Su dueño limitó la inserción o no está disponible en tu región. Los demás siguen escuchando.",
+        "failedTitle": "Esta pista no se reproduce para ti",
+        "failedHint": "Los demás siguen escuchando. Vuelve a intentarlo o pasa a la siguiente pista.",
+        "skip": "Siguiente pista",
+        "removed": "Este vídeo se eliminó o se hizo privado; lo saltamos.",
+        "blockedTitle": "El navegador bloqueó el sonido",
+        "blockedHint": "Pulsa Escuchar y la música sigue por donde va la sala.",
+        "listen": "Escuchar"
       },
       "sources": {
         "youtube": "YouTube",
@@ -188,6 +203,10 @@
           "zvuk": "Zvuk",
           "deezer": "Deezer"
         }
+      },
+      "volume": {
+        "label": "Volumen de la música",
+        "hint": "Solo para ti: cada uno tiene su propio nivel."
       }
     },
     "password": {
@@ -354,8 +373,6 @@
     "volumeFor": "Volumen de {name}",
     "screenVolume": "Audio de pantalla",
     "screenVolumeFor": "Volumen del audio de pantalla de {name}",
-    "music": "Música",
-    "musicVolumeFor": "Volumen de la música de {name}",
     "copyName": "Copiar nombre",
     "nameCopied": "Nombre copiado",
     "safety": "Seguridad"
