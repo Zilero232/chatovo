@@ -1,12 +1,15 @@
+import { useEffect } from 'react';
+
 import type { UseMusicPlayerInput } from './use-music-player.types';
 
+import { PLAYER_LOAD_TIMEOUT_MS } from '../../../../config/music';
 import { useRoomMusicContext } from '../../../contexts';
 import { usePlaybackSync } from '../../playback/use-playback-sync';
 import { useTrackDuration } from '../../playback/use-track-duration';
 import { useVolumeRamp } from '../../use-volume-ramp';
 
 export const useMusicPlayer = ({ music, track, adapter }: UseMusicPlayerInput) => {
-  const { outputVolume } = useRoomMusicContext();
+  const { outputVolume, setPlayerReport } = useRoomMusicContext();
 
   const isLive = track.source === 'radio';
 
@@ -19,4 +22,20 @@ export const useMusicPlayer = ({ music, track, adapter }: UseMusicPlayerInput) =
     resetKey: adapter,
     apply: (volume) => adapter?.setVolume(volume)
   });
+
+  useEffect(() => {
+    if (adapter) {
+      setPlayerReport({ trackId: track.id, status: 'ready' });
+
+      return;
+    }
+
+    const timeoutId = setTimeout(setPlayerReport, PLAYER_LOAD_TIMEOUT_MS, {
+      trackId: track.id,
+      status: 'unavailable',
+      failure: 'network'
+    });
+
+    return () => clearTimeout(timeoutId);
+  }, [adapter, track.id, setPlayerReport]);
 };

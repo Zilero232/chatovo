@@ -1,38 +1,40 @@
-import { IconButtonWithTooltip } from '@chatovo/ui-kit';
-import { Square } from 'lucide-react';
-import { useTranslations } from 'use-intl';
+import type { StageControlsProps } from './StageControls.types';
 
-import { usePlaybackControls } from '../../../model/hooks';
+import { useStageControls } from '../../../model/hooks';
 import { MusicTransport } from '../MusicTransport/MusicTransport';
+import { MusicVolumeButton } from '../MusicVolumeButton/MusicVolumeButton';
+import { MusicVolumeSlider } from '../MusicVolumeSlider/MusicVolumeSlider';
+import { PlaybackProgress } from '../PlaybackProgress/PlaybackProgress';
+import { PlaybackTime } from '../PlaybackTime/PlaybackTime';
+import { StageMenu } from '../StageMenu/StageMenu';
 
 import s from './StageControls.module.scss';
 
-export const StageControls = () => {
-  const t = useTranslations('room.music.nowPlaying');
-
-  const { isPlaying, isPending, togglePlay, previous, next, stop } = usePlaybackControls();
+export const StageControls = ({ music, track }: StageControlsProps) => {
+  const { progress, controls } = useStageControls({ music, track });
 
   return (
     <div className={s.root}>
-      <span aria-hidden className={s.spacer} />
+      {!progress.isLive && <PlaybackProgress progress={progress} />}
 
-      <MusicTransport
-        className={s.transport}
-        isPending={isPending}
-        isPlaying={isPlaying}
-        size='regular'
-        onNext={next}
-        onPrevious={previous}
-        onTogglePlay={togglePlay}
-      />
+      <div className={s.bar}>
+        <MusicTransport
+          className={s.transport}
+          isPending={controls.isPending}
+          isPlaying={controls.isPlaying}
+          size='regular'
+          onNext={controls.next}
+          onPrevious={controls.previous}
+          onTogglePlay={controls.togglePlay}
+        />
 
-      <IconButtonWithTooltip
-        disabled={isPending}
-        icon={<Square />}
-        label={t('stop')}
-        size='icon-sm'
-        onClick={stop}
-      />
+        <MusicVolumeSlider className={s.volume} />
+        <MusicVolumeButton className={s.volumeButton} />
+
+        <PlaybackTime className={s.time} progress={progress} />
+
+        <StageMenu track={track} />
+      </div>
     </div>
   );
 };

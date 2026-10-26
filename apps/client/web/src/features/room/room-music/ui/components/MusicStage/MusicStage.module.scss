@@ -54,7 +54,7 @@
   min-width: 0;
   flex: 1;
   flex-direction: column;
-  gap: var(--space-1);
+  gap: rem(2);
 }
 
 .title {
@@ -76,9 +76,34 @@
   }
 }
 
-.subtitle {
+.artist {
   color: var(--muted-foreground);
   font-size: var(--text-sm);
 
   @include text-ellipsis;
+}
+
+.origin {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  color: var(--subtle-foreground);
+  font-size: var(--text-xs);
+  gap: var(--space-1);
+}
+
+.originText {
+  min-width: 0;
+
+  @include text-ellipsis;
+}
+
+.wave {
+  flex-shrink: 0;
+  filter: none;
+  transition: opacity var(--duration-default) var(--timing-function-standard);
+}
+
+.wavePaused {
+  opacity: 0.45;
 }

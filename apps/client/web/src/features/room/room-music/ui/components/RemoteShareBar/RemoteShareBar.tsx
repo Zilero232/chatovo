@@ -5,6 +5,7 @@ import type { RemoteShareBarProps } from './RemoteShareBar.types';
 
 import { useRemoteShareBar } from '../../../model/hooks';
 import { MusicBarFrame } from '../MusicBarFrame/MusicBarFrame';
+import { MusicVolumeButton } from '../MusicVolumeButton/MusicVolumeButton';
 
 import s from './RemoteShareBar.module.scss';
 
@@ -29,6 +30,8 @@ export const RemoteShareBar = ({ isMinimized }: RemoteShareBarProps) => {
         <span className={s.title}>{title}</span>
         <span className={s.subtitle}>{t('remoteSubtitle')}</span>
       </span>
+
+      <MusicVolumeButton />
     </MusicBarFrame>
   );
 };

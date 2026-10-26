@@ -1,0 +1,64 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+@use '@chatovo/ui-kit/styles/keyframes';
+
+.loading {
+  display: flex;
+  align-items: center;
+  color: var(--muted-foreground);
+  font-size: var(--text-xs);
+  gap: var(--space-2);
+}
+
+.spinner {
+  width: var(--icon-sm);
+  height: var(--icon-sm);
+  animation: spin 1s linear infinite;
+
+  @include reduced-motion {
+    animation-duration: 3s;
+  }
+}
+
+.unavailable {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: var(--space-3);
+  border: 1px solid color-mix(in srgb, var(--brand-sun) 32%, transparent);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--brand-sun) 8%, transparent);
+  gap: var(--space-3);
+}
+
+.icon {
+  width: var(--icon-md);
+  height: var(--icon-md);
+  flex-shrink: 0;
+  color: var(--brand-sun);
+}
+
+.text {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 rem(200);
+  flex-direction: column;
+  gap: rem(2);
+}
+
+.title {
+  color: var(--foreground);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.hint {
+  color: var(--muted-foreground);
+  font-size: var(--text-xs);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}

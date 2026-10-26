@@ -57,3 +57,7 @@
 
   @include text-ellipsis;
 }
+
+.warning {
+  color: var(--brand-sun);
+}

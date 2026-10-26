@@ -10,7 +10,7 @@ import { useTrackAdvance } from '../playback/use-track-advance';
 import { useMusicPlayer } from './use-music-player';
 
 export const useSoundcloudPlayer = ({ music, track }: MusicTrackPlayback) => {
-  const { advance, skipUnplayable, reportUnavailable } = useTrackAdvance(track.id);
+  const { advance, reportUnavailable } = useTrackAdvance(track.id);
 
   const scriptStatus = useScript(SOUNDCLOUD.apiSrc);
 
@@ -18,8 +18,8 @@ export const useSoundcloudPlayer = ({ music, track }: MusicTrackPlayback) => {
   const [adapter, setAdapter] = useState<MusicPlayerAdapter | null>(null);
 
   const onFinish = useEffectEvent(() => advance());
-  const onError = useEffectEvent(() => skipUnplayable());
-  const onUnavailable = useEffectEvent(() => reportUnavailable());
+  const onError = useEffectEvent(() => reportUnavailable('failed'));
+  const onUnavailable = useEffectEvent(() => reportUnavailable('network'));
 
   useEffect(() => {
     if (scriptStatus === 'error') {

@@ -53,7 +53,6 @@
         "alt": "El reproductor de Chatovo: video, cola y radio",
         "points": {
           "sources": "YouTube, SoundCloud, Vimeo, enlaces directos y radio por internet",
-          "ducking": "La música baja cuando alguien habla",
           "share": "Todo lo demás, a través de una pestaña del navegador compartida"
         }
       },
@@ -207,6 +206,34 @@
       "minor": "Versión regular"
     },
     "entries": {
+      "playerVolume": {
+        "title": "El volumen de la música en el reproductor",
+        "description": "El control de volumen está en la barra del reproductor y en la barra de música. Solo cambia el sonido para ti, y un único control sustituye a los de cada persona."
+      },
+      "noSkipForAll": {
+        "title": "El problema de uno ya no salta la pista",
+        "description": "Si un vídeo no se reproduce para alguien —una restricción de edad o de región, una red bloqueada—, sigue sonando para los demás en lugar de saltarse."
+      },
+      "playerProblems": {
+        "title": "Motivos claros cuando la música no suena",
+        "description": "El reproductor dice qué pasó —el servicio está bloqueado en tu red, el vídeo tiene restricciones o el navegador bloqueó el sonido— y ofrece reintentar o pasar a la siguiente."
+      },
+      "playerLayout": {
+        "title": "Un reproductor más ordenado",
+        "description": "La reproducción, tu volumen, el tiempo y más acciones comparten una barra bajo la de progreso, y la barra de música aparece y desaparece con suavidad."
+      },
+      "steadyMusic": {
+        "title": "La música mantiene su volumen",
+        "description": "La música ya no baja sola cuando alguien habla; tú decides el volumen."
+      },
+      "smarterChatFilter": {
+        "title": "Un filtro de chat más fino",
+        "description": "Las palabrotas escritas con números, letras estiradas, espacios o caracteres invisibles también se ocultan, y la puntuación de alrededor se mantiene."
+      },
+      "livelierSplash": {
+        "title": "Una pantalla de carga más viva",
+        "description": "Colores suaves de la marca y una línea de progreso en movimiento mientras arranca la app."
+      },
       "musicPerPerson": {
         "title": "Volumen de música para cada persona",
         "description": "Haz clic derecho en quien esté poniendo música para subir o bajar solo su música; el resto de sonidos no cambia."
@@ -821,6 +848,8 @@
       }
     },
     "highlights": {
+      "playerVolume": "El volumen de la música en el reproductor",
+      "noSkipForAll": "El problema de uno ya no salta la pista",
       "musicPerPerson": "Volumen de música para cada persona",
       "banNotice": "Te avisamos cuando te expulsan",
       "signUpErrors": "El registro muestra sus errores",
@@ -1061,10 +1090,6 @@
       "musicSync": {
         "title": "En sincronía para todos",
         "description": "Pausar, adelantar y saltar pasa para todos en la sala a la vez."
-      },
-      "musicDucking": {
-        "title": "Más bajo mientras hablan",
-        "description": "La música les deja espacio a las voces y vuelve un segundo después."
       },
       "musicShare": {
         "title": "Tu propia música",

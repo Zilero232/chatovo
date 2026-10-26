@@ -1,3 +1,4 @@
+import { WaveMark } from '@chatovo/ui-kit';
 import { clsx } from 'clsx';
 import { useTranslations } from 'use-intl';
 
@@ -6,7 +7,7 @@ import { handleExternalLinkClick } from '@/shared/lib';
 import type { MusicStageProps } from './MusicStage.types';
 
 import { useMusicStage } from '../../../model/hooks';
-import { PlaybackProgress } from '../PlaybackProgress/PlaybackProgress';
+import { PlayerStatusNotice } from '../PlayerStatusNotice/PlayerStatusNotice';
 import { StageControls } from '../StageControls/StageControls';
 import { TrackArtwork } from '../TrackArtwork/TrackArtwork';
 
@@ -15,7 +16,7 @@ import s from './MusicStage.module.scss';
 export const MusicStage = ({ music, track, className }: MusicStageProps) => {
   const t = useTranslations('room.music.nowPlaying');
 
-  const { subtitle, setSlot } = useMusicStage(track);
+  const { artist, origin, isPlaying, setSlot } = useMusicStage({ music, track });
 
   const { title, url } = track;
 
@@ -37,13 +38,21 @@ export const MusicStage = ({ music, track, className }: MusicStageProps) => {
           >
             {title}
           </a>
-          <span className={s.subtitle}>{subtitle}</span>
+          {artist && <span className={s.artist}>{artist}</span>}
+          <span className={s.origin}>
+            <WaveMark
+              animated={isPlaying}
+              className={clsx(s.wave, !isPlaying && s.wavePaused)}
+              size={14}
+            />
+            <span className={s.originText}>{origin}</span>
+          </span>
         </div>
       </div>
 
-      <PlaybackProgress music={music} track={track} />
+      <PlayerStatusNotice track={track} />
 
-      <StageControls />
+      <StageControls music={music} track={track} />
     </section>
   );
 };

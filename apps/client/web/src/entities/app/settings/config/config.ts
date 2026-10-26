@@ -43,8 +43,7 @@ export const DEFAULT_APP_SETTINGS: AppSettings = {
     filterProfanity: true
   },
   music: {
-    volume: 0.5,
-    ducking: true
+    volume: 0.5
   },
   system: {
     tray: {

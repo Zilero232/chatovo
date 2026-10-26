@@ -24,5 +24,5 @@ export const useRadioPlayer = ({ music, track }: MusicTrackPlayback) => {
     adapter?.play();
   };
 
-  return { setAudio, isBlocked, unblock, onError: reportUnavailable };
+  return { setAudio, isBlocked, unblock, onError: () => reportUnavailable('failed') };
 };

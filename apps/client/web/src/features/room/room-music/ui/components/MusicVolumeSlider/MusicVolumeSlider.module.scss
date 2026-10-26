@@ -1,0 +1,25 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.icon {
+  display: grid;
+  flex-shrink: 0;
+  color: var(--muted-foreground);
+  place-items: center;
+
+  svg {
+    width: var(--icon-sm);
+    height: var(--icon-sm);
+  }
+}
+
+.slider {
+  min-width: rem(56);
+  flex: 1;
+}

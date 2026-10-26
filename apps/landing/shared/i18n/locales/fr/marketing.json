@@ -53,7 +53,6 @@
         "alt": "Le lecteur Chatovo : vidéo, file d'attente et radio",
         "points": {
           "sources": "YouTube, SoundCloud, Vimeo, liens directs et radio en ligne",
-          "ducking": "La musique baisse quand quelqu'un parle",
           "share": "Tout le reste via un onglet de navigateur partagé"
         }
       },
@@ -207,6 +206,34 @@
       "minor": "Version régulière"
     },
     "entries": {
+      "playerVolume": {
+        "title": "Le volume de la musique dans le lecteur",
+        "description": "Le réglage du volume se trouve dans la barre du lecteur et sur la barre de musique. Il ne change le son que pour vous, et un seul curseur remplace ceux de chaque personne."
+      },
+      "noSkipForAll": {
+        "title": "Le souci d’un seul ne fait plus sauter le titre",
+        "description": "Si une vidéo ne se lit pas chez quelqu’un — restriction d’âge ou de région, réseau bloqué —, elle continue pour les autres au lieu d’être sautée."
+      },
+      "playerProblems": {
+        "title": "Des raisons claires quand la musique ne joue pas",
+        "description": "Le lecteur dit ce qui se passe — le service est bloqué sur votre réseau, la vidéo est restreinte ou le navigateur a bloqué le son — et propose de réessayer ou de passer à la suite."
+      },
+      "playerLayout": {
+        "title": "Un lecteur plus net",
+        "description": "La lecture, votre volume, le temps et d’autres actions tiennent dans une barre sous la barre de progression, et la barre de musique apparaît et disparaît en douceur."
+      },
+      "steadyMusic": {
+        "title": "La musique garde son volume",
+        "description": "La musique ne baisse plus d’elle-même quand quelqu’un parle ; c’est vous qui choisissez le volume."
+      },
+      "smarterChatFilter": {
+        "title": "Un filtre de chat plus fin",
+        "description": "Les gros mots écrits avec des chiffres, des lettres étirées, des espaces ou des caractères invisibles sont masqués aussi, et la ponctuation autour reste en place."
+      },
+      "livelierSplash": {
+        "title": "Un écran de chargement plus vivant",
+        "description": "Des couleurs douces de la marque et une ligne de progression animée pendant le démarrage de l’app."
+      },
       "musicPerPerson": {
         "title": "Volume de la musique pour chacun",
         "description": "Faites un clic droit sur la personne qui diffuse de la musique pour monter ou baisser seulement sa musique ; le reste ne change pas."
@@ -821,6 +848,8 @@
       }
     },
     "highlights": {
+      "playerVolume": "Le volume de la musique dans le lecteur",
+      "noSkipForAll": "Le souci d’un seul ne fait plus sauter le titre",
       "musicPerPerson": "Volume de la musique pour chacun",
       "banNotice": "Vous êtes prévenu quand on vous retire",
       "signUpErrors": "L’inscription affiche ses erreurs",
@@ -1061,10 +1090,6 @@
       "musicSync": {
         "title": "En synchro pour tout le monde",
         "description": "Pause, déplacement dans le titre et passage au suivant se font pour tout le salon en même temps."
-      },
-      "musicDucking": {
-        "title": "Plus bas quand on parle",
-        "description": "La musique laisse la place aux voix et revient une seconde après."
       },
       "musicShare": {
         "title": "Ta propre musique",

@@ -95,9 +95,12 @@
         "pause": "Duraklat",
         "previous": "Önceki parça",
         "next": "Sonraki parça",
-        "stop": "Müziği durdur",
+        "stop": "Müziği herkes için kapat",
         "open": "Kaynağı aç",
-        "expand": "Oynatıcıyı aç"
+        "expand": "Oynatıcıyı aç",
+        "more": "Daha fazla",
+        "openIn": "{service} içinde aç",
+        "openStation": "İstasyonun sitesini aç"
       },
       "progress": {
         "seek": "Parça konumu",
@@ -161,12 +164,24 @@
         "fileFailed": "Çalınamadı: {name}.",
         "publishFailed": "Bu odada paylaşım başlatılamadı.",
         "remoteTitle": "{name} müzik çalıyor",
-        "remoteSubtitle": "Ses düzeyi katılımcı kartının menüsünde"
+        "remoteSubtitle": "Bir katılımcıdan canlı"
       },
       "player": {
-        "unplayable": "Bu parça burada çalınamıyor — atlanıyor.",
-        "unavailable": "Oynatıcı yüklenmedi — hizmet ağında engellenmiş olabilir.",
-        "tapToListen": "Dinlemek için dokun"
+        "tapToListen": "Dinlemek için dokun",
+        "connecting": "{service} hizmetine bağlanılıyor…",
+        "retry": "Tekrar dene",
+        "notPlayingHere": "Sizde çalmıyor",
+        "networkTitle": "{service} ağınızda açılmıyor",
+        "networkHint": "Odadaki diğer herkes dinlemeye devam ediyor. Bir VPN açıp tekrar deneyin ya da radyo veya SoundCloud seçin.",
+        "restrictedTitle": "Bu video sizde oynatılmıyor",
+        "restrictedHint": "Sahibi yerleştirmeyi kısıtlamış ya da bölgenizde kullanılamıyor. Diğerleri dinlemeye devam ediyor.",
+        "failedTitle": "Bu parça sizde çalmıyor",
+        "failedHint": "Diğerleri dinlemeye devam ediyor. Tekrar deneyin ya da sonraki parçaya geçin.",
+        "skip": "Sonraki parça",
+        "removed": "Bu video kaldırılmış ya da gizlenmiş — atlanıyor.",
+        "blockedTitle": "Tarayıcı sesi engelledi",
+        "blockedHint": "Dinle’ye basın, müzik odanın kaldığı yerden devam etsin.",
+        "listen": "Dinle"
       },
       "sources": {
         "youtube": "YouTube",
@@ -188,6 +203,10 @@
           "zvuk": "Zvuk",
           "deezer": "Deezer"
         }
+      },
+      "volume": {
+        "label": "Müzik ses düzeyi",
+        "hint": "Yalnızca sizin için — herkesin kendi düzeyi var."
       }
     },
     "password": {
@@ -354,8 +373,6 @@
     "volumeFor": "Ses düzeyi: {name}",
     "screenVolume": "Ekran sesi",
     "screenVolumeFor": "Ekran sesi düzeyi: {name}",
-    "music": "Müzik",
-    "musicVolumeFor": "{name} müziğinin ses düzeyi",
     "copyName": "Adı kopyala",
     "nameCopied": "Ad kopyalandı",
     "safety": "Güvenlik"

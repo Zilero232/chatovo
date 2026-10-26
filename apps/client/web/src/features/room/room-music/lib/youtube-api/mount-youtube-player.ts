@@ -3,7 +3,7 @@ import { raceWithTimeout } from '@/shared/lib';
 import type { MountYoutubePlayerInput, YoutubePlayer } from './youtube-api.types';
 
 import { YOUTUBE } from '../../config/music';
-import { loadYoutubeApi } from './youtube-api';
+import { forgetYoutubeApi, loadYoutubeApi } from './youtube-api';
 
 export const mountYoutubePlayer = async ({
   host,
@@ -16,6 +16,8 @@ export const mountYoutubePlayer = async ({
   });
 
   if (!result.ok) {
+    forgetYoutubeApi();
+
     return null;
   }
 

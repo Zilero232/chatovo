@@ -1,16 +1,21 @@
-import type { MusicTrack } from '@chatovo/schemas';
-
 import { useTranslations } from 'use-intl';
+
+import type { MusicTrackPlayback } from '../../types';
 
 import { useRoomMusicContext } from '../../contexts';
 
-export const useMusicStage = (track: MusicTrack) => {
+export const useMusicStage = ({ music, track }: MusicTrackPlayback) => {
   const t = useTranslations('room.music');
 
   const { setStageSlot } = useRoomMusicContext();
 
+  const service = t(`sources.${track.source}`);
+  const addedBy = t('nowPlaying.addedBy', { name: track.addedBy.name });
+
   return {
-    subtitle: track.artist ?? t('nowPlaying.addedBy', { name: track.addedBy.name }),
+    artist: track.artist,
+    origin: `${service} · ${addedBy}`,
+    isPlaying: music.playback?.status === 'playing',
     setSlot: setStageSlot
   };
 };

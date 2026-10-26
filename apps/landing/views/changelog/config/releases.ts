@@ -23,6 +23,21 @@ export type ChangelogRelease = {
 
 export const CHANGELOG_RELEASES: ChangelogRelease[] = [
   {
+    version: '1.13.0',
+    date: '2026-10-26',
+    tone: 'minor',
+    highlights: ['playerVolume', 'noSkipForAll'],
+    entries: [
+      { kind: 'feature', key: 'playerVolume' },
+      { kind: 'fix', key: 'noSkipForAll' },
+      { kind: 'improvement', key: 'playerProblems' },
+      { kind: 'improvement', key: 'playerLayout' },
+      { kind: 'improvement', key: 'steadyMusic' },
+      { kind: 'improvement', key: 'smarterChatFilter' },
+      { kind: 'improvement', key: 'livelierSplash' }
+    ]
+  },
+  {
     version: '1.12.0',
     date: '2026-10-25',
     tone: 'minor',

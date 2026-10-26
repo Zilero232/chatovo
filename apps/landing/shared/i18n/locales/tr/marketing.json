@@ -53,7 +53,6 @@
         "alt": "Chatovo oynatıcısı: video, sıra ve radyo",
         "points": {
           "sources": "YouTube, SoundCloud, Vimeo, doğrudan bağlantılar ve internet radyosu",
-          "ducking": "Biri konuşurken müziğin sesi kısılır",
           "share": "Geri kalan her şey paylaşılan bir tarayıcı sekmesiyle"
         }
       },
@@ -207,6 +206,34 @@
       "minor": "Normal sürüm"
     },
     "entries": {
+      "playerVolume": {
+        "title": "Müzik ses düzeyi doğrudan oynatıcıda",
+        "description": "Ses kontrolü oynatıcının çubuğunda ve müzik çubuğunda. Sesi yalnızca sizin için değiştirir; kişi başı kaydırıcıların yerini tek bir kaydırıcı aldı."
+      },
+      "noSkipForAll": {
+        "title": "Birinin sorunu artık parçayı atlatmıyor",
+        "description": "Bir video birinde oynatılmazsa — yaş ya da bölge kısıtlaması, engellenmiş ağ — atlanmak yerine diğerleri için çalmaya devam ediyor."
+      },
+      "playerProblems": {
+        "title": "Müzik çalmadığında net nedenler",
+        "description": "Oynatıcı ne olduğunu söylüyor — hizmet ağınızda engelli, video kısıtlı ya da tarayıcı sesi engelledi — ve tekrar denemeyi ya da devam etmeyi öneriyor."
+      },
+      "playerLayout": {
+        "title": "Daha düzenli oynatıcı",
+        "description": "Oynatma, ses düzeyiniz, süre ve diğer işlemler ilerleme çubuğunun altındaki tek bir çubukta; müzik çubuğu da yumuşakça açılıp kapanıyor."
+      },
+      "steadyMusic": {
+        "title": "Müzik ses düzeyini koruyor",
+        "description": "Biri konuşurken müzik artık kendiliğinden kısılmıyor; ses düzeyine siz karar veriyorsunuz."
+      },
+      "smarterChatFilter": {
+        "title": "Daha keskin sohbet filtresi",
+        "description": "Rakamlarla, uzatılmış harflerle, boşluklarla ya da görünmez karakterlerle yazılan küfürler de gizleniyor; yanlarındaki noktalama yerinde kalıyor."
+      },
+      "livelierSplash": {
+        "title": "Daha canlı yükleme ekranı",
+        "description": "Uygulama açılırken yumuşak marka renkleri ve hareketli bir ilerleme çizgisi."
+      },
       "musicPerPerson": {
         "title": "Herkes için ayrı müzik ses düzeyi",
         "description": "Müzik çalan kişiye sağ tıklayın ve yalnızca onun müziğini açın ya da kısın; diğer sesler olduğu gibi kalır."
@@ -821,6 +848,8 @@
       }
     },
     "highlights": {
+      "playerVolume": "Müzik ses düzeyi doğrudan oynatıcıda",
+      "noSkipForAll": "Birinin sorunu artık parçayı atlatmıyor",
       "musicPerPerson": "Herkes için ayrı müzik ses düzeyi",
       "banNotice": "Çıkarıldığınızda haber veriliyor",
       "signUpErrors": "Kayıt hataları gösteriyor",
@@ -1061,10 +1090,6 @@
       "musicSync": {
         "title": "Herkes için senkron",
         "description": "Duraklatma, ileri-geri sarma ve atlama odadaki herkes için aynı anda olur."
-      },
-      "musicDucking": {
-        "title": "Konuşurken daha kısık",
-        "description": "Müzik seslere yer açar ve bir saniye sonra geri gelir."
       },
       "musicShare": {
         "title": "Kendi müziğin",

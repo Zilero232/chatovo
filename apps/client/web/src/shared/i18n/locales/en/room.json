@@ -95,9 +95,12 @@
         "pause": "Pause",
         "previous": "Previous track",
         "next": "Next track",
-        "stop": "Stop the music",
+        "stop": "Turn off the music for everyone",
         "open": "Open the source",
-        "expand": "Open the player"
+        "expand": "Open the player",
+        "more": "More",
+        "openIn": "Open in {service}",
+        "openStation": "Open the station’s site"
       },
       "progress": {
         "seek": "Track position",
@@ -161,12 +164,24 @@
         "fileFailed": "Couldn't play {name}.",
         "publishFailed": "Couldn't start sharing in this room.",
         "remoteTitle": "{name} is playing music",
-        "remoteSubtitle": "Volume is in their card's menu"
+        "remoteSubtitle": "Live from a participant"
       },
       "player": {
-        "unplayable": "This track can't be played here — skipping it.",
-        "unavailable": "The player didn't load — the service may be blocked on your network.",
-        "tapToListen": "Tap to listen"
+        "tapToListen": "Tap to listen",
+        "connecting": "Connecting to {service}…",
+        "retry": "Try again",
+        "notPlayingHere": "Not playing for you",
+        "networkTitle": "{service} doesn’t open on your network",
+        "networkHint": "Everyone else keeps listening. Turn on a VPN and try again, or pick radio or SoundCloud.",
+        "restrictedTitle": "This video won’t play for you",
+        "restrictedHint": "Its owner limited embedding, or it isn’t available in your region. Everyone else keeps listening.",
+        "failedTitle": "This track won’t play for you",
+        "failedHint": "Everyone else keeps listening. Try again or move on to the next track.",
+        "skip": "Next track",
+        "removed": "This video was removed or made private — skipping it.",
+        "blockedTitle": "The browser held back the sound",
+        "blockedHint": "Press Listen and the music picks up where the room is.",
+        "listen": "Listen"
       },
       "sources": {
         "youtube": "YouTube",
@@ -188,6 +203,10 @@
           "zvuk": "Zvuk",
           "deezer": "Deezer"
         }
+      },
+      "volume": {
+        "label": "Music volume",
+        "hint": "Only for you — others keep their own level."
       }
     },
     "password": {
@@ -354,8 +373,6 @@
     "volumeFor": "Volume for {name}",
     "screenVolume": "Screen audio",
     "screenVolumeFor": "Screen audio volume for {name}",
-    "music": "Music",
-    "musicVolumeFor": "Music volume for {name}",
     "copyName": "Copy name",
     "nameCopied": "Name copied",
     "safety": "Safety"

@@ -35,7 +35,6 @@ import {
   UserPlus,
   Users,
   Video,
-  Volume1,
   Waves
 } from 'lucide-react';
 
@@ -45,7 +44,6 @@ export const FEATURES_ITEM_ICONS: Record<FeaturesItemKey, LucideIcon> = {
   musicLinks: ListMusic,
   musicRadio: Radio,
   musicSync: Waves,
-  musicDucking: Volume1,
   musicShare: Headphones,
   background: PictureInPicture2,
   activity: Gamepad2,

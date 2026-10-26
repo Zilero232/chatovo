@@ -21,7 +21,6 @@
 
 .track {
   position: relative;
-  overflow: hidden;
   height: 0.5rem;
   flex-grow: 1;
   border-radius: var(--radius-md);
@@ -32,6 +31,7 @@
 .indicator {
   position: absolute;
   height: 100%;
+  border-radius: inherit;
   background: var(--primary);
 }
 
@@ -44,7 +44,10 @@
   border-radius: 9999px;
   background: var(--primary);
   outline: none;
-  transition: all var(--duration-fast) var(--timing-function-standard);
+  transition:
+    transform var(--duration-fast) var(--timing-function-standard),
+    opacity var(--duration-fast) var(--timing-function-standard),
+    box-shadow var(--duration-fast) var(--timing-function-standard);
 
   &:hover {
     transform: scale(1.1);
@@ -54,5 +57,37 @@
 
   &:disabled {
     pointer-events: none;
+  }
+}
+
+.root[data-tone='subtle'] {
+  .track {
+    height: 0.25rem;
+    background: rgb(var(--tint) / 14%);
+    box-shadow: none;
+  }
+
+  .indicator {
+    background: color-mix(in srgb, var(--foreground) 70%, transparent);
+  }
+
+  .thumb {
+    width: 0.75rem;
+    height: 0.75rem;
+    border: 0;
+    background: var(--foreground);
+    opacity: 0;
+  }
+
+  &:hover .thumb,
+  &[data-dragging] .thumb,
+  .thumb:focus-visible {
+    opacity: 1;
+  }
+
+  @include coarse-pointer {
+    .thumb {
+      opacity: 1;
+    }
   }
 }

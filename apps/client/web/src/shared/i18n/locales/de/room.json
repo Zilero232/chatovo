@@ -95,9 +95,12 @@
         "pause": "Pause",
         "previous": "Vorheriger Track",
         "next": "Nächster Track",
-        "stop": "Musik stoppen",
+        "stop": "Musik für alle ausschalten",
         "open": "Quelle öffnen",
-        "expand": "Player öffnen"
+        "expand": "Player öffnen",
+        "more": "Mehr",
+        "openIn": "In {service} öffnen",
+        "openStation": "Website des Senders öffnen"
       },
       "progress": {
         "seek": "Position im Track",
@@ -161,12 +164,24 @@
         "fileFailed": "{name} konnte nicht abgespielt werden.",
         "publishFailed": "Teilen in diesem Raum konnte nicht gestartet werden.",
         "remoteTitle": "{name} spielt Musik",
-        "remoteSubtitle": "Lautstärke im Menü der Teilnehmerkarte"
+        "remoteSubtitle": "Live von einem Teilnehmer"
       },
       "player": {
-        "unplayable": "Dieser Track kann hier nicht abgespielt werden – wird übersprungen.",
-        "unavailable": "Der Player wurde nicht geladen – der Dienst ist in deinem Netzwerk evtl. blockiert.",
-        "tapToListen": "Tippen zum Anhören"
+        "tapToListen": "Tippen zum Anhören",
+        "connecting": "Verbindung zu {service}…",
+        "retry": "Erneut versuchen",
+        "notPlayingHere": "Spielt bei dir nicht",
+        "networkTitle": "{service} öffnet sich in deinem Netz nicht",
+        "networkHint": "Alle anderen hören weiter. Schalte ein VPN ein und versuche es erneut oder wähle Radio oder SoundCloud.",
+        "restrictedTitle": "Dieses Video spielt bei dir nicht",
+        "restrictedHint": "Der Besitzer hat das Einbetten eingeschränkt, oder es ist in deiner Region nicht verfügbar. Alle anderen hören weiter.",
+        "failedTitle": "Dieser Track spielt bei dir nicht",
+        "failedHint": "Alle anderen hören weiter. Versuche es erneut oder spring zum nächsten Track.",
+        "skip": "Nächster Track",
+        "removed": "Dieses Video wurde entfernt oder auf privat gestellt – wird übersprungen.",
+        "blockedTitle": "Der Browser hat den Ton zurückgehalten",
+        "blockedHint": "Tippe auf Anhören, und die Musik läuft an der Stelle weiter, an der der Raum ist.",
+        "listen": "Anhören"
       },
       "sources": {
         "youtube": "YouTube",
@@ -188,6 +203,10 @@
           "zvuk": "Zvuk",
           "deezer": "Deezer"
         }
+      },
+      "volume": {
+        "label": "Musiklautstärke",
+        "hint": "Nur für dich – alle anderen behalten ihre eigene."
       }
     },
     "password": {
@@ -354,8 +373,6 @@
     "volumeFor": "Lautstärke für {name}",
     "screenVolume": "Bildschirmton",
     "screenVolumeFor": "Lautstärke des Bildschirmtons von {name}",
-    "music": "Musik",
-    "musicVolumeFor": "Musiklautstärke für {name}",
     "copyName": "Name kopieren",
     "nameCopied": "Name kopiert",
     "safety": "Sicherheit"

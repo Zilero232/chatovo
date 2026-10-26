@@ -17,6 +17,43 @@
   padding-inline: 1.5rem;
 }
 
+.aurora {
+  position: absolute;
+  animation: splash-drift 14s ease-in-out infinite alternate;
+  background:
+    radial-gradient(
+      40% 35% at 35% 40%,
+      color-mix(in srgb, var(--brand-violet) 22%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      35% 30% at 65% 60%,
+      color-mix(in srgb, var(--brand-coral) 16%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      30% 25% at 50% 75%,
+      color-mix(in srgb, var(--brand-mint) 10%, transparent),
+      transparent 70%
+    );
+  inset: -20%;
+  pointer-events: none;
+
+  @include reduced-motion {
+    animation: none;
+  }
+}
+
+@keyframes splash-drift {
+  from {
+    transform: translate3d(-3%, -2%, 0) rotate(0deg);
+  }
+
+  to {
+    transform: translate3d(3%, 2%, 0) rotate(8deg);
+  }
+}
+
 .iconBox {
   position: relative;
   z-index: var(--z-base);
@@ -26,7 +63,9 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-2xl);
-  box-shadow: var(--shadow-elevated);
+  box-shadow:
+    var(--shadow-elevated),
+    0 0 rem(48) color-mix(in srgb, var(--brand-violet) 28%, transparent);
 
   &:after {
     position: absolute;
@@ -77,4 +116,44 @@
 
 .progress {
   width: 100%;
+}
+
+.indeterminate {
+  position: relative;
+  overflow: hidden;
+  width: rem(120);
+  height: rem(3);
+  border-radius: 9999px;
+  background: rgb(var(--tint) / 8%);
+
+  &:after {
+    position: absolute;
+    width: 40%;
+    border-radius: inherit;
+    animation: splash-sweep 1.4s ease-in-out infinite;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--brand-violet),
+      var(--brand-coral),
+      transparent
+    );
+    content: '';
+    inset-block: 0;
+
+    @include reduced-motion {
+      left: 30%;
+      animation: none;
+    }
+  }
+}
+
+@keyframes splash-sweep {
+  from {
+    left: -40%;
+  }
+
+  to {
+    left: 100%;
+  }
 }

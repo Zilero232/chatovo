@@ -95,9 +95,12 @@
         "pause": "Pauza",
         "previous": "Poprzedni utwór",
         "next": "Następny utwór",
-        "stop": "Wyłącz muzykę",
+        "stop": "Wyłącz muzykę dla wszystkich",
         "open": "Otwórz źródło",
-        "expand": "Otwórz odtwarzacz"
+        "expand": "Otwórz odtwarzacz",
+        "more": "Więcej",
+        "openIn": "Otwórz w {service}",
+        "openStation": "Otwórz stronę stacji"
       },
       "progress": {
         "seek": "Pozycja utworu",
@@ -161,12 +164,24 @@
         "fileFailed": "Nie udało się odtworzyć {name}.",
         "publishFailed": "Nie udało się rozpocząć udostępniania w tym pokoju.",
         "remoteTitle": "{name} puszcza muzykę",
-        "remoteSubtitle": "Głośność jest w menu karty uczestnika"
+        "remoteSubtitle": "Na żywo od uczestnika"
       },
       "player": {
-        "unplayable": "Tego utworu nie da się tu odtworzyć — pomijamy go.",
-        "unavailable": "Odtwarzacz się nie załadował — usługa może być zablokowana w twojej sieci.",
-        "tapToListen": "Dotknij, aby słuchać"
+        "tapToListen": "Dotknij, aby słuchać",
+        "connecting": "Łączenie z {service}…",
+        "retry": "Spróbuj ponownie",
+        "notPlayingHere": "U ciebie nie gra",
+        "networkTitle": "{service} nie otwiera się w twojej sieci",
+        "networkHint": "Pozostali słuchają dalej. Włącz VPN i spróbuj ponownie albo wybierz radio lub SoundCloud.",
+        "restrictedTitle": "Ten film u ciebie nie gra",
+        "restrictedHint": "Właściciel ograniczył osadzanie albo film jest niedostępny w twoim regionie. Pozostali słuchają dalej.",
+        "failedTitle": "Ten utwór u ciebie nie gra",
+        "failedHint": "Pozostali słuchają dalej. Spróbuj ponownie albo przejdź do następnego utworu.",
+        "skip": "Następny utwór",
+        "removed": "Ten film usunięto lub ukryto — pomijamy go.",
+        "blockedTitle": "Przeglądarka zablokowała dźwięk",
+        "blockedHint": "Naciśnij Słuchaj, a muzyka zagra od miejsca, w którym jest pokój.",
+        "listen": "Słuchaj"
       },
       "sources": {
         "youtube": "YouTube",
@@ -188,6 +203,10 @@
           "zvuk": "Zvuk",
           "deezer": "Deezer"
         }
+      },
+      "volume": {
+        "label": "Głośność muzyki",
+        "hint": "Tylko dla ciebie — każdy ma własny poziom."
       }
     },
     "password": {
@@ -354,8 +373,6 @@
     "volumeFor": "Głośność: {name}",
     "screenVolume": "Dźwięk ekranu",
     "screenVolumeFor": "Głośność ekranu: {name}",
-    "music": "Muzyka",
-    "musicVolumeFor": "Głośność muzyki {name}",
     "copyName": "Kopiuj nazwę",
     "nameCopied": "Nazwa skopiowana",
     "safety": "Bezpieczeństwo"

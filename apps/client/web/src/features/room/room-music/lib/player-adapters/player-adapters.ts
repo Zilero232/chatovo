@@ -1,12 +1,26 @@
-import type VimeoPlayer from '@vimeo/player';
-
 import type { SoundcloudWidget } from '../soundcloud-widget.types';
 import type { YoutubePlayer } from '../youtube-api/index';
-import type { AudioElementAdapterInput, MusicPlayerAdapter } from './player-adapters.types';
+import type {
+  AudioElementAdapterInput,
+  MediaElementAdapterInput,
+  MusicPlayerAdapter,
+  VimeoAdapterInput
+} from './player-adapters.types';
 
 const toPercent = (volume: number): number => Math.round(volume * 100);
 
 const toKnownDuration = (durationMs: number): number | null => (durationMs > 0 ? durationMs : null);
+
+const isAutoplayRefusal = (error: unknown): boolean =>
+  (error instanceof DOMException || error instanceof Error) && error.name === 'NotAllowedError';
+
+const playOrReportBlocked = (playing: Promise<unknown>, onBlocked: () => void) => {
+  playing.catch((error: unknown) => {
+    if (isAutoplayRefusal(error)) {
+      onBlocked();
+    }
+  });
+};
 
 export const toYoutubeAdapter = (player: YoutubePlayer): MusicPlayerAdapter => ({
   play: () => player.playVideo(),
@@ -29,8 +43,8 @@ export const toSoundcloudAdapter = (widget: SoundcloudWidget): MusicPlayerAdapte
     )
 });
 
-export const toVimeoAdapter = (player: VimeoPlayer): MusicPlayerAdapter => ({
-  play: () => void player.play().catch(() => {}),
+export const toVimeoAdapter = ({ player, onBlocked }: VimeoAdapterInput): MusicPlayerAdapter => ({
+  play: () => playOrReportBlocked(player.play(), onBlocked),
   pause: () => void player.pause().catch(() => {}),
   seekTo: (positionMs) => void player.setCurrentTime(positionMs / 1000).catch(() => {}),
   setVolume: (volume) => void player.setVolume(volume).catch(() => {}),
@@ -38,8 +52,11 @@ export const toVimeoAdapter = (player: VimeoPlayer): MusicPlayerAdapter => ({
   readDurationMs: async () => toKnownDuration((await player.getDuration()) * 1000)
 });
 
-export const toMediaElementAdapter = (media: HTMLMediaElement): MusicPlayerAdapter => ({
-  play: () => void media.play().catch(() => {}),
+export const toMediaElementAdapter = ({
+  media,
+  onBlocked
+}: MediaElementAdapterInput): MusicPlayerAdapter => ({
+  play: () => playOrReportBlocked(media.play(), onBlocked),
   pause: () => media.pause(),
   seekTo: (positionMs) => {
     media.currentTime = positionMs / 1000;
@@ -61,11 +78,7 @@ export const toLiveAudioAdapter = ({
       audio.load();
     }
 
-    audio.play().catch((error: unknown) => {
-      if (error instanceof DOMException && error.name === 'NotAllowedError') {
-        onBlocked();
-      }
-    });
+    playOrReportBlocked(audio.play(), onBlocked);
   },
   pause: () => audio.pause(),
   seekTo: () => {},

@@ -53,7 +53,6 @@
         "alt": "Odtwarzacz Chatovo: wideo, kolejka i radio",
         "points": {
           "sources": "YouTube, SoundCloud, Vimeo, bezpośrednie linki i radio internetowe",
-          "ducking": "Muzyka cichnie, gdy ktoś mówi",
           "share": "Wszystko inne — przez udostępnioną kartę przeglądarki"
         }
       },
@@ -207,6 +206,34 @@
       "minor": "Zwykłe wydanie"
     },
     "entries": {
+      "playerVolume": {
+        "title": "Głośność muzyki w odtwarzaczu",
+        "description": "Regulacja głośności jest na pasku odtwarzacza i na pasku muzyki. Zmienia dźwięk tylko dla ciebie, a jeden suwak zastąpił osobne dla każdej osoby."
+      },
+      "noSkipForAll": {
+        "title": "Problem jednej osoby nie pomija już utworu",
+        "description": "Jeśli film u kogoś nie gra — ograniczenie wiekowe lub regionalne, zablokowana sieć — dla pozostałych gra dalej, zamiast zostać pominięty."
+      },
+      "playerProblems": {
+        "title": "Jasne powody, gdy muzyka nie gra",
+        "description": "Odtwarzacz mówi, co się stało — usługa jest zablokowana w twojej sieci, film ma ograniczenia albo przeglądarka zablokowała dźwięk — i proponuje spróbować ponownie lub przejść dalej."
+      },
+      "playerLayout": {
+        "title": "Uporządkowany odtwarzacz",
+        "description": "Odtwarzanie, twoja głośność, czas i inne akcje są na jednym pasku pod paskiem postępu, a pasek muzyki płynnie się pojawia i znika."
+      },
+      "steadyMusic": {
+        "title": "Muzyka trzyma głośność",
+        "description": "Muzyka nie cichnie już sama, gdy ktoś mówi — o głośności decydujesz ty."
+      },
+      "smarterChatFilter": {
+        "title": "Ostrzejszy filtr czatu",
+        "description": "Przekleństwa pisane cyframi, rozciągniętymi literami, spacjami lub niewidocznymi znakami też są ukrywane, a interpunkcja obok zostaje."
+      },
+      "livelierSplash": {
+        "title": "Żywszy ekran ładowania",
+        "description": "Miękkie kolory marki i ruchoma linia postępu, gdy aplikacja się uruchamia."
+      },
       "musicPerPerson": {
         "title": "Głośność muzyki dla każdego",
         "description": "Kliknij prawym przyciskiem osobę, która puszcza muzykę, i zgłośnij lub przycisz tylko jej muzykę — reszta się nie zmienia."
@@ -821,6 +848,8 @@
       }
     },
     "highlights": {
+      "playerVolume": "Głośność muzyki w odtwarzaczu",
+      "noSkipForAll": "Problem jednej osoby nie pomija już utworu",
       "musicPerPerson": "Głośność muzyki dla każdego",
       "banNotice": "Wiesz, kiedy cię usunięto",
       "signUpErrors": "Rejestracja pokazuje błędy",
@@ -1061,10 +1090,6 @@
       "musicSync": {
         "title": "Równo u wszystkich",
         "description": "Pauza, przewijanie i pomijanie działają u wszystkich w pokoju naraz."
-      },
-      "musicDucking": {
-        "title": "Ciszej, gdy ktoś mówi",
-        "description": "Muzyka robi miejsce głosom i wraca sekundę później."
       },
       "musicShare": {
         "title": "Twoja własna muzyka",

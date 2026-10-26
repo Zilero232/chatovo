@@ -16,7 +16,7 @@ export const HOME_SPOTLIGHTS = [
     image: 'music',
     width: 1400,
     height: 969,
-    points: ['sources', 'ducking', 'share']
+    points: ['sources', 'share']
   },
   { key: 'voice', image: 'room', width: 1400, height: 1135, points: ['audio', 'screen', 'volume'] }
 ] as const;

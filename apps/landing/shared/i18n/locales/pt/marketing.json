@@ -53,7 +53,6 @@
         "alt": "O player do Chatovo: vídeo, fila e rádio",
         "points": {
           "sources": "YouTube, SoundCloud, Vimeo, links diretos e rádio online",
-          "ducking": "A música abaixa enquanto alguém fala",
           "share": "Todo o resto por uma aba do navegador compartilhada"
         }
       },
@@ -207,6 +206,34 @@
       "minor": "Atualização regular"
     },
     "entries": {
+      "playerVolume": {
+        "title": "Volume da música no próprio player",
+        "description": "O controle de volume fica na barra do player e na barra de música. Ele muda o som só para você, e um único controle substitui os de cada pessoa."
+      },
+      "noSkipForAll": {
+        "title": "O problema de um não pula mais a faixa",
+        "description": "Se um vídeo não toca para alguém — restrição de idade ou de região, rede bloqueada —, ele continua tocando para os outros em vez de ser pulado."
+      },
+      "playerProblems": {
+        "title": "Motivos claros quando a música não toca",
+        "description": "O player diz o que aconteceu — o serviço está bloqueado na sua rede, o vídeo tem restrições ou o navegador bloqueou o som — e oferece tentar de novo ou seguir em frente."
+      },
+      "playerLayout": {
+        "title": "Um player mais organizado",
+        "description": "Reprodução, seu volume, o tempo e mais ações ficam numa barra só, sob a barra de progresso, e a barra de música entra e sai suavemente."
+      },
+      "steadyMusic": {
+        "title": "A música mantém o volume",
+        "description": "A música não abaixa mais sozinha quando alguém fala; você decide o volume."
+      },
+      "smarterChatFilter": {
+        "title": "Um filtro de chat mais esperto",
+        "description": "Palavrões escritos com números, letras esticadas, espaços ou caracteres invisíveis também são ocultados, e a pontuação ao redor fica."
+      },
+      "livelierSplash": {
+        "title": "Uma tela de carregamento mais viva",
+        "description": "Cores suaves da marca e uma linha de progresso em movimento enquanto o app inicia."
+      },
       "musicPerPerson": {
         "title": "Volume da música para cada pessoa",
         "description": "Clique com o botão direito em quem está tocando música para aumentar ou diminuir só a música dessa pessoa; o resto continua igual."
@@ -821,6 +848,8 @@
       }
     },
     "highlights": {
+      "playerVolume": "Volume da música no próprio player",
+      "noSkipForAll": "O problema de um não pula mais a faixa",
       "musicPerPerson": "Volume da música para cada pessoa",
       "banNotice": "Você fica sabendo quando é removido",
       "signUpErrors": "O cadastro mostra os erros",
@@ -1061,10 +1090,6 @@
       "musicSync": {
         "title": "Em sincronia para todos",
         "description": "Pausar, avançar e pular acontecem para todos na sala ao mesmo tempo."
-      },
-      "musicDucking": {
-        "title": "Mais baixa enquanto as pessoas falam",
-        "description": "A música abre espaço para as vozes e volta um segundo depois."
       },
       "musicShare": {
         "title": "A sua música",

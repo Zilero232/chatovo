@@ -9,7 +9,7 @@ import { useTrackAdvance } from '../playback/use-track-advance';
 import { useMusicPlayer } from './use-music-player';
 
 export const useYoutubePlayer = ({ music, track }: MusicTrackPlayback) => {
-  const { advance, skipUnplayable, reportUnavailable } = useTrackAdvance(track.id);
+  const { advance, skipRemovedTrack, reportUnavailable } = useTrackAdvance(track.id);
 
   const [container, setContainer] = useState<HTMLDivElement | null>(null);
   const [adapter, setAdapter] = useState<MusicPlayerAdapter | null>(null);
@@ -21,14 +21,14 @@ export const useYoutubePlayer = ({ music, track }: MusicTrackPlayback) => {
   });
 
   const onError = useEffectEvent((code: number) => {
-    if (YOUTUBE.fatalErrorCodes.has(code)) {
-      skipUnplayable();
+    if (YOUTUBE.removedErrorCodes.has(code)) {
+      skipRemovedTrack();
     } else {
-      reportUnavailable();
+      reportUnavailable(YOUTUBE.restrictedErrorCodes.has(code) ? 'restricted' : 'failed');
     }
   });
 
-  const onUnavailable = useEffectEvent(() => reportUnavailable());
+  const onUnavailable = useEffectEvent(() => reportUnavailable('network'));
 
   useEffect(() => {
     if (!container) {

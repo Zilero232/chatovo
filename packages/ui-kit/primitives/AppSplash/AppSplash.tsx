@@ -14,6 +14,8 @@ export const AppSplash = ({ message, progress }: AppSplashProps) => {
 
   return (
     <div aria-live='polite' className={s.root} role='status'>
+      <div aria-hidden className={s.aurora} />
+
       <div className={clsx('glass', s.iconBox)}>
         <WaveMark animated size={36} />
       </div>
@@ -26,7 +28,11 @@ export const AppSplash = ({ message, progress }: AppSplashProps) => {
             {message}
           </Text>
         )}
-        {hasProgress && <Progress className={s.progress} value={progress} />}
+        {hasProgress ? (
+          <Progress className={s.progress} value={progress} />
+        ) : (
+          <span aria-hidden className={s.indeterminate} />
+        )}
       </div>
     </div>
   );

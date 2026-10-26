@@ -2,18 +2,7 @@ export const MUSIC_TRACK_NAME = 'music';
 
 export const MUSIC_FILE_ACCEPT = 'audio/*';
 
-export const DUCKING = {
-  level: 0.25,
-  speechLevel: 0.12,
-  holdMs: 800,
-  pollMs: 100
-} as const;
-
-export const PARTICIPANT_MUSIC_VOLUME = {
-  default: 1,
-  max: 1,
-  maxStored: 100
-} as const;
+export const PLAYER_LOAD_TIMEOUT_MS = 15_000;
 
 export const VOLUME_RAMP = {
   durationMs: 250,
@@ -29,8 +18,9 @@ export const YOUTUBE = {
   loadTimeoutMs: 15_000,
   apiSrc: 'https://www.youtube.com/iframe_api',
   host: 'https://www.youtube-nocookie.com',
-  playerVars: { autoplay: 0, playsinline: 1, rel: 0 },
-  fatalErrorCodes: new Set([2, 100, 101, 150]),
+  playerVars: { autoplay: 0, controls: 0, disablekb: 1, iv_load_policy: 3, playsinline: 1, rel: 0 },
+  removedErrorCodes: new Set([100]),
+  restrictedErrorCodes: new Set([101, 150, 153]),
   state: { ended: 0, playing: 1 }
 } as const;
 
@@ -47,8 +37,6 @@ export const VIMEO_OPTIONS = {
   byline: false,
   portrait: false
 } as const;
-
-export const MEDIA_ERROR_UNSUPPORTED = 4;
 
 export const RADIO_SEARCH_DEBOUNCE_MS = 400;
 

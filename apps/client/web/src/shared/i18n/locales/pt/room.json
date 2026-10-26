@@ -95,9 +95,12 @@
         "pause": "Pausar",
         "previous": "Faixa anterior",
         "next": "Próxima faixa",
-        "stop": "Parar a música",
+        "stop": "Desligar a música para todos",
         "open": "Abrir a origem",
-        "expand": "Abrir o player"
+        "expand": "Abrir o player",
+        "more": "Mais",
+        "openIn": "Abrir no {service}",
+        "openStation": "Abrir o site da estação"
       },
       "progress": {
         "seek": "Posição da faixa",
@@ -161,12 +164,24 @@
         "fileFailed": "Não foi possível tocar {name}.",
         "publishFailed": "Não foi possível começar a compartilhar nesta sala.",
         "remoteTitle": "{name} está tocando música",
-        "remoteSubtitle": "O volume fica no menu do cartão do participante"
+        "remoteSubtitle": "Ao vivo de um participante"
       },
       "player": {
-        "unplayable": "Esta faixa não pode ser tocada aqui — pulando.",
-        "unavailable": "O player não carregou — o serviço pode estar bloqueado na sua rede.",
-        "tapToListen": "Toque para ouvir"
+        "tapToListen": "Toque para ouvir",
+        "connecting": "Conectando ao {service}…",
+        "retry": "Tentar de novo",
+        "notPlayingHere": "Não está tocando para você",
+        "networkTitle": "{service} não abre na sua rede",
+        "networkHint": "Os outros continuam ouvindo. Ative uma VPN e tente de novo, ou escolha o rádio ou o SoundCloud.",
+        "restrictedTitle": "Este vídeo não toca para você",
+        "restrictedHint": "O dono limitou a incorporação ou ele não está disponível na sua região. Os outros continuam ouvindo.",
+        "failedTitle": "Esta faixa não toca para você",
+        "failedHint": "Os outros continuam ouvindo. Tente de novo ou passe para a próxima faixa.",
+        "skip": "Próxima faixa",
+        "removed": "Este vídeo foi removido ou ficou privado — pulando.",
+        "blockedTitle": "O navegador bloqueou o som",
+        "blockedHint": "Toque em Ouvir e a música continua de onde a sala está.",
+        "listen": "Ouvir"
       },
       "sources": {
         "youtube": "YouTube",
@@ -188,6 +203,10 @@
           "zvuk": "Zvuk",
           "deezer": "Deezer"
         }
+      },
+      "volume": {
+        "label": "Volume da música",
+        "hint": "Só para você — cada um tem o seu nível."
       }
     },
     "password": {
@@ -354,8 +373,6 @@
     "volumeFor": "Volume de {name}",
     "screenVolume": "Áudio da tela",
     "screenVolumeFor": "Volume do áudio da tela de {name}",
-    "music": "Música",
-    "musicVolumeFor": "Volume da música de {name}",
     "copyName": "Copiar nome",
     "nameCopied": "Nome copiado",
     "safety": "Segurança"
