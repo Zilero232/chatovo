@@ -15,6 +15,11 @@ export type ToRoomParticipantInput = {
   participant: ParticipantInfo;
 };
 
+export type MarkDmRoomInput = {
+  memberIds: string[];
+  roomId: string;
+};
+
 export type FindRoomParticipantInput = {
   roomId: string;
   identity: string;

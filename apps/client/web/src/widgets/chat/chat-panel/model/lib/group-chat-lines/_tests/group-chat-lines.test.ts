@@ -75,4 +75,19 @@ describe('groupChatLines', () => {
   it('returns nothing for an empty conversation', () => {
     expect(groupChatLines({ lines: [], ownIdentity: 'me' })).toEqual([]);
   });
+
+  it('never groups a call record with the messages around it', () => {
+    const call = { outcome: 'completed', durationSec: 60, callerId: 'me' } as const;
+
+    const grouped = groupChatLines({
+      lines: [
+        lineOf('a', 'me', NOON),
+        { ...lineOf('b', 'me', NOON + 1_000), call },
+        lineOf('c', 'me', NOON + 2_000)
+      ],
+      ownIdentity: 'me'
+    });
+
+    expect(grouped.map((line) => line.isGrouped)).toEqual([false, false, false]);
+  });
 });

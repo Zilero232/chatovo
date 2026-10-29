@@ -206,6 +206,18 @@
       "minor": "Regular release"
     },
     "entries": {
+      "callsRedone": {
+        "title": "Calls between friends, done right",
+        "description": "Calling puts you straight into the call, the other side gets a card instead of a blocking window, and hanging up ends it for both. If someone drops, you see “reconnecting” and get a minute to come back."
+      },
+      "callLog": {
+        "title": "Calls in the chat history",
+        "description": "Every call leaves a row in your chat with the friend — outgoing, missed or declined, with its duration and a Call back button."
+      },
+      "browserFixes": {
+        "title": "Firefox and readable notifications",
+        "description": "Avatars no longer split in half in Firefox, and notifications are readable again instead of black."
+      },
       "staffRoles": {
         "title": "Moderators and a clear role hierarchy",
         "description": "A new moderator role gets invisible mode and room moderation without the admin panel. Everyone can act only on people below their own role, and the owner can't be touched."
@@ -884,6 +896,7 @@
       }
     },
     "highlights": {
+      "callsRedone": "Calls between friends, done right",
       "staffRoles": "Moderators and a clear role hierarchy",
       "invisibleReadOnly": "Invisible mode stays truly invisible",
       "playerVolume": "Your music volume, right in the player",

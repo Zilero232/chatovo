@@ -5,6 +5,8 @@ import { ZodResponse } from 'nestjs-zod';
 
 import { CurrentUser } from '../../common/decorators/current-user.decorator';
 import {
+  CallIdParamDto,
+  DmCallViewDto,
   FriendListDto,
   FriendRequestListDto,
   IncomingFriendCallResponseDto,
@@ -89,11 +91,42 @@ export class FriendsController {
     return this.dmRoom.getOrCreateDmRoom({ userId, otherUserId });
   }
 
+  @Post(':userId/calls')
+  @Throttle({ default: { ttl: 60_000, limit: 10 } })
+  @ZodResponse({ type: DmCallViewDto })
+  startCall(@Param('userId') otherUserId: string, @CurrentUser() userId: string) {
+    return this.calls.startCall({ userId, otherUserId });
+  }
+
   @Post(':userId/call')
   @Throttle({ default: { ttl: 60_000, limit: 10 } })
   @ZodResponse({ type: RoomDto })
   ringCall(@Param('userId') otherUserId: string, @CurrentUser() userId: string) {
     return this.calls.ringFriendCall({ userId, otherUserId });
+  }
+
+  @Post('calls/:callId/accept')
+  @ZodResponse({ type: DmCallViewDto })
+  acceptCall(@Param() { callId }: CallIdParamDto, @CurrentUser() userId: string) {
+    return this.calls.acceptCall({ callId, userId });
+  }
+
+  @Post('calls/:callId/decline')
+  @HttpCode(204)
+  declineCall(@Param() { callId }: CallIdParamDto, @CurrentUser() userId: string) {
+    return this.calls.declineCall({ callId, userId });
+  }
+
+  @Post('calls/:callId/cancel')
+  @HttpCode(204)
+  cancelCall(@Param() { callId }: CallIdParamDto, @CurrentUser() userId: string) {
+    return this.calls.cancelCall({ callId, userId });
+  }
+
+  @Post('calls/:callId/hangup')
+  @HttpCode(204)
+  hangupCall(@Param() { callId }: CallIdParamDto, @CurrentUser() userId: string) {
+    return this.calls.hangupCall({ callId, userId });
   }
 
   @Get('calls/incoming')

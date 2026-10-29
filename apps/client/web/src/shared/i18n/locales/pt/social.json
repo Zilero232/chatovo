@@ -53,13 +53,19 @@
       "title": "Chamada recebida",
       "description": "{name} está ligando para você",
       "accept": "Atender",
-      "decline": "Recusar"
+      "decline": "Recusar",
+      "busyHint": "Você está em outra chamada — atender vai encerrá-la",
+      "roomHint": "Atender tira você de “{room}”",
+      "endAndAccept": "Encerrar e atender",
+      "unavailable": "Esta chamada já terminou",
+      "answeredElsewhere": "Atendida em outro dispositivo",
+      "titleFlash": "Chamada de {name}"
     },
-    "outgoingCall": {
-      "title": "Ligando…",
-      "description": "Esperando {name} atender",
-      "cancel": "Cancelar",
-      "declined": "{name} recusou a chamada"
+    "callBanner": {
+      "calling": "Chamando…",
+      "inCall": "Você está nesta chamada",
+      "ongoing": "Chamada em andamento · {duration}",
+      "join": "Entrar"
     }
   },
   "blocks": {

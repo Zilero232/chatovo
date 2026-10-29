@@ -19,3 +19,4 @@ export {
 } from './emit';
 export { RealtimeGateway } from './realtime.gateway';
 export { RealtimeModule } from './realtime.module';
+export type { DmRoomPresence, PresenceSnapshots } from './realtime.types';

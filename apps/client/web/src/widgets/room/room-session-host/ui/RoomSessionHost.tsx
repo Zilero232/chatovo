@@ -4,7 +4,13 @@ import { isNullish } from 'remeda';
 
 import { env } from '@/shared/config';
 
-import { useInvisibleModeSync, useRoomModerationNotices, useRoomSessionHost } from '../model/hooks';
+import {
+  useDmCallRejoinPrompt,
+  useDmCallSessionSync,
+  useInvisibleModeSync,
+  useRoomModerationNotices,
+  useRoomSessionHost
+} from '../model/hooks';
 import { InvisiblePasswordDialog, MiniRoomFloatingSlot } from './components';
 
 import s from './RoomSessionHost.module.scss';
@@ -18,6 +24,8 @@ export const RoomSessionHost = () => {
 
   const { passwordPrompt } = useInvisibleModeSync();
   useRoomModerationNotices(leave);
+  const { isCallEnding } = useDmCallSessionSync(leave);
+  useDmCallRejoinPrompt();
 
   if (isNullish(session)) {
     return null;
@@ -49,9 +57,9 @@ export const RoomSessionHost = () => {
           roomName={roomName}
           serverUrl={env.NEXT_PUBLIC_LIVEKIT_URL}
           token={token}
-          onConnectFailure={() => failConnection(roomId)}
+          onConnectFailure={() => !isCallEnding(roomId) && failConnection(roomId)}
           onExpand={() => expand(roomId)}
-          onLeave={() => leave(roomId)}
+          onLeave={(options) => !isCallEnding(roomId) && leave(roomId, options)}
         />
       </Suspense>
     </div>

@@ -16,8 +16,7 @@ export const applyFriendsSnapshot = ({
     return;
   }
 
-  queryClient.setQueryData(QUERY_KEYS.friendCallIncoming(), { call: parsed.data.incoming });
-  queryClient.setQueryData(QUERY_KEYS.friendCallOutgoing(), { call: parsed.data.outgoing });
+  queryClient.setQueryData(QUERY_KEYS.dmCalls(), parsed.data.calls);
 
   const epoch = parsed.data.friendsEpoch;
   const knownEpoch = queryClient.getQueryData<number>(QUERY_KEYS.friendsEpoch());

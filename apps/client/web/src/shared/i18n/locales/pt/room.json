@@ -54,6 +54,7 @@
     "notFoundHint": "O dono excluiu esta sala ou o link está desatualizado. Confira o link ou encontre a sala no lobby.",
     "backToLobby": "Voltar ao lobby",
     "joinFailed": "Não foi possível entrar na sala",
+    "movedToOtherDevice": "A chamada continua em outro dispositivo",
     "invite": {
       "copyLink": "Copiar link de convite",
       "linkCopied": "Link de convite copiado",
@@ -68,7 +69,9 @@
       "label": "Sala ativa “{name}”",
       "inRoom": "Você está na sala",
       "inCall": "Você está numa chamada",
-      "connecting": "Conectando…"
+      "connecting": "Conectando…",
+      "calling": "Chamando…",
+      "inCallFor": "Em chamada · {duration}"
     },
     "music": {
       "label": "Música da sala",
@@ -245,11 +248,29 @@
       "sharingTitle": "Você está compartilhando a tela",
       "sharingHint": "Sua prévia fica oculta para a tela não se repetir dentro de si mesma. Os outros a veem."
     },
-    "dmWaiting": "Esperando a outra pessoa entrar…",
     "expandVideo": "Expandir vídeo",
     "collapseVideo": "Recolher vídeo",
     "invisibleBadge": "Invisível",
     "invisibleNotice": "Você entrou escondido: ninguém vê nem ouve você",
+    "dmCall": {
+      "waiting": "Aguardando a outra pessoa…",
+      "connecting": "Conectando com {name}…",
+      "calling": "Chamando {name}…",
+      "ringing": "Tocando para {name}…",
+      "peerBusy": "{name} está em outra chamada — ainda tocando",
+      "peerLeft": "{name} desconectou · aguardando {countdown}",
+      "peerReconnecting": "{name} está reconectando…",
+      "ringAgain": "Ligar de novo",
+      "ended": "Chamada encerrada",
+      "endedWithDuration": "Chamada encerrada · {duration}",
+      "declined": "{name} recusou a chamada",
+      "noAnswer": "{name} não atendeu",
+      "busy": "{name} está em outra chamada",
+      "cancelled": "Chamada cancelada",
+      "failed": "Não foi possível conectar a chamada",
+      "stillInCall": "Você ainda está em uma chamada com {name}",
+      "rejoin": "Voltar"
+    },
     "invisible": {
       "blocked": "Você está no modo invisível",
       "blockedHint": "Microfone, câmera, tela, reações, chat e música ficam desligados para ninguém notar você. Desative o modo invisível para participar.",
@@ -305,7 +326,19 @@
       "description": "As mensagens enviadas nesta sala aparecem aqui e ficam para todo mundo que entrar depois. Mande um link, um arquivo ou só diga oi."
     },
     "openInBrowser": "Abrir no navegador",
-    "download": "Baixar"
+    "download": "Baixar",
+    "callLog": {
+      "outgoing": "Chamada efetuada",
+      "incoming": "Chamada recebida",
+      "missed": "Chamada perdida",
+      "cancelled": "Chamada cancelada",
+      "declinedByPeer": "Chamada recusada",
+      "declinedBySelf": "Você recusou a chamada",
+      "noAnswer": "Sem resposta",
+      "busy": "Ocupado",
+      "failed": "A chamada falhou",
+      "callBack": "Retornar"
+    }
   },
   "channels": {
     "searchPlaceholder": "Buscar salas...",

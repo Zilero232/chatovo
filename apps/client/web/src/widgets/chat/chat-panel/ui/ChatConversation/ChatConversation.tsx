@@ -2,7 +2,6 @@ import type { Ref } from 'react';
 
 import { Spinner } from '@chatovo/ui-kit';
 import { Paperclip } from 'lucide-react';
-import { Fragment } from 'react';
 import { match } from 'ts-pattern';
 import { useTranslations } from 'use-intl';
 
@@ -12,10 +11,9 @@ import { useChatConversation } from '../../model/hooks';
 import {
   ChatComposer,
   ChatEmpty,
+  ChatLines,
   ChatLoadingSkeleton,
-  ChatMessageItem,
-  ChatReadOnlyNotice,
-  DateDivider
+  ChatReadOnlyNotice
 } from '../components';
 
 import s from './ChatConversation.module.scss';
@@ -24,7 +22,8 @@ export const ChatConversation = ({
   roomId,
   currentUserId,
   canModerate = false,
-  enabled = true
+  enabled = true,
+  peerId
 }: ChatConversationProps) => {
   const t = useTranslations('chat');
 
@@ -64,23 +63,13 @@ export const ChatConversation = ({
                 </div>
               )}
 
-              {lines.map(({ line, isOwn, isGrouped, isTail, showDivider }) => (
-                <Fragment key={line.id}>
-                  {showDivider && <DateDivider timestamp={line.timestamp} />}
-                  <ChatMessageItem
-                    canManage={isOwn || canModerate}
-                    isGrouped={isGrouped}
-                    isOwn={isOwn}
-                    isReadOnly={isReadOnly}
-                    isTail={isTail}
-                    message={line}
-                    onDelete={actions.remove}
-                    onDiscard={actions.discard}
-                    onEdit={actions.edit}
-                    onRetry={actions.retry}
-                  />
-                </Fragment>
-              ))}
+              <ChatLines
+                actions={actions}
+                canModerate={canModerate}
+                isReadOnly={isReadOnly}
+                lines={lines}
+                peerId={peerId ?? null}
+              />
             </div>
           ))}
       </div>

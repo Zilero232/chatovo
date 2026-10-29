@@ -1,6 +1,7 @@
 import { useLocalParticipant, useParticipants } from '@livekit/components-react';
 
 import { useAppSettings } from '@/entities/app/settings';
+import { useRoomSession } from '@/entities/room/session';
 import { useAchievementTracker } from '@/features/app/achievements';
 import { useAloneAmbience } from '@/features/app/alone-ambience';
 
@@ -10,6 +11,7 @@ export const RoomEasterEggsController = () => {
   const participants = useParticipants({ updateOnlyOn: ROSTER_EVENTS });
   const { isMicrophoneEnabled } = useLocalParticipant();
   const { settings } = useAppSettings();
+  const { session } = useRoomSession();
 
   const isAlone = participants.length === 1;
 
@@ -18,7 +20,10 @@ export const RoomEasterEggsController = () => {
     isMicEnabled: isMicrophoneEnabled,
     participantCount: participants.length
   });
-  useAloneAmbience({ isAlone, isEnabled: settings.sounds.enabled.ambience });
+  useAloneAmbience({
+    isAlone,
+    isEnabled: settings.sounds.enabled.ambience && session?.isDm !== true
+  });
 
   return null;
 };

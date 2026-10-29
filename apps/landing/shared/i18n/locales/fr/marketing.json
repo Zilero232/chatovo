@@ -206,6 +206,18 @@
       "minor": "Version régulière"
     },
     "entries": {
+      "callsRedone": {
+        "title": "Les appels entre amis, comme il faut",
+        "description": "Appeler te place directement dans l'appel, l'autre reçoit une carte au lieu d'une fenêtre bloquante, et raccrocher y met fin pour les deux. Si quelqu'un décroche du réseau, tu vois « reconnexion » et il a une minute pour revenir."
+      },
+      "callLog": {
+        "title": "Les appels dans l'historique du chat",
+        "description": "Chaque appel laisse une ligne dans le chat avec ton ami — sortant, manqué ou refusé, avec sa durée et un bouton Rappeler."
+      },
+      "browserFixes": {
+        "title": "Firefox et des notifications lisibles",
+        "description": "Les avatars ne se coupent plus en deux dans Firefox, et les notifications sont de nouveau lisibles au lieu d'être noires."
+      },
       "staffRoles": {
         "title": "Des modérateurs et une hiérarchie de rôles claire",
         "description": "Le nouveau rôle de modérateur a le mode invisible et la modération des salons, sans accès au panneau d'administration. Chacun n'agit que sur les rôles inférieurs, et personne ne peut toucher au propriétaire."
@@ -884,6 +896,7 @@
       }
     },
     "highlights": {
+      "callsRedone": "Les appels entre amis, comme il faut",
       "staffRoles": "Des modérateurs et une hiérarchie de rôles claire",
       "invisibleReadOnly": "Le mode invisible reste vraiment invisible",
       "playerVolume": "Le volume de la musique dans le lecteur",

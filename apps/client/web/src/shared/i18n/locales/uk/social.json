@@ -53,13 +53,19 @@
       "title": "Вхідний дзвінок",
       "description": "{name} дзвонить тобі",
       "accept": "Прийняти",
-      "decline": "Відхилити"
+      "decline": "Відхилити",
+      "busyHint": "Ти в іншому дзвінку — відповідь завершить його",
+      "roomHint": "Відповідь виведе тебе з «{room}»",
+      "endAndAccept": "Завершити й відповісти",
+      "unavailable": "Цей дзвінок уже завершено",
+      "answeredElsewhere": "Відповідь на іншому пристрої",
+      "titleFlash": "Дзвінок від {name}"
     },
-    "outgoingCall": {
-      "title": "Дзвонимо…",
-      "description": "Чекаємо, поки {name} відповість",
-      "cancel": "Скасувати",
-      "declined": "{name} відхилив(-ла) дзвінок"
+    "callBanner": {
+      "calling": "Телефонуємо…",
+      "inCall": "Ти в цьому дзвінку",
+      "ongoing": "Триває дзвінок · {duration}",
+      "join": "Приєднатися"
     }
   },
   "blocks": {

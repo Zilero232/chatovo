@@ -5,7 +5,6 @@ import { useLocation, useNavigate } from '@tanstack/react-router';
 import { useState } from 'react';
 
 import { useToastError } from '@/entities/app/locale';
-import { useCloseWhenCallAccepted } from '@/entities/social/friend';
 import { getOrCreateFriendDmRoom } from '@/shared/api';
 import { QUERY_KEYS, ROUTES } from '@/shared/constants';
 import { useCloseWhenInVoiceRoom } from '@/shared/hooks';
@@ -67,7 +66,6 @@ export const useFriendChatSession = () => {
   };
 
   useCloseWhenInVoiceRoom(close);
-  useCloseWhenCallAccepted(close);
 
   return {
     session,

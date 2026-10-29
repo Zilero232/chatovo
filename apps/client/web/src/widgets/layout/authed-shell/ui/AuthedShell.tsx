@@ -6,8 +6,7 @@ import { AppSidebar } from '@/widgets/app/app-sidebar';
 import { MobileNav } from '@/widgets/layout/mobile-nav';
 import { ChannelsPanel } from '@/widgets/room/channels-panel';
 import { RoomSessionHost } from '@/widgets/room/room-session-host';
-import { IncomingCallDialog } from '@/widgets/social/incoming-call-dialog';
-import { OutgoingCallDialog } from '@/widgets/social/outgoing-call-dialog';
+import { IncomingCallCard } from '@/widgets/social/incoming-call-card';
 
 import type { AuthedShellProps } from './AuthedShell.types';
 
@@ -22,8 +21,7 @@ export const AuthedShell = ({ children }: AuthedShellProps) => {
   return (
     <div className={s.root}>
       <MobileNav open={mobileNavOpen} onOpenChange={toggleMobileNav} />
-      <IncomingCallDialog />
-      <OutgoingCallDialog />
+      <IncomingCallCard />
 
       <div className={s.shell}>
         {isDesktop && (

@@ -6,7 +6,9 @@ import {
   addParticipant,
   clearRoom,
   getAdminSnapshot,
+  getPresenceSnapshots,
   getSnapshot,
+  markDmRoom,
   patchParticipant
 } from '../presence-store';
 
@@ -88,5 +90,30 @@ describe('patchParticipant', () => {
     patchParticipant('room-b', 'stranger', { activity: 'Dota 2' });
 
     expect(readParticipant()?.activity).toBeNull();
+  });
+});
+
+describe('DM room presence', () => {
+  beforeEach(() => {
+    clearRoom('dm-room');
+  });
+
+  it('keeps a DM call out of the public and the staff snapshot', () => {
+    markDmRoom({ roomId: 'dm-room', memberIds: ['ann', 'bob'] });
+    addParticipant('dm-room', participant('ann'));
+
+    expect(getSnapshot().rooms).not.toHaveProperty('dm-room');
+    expect(getAdminSnapshot().rooms).not.toHaveProperty('dm-room');
+  });
+
+  it('hands the DM room over separately with its two members', () => {
+    markDmRoom({ roomId: 'dm-room', memberIds: ['ann', 'bob'] });
+    addParticipant('dm-room', participant('ann'));
+
+    expect(getPresenceSnapshots().dmRooms).toContainEqual({
+      roomId: 'dm-room',
+      memberIds: ['ann', 'bob'],
+      participants: [participant('ann')]
+    });
   });
 });

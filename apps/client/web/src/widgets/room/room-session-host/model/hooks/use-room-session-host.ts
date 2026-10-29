@@ -3,6 +3,8 @@ import { isNonNullish } from 'remeda';
 import { toast } from 'sonner';
 import { useTranslations } from 'use-intl';
 
+import type { RoomLeaveOptions } from '@/entities/room/session';
+
 import { useRoomSession } from '@/entities/room/session';
 import { ROUTES } from '@/shared/constants';
 import { buildRoomSearch } from '@/shared/lib';
@@ -18,10 +20,16 @@ export const useRoomSessionHost = () => {
   const isRoomRoute = pathname === ROUTES.room;
   const isExpanded = isRoomRoute && isNonNullish(session) && searchRoomId === session.roomId;
 
-  const leave = (roomId: string) => {
-    close(roomId);
+  const leave = (roomId: string, { isReplaced = false }: RoomLeaveOptions = {}) => {
+    const isOnRoomPage = isRoomRoute && searchRoomId === roomId;
 
-    if (isRoomRoute && searchRoomId === roomId) {
+    if (isReplaced) {
+      toast.info(t('movedToOtherDevice'), { id: `room-moved-${roomId}` });
+    }
+
+    close(roomId, { guardRejoin: isOnRoomPage });
+
+    if (isOnRoomPage) {
       navigate({ to: ROUTES.lobby, replace: true });
     }
   };

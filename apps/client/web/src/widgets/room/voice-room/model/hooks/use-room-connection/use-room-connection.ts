@@ -1,5 +1,4 @@
-import type { DisconnectReason } from 'livekit-client';
-
+import { DisconnectReason } from 'livekit-client';
 import { useRef } from 'react';
 
 import { getPublishDefaults, useAppSettings } from '@/entities/app/settings';
@@ -39,7 +38,7 @@ export const useRoomConnection = ({
     hasConnectedRef.current = false;
 
     if (hasConnected) {
-      onLeave();
+      onLeave({ isReplaced: reason === DisconnectReason.DUPLICATE_IDENTITY });
 
       return;
     }

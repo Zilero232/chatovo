@@ -1,8 +1,9 @@
-import type { UserRole } from '@chatovo/schemas';
+import type { ChatCallLog, UserRole } from '@chatovo/schemas';
 
 export type ChatLineStatus = 'failed' | 'sending';
 
 export type ChatLine = {
+  call?: ChatCallLog | null;
   deletedAt?: number | null;
   editedAt?: number | null;
   from?: {

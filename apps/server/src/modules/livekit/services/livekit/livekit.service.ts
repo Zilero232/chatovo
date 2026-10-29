@@ -20,6 +20,7 @@ import { AppConfigService } from '../../../../config/config.module';
 import { MIC_LOCKED_PUBLISH_SOURCES, TOKEN_TTL_SECONDS } from '../../../../config/livekit';
 import { PrismaService } from '../../../../core';
 import {
+  assertDmFriends,
   assertDmWithoutUserBlock,
   assertNotBlocked,
   assertNotRoomBanned,
@@ -56,6 +57,7 @@ export class LivekitService {
     const room = await this.loadAccessibleRoomOrThrow({ roomId, userId });
 
     await assertDmWithoutUserBlock({ roomId: room.id, userId });
+    await assertDmFriends({ roomId: room.id, userId });
 
     if (!hasPermission({ role, permission: 'bypassRoomBans' })) {
       await assertNotRoomBanned({ roomId: room.id, userId });

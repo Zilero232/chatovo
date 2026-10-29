@@ -206,6 +206,18 @@
       "minor": "Reguläres Release"
     },
     "entries": {
+      "callsRedone": {
+        "title": "Anrufe unter Freunden, richtig gemacht",
+        "description": "Ein Anruf bringt dich sofort ins Gespräch, die andere Seite bekommt eine Karte statt eines blockierenden Fensters, und Auflegen beendet ihn für beide. Bricht jemand weg, siehst du „verbindet neu“ und hast eine Minute zum Zurückkommen."
+      },
+      "callLog": {
+        "title": "Anrufe im Chatverlauf",
+        "description": "Jeder Anruf hinterlässt eine Zeile im Chat mit dem Freund — ausgehend, verpasst oder abgelehnt, mit Dauer und einem Zurückrufen-Knopf."
+      },
+      "browserFixes": {
+        "title": "Firefox und lesbare Benachrichtigungen",
+        "description": "Avatare teilen sich in Firefox nicht mehr in zwei Hälften, und Benachrichtigungen sind wieder lesbar statt schwarz."
+      },
       "staffRoles": {
         "title": "Moderatoren und eine klare Rollenhierarchie",
         "description": "Die neue Moderatorrolle bekommt den unsichtbaren Modus und Raummoderation ohne Admin-Panel. Jeder kann nur auf niedrigere Rollen einwirken, und den Inhaber kann niemand antasten."
@@ -884,6 +896,7 @@
       }
     },
     "highlights": {
+      "callsRedone": "Anrufe unter Freunden, richtig gemacht",
       "staffRoles": "Moderatoren und eine klare Rollenhierarchie",
       "invisibleReadOnly": "Der unsichtbare Modus bleibt wirklich unsichtbar",
       "playerVolume": "Musiklautstärke direkt im Player",

@@ -206,6 +206,18 @@
       "minor": "Versión regular"
     },
     "entries": {
+      "callsRedone": {
+        "title": "Llamadas entre amigos, bien hechas",
+        "description": "Llamar te mete directamente en la llamada, la otra persona recibe una tarjeta en vez de una ventana que bloquea, y colgar la termina para ambos. Si alguien se cae, ves «reconectando» y hay un minuto para volver."
+      },
+      "callLog": {
+        "title": "Las llamadas en el historial del chat",
+        "description": "Cada llamada deja una fila en el chat con tu amigo — saliente, perdida o rechazada, con su duración y un botón para devolverla."
+      },
+      "browserFixes": {
+        "title": "Firefox y notificaciones legibles",
+        "description": "Los avatares ya no se parten por la mitad en Firefox y las notificaciones vuelven a leerse en vez de verse negras."
+      },
       "staffRoles": {
         "title": "Moderadores y una jerarquía de roles clara",
         "description": "El nuevo rol de moderador tiene modo invisible y moderación de salas sin acceso al panel de administración. Cada uno solo puede actuar sobre roles inferiores, y nadie puede tocar al propietario."
@@ -884,6 +896,7 @@
       }
     },
     "highlights": {
+      "callsRedone": "Llamadas entre amigos, bien hechas",
       "staffRoles": "Moderadores y una jerarquía de roles clara",
       "invisibleReadOnly": "El modo invisible ahora es realmente invisible",
       "playerVolume": "El volumen de la música en el reproductor",

@@ -206,6 +206,18 @@
       "minor": "Normal sürüm"
     },
     "entries": {
+      "callsRedone": {
+        "title": "Arkadaş aramaları, olması gerektiği gibi",
+        "description": "Arama seni hemen görüşmeye alır, karşı taraf engelleyen bir pencere yerine bir kart görür ve kapatmak aramayı iki taraf için de bitirir. Biri düşerse “yeniden bağlanıyor” görünür ve geri dönmek için bir dakika vardır."
+      },
+      "callLog": {
+        "title": "Aramalar sohbet geçmişinde",
+        "description": "Her arama arkadaşınla sohbette bir satır bırakır — giden, cevapsız ya da reddedilen, süresi ve Geri ara düğmesiyle."
+      },
+      "browserFixes": {
+        "title": "Firefox ve okunur bildirimler",
+        "description": "Firefox'ta avatarlar artık ikiye bölünmüyor, bildirimler de siyah yerine yeniden okunuyor."
+      },
       "staffRoles": {
         "title": "Moderatörler ve net bir rol hiyerarşisi",
         "description": "Yeni moderatör rolü yönetim paneli olmadan görünmez mod ve oda moderasyonu alır. Herkes yalnızca kendinden alt rollere işlem yapabilir, sahibe kimse dokunamaz."
@@ -884,6 +896,7 @@
       }
     },
     "highlights": {
+      "callsRedone": "Arkadaş aramaları, olması gerektiği gibi",
       "staffRoles": "Moderatörler ve net bir rol hiyerarşisi",
       "invisibleReadOnly": "Görünmez mod artık gerçekten görünmez",
       "playerVolume": "Müzik ses düzeyi doğrudan oynatıcıda",

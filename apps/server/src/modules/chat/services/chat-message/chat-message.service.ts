@@ -14,6 +14,7 @@ import type {
   SendChatMessageInput
 } from './chat-message.service.types';
 
+import { MessageKind } from '../../../../../generated';
 import { AppForbiddenException, AppNotFoundException } from '../../../../common/exceptions';
 import { PrismaService } from '../../../../core';
 import {
@@ -89,11 +90,15 @@ export class ChatMessageService {
   private async getLiveMessageOrThrow(messageId: string) {
     const message = await this.prisma.message.findUnique({
       where: { id: messageId },
-      select: { id: true, senderId: true, roomId: true, deletedAt: true }
+      select: { id: true, senderId: true, roomId: true, deletedAt: true, kind: true }
     });
 
     if (!message || message.deletedAt) {
       throw new AppNotFoundException('MESSAGE_NOT_FOUND', 'Message not found');
+    }
+
+    if (message.kind === MessageKind.call) {
+      throw new AppForbiddenException('MESSAGE_NOT_EDITABLE', 'A call record cannot be changed');
     }
 
     return message;

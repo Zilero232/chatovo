@@ -8,9 +8,10 @@ import { RoomServiceClient, TrackSource } from 'livekit-server-sdk';
 import type { RemoveRoomParticipantInput, SetParticipantMicLockInput } from './livekit.types';
 
 import { MIC_LOCKED_PUBLISH_SOURCES } from '../../config/livekit';
+import { getRoomLabel } from '../../lib';
 import { isInvisibleParticipant } from './lib';
 import { toRoomParticipant } from './mappers';
-import { replaceRoom } from './presence-store';
+import { markDmRoom, replaceRoom } from './presence-store';
 
 export {
   addLobbyConnection,
@@ -18,8 +19,10 @@ export {
   clearRoom,
   findRoomParticipant,
   getAdminSnapshot,
+  getPresenceSnapshots,
   getSnapshot,
   hasRoomParticipants,
+  markDmRoom,
   patchParticipant,
   removeLobbyConnection,
   removeParticipant
@@ -72,7 +75,15 @@ export const isMicMuted = (tracks: TrackInfo[] | undefined): boolean => {
 
 export const syncRoom = async (roomId: string) => {
   try {
-    const live = await roomServiceClient().listParticipants(roomId);
+    const [live, label] = await Promise.all([
+      roomServiceClient().listParticipants(roomId),
+      getRoomLabel(roomId)
+    ]);
+
+    if (label.isDm) {
+      markDmRoom({ roomId, memberIds: label.dmMemberIds });
+    }
+
     const participants = new Map<string, RoomParticipant>(
       live.map((participant) => [
         participant.identity,

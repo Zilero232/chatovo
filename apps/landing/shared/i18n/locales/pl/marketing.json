@@ -206,6 +206,18 @@
       "minor": "Zwykłe wydanie"
     },
     "entries": {
+      "callsRedone": {
+        "title": "Rozmowy ze znajomymi, jak należy",
+        "description": "Połączenie od razu przenosi cię do rozmowy, druga osoba dostaje kartę zamiast blokującego okna, a rozłączenie kończy rozmowę u obojga. Gdy ktoś straci zasięg, widać „łączy ponownie” i jest minuta na powrót."
+      },
+      "callLog": {
+        "title": "Rozmowy w historii czatu",
+        "description": "Każda rozmowa zostawia wiersz w czacie ze znajomym — wychodząca, nieodebrana lub odrzucona, z czasem trwania i przyciskiem Oddzwoń."
+      },
+      "browserFixes": {
+        "title": "Firefox i czytelne powiadomienia",
+        "description": "Awatary w Firefoksie nie dzielą się już na pół, a powiadomienia znów są czytelne zamiast czarnych."
+      },
       "staffRoles": {
         "title": "Moderatorzy i jasna hierarchia ról",
         "description": "Nowa rola moderatora ma tryb niewidzialny i moderację pokojów bez dostępu do panelu admina. Każdy może działać tylko wobec niższych ról, a właściciela nikt nie może ruszyć."
@@ -884,6 +896,7 @@
       }
     },
     "highlights": {
+      "callsRedone": "Rozmowy ze znajomymi, jak należy",
       "staffRoles": "Moderatorzy i jasna hierarchia ról",
       "invisibleReadOnly": "Tryb niewidzialny jest naprawdę niewidoczny",
       "playerVolume": "Głośność muzyki w odtwarzaczu",

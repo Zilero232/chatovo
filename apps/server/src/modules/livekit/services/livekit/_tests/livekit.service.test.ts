@@ -12,7 +12,8 @@ vi.mock('../../../../../lib', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   assertNotBlocked: (userId: string) => assertNotBlocked(userId),
   assertNotRoomBanned: (input: unknown) => assertNotRoomBanned(input),
-  assertDmWithoutUserBlock: async () => {}
+  assertDmWithoutUserBlock: async () => {},
+  assertDmFriends: async () => {}
 }));
 
 vi.mock('../../../lib', () => ({

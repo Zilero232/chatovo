@@ -25,6 +25,7 @@ import { clearRoomMicLocks, isMicLocked } from '../../mic-lock-store';
 import {
   addParticipant,
   clearRoom,
+  markDmRoom,
   patchParticipant,
   removeParticipant,
   removeRoomParticipant,
@@ -71,9 +72,9 @@ export class WebhookService {
           await this.onParticipantJoined({ roomId, participant });
         }
       })
-      .with('participant_left', () => {
+      .with('participant_left', async () => {
         if (participant) {
-          this.onParticipantLeft({ roomId, participant });
+          await this.onParticipantLeft({ roomId, participant });
         }
       })
       .with('track_published', () => {
@@ -90,11 +91,12 @@ export class WebhookService {
         clearRoom(roomId);
         clearRoomMicLocks(roomId);
 
-        const { name: roomName } = await getRoomLabel(roomId);
+        const { name: roomName, isDm } = await getRoomLabel(roomId);
 
         this.events.emit(DomainEvent.VoiceEmptied, {
           roomId,
-          roomName
+          roomName,
+          isDm
         } satisfies VoiceEmptiedEvent);
       })
       .with('room_started', () => syncRoom(roomId))
@@ -111,6 +113,11 @@ export class WebhookService {
     }
 
     const invisible = isInvisibleParticipant(participant.metadata);
+    const { name: roomName, isDm, dmMemberIds } = await getRoomLabel(roomId);
+
+    if (isDm) {
+      markDmRoom({ roomId, memberIds: dmMemberIds });
+    }
 
     addParticipant(roomId, toRoomParticipant({ participant, invisible }));
 
@@ -122,8 +129,6 @@ export class WebhookService {
       return;
     }
 
-    const { name: roomName, isDm } = await getRoomLabel(roomId);
-
     this.events.emit(DomainEvent.VoiceJoined, {
       roomId,
       roomName,
@@ -133,7 +138,7 @@ export class WebhookService {
     } satisfies VoiceJoinedEvent);
   }
 
-  private onParticipantLeft({ roomId, participant }: ParticipantLeftInput) {
+  private async onParticipantLeft({ roomId, participant }: ParticipantLeftInput) {
     const { identity, metadata } = participant;
 
     removeParticipant(roomId, identity);
@@ -142,8 +147,11 @@ export class WebhookService {
       return;
     }
 
+    const { isDm } = await getRoomLabel(roomId);
+
     this.events.emit(DomainEvent.VoiceLeft, {
       roomId,
+      isDm,
       participantId: identity
     } satisfies VoiceLeftEvent);
   }

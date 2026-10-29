@@ -53,13 +53,19 @@
       "title": "Eingehender Anruf",
       "description": "{name} ruft dich an",
       "accept": "Annehmen",
-      "decline": "Ablehnen"
+      "decline": "Ablehnen",
+      "busyHint": "Du bist in einem anderen Anruf – Annehmen beendet ihn",
+      "roomHint": "Annehmen verlässt „{room}“",
+      "endAndAccept": "Beenden und annehmen",
+      "unavailable": "Dieser Anruf ist schon beendet",
+      "answeredElsewhere": "Auf einem anderen Gerät angenommen",
+      "titleFlash": "Anruf von {name}"
     },
-    "outgoingCall": {
-      "title": "Wird angerufen…",
-      "description": "Warte, bis {name} abnimmt",
-      "cancel": "Abbrechen",
-      "declined": "{name} hat den Anruf abgelehnt"
+    "callBanner": {
+      "calling": "Ruft an…",
+      "inCall": "Du bist in diesem Anruf",
+      "ongoing": "Laufender Anruf · {duration}",
+      "join": "Beitreten"
     }
   },
   "blocks": {

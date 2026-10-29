@@ -54,6 +54,7 @@
     "notFoundHint": "The owner deleted this room, or the link is out of date. Check the link or find the room in the lobby.",
     "backToLobby": "Back to lobby",
     "joinFailed": "Failed to join room",
+    "movedToOtherDevice": "The call continues on another device",
     "invite": {
       "copyLink": "Copy invite link",
       "linkCopied": "Invite link copied",
@@ -68,7 +69,9 @@
       "label": "Active room “{name}”",
       "inRoom": "You are in the room",
       "inCall": "You are in a call",
-      "connecting": "Connecting…"
+      "connecting": "Connecting…",
+      "calling": "Calling…",
+      "inCallFor": "In call · {duration}"
     },
     "music": {
       "label": "Room music",
@@ -245,11 +248,29 @@
       "sharingTitle": "You're sharing your screen",
       "sharingHint": "Your own preview is hidden so the screen doesn't repeat inside itself. Everyone else sees it."
     },
-    "dmWaiting": "Waiting for the other person to join…",
     "expandVideo": "Expand video",
     "collapseVideo": "Collapse video",
     "invisibleBadge": "Invisible",
     "invisibleNotice": "You joined hidden: nobody sees or hears you",
+    "dmCall": {
+      "waiting": "Waiting for the other person…",
+      "connecting": "Connecting to {name}…",
+      "calling": "Calling {name}…",
+      "ringing": "Ringing {name}…",
+      "peerBusy": "{name} is on another call — still ringing",
+      "peerLeft": "{name} disconnected · waiting {countdown}",
+      "peerReconnecting": "{name} is reconnecting…",
+      "ringAgain": "Ring again",
+      "ended": "Call ended",
+      "endedWithDuration": "Call ended · {duration}",
+      "declined": "{name} declined the call",
+      "noAnswer": "{name} did not answer",
+      "busy": "{name} is busy",
+      "cancelled": "Call cancelled",
+      "failed": "The call could not connect",
+      "stillInCall": "You're still in a call with {name}",
+      "rejoin": "Rejoin"
+    },
     "invisible": {
       "blocked": "You're in invisible mode",
       "blockedHint": "Microphone, camera, screen, reactions, chat and music are off so nobody notices you. Turn invisible mode off to take part.",
@@ -305,7 +326,19 @@
       "description": "Messages sent in this room appear here and stay for everyone who joins later. Drop a link, a file or just say hi."
     },
     "openInBrowser": "Open in browser",
-    "download": "Download"
+    "download": "Download",
+    "callLog": {
+      "outgoing": "Outgoing call",
+      "incoming": "Incoming call",
+      "missed": "Missed call",
+      "cancelled": "Cancelled call",
+      "declinedByPeer": "Call declined",
+      "declinedBySelf": "You declined the call",
+      "noAnswer": "No answer",
+      "busy": "Busy",
+      "failed": "Call failed",
+      "callBack": "Call back"
+    }
   },
   "channels": {
     "searchPlaceholder": "Search rooms...",

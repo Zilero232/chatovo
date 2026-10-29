@@ -53,13 +53,19 @@
       "title": "Входящий звонок",
       "description": "{name} звонит вам",
       "accept": "Принять",
-      "decline": "Отклонить"
+      "decline": "Отклонить",
+      "busyHint": "Вы в другом звонке — ответ завершит его",
+      "roomHint": "Ответ выведет вас из «{room}»",
+      "endAndAccept": "Завершить и ответить",
+      "unavailable": "Этот звонок уже завершён",
+      "answeredElsewhere": "Ответ на другом устройстве",
+      "titleFlash": "Звонок от {name}"
     },
-    "outgoingCall": {
-      "title": "Звоним…",
-      "description": "Ждём ответа от {name}",
-      "cancel": "Отменить",
-      "declined": "{name} отклонил звонок"
+    "callBanner": {
+      "calling": "Звоним…",
+      "inCall": "Вы в этом звонке",
+      "ongoing": "Идёт звонок · {duration}",
+      "join": "Присоединиться"
     }
   },
   "blocks": {

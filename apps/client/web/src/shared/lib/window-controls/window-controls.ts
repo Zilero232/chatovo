@@ -40,3 +40,11 @@ export const onMainWindowResized = async (handler: () => void) => {
     return () => {};
   }
 };
+
+/** Flashes the taskbar entry until the window is focused — for an incoming call while it is in the background. */
+export const requestMainWindowAttention = () =>
+  withWindow('requestUserAttention', async (appWindow) => {
+    const { UserAttentionType } = await import('@tauri-apps/api/window');
+
+    await appWindow.requestUserAttention(UserAttentionType.Critical);
+  });

@@ -206,6 +206,18 @@
       "minor": "Atualização regular"
     },
     "entries": {
+      "callsRedone": {
+        "title": "Chamadas entre amigos, do jeito certo",
+        "description": "Ligar já coloca você na chamada, a outra pessoa recebe um cartão em vez de uma janela que bloqueia, e desligar encerra para os dois. Se alguém cair, aparece “reconectando” e há um minuto para voltar."
+      },
+      "callLog": {
+        "title": "Chamadas no histórico do chat",
+        "description": "Cada chamada deixa uma linha no chat com o amigo — feita, perdida ou recusada, com a duração e um botão para retornar."
+      },
+      "browserFixes": {
+        "title": "Firefox e notificações legíveis",
+        "description": "Avatares não se dividem mais ao meio no Firefox, e as notificações voltam a ser legíveis em vez de pretas."
+      },
       "staffRoles": {
         "title": "Moderadores e uma hierarquia de funções clara",
         "description": "A nova função de moderador tem modo invisível e moderação de salas sem acesso ao painel de administração. Cada um só age sobre funções abaixo da sua, e ninguém toca no proprietário."
@@ -884,6 +896,7 @@
       }
     },
     "highlights": {
+      "callsRedone": "Chamadas entre amigos, do jeito certo",
       "staffRoles": "Moderadores e uma hierarquia de funções clara",
       "invisibleReadOnly": "O modo invisível agora é realmente invisível",
       "playerVolume": "Volume da música no próprio player",

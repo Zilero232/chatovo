@@ -1,5 +1,10 @@
-export { sendFriendRequestInputSchema } from './inputs';
+export { callIdParamSchema, sendFriendRequestInputSchema } from './inputs';
 export {
+  dmCallDirectionSchema,
+  dmCallEndReasonSchema,
+  dmCallsSnapshotSchema,
+  dmCallStateSchema,
+  dmCallViewSchema,
   friendCallStatusSchema,
   friendCallStreamSnapshotSchema,
   friendEntrySchema,
@@ -17,6 +22,12 @@ export {
 } from './outputs';
 
 export type {
+  CallIdParam,
+  DmCallDirection,
+  DmCallEndReason,
+  DmCallsSnapshot,
+  DmCallState,
+  DmCallView,
   FriendCallStatus,
   FriendCallStreamSnapshot,
   FriendEntry,

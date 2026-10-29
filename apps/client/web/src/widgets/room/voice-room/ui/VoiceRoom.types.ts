@@ -1,5 +1,7 @@
 import type { DisconnectReason } from 'livekit-client';
 
+import type { RoomLeaveOptions } from '@/entities/room/session';
+
 export type VoiceRoomProps = {
   initialChatOpen?: boolean;
   isDm?: boolean;
@@ -10,5 +12,5 @@ export type VoiceRoomProps = {
   token: string;
   onConnectFailure: (reason: DisconnectReason) => void;
   onExpand: () => void;
-  onLeave: () => void;
+  onLeave: (options?: RoomLeaveOptions) => void;
 };

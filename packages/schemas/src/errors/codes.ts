@@ -34,6 +34,9 @@ export const apiErrorCodeSchema = z.enum([
   'DM_NOT_FRIENDS',
 
   'CALL_ALREADY_RINGING',
+  'CALL_NOT_FOUND',
+  'CALL_ENDED',
+  'MESSAGE_NOT_EDITABLE',
 
   'INVISIBLE_READ_ONLY',
 

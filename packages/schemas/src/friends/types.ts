@@ -1,7 +1,12 @@
 import type { z } from 'zod';
 
-import type { sendFriendRequestInputSchema } from './inputs';
+import type { callIdParamSchema, sendFriendRequestInputSchema } from './inputs';
 import type {
+  dmCallDirectionSchema,
+  dmCallEndReasonSchema,
+  dmCallsSnapshotSchema,
+  dmCallStateSchema,
+  dmCallViewSchema,
   friendCallStatusSchema,
   friendCallStreamSnapshotSchema,
   friendEntrySchema,
@@ -27,3 +32,10 @@ export type OutgoingFriendCall = z.infer<typeof outgoingFriendCallSchema>;
 export type OutgoingFriendCallResponse = z.infer<typeof outgoingFriendCallResponseSchema>;
 export type SendFriendRequestInput = z.infer<typeof sendFriendRequestInputSchema>;
 export type UserBlockEntry = z.infer<typeof userBlockEntrySchema>;
+
+export type CallIdParam = z.infer<typeof callIdParamSchema>;
+export type DmCallDirection = z.infer<typeof dmCallDirectionSchema>;
+export type DmCallEndReason = z.infer<typeof dmCallEndReasonSchema>;
+export type DmCallState = z.infer<typeof dmCallStateSchema>;
+export type DmCallView = z.infer<typeof dmCallViewSchema>;
+export type DmCallsSnapshot = z.infer<typeof dmCallsSnapshotSchema>;

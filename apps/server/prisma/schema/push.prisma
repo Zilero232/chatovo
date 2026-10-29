@@ -4,6 +4,7 @@ model PushDevice {
   userId    String
   token     String   @unique
   platform  String
+  locale    String?
   
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 

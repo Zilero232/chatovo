@@ -1,7 +1,14 @@
+enum MessageKind {
+  text
+  call
+}
+
 model Message {
   id String @id @default(dbgenerated("gen_random_uuid()"))
 
   body String
+  kind MessageKind @default(text)
+  call Json?
   roomId String @map("room_id")
   senderId String? @map("sender_id")
 

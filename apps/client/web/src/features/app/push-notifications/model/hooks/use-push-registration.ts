@@ -7,7 +7,7 @@ import {
   register,
   requestPermissions
 } from 'tauri-plugin-fcm';
-import { useTranslations } from 'use-intl';
+import { useLocale, useTranslations } from 'use-intl';
 
 import { registerPushDevice } from '@/shared/api';
 import { isTauriMobile } from '@/shared/lib';
@@ -17,6 +17,7 @@ import { resolvePushPlatform } from '../../lib';
 
 export const usePushRegistration = (enabled: boolean): void => {
   const t = useTranslations('pushChannels');
+  const locale = useLocale();
 
   const createChannels = useEffectEvent(async () => {
     for (const { id, importance } of PUSH_CHANNELS) {
@@ -71,11 +72,11 @@ export const usePushRegistration = (enabled: boolean): void => {
         return;
       }
 
-      await registerPushDevice({ token, platform });
+      await registerPushDevice({ token, platform, locale });
 
       tokenListener = await onTokenRefresh(async (event) => {
         try {
-          await registerPushDevice({ token: event.token, platform });
+          await registerPushDevice({ token: event.token, platform, locale });
         } catch (error) {
           console.error('[push] failed to persist refreshed token', error);
         }
@@ -90,5 +91,5 @@ export const usePushRegistration = (enabled: boolean): void => {
       cancelled = true;
       void tokenListener?.unregister();
     };
-  }, [enabled]);
+  }, [enabled, locale]);
 };

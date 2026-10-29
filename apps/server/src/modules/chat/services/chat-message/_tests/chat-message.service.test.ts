@@ -84,6 +84,15 @@ describe('ChatMessageService.deleteMessage', () => {
     findUser.mockImplementation(rolesById({}));
   });
 
+  it('keeps a call record in the chat even for its own author', async () => {
+    findMessage.mockResolvedValueOnce({ ...MESSAGE, kind: 'call' });
+
+    expect(await codeOf(service().deleteMessage({ messageId: MESSAGE_ID, userId: AUTHOR }))).toBe(
+      'MESSAGE_NOT_EDITABLE'
+    );
+    expect(updateMessage).not.toHaveBeenCalled();
+  });
+
   it('lets the author delete their own message without being a moderator', async () => {
     await service().deleteMessage({ messageId: MESSAGE_ID, userId: AUTHOR });
 
@@ -235,6 +244,17 @@ describe('ChatMessageService.editMessage', () => {
         service().editMessage({ messageId: MESSAGE_ID, input: { body: 'edit' }, senderId: AUTHOR })
       )
     ).toBe('ROOM_BANNED');
+    expect(updateMessage).not.toHaveBeenCalled();
+  });
+
+  it('refuses to edit a call record, which the server writes', async () => {
+    findMessage.mockResolvedValueOnce({ ...MESSAGE, kind: 'call' });
+
+    expect(
+      await codeOf(
+        service().editMessage({ messageId: MESSAGE_ID, input: { body: 'edit' }, senderId: AUTHOR })
+      )
+    ).toBe('MESSAGE_NOT_EDITABLE');
     expect(updateMessage).not.toHaveBeenCalled();
   });
 

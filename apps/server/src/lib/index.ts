@@ -6,6 +6,8 @@ export type { AssertCanModerateRoomInput } from './assert-can-moderate-room';
 export { assertCanModerateRoom } from './assert-can-moderate-room';
 export type { AssertCanViewRoomInput } from './assert-can-view-room';
 export { assertCanViewRoom } from './assert-can-view-room';
+export type { AssertDmFriendsInput } from './assert-dm-friends';
+export { assertDmFriends } from './assert-dm-friends';
 export type { AssertDmWithoutUserBlockInput } from './assert-dm-without-user-block';
 export { assertDmWithoutUserBlock } from './assert-dm-without-user-block';
 export { assertIsAdmin } from './assert-is-admin';

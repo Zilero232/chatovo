@@ -1,0 +1,50 @@
+@use '@chatovo/ui-kit/styles/functions' as *;
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  gap: var(--space-4);
+  inset: 0;
+  text-align: center;
+}
+
+.avatar {
+  width: 6rem;
+  height: 6rem;
+}
+
+.ring {
+  display: flex;
+  border-radius: 9999px;
+  box-shadow: 0 0 0 rem(4) color-mix(in srgb, var(--brand-violet) 25%, transparent);
+
+  &[data-pulsing] {
+    animation: dm-call-ring 1.6s ease-in-out infinite;
+
+    @include reduced-motion {
+      animation: none;
+    }
+  }
+}
+
+@keyframes dm-call-ring {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rem(4) color-mix(in srgb, var(--brand-violet) 25%, transparent);
+  }
+
+  50% {
+    box-shadow: 0 0 0 rem(14) color-mix(in srgb, var(--brand-violet) 6%, transparent);
+  }
+}
+
+.status {
+  max-width: 22rem;
+  font-size: 0.9375rem;
+  font-variant-numeric: tabular-nums;
+}

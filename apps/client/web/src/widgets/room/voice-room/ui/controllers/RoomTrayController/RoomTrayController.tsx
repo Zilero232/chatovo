@@ -1,4 +1,4 @@
-import { useConnectionState, useLocalParticipant, useRoomContext } from '@livekit/components-react';
+import { useConnectionState, useLocalParticipant } from '@livekit/components-react';
 import { ConnectionState } from 'livekit-client';
 import { isNullish } from 'remeda';
 import { toast } from 'sonner';
@@ -10,7 +10,7 @@ import type { TrayAction } from '@/features/app/system-tray';
 import { useAppSettings } from '@/entities/app/settings';
 import { useInvisibleGuard } from '@/entities/room/room';
 import { useTrayBridge } from '@/features/app/system-tray';
-import { useDeafen } from '@/features/room/room-control';
+import { useDeafen, useLeaveRoom } from '@/features/room/room-control';
 import { isTauriDesktop } from '@/shared/lib';
 
 import type { RoomTrayControllerProps } from './RoomTrayController.types';
@@ -21,10 +21,10 @@ export const RoomTrayController = ({ roomName }: RoomTrayControllerProps) => {
   const t = useTranslations('tray');
   const tControls = useTranslations('room.controls');
 
-  const room = useRoomContext();
   const connectionState = useConnectionState();
   const { localParticipant, isMicrophoneEnabled } = useLocalParticipant();
   const { isDeafened, toggle: toggleDeafen } = useDeafen();
+  const leave = useLeaveRoom();
   const { settings } = useAppSettings();
   const { blockIfInvisible } = useInvisibleGuard();
 
@@ -57,7 +57,7 @@ export const RoomTrayController = ({ roomName }: RoomTrayControllerProps) => {
       })
       .with('leaveRoom', async () => {
         if (isInRoom) {
-          await room.disconnect();
+          leave();
         }
       })
       .otherwise(async () => {});

@@ -1,31 +1,28 @@
 import { Button } from '@chatovo/ui-kit';
 import { ArrowLeft, Phone } from 'lucide-react';
+import { AnimatePresence } from 'motion/react';
 import { useTranslations } from 'use-intl';
 
-import { useToastError } from '@/entities/app/locale';
 import { useCurrentUser, UserAvatar, UserName } from '@/entities/auth/user';
-import { useCallFriend } from '@/entities/social/friend';
 import { useFriendChat } from '@/features/social/friend-chat';
 import { ChatConversation, ChatLoadingSkeleton } from '@/widgets/chat/chat-panel';
 
 import type { FriendChatPanelProps } from './FriendChatPanel.types';
 
+import { useFriendCall } from '../model/hooks';
+import { FriendCallBanner } from './components';
+
 import s from './FriendChatPanel.module.scss';
 
 export const FriendChatPanel = ({ peer }: FriendChatPanelProps) => {
   const t = useTranslations('friends');
-  const toastError = useToastError();
 
   const { user } = useCurrentUser();
   const { session, isOpening, close } = useFriendChat();
-  const callFriend = useCallFriend();
+  const call = useFriendCall(peer.id);
 
   const roomId = session?.roomId ?? null;
   const currentUserId = user?.id ?? '';
-
-  const handleCall = () => {
-    callFriend.mutate({ userId: peer.id }, { onError: toastError(`friend-call-${peer.id}`) });
-  };
 
   return (
     <section className={s.root}>
@@ -50,21 +47,27 @@ export const FriendChatPanel = ({ peer }: FriendChatPanelProps) => {
 
         <Button
           aria-label={t('callFriend')}
-          disabled={callFriend.isPending || isOpening || !roomId}
+          disabled={call.isStarting || call.status !== 'idle' || isOpening || !roomId}
           size='icon-sm'
           type='button'
           variant='ghost'
-          onClick={handleCall}
+          onClick={call.start}
         >
           <Phone />
         </Button>
       </header>
 
+      <AnimatePresence initial={false}>
+        {call.status !== 'idle' && (
+          <FriendCallBanner duration={call.duration} status={call.status} onJoin={call.join} />
+        )}
+      </AnimatePresence>
+
       <div className={s.body}>
         {isOpening || !roomId ? (
           <ChatLoadingSkeleton />
         ) : (
-          <ChatConversation currentUserId={currentUserId} roomId={roomId} />
+          <ChatConversation currentUserId={currentUserId} peerId={peer.id} roomId={roomId} />
         )}
       </div>
     </section>

@@ -53,13 +53,19 @@
       "title": "Llamada entrante",
       "description": "{name} te está llamando",
       "accept": "Aceptar",
-      "decline": "Rechazar"
+      "decline": "Rechazar",
+      "busyHint": "Estás en otra llamada; contestar la terminará",
+      "roomHint": "Contestar te saca de «{room}»",
+      "endAndAccept": "Colgar y contestar",
+      "unavailable": "Esta llamada ya terminó",
+      "answeredElsewhere": "Contestada en otro dispositivo",
+      "titleFlash": "Llamada de {name}"
     },
-    "outgoingCall": {
-      "title": "Llamando…",
-      "description": "Esperando a que {name} responda",
-      "cancel": "Cancelar",
-      "declined": "{name} rechazó la llamada"
+    "callBanner": {
+      "calling": "Llamando…",
+      "inCall": "Estás en esta llamada",
+      "ongoing": "Llamada en curso · {duration}",
+      "join": "Unirse"
     }
   },
   "blocks": {

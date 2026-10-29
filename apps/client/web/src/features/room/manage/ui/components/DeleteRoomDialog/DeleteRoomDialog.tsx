@@ -30,7 +30,7 @@ export const DeleteRoomDialog = ({ room, open, onOpenChange }: DeleteRoomDialogP
           description: `"${room.name}"`
         });
         onOpenChange(false);
-        close(room.id);
+        close(room.id, { guardRejoin: search.id === room.id });
 
         if (search.id === room.id) {
           navigate({ to: ROUTES.lobby, replace: true });

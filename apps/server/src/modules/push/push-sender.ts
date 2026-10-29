@@ -1,12 +1,20 @@
-import type { ChatMessage, FriendUser } from '@chatovo/schemas';
+import type { ChatMessage } from '@chatovo/schemas';
 
 import { PUSH_LINKS } from '@chatovo/schemas';
 
-import type { SendPushToUserInput } from './push.types';
+import type { PushLocale } from './config';
+import type {
+  IncomingCallPushInput,
+  MissedCallPushInput,
+  PushNotificationText,
+  SendPushToUserInput
+} from './push.types';
 
 import { basePrisma as prisma } from '../../core';
 import { hasActiveUserConnection } from '../realtime';
+import { CALL_PUSH_TEXT, CALL_PUSH_TTL_MS } from './config';
 import { sendPushToTokens } from './firebase-client';
+import { resolvePushLocale } from './lib';
 
 const PREVIEW_MAX = 120;
 
@@ -26,12 +34,23 @@ const pruneInvalidTokens = async (tokens: string[]): Promise<void> => {
   await prisma.pushDevice.deleteMany({ where: { token: { in: tokens } } });
 };
 
+const groupTokensByLocale = (devices: { token: string; locale: string | null }[]) => {
+  const groups = new Map<PushLocale, string[]>();
+
+  for (const { token, locale } of devices) {
+    const key = resolvePushLocale(locale);
+
+    groups.set(key, [...(groups.get(key) ?? []), token]);
+  }
+
+  return groups;
+};
+
 const sendToUser = async ({
   userId,
   notification,
-  data,
-  channelId,
-  force
+  force,
+  ...delivery
 }: SendPushToUserInput): Promise<void> => {
   if (!force && hasActiveUserConnection(userId)) {
     return;
@@ -39,18 +58,29 @@ const sendToUser = async ({
 
   const devices = await prisma.pushDevice.findMany({
     where: { userId },
-    select: { token: true }
+    select: { token: true, locale: true }
   });
 
   if (devices.length === 0) {
     return;
   }
 
-  const tokens = devices.map((device) => device.token);
-  const invalidTokens = await sendPushToTokens({ tokens, notification, data, channelId });
+  const sent = await Promise.all(
+    [...groupTokensByLocale(devices)].map(([locale, tokens]) =>
+      sendPushToTokens({
+        ...delivery,
+        tokens,
+        notification: typeof notification === 'function' ? notification(locale) : notification
+      })
+    )
+  );
 
-  await pruneInvalidTokens(invalidTokens);
+  await pruneInvalidTokens(sent.flat());
 };
+
+const callText =
+  (title: string, pick: (text: (typeof CALL_PUSH_TEXT)[PushLocale]) => string) =>
+  (locale: PushLocale): PushNotificationText => ({ title, body: pick(CALL_PUSH_TEXT[locale]) });
 
 export const sendDmMessagePush = async (input: {
   recipientId: string;
@@ -78,23 +108,47 @@ export const sendDmMessagePush = async (input: {
   });
 };
 
-export const sendIncomingCallPush = async (input: {
-  calleeId: string;
-  caller: FriendUser;
-  roomId: string;
-}): Promise<void> => {
-  const { calleeId, caller, roomId } = input;
-
+export const sendIncomingCallPush = async ({
+  callId,
+  calleeId,
+  caller,
+  roomId
+}: IncomingCallPushInput): Promise<void> => {
   await sendToUser({
     userId: calleeId,
-    notification: { title: caller.name, body: 'Incoming call' },
+    notification: callText(caller.name, (text) => text.incoming),
     data: {
       type: 'incoming_call',
+      callId,
       roomId,
       callerId: caller.id,
-      link: PUSH_LINKS.lobby
+      link: PUSH_LINKS.friendChat(caller.id)
     },
     channelId: 'calls',
+    tag: callId,
+    ttlMs: CALL_PUSH_TTL_MS,
+    force: true
+  });
+};
+
+export const sendMissedCallPush = async ({
+  callId,
+  calleeId,
+  caller,
+  roomId
+}: MissedCallPushInput): Promise<void> => {
+  await sendToUser({
+    userId: calleeId,
+    notification: callText(caller.name, (text) => text.missed),
+    data: {
+      type: 'missed_call',
+      callId,
+      roomId,
+      callerId: caller.id,
+      link: PUSH_LINKS.friendChat(caller.id)
+    },
+    channelId: 'messages',
+    tag: callId,
     force: true
   });
 };

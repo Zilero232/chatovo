@@ -9,12 +9,12 @@ export class PushService {
   constructor(private readonly prisma: PrismaService) {}
 
   async registerPushDevice({ userId, input }: RegisterDeviceInput): Promise<void> {
-    const { token, platform } = input;
+    const { token, platform, locale } = input;
 
     await this.prisma.pushDevice.upsert({
       where: { token },
-      create: { userId, token, platform },
-      update: { userId, platform }
+      create: { userId, token, platform, locale },
+      update: { userId, platform, ...(locale === undefined ? {} : { locale }) }
     });
   }
 

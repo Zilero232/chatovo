@@ -10,7 +10,7 @@ import { AppBadRequestException } from '../../../../common/exceptions';
 import { PrismaService } from '../../../../core';
 import { getUserWithProfileOrThrow } from '../../../../lib';
 import { removeRoomParticipant } from '../../../livekit';
-import { bumpFriendsEpoch, clearCallsBetween } from '../../call-store';
+import { bumpFriendsEpoch, endCallsBetween } from '../../call-store';
 import { toUserBlockEntry, userBlockInclude } from '../../mappers';
 
 @Injectable()
@@ -52,7 +52,7 @@ export class BlockService {
 
     const affectedUserIds = removed.count > 0 ? [userId, otherUserId] : [userId];
 
-    clearCallsBetween({ userId, otherUserId });
+    endCallsBetween({ userId, otherUserId });
     bumpFriendsEpoch(...affectedUserIds);
 
     await this.endDmCall({ userId, otherUserId });

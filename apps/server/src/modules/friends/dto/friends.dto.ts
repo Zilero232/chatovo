@@ -1,4 +1,6 @@
 import {
+  callIdParamSchema,
+  dmCallViewSchema,
   friendListSchema,
   friendRequestListSchema,
   friendUserSchema,
@@ -10,6 +12,10 @@ import {
   userBlockListSchema
 } from '@chatovo/schemas';
 import { createZodDto } from 'nestjs-zod';
+
+export class CallIdParamDto extends createZodDto(callIdParamSchema) {}
+
+export class DmCallViewDto extends createZodDto(dmCallViewSchema) {}
 
 export class SendFriendRequestDto extends createZodDto(sendFriendRequestInputSchema) {}
 

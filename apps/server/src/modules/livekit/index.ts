@@ -8,6 +8,7 @@ export {
   ejectParticipantEverywhere,
   findRoomParticipant,
   getAdminSnapshot,
+  getPresenceSnapshots,
   getSnapshot,
   hasRoomParticipants,
   removeLobbyConnection,

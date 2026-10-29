@@ -3,6 +3,8 @@ export { type ConnectionRtt, useConnectionRtt } from './use-connection-rtt';
 export { useCopyInviteLink } from './use-copy-invite-link';
 export { useCurrentRoomId } from './use-current-room-id';
 export { useDeviceSync } from './use-device-sync';
+export { useDmCallLabel } from './use-dm-call-label';
+export { useDmStage } from './use-dm-stage';
 export { useMicActivationMode } from './use-mic-activation-mode';
 export { useParticipantAudioControls } from './use-participant-audio-controls';
 export { useParticipantAudioLevel } from './use-participant-audio-level';
