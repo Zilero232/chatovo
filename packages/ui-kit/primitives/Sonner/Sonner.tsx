@@ -33,6 +33,7 @@ const Toaster = ({ ...props }: ToasterProps) => {
 
   return (
     <Sonner
+      expand
       icons={{
         success: <CircleCheckIcon className={s.iconSize} />,
         info: <InfoIcon className={s.iconSize} />,

@@ -3,7 +3,7 @@
 @use '@chatovo/ui-kit/styles/keyframes';
 
 .toaster {
-  :global(.group) {
+  &:global([data-sonner-toaster][data-sonner-theme]) {
     --normal-bg: var(--surface-overlay);
     --normal-text: var(--popover-foreground);
     --normal-border: var(--glass-border);
