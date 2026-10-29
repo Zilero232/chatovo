@@ -12,6 +12,8 @@ export {
   useCreateRoom,
   useDeleteRoom,
   useEnterRoom,
+  useInvisibleGuard,
+  useIsInvisible,
   useRecentRooms,
   useRoomById,
   useRoomParticipants,

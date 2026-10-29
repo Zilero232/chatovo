@@ -5,6 +5,8 @@ import type {
   AdminUserMessage
 } from '@chatovo/schemas';
 
+import { toUserRole } from '@chatovo/schemas';
+
 import type { AbuseReport, Prisma } from '../../../generated';
 
 import { hasUserConnection } from '../realtime';
@@ -53,8 +55,9 @@ export const toAdminUser = (user: AdminUserRow): AdminUser => ({
   avatarUrl: user.profile?.avatarUrl ?? null,
   bio: user.profile?.bio ?? null,
   profileUrl: user.profile?.profileUrl ?? null,
-  role: user.role,
+  role: toUserRole(user.role),
   verified: user.verified,
+  developer: user.developer,
   emailVerified: user.emailVerified,
   blockedAt: user.bannedAt?.toISOString() ?? null,
   blockedReason: user.banReason,

@@ -19,6 +19,22 @@
       animation: none;
     }
   }
+
+  :global([data-sonner-toast][data-styled='true']) .actionButton {
+    height: rem(28);
+    border-radius: var(--radius-md);
+    background: var(--primary);
+    color: var(--primary-foreground);
+    font-weight: 600;
+    padding-inline: var(--space-3);
+    transition: background-color var(--duration-fast) var(--timing-function-standard);
+
+    @include focus-ring;
+
+    &:hover {
+      background: var(--primary-hover);
+    }
+  }
 }
 
 @keyframes toast-enter {

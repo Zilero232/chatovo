@@ -4,6 +4,7 @@ import type { RealtimeConnection } from '../../realtime.types';
 
 const emitRoomEvent = vi.fn();
 const patchParticipant = vi.fn();
+const isInvisibleInRoom = vi.fn();
 const setConnectionRooms = vi.fn();
 const filterAccessibleRooms = vi.fn();
 
@@ -13,6 +14,10 @@ vi.mock('../../emit', () => ({
 
 vi.mock('../../../livekit/presence', () => ({
   patchParticipant: (...args: unknown[]) => patchParticipant(...args)
+}));
+
+vi.mock('../../../livekit', () => ({
+  isInvisibleInRoom: (input: unknown) => isInvisibleInRoom(input)
 }));
 
 vi.mock('../../connection-store', () => ({
@@ -27,11 +32,11 @@ const { handleClientMessage } = await import('../client-message');
 
 const ROOM_ID = '11111111-1111-4111-8111-111111111111';
 
-const connectionOf = (isAdmin: boolean, rooms: string[]): RealtimeConnection =>
+const connectionOf = (canSeeInvisible: boolean, rooms: string[]): RealtimeConnection =>
   ({
     id: 'connection-1',
     isActive: true,
-    isAdmin,
+    canSeeInvisible,
     isAlive: true,
     rooms: new Set(rooms),
     userId: 'user-1',
@@ -42,6 +47,7 @@ describe('handleClientMessage', () => {
   beforeEach(() => {
     emitRoomEvent.mockReset();
     patchParticipant.mockReset();
+    isInvisibleInRoom.mockReset().mockReturnValue(false);
     setConnectionRooms.mockReset();
     filterAccessibleRooms.mockReset().mockResolvedValue([]);
   });
@@ -58,6 +64,17 @@ describe('handleClientMessage', () => {
       emoji: '🔥',
       senderId: 'user-1'
     });
+  });
+
+  it('swallows a reaction from an admin sitting invisibly in the room', async () => {
+    isInvisibleInRoom.mockReturnValueOnce(true);
+
+    await handleClientMessage(
+      connectionOf(true, [ROOM_ID]),
+      JSON.stringify({ op: 'room.reaction', roomId: ROOM_ID, emoji: '🔥' })
+    );
+
+    expect(emitRoomEvent).not.toHaveBeenCalled();
   });
 
   it('subscribes only to the rooms the access filter keeps, so a banned room is left out', async () => {

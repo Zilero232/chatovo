@@ -13,6 +13,7 @@ const user = {
   image: null,
   role: 'user',
   verified: false,
+  developer: false,
   banned: false,
   banReason: null,
   banExpires: null,

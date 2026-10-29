@@ -19,6 +19,7 @@ const participant = (identity: string, invisible = false): RoomParticipant => ({
   activity: null,
   verified: false,
   developer: false,
+  role: 'user',
   profileUrl: null,
   avatarUrl: null,
   bannerColor: null

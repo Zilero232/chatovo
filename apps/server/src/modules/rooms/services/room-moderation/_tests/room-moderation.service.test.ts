@@ -65,7 +65,7 @@ const target = (targetId: string) => ({ roomId: ROOM_ID, userId: OWNER, targetId
 describe('RoomModerationService', () => {
   beforeEach(() => {
     vi.clearAllMocks();
-    assertCanModerateRoom.mockResolvedValue(ROOM);
+    assertCanModerateRoom.mockResolvedValue({ room: ROOM, role: 'user' });
     findUser.mockResolvedValue({ role: 'user' });
     upsertBan.mockResolvedValue({});
     removeRoomParticipant.mockResolvedValue(undefined);

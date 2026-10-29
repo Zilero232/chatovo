@@ -1,6 +1,16 @@
 import { z } from 'zod';
 
-export const userRoleSchema = z.enum(['admin', 'user']);
+export const userRoleSchema = z.enum(['owner', 'admin', 'moderator', 'user']);
+
+export const permissionSchema = z.enum([
+  'adminPanel',
+  'manageRoles',
+  'blockUsers',
+  'moderateAnyRoom',
+  'invisible',
+  'seeInvisible',
+  'bypassRoomBans'
+]);
 
 export const USER_ROLE = userRoleSchema.enum;
 

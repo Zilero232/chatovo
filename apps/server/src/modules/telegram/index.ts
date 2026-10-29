@@ -4,7 +4,6 @@ export {
   notifyRoomCreated,
   notifyRoomDeleted,
   notifyUserBlocked,
-  notifyUserSignup,
-  notifyVoiceEmpty,
-  notifyVoiceJoin
+  notifyUserSignup
 } from './telegram.notifications';
+export { notifyVoiceEmpty, notifyVoiceJoin, notifyVoiceLeave } from './voice-sessions';

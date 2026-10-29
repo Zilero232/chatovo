@@ -1,6 +1,6 @@
 import type { ParticipantMetadata, TokenResponse } from '@chatovo/schemas';
 
-import { USER_ROLE } from '@chatovo/schemas';
+import { hasPermission, toUserRole } from '@chatovo/schemas';
 import { Injectable } from '@nestjs/common';
 import { AccessToken } from 'livekit-server-sdk';
 import { isNullish } from 'remeda';
@@ -47,14 +47,17 @@ export class LivekitService {
 
     const user = await this.loadUserOrThrow(userId);
 
-    const isAdmin = user.role === USER_ROLE.admin;
-    const isInvisible = resolveInvisible({ requested: invisible, isAdmin });
+    const role = toUserRole(user.role);
+    const isInvisible = resolveInvisible({
+      requested: invisible,
+      canBeInvisible: hasPermission({ role, permission: 'invisible' })
+    });
 
     const room = await this.loadAccessibleRoomOrThrow({ roomId, userId });
 
     await assertDmWithoutUserBlock({ roomId: room.id, userId });
 
-    if (!isAdmin) {
+    if (!hasPermission({ role, permission: 'bypassRoomBans' })) {
       await assertNotRoomBanned({ roomId: room.id, userId });
     }
 
@@ -62,9 +65,9 @@ export class LivekitService {
       await assertRoomAccess({ room, userId, password });
     }
 
-    grantRoomAccess(room.id, userId);
+    grantRoomAccess({ roomId: room.id, userId, isHidden: isInvisible });
 
-    const token = await this.buildAccessToken({ user, roomId: room.id, isAdmin, isInvisible });
+    const token = await this.buildAccessToken({ user, roomId: room.id, role, isInvisible });
 
     return { token };
   }
@@ -96,7 +99,7 @@ export class LivekitService {
     return room;
   }
 
-  private async buildAccessToken({ user, roomId, isAdmin, isInvisible }: BuildAccessTokenInput) {
+  private async buildAccessToken({ user, roomId, role, isInvisible }: BuildAccessTokenInput) {
     const { name, verified, developer, profileUrl, avatarUrl, bannerColor } = toUserProfile(user);
     const isMicLockedByModerator = !isInvisible && isMicLocked({ roomId, userId: user.id });
 
@@ -106,6 +109,7 @@ export class LivekitService {
       profileUrl,
       avatarUrl,
       bannerColor,
+      role,
       invisible: isInvisible
     } satisfies ParticipantMetadata & { invisible: boolean };
 
@@ -128,7 +132,7 @@ export class LivekitService {
       canSubscribe: true,
       canPublishData: !isInvisible,
       canUpdateOwnMetadata: true,
-      roomAdmin: isAdmin,
+      roomAdmin: hasPermission({ role, permission: 'moderateAnyRoom' }),
       hidden: isInvisible
     });
 

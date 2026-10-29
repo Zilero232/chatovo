@@ -5,7 +5,7 @@ import { toast } from 'sonner';
 import { useTranslations } from 'use-intl';
 
 import { useAppSettings } from '@/entities/app/settings';
-import { isMicLocked } from '@/entities/room/room';
+import { isMicLocked, useInvisibleGuard } from '@/entities/room/room';
 import { appEvents, isTauriDesktop, toggleMicStream } from '@/shared/lib';
 
 import { toggleMicrophone } from '../../lib';
@@ -13,6 +13,7 @@ import { toggleMicrophone } from '../../lib';
 export const useShortcutActions = () => {
   const { localParticipant } = useLocalParticipant();
   const { settings } = useAppSettings();
+  const { blockIfInvisible } = useInvisibleGuard();
   const t = useTranslations('room.shortcuts');
   const tControls = useTranslations('room.controls');
 
@@ -23,6 +24,10 @@ export const useShortcutActions = () => {
 
   appEvents.on.muteToggle(async () => {
     if (!enabled) {
+      return;
+    }
+
+    if (blockIfInvisible()) {
       return;
     }
 
@@ -48,6 +53,10 @@ export const useShortcutActions = () => {
       appEvents.emit.pttHold(payload);
       toggleMicStream(localParticipant, false);
 
+      return;
+    }
+
+    if (blockIfInvisible()) {
       return;
     }
 

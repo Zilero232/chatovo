@@ -8,6 +8,7 @@ import { useTranslations } from 'use-intl';
 import type { TrayAction } from '@/features/app/system-tray';
 
 import { useAppSettings } from '@/entities/app/settings';
+import { useInvisibleGuard } from '@/entities/room/room';
 import { useTrayBridge } from '@/features/app/system-tray';
 import { useDeafen } from '@/features/room/room-control';
 import { isTauriDesktop } from '@/shared/lib';
@@ -25,6 +26,7 @@ export const RoomTrayController = ({ roomName }: RoomTrayControllerProps) => {
   const { localParticipant, isMicrophoneEnabled } = useLocalParticipant();
   const { isDeafened, toggle: toggleDeafen } = useDeafen();
   const { settings } = useAppSettings();
+  const { blockIfInvisible } = useInvisibleGuard();
 
   const isPtt = settings.audio.activationMode === 'pushToTalk';
   const isInRoom = isTauriDesktop() && !isNullish(localParticipant);
@@ -41,7 +43,7 @@ export const RoomTrayController = ({ roomName }: RoomTrayControllerProps) => {
   const handleAction = (action: TrayAction) => {
     void match(action)
       .with('toggleMute', async () => {
-        if (isInRoom) {
+        if (isInRoom && !blockIfInvisible()) {
           await toggleMicrophone({
             localParticipant,
             isPtt,

@@ -4,6 +4,7 @@ export type ChatMessageItemProps = {
   canManage: boolean;
   isGrouped: boolean;
   isOwn: boolean;
+  isReadOnly: boolean;
   isTail: boolean;
   message: ChatLine;
   onDelete: (id: string) => void;

@@ -206,6 +206,42 @@
       "minor": "Versión regular"
     },
     "entries": {
+      "staffRoles": {
+        "title": "Moderadores y una jerarquía de roles clara",
+        "description": "El nuevo rol de moderador tiene modo invisible y moderación de salas sin acceso al panel de administración. Cada uno solo puede actuar sobre roles inferiores, y nadie puede tocar al propietario."
+      },
+      "invisibleReadOnly": {
+        "title": "El modo invisible ahora es realmente invisible",
+        "description": "En modo invisible puedes escuchar y leer, pero el micrófono, la cámara, la pantalla, las reacciones, el chat y la música quedan bloqueados, con un aviso claro y un botón para desactivarlo."
+      },
+      "invisiblePassword": {
+        "title": "Las salas privadas piden la contraseña al aparecer",
+        "description": "Entrar en invisible en una sala cerrada ya no evita su contraseña: para aparecer en ella, introdúcela o sigue invisible."
+      },
+      "roleProtection": {
+        "title": "Los roles solo cambian desde el panel",
+        "description": "Se desactivaron las rutas alternativas que permitían asignar roles o entrar como otra persona; cada cambio de rol sigue la jerarquía."
+      },
+      "telegramLive": {
+        "title": "Un mensaje vivo de Telegram por conversación",
+        "description": "En lugar de una línea por cada entrada, el canal recibe un mensaje que se actualiza con quién está, su estado y la música, y termina con la duración y el tiempo de cada uno."
+      },
+      "dmCallsPrivate": {
+        "title": "Las llamadas privadas siguen siendo privadas",
+        "description": "Las llamadas entre amigos ya no aparecen en el canal de Telegram."
+      },
+      "playInRoom": {
+        "title": "Un botón «Reproducir en la sala» más cuidado",
+        "description": "Los enlaces de música en el chat tienen un botón compacto con el servicio y la confirmación de que la pista está en cola."
+      },
+      "hangUp": {
+        "title": "Un botón de colgar más claro",
+        "description": "Salir de una llamada es ahora un botón rojo de colgar que se distingue del resto."
+      },
+      "mobileCards": {
+        "title": "Tarjetas de participantes más altas en el móvil",
+        "description": "En pantallas estrechas las tarjetas ocupan la altura libre en vez de encogerse en franjas finas."
+      },
       "playerVolume": {
         "title": "El volumen de la música en el reproductor",
         "description": "El control de volumen está en la barra del reproductor y en la barra de música. Solo cambia el sonido para ti, y un único control sustituye a los de cada persona."
@@ -848,6 +884,8 @@
       }
     },
     "highlights": {
+      "staffRoles": "Moderadores y una jerarquía de roles clara",
+      "invisibleReadOnly": "El modo invisible ahora es realmente invisible",
       "playerVolume": "El volumen de la música en el reproductor",
       "noSkipForAll": "El problema de uno ya no salta la pista",
       "musicPerPerson": "Volumen de música para cada persona",

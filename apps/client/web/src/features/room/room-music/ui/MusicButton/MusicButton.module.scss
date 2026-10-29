@@ -8,6 +8,11 @@
     @include round-trigger-accent(var(--brand-coral));
   }
 
+  &[data-locked] {
+    cursor: not-allowed;
+    opacity: 0.4;
+  }
+
   svg {
     @include bp(sm) {
       width: var(--icon-md);

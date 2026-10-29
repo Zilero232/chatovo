@@ -1,4 +1,6 @@
-import { USER_ROLE } from '@chatovo/schemas';
+import type { Permission } from '@chatovo/schemas';
+
+import { hasPermission, toUserRole } from '@chatovo/schemas';
 import { useQuery } from '@tanstack/react-query';
 import { minutesToMilliseconds } from 'date-fns';
 import { isNonNullish } from 'remeda';
@@ -6,8 +8,6 @@ import { isNonNullish } from 'remeda';
 import { authClient, getAuthToken, getUserProfile } from '@/shared/api';
 import { QUERY_KEYS } from '@/shared/constants';
 import { firstNonEmpty, stripEmailDomain } from '@/shared/lib';
-
-import type { UserRole } from '../types';
 
 export const useCurrentUser = () => {
   const { data: session, isPending, error: sessionError } = authClient.useSession();
@@ -23,7 +23,7 @@ export const useCurrentUser = () => {
     staleTime: minutesToMilliseconds(5)
   });
 
-  const role: UserRole = user?.role === USER_ROLE.admin ? USER_ROLE.admin : USER_ROLE.user;
+  const role = toUserRole(user?.role);
 
   const displayName = stripEmailDomain(firstNonEmpty(profile?.name, user?.name)) ?? 'you';
   const initial = displayName.charAt(0).toUpperCase();
@@ -35,7 +35,7 @@ export const useCurrentUser = () => {
     isLoading: isPending,
     displayName,
     initial,
-    isAdmin: role === USER_ROLE.admin,
+    can: (permission: Permission) => hasPermission({ role, permission }),
     avatarUrl: firstNonEmpty(profile?.avatarUrl, user?.image),
     verified: profile?.verified ?? user?.verified ?? false,
     developer: profile?.developer ?? false,

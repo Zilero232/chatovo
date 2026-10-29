@@ -9,3 +9,8 @@ export type ParticipantJoinedInput = {
   participant: ParticipantInfo;
   roomId: string;
 };
+
+export type ParticipantLeftInput = {
+  participant: ParticipantInfo;
+  roomId: string;
+};

@@ -2,7 +2,7 @@ import { IconButtonWithTooltip, Text } from '@chatovo/ui-kit';
 import { useConnectionState } from '@livekit/components-react';
 import { clsx } from 'clsx';
 import { ConnectionState } from 'livekit-client';
-import { AudioLines, HeadphoneOff, Headphones, LogOut, Mic, MicOff } from 'lucide-react';
+import { AudioLines, HeadphoneOff, Headphones, Mic, MicOff, PhoneOff } from 'lucide-react';
 import { useTranslations } from 'use-intl';
 
 import { useRoomControls } from '@/features/room/room-control';
@@ -47,7 +47,7 @@ export const MiniRoomBar = ({ isDm, roomName, variant = 'docked', onExpand }: Mi
           className={clsx(s.action, mic.isMuted && s.off, mic.isLocked && s.locked)}
           disabled={mic.isPending}
           icon={mic.isMuted ? <MicOff /> : <Mic />}
-          label={t(`controls.${micLabelKey}`)}
+          label={mic.isInvisible ? mic.label : t(`controls.${micLabelKey}`)}
           size='icon-sm'
           tooltipSide='top'
           onClick={mic.toggle}
@@ -64,7 +64,7 @@ export const MiniRoomBar = ({ isDm, roomName, variant = 'docked', onExpand }: Mi
 
         <IconButtonWithTooltip
           className={clsx(s.action, s.leave)}
-          icon={<LogOut />}
+          icon={<PhoneOff />}
           label={t('controls.leave')}
           size='icon-sm'
           tooltipSide='top'

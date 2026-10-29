@@ -17,7 +17,7 @@ import {
   AppNotFoundException
 } from '../../../../common/exceptions';
 import { assertCanAccessRoom, getUserDisplayName } from '../../../../lib';
-import { findRoomParticipant, syncRoom } from '../../../livekit';
+import { assertVisibleInRoom, findRoomParticipant, syncRoom } from '../../../livekit';
 import { emitRoomEvent } from '../../../realtime';
 import { EMPTY_ROOM_MUSIC } from '../../config';
 import { applyMusicPlayback, enqueueMusicTrack, removeMusicTrack } from '../../lib';
@@ -61,9 +61,11 @@ export class RoomMusicService {
 
     const participant = known ?? findRoomParticipant(lookup);
 
-    if (!participant || participant.invisible) {
+    if (!participant) {
       throw new AppForbiddenException('MUSIC_NOT_IN_ROOM', 'Join the room to control its music');
     }
+
+    assertVisibleInRoom(lookup);
   }
 
   private assertQueueHasRoom(roomId: string): void {

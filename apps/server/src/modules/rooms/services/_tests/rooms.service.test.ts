@@ -19,7 +19,7 @@ vi.mock('../../../../lib', async (importOriginal) => ({
 }));
 
 vi.mock('../../../livekit', () => ({
-  grantRoomAccess: (roomId: string, userId: string) => grantRoomAccess(roomId, userId),
+  grantRoomAccess: (input: unknown) => grantRoomAccess(input),
   revokeRoomGrants: (roomId: string) => revokeRoomGrants(roomId)
 }));
 
@@ -60,7 +60,7 @@ describe('RoomsService', () => {
       ownerId: OWNER
     });
 
-    expect(grantRoomAccess).toHaveBeenCalledWith(ROOM_ID, OWNER);
+    expect(grantRoomAccess).toHaveBeenCalledWith({ roomId: ROOM_ID, userId: OWNER });
     expect(emitToAll).toHaveBeenCalledWith({ type: 'room.upserted', room: ROOM });
   });
 
@@ -82,7 +82,7 @@ describe('RoomsService', () => {
     });
 
     expect(revokeRoomGrants).toHaveBeenCalledWith(ROOM_ID);
-    expect(grantRoomAccess).toHaveBeenCalledWith(ROOM_ID, OWNER);
+    expect(grantRoomAccess).toHaveBeenCalledWith({ roomId: ROOM_ID, userId: OWNER });
   });
 
   it('drops the passes when a private room turns public', async () => {

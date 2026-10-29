@@ -206,6 +206,42 @@
       "minor": "Regular release"
     },
     "entries": {
+      "staffRoles": {
+        "title": "Moderators and a clear role hierarchy",
+        "description": "A new moderator role gets invisible mode and room moderation without the admin panel. Everyone can act only on people below their own role, and the owner can't be touched."
+      },
+      "invisibleReadOnly": {
+        "title": "Invisible mode stays truly invisible",
+        "description": "While invisible you can listen and read, but the mic, camera, screen, reactions, chat and music are locked with a clear hint and a one-tap way to turn the mode off."
+      },
+      "invisiblePassword": {
+        "title": "Private rooms ask for the password when you appear",
+        "description": "Joining a locked room invisibly no longer lets you skip its password: to show up in it, you enter the password — or stay invisible."
+      },
+      "roleProtection": {
+        "title": "Roles can only be changed through the admin panel",
+        "description": "Side routes that could hand out roles or sign in as someone else are switched off; every role change follows the hierarchy."
+      },
+      "telegramLive": {
+        "title": "One live Telegram message per voice chat",
+        "description": "Instead of a line for every join, the channel gets one message that updates with who is there, their status and the music — and ends with the duration and everyone's time."
+      },
+      "dmCallsPrivate": {
+        "title": "Private calls stay private",
+        "description": "Calls between friends no longer show up in the Telegram channel."
+      },
+      "playInRoom": {
+        "title": "A neater “Play in the room” button",
+        "description": "Links to music in the chat get a compact button that shows the service and confirms when the track is queued."
+      },
+      "hangUp": {
+        "title": "A clearer hang-up button",
+        "description": "Leaving a call is now a red hang-up button that stands apart from the other controls."
+      },
+      "mobileCards": {
+        "title": "Taller participant cards on phones",
+        "description": "On narrow screens participant cards fill the free height instead of shrinking into thin strips."
+      },
       "playerVolume": {
         "title": "Your music volume, right in the player",
         "description": "The volume control sits in the player’s control bar and on the music bar. It changes the sound only for you, and one slider replaces the per-person ones."
@@ -848,6 +884,8 @@
       }
     },
     "highlights": {
+      "staffRoles": "Moderators and a clear role hierarchy",
+      "invisibleReadOnly": "Invisible mode stays truly invisible",
       "playerVolume": "Your music volume, right in the player",
       "noSkipForAll": "One listener’s problem no longer skips the track",
       "musicPerPerson": "Music volume for each person",

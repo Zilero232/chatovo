@@ -5,7 +5,7 @@ import { isNullish } from 'remeda';
 import { env } from '@/shared/config';
 
 import { useInvisibleModeSync, useRoomModerationNotices, useRoomSessionHost } from '../model/hooks';
-import { MiniRoomFloatingSlot } from './components';
+import { InvisiblePasswordDialog, MiniRoomFloatingSlot } from './components';
 
 import s from './RoomSessionHost.module.scss';
 
@@ -16,7 +16,7 @@ const VoiceRoom = lazy(async () =>
 export const RoomSessionHost = () => {
   const { session, isExpanded, expand, failConnection, leave } = useRoomSessionHost();
 
-  useInvisibleModeSync();
+  const { passwordPrompt } = useInvisibleModeSync();
   useRoomModerationNotices(leave);
 
   if (isNullish(session)) {
@@ -28,6 +28,16 @@ export const RoomSessionHost = () => {
   return (
     <div className={clsx(s.root, isExpanded ? s.expanded : s.minimized)}>
       <MiniRoomFloatingSlot />
+
+      {passwordPrompt && (
+        <InvisiblePasswordDialog
+          isPending={passwordPrompt.isPending}
+          isWrong={passwordPrompt.isWrong}
+          roomName={passwordPrompt.roomName}
+          onCancel={passwordPrompt.cancel}
+          onSubmit={passwordPrompt.submit}
+        />
+      )}
 
       <Suspense fallback={null}>
         <VoiceRoom

@@ -1,6 +1,6 @@
 import type { ChatMessage, ChatMessagesPage } from '@chatovo/schemas';
 
-import { USER_ROLE } from '@chatovo/schemas';
+import { canActOnRole } from '@chatovo/schemas';
 import { Injectable } from '@nestjs/common';
 import { isNonNullish, isNullish } from 'remeda';
 
@@ -22,6 +22,7 @@ import {
   assertDmWithoutUserBlock,
   senderSelect
 } from '../../../../lib';
+import { assertVisibleInRoom } from '../../../livekit';
 import { emitChatEvent } from '../../emit-chat-event';
 import { toChatMessage } from '../../mappers';
 
@@ -34,6 +35,8 @@ export class ChatMessageService {
 
     await assertCanAccessRoom({ roomId, userId: senderId });
     await assertDmWithoutUserBlock({ roomId, userId: senderId });
+
+    assertVisibleInRoom({ roomId, identity: senderId });
 
     const existing = await this.prisma.message.findUnique({
       where: { id },
@@ -120,24 +123,25 @@ export class ChatMessageService {
       return;
     }
 
-    await assertCanModerateRoom({ roomId, userId });
-    await this.assertSenderNotProtected({ senderId, userId });
+    const { role } = await assertCanModerateRoom({ roomId, userId });
+
+    await this.assertSenderNotProtected({ senderId, actorRole: role });
   }
 
   private async assertSenderNotProtected({
     senderId,
-    userId
+    actorRole
   }: AssertSenderNotProtectedInput): Promise<void> {
     if (isNullish(senderId)) {
       return;
     }
 
-    const [actor, sender] = await Promise.all([
-      this.prisma.user.findUnique({ where: { id: userId }, select: { role: true } }),
-      this.prisma.user.findUnique({ where: { id: senderId }, select: { role: true } })
-    ]);
+    const sender = await this.prisma.user.findUnique({
+      where: { id: senderId },
+      select: { role: true }
+    });
 
-    if (actor?.role !== USER_ROLE.admin && sender?.role === USER_ROLE.admin) {
+    if (!canActOnRole({ actorRole, targetRole: sender?.role })) {
       throw new AppForbiddenException(
         'ROOM_MODERATION_TARGET_PROTECTED',
         'This participant cannot be moderated'
@@ -146,7 +150,9 @@ export class ChatMessageService {
   }
 
   async editMessage({ messageId, input, senderId }: EditChatMessageInput): Promise<ChatMessage> {
-    await this.getOwnMessageOrThrow({ messageId, senderId });
+    const { roomId } = await this.getOwnMessageOrThrow({ messageId, senderId });
+
+    assertVisibleInRoom({ roomId, identity: senderId });
 
     const message = await this.prisma.message.update({
       where: { id: messageId },

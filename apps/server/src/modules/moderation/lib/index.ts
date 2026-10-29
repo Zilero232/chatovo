@@ -1,3 +1,5 @@
+export { assertCanEditUser } from './assert-can-edit-user';
+export type { AssertCanEditUserInput } from './assert-can-edit-user';
 export { assertCanReportTarget } from './assert-can-report-target';
 export type { AssertCanReportTargetInput } from './assert-can-report-target';
 export { attachReportContext, collectReportRelatedIds } from './attach-report-context';

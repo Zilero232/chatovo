@@ -1,4 +1,9 @@
-export { createRoomInputSchema, roomPasswordSchema, updateRoomInputSchema } from './inputs';
+export {
+  createRoomInputSchema,
+  roomPasswordFormSchema,
+  roomPasswordSchema,
+  updateRoomInputSchema
+} from './inputs';
 export { ROOM_NAME_MAX_LENGTH } from './limits';
 export {
   roomBanListSchema,
@@ -14,5 +19,6 @@ export type {
   RoomBan,
   RoomKind,
   RoomModerationAction,
+  RoomPasswordFormValues,
   UpdateRoomRequest
 } from './types';

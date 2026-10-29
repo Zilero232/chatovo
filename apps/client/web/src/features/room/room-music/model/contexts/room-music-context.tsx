@@ -2,8 +2,8 @@ import { createContextHook } from '@siberiacancode/reactuse';
 import { useState } from 'react';
 
 import { useAppSettings } from '@/entities/app/settings';
-import { useCurrentUser } from '@/entities/auth/user';
 import { useRoomMusic } from '@/entities/room/music';
+import { useIsInvisible } from '@/entities/room/room';
 
 import type { PlayerReport, TrackDuration } from '../types';
 import type { RoomMusicProviderProps, RoomMusicStateInput } from './room-music-context.types';
@@ -12,7 +12,7 @@ import { useHasRemoteMusic, useMusicShare, useVolumeRamp } from '../hooks';
 
 const useRoomMusicState = ({ roomId, isDeafened }: RoomMusicStateInput) => {
   const { settings } = useAppSettings();
-  const { isAdmin } = useCurrentUser();
+  const isInvisible = useIsInvisible();
   const { volume } = settings.music;
 
   const music = useRoomMusic(roomId);
@@ -26,7 +26,7 @@ const useRoomMusicState = ({ roomId, isDeafened }: RoomMusicStateInput) => {
   const [playerReport, setPlayerReport] = useState<PlayerReport | null>(null);
   const [playerAttempt, setPlayerAttempt] = useState(0);
 
-  const canControl = !(isAdmin && settings.system.invisibleMode);
+  const canControl = !isInvisible;
   const isMusicActive = Boolean(music?.current) || hasRemoteMusic || share.state.mode !== 'idle';
 
   const outputVolume = isDeafened ? 0 : volume;

@@ -6,6 +6,7 @@ const isMicLocked = vi.fn();
 const clearRoomMicLocks = vi.fn();
 const addParticipant = vi.fn();
 const clearRoom = vi.fn();
+const removeParticipant = vi.fn();
 const removeRoomParticipant = vi.fn();
 const setParticipantMicLock = vi.fn();
 const emit = vi.fn();
@@ -39,14 +40,14 @@ vi.mock('../../../presence', () => ({
   addParticipant: (...args: unknown[]) => addParticipant(...args),
   clearRoom: (roomId: string) => clearRoom(roomId),
   patchParticipant: vi.fn(),
-  removeParticipant: vi.fn(),
+  removeParticipant: (...args: unknown[]) => removeParticipant(...args),
   removeRoomParticipant: (input: unknown) => removeRoomParticipant(input),
   setParticipantMicLock: (input: unknown) => setParticipantMicLock(input),
   syncRoom: vi.fn()
 }));
 
 vi.mock('../../../../../lib', () => ({
-  getRoomName: async () => 'evening'
+  getRoomLabel: async () => ({ name: 'evening', isDm: false })
 }));
 
 const { DomainEvent } = await import('../../../../../common/events/domain-events');
@@ -86,6 +87,8 @@ describe('WebhookService participant_joined', () => {
     expect(emit).toHaveBeenCalledWith(DomainEvent.VoiceJoined, {
       roomId: ROOM_ID,
       roomName: 'evening',
+      isDm: false,
+      participantId: 'guest-1',
       participantName: 'guest-1'
     });
     expect(removeRoomParticipant).not.toHaveBeenCalled();
@@ -122,6 +125,29 @@ describe('WebhookService participant_joined', () => {
   });
 });
 
+describe('WebhookService participant_left', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
+  it('drops a participant from presence and announces the leave', async () => {
+    await deliver({ ...joined('guest-1'), event: 'participant_left' });
+
+    expect(removeParticipant).toHaveBeenCalledWith(ROOM_ID, 'guest-1');
+    expect(emit).toHaveBeenCalledWith(DomainEvent.VoiceLeft, {
+      roomId: ROOM_ID,
+      participantId: 'guest-1'
+    });
+  });
+
+  it('keeps an invisible admin’s leave silent', async () => {
+    await deliver({ ...joined('admin-1', 'invisible'), event: 'participant_left' });
+
+    expect(removeParticipant).toHaveBeenCalledWith(ROOM_ID, 'admin-1');
+    expect(emit).not.toHaveBeenCalled();
+  });
+});
+
 describe('WebhookService room_finished', () => {
   beforeEach(() => {
     vi.clearAllMocks();
@@ -132,6 +158,15 @@ describe('WebhookService room_finished', () => {
 
     expect(clearRoom).toHaveBeenCalledWith(ROOM_ID);
     expect(clearRoomMicLocks).toHaveBeenCalledWith(ROOM_ID);
+  });
+
+  it('announces the empty room with its id so the session message can be closed', async () => {
+    await deliver({ event: 'room_finished', room: { name: ROOM_ID } });
+
+    expect(emit).toHaveBeenCalledWith(DomainEvent.VoiceEmptied, {
+      roomId: ROOM_ID,
+      roomName: 'evening'
+    });
   });
 });
 

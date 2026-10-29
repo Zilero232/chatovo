@@ -35,6 +35,7 @@ Things that have already bitten us. Each one looked like a bug in our code, or a
 
 - **`safeJsonParse` returns `{}` for a JSON array.** It is meant for objects (metadata, socket frames). An API that answers with an array — Radio Browser does — is parsed with `JSON.parse` in a `try` and validated with `z.array(...)`.
 - **Missing Telegram notifications in production are the network.** The VPS is in Russia, where `api.telegram.org` is blocked. The bot goes through `TELEGRAM_PROXY_URL`; check that before debugging the notification code.
+- **A voice channel is one Telegram message, edited in place.** `modules/telegram/voice-sessions.ts` posts it on the first join, edits it (debounced, `VOICE_FLUSH_DELAY_MS`) on every join and leave, and turns it into a summary — length and everyone who came — on `room_finished`. The session lives in memory: after a server restart the old message stays as it was and the next join starts a new one. Invisible admins never enter it — `participant_left` skips them just like `participant_joined`.
 - **The dev database is on port 5433.** A Postgres installed on the host usually owns 5432; `P1000` against 5432 means the port is shadowed by it.
 - **better-auth minor releases add columns.** A required column with no default fails the migration on a non-empty table — [ops/migrations.md](../ops/migrations.md).
 

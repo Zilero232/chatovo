@@ -23,6 +23,23 @@ export type ChangelogRelease = {
 
 export const CHANGELOG_RELEASES: ChangelogRelease[] = [
   {
+    version: '1.14.0',
+    date: '2026-10-29',
+    tone: 'minor',
+    highlights: ['staffRoles', 'invisibleReadOnly'],
+    entries: [
+      { kind: 'feature', key: 'staffRoles' },
+      { kind: 'improvement', key: 'invisibleReadOnly' },
+      { kind: 'security', key: 'invisiblePassword' },
+      { kind: 'security', key: 'roleProtection' },
+      { kind: 'improvement', key: 'telegramLive' },
+      { kind: 'fix', key: 'dmCallsPrivate' },
+      { kind: 'improvement', key: 'playInRoom' },
+      { kind: 'improvement', key: 'hangUp' },
+      { kind: 'fix', key: 'mobileCards' }
+    ]
+  },
+  {
     version: '1.13.0',
     date: '2026-10-26',
     tone: 'minor',

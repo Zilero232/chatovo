@@ -45,6 +45,7 @@ const Toaster = ({ ...props }: ToasterProps) => {
           toast: s.toast,
           title: s.title,
           description: s.description,
+          actionButton: s.actionButton,
           icon: s.icon,
           success: s.success,
           error: s.error,

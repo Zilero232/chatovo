@@ -1,10 +1,11 @@
-import { USER_ROLE } from '@chatovo/schemas';
+import { hasPermission } from '@chatovo/schemas';
 
 import type { FindBannedRoomIdsInput } from './find-banned-room-ids.types';
 
 import { basePrisma as prisma } from '../../core';
+import { findUserRole } from '../find-user-role';
 
-/** The rooms among `roomIds` a room ban keeps the user out of; always empty for an app admin. */
+/** The rooms among `roomIds` a room ban keeps the user out of; always empty for staff who bypass bans. */
 export const findBannedRoomIds = async ({
   roomIds,
   userId
@@ -22,9 +23,9 @@ export const findBannedRoomIds = async ({
     return new Set();
   }
 
-  const user = await prisma.user.findUnique({ where: { id: userId }, select: { role: true } });
+  const role = await findUserRole(userId);
 
-  if (user?.role === USER_ROLE.admin) {
+  if (hasPermission({ role, permission: 'bypassRoomBans' })) {
     return new Set();
   }
 

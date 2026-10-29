@@ -206,6 +206,42 @@
       "minor": "Version régulière"
     },
     "entries": {
+      "staffRoles": {
+        "title": "Des modérateurs et une hiérarchie de rôles claire",
+        "description": "Le nouveau rôle de modérateur a le mode invisible et la modération des salons, sans accès au panneau d'administration. Chacun n'agit que sur les rôles inférieurs, et personne ne peut toucher au propriétaire."
+      },
+      "invisibleReadOnly": {
+        "title": "Le mode invisible reste vraiment invisible",
+        "description": "En mode invisible, tu peux écouter et lire, mais micro, caméra, écran, réactions, chat et musique sont verrouillés, avec un message clair et un bouton pour désactiver le mode."
+      },
+      "invisiblePassword": {
+        "title": "Les salons privés demandent le mot de passe quand tu apparais",
+        "description": "Entrer en invisible dans un salon verrouillé ne contourne plus son mot de passe : pour y apparaître, saisis-le — ou reste invisible."
+      },
+      "roleProtection": {
+        "title": "Les rôles ne changent que via le panneau",
+        "description": "Les chemins détournés qui permettaient d'attribuer des rôles ou de se connecter à la place de quelqu'un sont coupés ; chaque changement de rôle suit la hiérarchie."
+      },
+      "telegramLive": {
+        "title": "Un message Telegram vivant par conversation",
+        "description": "Au lieu d'une ligne par arrivée, le canal reçoit un message qui se met à jour — qui est là, leur état, la musique — et se termine par la durée et le temps de chacun."
+      },
+      "dmCallsPrivate": {
+        "title": "Les appels privés restent privés",
+        "description": "Les appels entre amis n'apparaissent plus dans le canal Telegram."
+      },
+      "playInRoom": {
+        "title": "Un bouton « Lire dans le salon » plus soigné",
+        "description": "Les liens musicaux du chat ont un bouton compact avec le service et une confirmation quand le morceau est dans la file."
+      },
+      "hangUp": {
+        "title": "Un bouton raccrocher plus clair",
+        "description": "Quitter un appel se fait avec un bouton rouge raccrocher qui se distingue des autres."
+      },
+      "mobileCards": {
+        "title": "Des cartes de participants plus hautes sur mobile",
+        "description": "Sur les écrans étroits, les cartes occupent la hauteur libre au lieu de se réduire à de fines bandes."
+      },
       "playerVolume": {
         "title": "Le volume de la musique dans le lecteur",
         "description": "Le réglage du volume se trouve dans la barre du lecteur et sur la barre de musique. Il ne change le son que pour vous, et un seul curseur remplace ceux de chaque personne."
@@ -848,6 +884,8 @@
       }
     },
     "highlights": {
+      "staffRoles": "Des modérateurs et une hiérarchie de rôles claire",
+      "invisibleReadOnly": "Le mode invisible reste vraiment invisible",
       "playerVolume": "Le volume de la musique dans le lecteur",
       "noSkipForAll": "Le souci d’un seul ne fait plus sauter le titre",
       "musicPerPerson": "Volume de la musique pour chacun",

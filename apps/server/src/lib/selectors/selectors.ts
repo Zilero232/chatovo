@@ -19,7 +19,7 @@ export const roomAccessSelect = {
 } satisfies Prisma.RoomSelect;
 
 export const senderSelect = {
-  select: { name: true, profile: { select: { displayName: true } } }
+  select: { name: true, role: true, profile: { select: { displayName: true } } }
 } as const;
 
 export const userWithProfileInclude = { profile: true } satisfies Prisma.UserInclude;

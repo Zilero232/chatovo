@@ -1,4 +1,4 @@
-import { USER_ROLE } from '@chatovo/schemas';
+import { canActOnRole } from '@chatovo/schemas';
 import { Injectable } from '@nestjs/common';
 import { EventEmitter2 } from '@nestjs/event-emitter';
 import { isNullish } from 'remeda';
@@ -31,14 +31,17 @@ export class UserBlockService {
       throw new AppBadRequestException('BLOCK_SELF', 'Cannot block yourself');
     }
 
-    const user = await this.prisma.user.findUnique({ where: { id: userId } });
+    const [actor, user] = await Promise.all([
+      this.prisma.user.findUnique({ where: { id: adminId }, select: { role: true } }),
+      this.prisma.user.findUnique({ where: { id: userId } })
+    ]);
 
     if (isNullish(user)) {
       throw new AppNotFoundException('USER_NOT_FOUND', 'User not found');
     }
 
-    if (user.role === USER_ROLE.admin) {
-      throw new AppForbiddenException('BLOCK_ADMIN', 'Cannot block an administrator');
+    if (!canActOnRole({ actorRole: actor?.role, targetRole: user.role })) {
+      throw new AppForbiddenException('ROLE_PROTECTED', 'Cannot block an equal or higher role');
     }
 
     const blocked = await this.prisma.user.update({

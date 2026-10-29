@@ -206,6 +206,42 @@
       "minor": "Reguläres Release"
     },
     "entries": {
+      "staffRoles": {
+        "title": "Moderatoren und eine klare Rollenhierarchie",
+        "description": "Die neue Moderatorrolle bekommt den unsichtbaren Modus und Raummoderation ohne Admin-Panel. Jeder kann nur auf niedrigere Rollen einwirken, und den Inhaber kann niemand antasten."
+      },
+      "invisibleReadOnly": {
+        "title": "Der unsichtbare Modus bleibt wirklich unsichtbar",
+        "description": "Unsichtbar kannst du zuhören und lesen, aber Mikrofon, Kamera, Bildschirm, Reaktionen, Chat und Musik sind gesperrt – mit klarem Hinweis und einem Knopf zum Ausschalten."
+      },
+      "invisiblePassword": {
+        "title": "Private Räume fragen beim Erscheinen nach dem Passwort",
+        "description": "Wer einen gesperrten Raum unsichtbar betritt, umgeht sein Passwort nicht mehr: Um sichtbar zu werden, gibst du es ein – oder bleibst unsichtbar."
+      },
+      "roleProtection": {
+        "title": "Rollen ändern sich nur über das Admin-Panel",
+        "description": "Nebenwege, über die man Rollen vergeben oder sich als jemand anderes anmelden konnte, sind abgeschaltet; jede Rollenänderung folgt der Hierarchie."
+      },
+      "telegramLive": {
+        "title": "Eine lebendige Telegram-Nachricht pro Gespräch",
+        "description": "Statt einer Zeile pro Beitritt bekommt der Kanal eine Nachricht, die sich aktualisiert – wer da ist, Status und Musik – und mit der Dauer und der Zeit jedes Einzelnen endet."
+      },
+      "dmCallsPrivate": {
+        "title": "Private Anrufe bleiben privat",
+        "description": "Anrufe unter Freunden erscheinen nicht mehr im Telegram-Kanal."
+      },
+      "playInRoom": {
+        "title": "Ein aufgeräumter „Im Raum abspielen“-Knopf",
+        "description": "Musiklinks im Chat haben einen kompakten Knopf mit dem Dienst und einer Bestätigung, wenn der Titel in der Warteschlange ist."
+      },
+      "hangUp": {
+        "title": "Ein klarerer Auflegen-Knopf",
+        "description": "Einen Anruf verlässt du jetzt mit einem roten Auflegen-Knopf, der sich von den anderen abhebt."
+      },
+      "mobileCards": {
+        "title": "Höhere Teilnehmerkarten auf dem Handy",
+        "description": "Auf schmalen Bildschirmen füllen die Karten die freie Höhe, statt zu dünnen Streifen zu schrumpfen."
+      },
       "playerVolume": {
         "title": "Musiklautstärke direkt im Player",
         "description": "Der Lautstärkeregler sitzt in der Leiste des Players und in der Musikleiste. Er ändert den Ton nur für dich, und ein Regler ersetzt die pro Person."
@@ -848,6 +884,8 @@
       }
     },
     "highlights": {
+      "staffRoles": "Moderatoren und eine klare Rollenhierarchie",
+      "invisibleReadOnly": "Der unsichtbare Modus bleibt wirklich unsichtbar",
       "playerVolume": "Musiklautstärke direkt im Player",
       "noSkipForAll": "Das Problem einer Person überspringt keinen Track mehr",
       "musicPerPerson": "Musiklautstärke für jede Person",

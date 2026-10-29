@@ -1,5 +1,6 @@
 import { z } from 'zod';
 
+import { USER_ROLE, userRoleSchema } from '../auth/inputs';
 import { IMAGE_PLACEHOLDER_MAX_LENGTH } from './limits';
 
 export const chatAttachmentImageSchema = z.object({
@@ -25,6 +26,7 @@ export const chatMessageSchema = z.object({
   roomId: z.uuid(),
   senderId: z.string().nullable(),
   senderName: z.string(),
+  senderRole: userRoleSchema.catch(USER_ROLE.user),
   body: z.string(),
   createdAt: z.string(),
   editedAt: z.string().nullable(),

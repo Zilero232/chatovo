@@ -44,7 +44,7 @@
       "users": "Usuarios",
       "online": "En línea",
       "blocked": "Bloqueados",
-      "admins": "Admins",
+      "staff": "Equipo",
       "newToday": "Nuevos hoy",
       "rooms": "Salas",
       "roomsGroup": "Grupales",
@@ -88,11 +88,11 @@
         "all": "Todos",
         "online": "En línea",
         "blocked": "Bloqueados",
-        "admins": "Admins"
+        "staff": "Equipo"
       },
       "online": "En línea",
       "blocked": "Bloqueado",
-      "admin": "Admin",
+      "developer": "DEV",
       "verified": "Verificado",
       "roomsCount": "Salas: {count}",
       "messagesCount": "Mensajes: {count}",
@@ -125,10 +125,16 @@
       "bio": "Biografía",
       "profileUrl": "Enlace",
       "verified": "Cuenta verificada",
+      "developer": "Insignia de desarrollador (DEV)",
       "role": "Rol",
-      "roleAdmin": "Administrador",
-      "roleUser": "Usuario",
+      "roleLocked": "Solo alguien con un rol superior puede cambiarlo.",
       "submit": "Guardar"
+    },
+    "roles": {
+      "owner": "Propietario",
+      "admin": "Administrador",
+      "moderator": "Moderador",
+      "user": "Usuario"
     },
     "blockUser": {
       "title": "¿Bloquear a {name}?",

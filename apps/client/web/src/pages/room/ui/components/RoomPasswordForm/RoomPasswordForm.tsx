@@ -1,10 +1,11 @@
-import { roomPasswordSchema } from '@chatovo/schemas';
+import type { RoomPasswordFormValues } from '@chatovo/schemas';
+
+import { roomPasswordFormSchema } from '@chatovo/schemas';
 import { EmptyStatePattern, FormField, Input, Stack } from '@chatovo/ui-kit';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { clsx } from 'clsx';
 import { useForm } from 'react-hook-form';
 import { useTranslations } from 'use-intl';
-import { z } from 'zod';
 
 import { useFieldError } from '@/entities/app/locale';
 
@@ -13,10 +14,6 @@ import type { RoomPasswordFormProps } from './RoomPasswordForm.types';
 import { RoomPasswordActions, RoomPasswordHeader } from './components';
 
 import s from './RoomPasswordForm.module.scss';
-
-const passwordSchema = z.object({ password: roomPasswordSchema });
-
-type PasswordValues = z.infer<typeof passwordSchema>;
 
 export const RoomPasswordForm = ({
   displayName,
@@ -32,8 +29,8 @@ export const RoomPasswordForm = ({
     formState: { errors },
     handleSubmit,
     register
-  } = useForm<PasswordValues>({
-    resolver: zodResolver(passwordSchema),
+  } = useForm<RoomPasswordFormValues>({
+    resolver: zodResolver(roomPasswordFormSchema),
     defaultValues: { password: '' }
   });
 

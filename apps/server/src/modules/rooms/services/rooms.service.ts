@@ -84,7 +84,7 @@ export class RoomsService {
       isPrivate: room.isPrivate
     } satisfies RoomCreatedEvent);
 
-    grantRoomAccess(room.id, ownerId);
+    grantRoomAccess({ roomId: room.id, userId: ownerId });
     emitToAll({ type: 'room.upserted', room });
 
     return room;
@@ -124,7 +124,7 @@ export class RoomsService {
 
     if ('password' in data || 'isPrivate' in data) {
       revokeRoomGrants(roomId);
-      grantRoomAccess(roomId, userId);
+      grantRoomAccess({ roomId, userId });
     }
 
     emitToAll({ type: 'room.upserted', room: updated });

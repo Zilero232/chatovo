@@ -68,7 +68,7 @@ export class RealtimeGateway
       return;
     }
 
-    const { userId, isAdmin } = authorized;
+    const { userId, canSeeInvisible } = authorized;
 
     if (await isUserBlocked(userId)) {
       client.close(BLOCKED_WS_CLOSE_CODE, 'Account blocked');
@@ -76,7 +76,7 @@ export class RealtimeGateway
       return;
     }
 
-    const connection = registerConnection(userId, client, isAdmin);
+    const connection = registerConnection(userId, client, canSeeInvisible);
 
     addLobbyConnection(userId);
 
@@ -92,7 +92,7 @@ export class RealtimeGateway
 
     sendToConnection(connection.id, {
       type: 'presence.snapshot',
-      snapshot: isAdmin ? getAdminSnapshot() : getSnapshot()
+      snapshot: canSeeInvisible ? getAdminSnapshot() : getSnapshot()
     });
 
     sendToConnection(connection.id, {

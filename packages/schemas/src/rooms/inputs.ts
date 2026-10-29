@@ -10,6 +10,8 @@ export const roomPasswordSchema = z
   .min(4, 'validation.passwordMin')
   .max(128, 'validation.passwordMax');
 
+export const roomPasswordFormSchema = z.object({ password: roomPasswordSchema });
+
 // Treat empty string as "no password" so an untouched form field never fails
 // the (min 4) check; downstream code only needs to handle `string | undefined`.
 const passwordSchema = roomPasswordSchema.optional().or(z.literal('').transform(() => undefined));

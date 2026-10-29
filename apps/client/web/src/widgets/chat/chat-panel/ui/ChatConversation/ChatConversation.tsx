@@ -14,6 +14,7 @@ import {
   ChatEmpty,
   ChatLoadingSkeleton,
   ChatMessageItem,
+  ChatReadOnlyNotice,
   DateDivider
 } from '../components';
 
@@ -34,6 +35,7 @@ export const ChatConversation = ({
     files,
     actions,
     isPending,
+    isReadOnly,
     isEmpty,
     hasOlder,
     isLoadingOlder
@@ -41,7 +43,7 @@ export const ChatConversation = ({
 
   return (
     <div ref={files.dropRef as Ref<HTMLDivElement>} className={s.root}>
-      {files.overed && (
+      {files.overed && !isReadOnly && (
         <div className={s.dropOverlay}>
           <Paperclip className={s.dropIcon} />
           {t('dropToSend')}
@@ -69,6 +71,7 @@ export const ChatConversation = ({
                     canManage={isOwn || canModerate}
                     isGrouped={isGrouped}
                     isOwn={isOwn}
+                    isReadOnly={isReadOnly}
                     isTail={isTail}
                     message={line}
                     onDelete={actions.remove}
@@ -82,12 +85,16 @@ export const ChatConversation = ({
           ))}
       </div>
 
-      <ChatComposer
-        isUploading={files.isUploading}
-        onAttach={files.openPicker}
-        onPaste={files.onPaste}
-        onSend={actions.send}
-      />
+      {isReadOnly ? (
+        <ChatReadOnlyNotice />
+      ) : (
+        <ChatComposer
+          isUploading={files.isUploading}
+          onAttach={files.openPicker}
+          onPaste={files.onPaste}
+          onSend={actions.send}
+        />
+      )}
     </div>
   );
 };

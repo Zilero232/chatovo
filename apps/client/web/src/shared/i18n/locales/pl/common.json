@@ -41,6 +41,7 @@
     "DM_SELF": "Nie możesz napisać do siebie.",
     "DM_NOT_FRIENDS": "Wiadomości bezpośrednie są dostępne tylko między znajomymi.",
     "CALL_ALREADY_RINGING": "Ten użytkownik ma już połączenie przychodzące.",
+    "INVISIBLE_READ_ONLY": "Jesteś w trybie niewidzialnym — wyłącz go, aby pisać, reagować lub sterować muzyką.",
     "MUSIC_NOT_IN_ROOM": "Dołącz do pokoju głosowego, aby sterować muzyką.",
     "MUSIC_LINK_UNSUPPORTED": "Wklej link do filmu na YouTube lub utworu z SoundCloud.",
     "MUSIC_TRACK_UNAVAILABLE": "Tego utworu nie da się teraz odtworzyć.",
@@ -87,7 +88,8 @@
     "ADMIN_ONLY": "Tylko dla adminów",
     "ABUSE_ALREADY_REPORTED": "To zostało już przez ciebie zgłoszone",
     "BLOCK_SELF": "Nie możesz zablokować samego siebie",
-    "BLOCK_ADMIN": "Nie można zablokować administratora"
+    "ROLE_PROTECTED": "Ta osoba ma taką samą lub wyższą rolę niż ty.",
+    "ROLE_NOT_ASSIGNABLE": "Nie możesz nadać tej roli."
   },
   "language": {
     "label": "Język"

@@ -1,5 +1,6 @@
 import type { Participant } from 'livekit-client';
 
+import { canActOnRole } from '@chatovo/schemas';
 import { useCopy } from '@siberiacancode/reactuse';
 import { useState } from 'react';
 import { toast } from 'sonner';
@@ -17,7 +18,7 @@ import { useCurrentRoomId } from './use-current-room-id';
 export const useParticipantCardMenu = (participant: Participant) => {
   const t = useTranslations('participant');
 
-  const { user } = useCurrentUser();
+  const { user, role } = useCurrentUser();
   const roomId = useCurrentRoomId();
 
   const isBlocked = useIsUserBlocked(participant.identity);
@@ -34,7 +35,10 @@ export const useParticipantCardMenu = (participant: Participant) => {
   const { identity, metadata } = participant;
   const displayName = participant.name || identity;
   const isSelf = identity === user?.id;
-  const isProtected = isSelf || identity === ownerId || readParticipantMeta(metadata).developer;
+  const isProtected =
+    isSelf ||
+    identity === ownerId ||
+    !canActOnRole({ actorRole: role, targetRole: readParticipantMeta(metadata).role });
 
   const copyName = async () => {
     await copy(displayName);

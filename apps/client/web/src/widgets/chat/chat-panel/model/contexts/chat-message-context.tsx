@@ -10,6 +10,7 @@ type ChatMessageParams = {
   canManage: boolean;
   isGrouped: boolean;
   isOwn: boolean;
+  isReadOnly: boolean;
   isTail: boolean;
   message: ChatLine;
   onDelete: (id: string) => void;
@@ -23,13 +24,14 @@ const useChatMessageState = ({
   isOwn,
   isGrouped,
   isTail,
+  isReadOnly,
   canManage,
   onEdit,
   onDelete,
   onRetry,
   onDiscard
 }: ChatMessageParams) => {
-  const item = useChatMessageItem({ message, isOwn, isGrouped, canManage });
+  const item = useChatMessageItem({ message, isOwn, isGrouped, isReadOnly, canManage });
 
   return {
     ...item,

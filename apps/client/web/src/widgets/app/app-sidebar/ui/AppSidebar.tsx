@@ -24,7 +24,7 @@ export const AppSidebar = ({
   onNavigate,
   onToggleChannels
 }: AppSidebarProps) => {
-  const { isAdmin } = useCurrentUser();
+  const { can } = useCurrentUser();
 
   const isDesktop = isTauriDesktop();
   const isRail = variant === 'rail';
@@ -38,12 +38,8 @@ export const AppSidebar = ({
       {!isTauri() && <DownloadAppButton variant={variant} />}
       <div className={s.spacer} />
       {isDesktop && <CheckUpdateButton variant={variant} />}
-      {isAdmin && (
-        <>
-          <AdminPanelButton variant={variant} onNavigate={onNavigate} />
-          <InvisibleModeButton variant={variant} />
-        </>
-      )}
+      {can('adminPanel') && <AdminPanelButton variant={variant} onNavigate={onNavigate} />}
+      {can('invisible') && <InvisibleModeButton variant={variant} />}
       <GnomeVpnButton variant={variant} />
     </div>
   );

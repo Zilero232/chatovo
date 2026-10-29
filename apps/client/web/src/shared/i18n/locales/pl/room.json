@@ -238,7 +238,7 @@
       "speakerDevice": "Wybierz głośniki",
       "pttHint": "Naciśnij, aby mówić",
       "leave": "Wyjdź",
-      "invisibleMicBlocked": "W trybie niewidzialnym nie możesz mówić",
+      "invisibleLocked": "Niedostępne w trybie niewidzialnym",
       "mutedByOwner": "Wyciszono przez właściciela pokoju"
     },
     "screen": {
@@ -250,6 +250,18 @@
     "collapseVideo": "Zmniejsz wideo",
     "invisibleBadge": "Niewidzialny",
     "invisibleNotice": "Jesteś w ukryciu: nikt cię nie widzi ani nie słyszy",
+    "invisible": {
+      "blocked": "Jesteś w trybie niewidzialnym",
+      "blockedHint": "Mikrofon, kamera, udostępnianie ekranu, reakcje, czat i muzyka są wyłączone, żeby nikt cię nie zauważył. Wyłącz tryb niewidzialny, aby dołączyć do rozmowy.",
+      "turnOff": "Wyłącz",
+      "noticeHint": "Mikrofon, kamera, reakcje i czat są niedostępne, dopóki nie wyłączysz trybu niewidzialnego.",
+      "chatReadOnly": "Tylko odczyt w trybie niewidzialnym",
+      "chatReadOnlyHint": "Wiadomość zdradziłaby, że tu jesteś.",
+      "passwordTitle": "Wpisz hasło pokoju",
+      "passwordHint": "Jesteś w „{name}” w trybie niewidzialnym, bez hasła. Aby się w nim pojawić, wpisz hasło — albo zostań w ukryciu.",
+      "passwordSubmit": "Pojaw się w pokoju",
+      "stayInvisible": "Zostań w ukryciu"
+    },
     "badges": {
       "screen": "Ekran",
       "music": "Muzyka"

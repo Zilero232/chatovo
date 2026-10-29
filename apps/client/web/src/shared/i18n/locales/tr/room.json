@@ -238,7 +238,7 @@
       "speakerDevice": "Hoparlör seç",
       "pttHint": "Bas-konuş",
       "leave": "Ayrıl",
-      "invisibleMicBlocked": "Görünmez modda konuşamazsın",
+      "invisibleLocked": "Görünmez modda kullanılamaz",
       "mutedByOwner": "Oda sahibi tarafından susturuldu"
     },
     "screen": {
@@ -250,6 +250,18 @@
     "collapseVideo": "Videoyu daralt",
     "invisibleBadge": "Görünmez",
     "invisibleNotice": "Gizli katıldın: kimse seni görmüyor ya da duymuyor",
+    "invisible": {
+      "blocked": "Görünmez moddasın",
+      "blockedHint": "Kimse fark etmesin diye mikrofon, kamera, ekran paylaşımı, tepkiler, sohbet ve müzik kapalı. Katılmak için görünmez modu kapat.",
+      "turnOff": "Kapat",
+      "noticeHint": "Görünmez modu kapatana kadar mikrofon, kamera, tepkiler ve sohbet kullanılamaz.",
+      "chatReadOnly": "Görünmez modda yalnızca okuma",
+      "chatReadOnlyHint": "Bir mesaj burada olduğunu belli eder.",
+      "passwordTitle": "Oda şifresini gir",
+      "passwordHint": "„{name}“ odasına şifresiz, görünmez olarak katıldın. Odada görünmek için şifreyi gir — ya da görünmez kal.",
+      "passwordSubmit": "Odada görün",
+      "stayInvisible": "Görünmez kal"
+    },
     "badges": {
       "screen": "Ekran",
       "music": "Müzik"

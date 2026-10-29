@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+import { USER_ROLE, userRoleSchema } from '../auth/inputs';
+
 export const abuseReasonSchema = z.enum([
   'spam',
   'harassment',
@@ -45,7 +47,7 @@ const listQueryFields = {
   perPage: z.coerce.number().int().min(1).max(100).default(25)
 };
 
-export const adminUserFilterSchema = z.enum(['all', 'blocked', 'admins', 'online']);
+export const adminUserFilterSchema = z.enum(['all', 'blocked', 'staff', 'online']);
 
 export const adminUserQuerySchema = z.object({
   ...listQueryFields,
@@ -70,7 +72,8 @@ export const updateAdminUserSchema = z
     bio: z.string().trim().max(280).nullable(),
     profileUrl: z.string().trim().max(200).nullable(),
     verified: z.boolean(),
-    role: z.enum(['admin', 'user'])
+    developer: z.boolean(),
+    role: userRoleSchema.exclude([USER_ROLE.owner])
   })
   .partial()
   .refine((data) => Object.keys(data).length > 0, 'At least one field required');

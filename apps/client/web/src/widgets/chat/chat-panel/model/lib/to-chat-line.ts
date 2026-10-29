@@ -8,6 +8,7 @@ export const chatMessageToChatLine = ({
   body,
   senderId,
   senderName,
+  senderRole,
   editedAt,
   deletedAt
 }: ChatMessage): ChatLine => ({
@@ -18,6 +19,7 @@ export const chatMessageToChatLine = ({
   deletedAt: deletedAt ? new Date(deletedAt).getTime() : null,
   from: {
     identity: senderId ?? 'deleted',
-    name: senderName
+    name: senderName,
+    role: senderRole
   }
 });

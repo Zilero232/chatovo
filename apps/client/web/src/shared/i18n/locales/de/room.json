@@ -238,7 +238,7 @@
       "speakerDevice": "Lautsprecher wählen",
       "pttHint": "Push-to-Talk",
       "leave": "Verlassen",
-      "invisibleMicBlocked": "Im unsichtbaren Modus kannst du nicht sprechen",
+      "invisibleLocked": "Im unsichtbaren Modus nicht verfügbar",
       "mutedByOwner": "Vom Raumbesitzer stummgeschaltet"
     },
     "screen": {
@@ -250,6 +250,18 @@
     "collapseVideo": "Video verkleinern",
     "invisibleBadge": "Unsichtbar",
     "invisibleNotice": "Du bist versteckt beigetreten: Niemand sieht oder hört dich",
+    "invisible": {
+      "blocked": "Du bist im unsichtbaren Modus",
+      "blockedHint": "Mikrofon, Kamera, Bildschirm, Reaktionen, Chat und Musik sind aus, damit dich niemand bemerkt. Schalte den unsichtbaren Modus aus, um mitzumachen.",
+      "turnOff": "Ausschalten",
+      "noticeHint": "Mikrofon, Kamera, Reaktionen und Chat bleiben aus, bis du den unsichtbaren Modus ausschaltest.",
+      "chatReadOnly": "Nur lesen im unsichtbaren Modus",
+      "chatReadOnlyHint": "Eine Nachricht würde verraten, dass du hier bist.",
+      "passwordTitle": "Raumpasswort eingeben",
+      "passwordHint": "Du bist „{name}“ unsichtbar beigetreten, ohne Passwort. Um im Raum sichtbar zu werden, gib das Passwort ein – oder bleib unsichtbar.",
+      "passwordSubmit": "Im Raum erscheinen",
+      "stayInvisible": "Unsichtbar bleiben"
+    },
     "badges": {
       "screen": "Bildschirm",
       "music": "Musik"

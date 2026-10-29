@@ -1,8 +1,8 @@
 import type { AdminUserQuery } from '@chatovo/schemas';
 
-import { USER_ROLE } from '@chatovo/schemas';
+import { STAFF_ROLES } from '@chatovo/schemas';
 import { Injectable } from '@nestjs/common';
-import { isNonNullish, isNullish } from 'remeda';
+import { isNonNullish, isNullish, pickBy } from 'remeda';
 import { match } from 'ts-pattern';
 
 import type { Prisma } from '../../../../../generated';
@@ -12,7 +12,7 @@ import type {
   UpdateAdminUserInput
 } from '../../moderation.service.types';
 
-import { AppBadRequestException, AppNotFoundException } from '../../../../common/exceptions';
+import { AppNotFoundException } from '../../../../common/exceptions';
 import { PrismaService } from '../../../../core';
 import { ejectParticipantEverywhere, revokeUserGrants } from '../../../livekit';
 import {
@@ -20,7 +20,7 @@ import {
   listOnlineUserIds,
   ROLE_CHANGED_WS_CLOSE_CODE
 } from '../../../realtime';
-import { toPageArgs } from '../../lib';
+import { assertCanEditUser, toPageArgs } from '../../lib';
 import { adminUserInclude, toAbuseReport, toAdminUser, toAdminUserMessage } from '../../mappers';
 
 @Injectable()
@@ -125,24 +125,33 @@ export class AdminUserService {
   }
 
   async update({ adminId, userId, input }: UpdateAdminUserInput) {
-    const user = await this.prisma.user.findUnique({
-      where: { id: userId },
-      select: { id: true, role: true }
-    });
+    const [actor, user] = await Promise.all([
+      this.prisma.user.findUnique({ where: { id: adminId }, select: { role: true } }),
+      this.prisma.user.findUnique({
+        where: { id: userId },
+        select: { id: true, role: true, verified: true, developer: true }
+      })
+    ]);
 
     if (isNullish(user)) {
       throw new AppNotFoundException('USER_NOT_FOUND', 'User not found');
     }
 
-    const { role, verified, ...profile } = input;
+    const { role, verified, developer, ...profile } = input;
 
-    if (role === USER_ROLE.user && userId === adminId) {
-      throw new AppBadRequestException('BLOCK_SELF', 'Cannot drop your own admin role');
-    }
+    assertCanEditUser({
+      actorRole: actor?.role ?? '',
+      targetRole: user.role,
+      isSelf: userId === adminId,
+      nextRole: role,
+      isFlagChange:
+        (isNonNullish(verified) && verified !== user.verified) ||
+        (isNonNullish(developer) && developer !== user.developer)
+    });
 
     const isRoleChanged = isNonNullish(role) && role !== user.role;
 
-    const account = { ...(role ? { role } : {}), ...(verified === undefined ? {} : { verified }) };
+    const account = pickBy({ role, verified, developer }, isNonNullish);
 
     await this.prisma.$transaction(async (tx) => {
       if (Object.keys(account).length > 0) {
@@ -201,7 +210,7 @@ export class AdminUserService {
   private filterClause(filter: AdminUserQuery['filter']): Prisma.UserWhereInput {
     return match(filter)
       .with('blocked', () => ({ banned: true }))
-      .with('admins', () => ({ role: USER_ROLE.admin }))
+      .with('staff', () => ({ role: { in: STAFF_ROLES } }))
       .otherwise(() => ({}));
   }
 }

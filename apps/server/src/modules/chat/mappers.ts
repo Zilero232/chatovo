@@ -1,5 +1,7 @@
 import type { ChatMessage } from '@chatovo/schemas';
 
+import { toUserRole } from '@chatovo/schemas';
+
 import type { Prisma } from '../../../generated';
 import type { senderSelect } from '../../lib';
 
@@ -24,6 +26,7 @@ export const toChatMessage = (row: MessageWithSender): ChatMessage => {
             userId: senderId
           })
         : 'Deleted user',
+    senderRole: toUserRole(sender?.role),
     body: deletedAt ? '' : body,
     createdAt: createdAt.toISOString(),
     editedAt: editedAt?.toISOString() ?? null,

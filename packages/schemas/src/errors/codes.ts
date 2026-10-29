@@ -35,6 +35,8 @@ export const apiErrorCodeSchema = z.enum([
 
   'CALL_ALREADY_RINGING',
 
+  'INVISIBLE_READ_ONLY',
+
   'MUSIC_NOT_IN_ROOM',
   'MUSIC_LINK_UNSUPPORTED',
   'MUSIC_TRACK_UNAVAILABLE',
@@ -48,7 +50,8 @@ export const apiErrorCodeSchema = z.enum([
   'ABUSE_REPORT_NOT_FOUND',
   'ABUSE_ALREADY_REPORTED',
   'BLOCK_SELF',
-  'BLOCK_ADMIN',
+  'ROLE_PROTECTED',
+  'ROLE_NOT_ASSIGNABLE',
   'ADMIN_ONLY',
 
   'INVALID_EMAIL_OR_PASSWORD',

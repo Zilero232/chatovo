@@ -1,6 +1,7 @@
 import { useLocalParticipant } from '@livekit/components-react';
 
 import { getCameraCaptureOptions, useAppSettings } from '@/entities/app/settings';
+import { useInvisibleGuard } from '@/entities/room/room';
 
 import { isOverconstrained } from '../../lib/media-errors';
 import { useParticipantAction } from './use-participant-action';
@@ -8,10 +9,15 @@ import { useParticipantAction } from './use-participant-action';
 export const useCameraControl = () => {
   const { localParticipant, isCameraEnabled } = useLocalParticipant();
   const { settings } = useAppSettings();
+  const { isInvisible, blockIfInvisible } = useInvisibleGuard();
 
   const { run, isPending } = useParticipantAction({
     participant: localParticipant,
     action: async (participant) => {
+      if (blockIfInvisible()) {
+        return;
+      }
+
       if (participant.isCameraEnabled) {
         await participant.setCameraEnabled(false);
 
@@ -33,5 +39,5 @@ export const useCameraControl = () => {
     }
   });
 
-  return { enabled: isCameraEnabled, isPending, toggle: run };
+  return { enabled: isCameraEnabled, isInvisible, isPending, toggle: run };
 };

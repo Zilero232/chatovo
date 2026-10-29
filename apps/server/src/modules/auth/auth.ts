@@ -4,12 +4,14 @@ import { prismaAdapter } from 'better-auth/adapters/prisma';
 import { admin, bearer } from 'better-auth/plugins';
 import { createElement } from 'react';
 
+import { DomainEvent } from '../../common/events/domain-events';
+import { emitDomainEvent } from '../../common/events/emit-domain-event';
+import { DISABLED_AUTH_PATHS } from '../../config/auth';
 import { allowedOrigins } from '../../config/cors';
 import { validateEnv } from '../../config/env.schema';
 import { basePrisma } from '../../core/base-prisma';
 import { issueUniqueFriendTag } from '../../lib';
 import { ChangeEmail, DeleteAccount, ResetPassword, sendEmail, VerifyEmail } from '../email';
-import { notifyUserSignup } from '../telegram';
 import { authBaseURL } from './auth-base-url';
 import { withClientCallback } from './auth-callback-url';
 import { prepareUserDeletion } from './lib/prepare-user-deletion';
@@ -19,6 +21,7 @@ const env = validateEnv(process.env);
 
 export const auth = betterAuth({
   basePath: '/auth',
+  disabledPaths: DISABLED_AUTH_PATHS,
   baseURL: authBaseURL(),
   secret: env.BETTER_AUTH_SECRET,
   trustedOrigins: allowedOrigins,
@@ -89,6 +92,12 @@ export const auth = betterAuth({
         defaultValue: false,
         input: false
       },
+      developer: {
+        type: 'boolean',
+        required: false,
+        defaultValue: false,
+        input: false
+      },
       friendTag: {
         type: 'string',
         required: false,
@@ -104,8 +113,8 @@ export const auth = betterAuth({
 
           return {
             data: {
-              role: USER_ROLE.user,
               ...user,
+              role: user.email.toLowerCase() === env.OWNER_EMAIL ? USER_ROLE.owner : USER_ROLE.user,
               friendTag
             }
           };
@@ -115,7 +124,7 @@ export const auth = betterAuth({
             data: { userId: user.id, displayName: user.name }
           });
 
-          notifyUserSignup({ name: user.name, email: user.email });
+          emitDomainEvent(DomainEvent.UserSignedUp, { name: user.name, email: user.email });
         }
       }
     }

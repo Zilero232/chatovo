@@ -2,6 +2,7 @@ export {
   changeEmailSchema,
   changePasswordSchema,
   forgotPasswordSchema,
+  permissionSchema,
   profileSchema,
   resetPasswordSchema,
   signInSchema,
@@ -9,12 +10,24 @@ export {
   USER_ROLE,
   userRoleSchema
 } from './auth';
+export {
+  assignableRoles,
+  canActOnRole,
+  hasPermission,
+  isStaffRole,
+  roleRank,
+  STAFF_ROLES,
+  toUserRole
+} from './auth';
 export type {
   ChangeEmailValues,
   ChangePasswordValues,
   ForgotPasswordValues,
+  HasPermissionInput,
+  Permission,
   ProfileValues,
   ResetPasswordValues,
+  RolePairInput,
   SignInValues,
   SignUpFormValues,
   SignUpValues,
@@ -266,6 +279,7 @@ export {
   roomBanSchema,
   roomKindSchema,
   roomModerationActionSchema,
+  roomPasswordFormSchema,
   roomPasswordSchema,
   roomSchema,
   updateRoomInputSchema
@@ -276,6 +290,7 @@ export type {
   RoomBan,
   RoomKind,
   RoomModerationAction,
+  RoomPasswordFormValues,
   UpdateRoomRequest
 } from './rooms';
 export {

@@ -81,18 +81,24 @@
 }
 
 .toneLeave {
-  border-color: transparent;
-  background: var(--destructive);
-  color: var(--destructive-foreground);
+  width: 3rem;
+  border-color: color-mix(in srgb, var(--destructive) 40%, transparent);
+  background: color-mix(in srgb, var(--destructive) 16%, transparent);
+  color: var(--destructive);
+
+  @include bp(sm) {
+    width: 3.75rem;
+  }
 
   &:hover:not(:disabled) {
+    border-color: transparent;
     background: var(--destructive);
+    box-shadow: 0 rem(6) rem(18) rem(-6) color-mix(in srgb, var(--destructive) 70%, transparent);
+    color: var(--destructive-foreground);
   }
 
   &:focus-visible {
-    box-shadow:
-      0 0 0 rem(2) color-mix(in srgb, var(--destructive) 50%, transparent),
-      0 rem(4) rem(14) rem(-2) color-mix(in srgb, var(--destructive) 50%, transparent);
+    box-shadow: 0 0 0 rem(2) color-mix(in srgb, var(--destructive) 55%, transparent);
   }
 }
 

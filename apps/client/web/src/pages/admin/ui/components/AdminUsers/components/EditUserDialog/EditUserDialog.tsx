@@ -61,7 +61,7 @@ export const EditUserDialog = ({ user, open, onOpenChange }: EditUserDialogProps
             <Input id='admin-profile-url' {...register('profileUrl')} />
           </FormField>
 
-          <EditUserAccessFields control={form.control} />
+          <EditUserAccessFields control={form.control} user={user} />
 
           <SubmitButton className={s.submit} isPending={isPending}>
             {t('editUser.submit')}

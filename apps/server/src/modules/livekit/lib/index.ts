@@ -1,5 +1,6 @@
 export type { AssertRoomAccessInput } from './assert-room-access';
 export { assertRoomAccess } from './assert-room-access';
+export { assertVisibleInRoom, isInvisibleInRoom } from './assert-visible-in-room';
 export type { IsBarredFromRoomInput } from './is-barred-from-room';
 export { isBarredFromRoom } from './is-barred-from-room';
 export { isInvisibleParticipant } from './is-invisible-participant';

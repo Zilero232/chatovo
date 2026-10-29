@@ -29,6 +29,10 @@ export const envSchema = z.object({
   // without spamming real users. Ignored in production.
   DEV_EMAIL_OVERRIDE: z.email().optional(),
 
+  // The one account that holds the owner role: untouchable, above every admin.
+  // Set only here — no endpoint can grant or take it. Unset = no owner.
+  OWNER_EMAIL: z.email().trim().toLowerCase().optional(),
+
   LIVEKIT_API_KEY: z.string().min(1),
   LIVEKIT_API_SECRET: z.string().min(1),
   LIVEKIT_URL: z.url(),

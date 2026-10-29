@@ -21,6 +21,7 @@ describe('assertModerationTarget', () => {
     expect(() =>
       assertModerationTarget({
         actorId: OWNER,
+        actorRole: 'user',
         ownerId: OWNER,
         targetId: GUEST,
         targetRole: 'user'
@@ -32,6 +33,7 @@ describe('assertModerationTarget', () => {
     expect(() =>
       assertModerationTarget({
         actorId: ADMIN,
+        actorRole: 'admin',
         ownerId: OWNER,
         targetId: GUEST,
         targetRole: 'user'
@@ -44,6 +46,7 @@ describe('assertModerationTarget', () => {
       codeOf(() =>
         assertModerationTarget({
           actorId: OWNER,
+          actorRole: 'user',
           ownerId: OWNER,
           targetId: OWNER,
           targetRole: 'user'
@@ -57,6 +60,7 @@ describe('assertModerationTarget', () => {
       codeOf(() =>
         assertModerationTarget({
           actorId: ADMIN,
+          actorRole: 'admin',
           ownerId: OWNER,
           targetId: OWNER,
           targetRole: 'user'
@@ -70,9 +74,50 @@ describe('assertModerationTarget', () => {
       codeOf(() =>
         assertModerationTarget({
           actorId: OWNER,
+          actorRole: 'user',
           ownerId: OWNER,
           targetId: ADMIN,
           targetRole: 'admin'
+        })
+      )
+    ).toBe('ROOM_MODERATION_TARGET_PROTECTED');
+  });
+
+  it('refuses a moderator acting on an admin, who outranks them', () => {
+    expect(
+      codeOf(() =>
+        assertModerationTarget({
+          actorId: 'moderator-1',
+          actorRole: 'moderator',
+          ownerId: OWNER,
+          targetId: ADMIN,
+          targetRole: 'admin'
+        })
+      )
+    ).toBe('ROOM_MODERATION_TARGET_PROTECTED');
+  });
+
+  it('lets an admin act on a moderator, who ranks below them', () => {
+    expect(() =>
+      assertModerationTarget({
+        actorId: ADMIN,
+        actorRole: 'admin',
+        ownerId: OWNER,
+        targetId: 'moderator-1',
+        targetRole: 'moderator'
+      })
+    ).not.toThrow();
+  });
+
+  it('keeps the app owner untouchable even for an admin', () => {
+    expect(
+      codeOf(() =>
+        assertModerationTarget({
+          actorId: ADMIN,
+          actorRole: 'admin',
+          ownerId: OWNER,
+          targetId: 'app-owner',
+          targetRole: 'owner'
         })
       )
     ).toBe('ROOM_MODERATION_TARGET_PROTECTED');

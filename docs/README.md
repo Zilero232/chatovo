@@ -10,12 +10,13 @@ Design decisions — the "why" behind the code, and what has already gone wrong.
 - [architecture/visual-design.md](architecture/visual-design.md) — "a warm evening with Chato": palette, type, the logo colours, the mascot, the WebGL hero, and how the site and the app share one look.
 - [architecture/room-session.md](architecture/room-session.md) — the call outlives navigation: the session above the route, the collapsed bar, leaving without re-opening.
 - [architecture/room-music.md](architecture/room-music.md) — music in a room: a shared queue for YouTube, SoundCloud and radio played by each listener's own embed, "My music" as a LiveKit track, each listener's own volume, player failures told to the one who hits them, and echo-free shared audio.
-- [architecture/invisible-mode.md](architecture/invisible-mode.md) — an admin joins rooms hidden: server-enforced, presence filtered.
+- [architecture/invisible-mode.md](architecture/invisible-mode.md) — staff join rooms hidden and read-only: server-enforced, presence filtered.
 - [architecture/game-activity.md](architecture/game-activity.md) — the "Playing X" status, games only: Steam, Epic and GOG libraries plus the Windows Game Bar list; opt-in, desktop-only.
 - [architecture/tray-menu.md](architecture/tray-menu.md) — the native tray: Rust owns the icon and menu, the client pushes labels and state.
 - [architecture/web-app.md](architecture/web-app.md) — why the web app is a Vite SPA with TanStack Router, not Next: the route tree, typed search params, what replaced each Next feature, the env and dev-server gotchas.
 - [architecture/images.md](architecture/images.md) — images without a framework optimizer: upload-time normalising, the `/images` resizer + the kit's `Image` loader, chat link previews, SSRF-safe outbound fetches.
-- [architecture/developer-role.md](architecture/developer-role.md) — `user.role = 'admin'`: the Developers tab, the badge, the contributors strip.
+- [architecture/roles.md](architecture/roles.md) — owner > admin > moderator > user: permissions, the outrank rule, `OWNER_EMAIL`.
+- [architecture/developer-role.md](architecture/developer-role.md) — the `user.developer` flag: the Developers tab, the DEV badge, the contributors strip.
 - [architecture/pitfalls.md](architecture/pitfalls.md) — things that have already bitten us.
 
 ## Guides

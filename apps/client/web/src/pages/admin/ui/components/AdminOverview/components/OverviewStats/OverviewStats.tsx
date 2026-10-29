@@ -28,7 +28,7 @@ export const OverviewStats = ({ stats }: OverviewStatsProps) => {
           value={stats.users.online}
         />
         <StatCard icon={Ban} label={t('stats.blocked')} tone='danger' value={stats.users.blocked} />
-        <StatCard icon={ShieldCheck} label={t('stats.admins')} value={stats.users.admins} />
+        <StatCard icon={ShieldCheck} label={t('stats.staff')} value={stats.users.staff} />
       </StatGroup>
 
       <StatGroup title={t('stats.groupRooms')}>

@@ -238,7 +238,7 @@
       "speakerDevice": "Escolher alto-falantes",
       "pttHint": "Pressione para falar",
       "leave": "Sair",
-      "invisibleMicBlocked": "Você não pode falar no modo invisível",
+      "invisibleLocked": "Indisponível no modo invisível",
       "mutedByOwner": "Silenciado pelo dono da sala"
     },
     "screen": {
@@ -250,6 +250,18 @@
     "collapseVideo": "Recolher vídeo",
     "invisibleBadge": "Invisível",
     "invisibleNotice": "Você entrou escondido: ninguém vê nem ouve você",
+    "invisible": {
+      "blocked": "Você está no modo invisível",
+      "blockedHint": "Microfone, câmera, tela, reações, chat e música ficam desligados para ninguém notar você. Desative o modo invisível para participar.",
+      "turnOff": "Desativar",
+      "noticeHint": "Microfone, câmera, reações e chat ficam indisponíveis até você desativar o modo invisível.",
+      "chatReadOnly": "Somente leitura no modo invisível",
+      "chatReadOnlyHint": "Uma mensagem revelaria que você está aqui.",
+      "passwordTitle": "Digite a senha da sala",
+      "passwordHint": "Você entrou em “{name}” no modo invisível, sem a senha. Para aparecer nela, digite a senha — ou continue invisível.",
+      "passwordSubmit": "Aparecer na sala",
+      "stayInvisible": "Continuar invisível"
+    },
     "badges": {
       "screen": "Tela",
       "music": "Música"

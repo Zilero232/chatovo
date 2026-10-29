@@ -6,6 +6,7 @@ export const DomainEvent = {
   UserSignedUp: 'user.signed-up',
   ProblemReported: 'problem.reported',
   VoiceJoined: 'voice.joined',
+  VoiceLeft: 'voice.left',
   VoiceEmptied: 'voice.emptied',
   CallRinging: 'call.ringing',
   DmMessageSent: 'dm.message-sent',
@@ -60,12 +61,19 @@ export type DomainEventPayloads = {
     email: string;
   };
   [DomainEvent.VoiceEmptied]: {
+    roomId: string;
     roomName: string;
   };
   [DomainEvent.VoiceJoined]: {
     roomId: string;
     roomName: string;
+    isDm: boolean;
+    participantId: string;
     participantName: string;
+  };
+  [DomainEvent.VoiceLeft]: {
+    roomId: string;
+    participantId: string;
   };
 };
 
@@ -74,6 +82,7 @@ export type RoomDeletedEvent = DomainEventPayloads[typeof DomainEvent.RoomDelete
 export type UserSignedUpEvent = DomainEventPayloads[typeof DomainEvent.UserSignedUp];
 export type ProblemReportedEvent = DomainEventPayloads[typeof DomainEvent.ProblemReported];
 export type VoiceJoinedEvent = DomainEventPayloads[typeof DomainEvent.VoiceJoined];
+export type VoiceLeftEvent = DomainEventPayloads[typeof DomainEvent.VoiceLeft];
 export type VoiceEmptiedEvent = DomainEventPayloads[typeof DomainEvent.VoiceEmptied];
 export type CallRingingEvent = DomainEventPayloads[typeof DomainEvent.CallRinging];
 export type DmMessageSentEvent = DomainEventPayloads[typeof DomainEvent.DmMessageSent];

@@ -1,6 +1,6 @@
 # Invisible mode
 
-An admin can join any voice room hidden: no password, and no *plain user* sees or hears them. It is a real hide, enforced by the server and LiveKit, not a UI trick — a plain user cannot fake it, and no plain client can reveal the hidden admin. Other admins are the one deliberate exception: they see hidden admins, marked with an "Invisible" badge.
+Staff with the `invisible` permission (moderators and up, [roles](roles.md)) can join any voice room hidden: no password, and no *plain user* sees or hears them. It is a real hide, enforced by the server and LiveKit, not a UI trick — a plain user cannot fake it, and no plain client can reveal the hidden admin. Staff with `seeInvisible` are the one deliberate exception: they see hidden participants, marked with an "Invisible" badge.
 
 ## The security boundary
 
@@ -11,13 +11,13 @@ The only thing that grants invisibility is the server-verified role. The client 
 resolveInvisible({ requested, isAdmin }) => Boolean(requested) && isAdmin;
 ```
 
-`isAdmin` comes from the session (`session.user.role === 'admin'`), never from the request body, so a forged flag from a non-admin resolves to `false`. This is the guarantee the whole feature rests on, and it is the one thing covered by a test that must never regress.
+`canBeInvisible` comes from the role stored in the database (`hasPermission({ role, permission: 'invisible' })`), never from the request body, so a forged flag from a plain user resolves to `false`. This is the guarantee the whole feature rests on, and it is the one thing covered by a test that must never regress.
 
 ## What the token grants
 
 When `isInvisible` is true, `issueRoomToken` changes three things:
 
-- **Skips the password check** — `assertRoomAccess` is not called.
+- **Skips the password check** — `assertRoomAccess` is not called, and the room grant it records is **hidden** (`grantRoomAccess({ isHidden: true })`). A hidden grant opens the room's contents (chat history) but never a visible token: `assertRoomAccess` accepts only `hasVisibleRoomGrant`. So turning invisible mode off inside a private room asks for the password (`InvisiblePasswordDialog`, driven by `useInvisibleModeSync`); backing out keeps the person invisible. A grant earned with the password is never downgraded by a later invisible join.
 - **Sets `hidden: true`** on the LiveKit grant. The SFU then keeps the participant out of everyone else's participant list.
 - **Drops `canPublish` / `canPublishData`** — an invisible admin can listen but not speak, so nothing leaks through an audio track.
 
@@ -41,7 +41,7 @@ The `invisible` flag is deliberately **not** part of `participantMetadataSchema`
 - `getSnapshot()` — invisible participants filtered out. A room whose only occupants are hidden admins is absent entirely, so the lobby shows it as empty.
 - `getAdminSnapshot()` — the full list, each hidden admin carrying `invisible: true`.
 
-Every realtime connection records `isAdmin`, resolved from the better-auth session at handshake (`authorizeToken`), never from anything the client sends. `sendPresenceByRole` then hands each connection the variant its own role is allowed to see. A plain user's socket never carries a hidden admin, so the hide cannot leak over the wire.
+Every realtime connection records `canSeeInvisible` (the `seeInvisible` permission), resolved from the better-auth session at handshake (`authorizeToken`), never from anything the client sends. `sendPresenceByRole` then hands each connection the variant its own role is allowed to see. A plain user's socket never carries a hidden admin, so the hide cannot leak over the wire.
 
 Admin counters (`admin-stats`, `admin-room`) deliberately use the public snapshot: hidden admins are observers and must not inflate room population numbers.
 
@@ -54,7 +54,8 @@ The room roster is drawn from LiveKit's `useParticipants`, which never returns h
 - **The toggle** is `useInvisibleMode` (`features/app/invisible-mode`), rendered by `InvisibleModeButton` in the sidebar (`widgets/app/app-sidebar`) as a pressed/unpressed button beside `AdminPanelButton`; `AppSidebar` renders both only for `isAdmin`. Each is one click: they used to share a dropdown, and toggling the mode or opening the panel took two. It lives there rather than in the settings dialog because it is an admin tool, not a user preference, and because the sidebar is reachable on web and desktop alike — the system settings tab is desktop-only. It is stored in `settings.system.invisibleMode`.
 - **The token request** — `useEnterRoom` and `useRoomToken` send `invisible: isAdmin && settings.system.invisibleMode`. A non-admin never sends `true`, and even if they did the server rejects it.
 - **The join/leave sounds** — `useVoiceRoomSounds` suppresses the admin's *own* join and leave chimes while invisible. Other people never hear them either, because a hidden participant emits no `ParticipantConnected` to their clients.
-- **Room music is listen-only** — the server refuses a hidden admin's mutations (`addedBy` would give them away), so the music button is hidden and the minibar has no controls ([room-music.md](room-music.md)).
+- **The room is read-only** — an invisible admin listens and reads, nothing else. The server refuses everything that would reveal them with `INVISIBLE_READ_ONLY`: chat sends and edits (`ChatMessageService`), music mutations (`RoomMusicService`, `addedBy` would give them away), and silently drops their reactions (`handleClientMessage`). The client doesn't offer it: `useIsInvisible` is the one place that answers "am I invisible" (admin role + `settings.system.invisibleMode`), `useInvisibleGuard` adds `notifyBlocked` — a toast with a "Turn off" action — and `turnOff`. The mic, camera, screen share, reactions and music buttons stay in place but locked, and clicking one shows that toast; the chat swaps the composer for `ChatReadOnlyNotice` ([room-music.md](room-music.md)).
+- **Telegram** — an invisible admin never enters the voice-session message: `participant_joined` and `participant_left` both skip them.
 
 ## Adding a surface that lists participants
 

@@ -206,6 +206,42 @@
       "minor": "Normal sürüm"
     },
     "entries": {
+      "staffRoles": {
+        "title": "Moderatörler ve net bir rol hiyerarşisi",
+        "description": "Yeni moderatör rolü yönetim paneli olmadan görünmez mod ve oda moderasyonu alır. Herkes yalnızca kendinden alt rollere işlem yapabilir, sahibe kimse dokunamaz."
+      },
+      "invisibleReadOnly": {
+        "title": "Görünmez mod artık gerçekten görünmez",
+        "description": "Görünmezken dinleyip okuyabilirsin; mikrofon, kamera, ekran, tepkiler, sohbet ve müzik ise net bir ipucu ve modu kapatma düğmesiyle kilitli."
+      },
+      "invisiblePassword": {
+        "title": "Özel odalar göründüğünde şifre sorar",
+        "description": "Kilitli bir odaya görünmez girmek artık şifreyi atlatmaz: odada görünmek için şifreyi gir — ya da görünmez kal."
+      },
+      "roleProtection": {
+        "title": "Roller yalnızca yönetim panelinden değişir",
+        "description": "Rol vermeye ya da başkası olarak girmeye yarayan yan yollar kapatıldı; her rol değişikliği hiyerarşiye uyar."
+      },
+      "telegramLive": {
+        "title": "Sohbet başına tek canlı Telegram mesajı",
+        "description": "Her katılım için bir satır yerine kanal, kimlerin olduğunu, durumlarını ve müziği güncelleyen tek bir mesaj alır; mesaj süre ve herkesin kaldığı zamanla biter."
+      },
+      "dmCallsPrivate": {
+        "title": "Özel aramalar özel kalır",
+        "description": "Arkadaşlar arasındaki aramalar artık Telegram kanalında görünmez."
+      },
+      "playInRoom": {
+        "title": "Daha düzenli bir “Odada çal” düğmesi",
+        "description": "Sohbetteki müzik bağlantıları, servisi gösteren ve parça sıraya girince onaylayan kompakt bir düğme aldı."
+      },
+      "hangUp": {
+        "title": "Daha anlaşılır bir kapatma düğmesi",
+        "description": "Aramadan çıkmak artık diğerlerinden ayrışan kırmızı bir kapatma düğmesi."
+      },
+      "mobileCards": {
+        "title": "Telefonda daha uzun katılımcı kartları",
+        "description": "Dar ekranlarda kartlar ince şeritlere küçülmek yerine boş yüksekliği doldurur."
+      },
       "playerVolume": {
         "title": "Müzik ses düzeyi doğrudan oynatıcıda",
         "description": "Ses kontrolü oynatıcının çubuğunda ve müzik çubuğunda. Sesi yalnızca sizin için değiştirir; kişi başı kaydırıcıların yerini tek bir kaydırıcı aldı."
@@ -848,6 +884,8 @@
       }
     },
     "highlights": {
+      "staffRoles": "Moderatörler ve net bir rol hiyerarşisi",
+      "invisibleReadOnly": "Görünmez mod artık gerçekten görünmez",
       "playerVolume": "Müzik ses düzeyi doğrudan oynatıcıda",
       "noSkipForAll": "Birinin sorunu artık parçayı atlatmıyor",
       "musicPerPerson": "Herkes için ayrı müzik ses düzeyi",

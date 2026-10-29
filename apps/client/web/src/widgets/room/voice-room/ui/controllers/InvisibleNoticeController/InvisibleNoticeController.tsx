@@ -2,18 +2,20 @@ import { useMount } from '@siberiacancode/reactuse';
 import { toast } from 'sonner';
 import { useTranslations } from 'use-intl';
 
-import { useAppSettings } from '@/entities/app/settings';
-import { useCurrentUser } from '@/entities/auth/user';
+import { useInvisibleGuard } from '@/entities/room/room';
 
 export const InvisibleNoticeController = () => {
   const t = useTranslations('room');
 
-  const { settings } = useAppSettings();
-  const { isAdmin } = useCurrentUser();
+  const { isInvisible, turnOff } = useInvisibleGuard();
 
   useMount(() => {
-    if (isAdmin && settings.system.invisibleMode) {
-      toast.info(t('invisibleNotice'), { id: 'invisible-notice' });
+    if (isInvisible) {
+      toast.info(t('invisibleNotice'), {
+        id: 'invisible-notice',
+        description: t('invisible.noticeHint'),
+        action: { label: t('invisible.turnOff'), onClick: turnOff }
+      });
     }
   });
 

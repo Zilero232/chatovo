@@ -8,6 +8,8 @@ import { useToastError } from '@/entities/app/locale';
 
 import type { UserRowActionsProps } from './UserRowActions.types';
 
+import { useUserAccess } from '../../../../../../../model/hooks';
+
 import s from '../../UserRow.module.scss';
 
 export const UserRowActions = ({ user, onBlock, onEdit, onShowDetails }: UserRowActionsProps) => {
@@ -15,6 +17,7 @@ export const UserRowActions = ({ user, onBlock, onEdit, onShowDetails }: UserRow
   const toastError = useToastError();
 
   const unblock = useUnblockUser();
+  const { canManage, canBlock } = useUserAccess(user);
 
   const handleUnblock = () =>
     unblock.mutate(user.id, {
@@ -32,15 +35,17 @@ export const UserRowActions = ({ user, onBlock, onEdit, onShowDetails }: UserRow
         onClick={onShowDetails}
       />
 
-      <IconButtonWithTooltip
-        icon={<Pencil />}
-        label={t('users.edit')}
-        size='icon-sm'
-        tooltipSide='top'
-        onClick={onEdit}
-      />
+      {canManage && (
+        <IconButtonWithTooltip
+          icon={<Pencil />}
+          label={t('users.edit')}
+          size='icon-sm'
+          tooltipSide='top'
+          onClick={onEdit}
+        />
+      )}
 
-      {user.blockedAt ? (
+      {canBlock && user.blockedAt !== null && (
         <IconButtonWithTooltip
           disabled={unblock.isPending}
           icon={<ShieldOff />}
@@ -49,7 +54,9 @@ export const UserRowActions = ({ user, onBlock, onEdit, onShowDetails }: UserRow
           tooltipSide='top'
           onClick={handleUnblock}
         />
-      ) : (
+      )}
+
+      {canBlock && user.blockedAt === null && (
         <IconButtonWithTooltip
           icon={<Ban />}
           label={t('users.block')}

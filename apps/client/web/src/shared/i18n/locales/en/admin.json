@@ -44,7 +44,7 @@
       "users": "Users",
       "online": "Online",
       "blocked": "Blocked",
-      "admins": "Admins",
+      "staff": "Staff",
       "newToday": "New today",
       "rooms": "Rooms",
       "roomsGroup": "Group",
@@ -88,11 +88,11 @@
         "all": "All",
         "online": "Online",
         "blocked": "Blocked",
-        "admins": "Admins"
+        "staff": "Staff"
       },
       "online": "Online",
       "blocked": "Blocked",
-      "admin": "Admin",
+      "developer": "DEV",
       "verified": "Verified",
       "roomsCount": "Rooms: {count}",
       "messagesCount": "Messages: {count}",
@@ -125,10 +125,16 @@
       "bio": "Bio",
       "profileUrl": "Link",
       "verified": "Verified account",
+      "developer": "Developer badge (DEV)",
       "role": "Role",
-      "roleAdmin": "Administrator",
-      "roleUser": "User",
+      "roleLocked": "Only someone with a higher role can change this.",
       "submit": "Save"
+    },
+    "roles": {
+      "owner": "Owner",
+      "admin": "Administrator",
+      "moderator": "Moderator",
+      "user": "User"
     },
     "blockUser": {
       "title": "Block {name}?",

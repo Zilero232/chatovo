@@ -1,7 +1,9 @@
+import { hasPermission } from '@chatovo/schemas';
+
 import { auth } from '../../../auth/auth';
 
 export type AuthorizedRealtimeUser = {
-  isAdmin: boolean;
+  canSeeInvisible: boolean;
   userId: string;
 };
 
@@ -20,5 +22,8 @@ export const authorizeToken = async (
     return null;
   }
 
-  return { userId: session.user.id, isAdmin: session.user.role === 'admin' };
+  return {
+    userId: session.user.id,
+    canSeeInvisible: hasPermission({ role: session.user.role, permission: 'seeInvisible' })
+  };
 };

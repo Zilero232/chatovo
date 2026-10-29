@@ -32,16 +32,28 @@ describe('assertCanModerateRoom', () => {
     findUser.mockReset().mockResolvedValue({ role: 'user' });
   });
 
-  it('hands the owner their room back', async () => {
-    await expect(assertCanModerateRoom({ roomId: 'room-1', userId: OWNER })).resolves.toEqual(ROOM);
+  it('hands the owner their room back with their role', async () => {
+    await expect(assertCanModerateRoom({ roomId: 'room-1', userId: OWNER })).resolves.toEqual({
+      room: ROOM,
+      role: 'user'
+    });
   });
 
   it('lets an app admin moderate somebody else’s room', async () => {
     findUser.mockResolvedValueOnce({ role: 'admin' });
 
-    await expect(assertCanModerateRoom({ roomId: 'room-1', userId: 'admin-1' })).resolves.toEqual(
-      ROOM
-    );
+    await expect(assertCanModerateRoom({ roomId: 'room-1', userId: 'admin-1' })).resolves.toEqual({
+      room: ROOM,
+      role: 'admin'
+    });
+  });
+
+  it('lets a moderator, who has no admin panel, moderate somebody else’s room', async () => {
+    findUser.mockResolvedValueOnce({ role: 'moderator' });
+
+    await expect(
+      assertCanModerateRoom({ roomId: 'room-1', userId: 'moderator-1' })
+    ).resolves.toEqual({ room: ROOM, role: 'moderator' });
   });
 
   it('refuses a participant who neither owns the room nor is an admin', async () => {

@@ -6,38 +6,38 @@ import type {
   RoomCreatedNotification,
   RoomDeletedNotification,
   UserBlockedNotification,
-  UserSignupNotification,
-  VoiceEmptyNotification,
-  VoiceJoinNotification
+  UserSignupNotification
 } from './telegram.types';
 
 import { send } from './bot';
 import { roomUrl } from './links';
 
-export const notifyVoiceJoin = ({
-  roomId,
-  roomName,
-  participantName
-}: VoiceJoinNotification): Promise<void> =>
+const formatCount = (value: number): string => value.toLocaleString('ru-RU');
+
+export const notifyUserSignup = ({
+  name,
+  email,
+  totalUsers,
+  signupsLastDay
+}: UserSignupNotification): Promise<void> =>
   send(
-    fmt`🎙 ${bold()}${participantName}${bold()} зашёл в голосовой канал ${link(roomUrl(roomId))}${roomName}${link(roomUrl(roomId))}`
+    fmt`✨ Новый пользователь: ${bold()}${name}${bold()} (${email})\nВсего пользователей: ${formatCount(totalUsers)} · за сутки: ${formatCount(signupsLastDay)}`
   );
 
-export const notifyVoiceEmpty = ({ roomName }: VoiceEmptyNotification): Promise<void> =>
-  send(fmt`🔇 Голосовой канал ${bold()}${roomName}${bold()} опустел`);
-
-export const notifyUserSignup = ({ name, email }: UserSignupNotification): Promise<void> =>
-  send(fmt`✨ Новый пользователь: ${bold()}${name}${bold()} (${email})`);
-
 export const notifyRoomCreated = ({
+  roomId,
   roomName,
   ownerName,
-  isPrivate
+  isPrivate,
+  totalRooms
 }: RoomCreatedNotification): Promise<void> => {
   const badge = isPrivate ? '🔒 приватная' : '🌐 публичная';
+  const name = fmt`${bold()}${roomName}${bold()}`;
+  const title =
+    roomId === null ? name : fmt`${link(roomUrl(roomId))}${name}${link(roomUrl(roomId))}`;
 
   return send(
-    fmt`➕ ${bold()}${ownerName}${bold()} создал комнату ${bold()}${roomName}${bold()} (${badge})`
+    fmt`➕ Новая комната ${title} (${badge})\nВладелец: ${ownerName}\nВсего комнат: ${formatCount(totalRooms)}`
   );
 };
 
@@ -45,7 +45,7 @@ export const notifyRoomDeleted = ({
   roomName,
   ownerName
 }: RoomDeletedNotification): Promise<void> =>
-  send(fmt`➖ ${bold()}${ownerName}${bold()} удалил комнату ${bold()}${roomName}${bold()}`);
+  send(fmt`➖ Комната ${bold()}${roomName}${bold()} удалена\nВладелец: ${ownerName}`);
 
 export const notifyProblemReport = ({
   reporter,
@@ -79,11 +79,13 @@ export const notifyAbuseReport = ({
 };
 
 export const notifyUserBlocked = ({
+  userId,
   userName,
   email,
   reason,
+  reportCount,
   blockedBy
 }: UserBlockedNotification): Promise<void> =>
   send(
-    fmt`⛔ Заблокирован ${bold()}${userName}${bold()} (${email})\nПричина: ${reason}\nМодератор: ${code()}${blockedBy}${code()}`
+    fmt`⛔ Блокировка: ${bold()}${userName}${bold()} (${email})\nID: ${code()}${userId}${code()}\nПричина: ${reason}\nЖалоб на пользователя: ${formatCount(reportCount)}\nМодератор: ${code()}${blockedBy}${code()}`
   );

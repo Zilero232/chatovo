@@ -238,7 +238,7 @@
       "speakerDevice": "Choisir les haut-parleurs",
       "pttHint": "Appuyer pour parler",
       "leave": "Quitter",
-      "invisibleMicBlocked": "Tu ne peux pas parler en mode invisible",
+      "invisibleLocked": "Indisponible en mode invisible",
       "mutedByOwner": "Micro coupé par le propriétaire du salon"
     },
     "screen": {
@@ -250,6 +250,18 @@
     "collapseVideo": "Réduire la vidéo",
     "invisibleBadge": "Invisible",
     "invisibleNotice": "Tu es entré en mode caché : personne ne te voit ni ne t'entend",
+    "invisible": {
+      "blocked": "Tu es en mode invisible",
+      "blockedHint": "Micro, caméra, partage d'écran, réactions, chat et musique sont coupés pour que personne ne te remarque. Désactive le mode invisible pour participer.",
+      "turnOff": "Désactiver",
+      "noticeHint": "Micro, caméra, réactions et chat restent indisponibles tant que tu n'as pas désactivé le mode invisible.",
+      "chatReadOnly": "Lecture seule en mode invisible",
+      "chatReadOnlyHint": "Un message révélerait que tu es là.",
+      "passwordTitle": "Saisis le mot de passe du salon",
+      "passwordHint": "Tu as rejoint « {name} » en mode invisible, sans mot de passe. Pour y apparaître, saisis le mot de passe — ou reste invisible.",
+      "passwordSubmit": "Apparaître dans le salon",
+      "stayInvisible": "Rester invisible"
+    },
     "badges": {
       "screen": "Écran",
       "music": "Musique"

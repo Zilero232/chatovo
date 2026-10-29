@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+import { USER_ROLE, userRoleSchema } from '../auth/inputs';
+
 export const tokenResponseSchema = z.object({
   token: z.string()
 });
@@ -10,6 +12,8 @@ export const tokenResponseSchema = z.object({
 const participantProfileSchema = z.object({
   verified: z.boolean().default(false),
   developer: z.boolean().default(false),
+  // The app role, so clients can tell who outranks whom before offering moderation.
+  role: userRoleSchema.catch(USER_ROLE.user),
   profileUrl: z.string().nullable().default(null),
   avatarUrl: z.string().nullable().default(null),
   bannerColor: z.string().nullable().default(null)

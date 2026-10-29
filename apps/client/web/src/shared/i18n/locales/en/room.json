@@ -238,7 +238,7 @@
       "speakerDevice": "Select speakers",
       "pttHint": "Push-to-talk",
       "leave": "Leave",
-      "invisibleMicBlocked": "You cannot speak in invisible mode",
+      "invisibleLocked": "Unavailable in invisible mode",
       "mutedByOwner": "Muted by the room owner"
     },
     "screen": {
@@ -250,6 +250,18 @@
     "collapseVideo": "Collapse video",
     "invisibleBadge": "Invisible",
     "invisibleNotice": "You joined hidden: nobody sees or hears you",
+    "invisible": {
+      "blocked": "You're in invisible mode",
+      "blockedHint": "Microphone, camera, screen, reactions, chat and music are off so nobody notices you. Turn invisible mode off to take part.",
+      "turnOff": "Turn off",
+      "noticeHint": "Microphone, camera, reactions and chat stay off until you turn invisible mode off.",
+      "chatReadOnly": "Read-only while invisible",
+      "chatReadOnlyHint": "A message would reveal that you're here.",
+      "passwordTitle": "Enter the room password",
+      "passwordHint": "You joined “{name}” invisibly, without the password. To appear in it, enter the password — or stay invisible.",
+      "passwordSubmit": "Appear in the room",
+      "stayInvisible": "Stay invisible"
+    },
     "badges": {
       "screen": "Screen",
       "music": "Music"

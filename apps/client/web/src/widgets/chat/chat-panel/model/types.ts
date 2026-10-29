@@ -1,3 +1,5 @@
+import type { UserRole } from '@chatovo/schemas';
+
 export type ChatLineStatus = 'failed' | 'sending';
 
 export type ChatLine = {
@@ -7,6 +9,7 @@ export type ChatLine = {
     identity: string;
     name?: string;
     metadata?: string;
+    role?: UserRole;
   };
   id: string;
   message: string;

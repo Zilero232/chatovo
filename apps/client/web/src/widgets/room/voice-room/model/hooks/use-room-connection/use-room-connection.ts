@@ -3,8 +3,7 @@ import type { DisconnectReason } from 'livekit-client';
 import { useRef } from 'react';
 
 import { getPublishDefaults, useAppSettings } from '@/entities/app/settings';
-import { useCurrentUser } from '@/entities/auth/user';
-import { isTokenMicLocked, useRecentRooms } from '@/entities/room/room';
+import { isTokenMicLocked, useIsInvisible, useRecentRooms } from '@/entities/room/room';
 
 import type { UseRoomConnectionInput } from './use-room-connection.types';
 
@@ -17,10 +16,9 @@ export const useRoomConnection = ({
   onLeave
 }: UseRoomConnectionInput) => {
   const { settings } = useAppSettings();
-  const { isAdmin } = useCurrentUser();
+  const isInvisible = useIsInvisible();
   const { push: pushRecent } = useRecentRooms();
 
-  const isInvisible = isAdmin && settings.system.invisibleMode;
   const isJoiningMuted = isInvisible || isTokenMicLocked(token);
 
   const hasConnectedRef = useRef(false);
