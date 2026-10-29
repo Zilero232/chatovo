@@ -206,6 +206,54 @@
       "minor": "Atualização regular"
     },
     "entries": {
+      "callsRedone": {
+        "title": "Chamadas entre amigos, do jeito certo",
+        "description": "Ligar já coloca você na chamada, a outra pessoa recebe um cartão em vez de uma janela que bloqueia, e desligar encerra para os dois. Se alguém cair, aparece “reconectando” e há um minuto para voltar."
+      },
+      "callLog": {
+        "title": "Chamadas no histórico do chat",
+        "description": "Cada chamada deixa uma linha no chat com o amigo — feita, perdida ou recusada, com a duração e um botão para retornar."
+      },
+      "browserFixes": {
+        "title": "Firefox e notificações legíveis",
+        "description": "Avatares não se dividem mais ao meio no Firefox, e as notificações voltam a ser legíveis em vez de pretas."
+      },
+      "staffRoles": {
+        "title": "Moderadores e uma hierarquia de funções clara",
+        "description": "A nova função de moderador tem modo invisível e moderação de salas sem acesso ao painel de administração. Cada um só age sobre funções abaixo da sua, e ninguém toca no proprietário."
+      },
+      "invisibleReadOnly": {
+        "title": "O modo invisível agora é realmente invisível",
+        "description": "No modo invisível dá para ouvir e ler, mas microfone, câmera, tela, reações, chat e música ficam bloqueados, com um aviso claro e um botão para desativar o modo."
+      },
+      "invisiblePassword": {
+        "title": "Salas privadas pedem a senha quando você aparece",
+        "description": "Entrar invisível numa sala trancada não pula mais a senha: para aparecer nela, digite a senha — ou continue invisível."
+      },
+      "roleProtection": {
+        "title": "Funções só mudam pelo painel",
+        "description": "Rotas paralelas que permitiam dar funções ou entrar como outra pessoa foram desligadas; toda mudança de função segue a hierarquia."
+      },
+      "telegramLive": {
+        "title": "Uma mensagem viva no Telegram por conversa",
+        "description": "Em vez de uma linha a cada entrada, o canal recebe uma mensagem que se atualiza com quem está lá, o status e a música — e termina com a duração e o tempo de cada um."
+      },
+      "dmCallsPrivate": {
+        "title": "Chamadas privadas continuam privadas",
+        "description": "Chamadas entre amigos não aparecem mais no canal do Telegram."
+      },
+      "playInRoom": {
+        "title": "Um botão “Tocar na sala” mais caprichado",
+        "description": "Links de música no chat ganharam um botão compacto com o serviço e a confirmação de que a faixa entrou na fila."
+      },
+      "hangUp": {
+        "title": "Um botão de desligar mais claro",
+        "description": "Sair de uma chamada agora é um botão vermelho de desligar que se destaca dos outros."
+      },
+      "mobileCards": {
+        "title": "Cartões de participantes mais altos no celular",
+        "description": "Em telas estreitas os cartões ocupam a altura livre em vez de virarem faixas finas."
+      },
       "playerVolume": {
         "title": "Volume da música no próprio player",
         "description": "O controle de volume fica na barra do player e na barra de música. Ele muda o som só para você, e um único controle substitui os de cada pessoa."
@@ -848,6 +896,9 @@
       }
     },
     "highlights": {
+      "callsRedone": "Chamadas entre amigos, do jeito certo",
+      "staffRoles": "Moderadores e uma hierarquia de funções clara",
+      "invisibleReadOnly": "O modo invisível agora é realmente invisível",
       "playerVolume": "Volume da música no próprio player",
       "noSkipForAll": "O problema de um não pula mais a faixa",
       "musicPerPerson": "Volume da música para cada pessoa",

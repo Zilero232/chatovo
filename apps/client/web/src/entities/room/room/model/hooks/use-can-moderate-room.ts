@@ -5,7 +5,7 @@ import { useCurrentUser } from '@/entities/auth/user';
 import { useRoomById } from './use-room-by-id';
 
 export const useCanModerateRoom = (roomId: string | null) => {
-  const { user, isAdmin } = useCurrentUser();
+  const { user, can } = useCurrentUser();
 
   const { room } = useRoomById(roomId || null);
 
@@ -13,5 +13,5 @@ export const useCanModerateRoom = (roomId: string | null) => {
   const isGroup = room?.kind === roomKindSchema.enum.group;
   const isOwner = ownerId !== null && ownerId === user?.id;
 
-  return { canModerate: isGroup && (isAdmin || isOwner), ownerId };
+  return { canModerate: isGroup && (can('moderateAnyRoom') || isOwner), ownerId };
 };

@@ -54,6 +54,7 @@
     "notFoundHint": "Le propriétaire a supprimé ce salon, ou le lien n'est plus valide. Vérifie le lien ou trouve le salon dans l'accueil.",
     "backToLobby": "Retour à l'accueil",
     "joinFailed": "Impossible de rejoindre le salon",
+    "movedToOtherDevice": "L'appel continue sur un autre appareil",
     "invite": {
       "copyLink": "Copier le lien d'invitation",
       "linkCopied": "Lien d'invitation copié",
@@ -68,7 +69,9 @@
       "label": "Salon actif « {name} »",
       "inRoom": "Tu es dans le salon",
       "inCall": "Tu es en appel",
-      "connecting": "Connexion…"
+      "connecting": "Connexion…",
+      "calling": "Appel en cours…",
+      "inCallFor": "En appel · {duration}"
     },
     "music": {
       "label": "Musique du salon",
@@ -238,18 +241,48 @@
       "speakerDevice": "Choisir les haut-parleurs",
       "pttHint": "Appuyer pour parler",
       "leave": "Quitter",
-      "invisibleMicBlocked": "Tu ne peux pas parler en mode invisible",
+      "invisibleLocked": "Indisponible en mode invisible",
       "mutedByOwner": "Micro coupé par le propriétaire du salon"
     },
     "screen": {
       "sharingTitle": "Tu partages ton écran",
       "sharingHint": "Ton aperçu est masqué pour que l'écran ne se répète pas à l'infini en lui-même. Les autres le voient."
     },
-    "dmWaiting": "En attente de l'autre personne…",
     "expandVideo": "Agrandir la vidéo",
     "collapseVideo": "Réduire la vidéo",
     "invisibleBadge": "Invisible",
     "invisibleNotice": "Tu es entré en mode caché : personne ne te voit ni ne t'entend",
+    "dmCall": {
+      "waiting": "En attente de l'autre personne…",
+      "connecting": "Connexion avec {name}…",
+      "calling": "Appel de {name}…",
+      "ringing": "Ça sonne chez {name}…",
+      "peerBusy": "{name} est dans un autre appel — ça sonne toujours",
+      "peerLeft": "{name} : connexion perdue · attente {countdown}",
+      "peerReconnecting": "{name} se reconnecte…",
+      "ringAgain": "Rappeler",
+      "ended": "Appel terminé",
+      "endedWithDuration": "Appel terminé · {duration}",
+      "declined": "{name} a refusé l'appel",
+      "noAnswer": "{name} n'a pas répondu",
+      "busy": "{name} est déjà en appel",
+      "cancelled": "Appel annulé",
+      "failed": "L'appel n'a pas pu aboutir",
+      "stillInCall": "Tu es toujours en appel avec {name}",
+      "rejoin": "Revenir"
+    },
+    "invisible": {
+      "blocked": "Tu es en mode invisible",
+      "blockedHint": "Micro, caméra, partage d'écran, réactions, chat et musique sont coupés pour que personne ne te remarque. Désactive le mode invisible pour participer.",
+      "turnOff": "Désactiver",
+      "noticeHint": "Micro, caméra, réactions et chat restent indisponibles tant que tu n'as pas désactivé le mode invisible.",
+      "chatReadOnly": "Lecture seule en mode invisible",
+      "chatReadOnlyHint": "Un message révélerait que tu es là.",
+      "passwordTitle": "Saisis le mot de passe du salon",
+      "passwordHint": "Tu as rejoint « {name} » en mode invisible, sans mot de passe. Pour y apparaître, saisis le mot de passe — ou reste invisible.",
+      "passwordSubmit": "Apparaître dans le salon",
+      "stayInvisible": "Rester invisible"
+    },
     "badges": {
       "screen": "Écran",
       "music": "Musique"
@@ -293,7 +326,19 @@
       "description": "Les messages envoyés dans ce salon s'affichent ici et restent visibles pour ceux qui arrivent plus tard. Partage un lien, un fichier ou dis simplement bonjour."
     },
     "openInBrowser": "Ouvrir dans le navigateur",
-    "download": "Télécharger"
+    "download": "Télécharger",
+    "callLog": {
+      "outgoing": "Appel sortant",
+      "incoming": "Appel entrant",
+      "missed": "Appel manqué",
+      "cancelled": "Appel annulé",
+      "declinedByPeer": "Appel refusé",
+      "declinedBySelf": "Tu as refusé l'appel",
+      "noAnswer": "Pas de réponse",
+      "busy": "Occupé",
+      "failed": "L'appel a échoué",
+      "callBack": "Rappeler"
+    }
   },
   "channels": {
     "searchPlaceholder": "Rechercher des salons…",

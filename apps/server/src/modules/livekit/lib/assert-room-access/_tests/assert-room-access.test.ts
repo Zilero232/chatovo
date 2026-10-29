@@ -24,7 +24,7 @@ describe('assertRoomAccess', () => {
   });
 
   it('lets the creator straight in right after creating the room', async () => {
-    grantRoomAccess('room-private', OWNER);
+    grantRoomAccess({ roomId: 'room-private', userId: OWNER });
 
     await expect(assertRoomAccess({ room: privateRoom, userId: OWNER })).resolves.toBeUndefined();
   });
@@ -36,7 +36,7 @@ describe('assertRoomAccess', () => {
   });
 
   it('lets back in a user who already entered the password', async () => {
-    grantRoomAccess('room-private', 'returning-1');
+    grantRoomAccess({ roomId: 'room-private', userId: 'returning-1' });
 
     await expect(
       assertRoomAccess({ room: privateRoom, userId: 'returning-1' })
@@ -70,6 +70,23 @@ describe('assertRoomAccess', () => {
   it('lets anyone into a public room', async () => {
     await expect(
       assertRoomAccess({ room: { ...privateRoom, isPrivate: false }, userId: STRANGER })
+    ).resolves.toBeUndefined();
+  });
+
+  it('asks for the password when the only pass came from joining invisibly', async () => {
+    grantRoomAccess({ roomId: 'room-private', userId: 'staff-1', isHidden: true });
+
+    await expect(assertRoomAccess({ room: privateRoom, userId: 'staff-1' })).rejects.toMatchObject({
+      response: { code: 'ROOM_PASSWORD_REQUIRED' }
+    });
+  });
+
+  it('keeps a pass earned with the password when the same person later joins invisibly', async () => {
+    grantRoomAccess({ roomId: 'room-private', userId: 'staff-1' });
+    grantRoomAccess({ roomId: 'room-private', userId: 'staff-1', isHidden: true });
+
+    await expect(
+      assertRoomAccess({ room: privateRoom, userId: 'staff-1' })
     ).resolves.toBeUndefined();
   });
 });

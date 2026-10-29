@@ -3,6 +3,7 @@ import { isEmpty } from 'remeda';
 
 import { useRealtimeSubscribe } from '@/entities/app/realtime';
 import { useCurrentUser } from '@/entities/auth/user';
+import { useRoomSession } from '@/entities/room/session';
 
 import type { UseChatConversationParams } from './use-chat-conversation.types';
 
@@ -21,6 +22,7 @@ export const useChatConversation = ({
   useRealtimeSubscribe([roomId]);
 
   const { displayName } = useCurrentUser();
+  const { session } = useRoomSession();
 
   const { messages, isPending, hasOlder, isLoadingOlder, loadOlderMessages } =
     useChatHistory(roomId);
@@ -40,9 +42,11 @@ export const useChatConversation = ({
     loadOlder: loadOlderMessages
   });
 
+  const isReadOnly = session?.roomId === roomId && session.isInvisible;
+
   const files = useChatFiles({
     roomId,
-    disabled: !enabled,
+    disabled: !enabled || isReadOnly,
     onSend: (body) => send(body)
   });
 
@@ -52,6 +56,7 @@ export const useChatConversation = ({
     isEmpty: isEmpty(messages),
     isLoadingOlder,
     isPending,
+    isReadOnly,
     lines: groupChatLines({ lines: messages, ownIdentity: currentUserId }),
     listRef,
     sentinelRef,

@@ -1,6 +1,6 @@
 import type { UserProfile } from '@chatovo/schemas';
 
-import { AVATAR_MAX_BYTES, USER_ROLE } from '@chatovo/schemas';
+import { AVATAR_MAX_BYTES } from '@chatovo/schemas';
 import { Injectable } from '@nestjs/common';
 
 import type {
@@ -58,7 +58,7 @@ export class UsersService {
 
   async listDevelopers(): Promise<UserProfile[]> {
     const users = await this.prisma.user.findMany({
-      where: { role: USER_ROLE.admin },
+      where: { developer: true },
       include: { profile: true },
       orderBy: { createdAt: 'asc' }
     });

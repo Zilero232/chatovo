@@ -4,6 +4,7 @@ import { match } from 'ts-pattern';
 import type { RealtimeConnection } from '../realtime.types';
 
 import { filterAccessibleRooms } from '../../../lib';
+import { isInvisibleInRoom } from '../../livekit';
 import { patchParticipant } from '../../livekit/presence';
 import { setConnectionRooms } from '../connection-store';
 import { emitRoomEvent } from '../emit';
@@ -39,6 +40,10 @@ export const handleClientMessage = async (
     })
     .with({ op: 'room.reaction' }, ({ roomId, emoji }) => {
       if (!connection.rooms.has(roomId)) {
+        return;
+      }
+
+      if (isInvisibleInRoom({ roomId, identity: connection.userId })) {
         return;
       }
 

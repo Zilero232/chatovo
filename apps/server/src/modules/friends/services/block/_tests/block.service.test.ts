@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 const getUserWithProfileOrThrow = vi.fn();
 const bumpFriendsEpoch = vi.fn();
-const clearCallsBetween = vi.fn();
+const endCallsBetween = vi.fn();
 const upsertBlock = vi.fn();
 const deleteBlocks = vi.fn();
 const deleteFriendships = vi.fn();
@@ -19,7 +19,7 @@ vi.mock('../../../../livekit', () => ({
 
 vi.mock('../../../call-store', () => ({
   bumpFriendsEpoch: (...userIds: string[]) => bumpFriendsEpoch(...userIds),
-  clearCallsBetween: (input: unknown) => clearCallsBetween(input)
+  endCallsBetween: (input: unknown) => endCallsBetween(input)
 }));
 
 vi.mock('../../../mappers', () => ({
@@ -107,7 +107,7 @@ describe('BlockService.blockUser', () => {
   it('drops a call still ringing between the two', async () => {
     await service().blockUser({ userId: ME, otherUserId: THEM });
 
-    expect(clearCallsBetween).toHaveBeenCalledWith({ userId: ME, otherUserId: THEM });
+    expect(endCallsBetween).toHaveBeenCalledWith({ userId: ME, otherUserId: THEM });
   });
 
   it('ends a dm call already in progress by dropping both sides from its voice room', async () => {

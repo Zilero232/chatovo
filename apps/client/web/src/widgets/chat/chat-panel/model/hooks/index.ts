@@ -1,3 +1,4 @@
+export { useCallLogItem } from './use-call-log-item';
 export { useChatConversation } from './use-chat-conversation';
 export { useChatFiles } from './use-chat-files';
 export { useChatHistory } from './use-chat-history';

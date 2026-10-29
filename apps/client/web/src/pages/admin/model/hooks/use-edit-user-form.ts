@@ -1,6 +1,6 @@
 import type { AdminUser, UpdateAdminUserValues } from '@chatovo/schemas';
 
-import { updateAdminUserSchema } from '@chatovo/schemas';
+import { updateAdminUserSchema, USER_ROLE } from '@chatovo/schemas';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
@@ -26,7 +26,8 @@ export const useEditUserForm = ({ user, onDone }: UseEditUserFormInput) => {
       bio: user.bio,
       profileUrl: user.profileUrl,
       verified: user.verified,
-      role: user.role === 'admin' ? 'admin' : 'user'
+      developer: user.developer,
+      role: user.role === USER_ROLE.owner ? undefined : user.role
     }
   });
 

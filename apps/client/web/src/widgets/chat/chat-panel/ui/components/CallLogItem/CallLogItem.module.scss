@@ -1,0 +1,57 @@
+@use '@chatovo/ui-kit/styles/functions' as *;
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  align-items: center;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid rgb(var(--tint) / 10%);
+  border-radius: var(--radius-lg);
+  margin: var(--space-1) auto;
+  background: rgb(var(--tint) / 4%);
+  gap: var(--space-3);
+}
+
+.icon {
+  display: flex;
+  width: rem(32);
+  height: rem(32);
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--brand-mint) 14%, transparent);
+  color: var(--brand-mint);
+
+  svg {
+    width: var(--icon-sm);
+    height: var(--icon-sm);
+  }
+
+  .root[data-missed] & {
+    background: color-mix(in srgb, var(--destructive) 14%, transparent);
+    color: var(--destructive);
+  }
+}
+
+.text {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: rem(2);
+}
+
+.label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+
+  @include text-ellipsis;
+}
+
+.meta {
+  color: var(--muted-foreground);
+  font-size: var(--text-xs);
+  font-variant-numeric: tabular-nums;
+}

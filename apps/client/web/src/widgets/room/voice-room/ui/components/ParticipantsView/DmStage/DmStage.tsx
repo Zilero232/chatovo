@@ -1,10 +1,10 @@
-import { Text } from '@chatovo/ui-kit';
 import { clsx } from 'clsx';
-import { useTranslations } from 'use-intl';
 
 import type { DmStageProps } from './DmStage.types';
 
+import { useDmStage } from '../../../../model/hooks';
 import { ParticipantCard } from '../../ParticipantCard/ParticipantCard';
+import { DmCallStatus, PeerConnectionNotice } from './components';
 
 import s from '../ParticipantsView.module.scss';
 
@@ -14,12 +14,13 @@ export const DmStage = ({
   peerParticipant,
   presenceByIdentity
 }: DmStageProps) => {
-  const t = useTranslations('room');
+  const { phase, status, peer, isPulsing, canRingAgain, isRingingAgain, ringAgain } =
+    useDmStage(peerParticipant);
 
   return (
     <div className={clsx(s.root, s.rootDm)}>
       <div className={s.dmStage}>
-        {peerParticipant ? (
+        {phase === 'live' && peerParticipant && (
           <div className={s.dmPeer}>
             <ParticipantCard
               fill
@@ -27,11 +28,22 @@ export const DmStage = ({
               deafened={presenceByIdentity[peerParticipant.identity]?.deafened ?? false}
               participant={peerParticipant}
             />
+            <PeerConnectionNotice
+              name={peer?.name ?? peerParticipant.name ?? ''}
+              participant={peerParticipant}
+            />
           </div>
-        ) : (
-          <Text className={s.dmWaiting} tone='muted'>
-            {t('dmWaiting')}
-          </Text>
+        )}
+
+        {status !== null && (
+          <DmCallStatus
+            canRingAgain={canRingAgain}
+            isPulsing={isPulsing}
+            isRingingAgain={isRingingAgain}
+            peer={peer}
+            status={status}
+            onRingAgain={ringAgain}
+          />
         )}
 
         {localParticipant && (

@@ -12,17 +12,23 @@ vi.mock('../../../../../lib', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   assertNotBlocked: (userId: string) => assertNotBlocked(userId),
   assertNotRoomBanned: (input: unknown) => assertNotRoomBanned(input),
-  assertDmWithoutUserBlock: async () => {}
+  assertDmWithoutUserBlock: async () => {},
+  assertDmFriends: async () => {}
 }));
 
 vi.mock('../../../lib', () => ({
   assertRoomAccess: (input: unknown) => assertRoomAccess(input),
-  resolveInvisible: ({ requested, isAdmin }: { requested?: boolean; isAdmin: boolean }) =>
-    Boolean(requested) && isAdmin
+  resolveInvisible: ({
+    requested,
+    canBeInvisible
+  }: {
+    requested?: boolean;
+    canBeInvisible: boolean;
+  }) => Boolean(requested) && canBeInvisible
 }));
 
 vi.mock('../../../room-grant-store', () => ({
-  grantRoomAccess: (roomId: string, userId: string) => grantRoomAccess(roomId, userId)
+  grantRoomAccess: (input: unknown) => grantRoomAccess(input)
 }));
 
 vi.mock('../../../../livekit', () => ({
@@ -98,19 +104,18 @@ describe('LivekitService.issueRoomToken', () => {
 
     const result = await serviceUnderTest().issueRoomToken({
       roomId: 'room-1',
-      userId,
-      isAdmin: false
+      userId
     });
 
     expect(result.token).toEqual(expect.any(String));
-    expect(grantRoomAccess).toHaveBeenCalledWith('room-1', userId);
+    expect(grantRoomAccess).toHaveBeenCalledWith({ roomId: 'room-1', userId, isHidden: false });
   });
 
   it('refuses a dm the user is not part of', async () => {
     findRoom.mockResolvedValueOnce(room({ kind: 'dm', dmUserAId: 'a', dmUserBId: 'b' }));
 
     await expect(
-      codeOf(serviceUnderTest().issueRoomToken({ roomId: 'room-1', userId, isAdmin: false }))
+      codeOf(serviceUnderTest().issueRoomToken({ roomId: 'room-1', userId }))
     ).resolves.toBe('FORBIDDEN');
     expect(grantRoomAccess).not.toHaveBeenCalled();
   });
@@ -118,9 +123,7 @@ describe('LivekitService.issueRoomToken', () => {
   it('lets a dm member in', async () => {
     findRoom.mockResolvedValueOnce(room({ kind: 'dm', dmUserAId: userId, dmUserBId: 'b' }));
 
-    await expect(
-      serviceUnderTest().issueRoomToken({ roomId: 'room-1', userId, isAdmin: false })
-    ).resolves.toEqual({
+    await expect(serviceUnderTest().issueRoomToken({ roomId: 'room-1', userId })).resolves.toEqual({
       token: expect.any(String)
     });
   });
@@ -131,8 +134,7 @@ describe('LivekitService.issueRoomToken', () => {
     await serviceUnderTest().issueRoomToken({
       roomId: 'room-1',
       userId,
-      password: 'secret',
-      isAdmin: false
+      password: 'secret'
     });
 
     expect(assertRoomAccess).toHaveBeenCalledWith({
@@ -146,7 +148,7 @@ describe('LivekitService.issueRoomToken', () => {
     findRoom.mockResolvedValueOnce(null);
 
     await expect(
-      codeOf(serviceUnderTest().issueRoomToken({ roomId: 'gone', userId, isAdmin: false }))
+      codeOf(serviceUnderTest().issueRoomToken({ roomId: 'gone', userId }))
     ).resolves.toBe('ROOM_NOT_FOUND');
   });
 
@@ -157,8 +159,7 @@ describe('LivekitService.issueRoomToken', () => {
     await serviceUnderTest().issueRoomToken({
       roomId: 'room-1',
       userId,
-      invisible: true,
-      isAdmin: false
+      invisible: true
     });
 
     expect(assertRoomAccess).not.toHaveBeenCalled();
@@ -175,8 +176,7 @@ describe('LivekitService.issueRoomToken', () => {
         serviceUnderTest().issueRoomToken({
           roomId: 'room-1',
           userId,
-          password: 'secret',
-          isAdmin: false
+          password: 'secret'
         })
       )
     ).resolves.toBe('ROOM_BANNED');
@@ -188,7 +188,7 @@ describe('LivekitService.issueRoomToken', () => {
     findUser.mockResolvedValueOnce({ id: userId, role: 'admin', profile: null });
     findRoom.mockResolvedValueOnce(room({}));
 
-    await serviceUnderTest().issueRoomToken({ roomId: 'room-1', userId, isAdmin: true });
+    await serviceUnderTest().issueRoomToken({ roomId: 'room-1', userId });
 
     expect(assertNotRoomBanned).not.toHaveBeenCalled();
   });
@@ -199,8 +199,7 @@ describe('LivekitService.issueRoomToken', () => {
 
     const { token } = await serviceUnderTest().issueRoomToken({
       roomId: 'room-1',
-      userId,
-      isAdmin: false
+      userId
     });
 
     unlockMic({ roomId: 'room-1', userId });
@@ -216,8 +215,7 @@ describe('LivekitService.issueRoomToken', () => {
 
     const { token } = await serviceUnderTest().issueRoomToken({
       roomId: 'room-1',
-      userId,
-      isAdmin: false
+      userId
     });
 
     expect(videoGrantOf(token)).not.toHaveProperty('canPublishSources');
@@ -229,8 +227,7 @@ describe('LivekitService.issueRoomToken', () => {
 
     const { token } = await serviceUnderTest().issueRoomToken({
       roomId: 'room-1',
-      userId,
-      isAdmin: false
+      userId
     });
 
     unlockMic({ roomId: 'room-2', userId });
@@ -241,9 +238,9 @@ describe('LivekitService.issueRoomToken', () => {
   it('refuses a blocked account before any lookup', async () => {
     assertNotBlocked.mockRejectedValueOnce(new Error('blocked'));
 
-    await expect(
-      serviceUnderTest().issueRoomToken({ roomId: 'room-1', userId, isAdmin: false })
-    ).rejects.toThrow('blocked');
+    await expect(serviceUnderTest().issueRoomToken({ roomId: 'room-1', userId })).rejects.toThrow(
+      'blocked'
+    );
     expect(findRoom).not.toHaveBeenCalled();
   });
 });

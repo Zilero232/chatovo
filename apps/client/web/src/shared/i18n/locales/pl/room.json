@@ -54,6 +54,7 @@
     "notFoundHint": "Właściciel usunął ten pokój albo link jest nieaktualny. Sprawdź link lub znajdź pokój w lobby.",
     "backToLobby": "Wróć do lobby",
     "joinFailed": "Nie udało się dołączyć do pokoju",
+    "movedToOtherDevice": "Rozmowa trwa na innym urządzeniu",
     "invite": {
       "copyLink": "Kopiuj link z zaproszeniem",
       "linkCopied": "Link z zaproszeniem skopiowany",
@@ -68,7 +69,9 @@
       "label": "Aktywny pokój „{name}”",
       "inRoom": "Jesteś w pokoju",
       "inCall": "Jesteś w rozmowie",
-      "connecting": "Łączenie…"
+      "connecting": "Łączenie…",
+      "calling": "Dzwonimy…",
+      "inCallFor": "W rozmowie · {duration}"
     },
     "music": {
       "label": "Muzyka w pokoju",
@@ -238,18 +241,48 @@
       "speakerDevice": "Wybierz głośniki",
       "pttHint": "Naciśnij, aby mówić",
       "leave": "Wyjdź",
-      "invisibleMicBlocked": "W trybie niewidzialnym nie możesz mówić",
+      "invisibleLocked": "Niedostępne w trybie niewidzialnym",
       "mutedByOwner": "Wyciszono przez właściciela pokoju"
     },
     "screen": {
       "sharingTitle": "Udostępniasz ekran",
       "sharingHint": "Twój podgląd jest ukryty, żeby ekran nie powtarzał się sam w sobie. Pozostali go widzą."
     },
-    "dmWaiting": "Czekamy, aż druga osoba dołączy…",
     "expandVideo": "Powiększ wideo",
     "collapseVideo": "Zmniejsz wideo",
     "invisibleBadge": "Niewidzialny",
     "invisibleNotice": "Jesteś w ukryciu: nikt cię nie widzi ani nie słyszy",
+    "dmCall": {
+      "waiting": "Czekamy na drugą osobę…",
+      "connecting": "Łączenie z {name}…",
+      "calling": "Dzwonimy: {name}…",
+      "ringing": "Dzwoni u {name}…",
+      "peerBusy": "{name} prowadzi inną rozmowę — nadal dzwoni",
+      "peerLeft": "{name}: połączenie zerwane · czekamy {countdown}",
+      "peerReconnecting": "{name}: ponowne łączenie…",
+      "ringAgain": "Zadzwoń ponownie",
+      "ended": "Rozmowa zakończona",
+      "endedWithDuration": "Rozmowa zakończona · {duration}",
+      "declined": "{name} odrzuca połączenie",
+      "noAnswer": "{name} nie odbiera",
+      "busy": "{name}: zajęte",
+      "cancelled": "Połączenie anulowane",
+      "failed": "Nie udało się połączyć",
+      "stillInCall": "Rozmowa z {name} wciąż trwa",
+      "rejoin": "Wróć"
+    },
+    "invisible": {
+      "blocked": "Jesteś w trybie niewidzialnym",
+      "blockedHint": "Mikrofon, kamera, udostępnianie ekranu, reakcje, czat i muzyka są wyłączone, żeby nikt cię nie zauważył. Wyłącz tryb niewidzialny, aby dołączyć do rozmowy.",
+      "turnOff": "Wyłącz",
+      "noticeHint": "Mikrofon, kamera, reakcje i czat są niedostępne, dopóki nie wyłączysz trybu niewidzialnego.",
+      "chatReadOnly": "Tylko odczyt w trybie niewidzialnym",
+      "chatReadOnlyHint": "Wiadomość zdradziłaby, że tu jesteś.",
+      "passwordTitle": "Wpisz hasło pokoju",
+      "passwordHint": "Jesteś w „{name}” w trybie niewidzialnym, bez hasła. Aby się w nim pojawić, wpisz hasło — albo zostań w ukryciu.",
+      "passwordSubmit": "Pojaw się w pokoju",
+      "stayInvisible": "Zostań w ukryciu"
+    },
     "badges": {
       "screen": "Ekran",
       "music": "Muzyka"
@@ -293,7 +326,19 @@
       "description": "Wiadomości wysłane w tym pokoju pojawią się tutaj i zostaną dla każdego, kto dołączy później. Wrzuć link, plik albo po prostu się przywitaj."
     },
     "openInBrowser": "Otwórz w przeglądarce",
-    "download": "Pobierz"
+    "download": "Pobierz",
+    "callLog": {
+      "outgoing": "Połączenie wychodzące",
+      "incoming": "Połączenie przychodzące",
+      "missed": "Nieodebrane połączenie",
+      "cancelled": "Anulowane połączenie",
+      "declinedByPeer": "Połączenie odrzucone",
+      "declinedBySelf": "Odrzucono połączenie",
+      "noAnswer": "Brak odpowiedzi",
+      "busy": "Zajęte",
+      "failed": "Połączenie nieudane",
+      "callBack": "Oddzwoń"
+    }
   },
   "channels": {
     "searchPlaceholder": "Szukaj pokoi...",

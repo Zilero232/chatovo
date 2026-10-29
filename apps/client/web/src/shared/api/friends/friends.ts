@@ -1,10 +1,8 @@
 import type {
+  DmCallView,
   FriendEntry,
   FriendRequestEntry,
   FriendshipRelation,
-  IncomingFriendCall,
-  IncomingFriendCallResponse,
-  OutgoingFriendCallResponse,
   Room,
   SendFriendRequestInput,
   UserBlockEntry
@@ -74,38 +72,19 @@ export const getOrCreateFriendDmRoom = async (userId: string): Promise<Room> => 
   return data;
 };
 
-export const ringFriendCall = async (userId: string): Promise<Room> => {
-  const { data } = await api.post(`/friends/${userId}/call`);
+export type DmCallCommand = 'accept' | 'cancel' | 'decline' | 'hangup';
+
+export type SendDmCallCommandInput = {
+  callId: string;
+  command: DmCallCommand;
+};
+
+export const startDmCall = async (userId: string): Promise<DmCallView> => {
+  const { data } = await api.post(`/friends/${userId}/calls`);
 
   return data;
 };
 
-export const getIncomingFriendCall = async (): Promise<IncomingFriendCallResponse> => {
-  const { data } = await api.get('/friends/calls/incoming');
-
-  return data;
-};
-
-export const acceptIncomingFriendCall = async (): Promise<IncomingFriendCall | null> => {
-  const { data } = await api.post('/friends/calls/accept');
-
-  return data;
-};
-
-export const declineIncomingFriendCall = async (): Promise<void> => {
-  await api.post('/friends/calls/decline');
-};
-
-export const cancelOutgoingFriendCall = async (): Promise<void> => {
-  await api.post('/friends/calls/cancel');
-};
-
-export const getOutgoingFriendCall = async (): Promise<OutgoingFriendCallResponse> => {
-  const { data } = await api.get('/friends/calls/outgoing');
-
-  return data;
-};
-
-export const ackOutgoingFriendCall = async (): Promise<void> => {
-  await api.post('/friends/calls/ack');
+export const sendDmCallCommand = async ({ callId, command }: SendDmCallCommandInput) => {
+  await api.post(`/friends/calls/${callId}/${command}`);
 };

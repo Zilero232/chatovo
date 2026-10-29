@@ -1,17 +1,13 @@
-import { USER_ROLE } from '@chatovo/schemas';
-import { isNullish } from 'remeda';
+import { hasPermission } from '@chatovo/schemas';
 
 import { AppForbiddenException } from '../../common/exceptions';
-import { basePrisma as prisma } from '../../core';
+import { findUserRole } from '../find-user-role';
 
-/** Throws unless the user carries the admin role — the gate for every moderation route. */
+/** Throws unless the user's role opens the admin panel (owner, admin) — the gate for every moderation route. */
 export const assertIsAdmin = async (userId: string): Promise<void> => {
-  const user = await prisma.user.findUnique({
-    where: { id: userId },
-    select: { role: true }
-  });
+  const role = await findUserRole(userId);
 
-  if (isNullish(user) || user.role !== USER_ROLE.admin) {
+  if (!hasPermission({ role, permission: 'adminPanel' })) {
     throw new AppForbiddenException('ADMIN_ONLY', 'Admin only');
   }
 };

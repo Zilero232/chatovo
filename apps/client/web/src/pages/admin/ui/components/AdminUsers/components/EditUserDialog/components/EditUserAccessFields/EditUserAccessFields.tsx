@@ -4,17 +4,31 @@ import { useTranslations } from 'use-intl';
 
 import type { EditUserAccessFieldsProps } from './EditUserAccessFields.types';
 
+import { useUserAccess } from '../../../../../../../model/hooks';
+
 import s from './EditUserAccessFields.module.scss';
 
-export const EditUserAccessFields = ({ control }: EditUserAccessFieldsProps) => {
+export const EditUserAccessFields = ({ control, user }: EditUserAccessFieldsProps) => {
   const t = useTranslations('admin');
+
+  const { canEditFlags, canEditRole, roleOptions } = useUserAccess(user);
+
+  const options = (canEditRole ? roleOptions : [user.role]).map((role) => ({
+    value: role,
+    label: t(`roles.${role}`)
+  }));
 
   return (
     <>
       <Label className={s.toggle} htmlFor='admin-verified'>
         <Controller
           render={({ field }) => (
-            <Switch checked={field.value} id='admin-verified' onCheckedChange={field.onChange} />
+            <Switch
+              checked={field.value}
+              disabled={!canEditFlags}
+              id='admin-verified'
+              onCheckedChange={field.onChange}
+            />
           )}
           control={control}
           name='verified'
@@ -22,16 +36,34 @@ export const EditUserAccessFields = ({ control }: EditUserAccessFieldsProps) => 
         {t('editUser.verified')}
       </Label>
 
-      <FormField htmlFor='admin-role-trigger' label={t('editUser.role')}>
+      <Label className={s.toggle} htmlFor='admin-developer'>
+        <Controller
+          render={({ field }) => (
+            <Switch
+              checked={field.value}
+              disabled={!canEditFlags}
+              id='admin-developer'
+              onCheckedChange={field.onChange}
+            />
+          )}
+          control={control}
+          name='developer'
+        />
+        {t('editUser.developer')}
+      </Label>
+
+      <FormField
+        hint={canEditRole ? undefined : t('editUser.roleLocked')}
+        htmlFor='admin-role-trigger'
+        label={t('editUser.role')}
+      >
         <Controller
           render={({ field }) => (
             <Select
-              options={[
-                { value: 'user', label: t('editUser.roleUser') },
-                { value: 'admin', label: t('editUser.roleAdmin') }
-              ]}
               aria-label={t('editUser.role')}
-              value={field.value ?? 'user'}
+              isDisabled={!canEditRole}
+              options={options}
+              value={field.value ?? user.role}
               onChange={field.onChange}
             />
           )}

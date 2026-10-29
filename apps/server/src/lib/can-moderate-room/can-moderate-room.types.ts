@@ -1,5 +1,5 @@
 export type CanModerateRoomInput = {
-  isAdmin: boolean;
+  role: string | null | undefined;
   room: { kind: string; ownerId: string };
   userId: string;
 };

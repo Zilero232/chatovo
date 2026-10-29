@@ -19,7 +19,7 @@ export const emitChatEvent = async (
     emitUserEvent(room.dmUserAId, message);
     emitUserEvent(room.dmUserBId, message);
 
-    if (event.type === 'chat.message' && event.message.senderId) {
+    if (event.type === 'chat.message' && event.message.senderId && event.message.kind === 'text') {
       const recipientId =
         event.message.senderId === room.dmUserAId ? room.dmUserBId : room.dmUserAId;
 

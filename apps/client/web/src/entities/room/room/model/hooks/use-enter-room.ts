@@ -1,11 +1,11 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from '@tanstack/react-router';
 
-import { useAppSettings } from '@/entities/app/settings';
-import { useCurrentUser } from '@/entities/auth/user';
 import { fetchLiveKitToken } from '@/shared/api';
 import { QUERY_KEYS, ROUTES } from '@/shared/constants';
 import { buildRoomSearch } from '@/shared/lib';
+
+import { useIsInvisible } from './use-is-invisible';
 
 export type EnterRoomInput = {
   password?: string;
@@ -16,10 +16,7 @@ export const useEnterRoom = () => {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
 
-  const { isAdmin } = useCurrentUser();
-  const { settings } = useAppSettings();
-
-  const invisible = isAdmin && settings.system.invisibleMode;
+  const invisible = useIsInvisible();
 
   return useMutation({
     mutationFn: async ({ roomId, password }: EnterRoomInput) => {

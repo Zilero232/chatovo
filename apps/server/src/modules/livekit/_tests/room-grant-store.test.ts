@@ -15,7 +15,7 @@ describe('revokeRoomGrant', () => {
   });
 
   it('drops the grant one user holds for one room', () => {
-    grantRoomAccess('room-a', 'user-1');
+    grantRoomAccess({ roomId: 'room-a', userId: 'user-1' });
 
     revokeRoomGrant({ roomId: 'room-a', userId: 'user-1' });
 
@@ -23,9 +23,9 @@ describe('revokeRoomGrant', () => {
   });
 
   it('keeps that user’s grants for other rooms and other users’ grants for that room', () => {
-    grantRoomAccess('room-a', 'user-1');
-    grantRoomAccess('room-b', 'user-1');
-    grantRoomAccess('room-a', 'user-2');
+    grantRoomAccess({ roomId: 'room-a', userId: 'user-1' });
+    grantRoomAccess({ roomId: 'room-b', userId: 'user-1' });
+    grantRoomAccess({ roomId: 'room-a', userId: 'user-2' });
 
     revokeRoomGrant({ roomId: 'room-a', userId: 'user-1' });
 
@@ -41,8 +41,8 @@ describe('revokeUserGrants', () => {
   });
 
   it('drops the grants a user holds across every room', () => {
-    grantRoomAccess('room-a', 'user-1');
-    grantRoomAccess('room-b', 'user-1');
+    grantRoomAccess({ roomId: 'room-a', userId: 'user-1' });
+    grantRoomAccess({ roomId: 'room-b', userId: 'user-1' });
 
     revokeUserGrants('user-1');
 
@@ -51,8 +51,8 @@ describe('revokeUserGrants', () => {
   });
 
   it('leaves other users in the same room untouched', () => {
-    grantRoomAccess('room-a', 'user-1');
-    grantRoomAccess('room-a', 'user-2');
+    grantRoomAccess({ roomId: 'room-a', userId: 'user-1' });
+    grantRoomAccess({ roomId: 'room-a', userId: 'user-2' });
 
     revokeUserGrants('user-1');
 
@@ -60,7 +60,7 @@ describe('revokeUserGrants', () => {
   });
 
   it('does not match a user whose id merely ends with the revoked one', () => {
-    grantRoomAccess('room-a', 'admin-user-1');
+    grantRoomAccess({ roomId: 'room-a', userId: 'admin-user-1' });
 
     revokeUserGrants('user-1');
 

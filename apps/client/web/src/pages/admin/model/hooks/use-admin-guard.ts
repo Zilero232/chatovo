@@ -7,9 +7,9 @@ import { ROUTES } from '@/shared/constants';
 export const useAdminGuard = () => {
   const navigate = useNavigate();
 
-  const { isAdmin, isLoading } = useCurrentUser();
+  const { can, isLoading } = useCurrentUser();
 
-  const isDenied = !isLoading && !isAdmin;
+  const isDenied = !isLoading && !can('adminPanel');
 
   const redirectToLobby = useEffectEvent(() => navigate({ to: ROUTES.lobby, replace: true }));
 

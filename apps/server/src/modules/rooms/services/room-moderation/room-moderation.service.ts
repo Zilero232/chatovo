@@ -105,7 +105,7 @@ export class RoomModerationService {
   }
 
   private async assertCanModerateTarget({ roomId, userId, targetId }: ModerateParticipantInput) {
-    const [room, target] = await Promise.all([
+    const [{ room, role }, target] = await Promise.all([
       assertCanModerateRoom({ roomId, userId }),
       this.prisma.user.findUnique({ where: { id: targetId }, select: { role: true } })
     ]);
@@ -116,6 +116,7 @@ export class RoomModerationService {
 
     assertModerationTarget({
       actorId: userId,
+      actorRole: role,
       ownerId: room.ownerId,
       targetId,
       targetRole: target.role

@@ -1,4 +1,4 @@
 export type ResolveInvisibleInput = {
-  isAdmin: boolean;
+  canBeInvisible: boolean;
   requested?: boolean;
 };

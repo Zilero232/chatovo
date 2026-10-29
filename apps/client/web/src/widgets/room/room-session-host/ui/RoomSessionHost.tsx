@@ -4,8 +4,14 @@ import { isNullish } from 'remeda';
 
 import { env } from '@/shared/config';
 
-import { useInvisibleModeSync, useRoomModerationNotices, useRoomSessionHost } from '../model/hooks';
-import { MiniRoomFloatingSlot } from './components';
+import {
+  useDmCallRejoinPrompt,
+  useDmCallSessionSync,
+  useInvisibleModeSync,
+  useRoomModerationNotices,
+  useRoomSessionHost
+} from '../model/hooks';
+import { InvisiblePasswordDialog, MiniRoomFloatingSlot } from './components';
 
 import s from './RoomSessionHost.module.scss';
 
@@ -16,8 +22,10 @@ const VoiceRoom = lazy(async () =>
 export const RoomSessionHost = () => {
   const { session, isExpanded, expand, failConnection, leave } = useRoomSessionHost();
 
-  useInvisibleModeSync();
+  const { passwordPrompt } = useInvisibleModeSync();
   useRoomModerationNotices(leave);
+  const { isCallEnding } = useDmCallSessionSync(leave);
+  useDmCallRejoinPrompt();
 
   if (isNullish(session)) {
     return null;
@@ -29,6 +37,16 @@ export const RoomSessionHost = () => {
     <div className={clsx(s.root, isExpanded ? s.expanded : s.minimized)}>
       <MiniRoomFloatingSlot />
 
+      {passwordPrompt && (
+        <InvisiblePasswordDialog
+          isPending={passwordPrompt.isPending}
+          isWrong={passwordPrompt.isWrong}
+          roomName={passwordPrompt.roomName}
+          onCancel={passwordPrompt.cancel}
+          onSubmit={passwordPrompt.submit}
+        />
+      )}
+
       <Suspense fallback={null}>
         <VoiceRoom
           key={`${roomId}:${isInvisible}`}
@@ -39,9 +57,9 @@ export const RoomSessionHost = () => {
           roomName={roomName}
           serverUrl={env.NEXT_PUBLIC_LIVEKIT_URL}
           token={token}
-          onConnectFailure={() => failConnection(roomId)}
+          onConnectFailure={() => !isCallEnding(roomId) && failConnection(roomId)}
           onExpand={() => expand(roomId)}
-          onLeave={() => leave(roomId)}
+          onLeave={(options) => !isCallEnding(roomId) && leave(roomId, options)}
         />
       </Suspense>
     </div>

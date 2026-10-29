@@ -21,6 +21,12 @@
 #
 # Then restart the browser. https://chatovo.localhost works without warnings.
 #
+# Firefox keeps its own trust store and ignores the Windows one: open
+# about:config, set security.enterprise_roots.enabled to true, and restart it.
+# Accepting the warning on app.chatovo.localhost is not enough — that exception
+# covers one host, and the LiveKit WebSocket to livekit.chatovo.localhost then
+# fails as a CORS error with status (null).
+#
 # Run with the dev compose file:
 #   docker compose -f docker-compose.dev.yml up
 #

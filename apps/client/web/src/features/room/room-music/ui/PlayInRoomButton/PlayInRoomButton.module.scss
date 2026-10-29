@@ -1,0 +1,89 @@
+@use '@chatovo/ui-kit/styles/functions' as *;
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  height: rem(32);
+  align-items: center;
+  padding: 0 var(--space-3) 0 rem(4);
+  border: 1px solid rgb(var(--tint) / 12%);
+  border-radius: 9999px;
+  margin-top: var(--space-1);
+  background: rgb(var(--tint) / 5%);
+  color: var(--foreground);
+  font-size: var(--text-sm);
+  gap: var(--space-2);
+  transition:
+    background var(--duration-fast) var(--timing-function-standard),
+    border-color var(--duration-fast) var(--timing-function-standard);
+
+  @include interactive-cursor;
+  @include button-focus-ring;
+
+  @include hover {
+    border-color: color-mix(in srgb, var(--brand-coral) 45%, transparent);
+    background: color-mix(in srgb, var(--brand-coral) 12%, transparent);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &[data-state='added'] {
+    border-color: color-mix(in srgb, var(--brand-mint) 40%, transparent);
+    background: color-mix(in srgb, var(--brand-mint) 10%, transparent);
+    cursor: default;
+  }
+
+  &[data-state='pending'] {
+    cursor: progress;
+  }
+}
+
+.badge {
+  display: flex;
+  width: rem(24);
+  height: rem(24);
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: var(--brand-coral);
+  color: var(--primary-foreground);
+  transition: background var(--duration-fast) var(--timing-function-standard);
+
+  svg {
+    width: rem(12);
+    height: rem(12);
+  }
+
+  .root[data-state='idle'] & svg {
+    fill: currentcolor;
+  }
+
+  .root[data-state='added'] & {
+    background: var(--brand-mint);
+
+    svg {
+      stroke-width: 3;
+    }
+  }
+}
+
+.label {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.source {
+  color: var(--muted-foreground);
+  font-size: var(--text-xs);
+  white-space: nowrap;
+
+  &:before {
+    margin-right: var(--space-2);
+    content: '·';
+  }
+}

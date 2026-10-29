@@ -6,6 +6,7 @@ import {
   AdminRoomService,
   AdminStatsService,
   AdminUserService,
+  OwnerRoleService,
   UserBlockService
 } from './services';
 
@@ -16,6 +17,7 @@ import {
     AdminRoomService,
     AdminStatsService,
     AdminUserService,
+    OwnerRoleService,
     UserBlockService
   ],
   exports: [UserBlockService]

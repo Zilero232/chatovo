@@ -41,6 +41,10 @@
     "DM_SELF": "Tu ne peux pas lancer une discussion avec toi-même.",
     "DM_NOT_FRIENDS": "Les messages privés sont réservés aux amis.",
     "CALL_ALREADY_RINGING": "Cet utilisateur reçoit déjà un appel.",
+    "CALL_NOT_FOUND": "Cet appel n'existe plus.",
+    "CALL_ENDED": "Cet appel est déjà terminé.",
+    "MESSAGE_NOT_EDITABLE": "Ce message ne peut pas être modifié.",
+    "INVISIBLE_READ_ONLY": "Tu es en mode invisible — désactive-le pour écrire, réagir ou contrôler la musique.",
     "MUSIC_NOT_IN_ROOM": "Rejoins le salon vocal pour contrôler sa musique.",
     "MUSIC_LINK_UNSUPPORTED": "Colle un lien vers une vidéo YouTube ou un titre SoundCloud.",
     "MUSIC_TRACK_UNAVAILABLE": "Impossible de lire ce titre pour le moment.",
@@ -87,7 +91,8 @@
     "ADMIN_ONLY": "Réservé aux administrateurs",
     "ABUSE_ALREADY_REPORTED": "Tu as déjà fait ce signalement",
     "BLOCK_SELF": "Tu ne peux pas te bloquer toi-même",
-    "BLOCK_ADMIN": "Un administrateur ne peut pas être bloqué"
+    "ROLE_PROTECTED": "Cette personne a un rôle égal ou supérieur au tien.",
+    "ROLE_NOT_ASSIGNABLE": "Tu ne peux pas attribuer ce rôle."
   },
   "language": {
     "label": "Langue"

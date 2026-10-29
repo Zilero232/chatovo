@@ -1,4 +1,4 @@
-import { USER_ROLE } from '@chatovo/schemas';
+import { STAFF_ROLES } from '@chatovo/schemas';
 import { Injectable } from '@nestjs/common';
 import { startOfDay, subDays } from 'date-fns';
 
@@ -46,15 +46,15 @@ export class AdminStatsService {
   }
 
   private async countUsers({ today, weekAgo }: StatsWindow) {
-    const [total, blocked, admins, newToday, newThisWeek] = await Promise.all([
+    const [total, blocked, staff, newToday, newThisWeek] = await Promise.all([
       this.prisma.user.count(),
       this.prisma.user.count({ where: { banned: true } }),
-      this.prisma.user.count({ where: { role: USER_ROLE.admin } }),
+      this.prisma.user.count({ where: { role: { in: STAFF_ROLES } } }),
       this.prisma.user.count({ where: { createdAt: { gte: today } } }),
       this.prisma.user.count({ where: { createdAt: { gte: weekAgo } } })
     ]);
 
-    return { total, blocked, admins, newToday, newThisWeek };
+    return { total, blocked, staff, newToday, newThisWeek };
   }
 
   private async countRooms() {

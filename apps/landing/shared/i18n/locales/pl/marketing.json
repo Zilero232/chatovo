@@ -206,6 +206,54 @@
       "minor": "Zwykłe wydanie"
     },
     "entries": {
+      "callsRedone": {
+        "title": "Rozmowy ze znajomymi, jak należy",
+        "description": "Połączenie od razu przenosi cię do rozmowy, druga osoba dostaje kartę zamiast blokującego okna, a rozłączenie kończy rozmowę u obojga. Gdy ktoś straci zasięg, widać „łączy ponownie” i jest minuta na powrót."
+      },
+      "callLog": {
+        "title": "Rozmowy w historii czatu",
+        "description": "Każda rozmowa zostawia wiersz w czacie ze znajomym — wychodząca, nieodebrana lub odrzucona, z czasem trwania i przyciskiem Oddzwoń."
+      },
+      "browserFixes": {
+        "title": "Firefox i czytelne powiadomienia",
+        "description": "Awatary w Firefoksie nie dzielą się już na pół, a powiadomienia znów są czytelne zamiast czarnych."
+      },
+      "staffRoles": {
+        "title": "Moderatorzy i jasna hierarchia ról",
+        "description": "Nowa rola moderatora ma tryb niewidzialny i moderację pokojów bez dostępu do panelu admina. Każdy może działać tylko wobec niższych ról, a właściciela nikt nie może ruszyć."
+      },
+      "invisibleReadOnly": {
+        "title": "Tryb niewidzialny jest naprawdę niewidoczny",
+        "description": "W trybie niewidzialnym można słuchać i czytać, ale mikrofon, kamera, ekran, reakcje, czat i muzyka są zablokowane — z jasną podpowiedzią i przyciskiem wyłączenia trybu."
+      },
+      "invisiblePassword": {
+        "title": "Prywatne pokoje pytają o hasło, gdy się pojawiasz",
+        "description": "Niewidzialne wejście do zamkniętego pokoju nie omija już hasła: aby się w nim pojawić, wpisz hasło — albo zostań w ukryciu."
+      },
+      "roleProtection": {
+        "title": "Role zmienia się tylko w panelu",
+        "description": "Boczne ścieżki, którymi dało się nadać rolę albo zalogować jako ktoś inny, są wyłączone; każda zmiana roli idzie zgodnie z hierarchią."
+      },
+      "telegramLive": {
+        "title": "Jedna żywa wiadomość w Telegramie na rozmowę",
+        "description": "Zamiast linijki przy każdym wejściu kanał dostaje jedną wiadomość, która się aktualizuje — kto jest, ich status i muzyka — i kończy się czasem trwania oraz czasem każdego."
+      },
+      "dmCallsPrivate": {
+        "title": "Prywatne rozmowy zostają prywatne",
+        "description": "Rozmowy między znajomymi nie trafiają już na kanał w Telegramie."
+      },
+      "playInRoom": {
+        "title": "Schludniejszy przycisk „Odtwórz w pokoju”",
+        "description": "Linki do muzyki w czacie mają kompaktowy przycisk z nazwą serwisu i potwierdzeniem, że utwór jest w kolejce."
+      },
+      "hangUp": {
+        "title": "Czytelniejszy przycisk rozłączenia",
+        "description": "Wyjście z rozmowy to teraz czerwony przycisk rozłączenia, który odróżnia się od pozostałych."
+      },
+      "mobileCards": {
+        "title": "Wyższe karty uczestników na telefonie",
+        "description": "Na wąskich ekranach karty wypełniają wolną wysokość zamiast kurczyć się do cienkich pasków."
+      },
       "playerVolume": {
         "title": "Głośność muzyki w odtwarzaczu",
         "description": "Regulacja głośności jest na pasku odtwarzacza i na pasku muzyki. Zmienia dźwięk tylko dla ciebie, a jeden suwak zastąpił osobne dla każdej osoby."
@@ -848,6 +896,9 @@
       }
     },
     "highlights": {
+      "callsRedone": "Rozmowy ze znajomymi, jak należy",
+      "staffRoles": "Moderatorzy i jasna hierarchia ról",
+      "invisibleReadOnly": "Tryb niewidzialny jest naprawdę niewidoczny",
       "playerVolume": "Głośność muzyki w odtwarzaczu",
       "noSkipForAll": "Problem jednej osoby nie pomija już utworu",
       "musicPerPerson": "Głośność muzyki dla każdego",

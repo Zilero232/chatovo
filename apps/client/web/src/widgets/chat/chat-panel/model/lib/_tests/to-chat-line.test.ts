@@ -23,6 +23,13 @@ describe('chatMessageToChatLine', () => {
     );
   });
 
+  it('carries the call record of a call row and nothing for a text message', () => {
+    const call = { outcome: 'missed', durationSec: null, callerId: 'user-1' } as const;
+
+    expect(chatMessageToChatLine(messageOf({ kind: 'call', call })).call).toEqual(call);
+    expect(chatMessageToChatLine(messageOf({ kind: 'text', call })).call).toBeNull();
+  });
+
   it('keeps editedAt and deletedAt null instead of turning them into epoch zero', () => {
     const line = chatMessageToChatLine(messageOf());
 

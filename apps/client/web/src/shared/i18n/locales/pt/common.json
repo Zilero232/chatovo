@@ -41,6 +41,10 @@
     "DM_SELF": "Você não pode iniciar um chat consigo mesmo.",
     "DM_NOT_FRIENDS": "Mensagens diretas só estão disponíveis entre amigos.",
     "CALL_ALREADY_RINGING": "Este usuário já está recebendo uma chamada.",
+    "CALL_NOT_FOUND": "Esta chamada não existe mais.",
+    "CALL_ENDED": "Esta chamada já terminou.",
+    "MESSAGE_NOT_EDITABLE": "Esta mensagem não pode ser alterada.",
+    "INVISIBLE_READ_ONLY": "Você está no modo invisível — desative-o para escrever, reagir ou controlar a música.",
     "MUSIC_NOT_IN_ROOM": "Entre na sala de voz para controlar a música.",
     "MUSIC_LINK_UNSUPPORTED": "Cole o link de um vídeo do YouTube ou de uma faixa do SoundCloud.",
     "MUSIC_TRACK_UNAVAILABLE": "Esta faixa não pode ser tocada agora.",
@@ -87,7 +91,8 @@
     "ADMIN_ONLY": "Somente administradores",
     "ABUSE_ALREADY_REPORTED": "Você já denunciou isso",
     "BLOCK_SELF": "Você não pode bloquear a si mesmo",
-    "BLOCK_ADMIN": "Um administrador não pode ser bloqueado"
+    "ROLE_PROTECTED": "Essa pessoa tem uma função igual ou superior à sua.",
+    "ROLE_NOT_ASSIGNABLE": "Você não pode atribuir esta função."
   },
   "language": {
     "label": "Idioma"

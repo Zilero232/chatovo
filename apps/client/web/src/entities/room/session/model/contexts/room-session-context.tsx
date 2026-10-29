@@ -3,7 +3,11 @@ import type { ReactNode } from 'react';
 import { createContextHook } from '@siberiacancode/reactuse';
 import { useState } from 'react';
 
-import type { RoomSession, RoomSessionValue } from './room-session-context.types';
+import type {
+  CloseRoomSessionOptions,
+  RoomSession,
+  RoomSessionValue
+} from './room-session-context.types';
 
 const useRoomSessionValue = (): RoomSessionValue => {
   const [session, setSession] = useState<RoomSession | null>(null);
@@ -19,12 +23,12 @@ const useRoomSessionValue = (): RoomSessionValue => {
     setSession(next);
   };
 
-  const close = (roomId?: string) => {
+  const close = (roomId?: string, { guardRejoin = true }: CloseRoomSessionOptions = {}) => {
     if (roomId && session && session.roomId !== roomId) {
       return;
     }
 
-    setLeftRoomId(roomId ?? session?.roomId ?? null);
+    setLeftRoomId(guardRejoin ? (roomId ?? session?.roomId ?? null) : null);
     setSession(null);
   };
 

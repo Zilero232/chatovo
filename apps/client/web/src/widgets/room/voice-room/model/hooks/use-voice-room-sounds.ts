@@ -6,8 +6,7 @@ import { ParticipantEvent, RoomEvent, Track } from 'livekit-client';
 import { useEffect, useEffectEvent, useMemo, useRef } from 'react';
 
 import { useAppSettings } from '@/entities/app/settings';
-import { useCurrentUser } from '@/entities/auth/user';
-import { useLeaveSound } from '@/entities/room/room';
+import { useIsInvisible, useLeaveSound } from '@/entities/room/room';
 import { useDeafen } from '@/features/room/room-control';
 import { useEmitterEvent } from '@/shared/hooks';
 import { appEvents } from '@/shared/lib';
@@ -25,9 +24,7 @@ export const useVoiceRoomSounds = (roomId: string) => {
 
   const { isDeafened } = useDeafen();
   const { settings } = useAppSettings();
-  const { isAdmin } = useCurrentUser();
-
-  const isInvisible = isAdmin && settings.system.invisibleMode;
+  const isInvisible = useIsInvisible();
 
   const player = useMemo(createSoundPlayer, []);
 

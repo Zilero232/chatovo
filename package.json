@@ -1,6 +1,6 @@
 {
   "name": "chatovo",
-  "version": "1.13.0",
+  "version": "1.14.0",
   "private": true,
   "description": "Chatovo — real-time voice rooms for web and desktop. Bun-workspaces monorepo.",
   "keywords": [

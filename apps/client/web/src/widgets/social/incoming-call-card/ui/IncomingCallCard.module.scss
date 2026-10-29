@@ -1,0 +1,83 @@
+@use '@chatovo/ui-kit/styles/functions' as *;
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  position: fixed;
+  z-index: var(--z-popup);
+  top: calc(env(safe-area-inset-top, 0px) + var(--space-3));
+  left: 50%;
+  display: grid;
+  width: min(calc(100vw - 2 * var(--space-4)), 26rem);
+  align-items: center;
+  padding: var(--space-3);
+  border: 1px solid rgb(var(--tint) / 16%);
+  border-radius: var(--radius-xl);
+  background: color-mix(in srgb, var(--shell-surface) 96%, transparent);
+  box-shadow: 0 rem(24) rem(64) rem(-24) color-mix(in srgb, var(--brand-violet) 55%, transparent);
+  gap: var(--space-3) var(--space-3);
+  grid-template-areas:
+    'avatar text'
+    'actions actions';
+  grid-template-columns: auto minmax(0, 1fr);
+  translate: -50% 0;
+}
+
+.avatar {
+  width: 3rem;
+  height: 3rem;
+  animation: call-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  box-shadow: 0 0 0 rem(3) color-mix(in srgb, var(--brand-mint) 30%, transparent);
+  grid-area: avatar;
+
+  @include reduced-motion {
+    animation: none;
+  }
+}
+
+@keyframes call-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rem(3) color-mix(in srgb, var(--brand-mint) 30%, transparent);
+  }
+
+  50% {
+    box-shadow: 0 0 0 rem(7) color-mix(in srgb, var(--brand-mint) 10%, transparent);
+  }
+}
+
+.text {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: rem(2);
+  grid-area: text;
+}
+
+.title {
+  color: var(--muted-foreground);
+  font-size: var(--text-xs);
+}
+
+.name {
+  font-size: var(--text-sm);
+  font-weight: 600;
+
+  @include text-ellipsis;
+}
+
+.hint {
+  color: var(--brand-sun);
+  font-size: var(--text-xs);
+}
+
+.actions {
+  display: grid;
+  gap: var(--space-2);
+  grid-area: actions;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.accept {
+  background: var(--brand-mint);
+  color: var(--primary-foreground);
+}

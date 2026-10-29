@@ -8,12 +8,17 @@ const findMessages = vi.fn();
 const createMessage = vi.fn();
 const updateMessage = vi.fn();
 const findUser = vi.fn();
+const assertVisibleInRoom = vi.fn();
 
 vi.mock('../../../../../lib', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   assertCanAccessRoom: (input: unknown) => assertCanAccessRoom(input),
   assertCanModerateRoom: (input: unknown) => assertCanModerateRoom(input),
   assertDmWithoutUserBlock: async () => {}
+}));
+
+vi.mock('../../../../livekit', () => ({
+  assertVisibleInRoom: (input: unknown) => assertVisibleInRoom(input)
 }));
 
 vi.mock('../../../emit-chat-event', () => ({
@@ -75,8 +80,17 @@ describe('ChatMessageService.deleteMessage', () => {
     findMessage.mockResolvedValue(MESSAGE);
     updateMessage.mockResolvedValue(MESSAGE);
     assertCanAccessRoom.mockResolvedValue(undefined);
-    assertCanModerateRoom.mockResolvedValue({ id: ROOM_ID });
+    assertCanModerateRoom.mockResolvedValue({ room: { id: ROOM_ID }, role: 'user' });
     findUser.mockImplementation(rolesById({}));
+  });
+
+  it('keeps a call record in the chat even for its own author', async () => {
+    findMessage.mockResolvedValueOnce({ ...MESSAGE, kind: 'call' });
+
+    expect(await codeOf(service().deleteMessage({ messageId: MESSAGE_ID, userId: AUTHOR }))).toBe(
+      'MESSAGE_NOT_EDITABLE'
+    );
+    expect(updateMessage).not.toHaveBeenCalled();
   });
 
   it('lets the author delete their own message without being a moderator', async () => {
@@ -115,10 +129,21 @@ describe('ChatMessageService.deleteMessage', () => {
     expect(emitChatEvent).not.toHaveBeenCalled();
   });
 
-  it('lets an app admin delete another admin’s message', async () => {
-    findUser.mockImplementation(rolesById({ [AUTHOR]: 'admin', 'admin-2': 'admin' }));
+  it('refuses an admin deleting another admin’s message, an equal rank', async () => {
+    findUser.mockImplementation(rolesById({ [AUTHOR]: 'admin' }));
+    assertCanModerateRoom.mockResolvedValueOnce({ room: { id: ROOM_ID }, role: 'admin' });
 
-    await service().deleteMessage({ messageId: MESSAGE_ID, userId: 'admin-2' });
+    expect(
+      await codeOf(service().deleteMessage({ messageId: MESSAGE_ID, userId: 'admin-2' }))
+    ).toBe('ROOM_MODERATION_TARGET_PROTECTED');
+    expect(updateMessage).not.toHaveBeenCalled();
+  });
+
+  it('lets the app owner delete an admin’s message', async () => {
+    findUser.mockImplementation(rolesById({ [AUTHOR]: 'admin' }));
+    assertCanModerateRoom.mockResolvedValueOnce({ room: { id: ROOM_ID }, role: 'owner' });
+
+    await service().deleteMessage({ messageId: MESSAGE_ID, userId: 'app-owner' });
 
     expect(updateMessage).toHaveBeenCalled();
   });
@@ -168,6 +193,23 @@ describe('ChatMessageService.sendMessage', () => {
     ).toBe('ROOM_BANNED');
     expect(createMessage).not.toHaveBeenCalled();
   });
+
+  it('refuses an admin sitting invisibly in the voice room, so the message cannot reveal them', async () => {
+    assertVisibleInRoom.mockImplementationOnce(() => {
+      throw new AppForbiddenException('INVISIBLE_READ_ONLY', 'Invisible participants stay silent');
+    });
+
+    expect(
+      await codeOf(
+        service().sendMessage({
+          input: { id: 'client-1', roomId: ROOM_ID, body: 'hi' },
+          senderId: AUTHOR
+        })
+      )
+    ).toBe('INVISIBLE_READ_ONLY');
+    expect(createMessage).not.toHaveBeenCalled();
+    expect(emitChatEvent).not.toHaveBeenCalled();
+  });
 });
 
 describe('ChatMessageService.listMessages', () => {
@@ -202,6 +244,30 @@ describe('ChatMessageService.editMessage', () => {
         service().editMessage({ messageId: MESSAGE_ID, input: { body: 'edit' }, senderId: AUTHOR })
       )
     ).toBe('ROOM_BANNED');
+    expect(updateMessage).not.toHaveBeenCalled();
+  });
+
+  it('refuses to edit a call record, which the server writes', async () => {
+    findMessage.mockResolvedValueOnce({ ...MESSAGE, kind: 'call' });
+
+    expect(
+      await codeOf(
+        service().editMessage({ messageId: MESSAGE_ID, input: { body: 'edit' }, senderId: AUTHOR })
+      )
+    ).toBe('MESSAGE_NOT_EDITABLE');
+    expect(updateMessage).not.toHaveBeenCalled();
+  });
+
+  it('refuses an edit while the author sits invisibly in that voice room', async () => {
+    assertVisibleInRoom.mockImplementationOnce(() => {
+      throw new AppForbiddenException('INVISIBLE_READ_ONLY', 'Invisible participants stay silent');
+    });
+
+    expect(
+      await codeOf(
+        service().editMessage({ messageId: MESSAGE_ID, input: { body: 'edit' }, senderId: AUTHOR })
+      )
+    ).toBe('INVISIBLE_READ_ONLY');
     expect(updateMessage).not.toHaveBeenCalled();
   });
 });

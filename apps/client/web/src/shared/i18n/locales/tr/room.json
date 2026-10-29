@@ -54,6 +54,7 @@
     "notFoundHint": "Sahibi bu odayı sildi ya da bağlantı güncel değil. Bağlantıyı kontrol et veya odayı lobide bul.",
     "backToLobby": "Lobiye dön",
     "joinFailed": "Odaya katılınamadı",
+    "movedToOtherDevice": "Arama başka bir cihazda sürüyor",
     "invite": {
       "copyLink": "Davet bağlantısını kopyala",
       "linkCopied": "Davet bağlantısı kopyalandı",
@@ -68,7 +69,9 @@
       "label": "Aktif oda “{name}”",
       "inRoom": "Odadasın",
       "inCall": "Görüşmedesin",
-      "connecting": "Bağlanıyor…"
+      "connecting": "Bağlanıyor…",
+      "calling": "Aranıyor…",
+      "inCallFor": "Aramada · {duration}"
     },
     "music": {
       "label": "Oda müziği",
@@ -238,18 +241,48 @@
       "speakerDevice": "Hoparlör seç",
       "pttHint": "Bas-konuş",
       "leave": "Ayrıl",
-      "invisibleMicBlocked": "Görünmez modda konuşamazsın",
+      "invisibleLocked": "Görünmez modda kullanılamaz",
       "mutedByOwner": "Oda sahibi tarafından susturuldu"
     },
     "screen": {
       "sharingTitle": "Ekranını paylaşıyorsun",
       "sharingHint": "Ekran kendi içinde tekrarlanmasın diye kendi önizlemen gizlendi. Diğerleri onu görüyor."
     },
-    "dmWaiting": "Karşı tarafın katılması bekleniyor…",
     "expandVideo": "Videoyu genişlet",
     "collapseVideo": "Videoyu daralt",
     "invisibleBadge": "Görünmez",
     "invisibleNotice": "Gizli katıldın: kimse seni görmüyor ya da duymuyor",
+    "dmCall": {
+      "waiting": "Karşı taraf bekleniyor…",
+      "connecting": "{name} ile bağlanılıyor…",
+      "calling": "{name} aranıyor…",
+      "ringing": "{name} için çalıyor…",
+      "peerBusy": "{name} başka bir aramada — çalmaya devam ediyor",
+      "peerLeft": "{name} bağlantısı koptu · {countdown} bekleniyor",
+      "peerReconnecting": "{name} yeniden bağlanıyor…",
+      "ringAgain": "Tekrar ara",
+      "ended": "Arama bitti",
+      "endedWithDuration": "Arama bitti · {duration}",
+      "declined": "{name} aramayı reddetti",
+      "noAnswer": "{name} yanıt vermedi",
+      "busy": "{name} meşgul",
+      "cancelled": "Arama iptal edildi",
+      "failed": "Arama bağlanamadı",
+      "stillInCall": "{name} ile arama hâlâ sürüyor",
+      "rejoin": "Geri dön"
+    },
+    "invisible": {
+      "blocked": "Görünmez moddasın",
+      "blockedHint": "Kimse fark etmesin diye mikrofon, kamera, ekran paylaşımı, tepkiler, sohbet ve müzik kapalı. Katılmak için görünmez modu kapat.",
+      "turnOff": "Kapat",
+      "noticeHint": "Görünmez modu kapatana kadar mikrofon, kamera, tepkiler ve sohbet kullanılamaz.",
+      "chatReadOnly": "Görünmez modda yalnızca okuma",
+      "chatReadOnlyHint": "Bir mesaj burada olduğunu belli eder.",
+      "passwordTitle": "Oda şifresini gir",
+      "passwordHint": "„{name}“ odasına şifresiz, görünmez olarak katıldın. Odada görünmek için şifreyi gir — ya da görünmez kal.",
+      "passwordSubmit": "Odada görün",
+      "stayInvisible": "Görünmez kal"
+    },
     "badges": {
       "screen": "Ekran",
       "music": "Müzik"
@@ -293,7 +326,19 @@
       "description": "Bu odada gönderilen mesajlar burada görünür ve sonradan katılan herkes için kalır. Bir bağlantı ya da dosya bırak veya sadece merhaba de."
     },
     "openInBrowser": "Tarayıcıda aç",
-    "download": "İndir"
+    "download": "İndir",
+    "callLog": {
+      "outgoing": "Giden arama",
+      "incoming": "Gelen arama",
+      "missed": "Cevapsız arama",
+      "cancelled": "İptal edilen arama",
+      "declinedByPeer": "Arama reddedildi",
+      "declinedBySelf": "Aramayı reddettin",
+      "noAnswer": "Yanıt yok",
+      "busy": "Meşgul",
+      "failed": "Arama başarısız",
+      "callBack": "Geri ara"
+    }
   },
   "channels": {
     "searchPlaceholder": "Oda ara...",

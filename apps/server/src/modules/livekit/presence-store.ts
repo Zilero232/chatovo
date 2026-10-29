@@ -2,11 +2,13 @@ import type { RoomParticipant, RoomsParticipantsSnapshot } from '@chatovo/schema
 
 import { isDefined, pickBy } from 'remeda';
 
-import type { FindRoomParticipantInput, ParticipantPatch } from './livekit.types';
+import type { DmRoomPresence, PresenceSnapshots } from '../realtime';
+import type { FindRoomParticipantInput, MarkDmRoomInput, ParticipantPatch } from './livekit.types';
 
 import { emitPresenceSnapshot } from '../realtime';
 
 const rooms = new Map<string, Map<string, RoomParticipant>>();
+const dmMembersByRoom = new Map<string, string[]>();
 
 // Lobby presence: per-user connection counter. A user opens N tabs → counter
 // goes to N; closing N-1 keeps them online; closing the last evicts them.
@@ -16,6 +18,10 @@ const buildSnapshot = (includeInvisible: boolean): RoomsParticipantsSnapshot => 
   const result: RoomsParticipantsSnapshot['rooms'] = {};
 
   for (const [roomId, participants] of rooms) {
+    if (dmMembersByRoom.has(roomId)) {
+      continue;
+    }
+
     const visible = includeInvisible
       ? [...participants.values()]
       : [...participants.values()].filter((participant) => !participant.invisible);
@@ -28,11 +34,25 @@ const buildSnapshot = (includeInvisible: boolean): RoomsParticipantsSnapshot => 
   return { rooms: result, lobbyOnline: lobbyConnections.size };
 };
 
-const emit = () => {
-  emitPresenceSnapshot({
-    public: buildSnapshot(false),
-    admin: buildSnapshot(true)
+const buildDmRooms = (): DmRoomPresence[] =>
+  [...dmMembersByRoom].flatMap(([roomId, memberIds]) => {
+    const participants = rooms.get(roomId);
+
+    return participants ? [{ roomId, memberIds, participants: [...participants.values()] }] : [];
   });
+
+export const getPresenceSnapshots = (): PresenceSnapshots => ({
+  public: buildSnapshot(false),
+  admin: buildSnapshot(true),
+  dmRooms: buildDmRooms()
+});
+
+const emit = () => {
+  emitPresenceSnapshot(getPresenceSnapshots());
+};
+
+export const markDmRoom = ({ roomId, memberIds }: MarkDmRoomInput) => {
+  dmMembersByRoom.set(roomId, memberIds);
 };
 
 export const getSnapshot = () => buildSnapshot(false);
@@ -123,12 +143,15 @@ export const removeParticipant = (roomId: string, identity: string) => {
 
   if (participants.size === 0) {
     rooms.delete(roomId);
+    dmMembersByRoom.delete(roomId);
   }
 
   emit();
 };
 
 export const clearRoom = (roomId: string) => {
+  dmMembersByRoom.delete(roomId);
+
   if (rooms.delete(roomId)) {
     emit();
   }

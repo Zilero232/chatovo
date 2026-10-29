@@ -40,5 +40,6 @@ export {
   isMainWindowMaximized,
   minimizeMainWindow,
   onMainWindowResized,
+  requestMainWindowAttention,
   toggleMaximizeMainWindow
 } from './window-controls';

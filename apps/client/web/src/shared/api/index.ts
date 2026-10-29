@@ -22,24 +22,20 @@ export {
 export { reportProblem } from './feedback';
 export {
   acceptFriendRequest,
-  acceptIncomingFriendCall,
-  ackOutgoingFriendCall,
   blockUser,
-  cancelOutgoingFriendCall,
   declineFriendRequest,
-  declineIncomingFriendCall,
   getFriendshipRelation,
-  getIncomingFriendCall,
   getOrCreateFriendDmRoom,
-  getOutgoingFriendCall,
   listBlockedUsers,
   listFriends,
   listIncomingFriendRequests,
   removeFriendship,
-  ringFriendCall,
+  sendDmCallCommand,
   sendFriendRequest,
+  startDmCall,
   unblockUser
 } from './friends';
+export type { DmCallCommand, SendDmCallCommandInput } from './friends';
 export { getAppDownloads } from './github';
 export { ApiError, apiErrorCode, isUnauthorizedError } from './http';
 export { getLinkPreview } from './link-preview';

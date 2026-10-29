@@ -93,6 +93,17 @@ describe('useRoomSession', () => {
     expect(result.current.session?.roomId).toBe('room-2');
   });
 
+  it('lets a room left from outside its page be reopened at once, as a call back does', () => {
+    const { result } = renderHook(() => useRoomSession(), { wrapper });
+
+    act(() => result.current.open(sessionOf('room-1')));
+    act(() => result.current.close('room-1', { guardRejoin: false }));
+    act(() => result.current.open(sessionOf('room-1')));
+
+    expect(result.current.session?.roomId).toBe('room-1');
+    expect(result.current.isRecentlyLeft('room-1')).toBe(false);
+  });
+
   it('lets the room be reopened once rejoin lifts the guard', () => {
     const { result } = renderHook(() => useRoomSession(), { wrapper });
 

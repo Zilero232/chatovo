@@ -8,6 +8,7 @@ import type {
 } from './realtime.types';
 
 import { bindRealtimeBroadcast as bindEmit } from './emit';
+import { presenceForViewer } from './lib/presence-for-viewer';
 
 const connections = new Map<string, RealtimeConnection>();
 const byUser = new Map<string, Set<string>>();
@@ -65,14 +66,14 @@ export const getConnectionByWs = (ws: WebSocket): RealtimeConnection | null => {
 export const registerConnection = (
   userId: string,
   ws: WebSocket,
-  isAdmin: boolean
+  canSeeInvisible: boolean
 ): RealtimeConnection => {
   const id = crypto.randomUUID();
   const connection: RealtimeConnection = {
     id,
     userId,
     ws,
-    isAdmin,
+    canSeeInvisible,
     isActive: true,
     rooms: new Set(),
     isAlive: true
@@ -234,7 +235,11 @@ const sendPresenceByRole = (snapshots: PresenceSnapshots): void => {
   for (const connection of connections.values()) {
     send(connection, {
       type: 'presence.snapshot',
-      snapshot: connection.isAdmin ? snapshots.admin : snapshots.public
+      snapshot: presenceForViewer({
+        snapshots,
+        userId: connection.userId,
+        canSeeInvisible: connection.canSeeInvisible
+      })
     });
   }
 };

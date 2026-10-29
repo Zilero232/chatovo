@@ -22,6 +22,8 @@
 }
 
 .image {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   aspect-ratio: 1;
@@ -29,9 +31,8 @@
 }
 
 .fallback {
+  position: absolute;
   display: flex;
-  width: 100%;
-  height: 100%;
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
@@ -39,6 +40,7 @@
   color: var(--brand-sun);
   font-size: 0.875rem;
   font-weight: 500;
+  inset: 0;
 
   .root[data-size='sm'] & {
     font-size: 0.75rem;

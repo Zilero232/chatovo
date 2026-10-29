@@ -5,10 +5,11 @@
   display: flex;
   overflow: hidden;
   width: 100%;
+  height: var(--tile-height, auto);
   flex-direction: column;
   border: 1px dashed color-mix(in srgb, var(--brand-fuchsia) 45%, transparent);
   border-radius: var(--radius-2xl);
-  aspect-ratio: 16 / 9;
+  aspect-ratio: var(--tile-ratio, 16 / 9);
   background: rgb(8 4 10 / 40%);
   container-type: inline-size;
   opacity: 0.75;

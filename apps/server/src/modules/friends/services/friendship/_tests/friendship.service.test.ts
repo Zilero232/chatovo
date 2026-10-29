@@ -2,6 +2,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 const getUserWithProfileOrThrow = vi.fn();
 const bumpFriendsEpoch = vi.fn();
+const endCallsBetween = vi.fn();
 const findUser = vi.fn();
 const findBlock = vi.fn();
 const findFriendship = vi.fn();
@@ -13,7 +14,8 @@ vi.mock('../../../../../lib', () => ({
 }));
 
 vi.mock('../../../call-store', () => ({
-  bumpFriendsEpoch: (...userIds: string[]) => bumpFriendsEpoch(...userIds)
+  bumpFriendsEpoch: (...userIds: string[]) => bumpFriendsEpoch(...userIds),
+  endCallsBetween: (input: unknown) => endCallsBetween(input)
 }));
 
 vi.mock('../../../../realtime', () => ({

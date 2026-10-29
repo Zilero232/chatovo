@@ -16,7 +16,7 @@ import { UserRow } from './components';
 
 import s from './AdminUsers.module.scss';
 
-const FILTERS: AdminUserFilter[] = ['all', 'online', 'blocked', 'admins'];
+const FILTERS: AdminUserFilter[] = ['all', 'online', 'blocked', 'staff'];
 const PER_PAGE = 20;
 
 export const AdminUsers = ({ enabled }: AdminTabProps) => {

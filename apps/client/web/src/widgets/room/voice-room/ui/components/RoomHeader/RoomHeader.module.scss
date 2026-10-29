@@ -51,3 +51,9 @@
     font-size: 1rem;
   }
 }
+
+.duration {
+  color: var(--brand-mint);
+  font-size: var(--text-xs);
+  font-variant-numeric: tabular-nums;
+}

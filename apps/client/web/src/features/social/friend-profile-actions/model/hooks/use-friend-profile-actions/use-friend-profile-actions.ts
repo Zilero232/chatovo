@@ -1,7 +1,7 @@
 import { useToastError } from '@/entities/app/locale';
+import { useStartDmCall } from '@/entities/social/dm-call';
 import {
   useAcceptFriendRequest,
-  useCallFriend,
   useDeclineFriendRequest,
   useRemoveFriendship,
   useSendFriendRequest
@@ -17,14 +17,14 @@ export const useFriendProfileActions = ({ userId, friendTag }: UseFriendProfileA
   const acceptRequest = useAcceptFriendRequest();
   const declineRequest = useDeclineFriendRequest();
   const removeFriendship = useRemoveFriendship();
-  const callFriend = useCallFriend();
+  const startCall = useStartDmCall();
 
   const isBusy =
     sendRequest.isPending ||
     acceptRequest.isPending ||
     declineRequest.isPending ||
     removeFriendship.isPending ||
-    callFriend.isPending;
+    startCall.isPending;
 
   const add = () => {
     sendRequest.mutate(
@@ -60,7 +60,7 @@ export const useFriendProfileActions = ({ userId, friendTag }: UseFriendProfileA
   };
 
   const call = () => {
-    callFriend.mutate({ userId }, { onError: toastError(`friend-call-${userId}`) });
+    startCall.mutate(userId, { onError: toastError(`friend-call-${userId}`) });
     appEvents.emit.profileCardClose();
   };
 

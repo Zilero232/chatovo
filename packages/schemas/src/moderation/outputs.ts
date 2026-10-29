@@ -1,5 +1,6 @@
 import { z } from 'zod';
 
+import { USER_ROLE, userRoleSchema } from '../auth/inputs';
 import { abuseReasonSchema, abuseTargetSchema } from './inputs';
 
 const actorSchema = z.object({
@@ -36,8 +37,9 @@ export const adminUserSchema = z.object({
   avatarUrl: z.string().nullable().default(null),
   bio: z.string().nullable().default(null),
   profileUrl: z.string().nullable().default(null),
-  role: z.string(),
+  role: userRoleSchema.catch(USER_ROLE.user),
   verified: z.boolean().default(false),
+  developer: z.boolean().default(false),
   emailVerified: z.boolean().default(false),
   blockedAt: z.string().nullable().default(null),
   blockedReason: z.string().nullable().default(null),
@@ -85,7 +87,7 @@ export const adminStatsSchema = z.object({
     total: z.number(),
     online: z.number(),
     blocked: z.number(),
-    admins: z.number(),
+    staff: z.number(),
     newToday: z.number(),
     newThisWeek: z.number()
   }),

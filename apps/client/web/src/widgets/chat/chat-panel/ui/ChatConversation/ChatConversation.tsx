@@ -2,7 +2,6 @@ import type { Ref } from 'react';
 
 import { Spinner } from '@chatovo/ui-kit';
 import { Paperclip } from 'lucide-react';
-import { Fragment } from 'react';
 import { match } from 'ts-pattern';
 import { useTranslations } from 'use-intl';
 
@@ -12,9 +11,9 @@ import { useChatConversation } from '../../model/hooks';
 import {
   ChatComposer,
   ChatEmpty,
+  ChatLines,
   ChatLoadingSkeleton,
-  ChatMessageItem,
-  DateDivider
+  ChatReadOnlyNotice
 } from '../components';
 
 import s from './ChatConversation.module.scss';
@@ -23,7 +22,8 @@ export const ChatConversation = ({
   roomId,
   currentUserId,
   canModerate = false,
-  enabled = true
+  enabled = true,
+  peerId
 }: ChatConversationProps) => {
   const t = useTranslations('chat');
 
@@ -34,6 +34,7 @@ export const ChatConversation = ({
     files,
     actions,
     isPending,
+    isReadOnly,
     isEmpty,
     hasOlder,
     isLoadingOlder
@@ -41,7 +42,7 @@ export const ChatConversation = ({
 
   return (
     <div ref={files.dropRef as Ref<HTMLDivElement>} className={s.root}>
-      {files.overed && (
+      {files.overed && !isReadOnly && (
         <div className={s.dropOverlay}>
           <Paperclip className={s.dropIcon} />
           {t('dropToSend')}
@@ -62,32 +63,27 @@ export const ChatConversation = ({
                 </div>
               )}
 
-              {lines.map(({ line, isOwn, isGrouped, isTail, showDivider }) => (
-                <Fragment key={line.id}>
-                  {showDivider && <DateDivider timestamp={line.timestamp} />}
-                  <ChatMessageItem
-                    canManage={isOwn || canModerate}
-                    isGrouped={isGrouped}
-                    isOwn={isOwn}
-                    isTail={isTail}
-                    message={line}
-                    onDelete={actions.remove}
-                    onDiscard={actions.discard}
-                    onEdit={actions.edit}
-                    onRetry={actions.retry}
-                  />
-                </Fragment>
-              ))}
+              <ChatLines
+                actions={actions}
+                canModerate={canModerate}
+                isReadOnly={isReadOnly}
+                lines={lines}
+                peerId={peerId ?? null}
+              />
             </div>
           ))}
       </div>
 
-      <ChatComposer
-        isUploading={files.isUploading}
-        onAttach={files.openPicker}
-        onPaste={files.onPaste}
-        onSend={actions.send}
-      />
+      {isReadOnly ? (
+        <ChatReadOnlyNotice />
+      ) : (
+        <ChatComposer
+          isUploading={files.isUploading}
+          onAttach={files.openPicker}
+          onPaste={files.onPaste}
+          onSend={actions.send}
+        />
+      )}
     </div>
   );
 };

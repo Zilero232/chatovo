@@ -54,6 +54,7 @@
     "notFoundHint": "Der Besitzer hat diesen Raum gelöscht oder der Link ist veraltet. Prüfe den Link oder such den Raum in der Lobby.",
     "backToLobby": "Zurück zur Lobby",
     "joinFailed": "Beitritt zum Raum fehlgeschlagen",
+    "movedToOtherDevice": "Der Anruf läuft auf einem anderen Gerät weiter",
     "invite": {
       "copyLink": "Einladungslink kopieren",
       "linkCopied": "Einladungslink kopiert",
@@ -68,7 +69,9 @@
       "label": "Aktiver Raum „{name}“",
       "inRoom": "Du bist im Raum",
       "inCall": "Du bist in einem Anruf",
-      "connecting": "Verbinde…"
+      "connecting": "Verbinde…",
+      "calling": "Ruft an…",
+      "inCallFor": "Im Anruf · {duration}"
     },
     "music": {
       "label": "Raummusik",
@@ -238,18 +241,48 @@
       "speakerDevice": "Lautsprecher wählen",
       "pttHint": "Push-to-Talk",
       "leave": "Verlassen",
-      "invisibleMicBlocked": "Im unsichtbaren Modus kannst du nicht sprechen",
+      "invisibleLocked": "Im unsichtbaren Modus nicht verfügbar",
       "mutedByOwner": "Vom Raumbesitzer stummgeschaltet"
     },
     "screen": {
       "sharingTitle": "Du teilst deinen Bildschirm",
       "sharingHint": "Deine eigene Vorschau ist ausgeblendet, damit sich der Bildschirm nicht endlos in sich selbst wiederholt. Alle anderen sehen ihn."
     },
-    "dmWaiting": "Warte, bis die andere Person beitritt…",
     "expandVideo": "Video vergrößern",
     "collapseVideo": "Video verkleinern",
     "invisibleBadge": "Unsichtbar",
     "invisibleNotice": "Du bist versteckt beigetreten: Niemand sieht oder hört dich",
+    "dmCall": {
+      "waiting": "Warten auf die andere Person…",
+      "connecting": "Verbinde mit {name}…",
+      "calling": "Rufe {name} an…",
+      "ringing": "Es klingelt bei {name}…",
+      "peerBusy": "{name} ist in einem anderen Anruf – es klingelt weiter",
+      "peerLeft": "{name} ist getrennt · warte {countdown}",
+      "peerReconnecting": "{name} verbindet sich neu…",
+      "ringAgain": "Erneut anrufen",
+      "ended": "Anruf beendet",
+      "endedWithDuration": "Anruf beendet · {duration}",
+      "declined": "{name} hat den Anruf abgelehnt",
+      "noAnswer": "{name} hat nicht abgenommen",
+      "busy": "{name} ist gerade in einem anderen Anruf",
+      "cancelled": "Anruf abgebrochen",
+      "failed": "Der Anruf konnte nicht verbunden werden",
+      "stillInCall": "Du bist noch in einem Anruf mit {name}",
+      "rejoin": "Zurück"
+    },
+    "invisible": {
+      "blocked": "Du bist im unsichtbaren Modus",
+      "blockedHint": "Mikrofon, Kamera, Bildschirm, Reaktionen, Chat und Musik sind aus, damit dich niemand bemerkt. Schalte den unsichtbaren Modus aus, um mitzumachen.",
+      "turnOff": "Ausschalten",
+      "noticeHint": "Mikrofon, Kamera, Reaktionen und Chat bleiben aus, bis du den unsichtbaren Modus ausschaltest.",
+      "chatReadOnly": "Nur lesen im unsichtbaren Modus",
+      "chatReadOnlyHint": "Eine Nachricht würde verraten, dass du hier bist.",
+      "passwordTitle": "Raumpasswort eingeben",
+      "passwordHint": "Du bist „{name}“ unsichtbar beigetreten, ohne Passwort. Um im Raum sichtbar zu werden, gib das Passwort ein – oder bleib unsichtbar.",
+      "passwordSubmit": "Im Raum erscheinen",
+      "stayInvisible": "Unsichtbar bleiben"
+    },
     "badges": {
       "screen": "Bildschirm",
       "music": "Musik"
@@ -293,7 +326,19 @@
       "description": "Nachrichten in diesem Raum erscheinen hier und bleiben für alle sichtbar, die später beitreten. Teile einen Link, eine Datei oder sag einfach Hallo."
     },
     "openInBrowser": "Im Browser öffnen",
-    "download": "Herunterladen"
+    "download": "Herunterladen",
+    "callLog": {
+      "outgoing": "Ausgehender Anruf",
+      "incoming": "Eingehender Anruf",
+      "missed": "Verpasster Anruf",
+      "cancelled": "Abgebrochener Anruf",
+      "declinedByPeer": "Anruf abgelehnt",
+      "declinedBySelf": "Du hast den Anruf abgelehnt",
+      "noAnswer": "Keine Antwort",
+      "busy": "Besetzt",
+      "failed": "Anruf fehlgeschlagen",
+      "callBack": "Zurückrufen"
+    }
   },
   "channels": {
     "searchPlaceholder": "Räume suchen...",

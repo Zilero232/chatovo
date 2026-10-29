@@ -2,6 +2,8 @@ export { useCanModerateRoom } from './use-can-moderate-room';
 export { useCreateRoom } from './use-create-room';
 export { useDeleteRoom } from './use-delete-room';
 export { useEnterRoom } from './use-enter-room';
+export { useInvisibleGuard } from './use-invisible-guard';
+export { useIsInvisible } from './use-is-invisible';
 export { useRecentRooms } from './use-recent-rooms';
 export { useRoomById } from './use-room-by-id';
 export { useRoomParticipants } from './use-room-participants';

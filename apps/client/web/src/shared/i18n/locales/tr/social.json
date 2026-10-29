@@ -53,13 +53,19 @@
       "title": "Gelen arama",
       "description": "{name} seni arıyor",
       "accept": "Yanıtla",
-      "decline": "Reddet"
+      "decline": "Reddet",
+      "busyHint": "Başka bir aramadasın — yanıtlamak onu bitirir",
+      "roomHint": "Yanıtlarsan “{room}” odasından çıkarsın",
+      "endAndAccept": "Bitir ve yanıtla",
+      "unavailable": "Bu arama zaten bitti",
+      "answeredElsewhere": "Başka bir cihazda yanıtlandı",
+      "titleFlash": "{name} arıyor"
     },
-    "outgoingCall": {
-      "title": "Aranıyor…",
-      "description": "Yanıt bekleniyor: {name}",
-      "cancel": "İptal",
-      "declined": "{name} aramayı reddetti"
+    "callBanner": {
+      "calling": "Aranıyor…",
+      "inCall": "Bu aramadasın",
+      "ongoing": "Süren arama · {duration}",
+      "join": "Katıl"
     }
   },
   "blocks": {

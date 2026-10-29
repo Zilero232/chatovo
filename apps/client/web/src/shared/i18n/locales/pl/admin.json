@@ -44,7 +44,7 @@
       "users": "Użytkownicy",
       "online": "Online",
       "blocked": "Zablokowani",
-      "admins": "Admini",
+      "staff": "Zespół",
       "newToday": "Nowi dziś",
       "rooms": "Pokoje",
       "roomsGroup": "Grupowe",
@@ -88,11 +88,11 @@
         "all": "Wszyscy",
         "online": "Online",
         "blocked": "Zablokowani",
-        "admins": "Admini"
+        "staff": "Zespół"
       },
       "online": "Online",
       "blocked": "Zablokowany",
-      "admin": "Admin",
+      "developer": "DEV",
       "verified": "Zweryfikowany",
       "roomsCount": "Pokoje: {count}",
       "messagesCount": "Wiadomości: {count}",
@@ -125,10 +125,16 @@
       "bio": "O sobie",
       "profileUrl": "Link",
       "verified": "Zweryfikowane konto",
+      "developer": "Odznaka dewelopera (DEV)",
       "role": "Rola",
-      "roleAdmin": "Administrator",
-      "roleUser": "Użytkownik",
+      "roleLocked": "Zmienić to może tylko ktoś z wyższą rolą.",
       "submit": "Zapisz"
+    },
+    "roles": {
+      "owner": "Właściciel",
+      "admin": "Administrator",
+      "moderator": "Moderator",
+      "user": "Użytkownik"
     },
     "blockUser": {
       "title": "Zablokować {name}?",

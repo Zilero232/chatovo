@@ -4,6 +4,7 @@ import type {
   changeEmailSchema,
   changePasswordSchema,
   forgotPasswordSchema,
+  permissionSchema,
   profileSchema,
   resetPasswordSchema,
   signInSchema,
@@ -12,6 +13,17 @@ import type {
 } from './inputs';
 
 export type UserRole = z.infer<typeof userRoleSchema>;
+export type Permission = z.infer<typeof permissionSchema>;
+
+export type HasPermissionInput = {
+  permission: Permission;
+  role: string | null | undefined;
+};
+
+export type RolePairInput = {
+  actorRole: string | null | undefined;
+  targetRole: string | null | undefined;
+};
 
 export type SignInValues = z.infer<typeof signInSchema>;
 export type SignUpValues = z.infer<typeof signUpSchema>;

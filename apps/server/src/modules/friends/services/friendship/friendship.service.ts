@@ -25,7 +25,7 @@ import {
 import { PrismaService } from '../../../../core';
 import { getUserWithProfileOrThrow } from '../../../../lib';
 import { emitUserEvent } from '../../../realtime';
-import { bumpFriendsEpoch } from '../../call-store';
+import { bumpFriendsEpoch, endCallsBetween } from '../../call-store';
 import {
   friendshipInclude,
   normalizeFriendTag,
@@ -293,6 +293,7 @@ export class FriendshipService {
 
     await this.prisma.friendship.delete({ where: { id: row.id } });
 
+    endCallsBetween({ userId, otherUserId });
     bumpFriendsEpoch(userId, otherUserId);
   }
 

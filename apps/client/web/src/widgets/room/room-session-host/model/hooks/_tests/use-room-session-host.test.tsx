@@ -118,6 +118,21 @@ describe('useRoomSessionHost', () => {
     expect(navigate).not.toHaveBeenCalled();
   });
 
+  it('lets a room left from the mini bar be joined again right away, as when calling back', () => {
+    pathname = '/lobby';
+
+    const { result, rerender } = renderHost();
+
+    act(() => result.current.session.open(sessionOf('room-1')));
+    rerender();
+    act(() => result.current.host.leave('room-1'));
+    rerender();
+    act(() => result.current.session.open(sessionOf('room-1')));
+    rerender();
+
+    expect(result.current.session.session?.roomId).toBe('room-1');
+  });
+
   it('ignores a leave from a room the user already switched away from', () => {
     search = { id: 'room-2' };
 

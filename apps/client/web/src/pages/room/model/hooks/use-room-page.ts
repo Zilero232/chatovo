@@ -3,9 +3,7 @@ import { useEffect, useEffectEvent, useState } from 'react';
 import { isNonNullish } from 'remeda';
 
 import { useToastError } from '@/entities/app/locale';
-import { useAppSettings } from '@/entities/app/settings';
-import { useCurrentUser } from '@/entities/auth/user';
-import { useRoomById, useRoomToken } from '@/entities/room/room';
+import { useIsInvisible, useRoomById, useRoomToken } from '@/entities/room/room';
 import { useRoomSession } from '@/entities/room/session';
 import { ROUTES } from '@/shared/constants';
 
@@ -17,8 +15,7 @@ export const useRoomPage = () => {
 
   const toastError = useToastError();
 
-  const { settings } = useAppSettings();
-  const { isAdmin } = useCurrentUser();
+  const isInvisible = useIsInvisible();
   const { session, open, isRecentlyLeft, rejoin } = useRoomSession();
 
   const [passwordByRoom, setPasswordByRoom] = useState<Record<string, string>>({});
@@ -41,7 +38,6 @@ export const useRoomPage = () => {
     password
   });
 
-  const isInvisible = isAdmin && settings.system.invisibleMode;
   const roomTitle = titleOverride ?? displayName;
   const { isRefused, showPasswordForm, passwordError } = resolvePasswordGate({
     isPrivate,

@@ -1,9 +1,7 @@
 import { useParticipants, useRoomContext } from '@livekit/components-react';
 import { indexBy } from 'remeda';
 
-import { useAppSettings } from '@/entities/app/settings';
-import { useCurrentUser } from '@/entities/auth/user';
-import { useRoomParticipants } from '@/entities/room/room';
+import { useIsInvisible, useRoomParticipants } from '@/entities/room/room';
 
 import { ROSTER_EVENTS } from '../../../config';
 import { getStageGridStyle } from '../../../lib';
@@ -12,8 +10,7 @@ export const useParticipantsView = () => {
   const room = useRoomContext();
   const participants = useParticipants({ updateOnlyOn: ROSTER_EVENTS });
 
-  const { settings } = useAppSettings();
-  const { isAdmin } = useCurrentUser();
+  const isSelfInvisible = useIsInvisible();
 
   const presence = useRoomParticipants(room.name);
 
@@ -31,7 +28,7 @@ export const useParticipantsView = () => {
     invisibleParticipants,
     isAlone,
     gridStyle: getStageGridStyle(isAlone ? 2 : tileCount),
-    isSelfInvisible: isAdmin && settings.system.invisibleMode,
+    isSelfInvisible,
     localParticipant: participants.find((entry) => entry.isLocal),
     peerParticipant: participants.find((entry) => !entry.isLocal)
   };

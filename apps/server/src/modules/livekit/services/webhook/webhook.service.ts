@@ -3,13 +3,21 @@ import { EventEmitter2 } from '@nestjs/event-emitter';
 import { TrackSource, WebhookReceiver } from 'livekit-server-sdk';
 import { match } from 'ts-pattern';
 
-import type { VoiceEmptiedEvent, VoiceJoinedEvent } from '../../../../common/events/domain-events';
-import type { HandleWebhookInput, ParticipantJoinedInput } from './webhook.service.types';
+import type {
+  VoiceEmptiedEvent,
+  VoiceJoinedEvent,
+  VoiceLeftEvent
+} from '../../../../common/events/domain-events';
+import type {
+  HandleWebhookInput,
+  ParticipantJoinedInput,
+  ParticipantLeftInput
+} from './webhook.service.types';
 
 import { DomainEvent } from '../../../../common/events/domain-events';
 import { AppUnauthorizedException } from '../../../../common/exceptions';
 import { AppConfigService } from '../../../../config/config.module';
-import { getRoomName } from '../../../../lib';
+import { getRoomLabel } from '../../../../lib';
 import { WEBHOOK_CLOCK_TOLERANCE_SECONDS } from '../../config';
 import { isBarredFromRoom, isInvisibleParticipant } from '../../lib';
 import { toRoomParticipant } from '../../mappers';
@@ -17,6 +25,7 @@ import { clearRoomMicLocks, isMicLocked } from '../../mic-lock-store';
 import {
   addParticipant,
   clearRoom,
+  markDmRoom,
   patchParticipant,
   removeParticipant,
   removeRoomParticipant,
@@ -63,9 +72,9 @@ export class WebhookService {
           await this.onParticipantJoined({ roomId, participant });
         }
       })
-      .with('participant_left', () => {
+      .with('participant_left', async () => {
         if (participant) {
-          removeParticipant(roomId, participant.identity);
+          await this.onParticipantLeft({ roomId, participant });
         }
       })
       .with('track_published', () => {
@@ -82,9 +91,13 @@ export class WebhookService {
         clearRoom(roomId);
         clearRoomMicLocks(roomId);
 
-        const roomName = await getRoomName(roomId);
+        const { name: roomName, isDm } = await getRoomLabel(roomId);
 
-        this.events.emit(DomainEvent.VoiceEmptied, { roomName } satisfies VoiceEmptiedEvent);
+        this.events.emit(DomainEvent.VoiceEmptied, {
+          roomId,
+          roomName,
+          isDm
+        } satisfies VoiceEmptiedEvent);
       })
       .with('room_started', () => syncRoom(roomId))
       .otherwise(() => undefined);
@@ -100,6 +113,11 @@ export class WebhookService {
     }
 
     const invisible = isInvisibleParticipant(participant.metadata);
+    const { name: roomName, isDm, dmMemberIds } = await getRoomLabel(roomId);
+
+    if (isDm) {
+      markDmRoom({ roomId, memberIds: dmMemberIds });
+    }
 
     addParticipant(roomId, toRoomParticipant({ participant, invisible }));
 
@@ -111,12 +129,30 @@ export class WebhookService {
       return;
     }
 
-    const roomName = await getRoomName(roomId);
-
     this.events.emit(DomainEvent.VoiceJoined, {
       roomId,
       roomName,
+      isDm,
+      participantId: identity,
       participantName: participant.name || identity
     } satisfies VoiceJoinedEvent);
+  }
+
+  private async onParticipantLeft({ roomId, participant }: ParticipantLeftInput) {
+    const { identity, metadata } = participant;
+
+    removeParticipant(roomId, identity);
+
+    if (isInvisibleParticipant(metadata)) {
+      return;
+    }
+
+    const { isDm } = await getRoomLabel(roomId);
+
+    this.events.emit(DomainEvent.VoiceLeft, {
+      roomId,
+      isDm,
+      participantId: identity
+    } satisfies VoiceLeftEvent);
   }
 }

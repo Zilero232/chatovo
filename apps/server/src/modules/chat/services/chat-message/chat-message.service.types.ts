@@ -27,8 +27,8 @@ export type AssertCanDeleteMessageInput = {
 };
 
 export type AssertSenderNotProtectedInput = {
+  actorRole: string;
   senderId: string | null;
-  userId: string;
 };
 
 export type DeleteChatMessageInput = {

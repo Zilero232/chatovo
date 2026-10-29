@@ -53,13 +53,19 @@
       "title": "Połączenie przychodzące",
       "description": "{name} dzwoni do ciebie",
       "accept": "Odbierz",
-      "decline": "Odrzuć"
+      "decline": "Odrzuć",
+      "busyHint": "Trwa inna rozmowa — odebranie ją zakończy",
+      "roomHint": "Odebranie wyprowadzi cię z „{room}”",
+      "endAndAccept": "Zakończ i odbierz",
+      "unavailable": "Ta rozmowa już się zakończyła",
+      "answeredElsewhere": "Odebrano na innym urządzeniu",
+      "titleFlash": "Połączenie od {name}"
     },
-    "outgoingCall": {
-      "title": "Dzwonienie…",
-      "description": "Czekamy, aż {name} odbierze",
-      "cancel": "Anuluj",
-      "declined": "{name} odrzuca połączenie"
+    "callBanner": {
+      "calling": "Dzwonimy…",
+      "inCall": "Jesteś w tej rozmowie",
+      "ongoing": "Trwająca rozmowa · {duration}",
+      "join": "Dołącz"
     }
   },
   "blocks": {

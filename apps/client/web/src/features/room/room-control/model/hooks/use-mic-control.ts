@@ -3,8 +3,7 @@ import { toast } from 'sonner';
 import { useTranslations } from 'use-intl';
 
 import { useAppSettings } from '@/entities/app/settings';
-import { useCurrentUser } from '@/entities/auth/user';
-import { isMicLocked } from '@/entities/room/room';
+import { isMicLocked, useInvisibleGuard } from '@/entities/room/room';
 import { armPttStream, isTauriDesktop, prettyHotkey } from '@/shared/lib';
 
 import { resolveMicVisual } from '../../lib/mic-visual';
@@ -18,9 +17,7 @@ export const useMicControl = () => {
   const { localParticipant, isMicrophoneEnabled } = useLocalParticipant();
   const permissions = useLocalParticipantPermissions();
   const { settings } = useAppSettings();
-  const { isAdmin } = useCurrentUser();
-
-  const isInvisible = isAdmin && settings.system.invisibleMode;
+  const { isInvisible, blockIfInvisible } = useInvisibleGuard();
 
   const { isDeafened, undeafen } = useDeafen();
   const pttState = usePttActive();
@@ -34,9 +31,7 @@ export const useMicControl = () => {
   const { run, isPending } = useParticipantAction({
     participant: localParticipant,
     action: async (participant) => {
-      if (isInvisible) {
-        toast.error(t('invisibleMicBlocked'), { id: 'invisible-mic' });
-
+      if (blockIfInvisible()) {
         return;
       }
 
@@ -66,7 +61,7 @@ export const useMicControl = () => {
 
   return {
     ...visual,
-    isDisabled: isInvisible,
+    isInvisible,
     isLocked,
     pttKey: isPtt && isTauriDesktop() && pttBinding ? prettyHotkey(pttBinding) : undefined,
     isPending,

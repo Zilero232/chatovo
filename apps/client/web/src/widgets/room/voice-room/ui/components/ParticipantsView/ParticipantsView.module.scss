@@ -22,10 +22,9 @@
   --gap: 0.625rem;
   --c: var(--cols-narrow);
   --r: var(--rows-narrow);
-  --tile: min(
-    (100cqw - (var(--c) - 1) * var(--gap)) / var(--c),
-    max((100cqh - (var(--r) - 1) * var(--gap)) / var(--r) * 16 / 9, 11rem)
-  );
+  --col: calc((100cqw - (var(--c) - 1) * var(--gap)) / var(--c));
+  --row-fit: calc((100cqh - (var(--r) - 1) * var(--gap)) / var(--r));
+  --tile: min(var(--col), max(var(--row-fit) * 16 / 9, 11rem));
 
   position: relative;
   z-index: 1;
@@ -37,6 +36,14 @@
   @container stage (min-width: 40rem) {
     --c: var(--cols);
     --r: var(--rows);
+  }
+
+  @include bp(sm, down) {
+    --tile: var(--col);
+    --tile-ratio: auto;
+    --tile-height: 100%;
+
+    grid-auto-rows: clamp(var(--col) * 0.75, var(--row-fit), var(--col) * 1.25);
   }
 }
 
@@ -98,15 +105,4 @@
     border-radius: var(--radius-xl);
     aspect-ratio: 16 / 9;
   }
-}
-
-.dmWaiting {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-  font-size: 0.9375rem;
-  inset: 0;
-  text-align: center;
 }

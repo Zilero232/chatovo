@@ -9,8 +9,16 @@ export type RoomSession = {
   token: string;
 };
 
+export type RoomLeaveOptions = {
+  isReplaced?: boolean;
+};
+
+export type CloseRoomSessionOptions = {
+  guardRejoin?: boolean;
+};
+
 export type RoomSessionValue = {
-  close: (roomId?: string) => void;
+  close: (roomId?: string, options?: CloseRoomSessionOptions) => void;
   isRecentlyLeft: (roomId: string) => boolean;
   open: (session: RoomSession) => void;
   rejoin: () => void;

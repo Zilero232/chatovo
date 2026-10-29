@@ -2,6 +2,7 @@ export {
   changeEmailSchema,
   changePasswordSchema,
   forgotPasswordSchema,
+  permissionSchema,
   profileSchema,
   resetPasswordSchema,
   signInSchema,
@@ -9,12 +10,24 @@ export {
   USER_ROLE,
   userRoleSchema
 } from './auth';
+export {
+  assignableRoles,
+  canActOnRole,
+  hasPermission,
+  isStaffRole,
+  roleRank,
+  STAFF_ROLES,
+  toUserRole
+} from './auth';
 export type {
   ChangeEmailValues,
   ChangePasswordValues,
   ForgotPasswordValues,
+  HasPermissionInput,
+  Permission,
   ProfileValues,
   ResetPasswordValues,
+  RolePairInput,
   SignInValues,
   SignUpFormValues,
   SignUpValues,
@@ -24,6 +37,8 @@ export type {
 export {
   ATTACHMENT_MAX_BYTES,
   chatAttachmentSchema,
+  chatCallLogSchema,
+  chatMessageKindSchema,
   chatMessageSchema,
   chatMessagesPageSchema,
   decodeChatAttachment,
@@ -38,7 +53,9 @@ export {
 export type {
   ChatAttachment,
   ChatAttachmentImage,
+  ChatCallLog,
   ChatMessage,
+  ChatMessageKind,
   ChatMessagesPage,
   EditMessageInput,
   ListMessagesQuery,
@@ -50,6 +67,12 @@ export type { ApiError, ApiErrorCode } from './errors';
 export { feedbackPlatformSchema, reportProblemFormSchema, reportProblemSchema } from './feedback';
 export type { FeedbackPlatform, ReportProblemFormValues, ReportProblemValues } from './feedback';
 export {
+  callIdParamSchema,
+  dmCallDirectionSchema,
+  dmCallEndReasonSchema,
+  dmCallsSnapshotSchema,
+  dmCallStateSchema,
+  dmCallViewSchema,
   friendCallStatusSchema,
   friendCallStreamSnapshotSchema,
   friendEntrySchema,
@@ -67,6 +90,12 @@ export {
   userBlockListSchema
 } from './friends';
 export type {
+  CallIdParam,
+  DmCallDirection,
+  DmCallEndReason,
+  DmCallsSnapshot,
+  DmCallState,
+  DmCallView,
   FriendCallStatus,
   FriendCallStreamSnapshot,
   FriendEntry,
@@ -266,6 +295,7 @@ export {
   roomBanSchema,
   roomKindSchema,
   roomModerationActionSchema,
+  roomPasswordFormSchema,
   roomPasswordSchema,
   roomSchema,
   updateRoomInputSchema
@@ -276,6 +306,7 @@ export type {
   RoomBan,
   RoomKind,
   RoomModerationAction,
+  RoomPasswordFormValues,
   UpdateRoomRequest
 } from './rooms';
 export {

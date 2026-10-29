@@ -1,3 +1,4 @@
+export { assertVisibleInRoom, isInvisibleInRoom } from './lib';
 export { LivekitModule } from './livekit.module';
 export { lockMic, unlockMic } from './mic-lock-store';
 export {
@@ -7,6 +8,7 @@ export {
   ejectParticipantEverywhere,
   findRoomParticipant,
   getAdminSnapshot,
+  getPresenceSnapshots,
   getSnapshot,
   hasRoomParticipants,
   removeLobbyConnection,

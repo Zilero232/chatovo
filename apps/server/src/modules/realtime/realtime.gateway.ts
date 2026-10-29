@@ -7,13 +7,14 @@ import { Logger } from '@nestjs/common';
 import { WebSocketGateway } from '@nestjs/websockets';
 
 import { isUserBlocked } from '../../lib';
-import { clearFriendsEpoch, FriendshipService, getUserCallSnapshot } from '../friends';
 import {
-  addLobbyConnection,
-  getAdminSnapshot,
-  getSnapshot,
-  removeLobbyConnection
-} from '../livekit';
+  clearFriendsEpoch,
+  FriendshipService,
+  getUserCallSnapshot,
+  onCallUserOffline,
+  onCallUserOnline
+} from '../friends';
+import { addLobbyConnection, getPresenceSnapshots, removeLobbyConnection } from '../livekit';
 import { BLOCKED_WS_CLOSE_CODE, HEARTBEAT_INTERVAL_MS } from './config';
 import {
   getConnectionByWs,
@@ -25,7 +26,7 @@ import {
   unregisterConnection
 } from './connection-store';
 import { handleClientMessage } from './handlers/client-message';
-import { authorizeToken } from './lib';
+import { authorizeToken, presenceForViewer } from './lib';
 
 @WebSocketGateway({ path: '/realtime' })
 export class RealtimeGateway
@@ -68,7 +69,7 @@ export class RealtimeGateway
       return;
     }
 
-    const { userId, isAdmin } = authorized;
+    const { userId, canSeeInvisible } = authorized;
 
     if (await isUserBlocked(userId)) {
       client.close(BLOCKED_WS_CLOSE_CODE, 'Account blocked');
@@ -76,9 +77,10 @@ export class RealtimeGateway
       return;
     }
 
-    const connection = registerConnection(userId, client, isAdmin);
+    const connection = registerConnection(userId, client, canSeeInvisible);
 
     addLobbyConnection(userId);
+    onCallUserOnline(userId);
 
     client.on('pong', () => {
       markConnectionAlive(client);
@@ -92,7 +94,7 @@ export class RealtimeGateway
 
     sendToConnection(connection.id, {
       type: 'presence.snapshot',
-      snapshot: isAdmin ? getAdminSnapshot() : getSnapshot()
+      snapshot: presenceForViewer({ snapshots: getPresenceSnapshots(), userId, canSeeInvisible })
     });
 
     sendToConnection(connection.id, {
@@ -116,6 +118,7 @@ export class RealtimeGateway
     removeLobbyConnection(userId);
 
     if (!hasUserConnection(userId)) {
+      onCallUserOffline(userId);
       clearFriendsEpoch(userId);
 
       await this.friendship.broadcastFriendPresence({ userId, isOnline: false });

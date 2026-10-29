@@ -44,7 +44,7 @@
       "users": "Kullanıcılar",
       "online": "Çevrimiçi",
       "blocked": "Engellenmiş",
-      "admins": "Yöneticiler",
+      "staff": "Ekip",
       "newToday": "Bugün yeni",
       "rooms": "Odalar",
       "roomsGroup": "Grup",
@@ -88,11 +88,11 @@
         "all": "Tümü",
         "online": "Çevrimiçi",
         "blocked": "Engellenmiş",
-        "admins": "Yöneticiler"
+        "staff": "Ekip"
       },
       "online": "Çevrimiçi",
       "blocked": "Engellendi",
-      "admin": "Yönetici",
+      "developer": "DEV",
       "verified": "Doğrulanmış",
       "roomsCount": "Odalar: {count}",
       "messagesCount": "Mesajlar: {count}",
@@ -125,10 +125,16 @@
       "bio": "Hakkında",
       "profileUrl": "Bağlantı",
       "verified": "Doğrulanmış hesap",
+      "developer": "Geliştirici rozeti (DEV)",
       "role": "Rol",
-      "roleAdmin": "Yönetici",
-      "roleUser": "Kullanıcı",
+      "roleLocked": "Bunu yalnızca daha yüksek role sahip biri değiştirebilir.",
       "submit": "Kaydet"
+    },
+    "roles": {
+      "owner": "Sahip",
+      "admin": "Yönetici",
+      "moderator": "Moderatör",
+      "user": "Kullanıcı"
     },
     "blockUser": {
       "title": "{name} engellensin mi?",

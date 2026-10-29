@@ -53,13 +53,19 @@
       "title": "Incoming call",
       "description": "{name} is calling you",
       "accept": "Accept",
-      "decline": "Decline"
+      "decline": "Decline",
+      "busyHint": "You're on another call — answering ends it",
+      "roomHint": "Answering leaves “{room}”",
+      "endAndAccept": "End & answer",
+      "unavailable": "This call has already ended",
+      "answeredElsewhere": "Answered on another device",
+      "titleFlash": "Call from {name}"
     },
-    "outgoingCall": {
-      "title": "Calling…",
-      "description": "Waiting for {name} to answer",
-      "cancel": "Cancel",
-      "declined": "{name} declined the call"
+    "callBanner": {
+      "calling": "Calling…",
+      "inCall": "You are in this call",
+      "ongoing": "Ongoing call · {duration}",
+      "join": "Join"
     }
   },
   "blocks": {

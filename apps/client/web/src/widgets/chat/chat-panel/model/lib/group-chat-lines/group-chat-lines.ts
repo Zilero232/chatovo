@@ -9,7 +9,10 @@ const sameAuthor = (a?: ChatLine, b?: ChatLine) =>
 const sameDay = (a?: ChatLine, b?: ChatLine) =>
   Boolean(a && b && isSameCalendarDay(a.timestamp, b.timestamp));
 
-const continuesSeries = (a?: ChatLine, b?: ChatLine) => sameAuthor(a, b) && sameDay(a, b);
+const isCallRow = (line?: ChatLine) => Boolean(line?.call);
+
+const continuesSeries = (a?: ChatLine, b?: ChatLine) =>
+  !isCallRow(a) && !isCallRow(b) && sameAuthor(a, b) && sameDay(a, b);
 
 export const groupChatLines = ({ lines, ownIdentity }: GroupChatLinesInput): GroupedChatLine[] =>
   lines.map((line, index) => {

@@ -44,7 +44,7 @@
       "users": "Nutzer",
       "online": "Online",
       "blocked": "Gesperrt",
-      "admins": "Admins",
+      "staff": "Team",
       "newToday": "Neu heute",
       "rooms": "Räume",
       "roomsGroup": "Gruppe",
@@ -88,11 +88,11 @@
         "all": "Alle",
         "online": "Online",
         "blocked": "Gesperrt",
-        "admins": "Admins"
+        "staff": "Team"
       },
       "online": "Online",
       "blocked": "Gesperrt",
-      "admin": "Admin",
+      "developer": "DEV",
       "verified": "Verifiziert",
       "roomsCount": "Räume: {count}",
       "messagesCount": "Nachrichten: {count}",
@@ -125,10 +125,16 @@
       "bio": "Bio",
       "profileUrl": "Link",
       "verified": "Verifiziertes Konto",
+      "developer": "Entwickler-Abzeichen (DEV)",
       "role": "Rolle",
-      "roleAdmin": "Administrator",
-      "roleUser": "Nutzer",
+      "roleLocked": "Nur jemand mit einer höheren Rolle kann das ändern.",
       "submit": "Speichern"
+    },
+    "roles": {
+      "owner": "Inhaber",
+      "admin": "Administrator",
+      "moderator": "Moderator",
+      "user": "Benutzer"
     },
     "blockUser": {
       "title": "{name} sperren?",

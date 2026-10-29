@@ -1,0 +1,31 @@
+@use '@chatovo/ui-kit/styles/functions' as *;
+
+.root {
+  display: flex;
+  overflow: hidden;
+  flex-shrink: 0;
+  align-items: center;
+  padding: var(--space-2) var(--space-4);
+  border-bottom: 1px solid rgb(var(--tint) / 11%);
+  background: color-mix(in srgb, var(--brand-mint) 10%, transparent);
+  gap: var(--space-2);
+}
+
+.icon {
+  width: var(--icon-sm);
+  height: var(--icon-sm);
+  flex-shrink: 0;
+  color: var(--brand-mint);
+}
+
+.text {
+  min-width: 0;
+  flex: 1;
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+.join {
+  background: var(--brand-mint);
+  color: var(--primary-foreground);
+}

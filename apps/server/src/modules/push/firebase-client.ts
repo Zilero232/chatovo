@@ -59,7 +59,9 @@ export const sendPushToTokens = async ({
   tokens,
   notification,
   data,
-  channelId
+  channelId,
+  tag,
+  ttlMs
 }: PushTokensPayload): Promise<string[]> => {
   const client = getMessagingClient();
 
@@ -73,7 +75,8 @@ export const sendPushToTokens = async ({
     data,
     android: {
       priority: 'high',
-      notification: { channelId }
+      ...(ttlMs === undefined ? {} : { ttl: ttlMs }),
+      notification: { channelId, ...(tag === undefined ? {} : { tag }) }
     },
     apns: { payload: { aps: { sound: 'default' } } }
   }));

@@ -1,6 +1,5 @@
 import type { UserProfile } from '@chatovo/schemas';
 
-import { USER_ROLE } from '@chatovo/schemas';
 import { isNullish, isString } from 'remeda';
 
 import type { Prisma } from '../../../generated';
@@ -27,7 +26,7 @@ export const resolveDisplayName = ({ displayName, name, userId }: DisplayNameSou
   stripEmail(resolveString(displayName)) ?? stripEmail(resolveString(name)) ?? userId;
 
 export const toUserProfile = (user: UserWithProfile): UserProfile => {
-  const { id, name, image, verified, role, profile, friendTag } = user;
+  const { id, name, image, verified, developer, profile, friendTag } = user;
 
   return {
     id,
@@ -38,6 +37,6 @@ export const toUserProfile = (user: UserWithProfile): UserProfile => {
     bannerColor: resolveString(profile?.bannerColor),
     bio: resolveString(profile?.bio),
     verified,
-    developer: role === USER_ROLE.admin
+    developer
   };
 };
