@@ -20,6 +20,7 @@
     ]
   },
   "bundle": {
+    "icon": ["icons/macos/icon.icns"],
     "macOS": {
       "signingIdentity": "-",
       "minimumSystemVersion": "10.15"

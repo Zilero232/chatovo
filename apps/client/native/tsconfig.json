@@ -1,0 +1,8 @@
+{
+  "extends": "@chatovo/tsconfig/base.json",
+  "compilerOptions": {
+    "types": ["node"]
+  },
+  "include": ["scripts/**/*.ts", "vitest.config.ts"],
+  "exclude": ["node_modules", "gen", "target"]
+}

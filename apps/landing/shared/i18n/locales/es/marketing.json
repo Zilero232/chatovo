@@ -206,6 +206,10 @@
       "minor": "Versión regular"
     },
     "entries": {
+      "sharperIcon": {
+        "title": "Icono de la app más nítido",
+        "description": "En Windows el icono ahora tiene el tamaño completo junto a otras apps, el icono de la bandeja es más grande y se lee bien en barras claras y oscuras, y Android admite iconos temáticos."
+      },
       "callsRedone": {
         "title": "Llamadas entre amigos, bien hechas",
         "description": "Llamar te mete directamente en la llamada, la otra persona recibe una tarjeta en vez de una ventana que bloquea, y colgar la termina para ambos. Si alguien se cae, ves «reconectando» y hay un minuto para volver."
@@ -896,6 +900,7 @@
       }
     },
     "highlights": {
+      "sharperIcon": "Un icono nítido en todas partes",
       "callsRedone": "Llamadas entre amigos, bien hechas",
       "staffRoles": "Moderadores y una jerarquía de roles clara",
       "invisibleReadOnly": "El modo invisible ahora es realmente invisible",

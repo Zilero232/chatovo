@@ -18,17 +18,10 @@
 }
 
 .field {
-  width: 100%;
-  min-height: var(--control-lg);
-  padding: var(--space-2) var(--space-3);
-  border: 1px solid var(--input-border);
-  border-radius: var(--radius-lg);
-  background: rgb(var(--tint) / 8%);
+  @include control-field-surface;
 
-  &:hover:not([data-disabled]) {
-    border-color: rgb(var(--tint) / 20%);
-    background: rgb(var(--tint) / 11%);
-  }
+  width: 100%;
+  padding-inline: var(--space-3);
 }
 
 .ghost {

@@ -44,6 +44,7 @@ export const AdminUsers = ({ enabled }: AdminTabProps) => {
           className={s.search}
           placeholder={t('users.search')}
           value={search}
+          variant='field'
           onValueChange={changeSearch}
         />
 

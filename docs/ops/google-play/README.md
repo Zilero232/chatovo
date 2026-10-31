@@ -132,7 +132,7 @@ screen. The pieces:
   is dropped.
 - `build.rs` — `FOREGROUND_SERVICE`, `FOREGROUND_SERVICE_MICROPHONE` and the
   `<service>` entry, injected like the other manifest blocks.
-- `scripts/setup-android-fcm.mjs` copies every `android/*.kt` and `android/res/`
+- `scripts/android/setup-fcm.ts` copies every `android/*.kt` and `android/res/`
   into `gen/android` after `tauri android init`, the same overlay MainActivity
   already used.
 - The web app starts the service once a room connects, keeps it through
@@ -182,7 +182,7 @@ edit it by hand.
 
 1. Download `google-services.json` from the Firebase Console (Android app `chatovo.app`).
 2. Save it to **`apps/client/native/android/google-services.json`** (committed — not a secret).
-3. Run any android script — `setup-android-fcm.mjs` copies the file and the `MainActivity.kt` overlay into `gen/android/app/` and patches Gradle.
+3. Run any android script — `scripts/android/setup-fcm.ts` copies the file and the `MainActivity.kt` overlay into `gen/android/app/` and patches Gradle.
 
 `POST_NOTIFICATIONS` is injected through `build.rs` on every build. Plugin
 permission: `fcm:default` in `capabilities/mobile.json`.

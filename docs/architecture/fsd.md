@@ -33,7 +33,7 @@ The `Processes` layer is deprecated — its contents move into `Features` or `Ap
 ```
 apps/client/web/
 ├── index.html          # the page shell; entry /src/main.tsx
-├── assets/icons/       # Tauri icon sources (app-icon*.svg)
+├── assets/icons/       # native icon sources (app-icon*.svg, tray-icon*.svg)
 └── src/
     ├── main.tsx        # App layer, spread over plain folders at the top of src/ (no app/ folder):
     ├── router/         #   route tree, search schemas, routes/ (layouts), global-error/

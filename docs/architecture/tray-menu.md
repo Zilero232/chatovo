@@ -6,7 +6,7 @@ The desktop tray uses the **native context menu**, built in Rust. The whole thin
 
 | Where | What it does |
 | --- | --- |
-| [apps/client/native/src/tray_menu.rs](../../apps/client/native/src/tray_menu.rs) | Builds the icon and its menu at startup, handles clicks, exposes `update_tray_labels` / `update_tray_state` |
+| [apps/client/native/src/tray_menu.rs](../../apps/client/native/src/tray_menu.rs) | Builds the icon ([its sizes](app-icons.md)) and its menu at startup, handles clicks, exposes `update_tray_labels` / `update_tray_state` |
 | `features/app/system-tray/api/tray-state.ts` | The `invoke` wrappers and the `tray:action` listener — an I/O boundary, hence `api/` rather than `model/` |
 | `features/app/system-tray/model/hooks/use-tray-bridge/` | Pushes state on change, forwards actions back to the room |
 | `app/providers/TrayMenuProvider.tsx` | Sends the localized labels once the locale is known |

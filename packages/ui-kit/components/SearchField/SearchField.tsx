@@ -16,7 +16,7 @@ export const SearchField = ({
   onValueChange,
   ...props
 }: SearchFieldProps) => (
-  <label className={clsx(s.field, s[variant], className)} data-slot='search-field'>
+  <label className={clsx(s.root, s[variant], className)} data-slot='search-field'>
     <Search className={s.icon} />
     <input
       ref={inputRef}

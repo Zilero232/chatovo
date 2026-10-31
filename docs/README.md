@@ -13,6 +13,7 @@ Design decisions — the "why" behind the code, and what has already gone wrong.
 - [architecture/dm-calls.md](architecture/dm-calls.md) — 1:1 calls: the server-side state machine, timings, hang-up for both, the 60 s reconnect grace, call rows and missed-call pushes.
 - [architecture/invisible-mode.md](architecture/invisible-mode.md) — staff join rooms hidden and read-only: server-enforced, presence filtered.
 - [architecture/game-activity.md](architecture/game-activity.md) — the "Playing X" status, games only: Steam, Epic and GOG libraries plus the Windows Game Bar list; opt-in, desktop-only.
+- [architecture/app-icons.md](architecture/app-icons.md) — the native icon set: SVG sources, per-platform sizes and grids, the tray icon.
 - [architecture/tray-menu.md](architecture/tray-menu.md) — the native tray: Rust owns the icon and menu, the client pushes labels and state.
 - [architecture/web-app.md](architecture/web-app.md) — why the web app is a Vite SPA with TanStack Router, not Next: the route tree, typed search params, what replaced each Next feature, the env and dev-server gotchas.
 - [architecture/images.md](architecture/images.md) — images without a framework optimizer: upload-time normalising, the `/images` resizer + the kit's `Image` loader, chat link previews, SSRF-safe outbound fetches.

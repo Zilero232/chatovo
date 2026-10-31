@@ -2,5 +2,6 @@
   "default": "../web/assets/icons/app-icon.svg",
   "bg_color": "#6654f5",
   "android_bg": "../web/assets/icons/app-icon-bg.svg",
-  "android_fg": "../web/assets/icons/app-icon-fg.svg"
+  "android_fg": "../web/assets/icons/app-icon-fg.svg",
+  "android_monochrome": "../web/assets/icons/app-icon-mono.svg"
 }

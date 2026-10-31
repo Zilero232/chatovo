@@ -33,6 +33,7 @@ export const AdminRooms = ({ enabled }: AdminTabProps) => {
           className={s.search}
           placeholder={t('rooms.search')}
           value={search}
+          variant='field'
           onValueChange={changeSearch}
         />
 

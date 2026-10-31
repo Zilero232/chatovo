@@ -10,7 +10,7 @@ Architecture is **Feature-Sliced Design** with the canonical `src/` root and `pa
 
 ```text
 index.html        # the page shell (script /src/main.tsx); head tags are injected from shared/seo by vite.config.ts
-assets/icons/     # Tauri icon sources: app-icon.svg, app-icon-bg.svg, app-icon-fg.svg
+assets/icons/     # native icon sources: app-icon*.svg, tray-icon*.svg (docs/architecture/app-icons.md)
 public/           # served as-is
 src/
   main.tsx        # entry: mounts the router inside the crash boundary

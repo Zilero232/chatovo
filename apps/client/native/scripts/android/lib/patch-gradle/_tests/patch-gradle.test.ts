@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-// @ts-expect-error -- plain .mjs build script, no type declarations
-import { patchAndroidGradle } from '../patch-android-gradle.mjs';
+import { patchAndroidGradle } from '../patch-gradle';
 
 const SIGNING_SNIPPET = `    signingConfigs {
         create("release") {

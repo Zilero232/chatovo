@@ -16,7 +16,7 @@ keytool -J-Dkeystore.pkcs12.legacy -genkeypair -v \
 `-J-Dkeystore.pkcs12.legacy` matters only if the key is ever exported with
 Google's PEPK tool, which cannot read the PKCS12 algorithms a modern JDK writes
 and reports that as `keystore password was incorrect` — with the correct
-password. Harmless to keep. Keep both passwords identical: `android-signing.kts`
+password. Harmless to keep. Keep both passwords identical: `scripts/android/signing.kts`
 feeds one property into `keyPassword` and `storePassword` alike.
 
 Keep the keystore and the passwords safe. **Losing them means the app can never
@@ -65,7 +65,7 @@ Verify the round-trip before pasting it (`base64 -D` on macOS, `-d` elsewhere):
 base64 -D -i keystore.base64 -o roundtrip.bin && cmp chatovo-release.keystore roundtrip.bin && echo ok
 ```
 
-`android-signing.mjs` decodes the secret back with `Buffer.from(…, 'base64')`,
+`scripts/android/signing.ts` decodes the secret back with `Buffer.from(…, 'base64')`,
 so a stray newline in it breaks the build rather than the paste.
 
 Job `android` in `release.yml` wires signing up after `tauri android init` and
@@ -128,7 +128,7 @@ regenerated. Locally that is the same script CI runs:
 
 ```bash
 ANDROID_KEY_ALIAS=chatovo ANDROID_KEY_PASSWORD=... ANDROID_KEY_BASE64=$(base64 -w0 chatovo-release.keystore) \
-  node apps/client/native/scripts/android-signing.mjs
+  bun apps/client/native/scripts/android/signing.ts
 ```
 
 ## 6. What to upload to Play

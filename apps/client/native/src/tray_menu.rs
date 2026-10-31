@@ -1,6 +1,7 @@
 use std::sync::Mutex;
 
 use tauri::{
+    include_image,
     menu::{CheckMenuItem, Menu, MenuItem, PredefinedMenuItem},
     tray::{MouseButton, MouseButtonState, TrayIconBuilder, TrayIconEvent},
     AppHandle, Emitter, Manager,
@@ -153,9 +154,17 @@ fn build(app: &AppHandle, labels: &TrayLabels) -> tauri::Result<()> {
         });
     }
 
-    let icon = app.default_window_icon().cloned();
+    let builder = TrayIconBuilder::with_id(TRAY_ID);
 
-    let mut builder = TrayIconBuilder::with_id(TRAY_ID)
+    #[cfg(target_os = "macos")]
+    let builder = builder
+        .icon(include_image!("icons/tray-template/36x36.png"))
+        .icon_as_template(true);
+
+    #[cfg(not(target_os = "macos"))]
+    let builder = builder.icon(tray_icon(monitor_scale(app)));
+
+    builder
         .tooltip("Chatovo")
         .menu(&menu)
         .show_menu_on_left_click(false)
@@ -195,15 +204,33 @@ fn build(app: &AppHandle, labels: &TrayLabels) -> tauri::Result<()> {
             };
 
             toggle_main_window(tray.app_handle());
-        });
-
-    if let Some(icon) = icon {
-        builder = builder.icon(icon);
-    }
-
-    builder.build(app)?;
+        })
+        .build(app)?;
 
     Ok(())
+}
+
+#[cfg(not(target_os = "macos"))]
+fn monitor_scale(app: &AppHandle) -> f64 {
+    app.primary_monitor()
+        .ok()
+        .flatten()
+        .map_or(1.0, |monitor| monitor.scale_factor())
+}
+
+/// The notification area is 16 px at 100 % scale; the closest pre-rendered size
+/// beats letting the OS resample one bitmap (docs/architecture/app-icons.md).
+#[cfg(not(target_os = "macos"))]
+fn tray_icon(scale: f64) -> tauri::image::Image<'static> {
+    match (16.0 * scale).round() as u32 {
+        0..=16 => include_image!("icons/tray/16x16.png"),
+        17..=20 => include_image!("icons/tray/20x20.png"),
+        21..=24 => include_image!("icons/tray/24x24.png"),
+        25..=32 => include_image!("icons/tray/32x32.png"),
+        33..=40 => include_image!("icons/tray/40x40.png"),
+        41..=48 => include_image!("icons/tray/48x48.png"),
+        _ => include_image!("icons/tray/64x64.png"),
+    }
 }
 
 fn show_main_window(app: &AppHandle) {

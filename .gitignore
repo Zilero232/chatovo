@@ -27,7 +27,7 @@ lerna-debug.log*
 *.local
 
 # Signing material: Tauri updater minisign keys, Android keystores
-# (written by apps/client/native/scripts/android-signing.mjs), certificates
+# (written by apps/client/native/scripts/android/signing.ts), certificates
 *.key
 *.key.pub
 *.keystore

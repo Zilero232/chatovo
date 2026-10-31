@@ -23,6 +23,13 @@ export type ChangelogRelease = {
 
 export const CHANGELOG_RELEASES: ChangelogRelease[] = [
   {
+    version: '1.14.1',
+    date: '2026-10-31',
+    tone: 'minor',
+    highlights: ['sharperIcon'],
+    entries: [{ kind: 'improvement', key: 'sharperIcon' }]
+  },
+  {
     version: '1.14.0',
     date: '2026-10-29',
     tone: 'minor',

@@ -1,3 +1,5 @@
+import type { PatchAndroidGradleInput } from './patch-gradle.types';
+
 const VERSION_NAME_LINE = /^ {8}versionName = .*$/m;
 
 const NDK_BLOCK = '\n        ndk {\n            debugSymbolLevel = "FULL"\n        }';
@@ -9,7 +11,7 @@ const RELEASE_SIGNING = 'signingConfig = signingConfigs.getByName("release")';
  * signing plus native debug symbols. Idempotent — running it twice is a no-op.
  * Throws when the generated file no longer matches what the patches expect.
  */
-export const patchAndroidGradle = ({ gradle, signingSnippet }) => {
+export const patchAndroidGradle = ({ gradle, signingSnippet }: PatchAndroidGradleInput) => {
   let next = gradle;
 
   if (!next.includes('import java.io.FileInputStream')) {

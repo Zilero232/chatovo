@@ -62,6 +62,19 @@
   }
 }
 
+// The boxed control look shared by Select and SearchField `field`, so the two line up in one toolbar.
+@mixin control-field-surface {
+  height: var(--control-lg);
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius-lg);
+  background: rgb(var(--tint) / 8%);
+
+  &:hover:not([data-disabled]) {
+    border-color: rgb(var(--tint) / 20%);
+    background: rgb(var(--tint) / 11%);
+  }
+}
+
 @mixin field-focus {
   &:focus-visible {
     border-color: var(--ring);

@@ -16,19 +16,24 @@
   "author": "Alexandr Artemev",
   "type": "module",
   "scripts": {
-    "android:build": "bun run icon && node ./scripts/setup-android-fcm.mjs && bun --env-file .env tauri android build --apk --aab --target aarch64 --target x86_64",
-    "android:dev": "bun run icon && node ./scripts/setup-android-fcm.mjs && bun --env-file .env tauri android dev",
-    "android:init": "bun --env-file .env tauri android init && node ./scripts/setup-android-fcm.mjs",
+    "android:build": "bun run icon && bun ./scripts/android/setup-fcm.ts && bun --env-file .env tauri android build --apk --aab --target aarch64 --target x86_64",
+    "android:dev": "bun run icon && bun ./scripts/android/setup-fcm.ts && bun --env-file .env tauri android dev",
+    "android:init": "bun --env-file .env tauri android init && bun ./scripts/android/setup-fcm.ts",
     "build": "bun run icon && tauri build",
     "build:debug": "bun run icon && tauri build --debug",
     "predev": "fkill --force --silent chatovo.exe chatovo; bun run icon",
     "dev": "tauri dev",
-    "icon": "tauri icon icon.manifest.json -o icons",
+    "icon": "bun ./scripts/icons/generate.ts",
     "info": "tauri info",
     "signer:generate": "tauri signer generate -w ~/.tauri/chatovo.key --password \"\"",
-    "tauri": "tauri"
+    "tauri": "tauri",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@tauri-apps/cli": "^2.11.4"
+    "@chatovo/tsconfig": "workspace:*",
+    "@tauri-apps/cli": "^2.11.4",
+    "@types/node": "catalog:",
+    "png-to-ico": "^3.0.2",
+    "typescript": "catalog:"
   }
 }

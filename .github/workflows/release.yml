@@ -325,7 +325,7 @@ jobs:
           path: |
             ~/.gradle/caches
             ~/.gradle/wrapper
-          key: gradle-${{ hashFiles('apps/client/native/Cargo.toml', 'apps/client/native/scripts/setup-android-fcm.mjs', '') }}
+          key: gradle-${{ hashFiles('apps/client/native/Cargo.toml', 'apps/client/native/scripts/android/setup-fcm.ts', '') }}
           restore-keys: gradle-
 
       - uses: android-actions/setup-android@40fd30fb8d7440372e1316f5d1809ec01dcd3699 # v4
@@ -360,14 +360,14 @@ jobs:
         run: |
           bunx tauri android init
           bun run icon
-          node ./scripts/setup-android-fcm.mjs
+          bun ./scripts/android/setup-fcm.ts
 
       - name: Wire release signing
         env:
           ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
           ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
           ANDROID_KEY_BASE64: ${{ secrets.ANDROID_KEY_BASE64 }}
-        run: node apps/client/native/scripts/android-signing.mjs
+        run: bun apps/client/native/scripts/android/signing.ts
 
       # Only the aab: Play derives the per-device apks from it.
       - name: Build the aab

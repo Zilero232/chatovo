@@ -1,6 +1,6 @@
 {
   "name": "chatovo",
-  "version": "1.14.0",
+  "version": "1.14.1",
   "private": true,
   "description": "Chatovo — real-time voice rooms for web and desktop. Bun-workspaces monorepo.",
   "keywords": [
@@ -100,7 +100,7 @@
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:watch": "vitest",
-    "typecheck": "bun --filter @chatovo/schemas typecheck && bun --filter @chatovo/config typecheck && bun --filter @chatovo/ui-kit typecheck && bun --filter @chatovo/server typecheck && bun --filter @chatovo/client-web typecheck && bun --filter @chatovo/landing typecheck",
+    "typecheck": "bun --filter @chatovo/schemas typecheck && bun --filter @chatovo/config typecheck && bun --filter @chatovo/ui-kit typecheck && bun --filter @chatovo/server typecheck && bun --filter @chatovo/client-web typecheck && bun --filter @chatovo/client-native typecheck && bun --filter @chatovo/landing typecheck",
     "verify": "bun run typecheck && bun run lint && bun run format:check && bun run lint:css"
   },
   "lint-staged": {

@@ -206,6 +206,10 @@
       "minor": "Regular release"
     },
     "entries": {
+      "sharperIcon": {
+        "title": "Sharper app icon",
+        "description": "On Windows the icon is now full size next to other apps, the tray icon is larger and readable on both light and dark taskbars, and Android supports themed icons."
+      },
       "callsRedone": {
         "title": "Calls between friends, done right",
         "description": "Calling puts you straight into the call, the other side gets a card instead of a blocking window, and hanging up ends it for both. If someone drops, you see “reconnecting” and get a minute to come back."
@@ -896,6 +900,7 @@
       }
     },
     "highlights": {
+      "sharperIcon": "A crisp app icon everywhere",
       "callsRedone": "Calls between friends, done right",
       "staffRoles": "Moderators and a clear role hierarchy",
       "invisibleReadOnly": "Invisible mode stays truly invisible",

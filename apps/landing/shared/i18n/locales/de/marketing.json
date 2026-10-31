@@ -206,6 +206,10 @@
       "minor": "Reguläres Release"
     },
     "entries": {
+      "sharperIcon": {
+        "title": "Schärferes App-Icon",
+        "description": "Unter Windows hat das Icon jetzt volle Größe neben anderen Apps, das Tray-Icon ist größer und auf hellen wie dunklen Taskleisten gut lesbar, und Android unterstützt Design-Icons."
+      },
       "callsRedone": {
         "title": "Anrufe unter Freunden, richtig gemacht",
         "description": "Ein Anruf bringt dich sofort ins Gespräch, die andere Seite bekommt eine Karte statt eines blockierenden Fensters, und Auflegen beendet ihn für beide. Bricht jemand weg, siehst du „verbindet neu“ und hast eine Minute zum Zurückkommen."
@@ -896,6 +900,7 @@
       }
     },
     "highlights": {
+      "sharperIcon": "Ein scharfes Icon überall",
       "callsRedone": "Anrufe unter Freunden, richtig gemacht",
       "staffRoles": "Moderatoren und eine klare Rollenhierarchie",
       "invisibleReadOnly": "Der unsichtbare Modus bleibt wirklich unsichtbar",

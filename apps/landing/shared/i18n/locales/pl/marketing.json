@@ -206,6 +206,10 @@
       "minor": "Zwykłe wydanie"
     },
     "entries": {
+      "sharperIcon": {
+        "title": "Wyraźniejsza ikona aplikacji",
+        "description": "W Windows ikona ma teraz pełny rozmiar obok innych aplikacji, ikona w zasobniku jest większa i czytelna na jasnym i ciemnym pasku, a Android obsługuje ikony motywowe."
+      },
       "callsRedone": {
         "title": "Rozmowy ze znajomymi, jak należy",
         "description": "Połączenie od razu przenosi cię do rozmowy, druga osoba dostaje kartę zamiast blokującego okna, a rozłączenie kończy rozmowę u obojga. Gdy ktoś straci zasięg, widać „łączy ponownie” i jest minuta na powrót."
@@ -896,6 +900,7 @@
       }
     },
     "highlights": {
+      "sharperIcon": "Wyraźna ikona wszędzie",
       "callsRedone": "Rozmowy ze znajomymi, jak należy",
       "staffRoles": "Moderatorzy i jasna hierarchia ról",
       "invisibleReadOnly": "Tryb niewidzialny jest naprawdę niewidoczny",

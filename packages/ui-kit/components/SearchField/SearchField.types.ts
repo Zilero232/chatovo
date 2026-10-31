@@ -1,6 +1,6 @@
 import type { ComponentProps, ReactNode, Ref } from 'react';
 
-export type SearchFieldVariant = 'plain';
+export type SearchFieldVariant = 'field' | 'plain';
 
 export type SearchFieldProps = Omit<ComponentProps<'input'>, 'onChange' | 'value'> & {
   value: string;

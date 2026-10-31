@@ -1,6 +1,6 @@
 @use '@chatovo/ui-kit/styles/mixins' as *;
 
-.field {
+.root {
   display: flex;
   width: 100%;
   align-items: center;
@@ -32,6 +32,17 @@
   }
 }
 
+.field {
+  @include control-field-surface;
+
+  padding-inline: var(--space-3);
+
+  &:focus-within {
+    border-color: color-mix(in srgb, var(--ring) 60%, transparent);
+    box-shadow: 0 0 0 rem(2) color-mix(in srgb, var(--ring) 25%, transparent);
+  }
+}
+
 .icon {
   width: 1rem;
   height: 1rem;
@@ -39,7 +50,7 @@
   color: var(--muted-foreground);
   transition: color var(--duration-fast) var(--timing-function-standard);
 
-  .field:focus-within & {
+  .root:focus-within & {
     color: var(--ring);
   }
 }

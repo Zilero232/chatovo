@@ -206,6 +206,10 @@
       "minor": "Normal sürüm"
     },
     "entries": {
+      "sharperIcon": {
+        "title": "Daha net uygulama simgesi",
+        "description": "Windows’ta simge artık diğer uygulamaların yanında tam boyutta, sistem tepsisi simgesi daha büyük ve açık ya da koyu görev çubuğunda okunaklı, Android ise temalı simgeleri destekliyor."
+      },
       "callsRedone": {
         "title": "Arkadaş aramaları, olması gerektiği gibi",
         "description": "Arama seni hemen görüşmeye alır, karşı taraf engelleyen bir pencere yerine bir kart görür ve kapatmak aramayı iki taraf için de bitirir. Biri düşerse “yeniden bağlanıyor” görünür ve geri dönmek için bir dakika vardır."
@@ -896,6 +900,7 @@
       }
     },
     "highlights": {
+      "sharperIcon": "Her yerde net bir simge",
       "callsRedone": "Arkadaş aramaları, olması gerektiği gibi",
       "staffRoles": "Moderatörler ve net bir rol hiyerarşisi",
       "invisibleReadOnly": "Görünmez mod artık gerçekten görünmez",
