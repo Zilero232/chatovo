@@ -173,6 +173,15 @@ volumes:
   uploads:
   image-cache:
 
+# api.telegram.org is blocked over IPv4 from this RU host and answers over IPv6.
+# Without IPv6 on the network the bot cannot reach it.
 networks:
   chatovo:
     driver: bridge
+    enable_ipv6: true
+    driver_opts:
+      # A private subnet needs masquerading the way IPv4 already gets it.
+      com.docker.network.bridge.gateway_mode_ipv6: nat
+    ipam:
+      config:
+        - subnet: fd00:c4a7:0b0::/64

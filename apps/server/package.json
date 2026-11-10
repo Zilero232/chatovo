@@ -71,6 +71,7 @@
     "nestjs-zod": "5.5.0",
     "nodemailer": "^9.1.1",
     "open-graph-scraper": "^6.12.0",
+    "p-retry": "^9.0.0",
     "pg": "^8.23.0",
     "pino": "10.3.1",
     "pino-http": "11.0.0",
