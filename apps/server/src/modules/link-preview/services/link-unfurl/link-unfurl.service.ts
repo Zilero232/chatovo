@@ -5,9 +5,12 @@ import { linkPreviewSchema } from '@chatovo/schemas';
 import { CACHE_MANAGER } from '@nestjs/cache-manager';
 import { Inject, Injectable } from '@nestjs/common';
 
+import type { LinkMetadata } from '../../lib';
+import type { ReadOembedInput } from '../link-preview.service.types';
+
 import { buildHashKey, safeFetch, saveRemoteImage } from '../../../../lib';
 import { LINK_PREVIEW } from '../../config';
-import { decodeHtml, extractLinkMetadata } from '../../lib';
+import { decodeHtml, extractLinkMetadata, findOembedProvider, parseLinkOembed } from '../../lib';
 
 @Injectable()
 export class LinkUnfurlService {
@@ -25,7 +28,21 @@ export class LinkUnfurlService {
     }).catch(() => null);
   }
 
-  private async buildPreview(url: string): Promise<LinkPreview | null> {
+  private async readOembed({ url, provider }: ReadOembedInput): Promise<LinkMetadata | null> {
+    const { accept, maxBytes } = LINK_PREVIEW.unfurl.oembed;
+    const endpoint = new URL(provider.endpoint);
+
+    endpoint.searchParams.set('url', url);
+    endpoint.searchParams.set('format', 'json');
+
+    const response = await safeFetch({ url: endpoint.toString(), accept, maxBytes });
+
+    return response
+      ? parseLinkOembed({ body: response.body.toString('utf8'), siteName: provider.siteName })
+      : null;
+  }
+
+  private async readPage(url: string): Promise<LinkMetadata | null> {
     const page = await safeFetch({
       url,
       accept: LINK_PREVIEW.unfurl.accept,
@@ -39,7 +56,12 @@ export class LinkUnfurlService {
       return null;
     }
 
-    const metadata = await extractLinkMetadata({ html, url: page.url });
+    return extractLinkMetadata({ html, url: page.url });
+  }
+
+  private async buildPreview(url: string): Promise<LinkPreview | null> {
+    const provider = findOembedProvider(url);
+    const metadata = provider ? await this.readOembed({ url, provider }) : await this.readPage(url);
 
     if (!metadata) {
       return null;

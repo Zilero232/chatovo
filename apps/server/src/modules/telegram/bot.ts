@@ -5,15 +5,17 @@ import { Bot } from 'grammy';
 import type { EditMessageInput, EditOutcome, PostMessageInput } from './telegram.types';
 
 import { env } from '../../core';
-import { readEditFailure } from './lib';
+import { readEditFailure, retryNetworkErrors } from './lib';
 
-const baseFetchConfig = env.TELEGRAM_PROXY_URL
-  ? ({ proxy: env.TELEGRAM_PROXY_URL } as RequestInit)
-  : undefined;
+const createBot = (token: string): Bot => {
+  const created = new Bot(token);
 
-const bot = env.TELEGRAM_BOT_TOKEN
-  ? new Bot(env.TELEGRAM_BOT_TOKEN, { client: { baseFetchConfig } })
-  : null;
+  created.api.config.use(retryNetworkErrors);
+
+  return created;
+};
+
+const bot = env.TELEGRAM_BOT_TOKEN ? createBot(env.TELEGRAM_BOT_TOKEN) : null;
 
 const isDev = env.NODE_ENV === 'development';
 

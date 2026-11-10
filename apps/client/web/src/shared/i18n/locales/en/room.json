@@ -175,7 +175,7 @@
         "retry": "Try again",
         "notPlayingHere": "Not playing for you",
         "networkTitle": "{service} doesn’t open on your network",
-        "networkHint": "Everyone else keeps listening. Turn on a VPN and try again, or pick radio or SoundCloud.",
+        "networkHint": "Everyone else keeps listening. Turn on a VPN and try again, or ask someone it plays for to open it in a tab and use My music → Share a tab's audio: you'll hear it through the call.",
         "restrictedTitle": "This video won’t play for you",
         "restrictedHint": "Its owner limited embedding, or it isn’t available in your region. Everyone else keeps listening.",
         "failedTitle": "This track won’t play for you",

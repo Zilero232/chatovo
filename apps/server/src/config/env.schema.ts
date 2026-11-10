@@ -42,17 +42,11 @@ export const envSchema = z.object({
   TELEGRAM_BOT_TOKEN: z.string().min(1).optional(),
   TELEGRAM_CHAT_ID: z.string().min(1).optional(),
 
-  // Optional outbound proxy for reaching api.telegram.org. Needed on hosts where
-  // the Bot API is network-blocked (e.g. RU datacenters). Accepts an http(s) or
-  // socks5 URL, e.g. socks5://127.0.0.1:1080 or http://user:pass@host:3128.
-  // Unset = direct connection.
-  TELEGRAM_PROXY_URL: z.string().min(1).optional(),
-
   // Optional http(s) proxy for outbound fetches made on behalf of users: link
-  // previews and allow-listed remote images. Same purpose as TELEGRAM_PROXY_URL,
-  // for sites blocked from the server (e.g. YouTube from RU). The target is still
-  // resolved and checked here, and the proxy is handed the vetted IP, so it cannot
-  // be used to reach private networks. Unset = direct connection.
+  // previews and allow-listed remote images, for sites blocked from the server
+  // (e.g. YouTube from RU). The target is still resolved and checked here, and
+  // the proxy is handed the vetted IP, so it cannot be used to reach private
+  // networks. Unset = direct connection.
   OUTBOUND_PROXY_URL: z.url().optional(),
 
   // Optional Firebase service account JSON (stringified) for FCM push on mobile.

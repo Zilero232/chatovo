@@ -20,3 +20,7 @@ export const EDIT_UNCHANGED_RE = /message is not modified/i;
 
 export const EDIT_MISSING_RE =
   /message to edit not found|message can't be edited|message_id_invalid/i;
+
+export const BOT_API_RETRY_LIMIT = 3;
+
+export const BOT_API_RETRY_DELAY_MS = secondsToMilliseconds(1);

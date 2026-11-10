@@ -175,7 +175,7 @@
         "retry": "Reintentar",
         "notPlayingHere": "No suena para ti",
         "networkTitle": "{service} no abre en tu red",
-        "networkHint": "Los demás siguen escuchando. Activa una VPN y vuelve a intentarlo, o elige la radio o SoundCloud.",
+        "networkHint": "Los demás siguen escuchando. Activa una VPN y vuelve a intentarlo, o pide a alguien a quien le suene que lo abra en una pestaña y use Mi música → Compartir el audio de una pestaña: lo oirás a través de la llamada.",
         "restrictedTitle": "Este vídeo no se reproduce para ti",
         "restrictedHint": "Su dueño limitó la inserción o no está disponible en tu región. Los demás siguen escuchando.",
         "failedTitle": "Esta pista no se reproduce para ti",

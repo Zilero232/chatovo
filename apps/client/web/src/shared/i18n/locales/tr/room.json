@@ -175,7 +175,7 @@
         "retry": "Tekrar dene",
         "notPlayingHere": "Sizde çalmıyor",
         "networkTitle": "{service} ağınızda açılmıyor",
-        "networkHint": "Odadaki diğer herkes dinlemeye devam ediyor. Bir VPN açıp tekrar deneyin ya da radyo veya SoundCloud seçin.",
+        "networkHint": "Odadaki diğer herkes dinlemeye devam ediyor. Bir VPN açıp tekrar deneyin ya da çalan birinden bunu bir sekmede açıp Müziğim → Sekme sesini paylaş seçeneğini kullanmasını isteyin: aramadan duyarsınız.",
         "restrictedTitle": "Bu video sizde oynatılmıyor",
         "restrictedHint": "Sahibi yerleştirmeyi kısıtlamış ya da bölgenizde kullanılamıyor. Diğerleri dinlemeye devam ediyor.",
         "failedTitle": "Bu parça sizde çalmıyor",

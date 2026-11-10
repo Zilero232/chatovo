@@ -175,7 +175,7 @@
         "retry": "Réessayer",
         "notPlayingHere": "Ne joue pas chez vous",
         "networkTitle": "{service} ne s’ouvre pas sur votre réseau",
-        "networkHint": "Les autres continuent d’écouter. Activez un VPN et réessayez, ou choisissez la radio ou SoundCloud.",
+        "networkHint": "Les autres continuent d’écouter. Activez un VPN et réessayez, ou demandez à quelqu’un chez qui ça joue de l’ouvrir dans un onglet et d’utiliser Ma musique → Partager le son d'un onglet : vous l’entendrez par l’appel.",
         "restrictedTitle": "Cette vidéo ne se lit pas chez vous",
         "restrictedHint": "Son propriétaire a limité l’intégration, ou elle n’est pas disponible dans votre région. Les autres continuent d’écouter.",
         "failedTitle": "Ce titre ne se lit pas chez vous",

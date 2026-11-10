@@ -83,7 +83,7 @@ await this.prisma.room.delete({ where: { id: roomId } });
 - **Health**: `@nestjs/terminus` at `/health` actually pings Postgres; the Docker healthcheck depends on it.
 - **Logging**: `nestjs-pino` — structured JSON with a request id, `pino-pretty` in dev.
 - **Shutdown**: `app.enableShutdownHooks()` — `PrismaService.onModuleDestroy` closes the pool, the gateway closes its sockets.
-- **Outbound calls from Russia**: the production VPS is in Russia, where `api.telegram.org` is blocked; the bot goes through `TELEGRAM_PROXY_URL`. Missing pushes in production are that first, not a bug in the code ([pitfalls](../../architecture/pitfalls.md)).
+- **Outbound calls from Russia**: the production VPS is in Russia, where `api.telegram.org` is blocked; the bot reaches it over IPv6 from the compose network. Missing pushes in production are that first, not a bug in the code ([pitfalls](../../architecture/pitfalls.md)).
 
 ## Local differences from the client style
 

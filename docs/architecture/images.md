@@ -29,10 +29,11 @@ The loader recognises our uploads by the origin of `NEXT_PUBLIC_API_URL`, and th
 
 The first link in a message, found with the same `remark-gfm` parse the chat renders (so links in code are ignored), is unfurled by `GET /link-preview?url=`:
 
-1. `safeFetch` downloads at most 512 KB of the page.
-2. `decodeHtml` picks the charset (`html-encoding-sniffer` + `iconv-lite`, so windows-1251 pages work).
-3. `open-graph-scraper` reads the tags, falling back to Twitter tags and `<title>`.
-4. The preview image is downloaded, resized and stored under `uploads/link-previews/`, so it is served by us through the optimizer. Users never load third-party images, and third parties never see their IPs.
+1. YouTube, Vimeo and SoundCloud links are read from the site's oEmbed endpoint (`findOembedProvider` + `parseLinkOembed`): title, author as the description, thumbnail. YouTube answers its watch pages with a Google captcha (`google.com/sorry`) when fetched from a server, but oEmbed is not gated. Any other link, or an oEmbed that failed, goes on to step 2.
+2. `safeFetch` downloads at most 512 KB of the page.
+3. `decodeHtml` picks the charset (`html-encoding-sniffer` + `iconv-lite`, so windows-1251 pages work).
+4. `open-graph-scraper` reads the tags, falling back to Twitter tags and `<title>`.
+5. The preview image is downloaded, resized and stored under `uploads/link-previews/`, so it is served by us through the optimizer. Users never load third-party images, and third parties never see their IPs.
 
 Results, failures included (for a shorter time), are cached with `cache-manager`. The route is throttled per user. `LinkPreviewSweeperService` deletes stored preview images older than 30 days. A live preview is rebuilt, and its image rewritten, every 6 hours at most, so a 30-day-old file belongs to no live preview.
 
@@ -44,9 +45,9 @@ Every request to a user-supplied URL goes through `src/lib/safe-fetch`:
 
 - Only http(s), on the default ports, with no credentials in the URL.
 - Each hop, redirects included, is resolved once. It is refused unless every address is public unicast (`ipaddr.js`), which rules out loopback, private networks, link-local and cloud metadata, CGNAT, and IPv4-mapped tricks.
-- The connection is pinned to the checked IP, with the original `Host` and TLS `serverName`, so DNS rebinding can't swap the address between check and connect.
+- The connection is pinned to a checked IP, IPv6 first, falling back to the next address on a connection error. The production VPS is in Russia, where YouTube is blocked over IPv4 (a broken TLS handshake) but answers over IPv6; the compose network has IPv6 for that reason ([pitfalls](pitfalls.md)). It is pinned with the original `Host` and TLS `serverName`, so DNS rebinding can't swap the address between check and connect.
 - The response is capped by time and size.
 
 Libraries that do this through an `http.Agent` don't work here: in Bun a custom `lookup` on `node:https` drops SNI, so the pin uses Bun's `fetch` with `tls.serverName` instead.
 
-`OUTBOUND_PROXY_URL` optionally routes these fetches through an http(s) proxy, for sites blocked from the server (YouTube from RU). The address is still checked here, and the proxy is handed the vetted IP, so the proxy can't be used to reach private networks either.
+`OUTBOUND_PROXY_URL` optionally routes these fetches through an http(s) proxy, for sites blocked from the server over both IPv4 and IPv6. The address is still checked here, and the proxy is handed the vetted IP, so the proxy can't be used to reach private networks either.

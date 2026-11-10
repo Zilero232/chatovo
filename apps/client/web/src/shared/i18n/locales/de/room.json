@@ -175,7 +175,7 @@
         "retry": "Erneut versuchen",
         "notPlayingHere": "Spielt bei dir nicht",
         "networkTitle": "{service} öffnet sich in deinem Netz nicht",
-        "networkHint": "Alle anderen hören weiter. Schalte ein VPN ein und versuche es erneut oder wähle Radio oder SoundCloud.",
+        "networkHint": "Alle anderen hören weiter. Schalte ein VPN ein und versuche es erneut, oder bitte jemanden, bei dem es läuft, es in einem Tab zu öffnen und Meine Musik → Tab-Audio teilen zu wählen – dann hörst du es über den Anruf.",
         "restrictedTitle": "Dieses Video spielt bei dir nicht",
         "restrictedHint": "Der Besitzer hat das Einbetten eingeschränkt, oder es ist in deiner Region nicht verfügbar. Alle anderen hören weiter.",
         "failedTitle": "Dieser Track spielt bei dir nicht",
