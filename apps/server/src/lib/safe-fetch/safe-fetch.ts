@@ -1,5 +1,6 @@
 import { lookup } from 'node:dns/promises';
 import { isIP } from 'node:net';
+import { sortBy } from 'remeda';
 
 import type {
   ReadBodyInput,
@@ -12,17 +13,21 @@ import { OUTBOUND } from '../../config/outbound';
 import { env } from '../../core';
 import { isPublicAddress } from '../is-public-address';
 
-const resolvePublicAddress = async (hostname: string): Promise<string | null> => {
+const resolvePublicAddresses = async (hostname: string): Promise<string[]> => {
   const bare = hostname.replace(/^\[|\]$/g, '');
 
   if (isIP(bare)) {
-    return isPublicAddress(bare) ? bare : null;
+    return isPublicAddress(bare) ? [bare] : [];
   }
 
   const addresses = await lookup(bare, { all: true, verbatim: true });
   const allPublic = addresses.every(({ address }) => isPublicAddress(address));
 
-  return allPublic ? (addresses[0]?.address ?? null) : null;
+  if (!allPublic) {
+    return [];
+  }
+
+  return sortBy(addresses, [({ family }) => family, 'desc']).map(({ address }) => address);
 };
 
 const pinToAddress = (url: URL, address: string): string => {
@@ -49,24 +54,30 @@ const requestPinned = async ({ url, accept, signal }: RequestPinnedInput) => {
     return null;
   }
 
-  const address = await resolvePublicAddress(url.hostname);
+  const addresses = await resolvePublicAddresses(url.hostname);
 
-  if (!address) {
-    return null;
+  for (const address of addresses) {
+    try {
+      return await fetch(pinToAddress(url, address), {
+        headers: {
+          host: url.host,
+          accept,
+          'accept-language': OUTBOUND.acceptLanguage,
+          'user-agent': OUTBOUND.userAgent
+        },
+        redirect: 'manual',
+        signal: AbortSignal.any([signal, AbortSignal.timeout(OUTBOUND.attemptTimeoutMs)]),
+        proxy: env.OUTBOUND_PROXY_URL,
+        tls: { serverName: url.hostname }
+      });
+    } catch (error) {
+      if (signal.aborted) {
+        throw error;
+      }
+    }
   }
 
-  return fetch(pinToAddress(url, address), {
-    headers: {
-      host: url.host,
-      accept,
-      'accept-language': OUTBOUND.acceptLanguage,
-      'user-agent': OUTBOUND.userAgent
-    },
-    redirect: 'manual',
-    signal,
-    proxy: env.OUTBOUND_PROXY_URL,
-    tls: { serverName: url.hostname }
-  });
+  return null;
 };
 
 const readBody = async ({
@@ -107,7 +118,8 @@ const isRedirect = (response: Response): boolean =>
 /**
  * Fetches a public http(s) URL without letting it reach the server's own network: every hop,
  * redirects included, is resolved once, refused unless all its addresses are public, and the
- * connection is pinned to the checked address (no DNS rebinding). Null on any failure.
+ * connection is pinned to a checked address (no DNS rebinding), IPv6 first — sites blocked from
+ * RU over IPv4 (YouTube) still answer over IPv6. Null on any failure.
  */
 export const safeFetch = async ({
   url,

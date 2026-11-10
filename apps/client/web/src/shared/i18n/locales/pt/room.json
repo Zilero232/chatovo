@@ -175,7 +175,7 @@
         "retry": "Tentar de novo",
         "notPlayingHere": "Não está tocando para você",
         "networkTitle": "{service} não abre na sua rede",
-        "networkHint": "Os outros continuam ouvindo. Ative uma VPN e tente de novo, ou escolha o rádio ou o SoundCloud.",
+        "networkHint": "Os outros continuam ouvindo. Ative uma VPN e tente de novo, ou peça a alguém para quem está tocando que abra numa aba e use Minha música → Compartilhar o áudio de uma aba: você vai ouvir pela chamada.",
         "restrictedTitle": "Este vídeo não toca para você",
         "restrictedHint": "O dono limitou a incorporação ou ele não está disponível na sua região. Os outros continuam ouvindo.",
         "failedTitle": "Esta faixa não toca para você",

@@ -33,6 +33,33 @@ export const LINK_PREVIEW = {
       maxAgeMs: hoursToMilliseconds(24 * 30),
       sweepCron: CronExpression.EVERY_DAY_AT_5AM
     },
+    oembed: {
+      accept: 'application/json',
+      maxBytes: 64 * 1024,
+      providers: [
+        {
+          siteName: 'YouTube',
+          hosts: [
+            'youtube.com',
+            'www.youtube.com',
+            'm.youtube.com',
+            'music.youtube.com',
+            'youtu.be'
+          ],
+          endpoint: 'https://www.youtube.com/oembed'
+        },
+        {
+          siteName: 'Vimeo',
+          hosts: ['vimeo.com', 'www.vimeo.com', 'player.vimeo.com'],
+          endpoint: 'https://vimeo.com/api/oembed.json'
+        },
+        {
+          siteName: 'SoundCloud',
+          hosts: ['soundcloud.com', 'www.soundcloud.com', 'm.soundcloud.com', 'on.soundcloud.com'],
+          endpoint: 'https://soundcloud.com/oembed'
+        }
+      ]
+    },
     cacheTtlMs: hoursToMilliseconds(6),
     failureCacheTtlMs: minutesToMilliseconds(15),
     cacheMaxEntries: 5000,

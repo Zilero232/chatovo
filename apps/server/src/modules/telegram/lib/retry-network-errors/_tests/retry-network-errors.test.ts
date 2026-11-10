@@ -47,4 +47,23 @@ describe('retryNetworkErrors', () => {
     ).rejects.toBe(error);
     expect(prev).toHaveBeenCalledTimes(1);
   });
+
+  it('stops retrying once the call is aborted', async () => {
+    const controller = new AbortController();
+    const prev = vi.fn().mockImplementation(() => {
+      controller.abort();
+
+      return Promise.reject(networkError());
+    });
+
+    await expect(
+      retryNetworkErrors(
+        prev as unknown as ApiCallFn,
+        'sendMessage',
+        { chat_id: 1, text: 'hi' },
+        controller.signal as unknown as Parameters<typeof retryNetworkErrors>[3]
+      )
+    ).rejects.toBeDefined();
+    expect(prev).toHaveBeenCalledTimes(1);
+  });
 });
