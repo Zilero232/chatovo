@@ -4,6 +4,8 @@ mod game_detection;
 mod tray_menu;
 #[cfg(windows)]
 mod webview_lockdown;
+#[cfg(windows)]
+mod webview_proxy;
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
@@ -41,6 +43,9 @@ pub fn run() {
         .plugin(tauri_plugin_process::init())
         .plugin(tauri_plugin_deep_link::init())
         .setup(|_app| {
+            #[cfg(windows)]
+            webview_proxy::create_main_window(_app)?;
+
             #[cfg(desktop)]
             {
                 use tauri_plugin_deep_link::DeepLinkExt;

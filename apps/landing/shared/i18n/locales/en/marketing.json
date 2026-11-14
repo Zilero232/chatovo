@@ -206,6 +206,10 @@
       "minor": "Regular release"
     },
     "entries": {
+      "vpnTunnel": {
+        "title": "Per-app VPN now works on Windows",
+        "description": "Pick Chatovo in a split-tunnel VPN such as Incy or WireSock and YouTube radio and link previews load through it; voice keeps going direct."
+      },
       "adminChatHistory": {
         "title": "Full chat history for admins",
         "description": "The admin panel opens the whole conversation of any room or direct chat, with deleted messages and calls included."
@@ -920,6 +924,7 @@
       }
     },
     "highlights": {
+      "vpnTunnel": "Split-tunnel VPN on Windows",
       "adminChatHistory": "Admins see every chat",
       "sessionLoop": "No more reload loop",
       "sharperIcon": "A crisp app icon everywhere",

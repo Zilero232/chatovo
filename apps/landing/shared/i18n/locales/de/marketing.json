@@ -206,6 +206,10 @@
       "minor": "Reguläres Release"
     },
     "entries": {
+      "vpnTunnel": {
+        "title": "VPN pro App funktioniert jetzt unter Windows",
+        "description": "Wähle Chatovo im Split-Tunneling deines VPNs wie Incy oder WireSock, dann laden YouTube-Radio und Link-Vorschauen darüber; Sprache läuft weiterhin direkt."
+      },
       "adminChatHistory": {
         "title": "Vollständiger Chatverlauf für Admins",
         "description": "Das Admin-Panel öffnet den gesamten Verlauf jedes Raums und Direktchats, inklusive gelöschter Nachrichten und Anrufe."
@@ -920,6 +924,7 @@
       }
     },
     "highlights": {
+      "vpnTunnel": "Split-Tunnel-VPN unter Windows",
       "adminChatHistory": "Admins sehen jeden Chat",
       "sessionLoop": "Keine Neulade-Schleife mehr",
       "sharperIcon": "Ein scharfes Icon überall",

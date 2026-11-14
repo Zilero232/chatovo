@@ -4,6 +4,7 @@
     "windows": [
       {
         "label": "main",
+        "create": false,
         "title": "Chatovo",
         "url": "/lobby",
         "width": 1280,

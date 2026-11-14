@@ -48,6 +48,7 @@ Things that have already bitten us. Each one looked like a bug in our code, or a
 
 - **The window icon is linked into the executable.** Swapping the icon files and restarting `bun tauri:dev` changes nothing; the binary has to be rebuilt (touch `build.rs` or clean the target).
 - **An old icon in the taskbar jump list after an update is Windows' icon cache**, not the build. The binary and the AUMID are already right; clearing `iconcache_*.db` fixes the machine.
+- **Per-app VPN tunnels missed the app on Windows.** WebView2 opens every connection from `msedgewebview2.exe`, so Incy/WireSock with only `chatovo.exe` selected tunneled nothing (YouTube player and previews stayed blocked). The main window is now created in Rust (`create: false` in `tauri.windows.conf.json`) with `--proxy-server` pointing at a loopback SOCKS5 relay (`fast-socks5`) inside `chatovo.exe` — `src/webview_proxy.rs`. wry ignores `proxy_url` whenever `additionalBrowserArgs` is set, hence the manual flag. WebRTC media is UDP and still goes direct.
 - **The start URL is `/lobby`.** `tauri.conf.json` opens it directly; `/` in the web app only redirects there.
 - **The update check waited for sign-in.** `UpdateProvider` sat in `AuthedProviders`, so a signed-out desktop app never checked. It now wraps `AuthProvider` inside `AppProviders`; since each route layout mounts its own `AppProviders`, the silent startup check is remembered at module scope in `useCheckAppUpdate` and runs once per launch, not again after signing in.
 

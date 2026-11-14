@@ -206,6 +206,10 @@
       "minor": "Normal sürüm"
     },
     "entries": {
+      "vpnTunnel": {
+        "title": "Uygulama bazlı VPN artık Windows'ta çalışıyor",
+        "description": "Incy veya WireSock gibi bir VPN'in bölünmüş tünelinde Chatovo'yu seçin; YouTube radyosu ve bağlantı önizlemeleri onun üzerinden yüklenir, ses yine doğrudan gider."
+      },
       "adminChatHistory": {
         "title": "Yöneticiler için tam sohbet geçmişi",
         "description": "Yönetim paneli, silinen mesajlar ve aramalar dahil herhangi bir odanın veya özel sohbetin tüm yazışmasını açar."
@@ -920,6 +924,7 @@
       }
     },
     "highlights": {
+      "vpnTunnel": "Windows'ta bölünmüş tünel VPN",
       "adminChatHistory": "Yöneticiler tüm sohbetleri görür",
       "sessionLoop": "Yeniden yükleme döngüsü yok",
       "sharperIcon": "Her yerde net bir simge",

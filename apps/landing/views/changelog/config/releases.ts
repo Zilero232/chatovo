@@ -23,6 +23,13 @@ export type ChangelogRelease = {
 
 export const CHANGELOG_RELEASES: ChangelogRelease[] = [
   {
+    version: '1.15.1',
+    date: '2026-11-14',
+    tone: 'minor',
+    highlights: ['vpnTunnel'],
+    entries: [{ kind: 'fix', key: 'vpnTunnel' }]
+  },
+  {
     version: '1.15.0',
     date: '2026-11-14',
     tone: 'minor',
