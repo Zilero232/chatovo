@@ -206,6 +206,10 @@
       "minor": "Version régulière"
     },
     "entries": {
+      "vpnTunnel": {
+        "title": "Le VPN par application fonctionne désormais sous Windows",
+        "description": "Choisissez Chatovo dans le split tunneling de votre VPN, comme Incy ou WireSock : la radio YouTube et les aperçus de liens passent par lui, la voix reste en direct."
+      },
       "adminChatHistory": {
         "title": "Historique complet des chats pour les admins",
         "description": "Le panneau d’administration ouvre toute la conversation de n’importe quel salon ou chat privé, messages supprimés et appels compris."
@@ -920,6 +924,7 @@
       }
     },
     "highlights": {
+      "vpnTunnel": "VPN en split tunneling sous Windows",
       "adminChatHistory": "Les admins voient tous les chats",
       "sessionLoop": "Plus de rechargement en boucle",
       "sharperIcon": "Une icône nette partout",

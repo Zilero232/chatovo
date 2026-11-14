@@ -206,6 +206,10 @@
       "minor": "Versión regular"
     },
     "entries": {
+      "vpnTunnel": {
+        "title": "La VPN por aplicación ya funciona en Windows",
+        "description": "Elige Chatovo en una VPN con túnel dividido, como Incy o WireSock, y la radio de YouTube y las vistas previas de enlaces cargarán a través de ella; la voz sigue yendo directa."
+      },
       "adminChatHistory": {
         "title": "Historial completo de chats para administradores",
         "description": "El panel de administración abre toda la conversación de cualquier sala o chat privado, incluidos los mensajes eliminados y las llamadas."
@@ -920,6 +924,7 @@
       }
     },
     "highlights": {
+      "vpnTunnel": "VPN con túnel dividido en Windows",
       "adminChatHistory": "Los administradores ven todos los chats",
       "sessionLoop": "Sin recargas en bucle",
       "sharperIcon": "Un icono nítido en todas partes",

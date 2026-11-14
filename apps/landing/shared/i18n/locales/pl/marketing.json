@@ -206,6 +206,10 @@
       "minor": "Zwykłe wydanie"
     },
     "entries": {
+      "vpnTunnel": {
+        "title": "VPN dla aplikacji działa teraz w Windows",
+        "description": "Wybierz Chatovo w tunelowaniu dzielonym VPN, np. Incy lub WireSock, a radio z YouTube i podglądy linków będą ładować się przez niego; głos nadal idzie bezpośrednio."
+      },
       "adminChatHistory": {
         "title": "Pełna historia czatów dla adminów",
         "description": "Panel administracyjny otwiera całą rozmowę dowolnego pokoju lub czatu prywatnego, łącznie z usuniętymi wiadomościami i połączeniami."
@@ -920,6 +924,7 @@
       }
     },
     "highlights": {
+      "vpnTunnel": "VPN z tunelowaniem dzielonym w Windows",
       "adminChatHistory": "Admini widzą wszystkie czaty",
       "sessionLoop": "Bez pętli przeładowań",
       "sharperIcon": "Wyraźna ikona wszędzie",

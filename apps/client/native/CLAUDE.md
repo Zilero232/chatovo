@@ -12,6 +12,7 @@ src/
 ├── lib.rs            # Tauri builder: registers plugins, deep-link scheme, single-instance
 ├── tray_menu.rs      # the native tray icon + menu (docs/architecture/tray-menu.md)
 ├── webview_lockdown.rs # Windows release builds: WebView2 browser shortcuts off (reload, print, devtools)
+├── webview_proxy.rs  # Windows: creates the main window behind a loopback SOCKS5 relay so per-app VPNs see chatovo.exe
 └── game_detection/   # "Playing X", games only: Steam/Epic/GOG + Windows Game Bar list (docs/architecture/game-activity.md)
 capabilities/         # permission sets granted to the webview
 scripts/              # entries at the top of each folder, one function per lib/<fn>/ (types, index, _tests)
