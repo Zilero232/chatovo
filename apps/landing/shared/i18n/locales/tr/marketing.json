@@ -206,6 +206,26 @@
       "minor": "Normal sürüm"
     },
     "entries": {
+      "adminChatHistory": {
+        "title": "Yöneticiler için tam sohbet geçmişi",
+        "description": "Yönetim paneli, silinen mesajlar ve aramalar dahil herhangi bir odanın veya özel sohbetin tüm yazışmasını açar."
+      },
+      "sessionLoop": {
+        "title": "Sonsuz yeniden yükleme sona erdi",
+        "description": "Oturum sona erdiğinde uygulama lobiyi durmadan yeniden yükleyebiliyordu; artık doğrudan girişe yönlendiriyor."
+      },
+      "stageTiles": {
+        "title": "Dar pencerede daha düzenli arama kartları",
+        "description": "Katılımcı kartları boşluk bırakmadan tüm genişliği kaplıyor, ekran paylaşımı kartı da artık ismin altına kaymıyor."
+      },
+      "compactToasts": {
+        "title": "Kompakt bildirimler",
+        "description": "Bildirimler daha küçük ve kısa, görünmez mod uyarısı da iki satıra sığıyor."
+      },
+      "youtubePreviews": {
+        "title": "YouTube bağlantı önizlemeleri",
+        "description": "YouTube, Vimeo ve SoundCloud bağlantıları yeniden önizleme alıyor; bir parça çalmazsa oynatıcı sekme sesini paylaşmayı öneriyor."
+      },
       "sharperIcon": {
         "title": "Daha net uygulama simgesi",
         "description": "Windows’ta simge artık diğer uygulamaların yanında tam boyutta, sistem tepsisi simgesi daha büyük ve açık ya da koyu görev çubuğunda okunaklı, Android ise temalı simgeleri destekliyor."
@@ -900,6 +920,8 @@
       }
     },
     "highlights": {
+      "adminChatHistory": "Yöneticiler tüm sohbetleri görür",
+      "sessionLoop": "Yeniden yükleme döngüsü yok",
       "sharperIcon": "Her yerde net bir simge",
       "callsRedone": "Arkadaş aramaları, olması gerektiği gibi",
       "staffRoles": "Moderatörler ve net bir rol hiyerarşisi",

@@ -157,7 +157,11 @@
       "deleteTitle": "¿Eliminar la sala \"{name}\"?",
       "deleteDescription": "La sala y todo su historial se eliminan para siempre.",
       "deleted": "Sala eliminada",
-      "total": "Total: {count}"
+      "total": "Total: {count}",
+      "history": "Historial del chat",
+      "historyHint": "Todos los mensajes de la sala, incluidos los eliminados.",
+      "call": "Llamada",
+      "unknownSender": "Usuario eliminado"
     },
     "pagination": {
       "prev": "Anterior",

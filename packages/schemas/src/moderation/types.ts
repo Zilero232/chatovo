@@ -16,6 +16,8 @@ import type {
   abuseReportListSchema,
   abuseReportSchema,
   adminRoomListSchema,
+  adminRoomMessageListSchema,
+  adminRoomMessageSchema,
   adminRoomSchema,
   adminStatsSchema,
   adminUserDetailsSchema,
@@ -50,6 +52,8 @@ export type UpdateAdminUserValues = z.infer<typeof updateAdminUserSchema>;
 export type AdminRoom = z.infer<typeof adminRoomSchema>;
 export type AdminRoomList = z.infer<typeof adminRoomListSchema>;
 export type AdminRoomQuery = z.infer<typeof adminRoomQuerySchema>;
+export type AdminRoomMessage = z.infer<typeof adminRoomMessageSchema>;
+export type AdminRoomMessageList = z.infer<typeof adminRoomMessageListSchema>;
 
 export type AdminReportQuery = z.infer<typeof adminReportQuerySchema>;
 

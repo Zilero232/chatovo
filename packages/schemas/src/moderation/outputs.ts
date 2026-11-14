@@ -126,6 +126,22 @@ export const adminUserMessageListSchema = z.object({
   total: z.number()
 });
 
+export const adminRoomMessageSchema = z.object({
+  id: z.string(),
+  body: z.string(),
+  kind: z.enum(['text', 'call']),
+  senderId: z.string().nullable().default(null),
+  senderName: z.string().nullable().default(null),
+  createdAt: z.string(),
+  editedAt: z.string().nullable().default(null),
+  deletedAt: z.string().nullable().default(null)
+});
+
+export const adminRoomMessageListSchema = z.object({
+  items: z.array(adminRoomMessageSchema),
+  total: z.number()
+});
+
 const userRoomSchema = z.object({
   id: z.string(),
   name: z.string(),

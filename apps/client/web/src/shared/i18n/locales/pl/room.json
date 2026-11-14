@@ -251,7 +251,7 @@
     "expandVideo": "Powiększ wideo",
     "collapseVideo": "Zmniejsz wideo",
     "invisibleBadge": "Niewidzialny",
-    "invisibleNotice": "Jesteś w ukryciu: nikt cię nie widzi ani nie słyszy",
+    "invisibleNotice": "Tryb niewidzialny",
     "dmCall": {
       "waiting": "Czekamy na drugą osobę…",
       "connecting": "Łączenie z {name}…",
@@ -275,7 +275,7 @@
       "blocked": "Jesteś w trybie niewidzialnym",
       "blockedHint": "Mikrofon, kamera, udostępnianie ekranu, reakcje, czat i muzyka są wyłączone, żeby nikt cię nie zauważył. Wyłącz tryb niewidzialny, aby dołączyć do rozmowy.",
       "turnOff": "Wyłącz",
-      "noticeHint": "Mikrofon, kamera, reakcje i czat są niedostępne, dopóki nie wyłączysz trybu niewidzialnego.",
+      "noticeHint": "Mikrofon, kamera i czat są wyłączone.",
       "chatReadOnly": "Tylko odczyt w trybie niewidzialnym",
       "chatReadOnlyHint": "Wiadomość zdradziłaby, że tu jesteś.",
       "passwordTitle": "Wpisz hasło pokoju",

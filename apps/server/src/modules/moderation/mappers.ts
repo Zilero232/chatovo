@@ -1,6 +1,7 @@
 import type {
   AbuseReport as AbuseReportModel,
   AdminRoom,
+  AdminRoomMessage,
   AdminUser,
   AdminUserMessage
 } from '@chatovo/schemas';
@@ -72,9 +73,26 @@ export const toAdminUserMessage = (
   message: Prisma.MessageGetPayload<{ include: { room: { select: { name: true } } } }>
 ): AdminUserMessage => ({
   id: message.id,
-  body: message.deletedAt ? '' : message.body,
+  body: message.body,
   roomId: message.roomId,
   roomName: message.room?.name ?? null,
+  createdAt: message.createdAt.toISOString(),
+  editedAt: message.editedAt?.toISOString() ?? null,
+  deletedAt: message.deletedAt?.toISOString() ?? null
+});
+
+export const adminRoomMessageInclude = {
+  sender: { select: { name: true, profile: { select: { displayName: true } } } }
+} satisfies Prisma.MessageInclude;
+
+type AdminRoomMessageRow = Prisma.MessageGetPayload<{ include: typeof adminRoomMessageInclude }>;
+
+export const toAdminRoomMessage = (message: AdminRoomMessageRow): AdminRoomMessage => ({
+  id: message.id,
+  body: message.body,
+  kind: message.kind,
+  senderId: message.senderId,
+  senderName: message.sender?.profile?.displayName ?? message.sender?.name ?? null,
   createdAt: message.createdAt.toISOString(),
   editedAt: message.editedAt?.toISOString() ?? null,
   deletedAt: message.deletedAt?.toISOString() ?? null

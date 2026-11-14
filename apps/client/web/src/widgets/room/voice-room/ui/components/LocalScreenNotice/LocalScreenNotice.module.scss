@@ -9,10 +9,23 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: var(--space-4);
+  padding: rem(40) var(--space-4) rem(56);
   background: color-mix(in srgb, var(--brand-violet) 8%, var(--surface-1));
+  container: local-screen-notice / size;
   gap: var(--space-2);
   text-align: center;
+}
+
+@container local-screen-notice (height < 17rem) {
+  .hint {
+    display: none;
+  }
+}
+
+@container local-screen-notice (height < 12rem) {
+  .icon {
+    display: none;
+  }
 }
 
 .icon {

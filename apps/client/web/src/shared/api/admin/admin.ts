@@ -2,6 +2,7 @@ import type {
   AbuseReport,
   AdminReportQuery,
   AdminRoomList,
+  AdminRoomMessageList,
   AdminRoomQuery,
   AdminStats,
   AdminUser,
@@ -15,6 +16,11 @@ import type {
 } from '@chatovo/schemas';
 
 import { api } from '../http';
+
+type ListAdminRoomMessagesInput = {
+  roomId: string;
+  query: AdminUserMessageQuery;
+};
 
 export const getAdminStats = async (): Promise<AdminStats> => {
   const { data } = await api.get<AdminStats>('/moderation/stats');
@@ -85,6 +91,17 @@ export const listAdminUserMessages = async (
   query: AdminUserMessageQuery
 ): Promise<AdminUserMessageList> => {
   const { data } = await api.get<AdminUserMessageList>(`/moderation/users/${userId}/messages`, {
+    params: query
+  });
+
+  return data;
+};
+
+export const listAdminRoomMessages = async ({
+  roomId,
+  query
+}: ListAdminRoomMessagesInput): Promise<AdminRoomMessageList> => {
+  const { data } = await api.get<AdminRoomMessageList>(`/moderation/rooms/${roomId}/messages`, {
     params: query
   });
 

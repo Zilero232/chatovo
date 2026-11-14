@@ -251,7 +251,7 @@
     "expandVideo": "Videoyu genişlet",
     "collapseVideo": "Videoyu daralt",
     "invisibleBadge": "Görünmez",
-    "invisibleNotice": "Gizli katıldın: kimse seni görmüyor ya da duymuyor",
+    "invisibleNotice": "Görünmezsin",
     "dmCall": {
       "waiting": "Karşı taraf bekleniyor…",
       "connecting": "{name} ile bağlanılıyor…",
@@ -275,7 +275,7 @@
       "blocked": "Görünmez moddasın",
       "blockedHint": "Kimse fark etmesin diye mikrofon, kamera, ekran paylaşımı, tepkiler, sohbet ve müzik kapalı. Katılmak için görünmez modu kapat.",
       "turnOff": "Kapat",
-      "noticeHint": "Görünmez modu kapatana kadar mikrofon, kamera, tepkiler ve sohbet kullanılamaz.",
+      "noticeHint": "Mikrofon, kamera ve sohbet kapalı.",
       "chatReadOnly": "Görünmez modda yalnızca okuma",
       "chatReadOnlyHint": "Bir mesaj burada olduğunu belli eder.",
       "passwordTitle": "Oda şifresini gir",

@@ -157,7 +157,11 @@
       "deleteTitle": "\"{name}\" odası silinsin mi?",
       "deleteDescription": "Oda ve tüm geçmişi kalıcı olarak silinir.",
       "deleted": "Oda silindi",
-      "total": "Toplam: {count}"
+      "total": "Toplam: {count}",
+      "history": "Sohbet geçmişi",
+      "historyHint": "Odadaki tüm mesajlar, silinenler dahil.",
+      "call": "Arama",
+      "unknownSender": "Silinmiş kullanıcı"
     },
     "pagination": {
       "prev": "Önceki",

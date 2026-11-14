@@ -1,5 +1,6 @@
 export {
   useAdminReports,
+  useAdminRoomMessages,
   useAdminRooms,
   useAdminStats,
   useAdminUserDetails,

@@ -251,7 +251,7 @@
     "expandVideo": "Agrandir la vidéo",
     "collapseVideo": "Réduire la vidéo",
     "invisibleBadge": "Invisible",
-    "invisibleNotice": "Tu es entré en mode caché : personne ne te voit ni ne t'entend",
+    "invisibleNotice": "Tu es invisible",
     "dmCall": {
       "waiting": "En attente de l'autre personne…",
       "connecting": "Connexion avec {name}…",
@@ -275,7 +275,7 @@
       "blocked": "Tu es en mode invisible",
       "blockedHint": "Micro, caméra, partage d'écran, réactions, chat et musique sont coupés pour que personne ne te remarque. Désactive le mode invisible pour participer.",
       "turnOff": "Désactiver",
-      "noticeHint": "Micro, caméra, réactions et chat restent indisponibles tant que tu n'as pas désactivé le mode invisible.",
+      "noticeHint": "Micro, caméra et chat désactivés.",
       "chatReadOnly": "Lecture seule en mode invisible",
       "chatReadOnlyHint": "Un message révélerait que tu es là.",
       "passwordTitle": "Saisis le mot de passe du salon",

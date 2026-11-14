@@ -23,6 +23,19 @@ export type ChangelogRelease = {
 
 export const CHANGELOG_RELEASES: ChangelogRelease[] = [
   {
+    version: '1.15.0',
+    date: '2026-11-14',
+    tone: 'minor',
+    highlights: ['adminChatHistory', 'sessionLoop'],
+    entries: [
+      { kind: 'feature', key: 'adminChatHistory' },
+      { kind: 'fix', key: 'sessionLoop' },
+      { kind: 'fix', key: 'stageTiles' },
+      { kind: 'improvement', key: 'compactToasts' },
+      { kind: 'improvement', key: 'youtubePreviews' }
+    ]
+  },
+  {
     version: '1.14.1',
     date: '2026-10-31',
     tone: 'minor',
@@ -203,7 +216,7 @@ export const CHANGELOG_RELEASES: ChangelogRelease[] = [
     tone: 'major',
     highlights: ['linkPreviews', 'fastImages'],
     entries: [
-      { kind: 'feature', key: 'linkPreviews' },
+      { kind: 'feature', key: 'youtubePreviews' },
       { kind: 'improvement', key: 'fastImages' },
       { kind: 'fix', key: 'liveRoomList' },
       { kind: 'fix', key: 'privateRoomOwner' },

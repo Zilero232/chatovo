@@ -206,6 +206,26 @@
       "minor": "Reguläres Release"
     },
     "entries": {
+      "adminChatHistory": {
+        "title": "Vollständiger Chatverlauf für Admins",
+        "description": "Das Admin-Panel öffnet den gesamten Verlauf jedes Raums und Direktchats, inklusive gelöschter Nachrichten und Anrufe."
+      },
+      "sessionLoop": {
+        "title": "Kein endloses Neuladen mehr",
+        "description": "Lief die Sitzung ab, konnte die App die Lobby ständig neu laden; jetzt führt sie direkt zur Anmeldung."
+      },
+      "stageTiles": {
+        "title": "Aufgeräumte Anrufkarten im schmalen Fenster",
+        "description": "Teilnehmerkarten füllen die Breite ohne Lücke, und die Karte für die Bildschirmfreigabe rutscht nicht mehr unter den Namen."
+      },
+      "compactToasts": {
+        "title": "Kompakte Benachrichtigungen",
+        "description": "Benachrichtigungen sind kleiner und kürzer, und der Hinweis zum unsichtbaren Modus passt in zwei Zeilen."
+      },
+      "youtubePreviews": {
+        "title": "Linkvorschau für YouTube",
+        "description": "Links zu YouTube, Vimeo und SoundCloud bekommen wieder eine Vorschau, und spielt ein Titel nicht ab, schlägt der Player vor, den Tab-Ton zu teilen."
+      },
       "sharperIcon": {
         "title": "Schärferes App-Icon",
         "description": "Unter Windows hat das Icon jetzt volle Größe neben anderen Apps, das Tray-Icon ist größer und auf hellen wie dunklen Taskleisten gut lesbar, und Android unterstützt Design-Icons."
@@ -900,6 +920,8 @@
       }
     },
     "highlights": {
+      "adminChatHistory": "Admins sehen jeden Chat",
+      "sessionLoop": "Keine Neulade-Schleife mehr",
       "sharperIcon": "Ein scharfes Icon überall",
       "callsRedone": "Anrufe unter Freunden, richtig gemacht",
       "staffRoles": "Moderatoren und eine klare Rollenhierarchie",

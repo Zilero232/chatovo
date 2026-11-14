@@ -4,6 +4,7 @@ export {
   getAdminStats,
   getAdminUserDetails,
   listAdminReports,
+  listAdminRoomMessages,
   listAdminRooms,
   listAdminUserMessages,
   listAdminUsers,

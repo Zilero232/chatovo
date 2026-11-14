@@ -206,6 +206,26 @@
       "minor": "Atualização regular"
     },
     "entries": {
+      "adminChatHistory": {
+        "title": "Histórico completo de chats para administradores",
+        "description": "O painel de administração abre toda a conversa de qualquer sala ou chat privado, incluindo mensagens excluídas e chamadas."
+      },
+      "sessionLoop": {
+        "title": "Fim do recarregamento infinito",
+        "description": "Quando a sessão expirava, o app podia ficar recarregando o lobby; agora ele leva você direto para o login."
+      },
+      "stageTiles": {
+        "title": "Cartões de chamada mais organizados em janelas estreitas",
+        "description": "Os cartões dos participantes ocupam toda a largura sem deixar espaço vazio, e o cartão de compartilhamento de tela não fica mais sob o nome."
+      },
+      "compactToasts": {
+        "title": "Notificações compactas",
+        "description": "As notificações ficaram menores e mais curtas, e o aviso do modo invisível cabe em duas linhas."
+      },
+      "youtubePreviews": {
+        "title": "Prévias de links do YouTube",
+        "description": "Links do YouTube, Vimeo e SoundCloud voltam a ter prévia, e quando uma faixa não toca o player sugere compartilhar o áudio da aba."
+      },
       "sharperIcon": {
         "title": "Ícone do app mais nítido",
         "description": "No Windows o ícone agora tem tamanho total ao lado de outros apps, o ícone da bandeja ficou maior e legível em barras claras e escuras, e o Android suporta ícones temáticos."
@@ -900,6 +920,8 @@
       }
     },
     "highlights": {
+      "adminChatHistory": "Administradores veem todos os chats",
+      "sessionLoop": "Sem recarregamento em loop",
       "sharperIcon": "Um ícone nítido em todo lugar",
       "callsRedone": "Chamadas entre amigos, do jeito certo",
       "staffRoles": "Moderadores e uma hierarquia de funções clara",

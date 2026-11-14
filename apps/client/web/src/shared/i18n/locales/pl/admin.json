@@ -157,7 +157,11 @@
       "deleteTitle": "Usunąć pokój „{name}”?",
       "deleteDescription": "Pokój i cała jego historia zostaną usunięte na zawsze.",
       "deleted": "Pokój usunięty",
-      "total": "Łącznie: {count}"
+      "total": "Łącznie: {count}",
+      "history": "Historia czatu",
+      "historyHint": "Wszystkie wiadomości pokoju, także usunięte.",
+      "call": "Połączenie",
+      "unknownSender": "Usunięty użytkownik"
     },
     "pagination": {
       "prev": "Poprzednia",

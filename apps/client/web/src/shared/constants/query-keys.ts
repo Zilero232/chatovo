@@ -12,6 +12,8 @@ const admin = {
   adminUserMessages: (userId: string, query: AdminUserMessageQuery) =>
     ['admin-user-messages', userId, query] as const,
   adminRooms: (query: AdminRoomQuery) => ['admin-rooms', query] as const,
+  adminRoomMessages: (roomId: string, query: AdminUserMessageQuery) =>
+    ['admin-room-messages', roomId, query] as const,
   adminReports: (query: AdminReportQuery) => ['admin-reports', query] as const
 };
 

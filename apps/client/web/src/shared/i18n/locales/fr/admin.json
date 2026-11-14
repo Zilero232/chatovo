@@ -157,7 +157,11 @@
       "deleteTitle": "Supprimer le salon « {name} » ?",
       "deleteDescription": "Le salon et tout son historique sont supprimés définitivement.",
       "deleted": "Salon supprimé",
-      "total": "Total : {count}"
+      "total": "Total : {count}",
+      "history": "Historique du chat",
+      "historyHint": "Tous les messages du salon, y compris les supprimés.",
+      "call": "Appel",
+      "unknownSender": "Utilisateur supprimé"
     },
     "pagination": {
       "prev": "Précédent",
