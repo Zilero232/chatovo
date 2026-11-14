@@ -157,7 +157,11 @@
       "deleteTitle": "Raum „{name}“ löschen?",
       "deleteDescription": "Der Raum und sein gesamter Verlauf werden endgültig gelöscht.",
       "deleted": "Raum gelöscht",
-      "total": "Gesamt: {count}"
+      "total": "Gesamt: {count}",
+      "history": "Chatverlauf",
+      "historyHint": "Alle Nachrichten des Raums, auch gelöschte.",
+      "call": "Anruf",
+      "unknownSender": "Gelöschter Nutzer"
     },
     "pagination": {
       "prev": "Zurück",

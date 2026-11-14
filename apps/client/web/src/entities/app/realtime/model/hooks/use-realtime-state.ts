@@ -117,7 +117,7 @@ export const useRealtimeState = () => {
       }
 
       if (isPrivilegesChangedCloseCode(event.code)) {
-        void authClient.getSession({ query: { disableCookieCache: true } });
+        authClient.$store.notify('$sessionSignal');
       }
     };
     const onMessage = (event: MessageEvent) => {

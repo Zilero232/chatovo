@@ -8,7 +8,7 @@ export const SessionExpiryWatcher = () => {
   const navigate = useNavigate();
 
   appEvents.on.sessionExpired(() => {
-    void authClient.getSession({ query: { disableCookieCache: true } });
+    authClient.$store.notify('$sessionSignal');
 
     queryClient.clear();
     navigate({ to: ROUTES.auth, replace: true });

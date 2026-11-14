@@ -251,7 +251,7 @@
     "expandVideo": "Expandir vídeo",
     "collapseVideo": "Recolher vídeo",
     "invisibleBadge": "Invisível",
-    "invisibleNotice": "Você entrou escondido: ninguém vê nem ouve você",
+    "invisibleNotice": "Você está invisível",
     "dmCall": {
       "waiting": "Aguardando a outra pessoa…",
       "connecting": "Conectando com {name}…",
@@ -275,7 +275,7 @@
       "blocked": "Você está no modo invisível",
       "blockedHint": "Microfone, câmera, tela, reações, chat e música ficam desligados para ninguém notar você. Desative o modo invisível para participar.",
       "turnOff": "Desativar",
-      "noticeHint": "Microfone, câmera, reações e chat ficam indisponíveis até você desativar o modo invisível.",
+      "noticeHint": "Microfone, câmera e chat desativados.",
       "chatReadOnly": "Somente leitura no modo invisível",
       "chatReadOnlyHint": "Uma mensagem revelaria que você está aqui.",
       "passwordTitle": "Digite a senha da sala",

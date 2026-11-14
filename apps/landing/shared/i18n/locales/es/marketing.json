@@ -206,6 +206,26 @@
       "minor": "Versión regular"
     },
     "entries": {
+      "adminChatHistory": {
+        "title": "Historial completo de chats para administradores",
+        "description": "El panel de administración abre toda la conversación de cualquier sala o chat privado, incluidos los mensajes eliminados y las llamadas."
+      },
+      "sessionLoop": {
+        "title": "Se acabó la recarga infinita",
+        "description": "Cuando la sesión caducaba, la app podía recargar el lobby sin parar; ahora te lleva directo al inicio de sesión."
+      },
+      "stageTiles": {
+        "title": "Tarjetas de llamada más ordenadas en ventanas estrechas",
+        "description": "Las tarjetas de participantes ocupan todo el ancho sin dejar huecos, y la tarjeta de pantalla compartida ya no queda bajo el nombre."
+      },
+      "compactToasts": {
+        "title": "Notificaciones compactas",
+        "description": "Las notificaciones son más pequeñas y breves, y el aviso del modo invisible cabe en dos líneas."
+      },
+      "youtubePreviews": {
+        "title": "Vistas previas de enlaces de YouTube",
+        "description": "Los enlaces de YouTube, Vimeo y SoundCloud vuelven a tener vista previa, y si una pista no suena, el reproductor sugiere compartir el audio de la pestaña."
+      },
       "sharperIcon": {
         "title": "Icono de la app más nítido",
         "description": "En Windows el icono ahora tiene el tamaño completo junto a otras apps, el icono de la bandeja es más grande y se lee bien en barras claras y oscuras, y Android admite iconos temáticos."
@@ -900,6 +920,8 @@
       }
     },
     "highlights": {
+      "adminChatHistory": "Los administradores ven todos los chats",
+      "sessionLoop": "Sin recargas en bucle",
       "sharperIcon": "Un icono nítido en todas partes",
       "callsRedone": "Llamadas entre amigos, bien hechas",
       "staffRoles": "Moderadores y una jerarquía de roles clara",

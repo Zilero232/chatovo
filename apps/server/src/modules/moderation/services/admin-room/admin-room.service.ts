@@ -10,7 +10,13 @@ import { PrismaService } from '../../../../core';
 import { retireRoom } from '../../../../lib';
 import { getSnapshot } from '../../../livekit';
 import { toPageArgs } from '../../lib';
-import { adminRoomInclude, toAdminRoom } from '../../mappers';
+import {
+  adminRoomInclude,
+  adminRoomMessageInclude,
+  toAdminRoom,
+  toAdminRoomMessage
+} from '../../mappers';
+import { ListRoomMessagesInput } from '../../moderation.service.types';
 
 @Injectable()
 export class AdminRoomService {
@@ -41,6 +47,23 @@ export class AdminRoomService {
       ),
       total
     };
+  }
+
+  async messages({ roomId, query }: ListRoomMessagesInput) {
+    const { page, perPage } = query;
+    const where = { roomId };
+
+    const [items, total] = await Promise.all([
+      this.prisma.message.findMany({
+        where,
+        include: adminRoomMessageInclude,
+        orderBy: { createdAt: 'desc' },
+        ...toPageArgs({ page, perPage })
+      }),
+      this.prisma.message.count({ where })
+    ]);
+
+    return { items: items.map(toAdminRoomMessage), total };
   }
 
   async remove(roomId: string) {

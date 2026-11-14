@@ -157,7 +157,11 @@
       "deleteTitle": "Delete room \"{name}\"?",
       "deleteDescription": "The room and its whole history are removed for good.",
       "deleted": "Room deleted",
-      "total": "Total: {count}"
+      "total": "Total: {count}",
+      "history": "Chat history",
+      "historyHint": "Every message in this room, deleted ones included.",
+      "call": "Call",
+      "unknownSender": "Deleted user"
     },
     "pagination": {
       "prev": "Previous",

@@ -3,6 +3,7 @@ import {
   abuseReportSchema,
   adminReportQuerySchema,
   adminRoomListSchema,
+  adminRoomMessageListSchema,
   adminRoomQuerySchema,
   adminStatsSchema,
   adminUserDetailsSchema,
@@ -54,3 +55,5 @@ export class AdminUserDetailsDto extends createZodDto(adminUserDetailsSchema) {}
 export class AdminUserMessageQueryDto extends createZodDto(adminUserMessageQuerySchema) {}
 
 export class AdminUserMessageListDto extends createZodDto(adminUserMessageListSchema) {}
+
+export class AdminRoomMessageListDto extends createZodDto(adminRoomMessageListSchema) {}

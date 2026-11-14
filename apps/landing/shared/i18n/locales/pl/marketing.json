@@ -206,6 +206,26 @@
       "minor": "Zwykłe wydanie"
     },
     "entries": {
+      "adminChatHistory": {
+        "title": "Pełna historia czatów dla adminów",
+        "description": "Panel administracyjny otwiera całą rozmowę dowolnego pokoju lub czatu prywatnego, łącznie z usuniętymi wiadomościami i połączeniami."
+      },
+      "sessionLoop": {
+        "title": "Koniec z niekończącym się przeładowaniem",
+        "description": "Gdy sesja wygasała, aplikacja mogła w kółko przeładowywać lobby; teraz od razu prowadzi do logowania."
+      },
+      "stageTiles": {
+        "title": "Schludniejsze karty rozmowy w wąskim oknie",
+        "description": "Karty uczestników wypełniają całą szerokość bez luk, a karta udostępniania ekranu nie wjeżdża już pod nazwę."
+      },
+      "compactToasts": {
+        "title": "Kompaktowe powiadomienia",
+        "description": "Powiadomienia są mniejsze i krótsze, a komunikat o trybie niewidzialnym mieści się w dwóch linijkach."
+      },
+      "youtubePreviews": {
+        "title": "Podglądy linków YouTube",
+        "description": "Linki do YouTube, Vimeo i SoundCloud znów mają podgląd, a gdy utwór się nie odtwarza, odtwarzacz proponuje udostępnienie dźwięku karty."
+      },
       "sharperIcon": {
         "title": "Wyraźniejsza ikona aplikacji",
         "description": "W Windows ikona ma teraz pełny rozmiar obok innych aplikacji, ikona w zasobniku jest większa i czytelna na jasnym i ciemnym pasku, a Android obsługuje ikony motywowe."
@@ -900,6 +920,8 @@
       }
     },
     "highlights": {
+      "adminChatHistory": "Admini widzą wszystkie czaty",
+      "sessionLoop": "Bez pętli przeładowań",
       "sharperIcon": "Wyraźna ikona wszędzie",
       "callsRedone": "Rozmowy ze znajomymi, jak należy",
       "staffRoles": "Moderatorzy i jasna hierarchia ról",

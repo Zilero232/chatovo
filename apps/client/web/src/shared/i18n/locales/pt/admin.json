@@ -157,7 +157,11 @@
       "deleteTitle": "Excluir a sala \"{name}\"?",
       "deleteDescription": "A sala e todo o histórico dela serão removidos para sempre.",
       "deleted": "Sala excluída",
-      "total": "Total: {count}"
+      "total": "Total: {count}",
+      "history": "Histórico do chat",
+      "historyHint": "Todas as mensagens da sala, incluindo as excluídas.",
+      "call": "Chamada",
+      "unknownSender": "Usuário excluído"
     },
     "pagination": {
       "prev": "Anterior",

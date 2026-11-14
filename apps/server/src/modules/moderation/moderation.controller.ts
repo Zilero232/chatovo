@@ -11,6 +11,7 @@ import {
   AbuseReportListDto,
   AdminReportQueryDto,
   AdminRoomListDto,
+  AdminRoomMessageListDto,
   AdminRoomQueryDto,
   AdminStatsDto,
   AdminUserDetailsDto,
@@ -121,6 +122,13 @@ export class ModerationController {
   @ZodResponse({ type: AdminRoomListDto })
   async listRooms(@Query() query: AdminRoomQueryDto) {
     return this.rooms.list(query);
+  }
+
+  @Get('rooms/:roomId/messages')
+  @AdminOnly()
+  @ZodResponse({ type: AdminRoomMessageListDto })
+  async getRoomMessages(@Param('roomId') roomId: string, @Query() query: AdminUserMessageQueryDto) {
+    return this.rooms.messages({ roomId, query });
   }
 
   @Delete('rooms/:roomId')

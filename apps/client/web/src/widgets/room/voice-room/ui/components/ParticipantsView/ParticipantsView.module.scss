@@ -24,18 +24,26 @@
   --r: var(--rows-narrow);
   --col: calc((100cqw - (var(--c) - 1) * var(--gap)) / var(--c));
   --row-fit: calc((100cqh - (var(--r) - 1) * var(--gap)) / var(--r));
-  --tile: min(var(--col), max(var(--row-fit) * 16 / 9, 11rem));
+  --tile: var(--col);
+  --tile-ratio: auto;
+  --tile-height: 100%;
 
   position: relative;
   z-index: 1;
   display: grid;
   flex-shrink: 0;
   gap: var(--gap);
+  grid-auto-rows: max(var(--row-fit), 8rem);
   grid-template-columns: repeat(var(--c), var(--tile));
 
   @container stage (min-width: 40rem) {
     --c: var(--cols);
     --r: var(--rows);
+    --tile: min(var(--col), max(var(--row-fit) * 16 / 9, 11rem));
+    --tile-ratio: 16 / 9;
+    --tile-height: auto;
+
+    grid-auto-rows: auto;
   }
 
   @include bp(sm, down) {

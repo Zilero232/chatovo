@@ -1,5 +1,5 @@
 import { Badge, ConfirmDialog, IconButtonWithTooltip, Row, Stack, Text } from '@chatovo/ui-kit';
-import { Gavel, KeyRound, Lock, Trash2 } from 'lucide-react';
+import { Gavel, KeyRound, Lock, MessagesSquare, Trash2 } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
 import { useTranslations } from 'use-intl';
@@ -11,6 +11,8 @@ import { formatDateTime } from '@/shared/lib';
 
 import type { RoomRowProps } from './RoomRow.types';
 
+import { RoomMessagesDialog } from '../RoomMessagesDialog/RoomMessagesDialog';
+
 import s from './RoomRow.module.scss';
 
 export const RoomRow = ({ room }: RoomRowProps) => {
@@ -21,6 +23,7 @@ export const RoomRow = ({ room }: RoomRowProps) => {
 
   const [isConfirmOpen, setIsConfirmOpen] = useState(false);
   const [isBansOpen, setIsBansOpen] = useState(false);
+  const [isHistoryOpen, setIsHistoryOpen] = useState(false);
 
   const isGroup = room.kind === 'group';
 
@@ -65,6 +68,15 @@ export const RoomRow = ({ room }: RoomRowProps) => {
         </Text>
       </Stack>
 
+      <IconButtonWithTooltip
+        className={s.action}
+        icon={<MessagesSquare />}
+        label={t('rooms.history')}
+        size='icon-sm'
+        tooltipSide='top'
+        onClick={() => setIsHistoryOpen(true)}
+      />
+
       {isGroup && (
         <IconButtonWithTooltip
           className={s.action}
@@ -97,6 +109,8 @@ export const RoomRow = ({ room }: RoomRowProps) => {
         onConfirm={remove}
         onOpenChange={setIsConfirmOpen}
       />
+
+      <RoomMessagesDialog open={isHistoryOpen} room={room} onOpenChange={setIsHistoryOpen} />
 
       {isGroup && <RoomBansDialog open={isBansOpen} room={room} onOpenChange={setIsBansOpen} />}
     </Row>

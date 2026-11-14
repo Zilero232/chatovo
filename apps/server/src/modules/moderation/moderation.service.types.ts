@@ -45,6 +45,11 @@ export type ListUserMessagesInput = {
   query: AdminUserMessageQuery;
 };
 
+export type ListRoomMessagesInput = {
+  roomId: string;
+  query: AdminUserMessageQuery;
+};
+
 export type UpdateAdminUserInput = {
   adminId: string;
   userId: string;

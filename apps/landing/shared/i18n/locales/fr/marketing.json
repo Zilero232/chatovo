@@ -206,6 +206,26 @@
       "minor": "Version régulière"
     },
     "entries": {
+      "adminChatHistory": {
+        "title": "Historique complet des chats pour les admins",
+        "description": "Le panneau d’administration ouvre toute la conversation de n’importe quel salon ou chat privé, messages supprimés et appels compris."
+      },
+      "sessionLoop": {
+        "title": "Fini le rechargement sans fin",
+        "description": "Quand la session expirait, l’app pouvait recharger le lobby en boucle ; elle t’envoie maintenant directement à la connexion."
+      },
+      "stageTiles": {
+        "title": "Cartes d’appel plus nettes en fenêtre étroite",
+        "description": "Les cartes des participants occupent toute la largeur sans trou, et la carte de partage d’écran ne passe plus sous le nom."
+      },
+      "compactToasts": {
+        "title": "Notifications compactes",
+        "description": "Les notifications sont plus petites et plus courtes, et l’avis du mode invisible tient sur deux lignes."
+      },
+      "youtubePreviews": {
+        "title": "Aperçus des liens YouTube",
+        "description": "Les liens YouTube, Vimeo et SoundCloud ont de nouveau un aperçu, et si un morceau ne se lance pas, le lecteur propose de partager le son de l’onglet."
+      },
       "sharperIcon": {
         "title": "Icône de l’app plus nette",
         "description": "Sous Windows, l’icône a désormais sa taille complète à côté des autres apps, l’icône de la zone de notification est plus grande et lisible sur les barres claires comme sombres, et Android prend en charge les icônes à thème."
@@ -900,6 +920,8 @@
       }
     },
     "highlights": {
+      "adminChatHistory": "Les admins voient tous les chats",
+      "sessionLoop": "Plus de rechargement en boucle",
       "sharperIcon": "Une icône nette partout",
       "callsRedone": "Les appels entre amis, comme il faut",
       "staffRoles": "Des modérateurs et une hiérarchie de rôles claire",

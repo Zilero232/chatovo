@@ -44,6 +44,7 @@ export const authClient = createAuthClient({
     })
   ],
   fetchOptions: {
+    credentials: 'omit',
     auth: {
       type: 'Bearer',
       token: getAuthToken

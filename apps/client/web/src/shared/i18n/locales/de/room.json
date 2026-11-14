@@ -251,7 +251,7 @@
     "expandVideo": "Video vergrößern",
     "collapseVideo": "Video verkleinern",
     "invisibleBadge": "Unsichtbar",
-    "invisibleNotice": "Du bist versteckt beigetreten: Niemand sieht oder hört dich",
+    "invisibleNotice": "Du bist unsichtbar",
     "dmCall": {
       "waiting": "Warten auf die andere Person…",
       "connecting": "Verbinde mit {name}…",
@@ -275,7 +275,7 @@
       "blocked": "Du bist im unsichtbaren Modus",
       "blockedHint": "Mikrofon, Kamera, Bildschirm, Reaktionen, Chat und Musik sind aus, damit dich niemand bemerkt. Schalte den unsichtbaren Modus aus, um mitzumachen.",
       "turnOff": "Ausschalten",
-      "noticeHint": "Mikrofon, Kamera, Reaktionen und Chat bleiben aus, bis du den unsichtbaren Modus ausschaltest.",
+      "noticeHint": "Mikrofon, Kamera und Chat sind aus.",
       "chatReadOnly": "Nur lesen im unsichtbaren Modus",
       "chatReadOnlyHint": "Eine Nachricht würde verraten, dass du hier bist.",
       "passwordTitle": "Raumpasswort eingeben",
