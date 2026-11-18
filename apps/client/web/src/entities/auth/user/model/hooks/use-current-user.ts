@@ -44,6 +44,7 @@ export const useCurrentUser = () => {
     profileUrl: firstNonEmpty(profile?.profileUrl),
     bannerColor: firstNonEmpty(profile?.bannerColor),
     bio: firstNonEmpty(profile?.bio),
+    cosmetics: profile?.cosmetics ?? null,
     isAuthenticated: isNonNullish(user)
   };
 };

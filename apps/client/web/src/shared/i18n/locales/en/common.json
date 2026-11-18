@@ -92,7 +92,12 @@
     "ABUSE_ALREADY_REPORTED": "You already reported this",
     "BLOCK_SELF": "You cannot block yourself",
     "ROLE_PROTECTED": "This person's role is equal to or higher than yours.",
-    "ROLE_NOT_ASSIGNABLE": "You can't hand out this role."
+    "ROLE_NOT_ASSIGNABLE": "You can't hand out this role.",
+    "SHOP_DISABLED": "Purchases are temporarily unavailable.",
+    "COSMETIC_NOT_OWNED": "You do not own this item yet.",
+    "COSMETIC_ALREADY_OWNED": "You already own this item.",
+    "SHOP_ORDER_NOT_FOUND": "The order was not found.",
+    "PAYMENT_PROVIDER_FAILED": "The payment service did not respond. Try again in a minute."
   },
   "language": {
     "label": "Language"

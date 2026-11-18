@@ -29,7 +29,6 @@
     "signedOut": "Abgemeldet",
     "title": "Einstellungen",
     "open": "Einstellungen öffnen",
-    "description": "Dein Profil, Geräte, Sounds und Konto.",
     "tabs": {
       "profile": "Profil",
       "security": "Konto",
@@ -38,7 +37,9 @@
       "sounds": "Sounds",
       "general": "Allgemein",
       "system": "System",
-      "shortcuts": "Tastenkürzel"
+      "shortcuts": "Tastenkürzel",
+      "appearance": "Aussehen",
+      "badges": "Abzeichen"
     },
     "profile": {
       "displayNameLabel": "Anzeigename",
@@ -199,7 +200,42 @@
       "consequences": "Dein Profil, deine Räume, Freunde und Benachrichtigungsgeräte werden entfernt. Deine Nachrichten bleiben, aber ohne deinen Namen.",
       "confirm": "Bestätigung senden",
       "cancel": "Abbrechen"
-    }
+    },
+    "editProfile": "Profil bearbeiten",
+    "groups": {
+      "account": "Konto",
+      "customization": "Gestaltung",
+      "voice": "Sprache und Video",
+      "app": "App"
+    },
+    "sections": {
+      "email": "E-Mail",
+      "password": "Passwort",
+      "deleteAccount": "Konto löschen"
+    },
+    "hints": {
+      "profile": "Wie andere dich sehen: Name, Avatar, Banner und Bio.",
+      "security": "E-Mail, Passwort und Löschen des Kontos.",
+      "appearance": "Optionale Extras, die alle im Raum sehen.",
+      "audio": "Mikrofon, Lautsprecher und Sprachverarbeitung.",
+      "video": "Kamera und Qualität der Bildschirmfreigabe.",
+      "sounds": "Soundeffekte für Ereignisse im Raum.",
+      "general": "Sprache und Verhalten des Chats.",
+      "system": "Tray, Unsichtbar-Modus und Spielaktivität.",
+      "shortcuts": "Globale Tastenkürzel für Anrufe.",
+      "badges": "Sammle Abzeichen durch Gespräche, Freunde und eigene Räume."
+    },
+    "cards": {
+      "devices": "Geräte",
+      "activation": "Eingabemodus",
+      "sensitivity": "Eingabeempfindlichkeit",
+      "processing": "Sprachverarbeitung",
+      "camera": "Kamera",
+      "screen": "Bildschirmfreigabe",
+      "volume": "Lautstärke",
+      "events": "Ereignistöne"
+    },
+    "back": "Zurück"
   },
   "tray": {
     "status": {
@@ -315,5 +351,139 @@
     "description": "Benachrichtigungen für Nachrichten und Anrufe, auch wenn die App im Hintergrund läuft.",
     "action": "In Google Play öffnen",
     "dismiss": "Ausblenden"
+  },
+  "shop": {
+    "paymentWaiting": "Warte auf die Zahlungsbestätigung. Schließe sie im Browser ab, diese Seite aktualisiert sich von selbst.",
+    "disabled": "Käufe sind vorübergehend nicht möglich. Bereits gekaufte Gegenstände funktionieren weiter.",
+    "ownerUnlocked": "Du bist der Inhaber: Alle Gegenstände sind kostenlos freigeschaltet. Trag, was du willst.",
+    "paymentOpened": "Die Zahlungsseite wurde im Browser geöffnet.",
+    "paymentSucceeded": "Zahlung erhalten. Der Gegenstand gehört dir.",
+    "paymentCanceled": "Die Zahlung wurde abgebrochen. Es wurde nichts abgebucht.",
+    "paymentUnavailable": "Die Zahlungsseite ließ sich nicht öffnen. Versuche es in einer Minute erneut.",
+    "orderCheckFailed": "Die Zahlung konnte nicht geprüft werden. Wurde Geld abgebucht, erscheint der Gegenstand in ein paar Minuten.",
+    "loadFailed": "Shop konnte nicht laden",
+    "loadFailedHint": "Prüfe deine Verbindung und versuche es erneut.",
+    "retry": "Erneut versuchen",
+    "previewTitle": "So sieht dich der Raum",
+    "trying": "Anprobe",
+    "resetTryOn": "Zurücksetzen",
+    "tryOn": "Anprobieren",
+    "tryOnSet": "Set anprobieren",
+    "new": "Neu",
+    "equip": "Anlegen",
+    "unequip": "Ablegen",
+    "bundleSave": "−{percent}%",
+    "bundleBuy": "Set für {price}",
+    "categories": {
+      "bundles": "Sets",
+      "speakingRing": "Ringe",
+      "avatarFrame": "Rahmen",
+      "nameStyle": "Namen",
+      "tileBackground": "Hintergründe",
+      "owned": "Meine Gegenstände"
+    },
+    "empty": {
+      "bundles": "Du hast schon ein Teil jedes Sets",
+      "speakingRing": "Hier ist noch nichts",
+      "avatarFrame": "Hier ist noch nichts",
+      "nameStyle": "Hier ist noch nichts",
+      "tileBackground": "Hier ist noch nichts",
+      "owned": "Hier erscheinen deine Extras"
+    },
+    "rarity": {
+      "common": "Gewöhnlich",
+      "rare": "Selten",
+      "epic": "Episch",
+      "legendary": "Legendär"
+    },
+    "collections": {
+      "mint": "Minze",
+      "sunset": "Abendrot",
+      "ocean": "Ozean",
+      "sakura": "Sakura",
+      "neon": "Neon",
+      "aurora": "Polarlicht",
+      "holo": "Holo",
+      "royal": "Königlich"
+    },
+    "taglines": {
+      "mint": "Frisch und ruhig, für jeden Tag",
+      "sunset": "Warmes Abendleuchten",
+      "ocean": "Tiefes Blau",
+      "sakura": "Zarte Frühlingsblüte",
+      "neon": "Bewegte Lichter der Großstadtnacht",
+      "aurora": "Nordlichter in Bewegung",
+      "holo": "Ein schillerndes Holo-Set",
+      "royal": "Gold und Purpur für Royals"
+    }
+  },
+  "badges": {
+    "earned": "Deine Abzeichen",
+    "available": "Noch zu holen",
+    "retry": "Erneut versuchen",
+    "loadFailed": "Abzeichen konnten nicht laden",
+    "tier": "Stufe {tier}",
+    "notEarned": "Noch nicht erhalten",
+    "remaining": "Noch {left} bis zur nächsten Stufe",
+    "maxed": "Höchste Stufe erreicht",
+    "items": {
+      "supporter": {
+        "name": "Unterstützer",
+        "hint": "Unterstütze Chatovo im Shop, um dieses Abzeichen aufzuwerten.",
+        "unit": "{count, plural, one {# Kauf} other {# Käufe}}"
+      },
+      "veteran": {
+        "name": "Veteran",
+        "hint": "Bleib bei Chatovo: Dieses Abzeichen steigt mit der Zeit.",
+        "unit": "{count, plural, one {# Tag} other {# Tage}}"
+      },
+      "social": {
+        "name": "Gesellig",
+        "hint": "Füge mehr Freunde hinzu, um dieses Abzeichen aufzuwerten.",
+        "unit": "{count, plural, one {# Freund} other {# Freunde}}"
+      },
+      "chatter": {
+        "name": "Plaudertasche",
+        "hint": "Schreib mehr Nachrichten in Räumen und Chats, um dieses Abzeichen aufzuwerten.",
+        "unit": "{count, plural, one {# Nachricht} other {# Nachrichten}}"
+      },
+      "host": {
+        "name": "Gastgeber",
+        "hint": "Erstelle Räume für deine Leute, um dieses Abzeichen aufzuwerten.",
+        "unit": "{count, plural, one {# Raum} other {# Räume}}"
+      },
+      "collector": {
+        "name": "Sammler",
+        "hint": "Sammle mehr Extras, um dieses Abzeichen aufzuwerten.",
+        "unit": "{count, plural, one {# Gegenstand} other {# Gegenstände}}"
+      }
+    },
+    "intro": "Sieh dir deine Sammlung an und finde heraus, welche Abzeichen du noch holen kannst.",
+    "progressTitle": "Dein Fortschritt",
+    "tiers": {
+      "rookie": "Neuling",
+      "amateur": "Liebhaber",
+      "active": "Aktiv",
+      "adept": "Kenner",
+      "master": "Meister",
+      "expert": "Experte",
+      "star": "Star",
+      "legend": "Legende"
+    }
+  },
+  "profileMenu": {
+    "open": "Eigenes Profil öffnen",
+    "editProfile": "Profil bearbeiten",
+    "badges": "Abzeichen",
+    "shop": "Extras-Shop",
+    "new": "Neu",
+    "myItems": "Meine Extras"
+  },
+  "gameActivity": {
+    "shared": "Im Raum sichtbar",
+    "hidden": "Nicht geteilt",
+    "share": "Im Raum zeigen",
+    "hide": "Im Raum ausblenden",
+    "settings": "Aktivitätseinstellungen"
   }
 }

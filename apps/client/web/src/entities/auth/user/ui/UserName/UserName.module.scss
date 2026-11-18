@@ -69,6 +69,36 @@
   }
 }
 
+.styledName.styledName {
+  background-image: var(--name-gradient);
+  background-position: 0 50%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  color: var(--foreground);
+  font-weight: 650;
+
+  @supports (background-clip: text) or (-webkit-background-clip: text) {
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.styledNameAnimated.styledNameAnimated {
+  animation: name-shimmer 4s linear infinite;
+  background-size: 200% 100%;
+
+  @include reduced-motion {
+    animation: none;
+  }
+}
+
+@keyframes name-shimmer {
+  to {
+    background-position: 200% 50%;
+  }
+}
+
 .checkWrap {
   display: inline-flex;
   flex-shrink: 0;

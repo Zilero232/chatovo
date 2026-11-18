@@ -1,0 +1,12 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.1875rem;
+  border-radius: var(--radius-lg);
+  background: rgb(var(--tint) / 8%);
+  gap: 0.25rem;
+}
+
+.item {
+  display: inline-flex;
+}

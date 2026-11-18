@@ -29,7 +29,6 @@
     "signedOut": "Signed out",
     "title": "Settings",
     "open": "Open settings",
-    "description": "Your profile, devices, sounds and account.",
     "tabs": {
       "profile": "Profile",
       "security": "Account",
@@ -38,7 +37,9 @@
       "sounds": "Sounds",
       "general": "General",
       "system": "System",
-      "shortcuts": "Hotkeys"
+      "shortcuts": "Hotkeys",
+      "appearance": "Appearance",
+      "badges": "Badges"
     },
     "profile": {
       "displayNameLabel": "Display name",
@@ -199,7 +200,42 @@
       "consequences": "Your profile, rooms, friends and notification devices are removed. Your messages stay, without your name on them.",
       "confirm": "Send confirmation",
       "cancel": "Cancel"
-    }
+    },
+    "editProfile": "Edit profile",
+    "groups": {
+      "account": "Account",
+      "customization": "Customization",
+      "voice": "Voice and video",
+      "app": "App"
+    },
+    "sections": {
+      "email": "Email",
+      "password": "Password",
+      "deleteAccount": "Delete account"
+    },
+    "hints": {
+      "profile": "How other people see you: name, avatar, banner and bio.",
+      "security": "Email, password and deleting the account.",
+      "appearance": "Optional cosmetics everyone in the room sees.",
+      "audio": "Microphone, speakers and voice processing.",
+      "video": "Camera and screen sharing quality.",
+      "sounds": "Sound effects for room events.",
+      "general": "Language and chat behaviour.",
+      "system": "Tray, invisible mode and game activity.",
+      "shortcuts": "Global hotkeys for calls.",
+      "badges": "Earn badges by talking, making friends and hosting rooms."
+    },
+    "cards": {
+      "devices": "Devices",
+      "activation": "Input mode",
+      "sensitivity": "Input sensitivity",
+      "processing": "Voice processing",
+      "camera": "Camera",
+      "screen": "Screen sharing",
+      "volume": "Volume",
+      "events": "Sound events"
+    },
+    "back": "Back"
   },
   "tray": {
     "status": {
@@ -315,5 +351,139 @@
     "description": "Notifications for messages and calls, even when the app is in the background.",
     "action": "Open in Google Play",
     "dismiss": "Hide"
+  },
+  "shop": {
+    "paymentWaiting": "Waiting for the payment to go through. Finish it in the browser, this page updates by itself.",
+    "disabled": "Purchases are temporarily unavailable. Items you already own keep working.",
+    "ownerUnlocked": "You are the owner: every item is unlocked for free. Wear anything you like.",
+    "paymentOpened": "The payment page opened in your browser.",
+    "paymentSucceeded": "Payment received. The item is yours.",
+    "paymentCanceled": "The payment was canceled. No money was charged.",
+    "paymentUnavailable": "Could not open the payment page. Try again in a minute.",
+    "orderCheckFailed": "Could not check the payment. If money was charged, the item will appear within a few minutes.",
+    "loadFailed": "Could not load the shop",
+    "loadFailedHint": "Check your connection and try again.",
+    "retry": "Try again",
+    "previewTitle": "How the room sees you",
+    "trying": "Trying on",
+    "resetTryOn": "Reset",
+    "tryOn": "Try on",
+    "tryOnSet": "Try on the set",
+    "new": "New",
+    "equip": "Wear",
+    "unequip": "Take off",
+    "bundleSave": "−{percent}%",
+    "bundleBuy": "Set for {price}",
+    "categories": {
+      "bundles": "Sets",
+      "speakingRing": "Rings",
+      "avatarFrame": "Frames",
+      "nameStyle": "Names",
+      "tileBackground": "Backgrounds",
+      "owned": "My items"
+    },
+    "empty": {
+      "bundles": "You already own a piece of every set",
+      "speakingRing": "Nothing here yet",
+      "avatarFrame": "Nothing here yet",
+      "nameStyle": "Nothing here yet",
+      "tileBackground": "Nothing here yet",
+      "owned": "Your items will appear here"
+    },
+    "rarity": {
+      "common": "Common",
+      "rare": "Rare",
+      "epic": "Epic",
+      "legendary": "Legendary"
+    },
+    "collections": {
+      "mint": "Mint",
+      "sunset": "Sunset",
+      "ocean": "Ocean",
+      "sakura": "Sakura",
+      "neon": "Neon",
+      "aurora": "Aurora",
+      "holo": "Holo",
+      "royal": "Royal"
+    },
+    "taglines": {
+      "mint": "Fresh and calm, for every day",
+      "sunset": "Warm evening glow",
+      "ocean": "Deep blue depths",
+      "sakura": "Soft spring blossom",
+      "neon": "Night city lights that move",
+      "aurora": "Northern lights in motion",
+      "holo": "A shimmering holographic set",
+      "royal": "Gold and purple for royalty"
+    }
+  },
+  "badges": {
+    "earned": "Your badges",
+    "available": "Can be earned",
+    "retry": "Try again",
+    "loadFailed": "Could not load badges",
+    "tier": "Level {tier}",
+    "notEarned": "Not earned yet",
+    "remaining": "{left} to the next level",
+    "maxed": "Top level reached",
+    "items": {
+      "supporter": {
+        "name": "Supporter",
+        "hint": "Support Chatovo in the shop to level up this badge.",
+        "unit": "{count, plural, one {# purchase} other {# purchases}}"
+      },
+      "veteran": {
+        "name": "Veteran",
+        "hint": "Stay with Chatovo to level up this badge over time.",
+        "unit": "{count, plural, one {# day} other {# days}}"
+      },
+      "social": {
+        "name": "Social",
+        "hint": "Add more friends to level up this badge.",
+        "unit": "{count, plural, one {# friend} other {# friends}}"
+      },
+      "chatter": {
+        "name": "Chatterbox",
+        "hint": "Send more messages in rooms and chats to level up this badge.",
+        "unit": "{count, plural, one {# message} other {# messages}}"
+      },
+      "host": {
+        "name": "Host",
+        "hint": "Create rooms for your people to level up this badge.",
+        "unit": "{count, plural, one {# room} other {# rooms}}"
+      },
+      "collector": {
+        "name": "Collector",
+        "hint": "Collect more cosmetics to level up this badge.",
+        "unit": "{count, plural, one {# item} other {# items}}"
+      }
+    },
+    "intro": "Browse your collection and see which badges you can earn next.",
+    "progressTitle": "Your progress",
+    "tiers": {
+      "rookie": "Rookie",
+      "amateur": "Amateur",
+      "active": "Active",
+      "adept": "Adept",
+      "master": "Master",
+      "expert": "Expert",
+      "star": "Star",
+      "legend": "Legend"
+    }
+  },
+  "profileMenu": {
+    "open": "Open your profile",
+    "editProfile": "Edit profile",
+    "badges": "Badges",
+    "shop": "Cosmetics shop",
+    "new": "New",
+    "myItems": "My cosmetics"
+  },
+  "gameActivity": {
+    "shared": "Visible in your room",
+    "hidden": "Not shared",
+    "share": "Show in the room",
+    "hide": "Hide from the room",
+    "settings": "Activity settings"
   }
 }

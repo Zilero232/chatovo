@@ -92,7 +92,12 @@
     "ABUSE_ALREADY_REPORTED": "Вы уже отправили жалобу на этот объект",
     "BLOCK_SELF": "Нельзя заблокировать самого себя",
     "ROLE_PROTECTED": "У этого человека роль такая же или выше вашей.",
-    "ROLE_NOT_ASSIGNABLE": "Вы не можете выдать эту роль."
+    "ROLE_NOT_ASSIGNABLE": "Вы не можете выдать эту роль.",
+    "SHOP_DISABLED": "Покупки временно недоступны.",
+    "COSMETIC_NOT_OWNED": "Этот предмет у вас ещё не куплен.",
+    "COSMETIC_ALREADY_OWNED": "Этот предмет у вас уже есть.",
+    "SHOP_ORDER_NOT_FOUND": "Заказ не найден.",
+    "PAYMENT_PROVIDER_FAILED": "Платёжный сервис не ответил. Попробуйте через минуту."
   },
   "language": {
     "label": "Язык"

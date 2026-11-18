@@ -1,8 +1,8 @@
-import type { ReactNode } from 'react';
-
 import {
+  Award,
   Keyboard,
   Mic,
+  Palette,
   Settings2,
   ShieldCheck,
   SlidersHorizontal,
@@ -11,8 +11,12 @@ import {
   Volume2
 } from 'lucide-react';
 
+import type { SettingsGroupConfig } from './settings.types';
+
 import {
+  AppearanceTab,
   AudioTab,
+  BadgesTab,
   GeneralTab,
   ProfileTab,
   SecurityTab,
@@ -22,31 +26,53 @@ import {
   VideoTab
 } from '../ui/sections';
 
-export type SettingsTabId =
-  'audio' | 'general' | 'profile' | 'security' | 'shortcuts' | 'sounds' | 'system' | 'video';
-
-type SettingsTabControls = {
-  jumpTo: (id: SettingsTabId) => void;
-};
-
-type SettingsTabConfig = {
-  icon: ReactNode;
-  id: SettingsTabId;
-  tauriDesktopOnly?: boolean;
-  render: (controls: SettingsTabControls) => ReactNode;
-};
-
-export const SETTINGS_TABS: SettingsTabConfig[] = [
-  { id: 'profile', icon: <User />, render: () => <ProfileTab /> },
+export const SETTINGS_GROUPS: SettingsGroupConfig[] = [
   {
-    id: 'audio',
-    icon: <Mic />,
-    render: ({ jumpTo }) => <AudioTab onJumpToShortcuts={() => jumpTo('shortcuts')} />
+    id: 'account',
+    tabs: [
+      { id: 'profile', icon: <User />, render: () => <ProfileTab /> },
+      {
+        id: 'security',
+        icon: <ShieldCheck />,
+        sections: ['email', 'password', 'deleteAccount'],
+        render: () => <SecurityTab />
+      }
+    ]
   },
-  { id: 'video', icon: <Video />, render: () => <VideoTab /> },
-  { id: 'sounds', icon: <Volume2 />, render: () => <SoundsTab /> },
-  { id: 'general', icon: <SlidersHorizontal />, render: () => <GeneralTab /> },
-  { id: 'system', icon: <Settings2 />, tauriDesktopOnly: true, render: () => <SystemTab /> },
-  { id: 'shortcuts', icon: <Keyboard />, tauriDesktopOnly: true, render: () => <ShortcutsTab /> },
-  { id: 'security', icon: <ShieldCheck />, render: () => <SecurityTab /> }
+  {
+    id: 'customization',
+    tabs: [
+      {
+        id: 'appearance',
+        icon: <Palette />,
+        render: () => <AppearanceTab />
+      },
+      { id: 'badges', icon: <Award />, render: () => <BadgesTab /> }
+    ]
+  },
+  {
+    id: 'voice',
+    tabs: [
+      {
+        id: 'audio',
+        icon: <Mic />,
+        render: ({ jumpTo }) => <AudioTab onJumpToShortcuts={() => jumpTo('shortcuts')} />
+      },
+      { id: 'video', icon: <Video />, render: () => <VideoTab /> },
+      { id: 'sounds', icon: <Volume2 />, render: () => <SoundsTab /> }
+    ]
+  },
+  {
+    id: 'app',
+    tabs: [
+      { id: 'general', icon: <SlidersHorizontal />, render: () => <GeneralTab /> },
+      { id: 'system', icon: <Settings2 />, tauriDesktopOnly: true, render: () => <SystemTab /> },
+      {
+        id: 'shortcuts',
+        icon: <Keyboard />,
+        tauriDesktopOnly: true,
+        render: () => <ShortcutsTab />
+      }
+    ]
+  }
 ];

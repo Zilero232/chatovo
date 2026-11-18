@@ -23,6 +23,19 @@ export type ChangelogRelease = {
 
 export const CHANGELOG_RELEASES: ChangelogRelease[] = [
   {
+    version: '1.16.0',
+    date: '2026-11-19',
+    tone: 'major',
+    highlights: ['cosmeticsShop', 'badges'],
+    entries: [
+      { kind: 'feature', key: 'cosmeticsShop' },
+      { kind: 'feature', key: 'badges' },
+      { kind: 'feature', key: 'profilePopup' },
+      { kind: 'improvement', key: 'settingsRedesign' },
+      { kind: 'improvement', key: 'authRedesign' }
+    ]
+  },
+  {
     version: '1.15.1',
     date: '2026-11-14',
     tone: 'minor',

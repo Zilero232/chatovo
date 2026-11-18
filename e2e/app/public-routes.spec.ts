@@ -34,7 +34,7 @@ test.describe('app public routes', () => {
       await page.goto('/auth');
 
       await expect(page.locator('html')).toHaveAttribute('lang', 'de');
-      await expect(page.getByRole('heading', { name: 'Anmelden' })).toBeVisible();
+      await expect(page.getByRole('heading', { name: 'Willkommen zurück!' })).toBeVisible();
     });
   });
 });

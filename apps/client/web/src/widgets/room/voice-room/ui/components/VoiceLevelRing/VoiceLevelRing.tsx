@@ -1,14 +1,20 @@
 import { clsx } from 'clsx';
 import { useId } from 'react';
 
+import { toGradientStops } from '@/shared/lib';
+
 import type { VoiceLevelRingProps } from './VoiceLevelRing.types';
 
 import s from './VoiceLevelRing.module.scss';
 
 const RING_RADII = [40, 46] as const;
 
-export const VoiceLevelRing = ({ speaking, className }: VoiceLevelRingProps) => {
+const DEFAULT_COLORS = ['var(--brand-mint)'] as const;
+
+export const VoiceLevelRing = ({ speaking, colors, className }: VoiceLevelRingProps) => {
   const gradientId = useId();
+
+  const stops = toGradientStops(colors ?? DEFAULT_COLORS);
 
   return (
     <svg
@@ -22,8 +28,9 @@ export const VoiceLevelRing = ({ speaking, className }: VoiceLevelRingProps) => 
     >
       <defs>
         <linearGradient id={gradientId} x1='0' x2='1' y1='0' y2='1'>
-          <stop offset='0%' stopColor='var(--brand-mint)' />
-          <stop offset='100%' stopColor='var(--brand-mint)' />
+          {stops.map(({ color, offset }) => (
+            <stop key={offset} offset={offset} stopColor={color} />
+          ))}
         </linearGradient>
       </defs>
 

@@ -63,7 +63,7 @@ services:
       MP_SMTP_AUTH_ALLOW_INSECURE: 'true'
 
   livekit:
-    image: livekit/livekit-server:v1.12.0
+    image: livekit/livekit-server:v1.13.11
     container_name: chatovo-livekit-dev
     command: --config /etc/livekit.yaml
     ports:

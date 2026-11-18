@@ -9,6 +9,7 @@
       "pages": {
         "features": "Funkcje",
         "download": "Pobierz",
+        "pricing": "Cennik",
         "changelog": "Lista zmian",
         "about": "O projekcie",
         "support": "Pomoc"
@@ -72,7 +73,7 @@
       "items": {
         "free": {
           "value": "0 zł",
-          "label": "Za darmo, bez reklam i subskrypcji"
+          "label": "Za darmo, bez reklam i płatnych funkcji"
         },
         "unlimited": {
           "value": "∞",
@@ -132,7 +133,7 @@
       "items": {
         "free": {
           "question": "Czy Chatovo jest darmowe?",
-          "answer": "Całkowicie. Nie ma płatnych planów, limitu długości rozmów ani funkcji ukrytych za subskrypcją."
+          "answer": "Tak. Pokoje, głos, wideo, udostępnianie ekranu i wszystkie inne funkcje są darmowe, bez limitu długości rozmowy. Płatne są tylko opcjonalne ozdoby, takie jak ramki awatara, dla tych, którzy chcą się wyróżnić i wesprzeć projekt."
         },
         "discord": {
           "question": "Chatovo a Discord — czym się różnią?",
@@ -170,6 +171,7 @@
       "pages": {
         "features": "Funkcje",
         "download": "Pobierz",
+        "pricing": "Cennik",
         "changelog": "Lista zmian",
         "about": "O projekcie",
         "support": "Pomoc"
@@ -206,6 +208,26 @@
       "minor": "Zwykłe wydanie"
     },
     "entries": {
+      "cosmeticsShop": {
+        "title": "Opcjonalne kosmetyki do profilu",
+        "description": "Pierścienie mówienia, ramki awatara, gradienty nazwy i tła kafelków w ośmiu kolekcjach, z przymiarką przed zakupem. Cała reszta pozostaje darmowa."
+      },
+      "badges": {
+        "title": "Odznaki do zdobycia",
+        "description": "Sześć odznak, każda z maksymalnie ośmioma poziomami, widocznych na karcie profilu, z postępem do kolejnego poziomu."
+      },
+      "profilePopup": {
+        "title": "Karta profilu z paska użytkownika",
+        "description": "Kliknij swoją nazwę w rogu, aby otworzyć profil, odznaki i sklep; nad nią widać grę, w którą grasz."
+      },
+      "settingsRedesign": {
+        "title": "Ustawienia na nowo",
+        "description": "Grupy z podpunktami, karty zamiast długich list, a na telefonie najpierw lista, potem szczegóły."
+      },
+      "authRedesign": {
+        "title": "Nowa strona logowania",
+        "description": "Spokojniejszy ekran logowania na tle nocnego miasta, które podąża za kursorem."
+      },
       "vpnTunnel": {
         "title": "VPN dla aplikacji działa teraz w Windows",
         "description": "Wybierz Chatovo w tunelowaniu dzielonym VPN, np. Incy lub WireSock, a radio z YouTube i podglądy linków będą ładować się przez niego; głos nadal idzie bezpośrednio."
@@ -924,6 +946,8 @@
       }
     },
     "highlights": {
+      "cosmeticsShop": "Sklep z kosmetykami",
+      "badges": "Odznaki z poziomami",
       "vpnTunnel": "VPN z tunelowaniem dzielonym w Windows",
       "adminChatHistory": "Admini widzą wszystkie czaty",
       "sessionLoop": "Bez pętli przeładowań",
@@ -1415,7 +1439,7 @@
     "terms": "Regulamin",
     "privacyPage": {
       "title": "Polityka prywatności",
-      "updated": "Ostatnia aktualizacja: 2 lipca 2026",
+      "updated": "Ostatnia aktualizacja: 18 listopada 2026",
       "sections": [
         {
           "heading": "Wprowadzenie",
@@ -1441,7 +1465,8 @@
             "Wiadomości czatu: tekst wysyłany przez ciebie w pokojach, metadane historii edycji oraz przesyłane przez ciebie załączniki (obrazy i inne pliki do 25 MB na załącznik).",
             "Głos i wideo: strumienie audio i wideo są przesyłane w czasie rzeczywistym przez LiveKit (WebRTC). Nie nagrywamy ani nie przechowujemy trwale treści głosowych ani wideo na naszych serwerach.",
             "Ustawienia urządzenia i aplikacji przechowywane lokalnie: token uwierzytelniający, preferencje audio/wideo, język, ostatnie pokoje oraz poziomy głośności poszczególnych uczestników.",
-            "Zgłoszenia do pomocy technicznej: gdy zgłaszasz problem, możemy otrzymać twoją wiadomość, opcjonalny zrzut ekranu i identyfikator konta."
+            "Zgłoszenia do pomocy technicznej: gdy zgłaszasz problem, możemy otrzymać twoją wiadomość, opcjonalny zrzut ekranu i identyfikator konta.",
+            "Zakupy: kupiony przedmiot, jego cena, status płatności i identyfikator płatności w YooKassa. Dane karty są wpisywane na stronie YooKassa i nigdy do nas nie trafiają."
           ]
         },
         {
@@ -1465,7 +1490,8 @@
             "LiveKit — kanały głosowe, wideo i danych w czasie rzeczywistym.",
             "Dostawca poczty SMTP — dostarczanie e-maili weryfikacyjnych i wiadomości do resetu hasła.",
             "Dostawcy hostingu i infrastruktury, którzy obsługują nasze serwery i bazy danych.",
-            "Google Play — dystrybucja i aktualizacje aplikacji na Androidzie (obowiązują zasady Google Play)."
+            "Google Play — dystrybucja i aktualizacje aplikacji na Androidzie (obowiązują zasady Google Play).",
+            "YooKassa (YooMoney) — obsługa płatności za opcjonalne ozdoby. Gdy włączone są paragony fiskalne, Twój adres e-mail jest przekazywany do YooKassa, aby wysłać Ci paragon."
           ]
         },
         {
@@ -1521,7 +1547,7 @@
     },
     "termsPage": {
       "title": "Regulamin",
-      "updated": "Ostatnia aktualizacja: 2 lipca 2026",
+      "updated": "Ostatnia aktualizacja: 18 listopada 2026",
       "sections": [
         {
           "heading": "Umowa",
@@ -1574,6 +1600,17 @@
           "paragraphs": [
             "Głos, wideo i czat w pokojach są dostarczane w czasie rzeczywistym. Nie gwarantujemy nieprzerwanej dostępności ani funkcji nagrywania, chyba że zostały one wyraźnie zaoferowane.",
             "Prywatne pokoje z hasłem nie gwarantują absolutnej prywatności; zachowaj ostrożność, udostępniając poufne informacje."
+          ]
+        },
+        {
+          "heading": "Płatne ozdoby",
+          "paragraphs": [
+            "Z Chatovo można korzystać za darmo. Opcjonalne płatne ozdoby, takie jak ramki awatara i kolory pierścienia głosu, zmieniają tylko wygląd Twojego profilu dla innych i nie dają żadnej przewagi funkcjonalnej.",
+            "Płatności obsługuje YooKassa (YooMoney). Nigdy nie widzimy ani nie przechowujemy danych Twojej karty. Każdy zakup to jednorazowa płatność za cyfrowy przedmiot przypisany do Twojego konta, dostępny tak długo, jak istnieje konto.",
+            "Jeśli płatność przeszła, a przedmiot się nie pojawił, lub pobrano opłatę przez pomyłkę, napisz na {contact} — wydamy przedmiot albo zwrócimy płatność. W pozostałych przypadkach zwroty podlegają mającemu do Ciebie zastosowanie prawu konsumenckiemu.",
+            "Możemy wycofać przedmiot ze sprzedaży, ale kupione przedmioty zostają Twoje. Jeśli konto zostanie zablokowane za naruszenie niniejszego Regulaminu, koszt jego przedmiotów nie jest zwracany.",
+            "Zapłata za przedmiot oznacza akceptację niniejszego Regulaminu jako oferty publicznej na ten przedmiot (art. 437–438 Kodeksu cywilnego Federacji Rosyjskiej). Obowiązuje cena widoczna w aplikacji i na chatovo.ru/pricing w chwili płatności, w rublach.",
+            "Przedmiot uważa się za wydany z chwilą pojawienia się na koncie."
           ]
         },
         {
@@ -1642,5 +1679,79 @@
     "storeAction": "Otwórz",
     "googlePlay": "Google Play",
     "notAvailable": "Jeszcze niedostępne"
+  },
+  "pricing": {
+    "meta": {
+      "title": "Ozdoby i ceny",
+      "description": "Chatovo jest darmowe. Opcjonalne ozdoby — pierścienie głosu, ramki awatara, style nazwy i tła kafelka — z cenami oraz warunkami płatności i zwrotu."
+    },
+    "hero": {
+      "eyebrow": "Opcjonalne ozdoby",
+      "title": "Wyróżnij się w pokoju",
+      "description": "Chatovo jest darmowe i wszystkie funkcje takie zostają. Ozdoby zmieniają tylko to, jak widzą Cię inni: kupujesz je raz i zostają na koncie."
+    },
+    "sets": {
+      "heading": "Zestawy",
+      "description": "Każdy zestaw to cztery pasujące przedmioty. Cały zestaw kosztuje o 30% mniej niż części osobno."
+    },
+    "table": {
+      "heading": "Ceny przedmiotów",
+      "description": "Każdy przedmiot z zestawu można kupić także osobno. Ceny w rublach, z wszystkimi podatkami.",
+      "item": "Przedmiot"
+    },
+    "rarity": {
+      "common": "Zwykły",
+      "rare": "Rzadki",
+      "epic": "Epicki",
+      "legendary": "Legendarny"
+    },
+    "kindNames": {
+      "speakingRing": "Pierścień głosu",
+      "avatarFrame": "Ramka awatara",
+      "nameStyle": "Styl nazwy",
+      "tileBackground": "Tło kafelka"
+    },
+    "kindHints": {
+      "speakingRing": "Świeci wokół awatara, gdy mówisz",
+      "avatarFrame": "Ramka wokół awatara wszędzie",
+      "nameStyle": "Gradientowa nazwa w pokojach i czacie",
+      "tileBackground": "Kolorowe tło Twojego kafelka w pokoju"
+    },
+    "steps": {
+      "heading": "Jak to działa",
+      "description": "Zakupów dokonasz w wersji webowej i w aplikacji na komputer.",
+      "items": {
+        "choose": {
+          "title": "Wybierz",
+          "text": "Otwórz w Chatovo Ustawienia → Wygląd i przymierz dowolny przedmiot na własnym kafelku."
+        },
+        "pay": {
+          "title": "Zapłać",
+          "text": "Płatność przechodzi przez YooKassa. Dane karty wpisujesz na stronie YooKassa i nigdy do nas nie trafiają."
+        },
+        "wear": {
+          "title": "Załóż",
+          "text": "Przedmiot pojawia się na koncie zaraz po płatności i od razu można go założyć."
+        }
+      }
+    },
+    "payment": {
+      "methodsTitle": "Płatność",
+      "methods": "Karty płatnicze (Mir, Visa, Mastercard), SBP, SberPay, T-Pay i YooMoney — przez YooKassa. Jednorazowa płatność: bez subskrypcji i automatycznych obciążeń.",
+      "deliveryTitle": "Dostawa",
+      "delivery": "Przedmioty są cyfrowe i pojawiają się automatycznie na Twoim koncie Chatovo w ciągu minuty od płatności. Nic nie jest wysyłane fizycznie.",
+      "refundTitle": "Zwroty",
+      "refund": "Jeśli płatność przeszła, a przedmiot się nie pojawił, lub pobrano opłatę przez pomyłkę, wydamy przedmiot albo zwrócimy płatność. Pełne warunki są w <terms>Regulaminie</terms>."
+    },
+    "collections": {
+      "mint": "Mięta",
+      "sunset": "Zachód",
+      "ocean": "Ocean",
+      "sakura": "Sakura",
+      "neon": "Neon",
+      "aurora": "Zorza",
+      "holo": "Holo",
+      "royal": "Królewski"
+    }
   }
 }

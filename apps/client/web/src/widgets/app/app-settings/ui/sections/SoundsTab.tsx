@@ -7,6 +7,7 @@ import { useAppSettings } from '@/entities/app/settings';
 import { formatPercent } from '@/shared/lib';
 
 import { SettingRow } from '../components/SettingRow/SettingRow';
+import { SettingsCard } from '../components/SettingsCard/SettingsCard';
 
 import s from '../AppSettingsButton.module.scss';
 
@@ -23,44 +24,49 @@ const SOUND_CATEGORIES: SoundCategory[] = [
 
 export const SoundsTab = () => {
   const t = useTranslations('settings.sounds');
+  const tCards = useTranslations('settings.cards');
   const { settings, setGroup, toggleSound } = useAppSettings();
 
   const sounds = settings.sounds;
 
   return (
     <div className={s.tabPanel}>
-      <SettingRow
-        stacked
-        control={
-          <div className={s.sliderRow}>
-            <Slider
-              aria-label={t('volumeLabel')}
-              max={1}
-              min={0}
-              step={0.05}
-              value={sounds.volume}
-              onValueChange={(value) => setGroup('sounds', { volume: value as number })}
-            />
-            <span className={s.sliderValue}>{formatPercent(sounds.volume)}</span>
-          </div>
-        }
-        hint={t('volumeHint')}
-        label={t('volumeLabel')}
-      />
-
-      {SOUND_CATEGORIES.map((category) => (
+      <SettingsCard title={tCards('volume')}>
         <SettingRow
-          key={category}
+          stacked
           control={
-            <Switch
-              checked={sounds.enabled[category]}
-              onCheckedChange={() => toggleSound(category)}
-            />
+            <div className={s.sliderRow}>
+              <Slider
+                aria-label={t('volumeLabel')}
+                max={1}
+                min={0}
+                step={0.05}
+                value={sounds.volume}
+                onValueChange={(value) => setGroup('sounds', { volume: value as number })}
+              />
+              <span className={s.sliderValue}>{formatPercent(sounds.volume)}</span>
+            </div>
           }
-          hint={t(`${category}Hint`)}
-          label={t(category)}
+          hint={t('volumeHint')}
+          label={t('volumeLabel')}
         />
-      ))}
+      </SettingsCard>
+
+      <SettingsCard title={tCards('events')}>
+        {SOUND_CATEGORIES.map((category) => (
+          <SettingRow
+            key={category}
+            control={
+              <Switch
+                checked={sounds.enabled[category]}
+                onCheckedChange={() => toggleSound(category)}
+              />
+            }
+            hint={t(`${category}Hint`)}
+            label={t(category)}
+          />
+        ))}
+      </SettingsCard>
     </div>
   );
 };

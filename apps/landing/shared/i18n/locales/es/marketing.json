@@ -9,6 +9,7 @@
       "pages": {
         "features": "Funciones",
         "download": "Descargar",
+        "pricing": "Precios",
         "changelog": "Novedades",
         "about": "Acerca de",
         "support": "Soporte"
@@ -72,7 +73,7 @@
       "items": {
         "free": {
           "value": "$0",
-          "label": "Gratis, sin anuncios ni suscripciones"
+          "label": "Gratis, sin anuncios ni funciones de pago"
         },
         "unlimited": {
           "value": "∞",
@@ -132,7 +133,7 @@
       "items": {
         "free": {
           "question": "¿Chatovo es gratis?",
-          "answer": "Totalmente. No hay planes de pago, ni límite de duración en las llamadas, ni funciones escondidas tras una suscripción."
+          "answer": "Sí. Las salas, la voz, el vídeo, compartir pantalla y todas las demás funciones son gratis, sin límite de duración de las llamadas. Lo único de pago son adornos opcionales, como marcos de avatar, para quien quiera destacar y apoyar el proyecto."
         },
         "discord": {
           "question": "¿En qué se diferencia Chatovo de Discord?",
@@ -170,6 +171,7 @@
       "pages": {
         "features": "Funciones",
         "download": "Descargar",
+        "pricing": "Precios",
         "changelog": "Novedades",
         "about": "Acerca de",
         "support": "Soporte"
@@ -206,6 +208,26 @@
       "minor": "Versión regular"
     },
     "entries": {
+      "cosmeticsShop": {
+        "title": "Cosméticos opcionales para tu perfil",
+        "description": "Anillos de voz, marcos de avatar, degradados de nombre y fondos de tarjeta en ocho colecciones, con prueba antes de comprar. Todo lo demás sigue siendo gratis."
+      },
+      "badges": {
+        "title": "Insignias que se ganan",
+        "description": "Seis insignias con hasta ocho niveles cada una, visibles en tu tarjeta de perfil, con el progreso hacia el siguiente nivel."
+      },
+      "profilePopup": {
+        "title": "Tarjeta de perfil en la barra de usuario",
+        "description": "Haz clic en tu nombre en la esquina para abrir tu perfil, insignias y la tienda; encima aparece el juego al que juegas."
+      },
+      "settingsRedesign": {
+        "title": "Ajustes reorganizados",
+        "description": "Secciones agrupadas con subapartados, tarjetas en lugar de listas largas y, en el móvil, primero la lista y luego el detalle."
+      },
+      "authRedesign": {
+        "title": "Nueva página de acceso",
+        "description": "Una pantalla de acceso más tranquila sobre una ciudad nocturna que sigue al cursor."
+      },
       "vpnTunnel": {
         "title": "La VPN por aplicación ya funciona en Windows",
         "description": "Elige Chatovo en una VPN con túnel dividido, como Incy o WireSock, y la radio de YouTube y las vistas previas de enlaces cargarán a través de ella; la voz sigue yendo directa."
@@ -924,6 +946,8 @@
       }
     },
     "highlights": {
+      "cosmeticsShop": "Tienda de cosméticos",
+      "badges": "Insignias con niveles",
       "vpnTunnel": "VPN con túnel dividido en Windows",
       "adminChatHistory": "Los administradores ven todos los chats",
       "sessionLoop": "Sin recargas en bucle",
@@ -1415,7 +1439,7 @@
     "terms": "Términos del servicio",
     "privacyPage": {
       "title": "Política de privacidad",
-      "updated": "Última actualización: 2 de julio de 2026",
+      "updated": "Última actualización: 18 de noviembre de 2026",
       "sections": [
         {
           "heading": "Introducción",
@@ -1441,7 +1465,8 @@
             "Mensajes del chat: el texto que envías en las salas, metadatos del historial de ediciones y los archivos adjuntos que subes (imágenes y otros archivos de hasta 25 MB por adjunto).",
             "Voz y video: los flujos de audio y video se transmiten en tiempo real a través de LiveKit (WebRTC). No grabamos ni almacenamos de forma permanente el contenido de voz o video en nuestros servidores.",
             "Configuración del dispositivo y de la app almacenada localmente: token de autenticación, preferencias de audio y video, idioma, salas recientes y niveles de volumen por participante.",
-            "Solicitudes de soporte: cuando reportas un problema, podemos recibir tu mensaje, una captura de pantalla opcional y el identificador de tu cuenta."
+            "Solicitudes de soporte: cuando reportas un problema, podemos recibir tu mensaje, una captura de pantalla opcional y el identificador de tu cuenta.",
+            "Compras: el artículo comprado, su precio, el estado del pago y el identificador del pago en YooKassa. Los datos de la tarjeta se introducen en la página de YooKassa y nunca nos llegan."
           ]
         },
         {
@@ -1465,7 +1490,8 @@
             "LiveKit: canales de voz, video y datos en tiempo real.",
             "Proveedor de correo SMTP: envío de los correos de verificación y de restablecimiento de contraseña.",
             "Proveedores de alojamiento e infraestructura que operan nuestros servidores y bases de datos.",
-            "Google Play: distribución y actualizaciones de la app en Android (se aplican las políticas de Google Play)."
+            "Google Play: distribución y actualizaciones de la app en Android (se aplican las políticas de Google Play).",
+            "YooKassa (YooMoney): procesamiento de pagos de adornos opcionales. Si los recibos fiscales están activados, tu correo electrónico se envía a YooKassa para mandarte el recibo."
           ]
         },
         {
@@ -1521,7 +1547,7 @@
     },
     "termsPage": {
       "title": "Términos del servicio",
-      "updated": "Última actualización: 2 de julio de 2026",
+      "updated": "Última actualización: 18 de noviembre de 2026",
       "sections": [
         {
           "heading": "Aceptación",
@@ -1574,6 +1600,17 @@
           "paragraphs": [
             "La voz, el video y el chat de las salas se ofrecen en tiempo real. No garantizamos una disponibilidad ininterrumpida ni funciones de grabación, salvo que se ofrezcan de forma explícita.",
             "Las salas privadas con contraseña no garantizan una privacidad absoluta; actúa con prudencia al compartir información sensible."
+          ]
+        },
+        {
+          "heading": "Adornos de pago",
+          "paragraphs": [
+            "Chatovo es de uso gratuito. Los adornos de pago opcionales, como marcos de avatar y colores del anillo de voz, solo cambian cómo ven los demás tu perfil y no dan ninguna ventaja funcional.",
+            "Los pagos los procesa YooKassa (YooMoney). Nunca vemos ni guardamos los datos de tu tarjeta. Cada compra es un pago único por un artículo digital vinculado a tu cuenta, que sigue disponible mientras la cuenta exista.",
+            "Si el pago se realizó pero el artículo no apareció, o se te cobró por error, escribe a {contact} y te entregaremos el artículo o te devolveremos el pago. En los demás casos, los reembolsos se rigen por la ley de consumo que te sea aplicable.",
+            "Podemos dejar de vender un artículo, pero los que ya compraste siguen siendo tuyos. Si una cuenta se bloquea por incumplir estos Términos, sus artículos no se reembolsan.",
+            "Pagar un artículo supone aceptar estos Términos como oferta pública para ese artículo (art. 437–438 del Código Civil de la Federación de Rusia). El precio es el que se muestra en la app y en chatovo.ru/pricing en el momento del pago, en rublos.",
+            "El artículo se considera entregado cuando aparece en la cuenta."
           ]
         },
         {
@@ -1642,5 +1679,79 @@
     "storeAction": "Abrir",
     "googlePlay": "Google Play",
     "notAvailable": "Aún no disponible"
+  },
+  "pricing": {
+    "meta": {
+      "title": "Adornos y precios",
+      "description": "Chatovo es gratis. Adornos opcionales —anillos de voz, marcos de avatar, estilos de nombre y fondos de tarjeta— con precios y condiciones de pago y reembolso."
+    },
+    "hero": {
+      "eyebrow": "Adornos opcionales",
+      "title": "Destaca en la sala",
+      "description": "Chatovo es gratis y todas sus funciones siguen siéndolo. Los adornos solo cambian cómo te ven los demás: se compran una vez y se quedan en tu cuenta."
+    },
+    "sets": {
+      "heading": "Sets",
+      "description": "Cada set tiene cuatro artículos a juego. El set completo cuesta un 30% menos que por separado."
+    },
+    "table": {
+      "heading": "Precios de los artículos",
+      "description": "Cada artículo de un set también se puede comprar por separado. Precios en rublos con todos los impuestos incluidos.",
+      "item": "Artículo"
+    },
+    "rarity": {
+      "common": "Común",
+      "rare": "Raro",
+      "epic": "Épico",
+      "legendary": "Legendario"
+    },
+    "kindNames": {
+      "speakingRing": "Anillo de voz",
+      "avatarFrame": "Marco de avatar",
+      "nameStyle": "Estilo de nombre",
+      "tileBackground": "Fondo de tarjeta"
+    },
+    "kindHints": {
+      "speakingRing": "Brilla alrededor de tu avatar cuando hablas",
+      "avatarFrame": "Un marco alrededor de tu avatar en todas partes",
+      "nameStyle": "Un nombre degradado en salas y chat",
+      "tileBackground": "Un fondo de color tras tu tarjeta en la sala"
+    },
+    "steps": {
+      "heading": "Cómo funciona",
+      "description": "Las compras se hacen en la versión web y en la app de escritorio.",
+      "items": {
+        "choose": {
+          "title": "Elige",
+          "text": "Abre Ajustes → Apariencia en Chatovo y prueba cualquier artículo en tu propia tarjeta."
+        },
+        "pay": {
+          "title": "Paga",
+          "text": "El pago se hace con YooKassa. Los datos de la tarjeta se introducen en la página de YooKassa y nunca nos llegan."
+        },
+        "wear": {
+          "title": "Póntelo",
+          "text": "El artículo aparece en tu cuenta justo después del pago y te lo puedes poner al momento."
+        }
+      }
+    },
+    "payment": {
+      "methodsTitle": "Pago",
+      "methods": "Tarjetas bancarias (Mir, Visa, Mastercard), SBP, SberPay, T-Pay y YooMoney, a través de YooKassa. Un pago único: sin suscripciones ni cargos automáticos.",
+      "deliveryTitle": "Entrega",
+      "delivery": "Los artículos son digitales y aparecen automáticamente en tu cuenta de Chatovo en el minuto siguiente al pago. No se envía nada físico.",
+      "refundTitle": "Reembolsos",
+      "refund": "Si el pago se realizó pero el artículo no apareció, o se te cobró por error, te entregamos el artículo o te devolvemos el pago. Las condiciones completas están en los <terms>Términos de servicio</terms>."
+    },
+    "collections": {
+      "mint": "Menta",
+      "sunset": "Atardecer",
+      "ocean": "Océano",
+      "sakura": "Sakura",
+      "neon": "Neón",
+      "aurora": "Aurora",
+      "holo": "Holo",
+      "royal": "Real"
+    }
   }
 }

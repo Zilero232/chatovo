@@ -1,5 +1,5 @@
 import { Button } from '@chatovo/ui-kit';
-import { LogOut } from 'lucide-react';
+import { DoorOpen } from 'lucide-react';
 import { toast } from 'sonner';
 import { useTranslations } from 'use-intl';
 
@@ -39,7 +39,7 @@ export const LogoutButton = () => {
       variant='ghost'
       onClick={handleLogout}
     >
-      <LogOut aria-hidden />
+      <DoorOpen aria-hidden />
       <span className={s.logoutLabel}>{t('logout')}</span>
     </Button>
   );

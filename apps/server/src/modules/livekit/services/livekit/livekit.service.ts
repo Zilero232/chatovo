@@ -102,7 +102,8 @@ export class LivekitService {
   }
 
   private async buildAccessToken({ user, roomId, role, isInvisible }: BuildAccessTokenInput) {
-    const { name, verified, developer, profileUrl, avatarUrl, bannerColor } = toUserProfile(user);
+    const { name, verified, developer, profileUrl, avatarUrl, bannerColor, cosmetics } =
+      toUserProfile(user);
     const isMicLockedByModerator = !isInvisible && isMicLocked({ roomId, userId: user.id });
 
     const participantMetadata = {
@@ -111,6 +112,7 @@ export class LivekitService {
       profileUrl,
       avatarUrl,
       bannerColor,
+      cosmetics,
       role,
       invisible: isInvisible
     } satisfies ParticipantMetadata & { invisible: boolean };
@@ -133,7 +135,7 @@ export class LivekitService {
       ...(isMicLockedByModerator ? { canPublishSources: MIC_LOCKED_PUBLISH_SOURCES } : {}),
       canSubscribe: true,
       canPublishData: !isInvisible,
-      canUpdateOwnMetadata: true,
+      canUpdateOwnMetadata: false,
       roomAdmin: hasPermission({ role, permission: 'moderateAnyRoom' }),
       hidden: isInvisible
     });

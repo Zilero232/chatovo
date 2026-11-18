@@ -94,7 +94,7 @@ app.chatovo.ru {
 	}
 
 	# Site pages used to be served from this host too.
-	@site path /features /download /changelog /about /support /privacy /terms /en /en/*
+	@site path /features /download /changelog /about /support /pricing /privacy /terms /en /en/* /ru /ru/* /uk /uk/* /es /es/* /pt /pt/* /de /de/* /fr /fr/* /tr /tr/* /pl /pl/*
 	redir @site https://chatovo.ru{uri} permanent
 
 	handle {

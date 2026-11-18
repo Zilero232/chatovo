@@ -1,8 +1,6 @@
 import { cleanup } from '@testing-library/react';
 import { afterEach, vi } from 'vitest';
 
-import '@testing-library/jest-dom/vitest';
-
 window.matchMedia ??= ((query: string) => ({
   matches: false,
   media: query,

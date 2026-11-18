@@ -3,7 +3,12 @@ import type { RoomParticipant, RoomsParticipantsSnapshot } from '@chatovo/schema
 import { isDefined, pickBy } from 'remeda';
 
 import type { DmRoomPresence, PresenceSnapshots } from '../realtime';
-import type { FindRoomParticipantInput, MarkDmRoomInput, ParticipantPatch } from './livekit.types';
+import type {
+  FindRoomParticipantInput,
+  MarkDmRoomInput,
+  ParticipantPatch,
+  PatchParticipantProfileInput
+} from './livekit.types';
 
 import { emitPresenceSnapshot } from '../realtime';
 
@@ -128,6 +133,28 @@ export const patchParticipant = (roomId: string, identity: string, patch: Partic
   }
 
   participants.set(identity, next);
+
+  emit();
+};
+
+export const findParticipantRoomIds = (identity: string): string[] =>
+  [...rooms.entries()]
+    .filter(([, participants]) => participants.has(identity))
+    .map(([roomId]) => roomId);
+
+export const patchParticipantProfile = ({
+  roomId,
+  identity,
+  patch
+}: PatchParticipantProfileInput) => {
+  const participants = rooms.get(roomId);
+  const current = participants?.get(identity);
+
+  if (!participants || !current) {
+    return;
+  }
+
+  participants.set(identity, { ...current, ...patch });
 
   emit();
 };

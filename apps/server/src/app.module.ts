@@ -16,6 +16,7 @@ import { AppConfigModule } from './config/config.module';
 import { UPLOADS } from './config/uploads';
 import { env, PrismaModule } from './core';
 import { AuthModule } from './modules/auth';
+import { BadgesModule } from './modules/badges';
 import { ChatModule } from './modules/chat';
 import { FeedbackModule } from './modules/feedback';
 import { FriendsModule } from './modules/friends';
@@ -30,6 +31,7 @@ import { NotificationsModule } from './modules/notifications';
 import { PushModule } from './modules/push';
 import { RealtimeModule } from './modules/realtime';
 import { RoomsModule } from './modules/rooms';
+import { ShopModule } from './modules/shop';
 import { UPLOADS_DIR } from './modules/uploads';
 import { UsersModule } from './modules/users';
 
@@ -94,7 +96,9 @@ import { UsersModule } from './modules/users';
     ModerationModule,
     MusicModule,
     PushModule,
-    RealtimeModule
+    RealtimeModule,
+    ShopModule,
+    BadgesModule
   ],
   providers: [
     { provide: APP_FILTER, useClass: AllExceptionsFilter },

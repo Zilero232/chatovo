@@ -18,7 +18,8 @@ export const ParticipantMetadata = ({
 }: ParticipantMetadataProps) => {
   const tLobby = useTranslations('lobby.card');
 
-  const { micMuted, verified, developer, displayName } = useParticipantMedia(participant);
+  const { micMuted, verified, developer, displayName, nameStyle } =
+    useParticipantMedia(participant);
 
   return (
     <div className={s.metadata}>
@@ -36,6 +37,8 @@ export const ParticipantMetadata = ({
           <UserName
             className={s.name}
             developer={developer}
+            gradient={nameStyle?.colors}
+            gradientAnimated={nameStyle?.animated}
             name={displayName}
             verified={verified}
           />

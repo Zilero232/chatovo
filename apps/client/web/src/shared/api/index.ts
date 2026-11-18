@@ -13,6 +13,7 @@ export {
   updateAdminUser
 } from './admin';
 export { authClient, clearToken, getAuthToken, unwrapAuth } from './auth';
+export { getMyBadges, getUserBadges } from './badges';
 export {
   deleteChatMessage,
   editChatMessage,
@@ -68,4 +69,5 @@ export type {
   RoomParticipantAction,
   UnbanRoomUserInput
 } from './rooms';
+export { createShopOrder, equipCosmetic, getShopOrder, getShopState } from './shop';
 export { getUserProfile, listDevelopers, updateUserProfile } from './users';

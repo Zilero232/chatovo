@@ -91,7 +91,13 @@ export const apiErrorCodeSchema = z.enum([
   'IMAGE_NOT_FOUND',
   'IMAGE_SOURCE_NOT_ALLOWED',
 
-  'WEBHOOK_SIGNATURE_INVALID'
+  'WEBHOOK_SIGNATURE_INVALID',
+
+  'SHOP_DISABLED',
+  'COSMETIC_NOT_OWNED',
+  'COSMETIC_ALREADY_OWNED',
+  'SHOP_ORDER_NOT_FOUND',
+  'PAYMENT_PROVIDER_FAILED'
 ]);
 
 export const apiErrorSchema = z.object({

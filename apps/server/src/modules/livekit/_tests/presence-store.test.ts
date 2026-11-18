@@ -24,7 +24,8 @@ const participant = (identity: string, invisible = false): RoomParticipant => ({
   role: 'user',
   profileUrl: null,
   avatarUrl: null,
-  bannerColor: null
+  bannerColor: null,
+  cosmetics: { speakingRing: null, avatarFrame: null, nameStyle: null, tileBackground: null }
 });
 
 describe('presence snapshots', () => {

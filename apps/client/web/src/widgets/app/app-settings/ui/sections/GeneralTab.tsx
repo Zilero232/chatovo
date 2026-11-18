@@ -1,10 +1,11 @@
-import { Separator, Switch } from '@chatovo/ui-kit';
+import { Switch } from '@chatovo/ui-kit';
 import { useTranslations } from 'use-intl';
 
 import { LocaleSelect } from '@/entities/app/locale';
 import { useAppSettings } from '@/entities/app/settings';
 
 import { SettingRow } from '../components/SettingRow/SettingRow';
+import { SettingsCard } from '../components/SettingsCard/SettingsCard';
 
 import s from '../AppSettingsButton.module.scss';
 
@@ -14,20 +15,16 @@ export const GeneralTab = () => {
   const { settings, setGroup } = useAppSettings();
 
   return (
-    <div className={s.profilePanel}>
-      <section className={s.profileSection}>
+    <div className={s.tabPanel}>
+      <SettingsCard title={tLanguage('label')}>
         <SettingRow
           control={<LocaleSelect />}
           hint={t('languageDescription')}
           label={tLanguage('label')}
         />
-      </section>
+      </SettingsCard>
 
-      <Separator />
-
-      <section className={s.profileSection}>
-        <h3 className={s.profileSectionTitle}>{t('chat')}</h3>
-
+      <SettingsCard title={t('chat')}>
         <SettingRow
           control={
             <Switch
@@ -38,7 +35,7 @@ export const GeneralTab = () => {
           hint={t('filterProfanityHint')}
           label={t('filterProfanity')}
         />
-      </section>
+      </SettingsCard>
     </div>
   );
 };

@@ -1,6 +1,7 @@
-import type { UserProfile } from '@chatovo/schemas';
+import type { EquippedCosmetics, UserProfile } from '@chatovo/schemas';
 
-import { isNullish, isString } from 'remeda';
+import { equippedCosmeticsSchema } from '@chatovo/schemas';
+import { isNullish, isPlainObject, isString } from 'remeda';
 
 import type { Prisma } from '../../../generated';
 
@@ -14,6 +15,9 @@ const stripEmail = (value: string | null): string | null => {
 
   return resolveString(value.split('@')[0]);
 };
+
+export const parseEquippedCosmetics = (value: unknown): EquippedCosmetics =>
+  equippedCosmeticsSchema.parse(isPlainObject(value) ? value : {});
 
 export type UserWithProfile = Prisma.UserGetPayload<{ include: { profile: true } }>;
 
@@ -36,6 +40,7 @@ export const toUserProfile = (user: UserWithProfile): UserProfile => {
     profileUrl: resolveString(profile?.profileUrl),
     bannerColor: resolveString(profile?.bannerColor),
     bio: resolveString(profile?.bio),
+    cosmetics: parseEquippedCosmetics(profile?.cosmetics),
     verified,
     developer
   };

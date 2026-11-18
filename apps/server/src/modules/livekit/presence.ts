@@ -5,13 +5,23 @@ import { participantMetadataSchema, safeJsonParse } from '@chatovo/schemas';
 import { Logger } from '@nestjs/common';
 import { RoomServiceClient, TrackSource } from 'livekit-server-sdk';
 
-import type { RemoveRoomParticipantInput, SetParticipantMicLockInput } from './livekit.types';
+import type {
+  PatchParticipantMetadataInput,
+  PatchParticipantMetadataInRoomInput,
+  RemoveRoomParticipantInput,
+  SetParticipantMicLockInput
+} from './livekit.types';
 
 import { MIC_LOCKED_PUBLISH_SOURCES } from '../../config/livekit';
 import { getRoomLabel } from '../../lib';
 import { isInvisibleParticipant } from './lib';
 import { toRoomParticipant } from './mappers';
-import { markDmRoom, replaceRoom } from './presence-store';
+import {
+  findParticipantRoomIds,
+  markDmRoom,
+  patchParticipantProfile,
+  replaceRoom
+} from './presence-store';
 
 export {
   addLobbyConnection,
@@ -133,6 +143,41 @@ export const ejectParticipantEverywhere = async (identity: string): Promise<void
     const reason = error instanceof Error ? error.message : 'unknown error';
 
     logger.warn(`Failed to eject ${identity}: ${reason}`);
+  }
+};
+
+const patchParticipantMetadataInRoom = async ({
+  roomId,
+  identity,
+  patch
+}: PatchParticipantMetadataInRoomInput): Promise<void> => {
+  const service = roomServiceClient();
+  const { metadata } = await service.getParticipant(roomId, identity);
+  const current = safeJsonParse(metadata);
+  const base = typeof current === 'object' && current !== null ? current : {};
+
+  await service.updateParticipant(roomId, identity, {
+    metadata: JSON.stringify({ ...base, ...patch })
+  });
+};
+
+export const patchParticipantMetadataEverywhere = async ({
+  identity,
+  patch
+}: PatchParticipantMetadataInput): Promise<void> => {
+  const roomIds = findParticipantRoomIds(identity);
+
+  for (const roomId of roomIds) {
+    patchParticipantProfile({ roomId, identity, patch });
+  }
+
+  const results = await Promise.allSettled(
+    roomIds.map((roomId) => patchParticipantMetadataInRoom({ roomId, identity, patch }))
+  );
+  const failed = results.filter(({ status }) => status === 'rejected').length;
+
+  if (failed > 0) {
+    logger.warn(`Failed to update metadata of ${identity} in ${failed} room(s)`);
   }
 };
 

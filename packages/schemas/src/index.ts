@@ -35,6 +35,25 @@ export type {
   UserRole
 } from './auth';
 export {
+  BADGE_IDS,
+  BADGE_TIER_NAMES,
+  BADGE_TIERS,
+  badgeIdSchema,
+  badgeProgressListSchema,
+  badgeProgressSchema,
+  earnedBadgeListSchema,
+  earnedBadgeSchema,
+  getBadgeNextGoal,
+  getBadgeTier
+} from './badges';
+export type {
+  BadgeId,
+  BadgeProgress,
+  BadgeProgressList,
+  EarnedBadge,
+  EarnedBadgeList
+} from './badges';
+export {
   ATTACHMENT_MAX_BYTES,
   chatAttachmentSchema,
   chatCallLogSchema,
@@ -313,6 +332,59 @@ export type {
   RoomPasswordFormValues,
   UpdateRoomRequest
 } from './rooms';
+export {
+  BUNDLE_DISCOUNT,
+  BUNDLE_KEYS,
+  bundleKeySchema,
+  COLLECTION_IDS,
+  collectionIdSchema,
+  COLLECTIONS,
+  COSMETIC_KEYS,
+  COSMETIC_KINDS,
+  COSMETIC_PRICES,
+  COSMETIC_RARITIES,
+  cosmeticKeySchema,
+  cosmeticKindSchema,
+  cosmeticRaritySchema,
+  COSMETICS,
+  createShopOrderInputSchema,
+  equipCosmeticInputSchema,
+  equippedCosmeticSchema,
+  equippedCosmeticsSchema,
+  formatRubAmount,
+  getBundlePrice,
+  getCollectionItems,
+  getCollectionTotal,
+  isBundleKey,
+  resolveCosmetic,
+  resolveShopProduct,
+  SHOP_ORDER_QUERY_PARAM,
+  shopOrderIdParamSchema,
+  shopOrderSchema,
+  shopOrderStatusSchema,
+  shopProductKeySchema,
+  shopStateSchema,
+  toBundleCollection,
+  yookassaNotificationSchema
+} from './shop';
+export type {
+  BundleKey,
+  CollectionId,
+  CosmeticItem,
+  CosmeticKey,
+  CosmeticKind,
+  CosmeticRarity,
+  CreateShopOrderInput,
+  EquipCosmeticInput,
+  EquippedCosmetic,
+  EquippedCosmetics,
+  ShopOrder,
+  ShopOrderIdParam,
+  ShopOrderStatus,
+  ShopProductKey,
+  ShopState,
+  YookassaNotification
+} from './shop';
 export {
   AVATAR_MAX_BYTES,
   AVATAR_MAX_DIMENSION,

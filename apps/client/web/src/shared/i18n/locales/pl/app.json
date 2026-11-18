@@ -29,7 +29,6 @@
     "signedOut": "Wylogowano",
     "title": "Ustawienia",
     "open": "Otwórz ustawienia",
-    "description": "Twój profil, urządzenia, dźwięki i konto.",
     "tabs": {
       "profile": "Profil",
       "security": "Konto",
@@ -38,7 +37,9 @@
       "sounds": "Dźwięki",
       "general": "Ogólne",
       "system": "System",
-      "shortcuts": "Skróty klawiszowe"
+      "shortcuts": "Skróty klawiszowe",
+      "appearance": "Wygląd",
+      "badges": "Odznaki"
     },
     "profile": {
       "displayNameLabel": "Wyświetlana nazwa",
@@ -199,7 +200,42 @@
       "consequences": "Twój profil, pokoje, znajomi i urządzenia do powiadomień zostaną usunięte. Wiadomości zostaną, ale bez twojej nazwy.",
       "confirm": "Wyślij potwierdzenie",
       "cancel": "Anuluj"
-    }
+    },
+    "editProfile": "Edytuj profil",
+    "groups": {
+      "account": "Konto",
+      "customization": "Personalizacja",
+      "voice": "Głos i wideo",
+      "app": "Aplikacja"
+    },
+    "sections": {
+      "email": "E-mail",
+      "password": "Hasło",
+      "deleteAccount": "Usuwanie konta"
+    },
+    "hints": {
+      "profile": "Jak widzą Cię inni: nazwa, awatar, baner i opis.",
+      "security": "E-mail, hasło i usuwanie konta.",
+      "appearance": "Opcjonalne ozdoby, które widzą wszyscy w pokoju.",
+      "audio": "Mikrofon, głośniki i przetwarzanie głosu.",
+      "video": "Kamera i jakość udostępniania ekranu.",
+      "sounds": "Efekty dźwiękowe zdarzeń w pokoju.",
+      "general": "Język i zachowanie czatu.",
+      "system": "Zasobnik, tryb niewidzialny i aktywność w grach.",
+      "shortcuts": "Globalne skróty klawiszowe do rozmów.",
+      "badges": "Zdobywaj odznaki za rozmowy, znajomych i własne pokoje."
+    },
+    "cards": {
+      "devices": "Urządzenia",
+      "activation": "Tryb wejścia",
+      "sensitivity": "Czułość wejścia",
+      "processing": "Przetwarzanie głosu",
+      "camera": "Kamera",
+      "screen": "Udostępnianie ekranu",
+      "volume": "Głośność",
+      "events": "Dźwięki zdarzeń"
+    },
+    "back": "Wstecz"
   },
   "tray": {
     "status": {
@@ -315,5 +351,139 @@
     "description": "Powiadomienia o wiadomościach i połączeniach, nawet gdy aplikacja działa w tle.",
     "action": "Otwórz w Google Play",
     "dismiss": "Ukryj"
+  },
+  "shop": {
+    "paymentWaiting": "Czekamy na potwierdzenie płatności. Dokończ ją w przeglądarce, ta strona odświeży się sama.",
+    "disabled": "Zakupy są chwilowo niedostępne. Kupione przedmioty nadal działają.",
+    "ownerUnlocked": "Jesteś właścicielem: wszystkie przedmioty są odblokowane za darmo. Zakładaj, co chcesz.",
+    "paymentOpened": "Strona płatności otworzyła się w przeglądarce.",
+    "paymentSucceeded": "Płatność otrzymana. Przedmiot jest Twój.",
+    "paymentCanceled": "Płatność anulowana. Nic nie zostało pobrane.",
+    "paymentUnavailable": "Nie udało się otworzyć strony płatności. Spróbuj ponownie za minutę.",
+    "orderCheckFailed": "Nie udało się sprawdzić płatności. Jeśli pieniądze zostały pobrane, przedmiot pojawi się w ciągu kilku minut.",
+    "loadFailed": "Nie udało się wczytać sklepu",
+    "loadFailedHint": "Sprawdź połączenie i spróbuj ponownie.",
+    "retry": "Spróbuj ponownie",
+    "previewTitle": "Tak widzi Cię pokój",
+    "trying": "Przymierzanie",
+    "resetTryOn": "Resetuj",
+    "tryOn": "Przymierz",
+    "tryOnSet": "Przymierz zestaw",
+    "new": "Nowość",
+    "equip": "Załóż",
+    "unequip": "Zdejmij",
+    "bundleSave": "−{percent}%",
+    "bundleBuy": "Zestaw za {price}",
+    "categories": {
+      "bundles": "Zestawy",
+      "speakingRing": "Pierścienie",
+      "avatarFrame": "Ramki",
+      "nameStyle": "Nazwy",
+      "tileBackground": "Tła",
+      "owned": "Moje przedmioty"
+    },
+    "empty": {
+      "bundles": "Masz już część każdego zestawu",
+      "speakingRing": "Na razie nic tu nie ma",
+      "avatarFrame": "Na razie nic tu nie ma",
+      "nameStyle": "Na razie nic tu nie ma",
+      "tileBackground": "Na razie nic tu nie ma",
+      "owned": "Tu pojawią się Twoje ozdoby"
+    },
+    "rarity": {
+      "common": "Zwykły",
+      "rare": "Rzadki",
+      "epic": "Epicki",
+      "legendary": "Legendarny"
+    },
+    "collections": {
+      "mint": "Mięta",
+      "sunset": "Zachód",
+      "ocean": "Ocean",
+      "sakura": "Sakura",
+      "neon": "Neon",
+      "aurora": "Zorza",
+      "holo": "Holo",
+      "royal": "Królewski"
+    },
+    "taglines": {
+      "mint": "Świeżo i spokojnie, na co dzień",
+      "sunset": "Ciepły blask wieczoru",
+      "ocean": "Głęboki błękit",
+      "sakura": "Delikatny wiosenny kwiat",
+      "neon": "Ruchome światła nocnego miasta",
+      "aurora": "Zorza polarna w ruchu",
+      "holo": "Mieniący się holograficzny zestaw",
+      "royal": "Złoto i purpura dla królów"
+    }
+  },
+  "badges": {
+    "earned": "Twoje odznaki",
+    "available": "Do zdobycia",
+    "retry": "Spróbuj ponownie",
+    "loadFailed": "Nie udało się wczytać odznak",
+    "tier": "Poziom {tier}",
+    "notEarned": "Jeszcze nie zdobyta",
+    "remaining": "Jeszcze {left} do następnego poziomu",
+    "maxed": "Osiągnięto najwyższy poziom",
+    "items": {
+      "supporter": {
+        "name": "Wspierający",
+        "hint": "Wspieraj Chatovo w sklepie, aby podnieść poziom tej odznaki.",
+        "unit": "{count, plural, one {# zakup} few {# zakupy} many {# zakupów} other {# zakupu}}"
+      },
+      "veteran": {
+        "name": "Weteran",
+        "hint": "Zostań z Chatovo — poziom tej odznaki rośnie z czasem.",
+        "unit": "{count, plural, one {# dzień} few {# dni} many {# dni} other {# dnia}}"
+      },
+      "social": {
+        "name": "Towarzyski",
+        "hint": "Dodawaj znajomych, aby podnieść poziom tej odznaki.",
+        "unit": "{count, plural, one {# znajomy} few {# znajomych} many {# znajomych} other {# znajomego}}"
+      },
+      "chatter": {
+        "name": "Gaduła",
+        "hint": "Wysyłaj więcej wiadomości w pokojach i czatach, aby podnieść poziom tej odznaki.",
+        "unit": "{count, plural, one {# wiadomość} few {# wiadomości} many {# wiadomości} other {# wiadomości}}"
+      },
+      "host": {
+        "name": "Gospodarz",
+        "hint": "Twórz pokoje dla swoich, aby podnieść poziom tej odznaki.",
+        "unit": "{count, plural, one {# pokój} few {# pokoje} many {# pokoi} other {# pokoju}}"
+      },
+      "collector": {
+        "name": "Kolekcjoner",
+        "hint": "Zbieraj ozdoby, aby podnieść poziom tej odznaki.",
+        "unit": "{count, plural, one {# przedmiot} few {# przedmioty} many {# przedmiotów} other {# przedmiotu}}"
+      }
+    },
+    "intro": "Przeglądaj swoją kolekcję i sprawdzaj, jakie odznaki możesz jeszcze zdobyć.",
+    "progressTitle": "Twój postęp",
+    "tiers": {
+      "rookie": "Nowicjusz",
+      "amateur": "Amator",
+      "active": "Aktywny",
+      "adept": "Znawca",
+      "master": "Mistrz",
+      "expert": "Ekspert",
+      "star": "Gwiazda",
+      "legend": "Legenda"
+    }
+  },
+  "profileMenu": {
+    "open": "Otwórz swój profil",
+    "editProfile": "Edytuj profil",
+    "badges": "Odznaki",
+    "shop": "Sklep z ozdobami",
+    "new": "Nowość",
+    "myItems": "Moje ozdoby"
+  },
+  "gameActivity": {
+    "shared": "Widoczne w pokoju",
+    "hidden": "Nieudostępniane",
+    "share": "Pokazuj w pokoju",
+    "hide": "Ukryj w pokoju",
+    "settings": "Ustawienia aktywności"
   }
 }

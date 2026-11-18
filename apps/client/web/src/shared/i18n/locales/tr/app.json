@@ -29,7 +29,6 @@
     "signedOut": "Çıkış yapıldı",
     "title": "Ayarlar",
     "open": "Ayarları aç",
-    "description": "Profilin, cihazların, seslerin ve hesabın.",
     "tabs": {
       "profile": "Profil",
       "security": "Hesap",
@@ -38,7 +37,9 @@
       "sounds": "Efektler",
       "general": "Genel",
       "system": "Sistem",
-      "shortcuts": "Kısayollar"
+      "shortcuts": "Kısayollar",
+      "appearance": "Görünüm",
+      "badges": "Rozetler"
     },
     "profile": {
       "displayNameLabel": "Görünen ad",
@@ -199,7 +200,42 @@
       "consequences": "Profilin, odaların, arkadaşların ve bildirim cihazların silinir. Mesajların adın olmadan kalır.",
       "confirm": "Onay gönder",
       "cancel": "İptal"
-    }
+    },
+    "editProfile": "Profili düzenle",
+    "groups": {
+      "account": "Hesap",
+      "customization": "Kişiselleştirme",
+      "voice": "Ses ve görüntü",
+      "app": "Uygulama"
+    },
+    "sections": {
+      "email": "E-posta",
+      "password": "Şifre",
+      "deleteAccount": "Hesabı sil"
+    },
+    "hints": {
+      "profile": "Başkalarının seni nasıl gördüğü: ad, avatar, afiş ve hakkında.",
+      "security": "E-posta, şifre ve hesabın silinmesi.",
+      "appearance": "Odadaki herkesin gördüğü isteğe bağlı süsler.",
+      "audio": "Mikrofon, hoparlörler ve ses işleme.",
+      "video": "Kamera ve ekran paylaşımı kalitesi.",
+      "sounds": "Oda olayları için ses efektleri.",
+      "general": "Dil ve sohbet davranışı.",
+      "system": "Tepsi, görünmez mod ve oyun etkinliği.",
+      "shortcuts": "Aramalar için genel kısayol tuşları.",
+      "badges": "Sohbet ederek, arkadaş edinerek ve oda açarak rozet kazan."
+    },
+    "cards": {
+      "devices": "Cihazlar",
+      "activation": "Giriş modu",
+      "sensitivity": "Giriş hassasiyeti",
+      "processing": "Ses işleme",
+      "camera": "Kamera",
+      "screen": "Ekran paylaşımı",
+      "volume": "Ses düzeyi",
+      "events": "Olay sesleri"
+    },
+    "back": "Geri"
   },
   "tray": {
     "status": {
@@ -315,5 +351,139 @@
     "description": "Uygulama arka plandayken bile mesaj ve arama bildirimleri.",
     "action": "Google Play'de aç",
     "dismiss": "Gizle"
+  },
+  "shop": {
+    "paymentWaiting": "Ödeme onayı bekleniyor. Ödemeyi tarayıcıda tamamla, bu sayfa kendiliğinden güncellenir.",
+    "disabled": "Satın alımlar geçici olarak kullanılamıyor. Sahip olduğun öğeler çalışmaya devam ediyor.",
+    "ownerUnlocked": "Sahibisin: tüm öğeler ücretsiz açık. İstediğini kuşan.",
+    "paymentOpened": "Ödeme sayfası tarayıcında açıldı.",
+    "paymentSucceeded": "Ödeme alındı. Öğe artık senin.",
+    "paymentCanceled": "Ödeme iptal edildi. Hiçbir ücret alınmadı.",
+    "paymentUnavailable": "Ödeme sayfası açılamadı. Bir dakika sonra tekrar dene.",
+    "orderCheckFailed": "Ödeme kontrol edilemedi. Para çekildiyse öğe birkaç dakika içinde görünecek.",
+    "loadFailed": "Mağaza yüklenemedi",
+    "loadFailedHint": "Bağlantını kontrol edip tekrar dene.",
+    "retry": "Tekrar dene",
+    "previewTitle": "Odada böyle görünüyorsun",
+    "trying": "Deneniyor",
+    "resetTryOn": "Sıfırla",
+    "tryOn": "Dene",
+    "tryOnSet": "Seti dene",
+    "new": "Yeni",
+    "equip": "Kuşan",
+    "unequip": "Çıkar",
+    "bundleSave": "−%{percent}",
+    "bundleBuy": "Set {price}",
+    "categories": {
+      "bundles": "Setler",
+      "speakingRing": "Halkalar",
+      "avatarFrame": "Çerçeveler",
+      "nameStyle": "İsimler",
+      "tileBackground": "Arka planlar",
+      "owned": "Öğelerim"
+    },
+    "empty": {
+      "bundles": "Her setten zaten bir parçan var",
+      "speakingRing": "Burada henüz bir şey yok",
+      "avatarFrame": "Burada henüz bir şey yok",
+      "nameStyle": "Burada henüz bir şey yok",
+      "tileBackground": "Burada henüz bir şey yok",
+      "owned": "Süslerin burada görünecek"
+    },
+    "rarity": {
+      "common": "Sıradan",
+      "rare": "Nadir",
+      "epic": "Destansı",
+      "legendary": "Efsanevi"
+    },
+    "collections": {
+      "mint": "Nane",
+      "sunset": "Gün batımı",
+      "ocean": "Okyanus",
+      "sakura": "Sakura",
+      "neon": "Neon",
+      "aurora": "Kutup ışığı",
+      "holo": "Holo",
+      "royal": "Kraliyet"
+    },
+    "taglines": {
+      "mint": "Her gün için ferah ve sakin",
+      "sunset": "Akşamın sıcak ışıltısı",
+      "ocean": "Derin mavilik",
+      "sakura": "Narin bahar çiçekleri",
+      "neon": "Gece şehrinin hareketli ışıkları",
+      "aurora": "Hareket eden kutup ışıkları",
+      "holo": "Yanar döner holografik bir set",
+      "royal": "Krallara layık altın ve mor"
+    }
+  },
+  "badges": {
+    "earned": "Rozetlerin",
+    "available": "Kazanılabilir",
+    "retry": "Tekrar dene",
+    "loadFailed": "Rozetler yüklenemedi",
+    "tier": "Seviye {tier}",
+    "notEarned": "Henüz kazanılmadı",
+    "remaining": "Sonraki seviyeye {left} kaldı",
+    "maxed": "En üst seviyeye ulaşıldı",
+    "items": {
+      "supporter": {
+        "name": "Destekçi",
+        "hint": "Bu rozetin seviyesini yükseltmek için mağazada Chatovo’yu destekle.",
+        "unit": "{count, plural, one {# satın alma} other {# satın alma}}"
+      },
+      "veteran": {
+        "name": "Kıdemli",
+        "hint": "Chatovo’da kal: bu rozetin seviyesi zamanla yükselir.",
+        "unit": "{count, plural, one {# gün} other {# gün}}"
+      },
+      "social": {
+        "name": "Sosyal",
+        "hint": "Bu rozetin seviyesini yükseltmek için daha fazla arkadaş ekle.",
+        "unit": "{count, plural, one {# arkadaş} other {# arkadaş}}"
+      },
+      "chatter": {
+        "name": "Geveze",
+        "hint": "Bu rozetin seviyesini yükseltmek için odalarda ve sohbetlerde daha çok mesaj gönder.",
+        "unit": "{count, plural, one {# mesaj} other {# mesaj}}"
+      },
+      "host": {
+        "name": "Ev sahibi",
+        "hint": "Bu rozetin seviyesini yükseltmek için arkadaşlarına oda aç.",
+        "unit": "{count, plural, one {# oda} other {# oda}}"
+      },
+      "collector": {
+        "name": "Koleksiyoncu",
+        "hint": "Bu rozetin seviyesini yükseltmek için daha fazla süs topla.",
+        "unit": "{count, plural, one {# öğe} other {# öğe}}"
+      }
+    },
+    "intro": "Koleksiyonuna göz at ve sırada hangi rozetleri kazanabileceğini gör.",
+    "progressTitle": "İlerlemen",
+    "tiers": {
+      "rookie": "Çaylak",
+      "amateur": "Meraklı",
+      "active": "Aktif",
+      "adept": "Ehil",
+      "master": "Usta",
+      "expert": "Uzman",
+      "star": "Yıldız",
+      "legend": "Efsane"
+    }
+  },
+  "profileMenu": {
+    "open": "Profilini aç",
+    "editProfile": "Profili düzenle",
+    "badges": "Rozetler",
+    "shop": "Süs mağazası",
+    "new": "Yeni",
+    "myItems": "Süslerim"
+  },
+  "gameActivity": {
+    "shared": "Odanda görünüyor",
+    "hidden": "Paylaşılmıyor",
+    "share": "Odada göster",
+    "hide": "Odadan gizle",
+    "settings": "Etkinlik ayarları"
   }
 }

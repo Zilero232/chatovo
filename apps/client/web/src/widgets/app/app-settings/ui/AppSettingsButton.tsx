@@ -2,26 +2,19 @@ import {
   Button,
   Dialog,
   DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
   Tabs,
   TabsContent,
   Tooltip,
   TooltipContent
 } from '@chatovo/ui-kit';
-import { useBoolean } from '@siberiacancode/reactuse';
 import { clsx } from 'clsx';
 import { Settings } from 'lucide-react';
-import { useState } from 'react';
 import { useTranslations } from 'use-intl';
-
-import { useCurrentUser } from '@/entities/auth/user';
-import { isTauriDesktop } from '@/shared/lib';
 
 import type { SettingsTabId } from '../config';
 
-import { SETTINGS_TABS } from '../config';
+import { useSettingsDialog } from '../model/hooks';
+import { SettingsDetailHeader } from './components/SettingsDetailHeader/SettingsDetailHeader';
 import { SettingsSidebar } from './components/SettingsSidebar/SettingsSidebar';
 
 import s from './AppSettingsButton.module.scss';
@@ -29,14 +22,18 @@ import s from './AppSettingsButton.module.scss';
 export const AppSettingsButton = () => {
   const t = useTranslations('settings');
 
-  const { emailVerified, user } = useCurrentUser();
-
-  const [isOpen, toggleOpen] = useBoolean(false);
-  const [activeTab, setActiveTab] = useState<SettingsTabId>('profile');
-  const isDesktop = isTauriDesktop();
-
-  const needsEmailVerification = Boolean(user && !emailVerified);
-  const tabs = SETTINGS_TABS.filter((tab) => !tab.tauriDesktopOnly || isDesktop);
+  const {
+    isOpen,
+    activeTab,
+    view,
+    groups,
+    tabs,
+    needsEmailVerification,
+    setOpen,
+    selectTab,
+    backToList,
+    openSection
+  } = useSettingsDialog();
 
   return (
     <>
@@ -47,7 +44,7 @@ export const AppSettingsButton = () => {
           size='icon'
           type='button'
           variant='ghost'
-          onClick={() => toggleOpen(true)}
+          onClick={() => setOpen(true)}
         >
           <Settings />
           {needsEmailVerification && <span aria-hidden className={s.settingsAlertDot} />}
@@ -55,26 +52,32 @@ export const AppSettingsButton = () => {
         <TooltipContent>{t('title')}</TooltipContent>
       </Tooltip>
 
-      <Dialog open={isOpen} onOpenChange={toggleOpen}>
+      <Dialog open={isOpen} onOpenChange={setOpen}>
         <DialogContent className={s.content} popupClassName={s.popup}>
-          <DialogHeader>
-            <DialogTitle>{t('title')}</DialogTitle>
-            <DialogDescription>{t('description')}</DialogDescription>
-          </DialogHeader>
-
           <Tabs
             className={s.tabs}
+            data-view={view}
             orientation='vertical'
             value={activeTab}
-            onValueChange={(value) => setActiveTab(value as SettingsTabId)}
+            onValueChange={(value) => selectTab(value as SettingsTabId)}
           >
-            <SettingsSidebar needsEmailVerification={needsEmailVerification} tabs={tabs} />
+            <SettingsSidebar
+              activeTab={activeTab}
+              groups={groups}
+              needsEmailVerification={needsEmailVerification}
+              onOpenSection={openSection}
+              onSelectTab={selectTab}
+            />
 
-            {tabs.map((tab) => (
-              <TabsContent key={tab.id} className={s.tabsContent} value={tab.id}>
-                {tab.render({ jumpTo: setActiveTab })}
-              </TabsContent>
-            ))}
+            <div className={s.main}>
+              <SettingsDetailHeader activeTab={activeTab} onBack={backToList} />
+
+              {tabs.map((tab) => (
+                <TabsContent key={tab.id} className={s.tabsContent} value={tab.id}>
+                  {tab.render({ jumpTo: selectTab })}
+                </TabsContent>
+              ))}
+            </div>
           </Tabs>
         </DialogContent>
       </Dialog>

@@ -9,6 +9,7 @@
       "pages": {
         "features": "Funktionen",
         "download": "Download",
+        "pricing": "Preise",
         "changelog": "Changelog",
         "about": "Über uns",
         "support": "Support"
@@ -72,7 +73,7 @@
       "items": {
         "free": {
           "value": "0 €",
-          "label": "Kostenlos, ohne Werbung und ohne Abo"
+          "label": "Kostenlos, ohne Werbung und Bezahlfunktionen"
         },
         "unlimited": {
           "value": "∞",
@@ -132,7 +133,7 @@
       "items": {
         "free": {
           "question": "Ist Chatovo kostenlos?",
-          "answer": "Komplett. Es gibt keine kostenpflichtigen Tarife, kein Limit für die Gesprächsdauer und keine Funktionen hinter einem Abo."
+          "answer": "Ja. Räume, Sprache, Video, Bildschirmfreigabe und alle anderen Funktionen sind kostenlos, ohne Begrenzung der Gesprächsdauer. Kostenpflichtig sind nur optionale Extras wie Avatar-Rahmen – für alle, die auffallen und das Projekt unterstützen möchten."
         },
         "discord": {
           "question": "Was unterscheidet Chatovo von Discord?",
@@ -170,6 +171,7 @@
       "pages": {
         "features": "Funktionen",
         "download": "Download",
+        "pricing": "Preise",
         "changelog": "Changelog",
         "about": "Über uns",
         "support": "Support"
@@ -206,6 +208,26 @@
       "minor": "Reguläres Release"
     },
     "entries": {
+      "cosmeticsShop": {
+        "title": "Optionale Kosmetik für dein Profil",
+        "description": "Sprechringe, Avatarrahmen, Namensverläufe und Kachelhintergründe in acht Kollektionen, mit Anprobe vor dem Kauf. Alles andere bleibt kostenlos."
+      },
+      "badges": {
+        "title": "Abzeichen, die man sich verdient",
+        "description": "Sechs Abzeichen mit bis zu acht Stufen, sichtbar auf deiner Profilkarte, mit dem Fortschritt zur nächsten Stufe."
+      },
+      "profilePopup": {
+        "title": "Profilkarte in der Benutzerleiste",
+        "description": "Ein Klick auf deinen Namen in der Ecke öffnet Profil, Abzeichen und Shop; darüber steht das Spiel, das du gerade spielst."
+      },
+      "settingsRedesign": {
+        "title": "Einstellungen neu geordnet",
+        "description": "Gruppierte Bereiche mit Unterpunkten, Karten statt langer Listen und auf dem Handy erst die Liste, dann die Details."
+      },
+      "authRedesign": {
+        "title": "Neue Anmeldeseite",
+        "description": "Ein ruhigerer Anmeldebildschirm vor einer nächtlichen Stadt, die dem Cursor folgt."
+      },
       "vpnTunnel": {
         "title": "VPN pro App funktioniert jetzt unter Windows",
         "description": "Wähle Chatovo im Split-Tunneling deines VPNs wie Incy oder WireSock, dann laden YouTube-Radio und Link-Vorschauen darüber; Sprache läuft weiterhin direkt."
@@ -924,6 +946,8 @@
       }
     },
     "highlights": {
+      "cosmeticsShop": "Kosmetik-Shop",
+      "badges": "Abzeichen mit Stufen",
       "vpnTunnel": "Split-Tunnel-VPN unter Windows",
       "adminChatHistory": "Admins sehen jeden Chat",
       "sessionLoop": "Keine Neulade-Schleife mehr",
@@ -1415,7 +1439,7 @@
     "terms": "Nutzungsbedingungen",
     "privacyPage": {
       "title": "Datenschutzerklärung",
-      "updated": "Zuletzt aktualisiert: 2. Juli 2026",
+      "updated": "Zuletzt aktualisiert: 18. November 2026",
       "sections": [
         {
           "heading": "Einleitung",
@@ -1441,7 +1465,8 @@
             "Chatnachrichten: Text, den du in Räumen sendest, Metadaten zum Bearbeitungsverlauf und Dateianhänge, die du hochlädst (Bilder und andere Dateien bis zu 25 MB pro Anhang).",
             "Sprache und Video: Audio- und Videostreams werden in Echtzeit über LiveKit (WebRTC) übertragen. Wir zeichnen Sprach- oder Videoinhalte auf unseren Servern weder auf, noch speichern wir sie dauerhaft.",
             "Lokal gespeicherte Geräte- und App-Einstellungen: Authentifizierungstoken, Audio-/Video-Einstellungen, Spracheinstellung (Locale), letzte Räume und Lautstärkepegel pro Teilnehmer.",
-            "Support-Anfragen: Wenn du ein Problem meldest, erhalten wir unter Umständen deine Nachricht, einen optionalen Screenshot und deine Konto-Kennung."
+            "Support-Anfragen: Wenn du ein Problem meldest, erhalten wir unter Umständen deine Nachricht, einen optionalen Screenshot und deine Konto-Kennung.",
+            "Käufe: der gekaufte Gegenstand, sein Preis, der Zahlungsstatus und die Zahlungskennung bei YooKassa. Kartendaten werden auf der Seite von YooKassa eingegeben und erreichen uns nie."
           ]
         },
         {
@@ -1465,7 +1490,8 @@
             "LiveKit – Sprach-, Video- und Datenkanäle in Echtzeit.",
             "SMTP-E-Mail-Anbieter – Zustellung von E-Mails zur Bestätigung und zum Zurücksetzen des Passworts.",
             "Hosting- und Infrastrukturanbieter, die unsere Server und Datenbanken betreiben.",
-            "Google Play – Vertrieb und Updates der App unter Android (es gelten die Richtlinien von Google Play)."
+            "Google Play – Vertrieb und Updates der App unter Android (es gelten die Richtlinien von Google Play).",
+            "YooKassa (YooMoney) – Zahlungsabwicklung für optionale Extras. Sind Steuerbelege aktiviert, wird deine E-Mail-Adresse an YooKassa übermittelt, damit dir der Beleg zugeschickt werden kann."
           ]
         },
         {
@@ -1521,7 +1547,7 @@
     },
     "termsPage": {
       "title": "Nutzungsbedingungen",
-      "updated": "Zuletzt aktualisiert: 2. Juli 2026",
+      "updated": "Zuletzt aktualisiert: 18. November 2026",
       "sections": [
         {
           "heading": "Vereinbarung",
@@ -1574,6 +1600,17 @@
           "paragraphs": [
             "Sprache, Video und Chat in Räumen werden in Echtzeit bereitgestellt. Wir garantieren weder eine ununterbrochene Verfügbarkeit noch Aufnahmefunktionen, sofern diese nicht ausdrücklich angeboten werden.",
             "Private Räume mit Passwort sind keine Garantie für absolute Privatsphäre; sei umsichtig, wenn du sensible Informationen teilst."
+          ]
+        },
+        {
+          "heading": "Kostenpflichtige Extras",
+          "paragraphs": [
+            "Chatovo ist kostenlos nutzbar. Optionale kostenpflichtige Extras wie Avatar-Rahmen und Farben des Sprechrings ändern nur, wie dein Profil für andere aussieht, und bringen keinen funktionalen Vorteil.",
+            "Zahlungen werden von YooKassa (YooMoney) abgewickelt. Wir sehen und speichern deine Kartendaten nie. Jeder Kauf ist eine Einmalzahlung für einen digitalen Gegenstand, der an dein Konto gebunden ist und verfügbar bleibt, solange das Konto besteht.",
+            "Wurde die Zahlung ausgeführt, der Gegenstand ist aber nicht erschienen, oder wurdest du versehentlich belastet, schreibe an {contact} – wir liefern den Gegenstand nach oder erstatten die Zahlung. Ansonsten richten sich Erstattungen nach dem für dich geltenden Verbraucherrecht.",
+            "Wir können den Verkauf eines Gegenstands einstellen, bereits gekaufte Gegenstände bleiben aber deine. Wird ein Konto wegen Verstoßes gegen diese Bedingungen gesperrt, werden seine Gegenstände nicht erstattet.",
+            "Mit der Zahlung für einen Gegenstand nimmst du diese Bedingungen als öffentliches Angebot für diesen Gegenstand an (Art. 437–438 des Zivilgesetzbuchs der Russischen Föderation). Es gilt der Preis, der zum Zahlungszeitpunkt in der App und unter chatovo.ru/pricing in Rubel angezeigt wird.",
+            "Der Gegenstand gilt als geliefert, sobald er im Konto erscheint."
           ]
         },
         {
@@ -1642,5 +1679,79 @@
     "storeAction": "Öffnen",
     "googlePlay": "Google Play",
     "notAvailable": "Noch nicht verfügbar"
+  },
+  "pricing": {
+    "meta": {
+      "title": "Extras und Preise",
+      "description": "Chatovo ist kostenlos. Optionale Extras – Sprechringe, Avatar-Rahmen, Namensstile und Kachel-Hintergründe – mit Preisen sowie Zahlungs- und Erstattungsbedingungen."
+    },
+    "hero": {
+      "eyebrow": "Optionale Extras",
+      "title": "Fall im Raum auf",
+      "description": "Chatovo ist kostenlos, und alle Funktionen bleiben es. Extras ändern nur, wie dich andere sehen: Du kaufst sie einmal, und sie bleiben in deinem Konto."
+    },
+    "sets": {
+      "heading": "Sets",
+      "description": "Jedes Set hat vier passende Gegenstände. Ein ganzes Set kostet 30 % weniger als die Einzelteile."
+    },
+    "table": {
+      "heading": "Preise der Gegenstände",
+      "description": "Jeder Gegenstand eines Sets lässt sich auch einzeln kaufen. Preise in Rubel inklusive aller Steuern.",
+      "item": "Gegenstand"
+    },
+    "rarity": {
+      "common": "Gewöhnlich",
+      "rare": "Selten",
+      "epic": "Episch",
+      "legendary": "Legendär"
+    },
+    "kindNames": {
+      "speakingRing": "Sprechring",
+      "avatarFrame": "Avatar-Rahmen",
+      "nameStyle": "Namensstil",
+      "tileBackground": "Kachel-Hintergrund"
+    },
+    "kindHints": {
+      "speakingRing": "Leuchtet um deinen Avatar, während du sprichst",
+      "avatarFrame": "Ein Rahmen um deinen Avatar, überall",
+      "nameStyle": "Ein Verlaufsname in Räumen und im Chat",
+      "tileBackground": "Eine Farbfläche hinter deiner Kachel im Raum"
+    },
+    "steps": {
+      "heading": "So funktioniert es",
+      "description": "Käufe sind in der Web-Version und in der Desktop-App möglich.",
+      "items": {
+        "choose": {
+          "title": "Auswählen",
+          "text": "Öffne in Chatovo Einstellungen → Aussehen und probiere jeden Gegenstand an deiner eigenen Kachel an."
+        },
+        "pay": {
+          "title": "Bezahlen",
+          "text": "Die Zahlung läuft über YooKassa. Kartendaten gibst du auf der Seite von YooKassa ein, sie erreichen uns nie."
+        },
+        "wear": {
+          "title": "Anlegen",
+          "text": "Der Gegenstand erscheint direkt nach der Zahlung in deinem Konto und lässt sich sofort anlegen."
+        }
+      }
+    },
+    "payment": {
+      "methodsTitle": "Zahlung",
+      "methods": "Bankkarten (Mir, Visa, Mastercard), SBP, SberPay, T-Pay und YooMoney – über YooKassa. Eine Einmalzahlung: keine Abos und keine automatischen Abbuchungen.",
+      "deliveryTitle": "Lieferung",
+      "delivery": "Die Gegenstände sind digital und erscheinen innerhalb einer Minute nach der Zahlung automatisch in deinem Chatovo-Konto. Es wird nichts verschickt.",
+      "refundTitle": "Erstattung",
+      "refund": "Wurde die Zahlung ausgeführt, der Gegenstand ist aber nicht erschienen, oder wurdest du versehentlich belastet, liefern wir nach oder erstatten die Zahlung. Die vollständigen Bedingungen stehen in den <terms>Nutzungsbedingungen</terms>."
+    },
+    "collections": {
+      "mint": "Minze",
+      "sunset": "Abendrot",
+      "ocean": "Ozean",
+      "sakura": "Sakura",
+      "neon": "Neon",
+      "aurora": "Polarlicht",
+      "holo": "Holo",
+      "royal": "Königlich"
+    }
   }
 }

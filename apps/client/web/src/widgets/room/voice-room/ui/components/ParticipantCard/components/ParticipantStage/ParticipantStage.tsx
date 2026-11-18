@@ -1,5 +1,6 @@
 import { clsx } from 'clsx';
 
+import { CosmeticRing, CosmeticTile } from '@/entities/app/shop';
 import { UserAvatar } from '@/entities/auth/user';
 
 import type { ParticipantStageProps } from './ParticipantStage.types';
@@ -19,6 +20,9 @@ export const ParticipantStage = ({ participant }: ParticipantStageProps) => {
     isSpeaking,
     avatarUrl,
     bannerColor,
+    speakingRing,
+    avatarFrame,
+    tileBackground,
     displayName,
     isLocal,
     hasCamera,
@@ -45,6 +49,7 @@ export const ParticipantStage = ({ participant }: ParticipantStageProps) => {
     <div className={s.stage}>
       <div ref={setAudioStage} className={s.audioStage}>
         <span aria-hidden className={s.tint} style={getCardTint(bannerColor)} />
+        {tileBackground && <CosmeticTile item={tileBackground} />}
         <span
           aria-hidden
           className={clsx(s.avatarHalo, {
@@ -52,7 +57,8 @@ export const ParticipantStage = ({ participant }: ParticipantStageProps) => {
             [s.avatarHaloLocalSpeaking]: isLocal && isSpeaking
           })}
         />
-        <VoiceLevelRing speaking={isSpeaking} />
+        <VoiceLevelRing colors={speakingRing?.colors} speaking={isSpeaking} />
+        {avatarFrame && <CosmeticRing className={s.avatarFrame} item={avatarFrame} />}
 
         <UserAvatar
           className={clsx(s.avatar, { [s.avatarSpeaking]: isSpeaking })}

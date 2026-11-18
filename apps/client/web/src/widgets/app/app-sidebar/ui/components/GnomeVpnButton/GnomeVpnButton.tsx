@@ -14,6 +14,11 @@ export const GnomeVpnButton = ({ variant }: GnomeVpnButtonProps) => {
 
   return (
     <SidebarItem
+      badge={
+        <span aria-hidden className={s.ping}>
+          <span className={s.pingWave} />
+        </span>
+      }
       className={s.root}
       href={EXTERNAL_LINKS.gnomeVpn}
       icon={<ShieldCheck />}

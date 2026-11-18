@@ -9,7 +9,8 @@ export const permissionSchema = z.enum([
   'moderateAnyRoom',
   'invisible',
   'seeInvisible',
-  'bypassRoomBans'
+  'bypassRoomBans',
+  'unlockAllCosmetics'
 ]);
 
 export const USER_ROLE = userRoleSchema.enum;

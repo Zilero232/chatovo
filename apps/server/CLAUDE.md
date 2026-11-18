@@ -14,11 +14,11 @@ src/
 ├── core/          # Prisma: base-prisma (raw, for better-auth), PrismaService, PrismaModule (@Global)
 ├── common/        # decorators/ events/ exceptions/ filters/ guards/ notifications/
 ├── lib/           # cross-module guards and selects, one folder per function (assert-can-access-room, selectors…)
-└── modules/       # auth chat email feedback friends github health livekit moderation
-                   # notifications push realtime rooms telegram uploads users
+└── modules/       # auth badges chat email feedback friends github health livekit moderation
+                   # notifications push realtime rooms shop telegram uploads users
 prisma/
 ├── base.prisma    # generator + datasource
-├── schema/        # auth, profile, room, message, friendship, moderation, push
+├── schema/        # auth, profile, room, message, friendship, moderation, push, shop
 └── migrations/
 ```
 

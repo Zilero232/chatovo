@@ -8,6 +8,7 @@ export type MarketingMetaNamespace =
   | 'home.meta'
   | 'legal.privacyMeta'
   | 'legal.termsMeta'
+  | 'pricing.meta'
   | 'support.meta';
 
 export type MarketingMetadataInput = {

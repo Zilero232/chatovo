@@ -1,0 +1,56 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  --px: 0;
+  --py: 0;
+
+  position: fixed;
+  z-index: -1;
+  overflow: hidden;
+  background: #1b0f3d;
+  inset: 0;
+  pointer-events: none;
+}
+
+.sky,
+.city,
+.twinkles {
+  position: absolute;
+  inset: -3%;
+  transition: translate 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sky {
+  background: url('../../../assets/auth-sky.svg') center / cover no-repeat;
+  translate: calc(var(--px) * -18px) calc(var(--py) * -12px);
+}
+
+.twinkles {
+  translate: calc(var(--px) * -30px) calc(var(--py) * -20px);
+}
+
+.city {
+  background: url('../../../assets/auth-city.svg') center bottom / cover no-repeat;
+  translate: calc(var(--px) * -48px) calc(var(--py) * -10px);
+}
+
+.twinkle {
+  position: absolute;
+  width: rem(4);
+  height: rem(4);
+  animation: twinkle 3.6s ease-in-out infinite;
+  background: #fff;
+  box-shadow: 0 0 rem(8) rem(2) rgb(196 181 253 / 60%);
+  opacity: 0.2;
+
+  @include reduced-motion {
+    animation: none;
+  }
+}
+
+@keyframes twinkle {
+  50% {
+    opacity: 1;
+    scale: 1.6;
+  }
+}

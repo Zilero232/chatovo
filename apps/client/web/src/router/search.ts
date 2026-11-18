@@ -1,4 +1,4 @@
-import { FRIEND_CHAT_QUERY_PARAM } from '@chatovo/schemas';
+import { FRIEND_CHAT_QUERY_PARAM, SHOP_ORDER_QUERY_PARAM } from '@chatovo/schemas';
 import { z } from 'zod';
 
 const optionalParam = z.string().optional();
@@ -10,7 +10,8 @@ export const roomSearchSchema = z.object({
 });
 
 export const lobbySearchSchema = z.object({
-  [FRIEND_CHAT_QUERY_PARAM]: optionalParam
+  [FRIEND_CHAT_QUERY_PARAM]: optionalParam,
+  [SHOP_ORDER_QUERY_PARAM]: optionalParam
 });
 
 export const resetPasswordSearchSchema = z.object({

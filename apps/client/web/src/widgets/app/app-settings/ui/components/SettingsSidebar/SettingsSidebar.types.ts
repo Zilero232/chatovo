@@ -1,8 +1,9 @@
-import type { ReactNode } from 'react';
-
-import type { SettingsTabId } from '../../../config';
+import type { SettingsGroupConfig, SettingsSectionId, SettingsTabId } from '../../../config';
 
 export type SettingsSidebarProps = {
+  groups: SettingsGroupConfig[];
+  activeTab: SettingsTabId;
   needsEmailVerification: boolean;
-  tabs: { icon: ReactNode; id: SettingsTabId }[];
+  onSelectTab: (id: SettingsTabId) => void;
+  onOpenSection: (id: SettingsSectionId) => void;
 };

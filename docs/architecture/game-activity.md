@@ -8,7 +8,9 @@ A participant can share the name of the game they have running — games only, n
 apps/client/native/src/game_detection/     Rust — resolves a running process to a display name
 apps/client/web/src/features/app/game-activity/
 ├── api/detect-running-game.ts     invoke('detect_running_game'), null outside the desktop shell
-├── model/hooks/use-game-activity      polls via TanStack Query, gated on the setting
+├── model/hooks/use-running-game       polls via TanStack Query on desktop; local only, shown to you in the user bar
+├── model/hooks/use-game-activity      the running game when sharing is on, otherwise null
+├── ui/GameActivityCard                the "Playing X" card above the user bar with a share toggle
 └── model/hooks/use-game-activity-sync publishes the result into presence
 ```
 

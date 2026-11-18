@@ -4,7 +4,7 @@ Four fixed roles, ranked. Every check asks for a **permission**, never a role na
 
 | Rank | Role        | Permissions                                                                                  |
 | ---- | ----------- | -------------------------------------------------------------------------------------------- |
-| 3    | `owner`     | everything an admin has; untouchable                                                         |
+| 3    | `owner`     | everything an admin has + `unlockAllCosmetics` (every shop item free); untouchable                                                         |
 | 2    | `admin`     | `adminPanel`, `manageRoles`, `blockUsers` + everything a moderator has                       |
 | 1    | `moderator` | `moderateAnyRoom`, `invisible`, `seeInvisible`, `bypassRoomBans` — no admin panel            |
 | 0    | `user`      | none                                                                                         |

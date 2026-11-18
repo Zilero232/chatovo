@@ -11,6 +11,7 @@ export {
   getPresenceSnapshots,
   getSnapshot,
   hasRoomParticipants,
+  patchParticipantMetadataEverywhere,
   removeLobbyConnection,
   removeRoomParticipant,
   setParticipantMicLock,

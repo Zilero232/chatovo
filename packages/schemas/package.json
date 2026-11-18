@@ -18,6 +18,7 @@
   "exports": {
     ".": "./src/index.ts",
     "./auth": "./src/auth/index.ts",
+    "./badges": "./src/badges/index.ts",
     "./chat": "./src/chat/index.ts",
     "./errors": "./src/errors/index.ts",
     "./feedback": "./src/feedback/index.ts",
@@ -31,6 +32,7 @@
     "./push": "./src/push/index.ts",
     "./realtime": "./src/realtime/index.ts",
     "./rooms": "./src/rooms/index.ts",
+    "./shop": "./src/shop/index.ts",
     "./users": "./src/users/index.ts"
   },
   "main": "src/index.ts",

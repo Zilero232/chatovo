@@ -19,6 +19,7 @@ Design decisions — the "why" behind the code, and what has already gone wrong.
 - [architecture/images.md](architecture/images.md) — images without a framework optimizer: upload-time normalising, the `/images` resizer + the kit's `Image` loader, chat link previews, SSRF-safe outbound fetches.
 - [architecture/roles.md](architecture/roles.md) — owner > admin > moderator > user: permissions, the outrank rule, `OWNER_EMAIL`.
 - [architecture/developer-role.md](architecture/developer-role.md) — the `user.developer` flag: the Developers tab, the DEV badge, the contributors strip.
+- [architecture/shop-and-badges.md](architecture/shop-and-badges.md) — optional paid cosmetics (sets, rarity, try-on) paid through YooKassa, owner unlocks, the settings dialog layout and the earned badges.
 - [architecture/pitfalls.md](architecture/pitfalls.md) — things that have already bitten us.
 
 ## Guides

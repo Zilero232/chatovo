@@ -10,6 +10,7 @@ import type { AudioTabProps } from './AudioTab.types';
 
 import { MicTest } from '../../components/MicTest/MicTest';
 import { SettingRow } from '../../components/SettingRow/SettingRow';
+import { SettingsCard } from '../../components/SettingsCard/SettingsCard';
 import {
   AudioDevicesSection,
   AudioProcessingSection,
@@ -21,6 +22,7 @@ import s from '../../AppSettingsButton.module.scss';
 
 export const AudioTab = ({ onJumpToShortcuts }: AudioTabProps) => {
   const t = useTranslations('settings.audio');
+  const tCards = useTranslations('settings.cards');
   const { settings, setGroup } = useAppSettings();
 
   const isDesktop = isTauriDesktop();
@@ -41,33 +43,40 @@ export const AudioTab = ({ onJumpToShortcuts }: AudioTabProps) => {
 
   return (
     <div className={s.tabPanel}>
-      {isDesktop && (
-        <MicActivationSection
-          activationMode={audio.activationMode}
-          pttBindingMissing={pttBindingMissing}
-          onActivationModeChange={setActivationMode}
-          onJumpToShortcuts={onJumpToShortcuts}
+      <SettingsCard title={tCards('devices')}>
+        <AudioDevicesSection />
+        <SettingRow
+          stacked
+          control={<MicTest audio={audio} deviceId={settings.devices.audioInput} />}
+          hint={t('testMicHint')}
+          label={t('testMic')}
         />
-      )}
+      </SettingsCard>
 
-      <AudioDevicesSection />
+      {isDesktop && (
+        <SettingsCard title={tCards('activation')}>
+          <MicActivationSection
+            activationMode={audio.activationMode}
+            pttBindingMissing={pttBindingMissing}
+            onActivationModeChange={setActivationMode}
+            onJumpToShortcuts={onJumpToShortcuts}
+          />
+        </SettingsCard>
+      )}
 
       {showVoiceActivityControls && (
-        <SensitivitySection
-          audio={audio}
-          deviceId={settings.devices.audioInput}
-          onAutoSensitivityChange={(value) => setGroup('audio', { autoSensitivity: value })}
-        />
+        <SettingsCard title={tCards('sensitivity')}>
+          <SensitivitySection
+            audio={audio}
+            deviceId={settings.devices.audioInput}
+            onAutoSensitivityChange={(value) => setGroup('audio', { autoSensitivity: value })}
+          />
+        </SettingsCard>
       )}
 
-      <SettingRow
-        stacked
-        control={<MicTest audio={audio} deviceId={settings.devices.audioInput} />}
-        hint={t('testMicHint')}
-        label={t('testMic')}
-      />
-
-      <AudioProcessingSection audio={audio} onFlagChange={setFlag} />
+      <SettingsCard title={tCards('processing')}>
+        <AudioProcessingSection audio={audio} onFlagChange={setFlag} />
+      </SettingsCard>
     </div>
   );
 };
