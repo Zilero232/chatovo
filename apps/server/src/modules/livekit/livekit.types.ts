@@ -1,4 +1,4 @@
-import type { RoomParticipant, UserRole } from '@chatovo/schemas';
+import type { ParticipantMetadata, RoomParticipant, UserRole } from '@chatovo/schemas';
 import type { ParticipantInfo } from 'livekit-server-sdk';
 
 import type { Prisma } from '../../../generated';
@@ -64,4 +64,19 @@ export type BuildAccessTokenInput = {
   role: UserRole;
   roomId: string;
   user: Prisma.UserGetPayload<{ include: { profile: true } }>;
+};
+
+export type PatchParticipantMetadataInput = {
+  identity: string;
+  patch: Partial<ParticipantMetadata>;
+};
+
+export type PatchParticipantMetadataInRoomInput = PatchParticipantMetadataInput & {
+  roomId: string;
+};
+
+export type PatchParticipantProfileInput = {
+  roomId: string;
+  identity: string;
+  patch: Partial<ParticipantMetadata>;
 };

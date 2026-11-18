@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const envSchema = z.object({
+const baseEnvSchema = z.object({
   NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
   PORT: z.coerce.number().default(4000),
 
@@ -54,6 +54,19 @@ export const envSchema = z.object({
   // no notifications are sent.
   FIREBASE_SERVICE_ACCOUNT: z.string().min(1).optional(),
 
+  // Optional YooKassa shop for paid cosmetics. Leave both unset to disable the
+  // shop — the app keeps working and every item already bought stays equipped.
+  YOOKASSA_SHOP_ID: z.string().min(1).optional(),
+  YOOKASSA_SECRET_KEY: z.string().min(1).optional(),
+  // Where YooKassa sends the buyer after paying; the order id is appended as ?order=.
+  YOOKASSA_RETURN_URL: z.url().default('http://localhost:3000/lobby'),
+  // true = attach a 54-FZ receipt to every payment (required once fiscalisation
+  // is switched on in the YooKassa dashboard).
+  YOOKASSA_SEND_RECEIPT: z
+    .enum(['true', 'false'])
+    .default('false')
+    .transform((value) => value === 'true'),
+
   // Public origin where uploaded files are served from (e.g. https://api.chatovo.ru).
   // Used to build absolute URLs stored in the DB and returned to clients.
   PUBLIC_FILES_URL: z.url().default('http://localhost:4000'),
@@ -72,6 +85,20 @@ export const envSchema = z.object({
   // Comma-separated list of allowed CORS origins (web client domains).
   // Tauri origins are always allowed and don't need to be listed here.
   CORS_ORIGINS: z.string().default('http://localhost:3000')
+});
+
+export const envSchema = baseEnvSchema.superRefine((env, ctx) => {
+  const isShopEnabled = Boolean(env.YOOKASSA_SHOP_ID && env.YOOKASSA_SECRET_KEY);
+  const isLocalReturn = new URL(env.YOOKASSA_RETURN_URL).hostname === 'localhost';
+
+  if (env.NODE_ENV === 'production' && isShopEnabled && isLocalReturn) {
+    ctx.addIssue({
+      code: 'custom',
+      path: ['YOOKASSA_RETURN_URL'],
+      message:
+        'Set YOOKASSA_RETURN_URL to the public app URL when the shop is enabled in production'
+    });
+  }
 });
 
 export type Env = z.infer<typeof envSchema>;

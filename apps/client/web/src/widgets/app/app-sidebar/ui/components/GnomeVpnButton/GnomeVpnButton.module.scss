@@ -1,35 +1,97 @@
 @use '@chatovo/ui-kit/styles/mixins' as *;
 
-@keyframes vpnPulse {
+@keyframes vpn-glow {
   0%,
   100% {
-    border-color: color-mix(in srgb, var(--brand-cyan) 35%, transparent);
-    box-shadow: 0 0 0 0 color-mix(in srgb, var(--brand-mint) 0%, transparent);
+    border-color: color-mix(in srgb, var(--brand-cyan) 40%, transparent);
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--brand-mint) 45%, transparent);
   }
 
-  50% {
-    border-color: color-mix(in srgb, var(--brand-cyan) 70%, transparent);
+  60% {
+    border-color: color-mix(in srgb, var(--brand-mint) 85%, transparent);
+    box-shadow: 0 0 0 rem(7) color-mix(in srgb, var(--brand-mint) 0%, transparent);
+  }
+}
+
+@keyframes vpn-beat {
+  0%,
+  40%,
+  100% {
+    scale: 1;
+  }
+
+  10%,
+  30% {
+    scale: 1.18;
+  }
+
+  20% {
+    scale: 1.05;
+  }
+}
+
+@keyframes vpn-ping {
+  from {
+    opacity: 0.8;
+    scale: 1;
+  }
+
+  to {
+    opacity: 0;
+    scale: 2.6;
   }
 }
 
 .root {
   position: relative;
-  border: 1px solid color-mix(in srgb, var(--brand-cyan) 35%, transparent);
-  animation: vpnPulse 2.8s ease-in-out infinite;
-  background: color-mix(in srgb, var(--brand-cyan) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--brand-cyan) 40%, transparent);
+  animation: vpn-glow 2.2s ease-out infinite;
+  background: color-mix(in srgb, var(--brand-cyan) 12%, transparent);
   color: var(--brand-cyan);
 
+  svg {
+    animation: vpn-beat 2.2s ease-in-out infinite;
+    filter: drop-shadow(0 0 rem(4) color-mix(in srgb, var(--brand-mint) 70%, transparent));
+  }
+
   &:hover:not(:disabled) {
-    animation-play-state: paused;
-    background: color-mix(in srgb, var(--brand-cyan) 20%, transparent);
-    color: var(--brand-cyan);
+    background: color-mix(in srgb, var(--brand-cyan) 22%, transparent);
+    color: var(--brand-mint);
+
+    svg {
+      animation-play-state: paused;
+    }
   }
 
-  &:focus-visible {
-    animation-play-state: paused;
-  }
+  @include reduced-motion {
+    animation: none;
 
-  @media (prefers-reduced-motion: reduce) {
+    svg {
+      animation: none;
+    }
+  }
+}
+
+.ping {
+  position: absolute;
+  top: rem(2);
+  right: rem(2);
+  width: rem(8);
+  height: rem(8);
+  border-radius: 9999px;
+  background: var(--brand-mint);
+  box-shadow: 0 0 0 rem(2) var(--background);
+  pointer-events: none;
+}
+
+.pingWave {
+  position: absolute;
+  border-radius: inherit;
+  animation: vpn-ping 1.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+  background: var(--brand-mint);
+  inset: 0;
+
+  @include reduced-motion {
     animation: none;
   }
 }

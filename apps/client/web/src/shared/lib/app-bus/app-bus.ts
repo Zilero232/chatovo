@@ -15,6 +15,7 @@ type AppBusEvents = {
   recheckUpdate: undefined;
   secretGameOpen: undefined;
   sessionExpired: undefined;
+  settingsOpen: { tab: string };
   updateCheckSettled: undefined;
 };
 

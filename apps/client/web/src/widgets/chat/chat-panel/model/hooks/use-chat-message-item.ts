@@ -1,4 +1,4 @@
-import { canActOnRole, decodeChatAttachment } from '@chatovo/schemas';
+import { canActOnRole, decodeChatAttachment, resolveCosmetic } from '@chatovo/schemas';
 import { useState } from 'react';
 
 import { useCurrentUser } from '@/entities/auth/user';
@@ -35,7 +35,8 @@ export const useChatMessageItem = ({
   const author = message.from?.name || message.from?.identity || 'Guest';
   const identity = message.from?.identity ?? author;
 
-  const { verified, developer } = readParticipantMeta(message.from?.metadata);
+  const { verified, developer, cosmetics } = readParticipantMeta(message.from?.metadata);
+  const nameStyle = resolveCosmetic({ key: cosmetics.nameStyle, kind: 'nameStyle' });
 
   const isDeleted = Boolean(message.deletedAt);
   const attachment = !isDeleted ? decodeChatAttachment(message.message) : null;
@@ -61,6 +62,7 @@ export const useChatMessageItem = ({
     identity,
     verified,
     developer,
+    nameStyle,
     isDeleted,
     attachment,
     previewUrl,

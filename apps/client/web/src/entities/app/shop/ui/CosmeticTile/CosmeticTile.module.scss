@@ -1,0 +1,30 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  position: absolute;
+  background-image: var(--tile-gradient);
+  background-size: 100% 100%;
+  inset: 0;
+  mask-image: radial-gradient(circle at 50% 40%, rgb(0 0 0 / 70%), rgb(0 0 0 / 25%) 75%);
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.animated {
+  animation: tile-drift 12s ease-in-out infinite alternate;
+  background-size: 200% 200%;
+
+  @include reduced-motion {
+    animation: none;
+  }
+}
+
+@keyframes tile-drift {
+  from {
+    background-position: 0% 0%;
+  }
+
+  to {
+    background-position: 100% 100%;
+  }
+}

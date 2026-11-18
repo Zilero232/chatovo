@@ -9,6 +9,7 @@
       "pages": {
         "features": "Features",
         "download": "Download",
+        "pricing": "Pricing",
         "changelog": "Changelog",
         "about": "About",
         "support": "Support"
@@ -72,7 +73,7 @@
       "items": {
         "free": {
           "value": "$0",
-          "label": "Free, no ads and no subscriptions"
+          "label": "Free, no ads, no paywalled features"
         },
         "unlimited": {
           "value": "∞",
@@ -132,7 +133,7 @@
       "items": {
         "free": {
           "question": "Is Chatovo free?",
-          "answer": "Completely. There are no paid tiers, no limit on call length, and no features hidden behind a subscription."
+          "answer": "Yes. Rooms, voice, video, screen sharing and every other feature are free, with no limit on call length. The only paid things are optional cosmetics, like avatar frames, for anyone who wants to stand out and support the project."
         },
         "discord": {
           "question": "How is Chatovo different from Discord?",
@@ -170,6 +171,7 @@
       "pages": {
         "features": "Features",
         "download": "Download",
+        "pricing": "Pricing",
         "changelog": "Changelog",
         "about": "About",
         "support": "Support"
@@ -206,6 +208,26 @@
       "minor": "Regular release"
     },
     "entries": {
+      "cosmeticsShop": {
+        "title": "Optional cosmetics for your profile",
+        "description": "Speaking rings, avatar frames, name gradients and tile backgrounds in eight collections, with try-on before you buy. Everything else stays free."
+      },
+      "badges": {
+        "title": "Badges you earn",
+        "description": "Six badges with up to eight tiers each, shown on your profile card, with progress toward the next tier."
+      },
+      "profilePopup": {
+        "title": "Profile card from the user bar",
+        "description": "Click your name in the corner to open your profile, badges and the shop; the game you are playing shows above it."
+      },
+      "settingsRedesign": {
+        "title": "Settings, regrouped",
+        "description": "Grouped sections with sub-items, cards instead of long lists, and a list-then-detail layout on phones."
+      },
+      "authRedesign": {
+        "title": "A new sign-in page",
+        "description": "A calmer sign-in screen over a night city that follows the cursor."
+      },
       "vpnTunnel": {
         "title": "Per-app VPN now works on Windows",
         "description": "Pick Chatovo in a split-tunnel VPN such as Incy or WireSock and YouTube radio and link previews load through it; voice keeps going direct."
@@ -924,6 +946,8 @@
       }
     },
     "highlights": {
+      "cosmeticsShop": "Cosmetics shop",
+      "badges": "Badges with tiers",
       "vpnTunnel": "Split-tunnel VPN on Windows",
       "adminChatHistory": "Admins see every chat",
       "sessionLoop": "No more reload loop",
@@ -1415,7 +1439,7 @@
     "terms": "Terms of Service",
     "privacyPage": {
       "title": "Privacy Policy",
-      "updated": "Last updated: July 2, 2026",
+      "updated": "Last updated: November 18, 2026",
       "sections": [
         {
           "heading": "Introduction",
@@ -1441,7 +1465,8 @@
             "Chat messages: text you send in rooms, edit history metadata, and file attachments you upload (images and other files up to 25 MB per attachment).",
             "Voice and video: audio and video streams are transmitted in real time through LiveKit (WebRTC). We do not record or permanently store voice or video content on our servers.",
             "Device and app settings stored locally: authentication token, audio/video preferences, locale, recent rooms, and per-participant volume levels.",
-            "Support requests: when you report a problem, we may receive your message, optional screenshot, and account identifier."
+            "Support requests: when you report a problem, we may receive your message, optional screenshot, and account identifier.",
+            "Purchases: the item bought, its price, the payment status and the YooKassa payment identifier. Card details are entered on the YooKassa page and never reach us."
           ]
         },
         {
@@ -1465,7 +1490,8 @@
             "LiveKit — real-time voice, video, and data channels.",
             "SMTP email provider — delivery of verification and password reset emails.",
             "Hosting and infrastructure providers that operate our servers and databases.",
-            "Google Play — app distribution and updates on Android (Google Play policies apply)."
+            "Google Play — app distribution and updates on Android (Google Play policies apply).",
+            "YooKassa (YooMoney) — payment processing for optional cosmetics. When fiscal receipts are enabled, your email address is passed to YooKassa so the receipt can be sent to you."
           ]
         },
         {
@@ -1521,7 +1547,7 @@
     },
     "termsPage": {
       "title": "Terms of Service",
-      "updated": "Last updated: July 2, 2026",
+      "updated": "Last updated: November 18, 2026",
       "sections": [
         {
           "heading": "Agreement",
@@ -1574,6 +1600,17 @@
           "paragraphs": [
             "Voice, video, and chat in rooms are provided in real time. We do not guarantee uninterrupted availability or recording features unless explicitly offered.",
             "Private rooms with passwords are not a guarantee of absolute privacy; use discretion when sharing sensitive information."
+          ]
+        },
+        {
+          "heading": "Paid cosmetics",
+          "paragraphs": [
+            "Chatovo is free to use. Optional paid cosmetics, such as avatar frames and speaking-ring colours, only change how your profile looks to others and give no functional advantage.",
+            "Payments are processed by YooKassa (YooMoney). We never see or store your card details. Each purchase is a one-time payment for a digital item that is linked to your account and stays available while the account exists.",
+            "If a payment went through but the item did not appear, or you were charged by mistake, write to {contact} and we will deliver the item or refund the payment. Refunds otherwise follow the consumer law that applies to you.",
+            "We may stop selling an item, but items you already bought stay yours. If an account is blocked for breaking these Terms, its items are not refunded.",
+            "Paying for an item accepts these Terms as a public offer for that item (Art. 437–438 of the Civil Code of the Russian Federation). The price is the one shown in the app and at chatovo.ru/pricing at the moment of payment, in rubles.",
+            "The item counts as delivered once it appears in the account."
           ]
         },
         {
@@ -1642,5 +1679,79 @@
     "storeAction": "Open",
     "googlePlay": "Google Play",
     "notAvailable": "Not available yet"
+  },
+  "pricing": {
+    "meta": {
+      "title": "Cosmetics and prices",
+      "description": "Chatovo is free. Optional cosmetics — speaking rings, avatar frames, name styles and tile backgrounds — with prices, payment and refund terms."
+    },
+    "hero": {
+      "eyebrow": "Optional cosmetics",
+      "title": "Stand out in the room",
+      "description": "Chatovo is free and every feature stays free. Cosmetics only change how you look to others: they are bought once and stay with your account."
+    },
+    "sets": {
+      "heading": "Sets",
+      "description": "Each set has four matching items. A whole set costs 30% less than its parts."
+    },
+    "table": {
+      "heading": "Item prices",
+      "description": "Every set item can also be bought on its own. Prices are in rubles and include all taxes.",
+      "item": "Item"
+    },
+    "rarity": {
+      "common": "Common",
+      "rare": "Rare",
+      "epic": "Epic",
+      "legendary": "Legendary"
+    },
+    "kindNames": {
+      "speakingRing": "Speaking ring",
+      "avatarFrame": "Avatar frame",
+      "nameStyle": "Name style",
+      "tileBackground": "Tile background"
+    },
+    "kindHints": {
+      "speakingRing": "Glows around your avatar while you talk",
+      "avatarFrame": "A ring around your avatar everywhere",
+      "nameStyle": "A gradient name in rooms and chat",
+      "tileBackground": "A colour wash behind your room tile"
+    },
+    "steps": {
+      "heading": "How it works",
+      "description": "Purchases are made in the web app and the desktop app.",
+      "items": {
+        "choose": {
+          "title": "Choose",
+          "text": "Open Settings → Appearance in Chatovo and try any item on your own tile."
+        },
+        "pay": {
+          "title": "Pay",
+          "text": "Pay securely through YooKassa. Card details are entered on the YooKassa page and never reach us."
+        },
+        "wear": {
+          "title": "Wear",
+          "text": "The item appears in your account right after the payment and can be put on at once."
+        }
+      }
+    },
+    "payment": {
+      "methodsTitle": "Payment",
+      "methods": "Bank cards (Mir, Visa, Mastercard), SBP, SberPay, T-Pay and YooMoney — through YooKassa. A one-time payment; there are no subscriptions or automatic charges.",
+      "deliveryTitle": "Delivery",
+      "delivery": "Items are digital and delivered automatically to your Chatovo account within a minute after payment. Nothing is shipped.",
+      "refundTitle": "Refunds",
+      "refund": "If the payment went through but the item did not appear, or you were charged by mistake, we deliver the item or refund the payment. The full terms are in the <terms>Terms of Service</terms>."
+    },
+    "collections": {
+      "mint": "Mint",
+      "sunset": "Sunset",
+      "ocean": "Ocean",
+      "sakura": "Sakura",
+      "neon": "Neon",
+      "aurora": "Aurora",
+      "holo": "Holo",
+      "royal": "Royal"
+    }
   }
 }

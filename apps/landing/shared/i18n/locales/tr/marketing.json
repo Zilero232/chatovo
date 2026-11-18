@@ -9,6 +9,7 @@
       "pages": {
         "features": "Özellikler",
         "download": "İndir",
+        "pricing": "Fiyatlar",
         "changelog": "Yenilikler",
         "about": "Hakkında",
         "support": "Destek"
@@ -72,7 +73,7 @@
       "items": {
         "free": {
           "value": "0 ₺",
-          "label": "Ücretsiz, reklam ve abonelik yok"
+          "label": "Ücretsiz, reklamsız, ücretli özellik yok"
         },
         "unlimited": {
           "value": "∞",
@@ -132,7 +133,7 @@
       "items": {
         "free": {
           "question": "Chatovo ücretsiz mi?",
-          "answer": "Tamamen. Ücretli paket yok, görüşme süresi sınırı yok ve aboneliğin arkasına saklanmış hiçbir özellik yok."
+          "answer": "Evet. Odalar, ses, görüntü, ekran paylaşımı ve diğer tüm özellikler ücretsiz; görüşme süresinde sınır yok. Ücretli olan tek şey, öne çıkmak ve projeyi desteklemek isteyenler için avatar çerçeveleri gibi isteğe bağlı süsler."
         },
         "discord": {
           "question": "Chatovo'nun Discord'dan farkı ne?",
@@ -170,6 +171,7 @@
       "pages": {
         "features": "Özellikler",
         "download": "İndir",
+        "pricing": "Fiyatlar",
         "changelog": "Yenilikler",
         "about": "Hakkında",
         "support": "Destek"
@@ -206,6 +208,26 @@
       "minor": "Normal sürüm"
     },
     "entries": {
+      "cosmeticsShop": {
+        "title": "Profilin için isteğe bağlı kozmetikler",
+        "description": "Sekiz koleksiyonda konuşma halkaları, avatar çerçeveleri, isim gradyanları ve kutu arka planları; satın almadan önce deneyebilirsin. Geri kalan her şey ücretsiz."
+      },
+      "badges": {
+        "title": "Kazanılan rozetler",
+        "description": "Her biri sekiz seviyeye kadar çıkan altı rozet profil kartında görünür, yanında bir sonraki seviyeye ilerleme yer alır."
+      },
+      "profilePopup": {
+        "title": "Kullanıcı çubuğundan profil kartı",
+        "description": "Köşedeki adına tıklayarak profilini, rozetlerini ve mağazayı aç; üstünde oynadığın oyun görünür."
+      },
+      "settingsRedesign": {
+        "title": "Yeniden düzenlenen ayarlar",
+        "description": "Alt maddeli gruplar, uzun listeler yerine kartlar ve telefonda önce liste, sonra ayrıntı."
+      },
+      "authRedesign": {
+        "title": "Yeni giriş sayfası",
+        "description": "İmleci izleyen gece şehri üzerinde daha sakin bir giriş ekranı."
+      },
       "vpnTunnel": {
         "title": "Uygulama bazlı VPN artık Windows'ta çalışıyor",
         "description": "Incy veya WireSock gibi bir VPN'in bölünmüş tünelinde Chatovo'yu seçin; YouTube radyosu ve bağlantı önizlemeleri onun üzerinden yüklenir, ses yine doğrudan gider."
@@ -924,6 +946,8 @@
       }
     },
     "highlights": {
+      "cosmeticsShop": "Kozmetik mağazası",
+      "badges": "Seviyeli rozetler",
       "vpnTunnel": "Windows'ta bölünmüş tünel VPN",
       "adminChatHistory": "Yöneticiler tüm sohbetleri görür",
       "sessionLoop": "Yeniden yükleme döngüsü yok",
@@ -1415,7 +1439,7 @@
     "terms": "Hizmet Koşulları",
     "privacyPage": {
       "title": "Gizlilik Politikası",
-      "updated": "Son güncelleme: 2 Temmuz 2026",
+      "updated": "Son güncelleme: 18 Kasım 2026",
       "sections": [
         {
           "heading": "Giriş",
@@ -1441,7 +1465,8 @@
             "Sohbet mesajları: odalarda gönderdiğiniz metinler, düzenleme geçmişi meta verileri ve yüklediğiniz dosya ekleri (ek başına 25 MB'a kadar görseller ve diğer dosyalar).",
             "Ses ve görüntü: ses ve video akışları LiveKit (WebRTC) üzerinden gerçek zamanlı olarak iletilir. Ses veya görüntü içeriğini sunucularımızda kaydetmeyiz ya da kalıcı olarak saklamayız.",
             "Cihazda yerel olarak saklanan cihaz ve uygulama ayarları: kimlik doğrulama token'ı, ses/görüntü tercihleri, dil ayarı, son odalar ve katılımcı başına ses düzeyleri.",
-            "Destek talepleri: bir sorun bildirdiğinizde mesajınızı, isteğe bağlı ekran görüntünüzü ve hesap tanımlayıcınızı alabiliriz."
+            "Destek talepleri: bir sorun bildirdiğinizde mesajınızı, isteğe bağlı ekran görüntünüzü ve hesap tanımlayıcınızı alabiliriz.",
+            "Satın alımlar: satın alınan öğe, fiyatı, ödeme durumu ve YooKassa ödeme kimliği. Kart bilgileri YooKassa sayfasında girilir ve bize hiçbir zaman ulaşmaz."
           ]
         },
         {
@@ -1465,7 +1490,8 @@
             "LiveKit — gerçek zamanlı ses, görüntü ve veri kanalları.",
             "SMTP e-posta sağlayıcısı — doğrulama ve şifre sıfırlama e-postalarının iletilmesi.",
             "Sunucularımızı ve veritabanlarımızı işleten barındırma ve altyapı sağlayıcıları.",
-            "Google Play — Android'de uygulamanın dağıtımı ve güncellemeleri (Google Play politikaları geçerlidir)."
+            "Google Play — Android'de uygulamanın dağıtımı ve güncellemeleri (Google Play politikaları geçerlidir).",
+            "YooKassa (YooMoney) — isteğe bağlı süslerin ödemelerinin işlenmesi. Mali makbuzlar etkinse, makbuzun sana gönderilebilmesi için e-posta adresin YooKassa’ya iletilir."
           ]
         },
         {
@@ -1521,7 +1547,7 @@
     },
     "termsPage": {
       "title": "Hizmet Koşulları",
-      "updated": "Son güncelleme: 2 Temmuz 2026",
+      "updated": "Son güncelleme: 18 Kasım 2026",
       "sections": [
         {
           "heading": "Sözleşme",
@@ -1574,6 +1600,17 @@
           "paragraphs": [
             "Odalardaki ses, görüntü ve sohbet gerçek zamanlı olarak sağlanır. Açıkça sunulmadıkça kesintisiz erişilebilirliği veya kayıt özelliklerini garanti etmeyiz.",
             "Şifreli özel odalar mutlak gizliliğin garantisi değildir; hassas bilgileri paylaşırken dikkatli olun."
+          ]
+        },
+        {
+          "heading": "Ücretli süsler",
+          "paragraphs": [
+            "Chatovo ücretsiz kullanılır. Avatar çerçeveleri ve konuşma halkası renkleri gibi isteğe bağlı ücretli süsler yalnızca profilinin başkalarına nasıl göründüğünü değiştirir ve hiçbir işlevsel avantaj sağlamaz.",
+            "Ödemeler YooKassa (YooMoney) tarafından işlenir. Kart bilgilerini hiçbir zaman görmeyiz ve saklamayız. Her satın alma, hesabına bağlanan ve hesap var olduğu sürece kullanılabilen dijital bir öğe için tek seferlik bir ödemedir.",
+            "Ödeme gerçekleştiği halde öğe görünmediyse veya yanlışlıkla ücret alındıysa {contact} adresine yaz; öğeyi teslim eder ya da ödemeyi iade ederiz. Diğer durumlarda iadeler sana uygulanan tüketici mevzuatına tabidir.",
+            "Bir öğenin satışını durdurabiliriz, ancak satın aldığın öğeler senin kalır. Bu Koşulları ihlal ettiği için engellenen bir hesabın öğeleri iade edilmez.",
+            "Bir öğenin ödemesini yapmak, bu Koşulların o öğe için kamuya açık teklif olarak kabul edildiği anlamına gelir (Rusya Federasyonu Medeni Kanunu md. 437–438). Fiyat, ödeme anında uygulamada ve chatovo.ru/pricing sayfasında ruble olarak gösterilen fiyattır.",
+            "Öğe, hesapta göründüğü andan itibaren teslim edilmiş sayılır."
           ]
         },
         {
@@ -1642,5 +1679,79 @@
     "storeAction": "Aç",
     "googlePlay": "Google Play",
     "notAvailable": "Henüz mevcut değil"
+  },
+  "pricing": {
+    "meta": {
+      "title": "Süsler ve fiyatlar",
+      "description": "Chatovo ücretsiz. İsteğe bağlı süsler — konuşma halkaları, avatar çerçeveleri, isim stilleri ve kart arka planları — fiyatları, ödeme ve iade koşullarıyla."
+    },
+    "hero": {
+      "eyebrow": "İsteğe bağlı süsler",
+      "title": "Odada öne çık",
+      "description": "Chatovo ücretsiz ve tüm özellikler ücretsiz kalıyor. Süsler yalnızca başkalarının seni nasıl gördüğünü değiştirir: bir kez satın alınır ve hesabında kalır."
+    },
+    "sets": {
+      "heading": "Setler",
+      "description": "Her sette birbirine uyan dört öğe var. Setin tamamı, parçaların toplamından %30 daha ucuz."
+    },
+    "table": {
+      "heading": "Öğe fiyatları",
+      "description": "Bir setteki her öğe ayrı olarak da satın alınabilir. Fiyatlar ruble cinsindendir ve tüm vergiler dahildir.",
+      "item": "Öğe"
+    },
+    "rarity": {
+      "common": "Sıradan",
+      "rare": "Nadir",
+      "epic": "Destansı",
+      "legendary": "Efsanevi"
+    },
+    "kindNames": {
+      "speakingRing": "Konuşma halkası",
+      "avatarFrame": "Avatar çerçevesi",
+      "nameStyle": "İsim stili",
+      "tileBackground": "Kart arka planı"
+    },
+    "kindHints": {
+      "speakingRing": "Konuşurken avatarının etrafında parlar",
+      "avatarFrame": "Her yerde avatarının etrafında bir çerçeve",
+      "nameStyle": "Odalarda ve sohbette renk geçişli isim",
+      "tileBackground": "Odadaki kartının arkasında renkli bir zemin"
+    },
+    "steps": {
+      "heading": "Nasıl çalışır",
+      "description": "Satın alımlar web sürümünde ve masaüstü uygulamasında yapılır.",
+      "items": {
+        "choose": {
+          "title": "Seç",
+          "text": "Chatovo’da Ayarlar → Görünüm’ü aç ve herhangi bir öğeyi kendi kartında dene."
+        },
+        "pay": {
+          "title": "Öde",
+          "text": "Ödeme YooKassa üzerinden yapılır. Kart bilgileri YooKassa sayfasında girilir ve bize hiçbir zaman ulaşmaz."
+        },
+        "wear": {
+          "title": "Kuşan",
+          "text": "Öğe ödemeden hemen sonra hesabında görünür ve hemen kuşanılabilir."
+        }
+      }
+    },
+    "payment": {
+      "methodsTitle": "Ödeme",
+      "methods": "Banka kartları (Mir, Visa, Mastercard), SBP, SberPay, T-Pay ve YooMoney — YooKassa üzerinden. Tek seferlik ödeme: abonelik ya da otomatik ödeme yok.",
+      "deliveryTitle": "Teslimat",
+      "delivery": "Öğeler dijitaldir ve ödemeden sonraki bir dakika içinde Chatovo hesabında otomatik olarak görünür. Fiziksel bir gönderim yapılmaz.",
+      "refundTitle": "İade",
+      "refund": "Ödeme gerçekleştiği halde öğe görünmediyse veya yanlışlıkla ücret alındıysa öğeyi teslim eder ya da ödemeyi iade ederiz. Koşulların tamamı <terms>Kullanım Koşulları</terms> sayfasında."
+    },
+    "collections": {
+      "mint": "Nane",
+      "sunset": "Gün batımı",
+      "ocean": "Okyanus",
+      "sakura": "Sakura",
+      "neon": "Neon",
+      "aurora": "Kutup ışığı",
+      "holo": "Holo",
+      "royal": "Kraliyet"
+    }
   }
 }

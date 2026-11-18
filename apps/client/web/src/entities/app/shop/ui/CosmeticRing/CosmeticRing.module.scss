@@ -1,0 +1,24 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  overflow: visible;
+  pointer-events: none;
+}
+
+.ring {
+  stroke-width: 5;
+}
+
+.glow {
+  filter: blur(3px);
+  opacity: 0.55;
+  stroke-width: 7;
+}
+
+.animated {
+  animation: spin 6s linear infinite;
+
+  @include reduced-motion {
+    animation: none;
+  }
+}

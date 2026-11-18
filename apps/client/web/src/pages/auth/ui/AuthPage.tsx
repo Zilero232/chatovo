@@ -5,7 +5,14 @@ import { useEnterMotion } from '@/shared/hooks';
 
 import type { AuthMode } from '../model/types';
 
-import { AuthForm, AuthHeading, AuthLegalFooter, AuthModeSwitch, AuthScene } from './components';
+import {
+  AuthBackdrop,
+  AuthForm,
+  AuthHeading,
+  AuthLegalFooter,
+  AuthModeSwitch,
+  AuthPanel
+} from './components';
 
 import s from './AuthPage.module.scss';
 
@@ -16,16 +23,20 @@ export const AuthPage = () => {
 
   return (
     <div className={s.root}>
-      <AuthScene mode={mode} />
+      <AuthBackdrop />
 
       <motion.section className={s.card} {...enterMotion}>
-        <AuthHeading mode={mode} />
+        <div className={s.formColumn}>
+          <AuthHeading mode={mode} />
 
-        <AuthForm mode={mode} onModeChange={setMode} />
+          <AuthForm mode={mode} onModeChange={setMode} />
 
-        {mode !== 'forgot' && <AuthModeSwitch mode={mode} onModeChange={setMode} />}
+          {mode !== 'forgot' && <AuthModeSwitch mode={mode} onModeChange={setMode} />}
 
-        <AuthLegalFooter />
+          <AuthLegalFooter />
+        </div>
+
+        <AuthPanel mode={mode} />
       </motion.section>
     </div>
   );

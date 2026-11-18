@@ -1,0 +1,42 @@
+enum ShopOrderStatus {
+  pending
+  succeeded
+  canceled
+  refunded
+}
+
+model ShopOrder {
+  id String @id @default(dbgenerated("gen_random_uuid()"))
+
+  userId          String          @map("user_id")
+  productKey      String          @map("product_key")
+  amountRub       Int             @map("amount_rub")
+  status          ShopOrderStatus @default(pending)
+  paymentId       String?         @unique @map("payment_id")
+  confirmationUrl String?         @map("confirmation_url")
+
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  entitlements Entitlement[]
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  @@index([userId])
+  @@index([status, createdAt])
+  @@map("shop_orders")
+}
+
+model Entitlement {
+  userId     String  @map("user_id")
+  productKey String  @map("product_key")
+  orderId    String? @map("order_id")
+
+  user  User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  order ShopOrder? @relation(fields: [orderId], references: [id], onDelete: SetNull)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+
+  @@id([userId, productKey])
+  @@index([orderId])
+  @@map("entitlements")
+}

@@ -137,6 +137,14 @@
     outline-width var(--duration-instant) var(--timing-function-standard);
 }
 
+.avatarFrame {
+  position: absolute;
+  width: 30cqmin;
+  min-width: 3.5rem;
+  height: 30cqmin;
+  min-height: 3.5rem;
+}
+
 .avatarSpeaking {
   box-shadow:
     0 0 rem(22) rem(-2) color-mix(in srgb, var(--brand-mint) 80%, transparent),

@@ -49,8 +49,10 @@ list, and trigger shared sound effects that everyone in the room hears.
 
 ## Privacy and pricing
 
-${SITE.name} is free. There is no paid tier, no advertising and no usage limit on room size or
-call length. What data is stored, and why, is written out on the privacy page. The media itself
+${SITE.name} is free. Every feature — rooms, voice, video, screen sharing, chat — costs nothing,
+with no advertising and no usage limit on room size or call length. The only paid things are
+optional cosmetics, such as avatar frames and speaking-ring colours, bought once to stand out and
+support the project; they change how you look, never what you can do. What data is stored, and why, is written out on the privacy page. The media itself
 is relayed by a self-hosted LiveKit server rather than a third-party service.
 
 ## Technology
@@ -76,6 +78,7 @@ are public.
 - [Changelog](${url(ROUTES.changelog)}): every release since the first public version, with what changed in each.
 - [About](${url(ROUTES.about)}): the stack behind ${SITE.name}, the people who build it, and how to contribute.
 - [Support](${url(ROUTES.support)}): answers to common questions and how to reach the maintainers.
+- [Cosmetics and prices](${url(ROUTES.pricing)}): the optional paid cosmetics, their prices, payment, delivery and refunds.
 - [Privacy policy](${url(ROUTES.privacy)}): what data ${SITE.name} stores and why.
 - [Terms of service](${url(ROUTES.terms)}): the rules for using ${SITE.name}.
 

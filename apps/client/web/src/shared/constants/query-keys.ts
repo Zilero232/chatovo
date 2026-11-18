@@ -49,7 +49,19 @@ const friends = {
 };
 
 const users = {
+  userProfiles: () => ['user-profile'] as const,
   userProfile: (id: string) => ['user-profile', id] as const
+};
+
+const badges = {
+  myBadges: () => ['my-badges'] as const,
+  userBadgesRoot: () => ['user-badges'] as const,
+  userBadges: (userId: string) => ['user-badges', userId] as const
+};
+
+const shop = {
+  shopState: () => ['shop-state'] as const,
+  shopOrder: (orderId: string) => ['shop-order', orderId] as const
 };
 
 const meta = {
@@ -66,5 +78,7 @@ export const QUERY_KEYS = {
   ...chat,
   ...friends,
   ...users,
+  ...shop,
+  ...badges,
   ...meta
 };

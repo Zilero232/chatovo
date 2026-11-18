@@ -5,6 +5,7 @@ import { useAppSettings } from '@/entities/app/settings';
 import { isTauriDesktop } from '@/shared/lib';
 
 import { SettingRow } from '../components/SettingRow/SettingRow';
+import { SettingsCard } from '../components/SettingsCard/SettingsCard';
 
 import s from '../AppSettingsButton.module.scss';
 
@@ -18,31 +19,33 @@ export const SystemTab = () => {
 
   return (
     <div className={s.tabPanel}>
-      <SettingRow
-        control={
-          <Switch
-            checked={tray.closeToTray}
-            onCheckedChange={(value) =>
-              setGroup('system', { tray: { ...tray, closeToTray: value } })
-            }
-          />
-        }
-        hint={t('closeToTrayHint')}
-        label={t('closeToTray')}
-      />
-
-      {isDesktop && (
+      <SettingsCard>
         <SettingRow
           control={
             <Switch
-              checked={shareActivity}
-              onCheckedChange={(value) => setGroup('system', { shareActivity: value })}
+              checked={tray.closeToTray}
+              onCheckedChange={(value) =>
+                setGroup('system', { tray: { ...tray, closeToTray: value } })
+              }
             />
           }
-          hint={t('shareActivityHint')}
-          label={t('shareActivity')}
+          hint={t('closeToTrayHint')}
+          label={t('closeToTray')}
         />
-      )}
+
+        {isDesktop && (
+          <SettingRow
+            control={
+              <Switch
+                checked={shareActivity}
+                onCheckedChange={(value) => setGroup('system', { shareActivity: value })}
+              />
+            }
+            hint={t('shareActivityHint')}
+            label={t('shareActivity')}
+          />
+        )}
+      </SettingsCard>
     </div>
   );
 };

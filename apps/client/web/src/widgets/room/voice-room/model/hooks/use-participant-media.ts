@@ -1,5 +1,6 @@
 import type { Participant } from 'livekit-client';
 
+import { resolveCosmetic } from '@chatovo/schemas';
 import { useIsMuted, useParticipantInfo, useParticipantTracks } from '@livekit/components-react';
 import { Track } from 'livekit-client';
 import { isNonNullish } from 'remeda';
@@ -21,7 +22,7 @@ export const useParticipantMedia = (participant: Participant) => {
   const screenMuted = useIsMuted(screenTrack ?? { participant, source: Track.Source.ScreenShare });
 
   const { name, metadata } = useParticipantInfo({ participant });
-  const { verified, developer, avatarUrl, bannerColor } = readParticipantMeta(metadata);
+  const { verified, developer, avatarUrl, bannerColor, cosmetics } = readParticipantMeta(metadata);
 
   const isSpeaking = speaking && !micMuted;
   const hasCamera = isNonNullish(cameraTrack) && !cameraMuted;
@@ -36,6 +37,10 @@ export const useParticipantMedia = (participant: Participant) => {
     developer,
     avatarUrl,
     bannerColor,
+    speakingRing: resolveCosmetic({ key: cosmetics.speakingRing, kind: 'speakingRing' }),
+    avatarFrame: resolveCosmetic({ key: cosmetics.avatarFrame, kind: 'avatarFrame' }),
+    nameStyle: resolveCosmetic({ key: cosmetics.nameStyle, kind: 'nameStyle' }),
+    tileBackground: resolveCosmetic({ key: cosmetics.tileBackground, kind: 'tileBackground' }),
     displayName: name || participant.identity,
     isLocal: participant.isLocal,
     hasCamera,

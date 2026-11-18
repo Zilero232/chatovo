@@ -41,10 +41,10 @@ steamlocate = "2.1"
 [target.'cfg(windows)'.dependencies]
 windows-sys = { version = "0.61", features = ["Win32_Storage_FileSystem"] }
 # Same versions wry uses, so the WebView2 handles it hands out have matching types.
-webview2-com = "0.38"
+webview2-com = "0.39"
 # Reads the GOG and Game Bar game registries (src/game_detection).
 winreg = "0.56"
-windows-core = "0.61"
+windows-core = "0.62"
 # The loopback SOCKS5 relay the webview connects through (src/webview_proxy.rs); tauri already pulls tokio in.
 fast-socks5 = "1"
 tokio = { version = "1", features = ["net"] }

@@ -30,7 +30,9 @@
 }
 
 .avatarWrap {
+  position: relative;
   display: flex;
+  width: fit-content;
   padding-top: 0.25rem;
   margin-top: -2rem;
 }
@@ -39,6 +41,18 @@
   width: 4rem;
   height: 4rem;
   box-shadow: 0 0 0 rem(4) var(--background);
+}
+
+.avatarFrame {
+  position: absolute;
+  top: calc(0.25rem - 0.5rem);
+  left: -0.5rem;
+  width: 5rem;
+  height: 5rem;
+}
+
+.badges {
+  align-self: flex-start;
 }
 
 .identity {

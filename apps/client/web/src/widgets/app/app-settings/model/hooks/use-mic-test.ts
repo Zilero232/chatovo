@@ -54,10 +54,7 @@ export const useMicTest = ({ deviceId, audio }: MicTestArgs): UseMicTest => {
       }
     },
     onError: () => setError(true),
-    onStop: () => {
-      stopSink();
-      setIsLoopback(false);
-    }
+    onStop: stopSink
   });
 
   const toggleLoopback = () => {

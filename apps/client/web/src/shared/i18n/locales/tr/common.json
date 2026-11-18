@@ -92,7 +92,12 @@
     "ABUSE_ALREADY_REPORTED": "Bunu zaten bildirdin",
     "BLOCK_SELF": "Kendini engelleyemezsin",
     "ROLE_PROTECTED": "Bu kişinin rolü seninkiyle aynı ya da daha yüksek.",
-    "ROLE_NOT_ASSIGNABLE": "Bu rolü veremezsin."
+    "ROLE_NOT_ASSIGNABLE": "Bu rolü veremezsin.",
+    "SHOP_DISABLED": "Satın alımlar geçici olarak kullanılamıyor.",
+    "COSMETIC_NOT_OWNED": "Bu öğeye henüz sahip değilsin.",
+    "COSMETIC_ALREADY_OWNED": "Bu öğeye zaten sahipsin.",
+    "SHOP_ORDER_NOT_FOUND": "Sipariş bulunamadı.",
+    "PAYMENT_PROVIDER_FAILED": "Ödeme hizmeti yanıt vermedi. Bir dakika sonra tekrar dene."
   },
   "language": {
     "label": "Dil"

@@ -39,6 +39,11 @@ describe('hasPermission', () => {
 });
 
 describe('canActOnRole', () => {
+  it('unlocks every cosmetic for the owner alone', () => {
+    expect(hasPermission({ role: 'owner', permission: 'unlockAllCosmetics' })).toBe(true);
+    expect(hasPermission({ role: 'admin', permission: 'unlockAllCosmetics' })).toBe(false);
+  });
+
   it('lets a room owner without a staff role act on a plain user', () => {
     expect(canActOnRole({ actorRole: 'user', targetRole: 'user' })).toBe(true);
   });

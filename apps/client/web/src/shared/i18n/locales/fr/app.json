@@ -29,7 +29,6 @@
     "signedOut": "Déconnecté",
     "title": "Paramètres",
     "open": "Ouvrir les paramètres",
-    "description": "Ton profil, tes appareils, les sons et ton compte.",
     "tabs": {
       "profile": "Profil",
       "security": "Compte",
@@ -38,7 +37,9 @@
       "sounds": "Sons",
       "general": "Général",
       "system": "Système",
-      "shortcuts": "Raccourcis"
+      "shortcuts": "Raccourcis",
+      "appearance": "Apparence",
+      "badges": "Badges"
     },
     "profile": {
       "displayNameLabel": "Nom affiché",
@@ -199,7 +200,42 @@
       "consequences": "Ton profil, tes salons, tes amis et tes appareils de notification sont supprimés. Tes messages restent, sans ton nom.",
       "confirm": "Envoyer la confirmation",
       "cancel": "Annuler"
-    }
+    },
+    "editProfile": "Modifier le profil",
+    "groups": {
+      "account": "Compte",
+      "customization": "Personnalisation",
+      "voice": "Voix et vidéo",
+      "app": "Application"
+    },
+    "sections": {
+      "email": "E-mail",
+      "password": "Mot de passe",
+      "deleteAccount": "Supprimer le compte"
+    },
+    "hints": {
+      "profile": "Comment les autres vous voient : nom, avatar, bannière et bio.",
+      "security": "E-mail, mot de passe et suppression du compte.",
+      "appearance": "Des décorations facultatives visibles par tout le salon.",
+      "audio": "Micro, haut-parleurs et traitement de la voix.",
+      "video": "Caméra et qualité du partage d’écran.",
+      "sounds": "Effets sonores des événements du salon.",
+      "general": "Langue et comportement du chat.",
+      "system": "Zone de notification, mode invisible et activité de jeu.",
+      "shortcuts": "Raccourcis globaux pour les appels.",
+      "badges": "Gagnez des badges en discutant, en vous faisant des amis et en créant des salons."
+    },
+    "cards": {
+      "devices": "Appareils",
+      "activation": "Mode d’entrée",
+      "sensitivity": "Sensibilité d’entrée",
+      "processing": "Traitement de la voix",
+      "camera": "Caméra",
+      "screen": "Partage d’écran",
+      "volume": "Volume",
+      "events": "Sons des événements"
+    },
+    "back": "Retour"
   },
   "tray": {
     "status": {
@@ -315,5 +351,139 @@
     "description": "Notifications de messages et d'appels, même quand l'app est en arrière-plan.",
     "action": "Ouvrir dans Google Play",
     "dismiss": "Masquer"
+  },
+  "shop": {
+    "paymentWaiting": "En attente de la confirmation du paiement. Terminez-le dans le navigateur : cette page se met à jour toute seule.",
+    "disabled": "Les achats sont temporairement indisponibles. Les objets déjà achetés continuent de fonctionner.",
+    "ownerUnlocked": "Vous êtes le propriétaire : tous les objets sont débloqués gratuitement. Portez ce que vous voulez.",
+    "paymentOpened": "La page de paiement s’est ouverte dans votre navigateur.",
+    "paymentSucceeded": "Paiement reçu. L’objet est à vous.",
+    "paymentCanceled": "Le paiement a été annulé. Rien n’a été débité.",
+    "paymentUnavailable": "Impossible d’ouvrir la page de paiement. Réessayez dans une minute.",
+    "orderCheckFailed": "Impossible de vérifier le paiement. Si de l’argent a été débité, l’objet apparaîtra d’ici quelques minutes.",
+    "loadFailed": "Impossible de charger la boutique",
+    "loadFailedHint": "Vérifiez votre connexion et réessayez.",
+    "retry": "Réessayer",
+    "previewTitle": "Comment le salon vous voit",
+    "trying": "Essayage",
+    "resetTryOn": "Réinitialiser",
+    "tryOn": "Essayer",
+    "tryOnSet": "Essayer l’ensemble",
+    "new": "Nouveau",
+    "equip": "Porter",
+    "unequip": "Retirer",
+    "bundleSave": "−{percent} %",
+    "bundleBuy": "Ensemble à {price}",
+    "categories": {
+      "bundles": "Ensembles",
+      "speakingRing": "Anneaux",
+      "avatarFrame": "Cadres",
+      "nameStyle": "Pseudos",
+      "tileBackground": "Fonds",
+      "owned": "Mes objets"
+    },
+    "empty": {
+      "bundles": "Vous avez déjà une pièce de chaque ensemble",
+      "speakingRing": "Rien ici pour le moment",
+      "avatarFrame": "Rien ici pour le moment",
+      "nameStyle": "Rien ici pour le moment",
+      "tileBackground": "Rien ici pour le moment",
+      "owned": "Vos décorations apparaîtront ici"
+    },
+    "rarity": {
+      "common": "Commun",
+      "rare": "Rare",
+      "epic": "Épique",
+      "legendary": "Légendaire"
+    },
+    "collections": {
+      "mint": "Menthe",
+      "sunset": "Crépuscule",
+      "ocean": "Océan",
+      "sakura": "Sakura",
+      "neon": "Néon",
+      "aurora": "Aurore",
+      "holo": "Holo",
+      "royal": "Royal"
+    },
+    "taglines": {
+      "mint": "Frais et calme, pour tous les jours",
+      "sunset": "La douce lueur du soir",
+      "ocean": "Un bleu profond",
+      "sakura": "Une tendre floraison de printemps",
+      "neon": "Les lumières mouvantes de la ville la nuit",
+      "aurora": "Des aurores boréales en mouvement",
+      "holo": "Un ensemble holographique irisé",
+      "royal": "Or et pourpre pour la royauté"
+    }
+  },
+  "badges": {
+    "earned": "Vos badges",
+    "available": "À obtenir",
+    "retry": "Réessayer",
+    "loadFailed": "Impossible de charger les badges",
+    "tier": "Niveau {tier}",
+    "notEarned": "Pas encore obtenu",
+    "remaining": "Encore {left} avant le niveau suivant",
+    "maxed": "Niveau maximum atteint",
+    "items": {
+      "supporter": {
+        "name": "Soutien",
+        "hint": "Soutenez Chatovo dans la boutique pour faire monter ce badge de niveau.",
+        "unit": "{count, plural, one {# achat} other {# achats}}"
+      },
+      "veteran": {
+        "name": "Vétéran",
+        "hint": "Restez sur Chatovo : ce badge monte de niveau avec le temps.",
+        "unit": "{count, plural, one {# jour} other {# jours}}"
+      },
+      "social": {
+        "name": "Sociable",
+        "hint": "Ajoutez plus d’amis pour faire monter ce badge de niveau.",
+        "unit": "{count, plural, one {# ami} other {# amis}}"
+      },
+      "chatter": {
+        "name": "Bavard",
+        "hint": "Envoyez plus de messages dans les salons et les chats pour faire monter ce badge de niveau.",
+        "unit": "{count, plural, one {# message envoyé} other {# messages envoyés}}"
+      },
+      "host": {
+        "name": "Hôte",
+        "hint": "Créez des salons pour vos proches pour faire monter ce badge de niveau.",
+        "unit": "{count, plural, one {# salon} other {# salons}}"
+      },
+      "collector": {
+        "name": "Collectionneur",
+        "hint": "Collectionnez plus de décorations pour faire monter ce badge de niveau.",
+        "unit": "{count, plural, one {# objet} other {# objets}}"
+      }
+    },
+    "intro": "Parcourez votre collection et découvrez les badges que vous pouvez encore obtenir.",
+    "progressTitle": "Votre progression",
+    "tiers": {
+      "rookie": "Débutant",
+      "amateur": "Amateur",
+      "active": "Actif",
+      "adept": "Connaisseur",
+      "master": "Maître",
+      "expert": "Expert",
+      "star": "Star",
+      "legend": "Légende"
+    }
+  },
+  "profileMenu": {
+    "open": "Ouvrir votre profil",
+    "editProfile": "Modifier le profil",
+    "badges": "Badges",
+    "shop": "Boutique de décorations",
+    "new": "Nouveau",
+    "myItems": "Mes décorations"
+  },
+  "gameActivity": {
+    "shared": "Visible dans votre salon",
+    "hidden": "Non partagé",
+    "share": "Afficher dans le salon",
+    "hide": "Masquer du salon",
+    "settings": "Réglages de l’activité"
   }
 }

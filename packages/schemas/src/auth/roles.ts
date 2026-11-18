@@ -27,7 +27,7 @@ const ROLE_PERMISSIONS: Record<UserRole, ReadonlySet<Permission>> = {
   user: new Set(),
   moderator: new Set(STAFF_PERMISSIONS),
   admin: new Set(ADMIN_PERMISSIONS),
-  owner: new Set(ADMIN_PERMISSIONS)
+  owner: new Set([...ADMIN_PERMISSIONS, 'unlockAllCosmetics'])
 };
 
 /** Reads a stored role string; anything unknown (a legacy value, a missing user) is a plain user. */

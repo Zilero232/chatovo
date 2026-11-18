@@ -92,7 +92,12 @@
     "ABUSE_ALREADY_REPORTED": "Du hast das bereits gemeldet",
     "BLOCK_SELF": "Du kannst dich nicht selbst sperren",
     "ROLE_PROTECTED": "Diese Person hat dieselbe oder eine höhere Rolle als du.",
-    "ROLE_NOT_ASSIGNABLE": "Diese Rolle kannst du nicht vergeben."
+    "ROLE_NOT_ASSIGNABLE": "Diese Rolle kannst du nicht vergeben.",
+    "SHOP_DISABLED": "Käufe sind vorübergehend nicht möglich.",
+    "COSMETIC_NOT_OWNED": "Du besitzt diesen Gegenstand noch nicht.",
+    "COSMETIC_ALREADY_OWNED": "Du besitzt diesen Gegenstand bereits.",
+    "SHOP_ORDER_NOT_FOUND": "Die Bestellung wurde nicht gefunden.",
+    "PAYMENT_PROVIDER_FAILED": "Der Zahlungsdienst hat nicht geantwortet. Versuche es in einer Minute erneut."
   },
   "language": {
     "label": "Sprache"

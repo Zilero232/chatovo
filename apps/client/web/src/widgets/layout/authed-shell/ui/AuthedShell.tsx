@@ -1,6 +1,7 @@
 import { useBoolean, useMediaQuery } from '@siberiacancode/reactuse';
 import { Suspense } from 'react';
 
+import { ShopOrderWatcher } from '@/features/app/cosmetics-shop';
 import { MEDIA_QUERIES } from '@/shared/constants';
 import { AppSidebar } from '@/widgets/app/app-sidebar';
 import { MobileNav } from '@/widgets/layout/mobile-nav';
@@ -22,6 +23,7 @@ export const AuthedShell = ({ children }: AuthedShellProps) => {
     <div className={s.root}>
       <MobileNav open={mobileNavOpen} onOpenChange={toggleMobileNav} />
       <IncomingCallCard />
+      <ShopOrderWatcher />
 
       <div className={s.shell}>
         {isDesktop && (

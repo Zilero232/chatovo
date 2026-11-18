@@ -1,6 +1,7 @@
 import { z } from 'zod';
 
 import { USER_ROLE, userRoleSchema } from '../auth/inputs';
+import { equippedCosmeticsSchema } from '../shop/outputs';
 
 export const tokenResponseSchema = z.object({
   token: z.string()
@@ -16,7 +17,8 @@ const participantProfileSchema = z.object({
   role: userRoleSchema.catch(USER_ROLE.user),
   profileUrl: z.string().nullable().default(null),
   avatarUrl: z.string().nullable().default(null),
-  bannerColor: z.string().nullable().default(null)
+  bannerColor: z.string().nullable().default(null),
+  cosmetics: equippedCosmeticsSchema.prefault({})
 });
 
 // Shape of the JSON string carried in LiveKit participant.metadata. The only

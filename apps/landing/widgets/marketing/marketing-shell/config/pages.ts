@@ -7,6 +7,7 @@ import { ROUTES } from '@/shared/constants';
 export const MARKETING_PAGE_KEYS = [
   'features',
   'download',
+  'pricing',
   'changelog',
   'about',
   'support'
@@ -17,6 +18,7 @@ export type MarketingPageKey = (typeof MARKETING_PAGE_KEYS)[number];
 const MARKETING_PAGE_PATHS: Record<MarketingPageKey, string> = {
   features: ROUTES.features,
   download: ROUTES.download,
+  pricing: ROUTES.pricing,
   changelog: ROUTES.changelog,
   about: ROUTES.about,
   support: ROUTES.support

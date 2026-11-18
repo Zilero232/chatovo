@@ -239,6 +239,14 @@ requests from the app to `api.chatovo.ru`. The `.env` file exists only on the
 VPS, never in git. `docker-compose.yml` expects it alongside itself, which is
 why the path is exactly `/opt/chatovo/.env`.
 
+To take payments for cosmetics, also set `YOOKASSA_SHOP_ID`, `YOOKASSA_SECRET_KEY`
+and **`YOOKASSA_RETURN_URL=https://app.chatovo.ru/lobby`** (the server refuses to
+start in production with the shop on and a localhost return URL), plus
+`YOOKASSA_SEND_RECEIPT=true` once fiscal receipts are on in the YooKassa dashboard.
+In the dashboard, point HTTP notifications at `https://api.chatovo.ru/shop/webhook`
+for `payment.succeeded`, `payment.canceled` and `refund.succeeded`. Details:
+[shop-and-badges](../architecture/shop-and-badges.md).
+
 ### 1.6. Create livekit.yaml (self-hosted LiveKit only)
 
 If you plan to use LiveKit Cloud, skip this step and put

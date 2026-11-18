@@ -1,0 +1,43 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  display: none;
+
+  @include bp(lg) {
+    display: flex;
+    width: rem(240);
+    flex-direction: column;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    text-align: center;
+  }
+}
+
+.scene {
+  width: rem(176);
+  margin-bottom: var(--space-2);
+}
+
+.title {
+  margin: 0;
+  font-size: rem(20);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.link {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--brand-cyan);
+  cursor: pointer;
+  font-size: rem(13);
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  @include button-focus-ring(var(--brand-cyan));
+}

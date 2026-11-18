@@ -2,6 +2,7 @@ import { useMediaQuery } from '@siberiacancode/reactuse';
 import { Suspense } from 'react';
 import { match, P } from 'ts-pattern';
 
+import { ShopOrderReturn } from '@/features/app/cosmetics-shop';
 import { GooglePlayPromo } from '@/features/app/google-play-promo';
 import { FriendChatLinkOpener, useFriendChat } from '@/features/social/friend-chat';
 import { MEDIA_QUERIES } from '@/shared/constants';
@@ -24,6 +25,7 @@ export const LobbyPage = () => {
       <Suspense fallback={null}>
         <FriendChatLinkOpener />
       </Suspense>
+      <ShopOrderReturn />
 
       <div className={s.main}>
         {match([peer, isDesktop] as const)

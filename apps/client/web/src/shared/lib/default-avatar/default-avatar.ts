@@ -1,7 +1,9 @@
-import { botttsNeutral } from '@dicebear/collection';
-import { createAvatar } from '@dicebear/core';
+import { Avatar, Style } from '@dicebear/core';
+import botttsNeutral from '@dicebear/styles/bottts-neutral.json';
 
 const BACKGROUND_COLORS = ['6fdcd0', '8b7cf6', 'ea6ff0', 'a3e635', '38bdf8', 'fb7185'];
+
+const style = new Style(botttsNeutral);
 
 const cache = new Map<string, string>();
 
@@ -12,14 +14,12 @@ export const getDefaultAvatar = (seed: string): string => {
     return cached;
   }
 
-  const svg = createAvatar(botttsNeutral, {
+  const dataUri = new Avatar(style, {
     seed,
-    radius: 50,
+    borderRadius: 50,
     backgroundColor: BACKGROUND_COLORS,
-    backgroundType: ['solid']
-  }).toString();
-
-  const dataUri = `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
+    backgroundColorFill: ['solid']
+  }).toDataUri();
 
   cache.set(seed, dataUri);
 

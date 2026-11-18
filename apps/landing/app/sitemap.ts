@@ -23,6 +23,7 @@ const LOCALIZED_ENTRIES: LocalizedEntry[] = [
   { path: ROUTES.changelog, changeFrequency: 'weekly', priority: 0.7 },
   { path: ROUTES.about, changeFrequency: 'monthly', priority: 0.5 },
   { path: ROUTES.support, changeFrequency: 'monthly', priority: 0.5 },
+  { path: ROUTES.pricing, changeFrequency: 'monthly', priority: 0.5 },
   { path: ROUTES.privacy, changeFrequency: 'yearly', priority: 0.3 },
   { path: ROUTES.terms, changeFrequency: 'yearly', priority: 0.3 }
 ];

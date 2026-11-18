@@ -92,7 +92,12 @@
     "ABUSE_ALREADY_REPORTED": "Скаргу на це вже надіслано",
     "BLOCK_SELF": "Не можна заблокувати самого себе",
     "ROLE_PROTECTED": "У цієї людини роль така сама або вища за твою.",
-    "ROLE_NOT_ASSIGNABLE": "Ти не можеш видати цю роль."
+    "ROLE_NOT_ASSIGNABLE": "Ти не можеш видати цю роль.",
+    "SHOP_DISABLED": "Покупки тимчасово недоступні.",
+    "COSMETIC_NOT_OWNED": "Цей предмет у вас ще не куплено.",
+    "COSMETIC_ALREADY_OWNED": "Цей предмет у вас уже є.",
+    "SHOP_ORDER_NOT_FOUND": "Замовлення не знайдено.",
+    "PAYMENT_PROVIDER_FAILED": "Платіжний сервіс не відповів. Спробуйте за хвилину."
   },
   "language": {
     "label": "Мова"

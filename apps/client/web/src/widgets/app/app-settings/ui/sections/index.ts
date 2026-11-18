@@ -1,4 +1,6 @@
+export { AppearanceTab } from './AppearanceTab';
 export { AudioTab } from './AudioTab/AudioTab';
+export { BadgesTab } from './BadgesTab';
 export { GeneralTab } from './GeneralTab';
 export { ProfileTab } from './ProfileTab';
 export { SecurityTab } from './SecurityTab';

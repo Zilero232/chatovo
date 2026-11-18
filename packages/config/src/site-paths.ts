@@ -9,6 +9,7 @@ export const SITE_PATHS = {
   changelog: '/changelog',
   about: '/about',
   support: '/support',
+  pricing: '/pricing',
   privacy: '/privacy',
   terms: '/terms'
 } as const;

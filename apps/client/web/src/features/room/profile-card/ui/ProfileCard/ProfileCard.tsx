@@ -1,5 +1,8 @@
+import { resolveCosmetic } from '@chatovo/schemas';
 import { Text } from '@chatovo/ui-kit';
 
+import { BadgeRow } from '@/entities/app/badges';
+import { CosmeticRing } from '@/entities/app/shop';
 import { useCurrentUser, UserAvatar, UserName } from '@/entities/auth/user';
 import { FriendTag } from '@/entities/social/friend';
 import { getBannerStyle } from '@/shared/lib';
@@ -23,6 +26,14 @@ export const ProfileCard = ({ identity, name, renderFriendActions }: ProfileCard
   }
 
   const displayName = profile?.name ?? name;
+  const frame = resolveCosmetic({
+    key: profile?.cosmetics.avatarFrame ?? null,
+    kind: 'avatarFrame'
+  });
+  const nameStyle = resolveCosmetic({
+    key: profile?.cosmetics.nameStyle ?? null,
+    kind: 'nameStyle'
+  });
 
   return (
     <div className={s.root}>
@@ -40,18 +51,22 @@ export const ProfileCard = ({ identity, name, renderFriendActions }: ProfileCard
               src={profile?.avatarUrl}
             />
           </AvatarZoom>
+          {frame && <CosmeticRing className={s.avatarFrame} item={frame} />}
         </div>
 
         <div className={s.identity}>
           <UserName
             className={s.name}
             developer={profile?.developer ?? false}
+            gradient={nameStyle?.colors}
+            gradientAnimated={nameStyle?.animated}
             name={displayName}
             profileUrl={profile?.profileUrl}
             size='md'
             verified={profile?.verified ?? false}
           />
           {profile?.friendTag && <FriendTag className={s.tag} tag={profile.friendTag} />}
+          <BadgeRow className={s.badges} userId={identity} />
         </div>
 
         {profile?.bio && (

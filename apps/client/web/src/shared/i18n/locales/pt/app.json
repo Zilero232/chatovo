@@ -29,7 +29,6 @@
     "signedOut": "Você saiu",
     "title": "Configurações",
     "open": "Abrir configurações",
-    "description": "Seu perfil, dispositivos, sons e conta.",
     "tabs": {
       "profile": "Perfil",
       "security": "Conta",
@@ -38,7 +37,9 @@
       "sounds": "Sons",
       "general": "Geral",
       "system": "Sistema",
-      "shortcuts": "Atalhos"
+      "shortcuts": "Atalhos",
+      "appearance": "Aparência",
+      "badges": "Insígnias"
     },
     "profile": {
       "displayNameLabel": "Nome de exibição",
@@ -199,7 +200,42 @@
       "consequences": "Seu perfil, salas, amigos e dispositivos de notificação são removidos. Suas mensagens ficam, sem o seu nome.",
       "confirm": "Enviar confirmação",
       "cancel": "Cancelar"
-    }
+    },
+    "editProfile": "Editar perfil",
+    "groups": {
+      "account": "Conta",
+      "customization": "Personalização",
+      "voice": "Voz e vídeo",
+      "app": "Aplicativo"
+    },
+    "sections": {
+      "email": "E-mail",
+      "password": "Senha",
+      "deleteAccount": "Excluir conta"
+    },
+    "hints": {
+      "profile": "Como os outros veem você: nome, avatar, banner e bio.",
+      "security": "E-mail, senha e exclusão da conta.",
+      "appearance": "Enfeites opcionais que todos na sala veem.",
+      "audio": "Microfone, alto-falantes e processamento de voz.",
+      "video": "Câmera e qualidade do compartilhamento de tela.",
+      "sounds": "Efeitos sonoros dos eventos da sala.",
+      "general": "Idioma e comportamento do chat.",
+      "system": "Bandeja, modo invisível e atividade de jogo.",
+      "shortcuts": "Atalhos globais para chamadas.",
+      "badges": "Ganhe insígnias conversando, fazendo amigos e criando salas."
+    },
+    "cards": {
+      "devices": "Dispositivos",
+      "activation": "Modo de entrada",
+      "sensitivity": "Sensibilidade de entrada",
+      "processing": "Processamento de voz",
+      "camera": "Câmera",
+      "screen": "Compartilhamento de tela",
+      "volume": "Volume",
+      "events": "Sons de eventos"
+    },
+    "back": "Voltar"
   },
   "tray": {
     "status": {
@@ -315,5 +351,139 @@
     "description": "Notificações de mensagens e chamadas, mesmo com o app em segundo plano.",
     "action": "Abrir no Google Play",
     "dismiss": "Ocultar"
+  },
+  "shop": {
+    "paymentWaiting": "Aguardando a confirmação do pagamento. Conclua no navegador: esta página se atualiza sozinha.",
+    "disabled": "As compras estão temporariamente indisponíveis. Os itens que você já tem continuam funcionando.",
+    "ownerUnlocked": "Você é o proprietário: todos os itens estão liberados de graça. Use o que quiser.",
+    "paymentOpened": "A página de pagamento abriu no seu navegador.",
+    "paymentSucceeded": "Pagamento recebido. O item é seu.",
+    "paymentCanceled": "O pagamento foi cancelado. Nada foi cobrado.",
+    "paymentUnavailable": "Não foi possível abrir a página de pagamento. Tente novamente em um minuto.",
+    "orderCheckFailed": "Não foi possível verificar o pagamento. Se o valor foi cobrado, o item aparecerá em alguns minutos.",
+    "loadFailed": "Não foi possível carregar a loja",
+    "loadFailedHint": "Verifique sua conexão e tente novamente.",
+    "retry": "Tentar de novo",
+    "previewTitle": "Como a sala vê você",
+    "trying": "Experimentando",
+    "resetTryOn": "Redefinir",
+    "tryOn": "Experimentar",
+    "tryOnSet": "Experimentar o conjunto",
+    "new": "Novo",
+    "equip": "Usar",
+    "unequip": "Remover",
+    "bundleSave": "−{percent}%",
+    "bundleBuy": "Conjunto por {price}",
+    "categories": {
+      "bundles": "Conjuntos",
+      "speakingRing": "Anéis",
+      "avatarFrame": "Molduras",
+      "nameStyle": "Nomes",
+      "tileBackground": "Fundos",
+      "owned": "Meus itens"
+    },
+    "empty": {
+      "bundles": "Você já tem uma peça de cada conjunto",
+      "speakingRing": "Ainda não há nada aqui",
+      "avatarFrame": "Ainda não há nada aqui",
+      "nameStyle": "Ainda não há nada aqui",
+      "tileBackground": "Ainda não há nada aqui",
+      "owned": "Seus enfeites aparecerão aqui"
+    },
+    "rarity": {
+      "common": "Comum",
+      "rare": "Raro",
+      "epic": "Épico",
+      "legendary": "Lendário"
+    },
+    "collections": {
+      "mint": "Menta",
+      "sunset": "Pôr do sol",
+      "ocean": "Oceano",
+      "sakura": "Sakura",
+      "neon": "Neon",
+      "aurora": "Aurora",
+      "holo": "Holo",
+      "royal": "Real"
+    },
+    "taglines": {
+      "mint": "Fresco e calmo, para o dia a dia",
+      "sunset": "O brilho quente do entardecer",
+      "ocean": "Azul profundo",
+      "sakura": "Suave flor de primavera",
+      "neon": "Luzes da cidade à noite em movimento",
+      "aurora": "Aurora boreal em movimento",
+      "holo": "Um conjunto holográfico furta-cor",
+      "royal": "Ouro e roxo para a realeza"
+    }
+  },
+  "badges": {
+    "earned": "Suas insígnias",
+    "available": "Podem ser conquistadas",
+    "retry": "Tentar de novo",
+    "loadFailed": "Não foi possível carregar as insígnias",
+    "tier": "Nível {tier}",
+    "notEarned": "Ainda não conquistada",
+    "remaining": "Faltam {left} para o próximo nível",
+    "maxed": "Nível máximo alcançado",
+    "items": {
+      "supporter": {
+        "name": "Apoiador",
+        "hint": "Apoie o Chatovo na loja para subir o nível desta insígnia.",
+        "unit": "{count, plural, one {# compra} other {# compras}}"
+      },
+      "veteran": {
+        "name": "Veterano",
+        "hint": "Fique no Chatovo: o nível desta insígnia sobe com o tempo.",
+        "unit": "{count, plural, one {# dia} other {# dias}}"
+      },
+      "social": {
+        "name": "Sociável",
+        "hint": "Adicione mais amigos para subir o nível desta insígnia.",
+        "unit": "{count, plural, one {# amigo} other {# amigos}}"
+      },
+      "chatter": {
+        "name": "Tagarela",
+        "hint": "Envie mais mensagens em salas e chats para subir o nível desta insígnia.",
+        "unit": "{count, plural, one {# mensagem} other {# mensagens}}"
+      },
+      "host": {
+        "name": "Anfitrião",
+        "hint": "Crie salas para a sua turma para subir o nível desta insígnia.",
+        "unit": "{count, plural, one {# sala} other {# salas}}"
+      },
+      "collector": {
+        "name": "Colecionador",
+        "hint": "Colecione mais enfeites para subir o nível desta insígnia.",
+        "unit": "{count, plural, one {# item} other {# itens}}"
+      }
+    },
+    "intro": "Veja sua coleção e descubra quais insígnias você ainda pode conquistar.",
+    "progressTitle": "Seu progresso",
+    "tiers": {
+      "rookie": "Novato",
+      "amateur": "Amador",
+      "active": "Ativo",
+      "adept": "Conhecedor",
+      "master": "Mestre",
+      "expert": "Especialista",
+      "star": "Estrela",
+      "legend": "Lenda"
+    }
+  },
+  "profileMenu": {
+    "open": "Abrir seu perfil",
+    "editProfile": "Editar perfil",
+    "badges": "Insígnias",
+    "shop": "Loja de enfeites",
+    "new": "Novo",
+    "myItems": "Meus enfeites"
+  },
+  "gameActivity": {
+    "shared": "Visível na sua sala",
+    "hidden": "Não compartilhado",
+    "share": "Mostrar na sala",
+    "hide": "Ocultar da sala",
+    "settings": "Configurações de atividade"
   }
 }

@@ -5,6 +5,8 @@ model Profile {
   bannerColor String?
   bio         String?
 
+  cosmetics Json?
+
   userId String @id
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 

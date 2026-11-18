@@ -4,7 +4,7 @@ Prisma 7 on a self-hosted Postgres. Migrations, the deploy order and better-auth
 
 ## The schema
 
-`apps/server/prisma/base.prisma` holds the generator and the datasource; the models are split per domain in `prisma/schema/*.prisma`: `auth`, `profile`, `room`, `message`, `friendship`, `moderation`, `push`.
+`apps/server/prisma/base.prisma` holds the generator and the datasource; the models are split per domain in `prisma/schema/*.prisma`: `auth`, `profile`, `room`, `message`, `friendship`, `moderation`, `push`, `shop` (orders and entitlements, [shop-and-badges](../../architecture/shop-and-badges.md)).
 
 better-auth owns `user` / `session` / `account` / `verification` (in `auth.prisma`), fully managed by Prisma — there is no introspected Supabase schema any more. Profile fields (`displayName`, `avatarUrl`, `bannerColor`, `bio`, `verified`) live in a separate `Profile` table, a 1-1 FK to `user`, created by a better-auth `databaseHook` on sign-up.
 

@@ -33,6 +33,10 @@ export {
 } from './screen-share';
 export { stripEmailDomain } from './strip-email-domain';
 export { isTauriDesktop, isTauriMobile } from './tauri-platform';
+export { toGradientStops } from './to-gradient-stops';
+export type { GradientStop } from './to-gradient-stops';
+export { toLinearGradient } from './to-linear-gradient';
+export type { ToLinearGradientInput } from './to-linear-gradient';
 export { armPttStream, toggleMicStream } from './toggle-mic-stream';
 export {
   closeMainWindow,

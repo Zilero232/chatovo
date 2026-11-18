@@ -25,6 +25,7 @@ app. The project is source-available and developed in the open.
 - [Changelog](${url(ROUTES.changelog)}): every release since the first public version, with what changed in each.
 - [About](${url(ROUTES.about)}): the stack behind ${SITE.name}, the people who build it, and how to contribute.
 - [Support](${url(ROUTES.support)}): answers to common questions and how to reach the maintainers.
+- [Cosmetics and prices](${url(ROUTES.pricing)}): the optional paid cosmetics, their prices, payment, delivery and refunds.
 - [Privacy policy](${url(ROUTES.privacy)}): what data ${SITE.name} stores and why.
 - [Terms of service](${url(ROUTES.terms)}): the rules for using ${SITE.name}.
 
