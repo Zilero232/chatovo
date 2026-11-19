@@ -18,7 +18,7 @@ import { deviceIcon } from './lib/device-icon';
 import s from './DeviceMenu.module.scss';
 
 export const DeviceMenu = ({ kind, slot, label }: DeviceMenuProps) => {
-  const { devices, resolvedId, selectDevice } = useDeviceSelect({ kind, slot, label });
+  const { devices, resolvedId, selectDevice } = useDeviceSelect({ kind, slot });
 
   /* eslint-disable react/static-components -- deviceIcon is a lookup returning a module-level lucide icon, not a component built per render */
   const Icon = deviceIcon(kind);

@@ -208,6 +208,22 @@
       "minor": "Regular release"
     },
     "entries": {
+      "streamAudio": {
+        "title": "Stream sound only when you watch",
+        "description": "A screen share stays silent until you open it, so several streams in a room no longer play over each other."
+      },
+      "roomGrid": {
+        "title": "Room tiles fill the screen",
+        "description": "Tiles stretch to use the whole stage and an incomplete last row sits in the middle."
+      },
+      "streamBackdrop": {
+        "title": "No black bars around a stream",
+        "description": "An opened stream sits on a blurred copy of itself instead of black bars."
+      },
+      "shopPolish": {
+        "title": "Shop and profile fixes",
+        "description": "Animated names no longer blink out, long names fit, and avatar frames sit right on the profile card."
+      },
       "cosmeticsShop": {
         "title": "Optional cosmetics for your profile",
         "description": "Speaking rings, avatar frames, name gradients and tile backgrounds in eight collections, with try-on before you buy. Everything else stays free."
@@ -946,6 +962,7 @@
       }
     },
     "highlights": {
+      "streamAudio": "Stream sound on demand",
       "cosmeticsShop": "Cosmetics shop",
       "badges": "Badges with tiers",
       "vpnTunnel": "Split-tunnel VPN on Windows",

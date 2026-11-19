@@ -208,6 +208,22 @@
       "minor": "Atualização regular"
     },
     "entries": {
+      "streamAudio": {
+        "title": "Som da transmissão só ao assistir",
+        "description": "O compartilhamento de tela fica em silêncio até você abri-lo, então várias transmissões na sala não tocam mais ao mesmo tempo."
+      },
+      "roomGrid": {
+        "title": "Os blocos preenchem a tela",
+        "description": "Os blocos se esticam por todo o palco e a última fileira incompleta fica centralizada."
+      },
+      "streamBackdrop": {
+        "title": "Sem faixas pretas na transmissão",
+        "description": "Uma transmissão aberta aparece sobre uma cópia desfocada dela mesma em vez de faixas pretas."
+      },
+      "shopPolish": {
+        "title": "Correções na loja e no perfil",
+        "description": "Nomes animados não somem mais, nomes longos cabem e a moldura do avatar fica certa no cartão de perfil."
+      },
       "cosmeticsShop": {
         "title": "Cosméticos opcionais para o seu perfil",
         "description": "Anéis de voz, molduras de avatar, gradientes de nome e fundos de bloco em oito coleções, com prova antes de comprar. Todo o resto continua grátis."
@@ -946,6 +962,7 @@
       }
     },
     "highlights": {
+      "streamAudio": "Som da transmissão sob demanda",
       "cosmeticsShop": "Loja de cosméticos",
       "badges": "Emblemas com níveis",
       "vpnTunnel": "VPN com túnel dividido no Windows",

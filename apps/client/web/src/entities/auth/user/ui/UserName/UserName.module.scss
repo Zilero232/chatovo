@@ -86,6 +86,7 @@
 
 .styledNameAnimated.styledNameAnimated {
   animation: name-shimmer 4s linear infinite;
+  background-repeat: repeat-x;
   background-size: 200% 100%;
 
   @include reduced-motion {

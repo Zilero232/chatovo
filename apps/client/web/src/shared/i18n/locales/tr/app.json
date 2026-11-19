@@ -90,7 +90,12 @@
       "errorDenied": "\"{device}\" cihazına erişim yok. Tarayıcı ayarlarından erişime izin ver.",
       "errorNotFound": "\"{device}\" cihazı bulunamadı. Bağlı olduğundan emin ol.",
       "errorBusy": "\"{device}\" cihazı başka bir uygulama tarafından kullanılıyor.",
-      "errorUnknown": "\"{device}\" cihazına geçilemedi."
+      "errorUnknown": "\"{device}\" cihazına geçilemedi.",
+      "kinds": {
+        "audioinput": "mikrofon",
+        "audiooutput": "hoparlör",
+        "videoinput": "kamera"
+      }
     },
     "audio": {
       "activation": "Mikrofon etkinleştirme",

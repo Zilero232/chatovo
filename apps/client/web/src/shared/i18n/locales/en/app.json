@@ -90,7 +90,12 @@
       "errorDenied": "No access to \"{device}\". Allow access in your browser settings.",
       "errorNotFound": "Device \"{device}\" not found. Check that it is connected.",
       "errorBusy": "Device \"{device}\" is in use by another application.",
-      "errorUnknown": "Failed to switch to \"{device}\"."
+      "errorUnknown": "Failed to switch to \"{device}\".",
+      "kinds": {
+        "audioinput": "microphone",
+        "audiooutput": "speakers",
+        "videoinput": "camera"
+      }
     },
     "audio": {
       "activation": "Microphone activation",

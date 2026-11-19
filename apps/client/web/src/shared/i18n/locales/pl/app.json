@@ -90,7 +90,12 @@
       "errorDenied": "Brak dostępu do „{device}”. Zezwól na dostęp w ustawieniach przeglądarki.",
       "errorNotFound": "Nie znaleziono urządzenia „{device}”. Sprawdź, czy jest podłączone.",
       "errorBusy": "Urządzenie „{device}” jest używane przez inną aplikację.",
-      "errorUnknown": "Nie udało się przełączyć na „{device}”."
+      "errorUnknown": "Nie udało się przełączyć na „{device}”.",
+      "kinds": {
+        "audioinput": "mikrofon",
+        "audiooutput": "głośniki",
+        "videoinput": "kamera"
+      }
     },
     "audio": {
       "activation": "Aktywacja mikrofonu",

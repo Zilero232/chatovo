@@ -208,6 +208,22 @@
       "minor": "Versión regular"
     },
     "entries": {
+      "streamAudio": {
+        "title": "El sonido del directo solo al verlo",
+        "description": "Una pantalla compartida queda en silencio hasta que la abres, así que varios directos en una sala ya no suenan a la vez."
+      },
+      "roomGrid": {
+        "title": "Las tarjetas llenan la pantalla",
+        "description": "Las tarjetas se estiran por todo el escenario y la última fila incompleta queda centrada."
+      },
+      "streamBackdrop": {
+        "title": "Sin franjas negras en el directo",
+        "description": "Un directo abierto se muestra sobre una copia desenfocada de sí mismo en lugar de franjas negras."
+      },
+      "shopPolish": {
+        "title": "Arreglos en la tienda y el perfil",
+        "description": "Los nombres animados ya no desaparecen, los nombres largos caben y el marco del avatar queda bien en la tarjeta de perfil."
+      },
       "cosmeticsShop": {
         "title": "Cosméticos opcionales para tu perfil",
         "description": "Anillos de voz, marcos de avatar, degradados de nombre y fondos de tarjeta en ocho colecciones, con prueba antes de comprar. Todo lo demás sigue siendo gratis."
@@ -946,6 +962,7 @@
       }
     },
     "highlights": {
+      "streamAudio": "Sonido del directo a demanda",
       "cosmeticsShop": "Tienda de cosméticos",
       "badges": "Insignias con niveles",
       "vpnTunnel": "VPN con túnel dividido en Windows",
