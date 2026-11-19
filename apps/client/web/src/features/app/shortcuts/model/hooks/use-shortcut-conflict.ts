@@ -1,4 +1,4 @@
-import { conflictsStoreApi } from '../stores/conflicts';
+import { useConflictsStore } from '../stores/conflicts';
 
 export const useShortcutConflict = (hotkey: string | null | undefined): boolean =>
-  conflictsStoreApi.use((state) => (hotkey ? state.items.has(hotkey) : false));
+  useConflictsStore((state) => (hotkey ? state.items.has(hotkey) : false));

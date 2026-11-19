@@ -5,6 +5,7 @@ import { friendCallStreamSnapshotSchema } from '../friends/outputs';
 import { roomsParticipantsSnapshotSchema } from '../livekit/outputs';
 import { roomMusicSchema } from '../music/outputs';
 import { roomModerationActionSchema, roomSchema } from '../rooms/outputs';
+import { shopOrderSchema } from '../shop/outputs';
 
 export const realtimeRoomKindSchema = roomSchema.shape.kind;
 
@@ -77,6 +78,11 @@ export const realtimeRoomModerationEventSchema = z.object({
   action: roomModerationActionSchema
 });
 
+export const realtimeShopOrderEventSchema = z.object({
+  type: z.literal('shop.order'),
+  order: shopOrderSchema.pick({ id: true, productKey: true, status: true })
+});
+
 export const realtimeServerMessageSchema = z.discriminatedUnion('type', [
   realtimeChatMessageEventSchema,
   realtimeChatEditEventSchema,
@@ -88,5 +94,6 @@ export const realtimeServerMessageSchema = z.discriminatedUnion('type', [
   realtimeFriendPresenceEventSchema,
   realtimeRoomUpsertedEventSchema,
   realtimeRoomRemovedEventSchema,
-  realtimeRoomModerationEventSchema
+  realtimeRoomModerationEventSchema,
+  realtimeShopOrderEventSchema
 ]);

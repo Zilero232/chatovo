@@ -214,7 +214,7 @@
       },
       "badges": {
         "title": "Badges you earn",
-        "description": "Six badges with up to eight tiers each, shown on your profile card, with progress toward the next tier."
+        "description": "Twelve badges with up to eight tiers each, shown on your profile card, with progress toward the next tier."
       },
       "profilePopup": {
         "title": "Profile card from the user bar",
@@ -1491,7 +1491,7 @@
             "SMTP email provider — delivery of verification and password reset emails.",
             "Hosting and infrastructure providers that operate our servers and databases.",
             "Google Play — app distribution and updates on Android (Google Play policies apply).",
-            "YooKassa (YooMoney) — payment processing for optional cosmetics. When fiscal receipts are enabled, your email address is passed to YooKassa so the receipt can be sent to you."
+            "YooKassa (YooMoney) — payment processing for optional cosmetics."
           ]
         },
         {

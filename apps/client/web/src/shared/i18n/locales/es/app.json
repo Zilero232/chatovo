@@ -130,15 +130,23 @@
         "4k": "4K (Ultra HD)"
       },
       "screenQuality": "Calidad al compartir pantalla",
-      "screenQualityHint": "Resolución y fotogramas por segundo al compartir tu pantalla. 30 fps va mejor con contenido de mucho movimiento.",
+      "screenQualityHint": "Resolución y fotogramas al compartir pantalla. 60 fps mantiene fluidos los juegos y vídeos, pero requiere una conexión más rápida.",
       "screenQualityOptions": {
         "1080p15": "1080p · 15 fps",
         "1080p30": "1080p · 30 fps",
+        "1080p60": "1080p · 60 fps",
         "1440p30": "1440p · 30 fps",
+        "1440p60": "1440p · 60 fps",
         "4k30": "4K · 30 fps"
       },
       "mirror": "Reflejar mi video",
-      "mirrorHint": "Invierte tu propia vista previa. Los demás siempre te ven sin reflejar."
+      "mirrorHint": "Invierte tu propia vista previa. Los demás siempre te ven sin reflejar.",
+      "screenContent": "Qué compartes",
+      "screenContentHint": "Texto mantiene nítidos el código y los documentos; movimiento mantiene fluidos los juegos y vídeos cuando la conexión baja.",
+      "screenContentOptions": {
+        "text": "Texto y documentos",
+        "motion": "Juegos y vídeo"
+      }
     },
     "sounds": {
       "volumeLabel": "Volumen de efectos de sonido",
@@ -357,7 +365,7 @@
     "disabled": "Las compras no están disponibles por ahora. Lo que ya compraste sigue funcionando.",
     "ownerUnlocked": "Eres el propietario: todos los artículos están desbloqueados gratis. Ponte lo que quieras.",
     "paymentOpened": "La página de pago se abrió en tu navegador.",
-    "paymentSucceeded": "Pago recibido. El artículo es tuyo.",
+    "paymentSucceeded": "Pago recibido. Tu compra ya está en Mis artículos.",
     "paymentCanceled": "El pago se canceló. No se cobró nada.",
     "paymentUnavailable": "No se pudo abrir la página de pago. Inténtalo de nuevo en un minuto.",
     "orderCheckFailed": "No se pudo comprobar el pago. Si se cobró el dinero, el artículo aparecerá en unos minutos.",
@@ -415,7 +423,10 @@
       "aurora": "Auroras boreales en movimiento",
       "holo": "Un set holográfico tornasolado",
       "royal": "Oro y púrpura para la realeza"
-    }
+    },
+    "paymentPending": "Esperando la confirmación del pago…",
+    "paymentRefunded": "Pago reembolsado. Los artículos se han retirado de tu perfil.",
+    "openItems": "Abrir"
   },
   "badges": {
     "earned": "Tus insignias",
@@ -456,6 +467,36 @@
         "name": "Coleccionista",
         "hint": "Colecciona más adornos para subir el nivel de esta insignia.",
         "unit": "{count, plural, one {# artículo} other {# artículos}}"
+      },
+      "talker": {
+        "name": "Al teléfono",
+        "hint": "Pasa más tiempo en llamadas con amigos para subir de nivel esta insignia.",
+        "unit": "{count, plural, one {# minuto} other {# minutos}}"
+      },
+      "penPal": {
+        "name": "Amigo por carta",
+        "hint": "Conversa en más chats privados para subir de nivel esta insignia.",
+        "unit": "{count, plural, one {# conversación} other {# conversaciones}}"
+      },
+      "wanderer": {
+        "name": "Trotamundos",
+        "hint": "Escribe en más salas para subir de nivel esta insignia.",
+        "unit": "{count, plural, one {# sala} other {# salas}}"
+      },
+      "sharer": {
+        "name": "Compartidor",
+        "hint": "Comparte más fotos y archivos en los chats para subir de nivel esta insignia.",
+        "unit": "{count, plural, one {# archivo} other {# archivos}}"
+      },
+      "regular": {
+        "name": "Habitual",
+        "hint": "Escribe en más días distintos para subir de nivel esta insignia.",
+        "unit": "{count, plural, one {# día} other {# días}}"
+      },
+      "stylist": {
+        "name": "Estilista",
+        "hint": "Completa tu perfil: nombre, avatar, banner, biografía y enlace.",
+        "unit": "{count, plural, one {# campo} other {# campos}}"
       }
     },
     "intro": "Explora tu colección y descubre qué insignias puedes conseguir después.",

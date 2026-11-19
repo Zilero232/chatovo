@@ -130,15 +130,23 @@
         "4k": "4K (Ultra HD)"
       },
       "screenQuality": "Qualidade da tela compartilhada",
-      "screenQualityHint": "Resolução e taxa de quadros ao compartilhar a tela. 30 fps é melhor para conteúdo com muito movimento.",
+      "screenQualityHint": "Resolução e taxa de quadros ao compartilhar a tela. 60 fps deixa jogos e vídeos fluidos, mas exige uma conexão mais rápida.",
       "screenQualityOptions": {
         "1080p15": "1080p · 15 fps",
         "1080p30": "1080p · 30 fps",
+        "1080p60": "1080p · 60 fps",
         "1440p30": "1440p · 30 fps",
+        "1440p60": "1440p · 60 fps",
         "4k30": "4K · 30 fps"
       },
       "mirror": "Espelhar meu vídeo",
-      "mirrorHint": "Inverte só a sua prévia. Os outros participantes sempre veem você sem espelhamento."
+      "mirrorHint": "Inverte só a sua prévia. Os outros participantes sempre veem você sem espelhamento.",
+      "screenContent": "O que você compartilha",
+      "screenContentHint": "Texto mantém código e documentos nítidos; movimento mantém jogos e vídeos fluidos quando a conexão cai.",
+      "screenContentOptions": {
+        "text": "Texto e documentos",
+        "motion": "Jogos e vídeo"
+      }
     },
     "sounds": {
       "volumeLabel": "Volume dos efeitos sonoros",
@@ -357,7 +365,7 @@
     "disabled": "As compras estão temporariamente indisponíveis. Os itens que você já tem continuam funcionando.",
     "ownerUnlocked": "Você é o proprietário: todos os itens estão liberados de graça. Use o que quiser.",
     "paymentOpened": "A página de pagamento abriu no seu navegador.",
-    "paymentSucceeded": "Pagamento recebido. O item é seu.",
+    "paymentSucceeded": "Pagamento recebido. A sua compra já está em Meus itens.",
     "paymentCanceled": "O pagamento foi cancelado. Nada foi cobrado.",
     "paymentUnavailable": "Não foi possível abrir a página de pagamento. Tente novamente em um minuto.",
     "orderCheckFailed": "Não foi possível verificar o pagamento. Se o valor foi cobrado, o item aparecerá em alguns minutos.",
@@ -415,7 +423,10 @@
       "aurora": "Aurora boreal em movimento",
       "holo": "Um conjunto holográfico furta-cor",
       "royal": "Ouro e roxo para a realeza"
-    }
+    },
+    "paymentPending": "Aguardando a confirmação do pagamento…",
+    "paymentRefunded": "Pagamento reembolsado. Os itens foram removidos do seu perfil.",
+    "openItems": "Abrir"
   },
   "badges": {
     "earned": "Suas insígnias",
@@ -456,6 +467,36 @@
         "name": "Colecionador",
         "hint": "Colecione mais enfeites para subir o nível desta insígnia.",
         "unit": "{count, plural, one {# item} other {# itens}}"
+      },
+      "talker": {
+        "name": "Na linha",
+        "hint": "Passe mais tempo em chamadas com amigos para subir o nível deste emblema.",
+        "unit": "{count, plural, one {# minuto} other {# minutos}}"
+      },
+      "penPal": {
+        "name": "Amigo por correspondência",
+        "hint": "Converse em mais chats privados para subir o nível deste emblema.",
+        "unit": "{count, plural, one {# conversa} other {# conversas}}"
+      },
+      "wanderer": {
+        "name": "Andarilho",
+        "hint": "Escreva em mais salas para subir o nível deste emblema.",
+        "unit": "{count, plural, one {# sala} other {# salas}}"
+      },
+      "sharer": {
+        "name": "Compartilhador",
+        "hint": "Compartilhe mais fotos e arquivos nos chats para subir o nível deste emblema.",
+        "unit": "{count, plural, one {# arquivo} other {# arquivos}}"
+      },
+      "regular": {
+        "name": "Frequentador",
+        "hint": "Escreva em mais dias diferentes para subir o nível deste emblema.",
+        "unit": "{count, plural, one {# dia} other {# dias}}"
+      },
+      "stylist": {
+        "name": "Estilista",
+        "hint": "Preencha seu perfil: nome, avatar, banner, bio e link.",
+        "unit": "{count, plural, one {# campo} other {# campos}}"
       }
     },
     "intro": "Veja sua coleção e descubra quais insígnias você ainda pode conquistar.",

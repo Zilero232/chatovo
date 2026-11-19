@@ -8,7 +8,6 @@ import { AppForbiddenException, AppInternalException } from '../../../../common/
 import { AppConfigService } from '../../../../config/config.module';
 import {
   PAYMENT_DESCRIPTION_PREFIX,
-  RECEIPT_VAT_CODE,
   YOOKASSA_API_URL,
   YOOKASSA_CURRENCY,
   YOOKASSA_TIMEOUT_MS
@@ -74,30 +73,13 @@ export class YookassaService {
   async createPayment({
     orderId,
     productKey,
-    amountRub,
-    customerEmail
+    amountRub
   }: CreatePaymentInput): Promise<YookassaPayment> {
     const amount = { value: formatRubAmount(amountRub), currency: YOOKASSA_CURRENCY };
     const description = `${PAYMENT_DESCRIPTION_PREFIX}: ${productKey}`;
     const returnUrl = new URL(this.config.get('YOOKASSA_RETURN_URL'));
 
     returnUrl.searchParams.set(SHOP_ORDER_QUERY_PARAM, orderId);
-
-    const receipt = this.config.get('YOOKASSA_SEND_RECEIPT')
-      ? {
-          customer: { email: customerEmail },
-          items: [
-            {
-              description,
-              quantity: '1.00',
-              amount,
-              vat_code: RECEIPT_VAT_CODE,
-              payment_mode: 'full_payment',
-              payment_subject: 'service'
-            }
-          ]
-        }
-      : undefined;
 
     const payload = await this.request({
       path: '/payments',
@@ -108,8 +90,7 @@ export class YookassaService {
         capture: true,
         confirmation: { type: 'redirect', return_url: returnUrl.toString() },
         description,
-        metadata: { orderId, productKey },
-        receipt
+        metadata: { orderId, productKey }
       }
     });
 

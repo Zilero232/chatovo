@@ -1,0 +1,132 @@
+@mixin badge-palette {
+  --badge-from: rgb(var(--tint) / 34%);
+  --badge-to: rgb(var(--tint) / 14%);
+  --badge-ink: var(--muted-foreground);
+  --badge-glow: transparent;
+
+  &[data-tier='1'] {
+    --badge-from: #c9d6e8;
+    --badge-to: #6f7f99;
+    --badge-ink: #1b2230;
+  }
+
+  &[data-tier='2'] {
+    --badge-from: #9cf0a8;
+    --badge-to: #2f9e55;
+    --badge-ink: #0d2a16;
+  }
+
+  &[data-tier='3'] {
+    --badge-from: #6ff5c8;
+    --badge-to: #10a37a;
+    --badge-ink: #062b20;
+    --badge-glow: #10a37a;
+  }
+
+  &[data-tier='4'] {
+    --badge-from: #7ff0ff;
+    --badge-to: #1592b8;
+    --badge-ink: #052733;
+    --badge-glow: #1592b8;
+  }
+
+  &[data-tier='5'] {
+    --badge-from: #8fb4ff;
+    --badge-to: #2f5bd8;
+    --badge-ink: #fff;
+    --badge-glow: #2f5bd8;
+  }
+
+  &[data-tier='6'] {
+    --badge-from: #c9a2ff;
+    --badge-to: #6b34d6;
+    --badge-ink: #fff;
+    --badge-glow: #6b34d6;
+  }
+
+  &[data-tier='7'] {
+    --badge-from: #ff9ad5;
+    --badge-to: #c2187a;
+    --badge-ink: #fff;
+    --badge-glow: #ff4fae;
+  }
+
+  &[data-tier='8'] {
+    --badge-from: #ffe48a;
+    --badge-to: #d48a00;
+    --badge-ink: #3a2400;
+    --badge-glow: #ffb627;
+  }
+
+  &[data-tier='1'][data-badge='supporter'] {
+    --badge-from: #ff8cc6;
+    --badge-to: #c2187a;
+    --badge-ink: #fff;
+  }
+
+  &[data-tier='1'][data-badge='veteran'] {
+    --badge-from: #ffd27a;
+    --badge-to: #c97a12;
+    --badge-ink: #3a2400;
+  }
+
+  &[data-tier='1'][data-badge='social'] {
+    --badge-from: #7fe7ff;
+    --badge-to: #1784b8;
+    --badge-ink: #052733;
+  }
+
+  &[data-tier='1'][data-badge='chatter'] {
+    --badge-from: #9cf0a8;
+    --badge-to: #2f9e55;
+    --badge-ink: #0d2a16;
+  }
+
+  &[data-tier='1'][data-badge='host'] {
+    --badge-from: #c9a2ff;
+    --badge-to: #6b34d6;
+    --badge-ink: #fff;
+  }
+
+  &[data-tier='1'][data-badge='collector'] {
+    --badge-from: #ffb3a1;
+    --badge-to: #d2452b;
+    --badge-ink: #fff;
+  }
+
+  &[data-tier='1'][data-badge='talker'] {
+    --badge-from: #8ff0d6;
+    --badge-to: #129b7b;
+    --badge-ink: #062a21;
+  }
+
+  &[data-tier='1'][data-badge='penPal'] {
+    --badge-from: #a9c4ff;
+    --badge-to: #3a5fd6;
+    --badge-ink: #fff;
+  }
+
+  &[data-tier='1'][data-badge='wanderer'] {
+    --badge-from: #ffe08a;
+    --badge-to: #b8860b;
+    --badge-ink: #2f2100;
+  }
+
+  &[data-tier='1'][data-badge='sharer'] {
+    --badge-from: #ffc58f;
+    --badge-to: #e0661b;
+    --badge-ink: #2e1400;
+  }
+
+  &[data-tier='1'][data-badge='regular'] {
+    --badge-from: #d6f58a;
+    --badge-to: #6f9c12;
+    --badge-ink: #1c2900;
+  }
+
+  &[data-tier='1'][data-badge='stylist'] {
+    --badge-from: #f6a8ff;
+    --badge-to: #a12fc2;
+    --badge-ink: #fff;
+  }
+}

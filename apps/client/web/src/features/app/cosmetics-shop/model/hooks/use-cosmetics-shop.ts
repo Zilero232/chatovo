@@ -13,7 +13,7 @@ import type { ShopCategory } from '../../lib/build-shop-catalog';
 
 import { buildShopCatalog } from '../../lib/build-shop-catalog';
 import { mergeTryOn } from '../../lib/merge-try-on';
-import { watchedOrderStoreApi } from '../stores';
+import { useWatchedOrderStore, watchedOrderStoreApi } from '../stores';
 
 const TOAST_ID = 'shop-order';
 
@@ -21,7 +21,7 @@ export const useCosmeticsShop = () => {
   const t = useTranslations('shop');
   const toastError = useToastError();
 
-  const isWatching = watchedOrderStoreApi.use((state) => state.orderId !== null);
+  const isWatching = useWatchedOrderStore((state) => state.orderId !== null);
 
   const { data: state, isPending, isError, refetch } = useShopState();
   const createOrder = useCreateShopOrder();

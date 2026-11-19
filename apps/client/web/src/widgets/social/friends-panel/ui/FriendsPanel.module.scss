@@ -24,6 +24,8 @@
   align-items: center;
   padding: 0 0.75rem;
   border-bottom: 1px solid var(--border);
+  container-name: friends-bar;
+  container-type: inline-size;
   gap: 0.5rem;
 
   @include bp(sm) {
@@ -41,7 +43,7 @@
   font-weight: 600;
   gap: 0.5rem;
 
-  @include bp(sm) {
+  @container friends-bar (min-width: 44rem) {
     display: flex;
   }
 }
@@ -59,7 +61,7 @@
   flex-shrink: 0;
   background: rgb(var(--tint) / 16%);
 
-  @include bp(sm) {
+  @container friends-bar (min-width: 44rem) {
     display: block;
   }
 }
@@ -96,8 +98,10 @@
 }
 
 .addLabel {
-  @include bp(sm, down) {
-    display: none;
+  display: none;
+
+  @container friends-bar (min-width: 54rem) {
+    display: inline;
   }
 }
 

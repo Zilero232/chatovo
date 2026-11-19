@@ -1,0 +1,11 @@
+@use '../palette' as *;
+
+.root {
+  @include badge-palette;
+
+  --progress-fill: linear-gradient(90deg, var(--badge-to), var(--badge-from));
+}
+
+.track {
+  height: 0.5rem;
+}

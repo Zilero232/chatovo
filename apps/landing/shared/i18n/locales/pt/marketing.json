@@ -214,7 +214,7 @@
       },
       "badges": {
         "title": "Emblemas que você conquista",
-        "description": "Seis emblemas com até oito níveis cada, exibidos no cartão de perfil, com o progresso até o próximo nível."
+        "description": "Doze emblemas com até oito níveis cada, exibidos no cartão de perfil, com o progresso até o próximo nível."
       },
       "profilePopup": {
         "title": "Cartão de perfil na barra do usuário",
@@ -1491,7 +1491,7 @@
             "Provedor de e-mail SMTP — envio dos e-mails de verificação e de redefinição de senha.",
             "Provedores de hospedagem e infraestrutura que operam nossos servidores e bancos de dados.",
             "Google Play — distribuição e atualizações do app no Android (aplicam-se as políticas do Google Play).",
-            "YooKassa (YooMoney) — processamento de pagamentos de enfeites opcionais. Quando os recibos fiscais estão ativados, seu e-mail é enviado à YooKassa para que o recibo chegue até você."
+            "YooKassa (YooMoney) — processamento de pagamentos de enfeites opcionais."
           ]
         },
         {

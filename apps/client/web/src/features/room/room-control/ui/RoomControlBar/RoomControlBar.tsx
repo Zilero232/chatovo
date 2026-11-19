@@ -1,3 +1,4 @@
+import { HangUpIcon } from '@chatovo/ui-kit';
 import {
   HeadphoneOff,
   Headphones,
@@ -5,7 +6,6 @@ import {
   MicOff,
   Monitor,
   MonitorOff,
-  PhoneOff,
   Video,
   VideoOff
 } from 'lucide-react';
@@ -86,7 +86,7 @@ export const RoomControlBar = ({ extraActions }: RoomControlBarProps) => {
 
       <span aria-hidden className={s.divider} />
 
-      <ControlButton icon={<PhoneOff />} label={t('leave')} tone='leave' onClick={leave} />
+      <ControlButton icon={<HangUpIcon />} label={t('leave')} tone='leave' onClick={leave} />
     </div>
   );
 };

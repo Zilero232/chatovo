@@ -35,9 +35,11 @@ The YooKassa client lives in `modules/shop/services/yookassa` and calls the REST
 
 The webhook is also fenced by `YookassaIpGuard`, which accepts only YooKassa's published notification ranges (`YOOKASSA_WEBHOOK_CIDRS`, the same list GnomeVPN uses, matched with `ipaddr.js`; loopback is allowed outside production) and is exempt from throttling. `OrderSweeperService` re-reads every pending order between 2 minutes and 24 hours old every 5 minutes, so a payment whose notification was lost and whose buyer closed the tab still settles.
 
-With `YOOKASSA_SEND_RECEIPT=true` every payment carries a 54-FZ receipt line (`vat_code: 1`, service, full payment) addressed to the account's email.
-
 Without `YOOKASSA_SHOP_ID` / `YOOKASSA_SECRET_KEY` the shop is disabled (`ShopState.enabled = false`). The catalog still shows, buying is off with a notice, and owned items keep working.
+
+### Telling the buyer
+
+Every status change the server makes (`succeeded`, `canceled`, `refunded`) is pushed to the buyer as the realtime event `shop.order`, so every open client hears it, including one that never watched the order (a closed tab, another device). `ShopOrderWatcher` (mounted in the authed shell) turns it, and the polled order it watches, into one toast per order (`shop-order-<id>`, so both paths update the same toast): a loading toast while waiting, success with an "Open" action to the shop, an error on cancel, a notice on refund. Success and refund refresh the shop state, the badges and the profiles. A refund also patches the buyer's LiveKit metadata, so the taken-back items disappear from rooms at once.
 
 ### Android and Google Play
 
@@ -65,13 +67,21 @@ Clicking your own name in the bottom user bar opens a Discord-style profile popu
 
 Badges are earned, never sold. The supporter badge is the only one tied to money: it comes with any successful purchase. `packages/schemas/src/badges` holds the ids and the tier thresholds (`BADGE_TIERS`). `BadgesService` computes every value from data that already exists, so nothing new is tracked:
 
-| Badge       | Value                                  | Tiers         |
-| ----------- | -------------------------------------- | ------------- |
-| `supporter` | successful shop orders                 | 1             |
-| `veteran`   | days since sign-up                     | 30 / 180 / 365 |
-| `social`    | accepted friendships                   | 3 / 10 / 25   |
-| `chatter`   | text messages sent, not deleted        | 50 / 500 / 5000 |
-| `host`      | group rooms owned                      | 1 / 5 / 15    |
-| `collector` | owned cosmetics                        | 4 / 12 / 24   |
+| Badge       | Value                                                        | Tiers                              |
+| ----------- | ------------------------------------------------------------ | ---------------------------------- |
+| `supporter` | successful shop orders                                       | 1 / 3 / 5 / 10                     |
+| `veteran`   | days since sign-up                                           | 7 → 1095                           |
+| `social`    | accepted friendships                                         | 1 → 100                            |
+| `chatter`   | text messages sent, not deleted                              | 10 → 25 000                        |
+| `host`      | group rooms owned                                            | 1 → 50                             |
+| `collector` | owned cosmetics                                              | 1 → 32                             |
+| `talker`    | minutes of completed DM calls (the call log in `messages`)   | 10 → 12 000                        |
+| `penPal`    | direct chats the user has written in                         | 1 → 50                             |
+| `wanderer`  | group rooms the user has written in                          | 1 → 100                            |
+| `sharer`    | attachments sent (text messages whose body is an attachment) | 1 → 1000                           |
+| `regular`   | distinct UTC days with a message sent                        | 3 → 365                            |
+| `stylist`   | filled profile fields: name, avatar, banner, bio, link       | 1 / 3 / 5                          |
 
-`GET /badges/me` returns progress for the Badges tab (grid plus a detail panel with the next goal and the tier ladder). `GET /badges/:userId` returns earned badges only, for the badge row on profile cards. Tier colours are bronze, silver and gold. The local easter-egg `achievements` feature is separate and stays client-only.
+The message-based values come from two aggregate queries (`$queryRaw`, one over the user's messages, one over the call log of their DM rooms), turned into numbers by `toActivityStats`; the exact thresholds live in `BADGE_TIERS`.
+
+`GET /badges/me` returns progress for the Badges tab (grid plus a detail panel with the next goal and the tier ladder). `GET /badges/:userId` returns earned badges only, for the badge row on profile cards. Tier 1 has a colour of its own per badge; higher tiers share one ladder of up to eight colours. The local easter-egg `achievements` feature is separate and stays client-only.

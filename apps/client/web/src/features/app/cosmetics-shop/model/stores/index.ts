@@ -1,1 +1,5 @@
-export { type WatchedOrderState, watchedOrderStoreApi } from './watched-order';
+export {
+  useWatchedOrderStore,
+  type WatchedOrderState,
+  watchedOrderStoreApi
+} from './watched-order';

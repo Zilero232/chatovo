@@ -214,7 +214,7 @@
       },
       "badges": {
         "title": "Abzeichen, die man sich verdient",
-        "description": "Sechs Abzeichen mit bis zu acht Stufen, sichtbar auf deiner Profilkarte, mit dem Fortschritt zur nächsten Stufe."
+        "description": "Zwölf Abzeichen mit bis zu acht Stufen, sichtbar auf deiner Profilkarte, mit dem Fortschritt zur nächsten Stufe."
       },
       "profilePopup": {
         "title": "Profilkarte in der Benutzerleiste",
@@ -1491,7 +1491,7 @@
             "SMTP-E-Mail-Anbieter – Zustellung von E-Mails zur Bestätigung und zum Zurücksetzen des Passworts.",
             "Hosting- und Infrastrukturanbieter, die unsere Server und Datenbanken betreiben.",
             "Google Play – Vertrieb und Updates der App unter Android (es gelten die Richtlinien von Google Play).",
-            "YooKassa (YooMoney) – Zahlungsabwicklung für optionale Extras. Sind Steuerbelege aktiviert, wird deine E-Mail-Adresse an YooKassa übermittelt, damit dir der Beleg zugeschickt werden kann."
+            "YooKassa (YooMoney) – Zahlungsabwicklung für optionale Extras."
           ]
         },
         {

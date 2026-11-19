@@ -3,7 +3,10 @@ export { audioConstraints } from './lib/audio-constraints';
 export {
   getCameraCaptureOptions,
   getPublishDefaults,
-  getScreenCaptureOptions
+  getScreenCaptureOptions,
+  getScreenContentHint,
+  getScreenDegradation,
+  getScreenPublishOptions
 } from './lib/video-quality';
 export {
   VOICE_GATE_MANUAL_RANGE,
@@ -20,6 +23,7 @@ export type {
   DeviceSettings,
   MicActivationMode,
   MusicSettings,
+  ScreenContent,
   ScreenQuality,
   ShortcutActionId,
   ShortcutBinding,

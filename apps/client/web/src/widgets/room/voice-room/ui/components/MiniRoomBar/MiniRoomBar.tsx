@@ -1,8 +1,8 @@
-import { IconButtonWithTooltip, Text } from '@chatovo/ui-kit';
+import { HangUpIcon, IconButtonWithTooltip, Text } from '@chatovo/ui-kit';
 import { useConnectionState } from '@livekit/components-react';
 import { clsx } from 'clsx';
 import { ConnectionState } from 'livekit-client';
-import { AudioLines, HeadphoneOff, Headphones, Mic, MicOff, PhoneOff } from 'lucide-react';
+import { AudioLines, HeadphoneOff, Headphones, Mic, MicOff } from 'lucide-react';
 import { match, P } from 'ts-pattern';
 import { useTranslations } from 'use-intl';
 
@@ -73,7 +73,7 @@ export const MiniRoomBar = ({ isDm, roomName, variant = 'docked', onExpand }: Mi
 
         <IconButtonWithTooltip
           className={clsx(s.action, s.leave)}
-          icon={<PhoneOff />}
+          icon={<HangUpIcon />}
           label={t('controls.leave')}
           size='icon-sm'
           tooltipSide='top'

@@ -1,8 +1,11 @@
 import { useLocalParticipant } from '@livekit/components-react';
 
-import { getScreenCaptureOptions, useAppSettings } from '@/entities/app/settings';
+import {
+  getScreenCaptureOptions,
+  getScreenPublishOptions,
+  useAppSettings
+} from '@/entities/app/settings';
 import { useInvisibleGuard } from '@/entities/room/room';
-import { SHARED_AUDIO_PUBLISH } from '@/shared/lib';
 
 import { useParticipantAction } from './use-participant-action';
 
@@ -20,8 +23,11 @@ export const useScreenControl = () => {
 
       await participant.setScreenShareEnabled(
         !participant.isScreenShareEnabled,
-        getScreenCaptureOptions(settings.video.screenQuality),
-        SHARED_AUDIO_PUBLISH
+        getScreenCaptureOptions({
+          quality: settings.video.screenQuality,
+          content: settings.video.screenContent
+        }),
+        getScreenPublishOptions(settings.video.screenContent)
       );
     }
   });

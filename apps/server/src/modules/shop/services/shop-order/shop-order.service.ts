@@ -17,6 +17,8 @@ import {
   AppNotFoundException
 } from '../../../../common/exceptions';
 import { PrismaService } from '../../../../core';
+import { patchParticipantMetadataEverywhere } from '../../../livekit';
+import { emitUserEvent } from '../../../realtime';
 import { parseEquippedCosmetics } from '../../../users';
 import { PENDING_ORDER_SWEEP, REFUND_EVENT_PREFIX, YOOKASSA_CURRENCY } from '../../config';
 import { YookassaService } from '../yookassa';
@@ -37,6 +39,12 @@ export class ShopOrderService {
       status: order.status,
       confirmationUrl: order.status === 'pending' ? order.confirmationUrl : null
     };
+  }
+
+  private notifyBuyer(order: ShopOrderRow): void {
+    const { id, productKey, status } = this.toShopOrder(order);
+
+    emitUserEvent(order.userId, { type: 'shop.order', order: { id, productKey, status } });
   }
 
   private async assertNotOwned({ userId, items }: AssertNotOwnedInput): Promise<void> {
@@ -61,10 +69,14 @@ export class ShopOrderService {
     }
 
     if (payment.status === 'canceled') {
-      return this.prisma.shopOrder.update({
+      const canceled = await this.prisma.shopOrder.update({
         where: { id: order.id },
         data: { status: 'canceled' }
       });
+
+      this.notifyBuyer(canceled);
+
+      return canceled;
     }
 
     const isPaidInFull =
@@ -96,6 +108,8 @@ export class ShopOrderService {
       );
     }
 
+    this.notifyBuyer(fulfilled);
+
     return fulfilled;
   }
 
@@ -121,10 +135,7 @@ export class ShopOrderService {
       return this.toShopOrder(await this.syncOrder(reusable));
     }
 
-    const [, user] = await Promise.all([
-      this.assertNotOwned({ userId, items }),
-      this.prisma.user.findUniqueOrThrow({ where: { id: userId }, select: { email: true } })
-    ]);
+    await this.assertNotOwned({ userId, items });
 
     const order = await this.prisma.shopOrder.create({
       data: { userId, productKey, amountRub: priceRub }
@@ -134,8 +145,7 @@ export class ShopOrderService {
       .createPayment({
         orderId: order.id,
         productKey,
-        amountRub: priceRub,
-        customerEmail: user.email
+        amountRub: priceRub
       })
       .catch(async (error: unknown) => {
         await this.prisma.shopOrder.update({
@@ -216,11 +226,18 @@ export class ShopOrderService {
       Object.entries(equipped).map(([kind, key]) => [kind, key && items.includes(key) ? null : key])
     );
 
-    await this.prisma.$transaction([
+    const [, refunded] = await this.prisma.$transaction([
       this.prisma.entitlement.deleteMany({ where: { orderId: order.id } }),
       this.prisma.shopOrder.update({ where: { id: order.id }, data: { status: 'refunded' } }),
       this.prisma.profile.updateMany({ where: { userId: order.userId }, data: { cosmetics } })
     ]);
+
+    await patchParticipantMetadataEverywhere({
+      identity: order.userId,
+      patch: { cosmetics: parseEquippedCosmetics(cosmetics) }
+    });
+
+    this.notifyBuyer(refunded);
 
     this.logger.log(`Order ${order.id} refunded; ${items.length} item(s) taken back`);
   }
