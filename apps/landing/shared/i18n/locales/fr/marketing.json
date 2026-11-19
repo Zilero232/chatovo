@@ -208,6 +208,22 @@
       "minor": "Version régulière"
     },
     "entries": {
+      "streamAudio": {
+        "title": "Le son d’un stream seulement quand vous le regardez",
+        "description": "Un partage d’écran reste muet tant que vous ne l’ouvrez pas : plusieurs streams dans un salon ne jouent plus en même temps."
+      },
+      "roomGrid": {
+        "title": "Les tuiles remplissent l’écran",
+        "description": "Les tuiles s’étirent sur toute la scène et une dernière rangée incomplète reste centrée."
+      },
+      "streamBackdrop": {
+        "title": "Plus de bandes noires autour d’un stream",
+        "description": "Un stream ouvert s’affiche sur une copie floutée de lui-même au lieu de bandes noires."
+      },
+      "shopPolish": {
+        "title": "Corrections de la boutique et du profil",
+        "description": "Les pseudos animés ne disparaissent plus, les noms longs tiennent et le cadre d’avatar est bien placé sur la carte de profil."
+      },
       "cosmeticsShop": {
         "title": "Des cosmétiques facultatifs pour votre profil",
         "description": "Anneaux de voix, cadres d’avatar, dégradés de nom et fonds de tuile en huit collections, avec essayage avant achat. Tout le reste reste gratuit."
@@ -946,6 +962,7 @@
       }
     },
     "highlights": {
+      "streamAudio": "Son du stream à la demande",
       "cosmeticsShop": "Boutique de cosmétiques",
       "badges": "Badges à paliers",
       "vpnTunnel": "VPN en split tunneling sous Windows",

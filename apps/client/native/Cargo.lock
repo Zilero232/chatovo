@@ -1911,7 +1911,7 @@ dependencies = [
  "libc",
  "percent-encoding",
  "pin-project-lite",
- "socket2 0.5.10",
+ "socket2 0.6.5",
  "system-configuration",
  "tokio",
  "tower-service",
@@ -4805,9 +4805,9 @@ dependencies = [
 
 [[package]]
 name = "tauri-plugin-fcm"
-version = "0.2.1"
+version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c2811550f49e877692495bd750b7e9c016f78ab939e210cc43861a2fa68253f0"
+checksum = "1ec4694e0b26db523f4aa6699af3f5ae3854fdb7b19753af72e2c8b7db1bf536"
 dependencies = [
  "log",
  "serde",

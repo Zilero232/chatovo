@@ -208,6 +208,22 @@
       "minor": "Normal sürüm"
     },
     "entries": {
+      "streamAudio": {
+        "title": "Yayın sesi yalnızca izlerken",
+        "description": "Ekran paylaşımı sen açana kadar sessiz kalır; odadaki birden fazla yayın artık aynı anda çalmaz."
+      },
+      "roomGrid": {
+        "title": "Kutular ekranı dolduruyor",
+        "description": "Kutular tüm sahneye yayılır, eksik son sıra ortada durur."
+      },
+      "streamBackdrop": {
+        "title": "Yayında siyah şerit yok",
+        "description": "Açılan yayın, siyah şeritler yerine kendisinin bulanık bir kopyası üzerinde görünür."
+      },
+      "shopPolish": {
+        "title": "Mağaza ve profil düzeltmeleri",
+        "description": "Animasyonlu isimler artık kaybolmuyor, uzun isimler sığıyor ve profil kartında avatar çerçevesi doğru duruyor."
+      },
       "cosmeticsShop": {
         "title": "Profilin için isteğe bağlı kozmetikler",
         "description": "Sekiz koleksiyonda konuşma halkaları, avatar çerçeveleri, isim gradyanları ve kutu arka planları; satın almadan önce deneyebilirsin. Geri kalan her şey ücretsiz."
@@ -946,6 +962,7 @@
       }
     },
     "highlights": {
+      "streamAudio": "İsteğe bağlı yayın sesi",
       "cosmeticsShop": "Kozmetik mağazası",
       "badges": "Seviyeli rozetler",
       "vpnTunnel": "Windows'ta bölünmüş tünel VPN",

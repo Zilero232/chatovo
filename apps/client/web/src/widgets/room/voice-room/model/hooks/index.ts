@@ -16,6 +16,8 @@ export { useParticipantsView } from './use-participants-view';
 export { usePttLocalSpeaking } from './use-ptt-local-speaking';
 export { useRestoreParticipantVolumes } from './use-restore-participant-volumes';
 export { useRoomConnection } from './use-room-connection';
+export { useScreenAudioSubscriptions } from './use-screen-audio-subscriptions';
 export { useShortcutActions } from './use-shortcut-actions';
 export { useVoiceGate } from './use-voice-gate';
 export { useVoiceRoomSounds } from './use-voice-room-sounds';
+export { useWatchStream } from './use-watch-stream';

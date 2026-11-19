@@ -10,7 +10,7 @@ import type { UseDeviceSelect, UseDeviceSelectInput } from './use-device-select.
 
 import { deviceErrorKey } from '../../../ui/RoomControlBar/components/DeviceMenu/lib/device-error-key';
 
-export const useDeviceSelect = ({ kind, slot, label }: UseDeviceSelectInput): UseDeviceSelect => {
+export const useDeviceSelect = ({ kind, slot }: UseDeviceSelectInput): UseDeviceSelect => {
   const t = useTranslations('settings.devices');
 
   const { settings, setGroup } = useAppSettings();
@@ -19,7 +19,9 @@ export const useDeviceSelect = ({ kind, slot, label }: UseDeviceSelectInput): Us
     kind,
     requestPermissions: true,
     onError: (error) => {
-      toast.error(t(deviceErrorKey(error), { device: label }), { id: `device-${kind}` });
+      toast.error(t(deviceErrorKey(error), { device: t(`kinds.${kind}`) }), {
+        id: `device-${kind}`
+      });
     }
   });
 
@@ -50,7 +52,10 @@ export const useDeviceSelect = ({ kind, slot, label }: UseDeviceSelectInput): Us
     try {
       await setActiveMediaDevice(deviceId);
     } catch (error) {
-      toast.error(t(deviceErrorKey(error as Error), { device: label }), { id: `device-${kind}` });
+      const device =
+        devices.find((entry) => entry.deviceId === deviceId)?.label || t(`kinds.${kind}`);
+
+      toast.error(t(deviceErrorKey(error as Error), { device }), { id: `device-${kind}` });
     }
   };
 

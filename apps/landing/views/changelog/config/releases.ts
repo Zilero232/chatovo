@@ -23,6 +23,18 @@ export type ChangelogRelease = {
 
 export const CHANGELOG_RELEASES: ChangelogRelease[] = [
   {
+    version: '1.16.1',
+    date: '2026-11-19',
+    tone: 'minor',
+    highlights: ['streamAudio'],
+    entries: [
+      { kind: 'fix', key: 'streamAudio' },
+      { kind: 'improvement', key: 'roomGrid' },
+      { kind: 'improvement', key: 'streamBackdrop' },
+      { kind: 'fix', key: 'shopPolish' }
+    ]
+  },
+  {
     version: '1.16.0',
     date: '2026-11-19',
     tone: 'major',

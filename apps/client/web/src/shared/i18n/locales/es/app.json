@@ -90,7 +90,12 @@
       "errorDenied": "Sin acceso a \"{device}\". Permite el acceso en la configuración del navegador.",
       "errorNotFound": "No se encontró el dispositivo \"{device}\". Comprueba que esté conectado.",
       "errorBusy": "Otra aplicación está usando el dispositivo \"{device}\".",
-      "errorUnknown": "No se pudo cambiar a \"{device}\"."
+      "errorUnknown": "No se pudo cambiar a \"{device}\".",
+      "kinds": {
+        "audioinput": "micrófono",
+        "audiooutput": "altavoces",
+        "videoinput": "cámara"
+      }
     },
     "audio": {
       "activation": "Activación del micrófono",

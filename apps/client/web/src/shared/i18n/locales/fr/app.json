@@ -90,7 +90,12 @@
       "errorDenied": "Pas d'accès à « {device} ». Autorise l'accès dans les paramètres de ton navigateur.",
       "errorNotFound": "Périphérique « {device} » introuvable. Vérifie qu'il est bien branché.",
       "errorBusy": "Le périphérique « {device} » est utilisé par une autre application.",
-      "errorUnknown": "Impossible de passer à « {device} »."
+      "errorUnknown": "Impossible de passer à « {device} ».",
+      "kinds": {
+        "audioinput": "micro",
+        "audiooutput": "haut-parleurs",
+        "videoinput": "caméra"
+      }
     },
     "audio": {
       "activation": "Activation du micro",

@@ -11,6 +11,8 @@ import { useAppSettings } from '@/entities/app/settings';
 
 import type { CardVideoProps } from './CardVideo.types';
 
+import { useWatchStream } from '../../../model/hooks';
+
 import s from './CardVideo.module.scss';
 
 export const CardVideo = ({ trackRef }: CardVideoProps) => {
@@ -21,6 +23,8 @@ export const CardVideo = ({ trackRef }: CardVideoProps) => {
   const { settings } = useAppSettings();
 
   const [isExpanded, setIsExpanded] = useState(false);
+
+  useWatchStream({ trackRef, isWatching: isExpanded && !muted });
 
   const isMirrored =
     trackRef.participant.isLocal &&
@@ -70,6 +74,7 @@ export const CardVideo = ({ trackRef }: CardVideoProps) => {
             type='button'
             onClick={toggle}
           >
+            <VideoTrack aria-hidden className={s.backdrop} trackRef={trackRef} />
             <VideoTrack className={expandedVideoClassName} trackRef={trackRef} />
             <span className={s.fullscreenHint}>
               <Shrink aria-hidden className={s.hintIcon} />

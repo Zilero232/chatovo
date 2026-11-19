@@ -90,7 +90,12 @@
       "errorDenied": "Kein Zugriff auf „{device}“. Erlaube den Zugriff in deinen Browsereinstellungen.",
       "errorNotFound": "Gerät „{device}“ nicht gefunden. Prüfe, ob es angeschlossen ist.",
       "errorBusy": "Gerät „{device}“ wird von einer anderen Anwendung verwendet.",
-      "errorUnknown": "Wechsel zu „{device}“ fehlgeschlagen."
+      "errorUnknown": "Wechsel zu „{device}“ fehlgeschlagen.",
+      "kinds": {
+        "audioinput": "Mikrofon",
+        "audiooutput": "Lautsprecher",
+        "videoinput": "Kamera"
+      }
     },
     "audio": {
       "activation": "Mikrofonaktivierung",

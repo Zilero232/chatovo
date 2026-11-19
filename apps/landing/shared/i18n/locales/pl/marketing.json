@@ -208,6 +208,22 @@
       "minor": "Zwykłe wydanie"
     },
     "entries": {
+      "streamAudio": {
+        "title": "Dźwięk transmisji tylko podczas oglądania",
+        "description": "Udostępniony ekran milczy, dopóki go nie otworzysz, więc kilka transmisji w pokoju nie gra już naraz."
+      },
+      "roomGrid": {
+        "title": "Kafelki wypełniają ekran",
+        "description": "Kafelki rozciągają się na całą scenę, a niepełny ostatni rząd stoi pośrodku."
+      },
+      "streamBackdrop": {
+        "title": "Bez czarnych pasów przy transmisji",
+        "description": "Otwarta transmisja leży na rozmytej kopii samej siebie zamiast na czarnych pasach."
+      },
+      "shopPolish": {
+        "title": "Poprawki sklepu i profilu",
+        "description": "Animowane nazwy już nie znikają, długie nazwy się mieszczą, a ramka awatara na karcie profilu stoi równo."
+      },
       "cosmeticsShop": {
         "title": "Opcjonalne kosmetyki do profilu",
         "description": "Pierścienie mówienia, ramki awatara, gradienty nazwy i tła kafelków w ośmiu kolekcjach, z przymiarką przed zakupem. Cała reszta pozostaje darmowa."
@@ -946,6 +962,7 @@
       }
     },
     "highlights": {
+      "streamAudio": "Dźwięk transmisji na żądanie",
       "cosmeticsShop": "Sklep z kosmetykami",
       "badges": "Odznaki z poziomami",
       "vpnTunnel": "VPN z tunelowaniem dzielonym w Windows",
