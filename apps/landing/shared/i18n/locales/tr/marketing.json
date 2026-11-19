@@ -208,6 +208,10 @@
       "minor": "Normal sürüm"
     },
     "entries": {
+      "tilesFill": {
+        "title": "Kutular tüm sahneyi kullanıyor",
+        "description": "Kutular oda görünümünü boş şerit bırakmadan doldurur; Apple Silicon Mac’ler güncellemeyi yeniden alır."
+      },
       "streamAudio": {
         "title": "Yayın sesi yalnızca izlerken",
         "description": "Ekran paylaşımı sen açana kadar sessiz kalır; odadaki birden fazla yayın artık aynı anda çalmaz."
@@ -962,6 +966,7 @@
       }
     },
     "highlights": {
+      "tilesFill": "Kutular tüm ekranda",
       "streamAudio": "İsteğe bağlı yayın sesi",
       "cosmeticsShop": "Kozmetik mağazası",
       "badges": "Seviyeli rozetler",

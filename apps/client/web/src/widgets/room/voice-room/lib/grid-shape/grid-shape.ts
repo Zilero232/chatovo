@@ -2,11 +2,13 @@ import type { CSSProperties } from 'react';
 
 import type { GridShape, StageGridShape } from './grid-shape.types';
 
-const MAX_WIDE_COLS = 5;
+const MAX_WIDE_COLS = 3;
+
+const MAX_VISIBLE_ROWS = 3;
 
 const fill = (count: number, cols: number): GridShape => ({
   cols,
-  rows: Math.max(1, Math.ceil(count / cols))
+  rows: Math.min(MAX_VISIBLE_ROWS, Math.max(1, Math.ceil(count / cols)))
 });
 
 const wideCols = (count: number) =>

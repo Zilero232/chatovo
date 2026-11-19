@@ -10,9 +10,9 @@ describe('getStageGridShape', () => {
     [4, { cols: 2, rows: 2 }],
     [5, { cols: 3, rows: 2 }],
     [9, { cols: 3, rows: 3 }],
-    [10, { cols: 4, rows: 3 }],
-    [40, { cols: 5, rows: 8 }]
-  ])('lays %i tiles out in a near-square grid on a wide stage', (count, shape) => {
+    [10, { cols: 3, rows: 3 }],
+    [40, { cols: 3, rows: 3 }]
+  ])('lays %i tiles out in at most three columns on a wide stage', (count, shape) => {
     expect(getStageGridShape(count).wide).toEqual(shape);
   });
 
@@ -20,9 +20,13 @@ describe('getStageGridShape', () => {
     [1, { cols: 1, rows: 1 }],
     [2, { cols: 1, rows: 2 }],
     [3, { cols: 2, rows: 2 }],
-    [7, { cols: 2, rows: 4 }]
+    [7, { cols: 2, rows: 3 }]
   ])('stacks %i tiles on a narrow stage', (count, shape) => {
     expect(getStageGridShape(count).narrow).toEqual(shape);
+  });
+
+  it('sizes rows for three at most and lets the stage scroll past them', () => {
+    expect(getStageGridShape(12).wide.rows).toBe(3);
   });
 
   it('keeps one row for an empty stage', () => {

@@ -423,12 +423,13 @@ jobs:
 
   publish:
     needs: [desktop, android]
-    # Nothing failed, and something actually built. A `skipped` job is a
-    # deliberate `targets` choice, so it must not block.
+    # Every platform built, or was deliberately left out through `targets` (`skipped`).
+    # A `cancelled` matrix leg (GitHub could not find a macOS arm64 runner) must block
+    # too, or the release ships without that platform in latest.json.
     if: >-
       always()
-      && needs.desktop.result != 'failure'
-      && needs.android.result != 'failure'
+      && contains(fromJSON('["success", "skipped"]'), needs.desktop.result)
+      && contains(fromJSON('["success", "skipped"]'), needs.android.result)
       && (needs.desktop.result == 'success' || needs.android.result == 'success')
 
     permissions:

@@ -21,19 +21,17 @@ export const RoomSkeleton = ({ children }: RoomSkeletonProps) => (
           <Skeleton shape='text' width='5rem' />
         </div>
       ))}
-    </div>
 
-    <div className={s.footer}>
       <span className={s.status} role='status'>
         <Spinner size='sm' />
         {children}
       </span>
+    </div>
 
-      <div className={s.controls}>
-        {ROOM_SKELETON_CONTROLS.map((control) => (
-          <Skeleton key={control} className={s.control} shape='circle' />
-        ))}
-      </div>
+    <div className={s.controls}>
+      {ROOM_SKELETON_CONTROLS.map((control) => (
+        <Skeleton key={control} className={s.control} shape='circle' />
+      ))}
     </div>
   </div>
 );
