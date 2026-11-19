@@ -1,7 +1,6 @@
-import { Progress } from '@chatovo/ui-kit';
 import { useTranslations } from 'use-intl';
 
-import { BadgeIcon } from '@/entities/app/badges';
+import { BadgeIcon, BadgeProgress } from '@/entities/app/badges';
 
 import type { BadgeProgressRowProps } from './BadgeProgressRow.types';
 
@@ -17,14 +16,14 @@ export const BadgeProgressRow = ({ id, tier, progress }: BadgeProgressRowProps) 
 
   return (
     <div className={s.progressRow}>
-      <BadgeIcon id={id} tier={tier} />
+      <BadgeIcon id={id} size='sm' tier={tier} />
 
       <div className={s.progressBody}>
         <span className={s.progressLabel}>{label}</span>
-        <Progress className={s.progress} value={percent} />
+        <BadgeProgress id={id} tier={nextTier ?? tier} value={percent} />
       </div>
 
-      <BadgeIcon className={s.progressNext} id={id} tier={nextTier ?? tier} />
+      <BadgeIcon className={s.progressNext} id={id} size='sm' tier={nextTier ?? tier} />
     </div>
   );
 };

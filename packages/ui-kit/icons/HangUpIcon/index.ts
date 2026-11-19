@@ -1,0 +1,1 @@
+export { HangUpIcon } from './HangUpIcon';

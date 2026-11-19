@@ -10,6 +10,8 @@ import type { DeviceSettings } from '@/entities/app/settings';
 import {
   getCameraCaptureOptions,
   getPublishDefaults,
+  getScreenContentHint,
+  getScreenDegradation,
   KIND_TO_SLOT,
   useAppSettings
 } from '@/entities/app/settings';
@@ -101,7 +103,7 @@ const usePublishDefaults = (room: Room) => {
   useEffect(() => {
     room.options.publishDefaults = {
       ...room.options.publishDefaults,
-      ...getPublishDefaults(cameraQuality, screenQuality)
+      ...getPublishDefaults({ cameraQuality, screenQuality })
     };
   }, [room, cameraQuality, screenQuality]);
 };
@@ -135,6 +137,35 @@ const useRestartCameraOnQualityChange = (room: Room) => {
   }, [room, cameraQuality]);
 };
 
+const useApplyScreenContent = (room: Room) => {
+  const { settings } = useAppSettings();
+  const { screenContent } = settings.video;
+
+  const appliedContentRef = useRef(screenContent);
+
+  useEffect(() => {
+    if (appliedContentRef.current === screenContent) {
+      return;
+    }
+
+    appliedContentRef.current = screenContent;
+
+    const screenTrack = room.localParticipant.getTrackPublication(
+      Track.Source.ScreenShare
+    )?.videoTrack;
+
+    if (!(screenTrack instanceof LocalVideoTrack)) {
+      return;
+    }
+
+    screenTrack.mediaStreamTrack.contentHint = getScreenContentHint(screenContent);
+
+    screenTrack.setDegradationPreference(getScreenDegradation(screenContent)).catch((err) => {
+      console.error('failed to apply screen content mode', err);
+    });
+  }, [room, screenContent]);
+};
+
 export const useDeviceSync = () => {
   const room = useRoomContext();
 
@@ -143,6 +174,7 @@ export const useDeviceSync = () => {
   useApplyAudioFlags(room);
   usePublishDefaults(room);
   useRestartCameraOnQualityChange(room);
+  useApplyScreenContent(room);
   useMirrorActiveDevice(room);
   useApplyDevices(room, settings.devices);
 };

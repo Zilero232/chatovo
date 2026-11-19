@@ -24,7 +24,10 @@ export const useRoomConnection = ({
 
   const audioCaptureRef = useRef(settings.audio);
   const publishDefaultsRef = useRef(
-    getPublishDefaults(settings.video.cameraQuality, settings.video.screenQuality)
+    getPublishDefaults({
+      cameraQuality: settings.video.cameraQuality,
+      screenQuality: settings.video.screenQuality
+    })
   );
 
   const handleConnected = () => {

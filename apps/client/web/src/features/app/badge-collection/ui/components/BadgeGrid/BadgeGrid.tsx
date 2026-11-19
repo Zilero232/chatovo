@@ -18,13 +18,13 @@ export const BadgeGrid = ({ title, badges, selectedId, onSelect }: BadgeGridProp
         {badges.map(({ id, tier }) => (
           <button
             key={id}
-            aria-label={t(`items.${id}.name`)}
             aria-pressed={id === selectedId}
             className={clsx(s.cell, { [s.cellSelected]: id === selectedId })}
             type='button'
             onClick={() => onSelect(id)}
           >
-            <BadgeIcon id={id} tier={Math.max(tier, 1)} />
+            <BadgeIcon id={id} tier={tier} />
+            <span className={s.cellName}>{t(`items.${id}.name`)}</span>
           </button>
         ))}
       </div>

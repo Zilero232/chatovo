@@ -20,11 +20,14 @@ export type AudioSettings = AudioProcessingSettings & {
 
 export type VideoQuality = '1080p' | '1440p' | '4k' | '720p';
 
-export type ScreenQuality = '1080p15' | '1080p30' | '1440p30' | '4k30';
+export type ScreenQuality = '1080p15' | '1080p30' | '1080p60' | '1440p30' | '1440p60' | '4k30';
+
+export type ScreenContent = 'motion' | 'text';
 
 type VideoSettings = {
   cameraQuality: VideoQuality;
   mirrorVideo: boolean;
+  screenContent: ScreenContent;
   screenQuality: ScreenQuality;
 };
 

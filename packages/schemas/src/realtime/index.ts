@@ -21,7 +21,8 @@ export {
   realtimeRoomReactionEventSchema,
   realtimeRoomRemovedEventSchema,
   realtimeRoomUpsertedEventSchema,
-  realtimeServerMessageSchema
+  realtimeServerMessageSchema,
+  realtimeShopOrderEventSchema
 } from './server';
 
 export type { RealtimeClientMessage, RealtimeServerMessage } from './types';

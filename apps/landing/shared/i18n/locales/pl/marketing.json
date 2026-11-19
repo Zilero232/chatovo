@@ -214,7 +214,7 @@
       },
       "badges": {
         "title": "Odznaki do zdobycia",
-        "description": "Sześć odznak, każda z maksymalnie ośmioma poziomami, widocznych na karcie profilu, z postępem do kolejnego poziomu."
+        "description": "Dwanaście odznak, każda z maksymalnie ośmioma poziomami, widocznych na karcie profilu, z postępem do kolejnego poziomu."
       },
       "profilePopup": {
         "title": "Karta profilu z paska użytkownika",
@@ -1491,7 +1491,7 @@
             "Dostawca poczty SMTP — dostarczanie e-maili weryfikacyjnych i wiadomości do resetu hasła.",
             "Dostawcy hostingu i infrastruktury, którzy obsługują nasze serwery i bazy danych.",
             "Google Play — dystrybucja i aktualizacje aplikacji na Androidzie (obowiązują zasady Google Play).",
-            "YooKassa (YooMoney) — obsługa płatności za opcjonalne ozdoby. Gdy włączone są paragony fiskalne, Twój adres e-mail jest przekazywany do YooKassa, aby wysłać Ci paragon."
+            "YooKassa (YooMoney) — obsługa płatności za opcjonalne ozdoby."
           ]
         },
         {

@@ -1,19 +1,15 @@
 import { Switch } from '@chatovo/ui-kit';
 import { useTranslations } from 'use-intl';
 
-import type { ScreenQuality, VideoQuality } from '@/entities/app/settings';
-
 import { useAppSettings } from '@/entities/app/settings';
 
+import { CAMERA_QUALITIES, SCREEN_CONTENTS, SCREEN_QUALITIES } from '../../config';
 import { DeviceSelect } from '../components/DeviceSelect/DeviceSelect';
 import { QualitySelect } from '../components/QualitySelect/QualitySelect';
 import { SettingRow } from '../components/SettingRow/SettingRow';
 import { SettingsCard } from '../components/SettingsCard/SettingsCard';
 
 import s from '../AppSettingsButton.module.scss';
-
-const CAMERA_QUALITIES: VideoQuality[] = ['720p', '1080p', '1440p', '4k'];
-const SCREEN_QUALITIES: ScreenQuality[] = ['1080p15', '1080p30', '1440p30', '4k30'];
 
 export const VideoTab = () => {
   const t = useTranslations('settings.video');
@@ -75,6 +71,22 @@ export const VideoTab = () => {
           }
           hint={t('screenQualityHint')}
           label={t('screenQuality')}
+        />
+
+        <SettingRow
+          stacked
+          control={
+            <QualitySelect
+              options={SCREEN_CONTENTS.map((value) => ({
+                value,
+                label: t(`screenContentOptions.${value}`)
+              }))}
+              value={video.screenContent}
+              onChange={(value) => setGroup('video', { screenContent: value })}
+            />
+          }
+          hint={t('screenContentHint')}
+          label={t('screenContent')}
         />
       </SettingsCard>
     </div>

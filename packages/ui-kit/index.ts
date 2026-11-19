@@ -29,6 +29,7 @@ export type { StatusScreenProps } from './components/StatusScreen';
 export { SubmitButton } from './components/SubmitButton';
 export type { SubmitButtonProps } from './components/SubmitButton';
 export { GithubIcon } from './icons/GithubIcon';
+export { HangUpIcon } from './icons/HangUpIcon';
 export { LogoMark } from './icons/LogoMark';
 export { WaveMark } from './icons/WaveMark';
 export { AppSplash } from './primitives/AppSplash';

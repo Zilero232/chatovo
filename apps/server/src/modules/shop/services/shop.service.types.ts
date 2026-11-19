@@ -4,7 +4,6 @@ export type CreatePaymentInput = {
   orderId: string;
   productKey: ShopProductKey;
   amountRub: number;
-  customerEmail: string;
 };
 
 export type YookassaRequestInput = {

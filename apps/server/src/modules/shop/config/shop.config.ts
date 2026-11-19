@@ -6,8 +6,6 @@ export const YOOKASSA_TIMEOUT_MS = secondsToMilliseconds(10);
 
 export const YOOKASSA_CURRENCY = 'RUB';
 
-export const RECEIPT_VAT_CODE = 1;
-
 export const PAYMENT_DESCRIPTION_PREFIX = 'Chatovo';
 
 export const YOOKASSA_WEBHOOK_CIDRS = [

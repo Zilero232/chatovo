@@ -307,6 +307,7 @@ export {
   realtimeRoomRemovedEventSchema,
   realtimeRoomUpsertedEventSchema,
   realtimeServerMessageSchema,
+  realtimeShopOrderEventSchema,
   realtimeSubscribeSchema,
   WS_CLOSE_CODE
 } from './realtime';

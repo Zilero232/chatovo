@@ -214,7 +214,7 @@
       },
       "badges": {
         "title": "Kazanılan rozetler",
-        "description": "Her biri sekiz seviyeye kadar çıkan altı rozet profil kartında görünür, yanında bir sonraki seviyeye ilerleme yer alır."
+        "description": "Her biri sekiz seviyeye kadar çıkan on iki rozet profil kartında görünür, yanında bir sonraki seviyeye ilerleme yer alır."
       },
       "profilePopup": {
         "title": "Kullanıcı çubuğundan profil kartı",
@@ -1491,7 +1491,7 @@
             "SMTP e-posta sağlayıcısı — doğrulama ve şifre sıfırlama e-postalarının iletilmesi.",
             "Sunucularımızı ve veritabanlarımızı işleten barındırma ve altyapı sağlayıcıları.",
             "Google Play — Android'de uygulamanın dağıtımı ve güncellemeleri (Google Play politikaları geçerlidir).",
-            "YooKassa (YooMoney) — isteğe bağlı süslerin ödemelerinin işlenmesi. Mali makbuzlar etkinse, makbuzun sana gönderilebilmesi için e-posta adresin YooKassa’ya iletilir."
+            "YooKassa (YooMoney) — isteğe bağlı süslerin ödemelerinin işlenmesi."
           ]
         },
         {

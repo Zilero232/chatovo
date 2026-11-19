@@ -214,7 +214,7 @@
       },
       "badges": {
         "title": "Des badges à gagner",
-        "description": "Six badges avec jusqu’à huit paliers chacun, affichés sur votre carte de profil, avec la progression vers le palier suivant."
+        "description": "Douze badges avec jusqu’à huit paliers chacun, affichés sur votre carte de profil, avec la progression vers le palier suivant."
       },
       "profilePopup": {
         "title": "Carte de profil depuis la barre utilisateur",
@@ -1491,7 +1491,7 @@
             "Fournisseur d'e-mail SMTP — envoi des e-mails de vérification et de réinitialisation du mot de passe.",
             "Fournisseurs d'hébergement et d'infrastructure qui exploitent nos serveurs et nos bases de données.",
             "Google Play — distribution et mises à jour de l'app sur Android (les politiques de Google Play s'appliquent).",
-            "YooKassa (YooMoney) — traitement des paiements des décorations facultatives. Lorsque les reçus fiscaux sont activés, votre adresse e-mail est transmise à YooKassa pour vous envoyer le reçu."
+            "YooKassa (YooMoney) — traitement des paiements des décorations facultatives."
           ]
         },
         {

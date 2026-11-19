@@ -74,6 +74,25 @@ export default eslint(
     }
   },
 
+  // The React Compiler only treats a `use*` identifier as a hook: `api.use(selector)`
+  // gets memoised like a plain call, skipped on re-render, and the hook order breaks
+  // in production. Re-export the method under a hook name (`useXStore = xStoreApi.use`).
+  {
+    name: 'chatovo/store-hooks',
+    files: ['apps/client/web/src/**/*.?([cm])[jt]s?(x)'],
+    rules: {
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector:
+            "CallExpression[callee.type='MemberExpression'][callee.property.name='use'][callee.object.name=/StoreApi$/]",
+          message:
+            'Call the store through its hook-named alias (`useXStore`), the React Compiler memoises `xStoreApi.use()` and breaks the hook order.'
+        }
+      ]
+    }
+  },
+
   {
     name: 'chatovo/server',
     files: ['apps/server/**'],

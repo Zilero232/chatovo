@@ -214,7 +214,7 @@
       },
       "badges": {
         "title": "Insignias que se ganan",
-        "description": "Seis insignias con hasta ocho niveles cada una, visibles en tu tarjeta de perfil, con el progreso hacia el siguiente nivel."
+        "description": "Doce insignias con hasta ocho niveles cada una, visibles en tu tarjeta de perfil, con el progreso hacia el siguiente nivel."
       },
       "profilePopup": {
         "title": "Tarjeta de perfil en la barra de usuario",
@@ -1491,7 +1491,7 @@
             "Proveedor de correo SMTP: envío de los correos de verificación y de restablecimiento de contraseña.",
             "Proveedores de alojamiento e infraestructura que operan nuestros servidores y bases de datos.",
             "Google Play: distribución y actualizaciones de la app en Android (se aplican las políticas de Google Play).",
-            "YooKassa (YooMoney): procesamiento de pagos de adornos opcionales. Si los recibos fiscales están activados, tu correo electrónico se envía a YooKassa para mandarte el recibo."
+            "YooKassa (YooMoney): procesamiento de pagos de adornos opcionales."
           ]
         },
         {

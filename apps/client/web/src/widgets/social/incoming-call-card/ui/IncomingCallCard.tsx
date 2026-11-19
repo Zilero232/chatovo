@@ -1,5 +1,5 @@
-import { Button } from '@chatovo/ui-kit';
-import { Phone, PhoneOff } from 'lucide-react';
+import { Button, HangUpIcon } from '@chatovo/ui-kit';
+import { Phone } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useTranslations } from 'use-intl';
 
@@ -41,7 +41,7 @@ export const IncomingCallCard = () => {
 
           <div className={s.actions}>
             <Button disabled={isPending} size='sm' variant='destructive' onClick={decline}>
-              <PhoneOff aria-hidden />
+              <HangUpIcon aria-hidden />
               {t('decline')}
             </Button>
             <Button className={s.accept} disabled={isPending} size='sm' onClick={accept}>

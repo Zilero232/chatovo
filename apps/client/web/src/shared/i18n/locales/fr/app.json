@@ -130,15 +130,23 @@
         "4k": "4K (Ultra HD)"
       },
       "screenQuality": "Qualité du partage d'écran",
-      "screenQualityHint": "Résolution et fréquence d'images pendant le partage d'écran. 30 ips convient aux contenus rapides.",
+      "screenQualityHint": "Résolution et fréquence d’images du partage d’écran. 60 ips rend les jeux et vidéos fluides, mais demande une connexion plus rapide.",
       "screenQualityOptions": {
         "1080p15": "1080p · 15 ips",
         "1080p30": "1080p · 30 ips",
+        "1080p60": "1080p · 60 ips",
         "1440p30": "1440p · 30 ips",
+        "1440p60": "1440p · 60 ips",
         "4k30": "4K · 30 ips"
       },
       "mirror": "Mettre ma vidéo en miroir",
-      "mirrorHint": "Inverse ton propre aperçu. Les autres participants te voient toujours sans effet miroir."
+      "mirrorHint": "Inverse ton propre aperçu. Les autres participants te voient toujours sans effet miroir.",
+      "screenContent": "Ce que vous partagez",
+      "screenContentHint": "Texte garde le code et les documents nets ; mouvement garde les jeux et vidéos fluides quand la connexion faiblit.",
+      "screenContentOptions": {
+        "text": "Texte et documents",
+        "motion": "Jeux et vidéos"
+      }
     },
     "sounds": {
       "volumeLabel": "Volume des effets sonores",
@@ -357,7 +365,7 @@
     "disabled": "Les achats sont temporairement indisponibles. Les objets déjà achetés continuent de fonctionner.",
     "ownerUnlocked": "Vous êtes le propriétaire : tous les objets sont débloqués gratuitement. Portez ce que vous voulez.",
     "paymentOpened": "La page de paiement s’est ouverte dans votre navigateur.",
-    "paymentSucceeded": "Paiement reçu. L’objet est à vous.",
+    "paymentSucceeded": "Paiement reçu. Votre achat est dans Mes objets.",
     "paymentCanceled": "Le paiement a été annulé. Rien n’a été débité.",
     "paymentUnavailable": "Impossible d’ouvrir la page de paiement. Réessayez dans une minute.",
     "orderCheckFailed": "Impossible de vérifier le paiement. Si de l’argent a été débité, l’objet apparaîtra d’ici quelques minutes.",
@@ -415,7 +423,10 @@
       "aurora": "Des aurores boréales en mouvement",
       "holo": "Un ensemble holographique irisé",
       "royal": "Or et pourpre pour la royauté"
-    }
+    },
+    "paymentPending": "En attente de la confirmation du paiement…",
+    "paymentRefunded": "Paiement remboursé. Les objets ont été retirés de votre profil.",
+    "openItems": "Ouvrir"
   },
   "badges": {
     "earned": "Vos badges",
@@ -456,6 +467,36 @@
         "name": "Collectionneur",
         "hint": "Collectionnez plus de décorations pour faire monter ce badge de niveau.",
         "unit": "{count, plural, one {# objet} other {# objets}}"
+      },
+      "talker": {
+        "name": "En ligne",
+        "hint": "Passez plus de temps en appel avec vos amis pour faire monter ce badge.",
+        "unit": "{count, plural, one {# min d’appel} other {# min d’appel}}"
+      },
+      "penPal": {
+        "name": "Correspondant",
+        "hint": "Discutez dans davantage de chats privés pour faire monter ce badge.",
+        "unit": "{count, plural, one {# discussion} other {# discussions}}"
+      },
+      "wanderer": {
+        "name": "Vagabond",
+        "hint": "Écrivez dans davantage de salons pour faire monter ce badge.",
+        "unit": "{count, plural, one {# salon} other {# salons}}"
+      },
+      "sharer": {
+        "name": "Partageur",
+        "hint": "Partagez plus de photos et de fichiers dans les chats pour faire monter ce badge.",
+        "unit": "{count, plural, one {# fichier} other {# fichiers}}"
+      },
+      "regular": {
+        "name": "Habitué",
+        "hint": "Écrivez sur davantage de jours différents pour faire monter ce badge.",
+        "unit": "{count, plural, one {# jour} other {# jours}}"
+      },
+      "stylist": {
+        "name": "Styliste",
+        "hint": "Complétez votre profil : nom, avatar, bannière, bio et lien.",
+        "unit": "{count, plural, one {# champ} other {# champs}}"
       }
     },
     "intro": "Parcourez votre collection et découvrez les badges que vous pouvez encore obtenir.",

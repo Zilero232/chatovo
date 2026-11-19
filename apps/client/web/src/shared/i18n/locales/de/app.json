@@ -130,15 +130,23 @@
         "4k": "4K (Ultra HD)"
       },
       "screenQuality": "Qualität der Bildschirmfreigabe",
-      "screenQualityHint": "Auflösung und Bildrate beim Teilen deines Bildschirms. 30 fps eignen sich für schnelle Inhalte.",
+      "screenQualityHint": "Auflösung und Bildrate beim Teilen des Bildschirms. 60 fps hält Spiele und Videos flüssig, braucht aber eine schnellere Verbindung.",
       "screenQualityOptions": {
         "1080p15": "1080p · 15 fps",
         "1080p30": "1080p · 30 fps",
+        "1080p60": "1080p · 60 fps",
         "1440p30": "1440p · 30 fps",
+        "1440p60": "1440p · 60 fps",
         "4k30": "4K · 30 fps"
       },
       "mirror": "Mein Video spiegeln",
-      "mirrorHint": "Spiegelt deine eigene Vorschau. Andere sehen dich immer ungespiegelt."
+      "mirrorHint": "Spiegelt deine eigene Vorschau. Andere sehen dich immer ungespiegelt.",
+      "screenContent": "Was du teilst",
+      "screenContentHint": "Text hält Code und Dokumente scharf, Bewegung hält Spiele und Videos flüssig, wenn die Verbindung schwächelt.",
+      "screenContentOptions": {
+        "text": "Text und Dokumente",
+        "motion": "Spiele und Videos"
+      }
     },
     "sounds": {
       "volumeLabel": "Lautstärke der Soundeffekte",
@@ -357,7 +365,7 @@
     "disabled": "Käufe sind vorübergehend nicht möglich. Bereits gekaufte Gegenstände funktionieren weiter.",
     "ownerUnlocked": "Du bist der Inhaber: Alle Gegenstände sind kostenlos freigeschaltet. Trag, was du willst.",
     "paymentOpened": "Die Zahlungsseite wurde im Browser geöffnet.",
-    "paymentSucceeded": "Zahlung erhalten. Der Gegenstand gehört dir.",
+    "paymentSucceeded": "Zahlung erhalten. Dein Kauf liegt in Meine Gegenstände.",
     "paymentCanceled": "Die Zahlung wurde abgebrochen. Es wurde nichts abgebucht.",
     "paymentUnavailable": "Die Zahlungsseite ließ sich nicht öffnen. Versuche es in einer Minute erneut.",
     "orderCheckFailed": "Die Zahlung konnte nicht geprüft werden. Wurde Geld abgebucht, erscheint der Gegenstand in ein paar Minuten.",
@@ -415,7 +423,10 @@
       "aurora": "Nordlichter in Bewegung",
       "holo": "Ein schillerndes Holo-Set",
       "royal": "Gold und Purpur für Royals"
-    }
+    },
+    "paymentPending": "Warte auf die Zahlungsbestätigung…",
+    "paymentRefunded": "Zahlung erstattet. Die Gegenstände wurden von deinem Profil entfernt.",
+    "openItems": "Öffnen"
   },
   "badges": {
     "earned": "Deine Abzeichen",
@@ -456,6 +467,36 @@
         "name": "Sammler",
         "hint": "Sammle mehr Extras, um dieses Abzeichen aufzuwerten.",
         "unit": "{count, plural, one {# Gegenstand} other {# Gegenstände}}"
+      },
+      "talker": {
+        "name": "In der Leitung",
+        "hint": "Verbringe mehr Zeit in Anrufen mit Freunden, um dieses Abzeichen aufzuwerten.",
+        "unit": "{count, plural, one {# Minute} other {# Minuten}}"
+      },
+      "penPal": {
+        "name": "Brieffreund",
+        "hint": "Schreibe in mehr Direktchats, um dieses Abzeichen aufzuwerten.",
+        "unit": "{count, plural, one {# Chat} other {# Chats}}"
+      },
+      "wanderer": {
+        "name": "Wanderer",
+        "hint": "Schreibe in mehr Räumen, um dieses Abzeichen aufzuwerten.",
+        "unit": "{count, plural, one {# Raum} other {# Räume}}"
+      },
+      "sharer": {
+        "name": "Teiler",
+        "hint": "Teile mehr Fotos und Dateien in Chats, um dieses Abzeichen aufzuwerten.",
+        "unit": "{count, plural, one {# Datei} other {# Dateien}}"
+      },
+      "regular": {
+        "name": "Stammgast",
+        "hint": "Schreibe an mehr verschiedenen Tagen, um dieses Abzeichen aufzuwerten.",
+        "unit": "{count, plural, one {# Tag} other {# Tage}}"
+      },
+      "stylist": {
+        "name": "Stylist",
+        "hint": "Fülle dein Profil aus: Name, Avatar, Banner, Bio und Link.",
+        "unit": "{count, plural, one {# Feld} other {# Felder}}"
       }
     },
     "intro": "Sieh dir deine Sammlung an und finde heraus, welche Abzeichen du noch holen kannst.",

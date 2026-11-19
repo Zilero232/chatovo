@@ -8,6 +8,7 @@ import { RoomMusicLayer } from '@/features/room/room-music';
 
 import type { VoiceRoomProps } from './VoiceRoom.types';
 
+import { ROOM_MEDIA_OPTIONS } from '../config';
 import { LocalSpeakingProvider } from '../model/contexts';
 import { useChatToggle, useRoomConnection } from '../model/hooks';
 import { ExpandedRoomView, MiniRoomHost, RoomHeader, RoomMusicScope } from './components';
@@ -47,7 +48,7 @@ export const VoiceRoom = ({
           connect
           audio={audioCapture}
           className={clsx(s.room, isMinimized && s.roomMinimized)}
-          options={{ webAudioMix: true, publishDefaults }}
+          options={{ ...ROOM_MEDIA_OPTIONS, publishDefaults }}
           serverUrl={serverUrl}
           token={token}
           video={false}

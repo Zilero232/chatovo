@@ -130,15 +130,23 @@
         "4k": "4K (Ultra HD)"
       },
       "screenQuality": "Ekran paylaşımı kalitesi",
-      "screenQualityHint": "Ekranını paylaşırken çözünürlük ve kare hızı. Hızlı hareket eden içerik için 30 fps uygundur.",
+      "screenQualityHint": "Ekran paylaşırken çözünürlük ve kare hızı. 60 fps oyunları ve videoları akıcı tutar ama daha hızlı bir bağlantı gerektirir.",
       "screenQualityOptions": {
         "1080p15": "1080p · 15 fps",
         "1080p30": "1080p · 30 fps",
+        "1080p60": "1080p · 60 fps",
         "1440p30": "1440p · 30 fps",
+        "1440p60": "1440p · 60 fps",
         "4k30": "4K · 30 fps"
       },
       "mirror": "Görüntümü aynala",
-      "mirrorHint": "Kendi önizlemeni ters çevirir. Diğer katılımcılar seni her zaman aynalanmamış görür."
+      "mirrorHint": "Kendi önizlemeni ters çevirir. Diğer katılımcılar seni her zaman aynalanmamış görür.",
+      "screenContent": "Ne paylaşıyorsun",
+      "screenContentHint": "Metin kodu ve belgeleri net tutar; hareket, bağlantı zayıfladığında oyunları ve videoları akıcı tutar.",
+      "screenContentOptions": {
+        "text": "Metin ve belgeler",
+        "motion": "Oyunlar ve video"
+      }
     },
     "sounds": {
       "volumeLabel": "Ses efektleri düzeyi",
@@ -357,7 +365,7 @@
     "disabled": "Satın alımlar geçici olarak kullanılamıyor. Sahip olduğun öğeler çalışmaya devam ediyor.",
     "ownerUnlocked": "Sahibisin: tüm öğeler ücretsiz açık. İstediğini kuşan.",
     "paymentOpened": "Ödeme sayfası tarayıcında açıldı.",
-    "paymentSucceeded": "Ödeme alındı. Öğe artık senin.",
+    "paymentSucceeded": "Ödeme alındı. Satın aldığın öğe Öğelerim bölümünde.",
     "paymentCanceled": "Ödeme iptal edildi. Hiçbir ücret alınmadı.",
     "paymentUnavailable": "Ödeme sayfası açılamadı. Bir dakika sonra tekrar dene.",
     "orderCheckFailed": "Ödeme kontrol edilemedi. Para çekildiyse öğe birkaç dakika içinde görünecek.",
@@ -415,7 +423,10 @@
       "aurora": "Hareket eden kutup ışıkları",
       "holo": "Yanar döner holografik bir set",
       "royal": "Krallara layık altın ve mor"
-    }
+    },
+    "paymentPending": "Ödeme onayı bekleniyor…",
+    "paymentRefunded": "Ödeme iade edildi. Öğeler profilinden kaldırıldı.",
+    "openItems": "Aç"
   },
   "badges": {
     "earned": "Rozetlerin",
@@ -456,6 +467,36 @@
         "name": "Koleksiyoncu",
         "hint": "Bu rozetin seviyesini yükseltmek için daha fazla süs topla.",
         "unit": "{count, plural, one {# öğe} other {# öğe}}"
+      },
+      "talker": {
+        "name": "Hatta",
+        "hint": "Bu rozetin seviyesini yükseltmek için arkadaşlarınla aramalarda daha çok vakit geçir.",
+        "unit": "{count, plural, one {# dakika} other {# dakika}}"
+      },
+      "penPal": {
+        "name": "Mektup arkadaşı",
+        "hint": "Bu rozetin seviyesini yükseltmek için daha çok özel sohbette konuş.",
+        "unit": "{count, plural, one {# sohbet} other {# sohbet}}"
+      },
+      "wanderer": {
+        "name": "Gezgin",
+        "hint": "Bu rozetin seviyesini yükseltmek için daha çok odada yaz.",
+        "unit": "{count, plural, one {# oda} other {# oda}}"
+      },
+      "sharer": {
+        "name": "Paylaşımcı",
+        "hint": "Bu rozetin seviyesini yükseltmek için sohbetlerde daha çok fotoğraf ve dosya paylaş.",
+        "unit": "{count, plural, one {# dosya} other {# dosya}}"
+      },
+      "regular": {
+        "name": "Müdavim",
+        "hint": "Bu rozetin seviyesini yükseltmek için daha çok farklı günde yaz.",
+        "unit": "{count, plural, one {# gün} other {# gün}}"
+      },
+      "stylist": {
+        "name": "Stilist",
+        "hint": "Profilini doldur: ad, avatar, afiş, biyografi ve bağlantı.",
+        "unit": "{count, plural, one {# alan} other {# alan}}"
       }
     },
     "intro": "Koleksiyonuna göz at ve sırada hangi rozetleri kazanabileceğini gör.",

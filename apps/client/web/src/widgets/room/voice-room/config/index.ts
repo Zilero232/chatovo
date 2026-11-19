@@ -6,6 +6,7 @@ export {
 } from './audio-level';
 export { MIN_CONNECTION_BARS, RTT_BAR_THRESHOLDS_MS, RTT_POLL_INTERVAL_MS } from './connection';
 export { FAILURE_REASONS } from './disconnect-reasons';
+export { ROOM_MEDIA_OPTIONS } from './room-options';
 export { ROSTER_EVENTS } from './roster';
 export { SOUND_CATEGORY, SOUND_SRC, type SoundKey } from './sounds';
 export { PTT_SPEAKING_LEVEL } from './speaking';

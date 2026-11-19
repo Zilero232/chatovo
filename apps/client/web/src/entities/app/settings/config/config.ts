@@ -19,7 +19,8 @@ export const DEFAULT_APP_SETTINGS: AppSettings = {
   video: {
     mirrorVideo: false,
     cameraQuality: '1080p',
-    screenQuality: '1080p30'
+    screenQuality: '1080p30',
+    screenContent: 'text'
   },
   devices: {
     audioInput: '',

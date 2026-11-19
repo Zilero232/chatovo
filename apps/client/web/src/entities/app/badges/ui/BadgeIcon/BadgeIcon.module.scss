@@ -1,137 +1,46 @@
 @use '@chatovo/ui-kit/styles/mixins' as *;
+@use '../palette' as *;
 
 .root {
-  --badge-from: rgb(var(--tint) / 22%);
-  --badge-to: rgb(var(--tint) / 10%);
-  --badge-ink: var(--muted-foreground);
-  --badge-glow: transparent;
+  @include badge-palette;
 
   position: relative;
   display: inline-grid;
-  overflow: hidden;
   flex-shrink: 0;
-  border-radius: 30%;
-  background: linear-gradient(135deg, var(--badge-from), var(--badge-to));
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle at 50% 28%,
+      color-mix(in srgb, var(--badge-to) 42%, transparent),
+      transparent 72%
+    ),
+    color-mix(in srgb, var(--badge-to) 14%, rgb(14 10 20));
   box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 22%),
-    inset 0 -2px 0 rgb(0 0 0 / 18%),
-    0 0 rem(12) rem(-3) var(--badge-glow);
-  color: var(--badge-ink);
+    inset 0 0 0 rem(1.5) color-mix(in srgb, var(--badge-from) 55%, transparent),
+    inset 0 rem(1) rem(2) rgb(255 255 255 / 12%),
+    0 0 rem(18) rem(-6) var(--badge-glow);
+  color: var(--badge-from);
   place-items: center;
-
-  &:after {
-    position: absolute;
-    background: linear-gradient(180deg, rgb(255 255 255 / 28%), transparent 55%);
-    content: '';
-    inset: 0;
-    pointer-events: none;
-  }
-
-  &[data-tier='1'] {
-    --badge-from: #c9d6e8;
-    --badge-to: #6f7f99;
-    --badge-ink: #1b2230;
-  }
-
-  &[data-tier='2'] {
-    --badge-from: #9cf0a8;
-    --badge-to: #2f9e55;
-    --badge-ink: #0d2a16;
-  }
-
-  &[data-tier='3'] {
-    --badge-from: #6ff5c8;
-    --badge-to: #10a37a;
-    --badge-ink: #062b20;
-    --badge-glow: #10a37a;
-  }
-
-  &[data-tier='4'] {
-    --badge-from: #7ff0ff;
-    --badge-to: #1592b8;
-    --badge-ink: #052733;
-    --badge-glow: #1592b8;
-  }
-
-  &[data-tier='5'] {
-    --badge-from: #8fb4ff;
-    --badge-to: #2f5bd8;
-    --badge-ink: #fff;
-    --badge-glow: #2f5bd8;
-  }
-
-  &[data-tier='6'] {
-    --badge-from: #c9a2ff;
-    --badge-to: #6b34d6;
-    --badge-ink: #fff;
-    --badge-glow: #6b34d6;
-  }
-
-  &[data-tier='7'] {
-    --badge-from: #ff9ad5;
-    --badge-to: #c2187a;
-    --badge-ink: #fff;
-    --badge-glow: #ff4fae;
-  }
-
-  &[data-tier='8'] {
-    --badge-from: #ffe48a;
-    --badge-to: #d48a00;
-    --badge-ink: #3a2400;
-    --badge-glow: #ffb627;
-  }
-
-  &[data-tier='1'][data-badge='supporter'] {
-    --badge-from: #ff8cc6;
-    --badge-to: #c2187a;
-    --badge-ink: #fff;
-  }
-
-  &[data-tier='1'][data-badge='veteran'] {
-    --badge-from: #ffd27a;
-    --badge-to: #c97a12;
-    --badge-ink: #3a2400;
-  }
-
-  &[data-tier='1'][data-badge='social'] {
-    --badge-from: #7fe7ff;
-    --badge-to: #1784b8;
-    --badge-ink: #052733;
-  }
-
-  &[data-tier='1'][data-badge='chatter'] {
-    --badge-from: #9cf0a8;
-    --badge-to: #2f9e55;
-    --badge-ink: #0d2a16;
-  }
-
-  &[data-tier='1'][data-badge='host'] {
-    --badge-from: #c9a2ff;
-    --badge-to: #6b34d6;
-    --badge-ink: #fff;
-  }
-
-  &[data-tier='1'][data-badge='collector'] {
-    --badge-from: #ffb3a1;
-    --badge-to: #d2452b;
-    --badge-ink: #fff;
-  }
 }
 
 .icon {
   position: relative;
-  fill: color-mix(in srgb, currentcolor 28%, transparent);
-  filter: drop-shadow(0 1px 1px rgb(0 0 0 / 25%));
-  stroke-width: 2.25;
+  fill: color-mix(in srgb, var(--badge-to) 55%, transparent);
+  filter: drop-shadow(0 0 rem(4) color-mix(in srgb, var(--badge-to) 85%, transparent));
+  stroke-width: 2;
 }
 
 .sm {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1.125rem;
+  height: 1.125rem;
+  background: none;
+  box-shadow: none;
 
   .icon {
-    width: 0.75rem;
-    height: 0.75rem;
+    width: 1.125rem;
+    height: 1.125rem;
+    filter: drop-shadow(0 0 rem(3) color-mix(in srgb, var(--badge-to) 80%, transparent));
+    stroke-width: 2.25;
   }
 }
 
@@ -140,18 +49,23 @@
   height: 3rem;
 
   .icon {
-    width: 1.625rem;
-    height: 1.625rem;
+    width: 1.5rem;
+    height: 1.5rem;
   }
 }
 
 .lg {
-  width: 6rem;
-  height: 6rem;
-  border-radius: 28%;
+  width: 6.5rem;
+  height: 6.5rem;
+  box-shadow:
+    inset 0 0 0 rem(2) color-mix(in srgb, var(--badge-from) 60%, transparent),
+    inset 0 rem(1) rem(3) rgb(255 255 255 / 14%),
+    0 0 rem(48) rem(-8) var(--badge-to);
 
   .icon {
-    width: 3.25rem;
-    height: 3.25rem;
+    width: 3rem;
+    height: 3rem;
+    filter: drop-shadow(0 0 rem(8) color-mix(in srgb, var(--badge-to) 90%, transparent));
+    stroke-width: 1.75;
   }
 }

@@ -1,0 +1,104 @@
+@use '@chatovo/ui-kit/styles/mixins' as *;
+
+.root {
+  display: flex;
+  height: 100%;
+  min-height: 0;
+  flex: 1;
+  flex-direction: column;
+  padding: var(--space-3);
+  gap: var(--space-3);
+
+  @include bp(sm) {
+    padding: var(--space-4);
+    gap: var(--space-4);
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.headerIcon {
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
+}
+
+.headerAction {
+  width: 6rem;
+  height: 2rem;
+  border-radius: var(--radius-md);
+  margin-left: auto;
+}
+
+.stage {
+  display: grid;
+  min-height: 0;
+  flex: 1;
+  align-content: center;
+  gap: var(--space-3);
+  grid-template-columns: 1fr;
+
+  @include bp(sm) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.tile {
+  display: flex;
+  max-height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  aspect-ratio: 16 / 9;
+  background: rgb(var(--tint) / 3%);
+  gap: var(--space-3);
+
+  &:nth-child(n + 3) {
+    display: none;
+
+    @include bp(sm) {
+      display: flex;
+    }
+  }
+}
+
+.avatar {
+  width: 4.5rem;
+  height: 4.5rem;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: rgb(var(--tint) / 5%);
+  color: var(--muted-foreground);
+  font-size: var(--text-sm);
+  gap: var(--space-2);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.control {
+  width: 2.75rem;
+  height: 2.75rem;
+}

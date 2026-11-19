@@ -130,15 +130,23 @@
         "4k": "4K (Ultra HD)"
       },
       "screenQuality": "Screen share quality",
-      "screenQualityHint": "Resolution and frame rate when sharing your screen. 30 fps suits fast-moving content.",
+      "screenQualityHint": "Resolution and frame rate when sharing your screen. 60 fps keeps games and video smooth but needs a faster connection.",
       "screenQualityOptions": {
         "1080p15": "1080p · 15 fps",
         "1080p30": "1080p · 30 fps",
+        "1080p60": "1080p · 60 fps",
         "1440p30": "1440p · 30 fps",
+        "1440p60": "1440p · 60 fps",
         "4k30": "4K · 30 fps"
       },
       "mirror": "Mirror my video",
-      "mirrorHint": "Flips your own preview. Other participants always see you unmirrored."
+      "mirrorHint": "Flips your own preview. Other participants always see you unmirrored.",
+      "screenContent": "What you share",
+      "screenContentHint": "Text keeps code and documents sharp; motion keeps games and video smooth when the connection dips.",
+      "screenContentOptions": {
+        "text": "Text and documents",
+        "motion": "Games and video"
+      }
     },
     "sounds": {
       "volumeLabel": "Sound effects volume",
@@ -357,7 +365,7 @@
     "disabled": "Purchases are temporarily unavailable. Items you already own keep working.",
     "ownerUnlocked": "You are the owner: every item is unlocked for free. Wear anything you like.",
     "paymentOpened": "The payment page opened in your browser.",
-    "paymentSucceeded": "Payment received. The item is yours.",
+    "paymentSucceeded": "Payment received. Your purchase is in My items.",
     "paymentCanceled": "The payment was canceled. No money was charged.",
     "paymentUnavailable": "Could not open the payment page. Try again in a minute.",
     "orderCheckFailed": "Could not check the payment. If money was charged, the item will appear within a few minutes.",
@@ -415,7 +423,10 @@
       "aurora": "Northern lights in motion",
       "holo": "A shimmering holographic set",
       "royal": "Gold and purple for royalty"
-    }
+    },
+    "paymentPending": "Waiting for the payment confirmation…",
+    "paymentRefunded": "Payment refunded. The items were taken off your profile.",
+    "openItems": "Open"
   },
   "badges": {
     "earned": "Your badges",
@@ -456,6 +467,36 @@
         "name": "Collector",
         "hint": "Collect more cosmetics to level up this badge.",
         "unit": "{count, plural, one {# item} other {# items}}"
+      },
+      "talker": {
+        "name": "On the Line",
+        "hint": "Spend more time on calls with friends to level up this badge.",
+        "unit": "{count, plural, one {# minute} other {# minutes}}"
+      },
+      "penPal": {
+        "name": "Pen pal",
+        "hint": "Start conversations in more direct chats to level up this badge.",
+        "unit": "{count, plural, one {# chat} other {# chats}}"
+      },
+      "wanderer": {
+        "name": "Wanderer",
+        "hint": "Say something in more rooms to level up this badge.",
+        "unit": "{count, plural, one {# room} other {# rooms}}"
+      },
+      "sharer": {
+        "name": "Sharer",
+        "hint": "Share more photos and files in chats to level up this badge.",
+        "unit": "{count, plural, one {# file} other {# files}}"
+      },
+      "regular": {
+        "name": "Regular",
+        "hint": "Write on more different days to level up this badge.",
+        "unit": "{count, plural, one {# day} other {# days}}"
+      },
+      "stylist": {
+        "name": "Stylist",
+        "hint": "Fill in your profile: name, avatar, banner, bio and link.",
+        "unit": "{count, plural, one {# field} other {# fields}}"
       }
     },
     "intro": "Browse your collection and see which badges you can earn next.",

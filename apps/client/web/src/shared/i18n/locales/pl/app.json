@@ -130,15 +130,23 @@
         "4k": "4K (Ultra HD)"
       },
       "screenQuality": "Jakość udostępniania ekranu",
-      "screenQualityHint": "Rozdzielczość i liczba klatek przy udostępnianiu ekranu. 30 fps sprawdza się przy dynamicznych treściach.",
+      "screenQualityHint": "Rozdzielczość i liczba klatek podczas udostępniania ekranu. 60 fps zapewnia płynne gry i wideo, ale wymaga szybszego łącza.",
       "screenQualityOptions": {
         "1080p15": "1080p · 15 fps",
         "1080p30": "1080p · 30 fps",
+        "1080p60": "1080p · 60 fps",
         "1440p30": "1440p · 30 fps",
+        "1440p60": "1440p · 60 fps",
         "4k30": "4K · 30 fps"
       },
       "mirror": "Odbij moje wideo",
-      "mirrorHint": "Odwraca twój własny podgląd. Inni uczestnicy zawsze widzą cię bez odbicia."
+      "mirrorHint": "Odwraca twój własny podgląd. Inni uczestnicy zawsze widzą cię bez odbicia.",
+      "screenContent": "Co udostępniasz",
+      "screenContentHint": "Tekst zachowuje ostrość kodu i dokumentów, ruch zachowuje płynność gier i wideo, gdy łącze słabnie.",
+      "screenContentOptions": {
+        "text": "Tekst i dokumenty",
+        "motion": "Gry i wideo"
+      }
     },
     "sounds": {
       "volumeLabel": "Głośność efektów dźwiękowych",
@@ -357,7 +365,7 @@
     "disabled": "Zakupy są chwilowo niedostępne. Kupione przedmioty nadal działają.",
     "ownerUnlocked": "Jesteś właścicielem: wszystkie przedmioty są odblokowane za darmo. Zakładaj, co chcesz.",
     "paymentOpened": "Strona płatności otworzyła się w przeglądarce.",
-    "paymentSucceeded": "Płatność otrzymana. Przedmiot jest Twój.",
+    "paymentSucceeded": "Płatność otrzymana. Zakup jest już w Moich przedmiotach.",
     "paymentCanceled": "Płatność anulowana. Nic nie zostało pobrane.",
     "paymentUnavailable": "Nie udało się otworzyć strony płatności. Spróbuj ponownie za minutę.",
     "orderCheckFailed": "Nie udało się sprawdzić płatności. Jeśli pieniądze zostały pobrane, przedmiot pojawi się w ciągu kilku minut.",
@@ -415,7 +423,10 @@
       "aurora": "Zorza polarna w ruchu",
       "holo": "Mieniący się holograficzny zestaw",
       "royal": "Złoto i purpura dla królów"
-    }
+    },
+    "paymentPending": "Czekamy na potwierdzenie płatności…",
+    "paymentRefunded": "Płatność zwrócona. Przedmioty zdjęto z profilu.",
+    "openItems": "Otwórz"
   },
   "badges": {
     "earned": "Twoje odznaki",
@@ -456,6 +467,36 @@
         "name": "Kolekcjoner",
         "hint": "Zbieraj ozdoby, aby podnieść poziom tej odznaki.",
         "unit": "{count, plural, one {# przedmiot} few {# przedmioty} many {# przedmiotów} other {# przedmiotu}}"
+      },
+      "talker": {
+        "name": "Na linii",
+        "hint": "Spędzaj więcej czasu na rozmowach z przyjaciółmi, aby podnieść poziom tej odznaki.",
+        "unit": "{count, plural, one {# minuta} few {# minuty} many {# minut} other {# minuty}}"
+      },
+      "penPal": {
+        "name": "Przyjaciel od pióra",
+        "hint": "Rozmawiaj w większej liczbie czatów prywatnych, aby podnieść poziom tej odznaki.",
+        "unit": "{count, plural, one {# czat} few {# czaty} many {# czatów} other {# czatu}}"
+      },
+      "wanderer": {
+        "name": "Wędrowiec",
+        "hint": "Pisz w większej liczbie pokojów, aby podnieść poziom tej odznaki.",
+        "unit": "{count, plural, one {# pokój} few {# pokoje} many {# pokoi} other {# pokoju}}"
+      },
+      "sharer": {
+        "name": "Udostępniacz",
+        "hint": "Udostępniaj więcej zdjęć i plików na czatach, aby podnieść poziom tej odznaki.",
+        "unit": "{count, plural, one {# plik} few {# pliki} many {# plików} other {# pliku}}"
+      },
+      "regular": {
+        "name": "Bywalec",
+        "hint": "Pisz w więcej różnych dni, aby podnieść poziom tej odznaki.",
+        "unit": "{count, plural, one {# dzień} few {# dni} many {# dni} other {# dnia}}"
+      },
+      "stylist": {
+        "name": "Stylista",
+        "hint": "Uzupełnij profil: nazwę, awatar, baner, opis i link.",
+        "unit": "{count, plural, one {# pole} few {# pola} many {# pól} other {# pola}}"
       }
     },
     "intro": "Przeglądaj swoją kolekcję i sprawdzaj, jakie odznaki możesz jeszcze zdobyć.",

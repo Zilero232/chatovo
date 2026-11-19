@@ -60,12 +60,6 @@ const baseEnvSchema = z.object({
   YOOKASSA_SECRET_KEY: z.string().min(1).optional(),
   // Where YooKassa sends the buyer after paying; the order id is appended as ?order=.
   YOOKASSA_RETURN_URL: z.url().default('http://localhost:3000/lobby'),
-  // true = attach a 54-FZ receipt to every payment (required once fiscalisation
-  // is switched on in the YooKassa dashboard).
-  YOOKASSA_SEND_RECEIPT: z
-    .enum(['true', 'false'])
-    .default('false')
-    .transform((value) => value === 'true'),
 
   // Public origin where uploaded files are served from (e.g. https://api.chatovo.ru).
   // Used to build absolute URLs stored in the DB and returned to clients.
