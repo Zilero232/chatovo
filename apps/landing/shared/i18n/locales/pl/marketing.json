@@ -208,6 +208,10 @@
       "minor": "Zwykłe wydanie"
     },
     "entries": {
+      "tilesFill": {
+        "title": "Kafelki zajmują całą scenę",
+        "description": "Kafelki wypełniają widok pokoju bez pustych pasów, a Maki z Apple Silicon znów dostają aktualizację."
+      },
       "streamAudio": {
         "title": "Dźwięk transmisji tylko podczas oglądania",
         "description": "Udostępniony ekran milczy, dopóki go nie otworzysz, więc kilka transmisji w pokoju nie gra już naraz."
@@ -962,6 +966,7 @@
       }
     },
     "highlights": {
+      "tilesFill": "Kafelki na cały ekran",
       "streamAudio": "Dźwięk transmisji na żądanie",
       "cosmeticsShop": "Sklep z kosmetykami",
       "badges": "Odznaki z poziomami",

@@ -208,6 +208,10 @@
       "minor": "Versión regular"
     },
     "entries": {
+      "tilesFill": {
+        "title": "Las tarjetas ocupan todo el escenario",
+        "description": "Las tarjetas llenan la vista de la sala sin franjas vacías, y los Mac con Apple Silicon vuelven a recibir la actualización."
+      },
       "streamAudio": {
         "title": "El sonido del directo solo al verlo",
         "description": "Una pantalla compartida queda en silencio hasta que la abres, así que varios directos en una sala ya no suenan a la vez."
@@ -962,6 +966,7 @@
       }
     },
     "highlights": {
+      "tilesFill": "Tarjetas a pantalla completa",
       "streamAudio": "Sonido del directo a demanda",
       "cosmeticsShop": "Tienda de cosméticos",
       "badges": "Insignias con niveles",

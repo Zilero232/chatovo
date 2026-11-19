@@ -208,6 +208,10 @@
       "minor": "Regular release"
     },
     "entries": {
+      "tilesFill": {
+        "title": "Room tiles use the whole stage",
+        "description": "Tiles grow to fill the room view with no empty bands, and Apple Silicon Macs get the update again."
+      },
       "streamAudio": {
         "title": "Stream sound only when you watch",
         "description": "A screen share stays silent until you open it, so several streams in a room no longer play over each other."
@@ -962,6 +966,7 @@
       }
     },
     "highlights": {
+      "tilesFill": "Tiles fill the room",
       "streamAudio": "Stream sound on demand",
       "cosmeticsShop": "Cosmetics shop",
       "badges": "Badges with tiers",

@@ -208,6 +208,10 @@
       "minor": "Version régulière"
     },
     "entries": {
+      "tilesFill": {
+        "title": "Les tuiles occupent toute la scène",
+        "description": "Les tuiles remplissent la vue du salon sans bandes vides, et les Mac Apple Silicon reçoivent à nouveau la mise à jour."
+      },
       "streamAudio": {
         "title": "Le son d’un stream seulement quand vous le regardez",
         "description": "Un partage d’écran reste muet tant que vous ne l’ouvrez pas : plusieurs streams dans un salon ne jouent plus en même temps."
@@ -962,6 +966,7 @@
       }
     },
     "highlights": {
+      "tilesFill": "Tuiles plein écran",
       "streamAudio": "Son du stream à la demande",
       "cosmeticsShop": "Boutique de cosmétiques",
       "badges": "Badges à paliers",

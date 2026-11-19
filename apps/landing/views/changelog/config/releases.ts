@@ -23,6 +23,13 @@ export type ChangelogRelease = {
 
 export const CHANGELOG_RELEASES: ChangelogRelease[] = [
   {
+    version: '1.16.2',
+    date: '2026-11-19',
+    tone: 'minor',
+    highlights: ['tilesFill'],
+    entries: [{ kind: 'fix', key: 'tilesFill' }]
+  },
+  {
     version: '1.16.1',
     date: '2026-11-19',
     tone: 'minor',

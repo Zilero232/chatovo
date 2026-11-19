@@ -208,6 +208,10 @@
       "minor": "Reguläres Release"
     },
     "entries": {
+      "tilesFill": {
+        "title": "Kacheln nutzen die ganze Bühne",
+        "description": "Kacheln füllen die Raumansicht ohne leere Streifen, und Macs mit Apple Silicon bekommen das Update wieder."
+      },
       "streamAudio": {
         "title": "Stream-Ton nur beim Zuschauen",
         "description": "Eine Bildschirmübertragung bleibt stumm, bis du sie öffnest, sodass mehrere Streams in einem Raum nicht mehr gleichzeitig laufen."
@@ -962,6 +966,7 @@
       }
     },
     "highlights": {
+      "tilesFill": "Kacheln füllen den Raum",
       "streamAudio": "Stream-Ton auf Wunsch",
       "cosmeticsShop": "Kosmetik-Shop",
       "badges": "Abzeichen mit Stufen",

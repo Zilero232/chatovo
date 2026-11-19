@@ -208,6 +208,10 @@
       "minor": "Atualização regular"
     },
     "entries": {
+      "tilesFill": {
+        "title": "Os blocos ocupam todo o palco",
+        "description": "Os blocos preenchem a sala sem faixas vazias, e os Macs com Apple Silicon voltam a receber a atualização."
+      },
       "streamAudio": {
         "title": "Som da transmissão só ao assistir",
         "description": "O compartilhamento de tela fica em silêncio até você abri-lo, então várias transmissões na sala não tocam mais ao mesmo tempo."
@@ -962,6 +966,7 @@
       }
     },
     "highlights": {
+      "tilesFill": "Blocos em tela cheia",
       "streamAudio": "Som da transmissão sob demanda",
       "cosmeticsShop": "Loja de cosméticos",
       "badges": "Emblemas com níveis",
